@@ -76,7 +76,7 @@ export function ControlBar({
       data-lab-controls
       className="pointer-events-auto mx-auto flex w-full max-w-[1100px] flex-col gap-2 rounded-[20px] border border-white/10 bg-basalt/80 px-3 py-2.5 backdrop-blur-xl md:flex-row md:flex-wrap md:items-center md:gap-3"
     >
-      <div className="flex items-center gap-1.5">
+      <div className="flex flex-wrap items-center gap-1.5">
         {playback && (
           <IconBtn label={playing ? "Pause" : "Play"} onClick={toggle}>
             {playing ? <Pause className="size-4" /> : <Play className="size-4" />}

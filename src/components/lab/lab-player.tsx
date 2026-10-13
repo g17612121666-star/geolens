@@ -221,9 +221,9 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
       </h1>
       {!projector && (compact || !shortViewport) && (
         <>
-          <p className="mt-3 text-sm leading-6 text-chalk/85">{lab.objective}</p>
-          <p className="mt-2 text-sm text-mist">
-            Drag to rotate. Hold Ctrl and scroll to zoom, or pinch on a touch screen.
+          <p className="mt-2 text-sm leading-6 text-chalk/85">{lab.objective}</p>
+          <p className="mt-1 text-xs text-mist">
+            Drag to rotate · Ctrl + scroll to zoom · pinch on a touch screen
           </p>
         </>
       )}

@@ -1,5 +1,5 @@
 {
-  "count": 1223,
+  "count": 1215,
   "items": [
     {
       "path": "/photos/verified/cairngorms-winter-snow.jpg",
@@ -7,9 +7,9 @@
       "content_hash": "f3af40d5963cfaf2f252226eaa9849ad082e8c7bee46c05260ec4e90d73cd0ee",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg",
       "licenseUrl": "http://NationalArchives.gov.uk/doc/open-government-licence/version/1/",
-      "credit": "SAC Faye Storer / UK Ministry of Defence · Crown copyright / Open Government Licence v1.0 · resized",
-      "alt": "Snow patches and dark exposed ground across the Cairngorm mountains, with an RAF rescue helicopter in the foreground.",
-      "caption": "Winter in the Cairngorms during a rescue-training flight. Bright snow reflects more sunlight than the darker exposed ground; patchy cover changes the landscape's albedo.",
+      "credit": "SAC Faye Storer / UK Ministry of Defence · Crown copyright / Open Government Licence v1.0 · cropped and resized",
+      "alt": "Patchy winter snow over dark exposed rock and heath on a Cairngorm mountainside.",
+      "caption": "Winter in the Cairngorms. Bright snow reflects far more sunlight than the darker exposed ground, so patchy cover changes the landscape’s albedo.",
       "kind": "photo",
       "exists": true,
       "bytes": 326052,
@@ -4482,20 +4482,6 @@
       "requiresReview": false
     },
     {
-      "path": "/photos/verified/gaping-gill-stream-passage.jpg",
-      "used_on": "GLOSSARY_PHOTO:Recharge",
-      "content_hash": "c81e50953dcce8784283ef13c2fa1b2392de1ff001930166632727634e646324",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stream_Passage_Pot_Entrance.JPG",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "credit": "Langcliffe / Wikimedia Commons · CC BY-SA 3.0 · resized",
-      "alt": "A rocky opening in grassy limestone terrain at Stream Passage Pot in the Gaping Gill cave system.",
-      "caption": "Stream Passage Pot, Ingleborough, North Yorkshire. This entrance belongs to the Gaping Gill karst drainage system, where surface water enters underground passages.",
-      "kind": "photo",
-      "exists": true,
-      "bytes": 421601,
-      "requiresReview": false
-    },
-    {
       "path": "/photos/verified/huey-creek-gauge.jpg",
       "used_on": "GLOSSARY_PHOTO:Regime",
       "content_hash": "ba9c15d917d38efa2020bb356b266f46c4347c362b4879fefb7bff5408ca8d9f",
@@ -5487,20 +5473,6 @@
       "kind": "photo",
       "exists": true,
       "bytes": 343027,
-      "requiresReview": false
-    },
-    {
-      "path": "/photos/verified/gaping-gill-stream-passage.jpg",
-      "used_on": "GLOSSARY_PHOTO:Swallow hole",
-      "content_hash": "c81e50953dcce8784283ef13c2fa1b2392de1ff001930166632727634e646324",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stream_Passage_Pot_Entrance.JPG",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "credit": "Langcliffe / Wikimedia Commons · CC BY-SA 3.0 · resized",
-      "alt": "A rocky opening in grassy limestone terrain at Stream Passage Pot in the Gaping Gill cave system.",
-      "caption": "Stream Passage Pot, Ingleborough, North Yorkshire. This entrance belongs to the Gaping Gill karst drainage system, where surface water enters underground passages.",
-      "kind": "photo",
-      "exists": true,
-      "bytes": 421601,
       "requiresReview": false
     },
     {
@@ -10348,20 +10320,6 @@
       "requiresReview": false
     },
     {
-      "path": "/photos/verified/gaping-gill-stream-passage.jpg",
-      "used_on": "TERM_THUMB:groundwater--recharge",
-      "content_hash": "c81e50953dcce8784283ef13c2fa1b2392de1ff001930166632727634e646324",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stream_Passage_Pot_Entrance.JPG",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "credit": "Langcliffe / Wikimedia Commons · CC BY-SA 3.0 · resized",
-      "alt": "A rocky opening in grassy limestone terrain at Stream Passage Pot in the Gaping Gill cave system.",
-      "caption": "Stream Passage Pot, Ingleborough, North Yorkshire. This entrance belongs to the Gaping Gill karst drainage system, where surface water enters underground passages.",
-      "kind": "photo",
-      "exists": true,
-      "bytes": 421601,
-      "requiresReview": false
-    },
-    {
       "path": "/photos/verified/alabama-karst-spring.jpg",
       "used_on": "TERM_THUMB:groundwater--spring-line",
       "content_hash": "40714d5045cc6b35b3a4de4eda9446bdaf536d016f2a04995b41cdba42ef617c",
@@ -10793,20 +10751,6 @@
       "kind": "photo",
       "exists": true,
       "bytes": 323474,
-      "requiresReview": false
-    },
-    {
-      "path": "/photos/verified/gaping-gill-stream-passage.jpg",
-      "used_on": "TERM_THUMB:karst--swallow-hole",
-      "content_hash": "c81e50953dcce8784283ef13c2fa1b2392de1ff001930166632727634e646324",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stream_Passage_Pot_Entrance.JPG",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "credit": "Langcliffe / Wikimedia Commons · CC BY-SA 3.0 · resized",
-      "alt": "A rocky opening in grassy limestone terrain at Stream Passage Pot in the Gaping Gill cave system.",
-      "caption": "Stream Passage Pot, Ingleborough, North Yorkshire. This entrance belongs to the Gaping Gill karst drainage system, where surface water enters underground passages.",
-      "kind": "photo",
-      "exists": true,
-      "bytes": 421601,
       "requiresReview": false
     },
     {
@@ -15612,20 +15556,6 @@
       "requiresReview": false
     },
     {
-      "path": "/photos/verified/place-iq.jpg",
-      "used_on": "ATLAS_PHOTOS:iq",
-      "content_hash": "63801302fcc28dd8a475443942bdc0e4cf050494098d93578fec33339b38f503",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Life_with_Nature_in_Northern_Iraq_(Khabat,_Kalk)2234425.jpg",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "credit": "ذنون علي الباجلاني / Wikimedia Commons · CC BY-SA 4.0 · resized",
-      "alt": "Green cultivated ground and tracks near Khabat in northern Iraq.",
-      "caption": "Khabat, northern Iraq. Cultivated ground contrasts with Iraq's drier central and southern landscapes.",
-      "kind": "photo",
-      "exists": true,
-      "bytes": 233584,
-      "requiresReview": false
-    },
-    {
       "path": "/photos/verified/place-ir.jpg",
       "used_on": "ATLAS_PHOTOS:ir",
       "content_hash": "3f6a1420da1ecfc5a8af3df93d63823b824fb615f6a5e034d3c977fe5ce7fa67",
@@ -15763,20 +15693,6 @@
       "kind": "photo",
       "exists": true,
       "bytes": 232323,
-      "requiresReview": false
-    },
-    {
-      "path": "/photos/verified/place-lt.jpg",
-      "used_on": "ATLAS_PHOTOS:lt",
-      "content_hash": "a97038583445711ae8b76d51e8e67d5935d4c21dfb8f13eeece6f03ea1ff12fb",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_of_Lithuania._Rambynas_Hill,_1930s.jpg",
-      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Landscape_of_Lithuania._Rambynas_Hill,_1930s.jpg",
-      "credit": "unknown / Wikimedia Commons · Public domain · resized",
-      "alt": "Historical view from Rambynas Hill across a broad river in Lithuania in the 1930s.",
-      "caption": "Rambynas Hill, Lithuania, 1930s. The Nemunas valley forms a broad lowland corridor.",
-      "kind": "photo",
-      "exists": true,
-      "bytes": 295081,
       "requiresReview": false
     },
     {
@@ -16648,20 +16564,6 @@
       "requiresReview": false
     },
     {
-      "path": "/photos/verified/place-uz.jpg",
-      "used_on": "ATLAS_PHOTOS:uz",
-      "content_hash": "c14e1494bf1d2a35536e72e60eedfaedd4b9aa4b83a6b081717208bd18673972",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Uzbekistan_landscape_IGP2583.jpg",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "credit": "w0zny / Wikimedia Commons · CC BY-SA 3.0 · resized",
-      "alt": "Stony, sparsely vegetated ground beside a road in Uzbekistan.",
-      "caption": "Uzbekistan. Dry interior conditions leave extensive areas with sparse vegetation.",
-      "kind": "photo",
-      "exists": true,
-      "bytes": 290515,
-      "requiresReview": false
-    },
-    {
       "path": "/photos/verified/place-ve.jpg",
       "used_on": "ATLAS_PHOTOS:ve",
       "content_hash": "3a07b080e3bcfea0a8a091b5b50787eb7e24df1f208a4742a4ad36dee77b81ed",
@@ -16771,20 +16673,6 @@
       "kind": "photo",
       "exists": true,
       "bytes": 401560,
-      "requiresReview": false
-    },
-    {
-      "path": "/photos/verified/place-us-de.jpg",
-      "used_on": "ATLAS_PHOTOS:us-de",
-      "content_hash": "276d5f69b07113e1431175ac03e4f206ca7bad0924da4f048379d2dcd50e2f59",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Henlopen_at_the_Point.jpg",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "credit": "Kej605 / Wikimedia Commons · CC BY-SA 3.0 · resized",
-      "alt": "Panoramic view of dunes, beach and water at Cape Henlopen, Delaware.",
-      "caption": "Cape Henlopen, Delaware. Sand moves around the entrance to Delaware Bay.",
-      "kind": "photo",
-      "exists": true,
-      "bytes": 54925,
       "requiresReview": false
     },
     {
