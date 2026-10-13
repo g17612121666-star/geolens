@@ -1,0 +1,35 @@
+[
+  {
+    "id": "atlas-ec-1",
+    "title": "File:Ecuador Landscape Light Shadow.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ecuador_Landscape_Light_Shadow.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Ecuador_Landscape_Light_Shadow.jpg/1280px-Ecuador_Landscape_Light_Shadow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Kilobug",
+    "description": "Natural light and shadow on Ecuador's mountains",
+    "categories": "GFDL|Taken with Canon PowerShot A710 IS|License migration redundant|Self-published work|Landscapes of Ecuador|Ecuador photographs taken on 2008-10-23"
+  },
+  {
+    "id": "atlas-ec-2",
+    "title": "File:Ecuador landscape near Ambato1.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ecuador_landscape_near_Ambato1.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Ecuador_landscape_near_Ambato1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "author": "",
+    "description": "",
+    "categories": "GFDL|Ambato|Files with no machine-readable author|Files with no machine-readable source|Valleys of Ecuador|License migration completed|Media missing infobox template|Landscapes of Ecuador"
+  },
+  {
+    "id": "atlas-ec-3",
+    "title": "File:Ecuador Altitude Landscape 6057.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ecuador_Altitude_Landscape_6057.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Ecuador_Altitude_Landscape_6057.jpg/1280px-Ecuador_Altitude_Landscape_6057.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Kilobug",
+    "description": "High altitude (4200 m) landscape of Ecuador",
+    "categories": "GFDL|Taken with Canon PowerShot A710 IS|License migration redundant|Self-published work|Landscapes of Ecuador|Ecuador photographs taken on 2008-10-27"
+  }
+]

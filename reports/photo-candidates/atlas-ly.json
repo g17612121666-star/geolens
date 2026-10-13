@@ -1,0 +1,35 @@
+[
+  {
+    "id": "atlas-ly-1",
+    "title": "File:Libyan sea.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Libyan_sea.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Libyan_sea.jpg/1280px-Libyan_sea.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Ahmed Tresh",
+    "description": "I see my future on the sea",
+    "categories": "Self-published work|Landscapes of Libya"
+  },
+  {
+    "id": "atlas-ly-2",
+    "title": "File:Desert in Libya - 3040933674.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Desert_in_Libya_-_3040933674.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Desert_in_Libya_-_3040933674.jpg/1280px-Desert_in_Libya_-_3040933674.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "matteo caprari",
+    "description": "Libyan desert landscape",
+    "categories": "Deserts of Libya|Flickr images reviewed by FlickreviewR 2|Libya photographs taken on 2008-10-28"
+  },
+  {
+    "id": "atlas-ly-3",
+    "title": "File:Libya (MODIS 2025-09-19).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Libya_(MODIS_2025-09-19).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Libya_%28MODIS_2025-09-19%29.jpg/1280px-Libya_%28MODIS_2025-09-19%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "MODIS Land Rapid Response Team, NASA GSFC",
+    "description": "The country of Libya sits in North Africa, surrounded by Egypt, Sudan, Niger, and Chad and bounded along the north by the Mediterranean Sea. Except for a long strip of coastline, the dominant landscape is dry sandy desert interspersed with rugged mountains and stone. According to the CIA World Factbook, over 90 percent of the population lives along the Mediterranean coast, with less than ten percent living inland.\nOn September 17, 2025, NASA’s Aqua satellite acquired this true-color image of Libya.\nThe blue water in the northeast is the Gulf of Sidra, an arm of the Mediterranean Sea. A narrow edge of green can be seen along the coast, while the overall impression of the image is a near-monochromic palette of tans and brown with splashes of orange. The orange marks two large sand seas, the Erg Ubari and Erg Murzuq, and they are loosely separated by massive ridges of sandstone.\n\nThe dark circular feature marks the site of ancient volcanic activity. Known as the Haruj volcanic field, it is made up of layers of dark black layers of basalt that stretch across a 17,000-squre-mile (45,000-square-kilometer) plateau. The field contains more than 120 volcanic vents, including small shield volcanoes, spatter cones, and cinder cones. According to the Smithsonian Institution’s Global Volcanism Program, the last known activity at Haruj was in the Pleistocene.",
+    "categories": "PD NASA|Satellite pictures of Libya|2025 MODIS images|Files from NASA with known IDs|Photos of Africa by the Aqua (satellite) MODIS|MODIS files uploaded by OptimusPrimeBot|Photographs taken on 2025-09-17"
+  }
+]

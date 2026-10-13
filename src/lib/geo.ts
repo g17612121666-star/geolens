@@ -34,14 +34,14 @@ export const CITIES = {
 export function latLonToXYZ(lat: number, lon: number, r = 1): [number, number, number] {
   const phi = degToRad(90 - lat);
   const th = degToRad(lon + 180);
-  return [-r * Math.sin(phi) * Math.sin(th), r * Math.cos(phi), r * Math.sin(phi) * Math.cos(th)];
+  return [r * Math.sin(phi) * Math.sin(th), r * Math.cos(phi), r * Math.sin(phi) * Math.cos(th)];
 }
 
 export function xyzToLatLon(x: number, y: number, z: number): { lat: number; lon: number } {
   const len = Math.hypot(x, y, z) || 1;
   const ny = y / len;
   const lat = 90 - radToDeg(Math.acos(clamp(ny, -1, 1)));
-  let lon = radToDeg(Math.atan2(-x / len, z / len)) - 180;
+  let lon = radToDeg(Math.atan2(x / len, z / len)) - 180;
   if (lon <= -180) lon += 360;
   if (lon > 180) lon -= 360;
   return { lat, lon };

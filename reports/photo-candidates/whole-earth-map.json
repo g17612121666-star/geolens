@@ -1,0 +1,35 @@
+[
+  {
+    "id": "whole-earth-map-1",
+    "title": "File:Blue marble, with the Americas on the right.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_marble,_with_the_Americas_on_the_right.png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Blue_marble%2C_with_the_Americas_on_the_right.png/1280px-Blue_marble%2C_with_the_Americas_on_the_right.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Maulucioni, based on a previous work by Reto Stöckli, NASA Earth Observatory, modified by NordNordWest",
+    "description": "World map without Antarctica and with Americas on the right, topography and bathymetry",
+    "categories": "Self-published work|Topographic maps of the world"
+  },
+  {
+    "id": "whole-earth-map-2",
+    "title": "File:Whole world - land and oceans.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Whole_world_-_land_and_oceans.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Whole_world_-_land_and_oceans.jpg/1280px-Whole_world_-_land_and_oceans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA Earth Observatory (NASA Goddard Space Flight Center)",
+    "description": "Satellite composition of the whole Earth's surface.",
+    "categories": "PD NASA|Blue Marble 2002 images|Satellite maps of the world"
+  },
+  {
+    "id": "whole-earth-map-3",
+    "title": "File:Blue Marble 2002.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Marble_2002.png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Blue_Marble_2002.png/1280px-Blue_Marble_2002.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA’s Terra satellite for the MODIS imageries, combined by Meow. Credit: NASA Goddard Space Flight Center Image by Reto Stöckli (land surface, shallow water, clouds). Enhancements by Robert Simmon (ocean color, compositing, 3D globes, animation). Data and technical support: MODIS Land Group; MODIS Science Data Support Team; MODIS Atmosphere Group; MODIS Ocean Group Additional data: USGS EROS Data Center (topography); USGS Terrestrial Remote Sensing Flagstaff Field Center (Antarctica); Defense Meteorological Satellite Program (city lights).",
+    "description": "This spectacular “blue marble” image is the most detailed true-color image of the entire Earth to date. Using a collection of satellite-based observations, scientists and visualizers stitched together months of observations of the land surface, oceans, sea ice, and clouds into a seamless, true-color mosaic of every square kilometer (.386 square mile) of our planet. These images are freely available to educators, scientists, museums, and the public.\nMuch of the information contained in this image came from a single remote-sensing device-NASA’s Moderate Resolution Imaging Spectroradiometer, or MODIS. Flying over 700 km above the Earth onboard the Terra satellite, MODIS provides an integrated tool for observing a variety of terrestrial, oceanic, and atmospheric features of the Earth. The land and coastal ocean portions of these images are based on surface observations collected from June through September 2001 and combined, or composited, every eight days to compensate for clouds that might block the sensor’s view of the surface on any single day.\n\nTwo different types of ocean data were used in these images: shallow water true color data, and global ocean color (or chlorophyll) data. Topographic shading is based on the GTOPO 30 elevation dataset compiled by the U.S. Geological Survey’s EROS Data Center. MODIS observations of polar sea ice were combined with observations of Antarctica made by the National Oceanic and Atmospheric Administration’s AVHRR sensor—the Advanced Very High Resolution Radiometer. The cloud image is a composite of two days of imagery collected in visible light wavelengths and a third day of thermal infra-red imagery over the poles. Global city lights, derived from 9 months of observations from the Defense Meteorological Satellite Program, are superimposed on a darkened land surface map.",
+    "categories": "PD NASA|Featured pictures by others nominated by Yann Forget|Featured pictures on Wikipedia, English|Large images|Blue Marble 2002 images|Maps with Plate carrée projection|Featured pictures in the public domain|Featured pictures on Wikipedia, Arabic|Satellite maps of the world"
+  }
+]

@@ -1,3 +1,1 @@
-import { makeGlbScene } from "@/labs/shared/make-glb-scene";
-
-export default makeGlbScene("climate-types");
+export {default} from './climate-globe';

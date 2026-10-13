@@ -18,7 +18,7 @@ export const Route = createFileRoute("/realms/$realm")({
     const meta = REALMS.find((r) => r.slug === params.realm);
     return headFor({
       title: meta?.title ?? "Realm",
-      description: meta?.blurb ?? "TerraLens realm.",
+      description: meta?.blurb ?? "Geolens realm.",
       path: `/realms/${params.realm}`,
       image: meta ? REALM_FIGURE[meta.slug]?.src : undefined,
     });
@@ -34,14 +34,14 @@ function RealmPage() {
   const fig = REALM_FIGURE[meta.slug];
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
-      <p className="section-label">Realm</p>
+      <p className="section-label">{"Realm"}</p>
       <h1 className="mt-3 font-display text-4xl md:text-5xl">{meta.title}</h1>
       <p className="mt-2 text-glacier">{meta.kicker}</p>
       <p className="mt-5 max-w-2xl text-mist">{meta.blurb}</p>
-      {fig && <Figure {...fig} className="mt-8 max-w-xl" />}
+      {fig && <Figure {...fig} className="realm-cover mt-8" />}
       {labs.length === 0 ? (
         <p className="mt-16 max-w-lg text-mist">
-          No shipped lab in this realm yet, so there is no empty card. Start with Explore.
+          {"There are no labs in this subject yet. Browse Explore to find another topic."}
         </p>
       ) : (
         <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">

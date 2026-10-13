@@ -1,0 +1,35 @@
+[
+  {
+    "id": "atlas-hu-1",
+    "title": "File:Budapest landscape Hungary.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Budapest_landscape_Hungary.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Budapest_landscape_Hungary.jpg/1280px-Budapest_landscape_Hungary.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Salwa Farwaneh",
+    "description": "Budapest landscape Hungary",
+    "categories": "CC-Zero|Self-published work|Gallery pages of Hungary"
+  },
+  {
+    "id": "atlas-hu-2",
+    "title": "File:Landscape Rum Hungary.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_Rum_Hungary.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Landscape_Rum_Hungary.jpg/1280px-Landscape_Rum_Hungary.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Nxr-at",
+    "description": "Rapsfelder, Landschaft bei Rum (Hungary)",
+    "categories": "Rum (Hungary)|Self-published work|Landscapes of Vas County"
+  },
+  {
+    "id": "atlas-hu-3",
+    "title": "File:Borzsony, Hungary, landscape, panorama.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Borzsony,_Hungary,_landscape,_panorama.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Borzsony%2C_Hungary%2C_landscape%2C_panorama.jpg/1280px-Borzsony%2C_Hungary%2C_landscape%2C_panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "author": "Cserlajos",
+    "description": "Panorama in Börzsöny Mountains, northern Hungary. Börzsönyi látkép, Észak-Magyarország.",
+    "categories": "Börzsöny|GFDL|CC-BY-SA-2.5,2.0,1.0|License migration redundant|Self-published work"
+  }
+]

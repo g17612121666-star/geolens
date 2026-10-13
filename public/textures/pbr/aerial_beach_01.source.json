@@ -1,0 +1,5 @@
+{
+  "title": "Aerial Beach 01", "author": "Rob Tuytel", "source": "https://polyhaven.com/a/aerial_beach_01", "license": "CC0", "licenseUrl": "https://polyhaven.com/license", "resolution": [2048,2048],
+  "files": ["aerial_beach_01_diff.jpg", "aerial_beach_01_nor_gl.jpg", "aerial_beach_01_rough.jpg"],
+  "use": "Coasts lab terrain material: photographed beach sand, normal and roughness maps. Local downloads verified against the publisher MD5 hashes."
+}

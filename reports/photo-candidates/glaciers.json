@@ -1,0 +1,35 @@
+[
+  {
+    "id": "glaciers-1",
+    "title": "File:Aletsch Glacier by Giles Laurent.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aletsch_Glacier_by_Giles_Laurent.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Aletsch_Glacier_by_Giles_Laurent.jpg/1280px-Aletsch_Glacier_by_Giles_Laurent.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Giles Laurent",
+    "description": "Aletsch Glacier in autumn",
+    "categories": "Aletschgletscher|Aletschwald|Self-published work|Files with coordinates missing SDC location of creation|Images from Wiki Loves Earth 2022 in Switzerland|Images from Wiki Loves Switzerland 2022 - landscape|Photos by Giles Laurent"
+  },
+  {
+    "id": "glaciers-2",
+    "title": "File:Aletschwald and the Aletsch Glacier by Giles Laurent.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aletschwald_and_the_Aletsch_Glacier_by_Giles_Laurent.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Aletschwald_and_the_Aletsch_Glacier_by_Giles_Laurent.jpg/1280px-Aletschwald_and_the_Aletsch_Glacier_by_Giles_Laurent.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Giles Laurent",
+    "description": "Aletsch Glacier and Aletsch Forest Nature Reserve in autumn",
+    "categories": "Aletschhorn|Aletschwald|Self-published work|Larix decidua in the canton of Valais|Files with coordinates missing SDC location of creation|Images from Wiki Loves Earth 2022 in Switzerland|Images from Wiki Loves Switzerland 2022 - landscape|Photos by Giles Laurent|Pinales in Switzerland in October 2021|Larix in the Northern Hemisphere in October 2021|Larix decidua in autumn 2021"
+  },
+  {
+    "id": "glaciers-3",
+    "title": "File:The Aletsch Glacier threatened by climate change (Copernicus).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Aletsch_Glacier_threatened_by_climate_change_(Copernicus).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/The_Aletsch_Glacier_threatened_by_climate_change_%28Copernicus%29.jpg/1280px-The_Aletsch_Glacier_threatened_by_climate_change_%28Copernicus%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Attribution",
+    "licenseUrl": "",
+    "author": "European Union, Copernicus Sentinel-2 imagery",
+    "description": "This three-dimensional visualisation of the image acquired by one of the Copernicus Sentinel-2 satellites on 15 June 2021, shows the Aletsch Glacier. In the heart of Switzerland, the Aletsch is the largest glacier in the Alps. In recognition of its importance and unique characteristics, it was declared a UNESCO World Heritage Site in 2001. However, climate change is threatening its very existence. According to a new study published in the scientific journal The Cryosphere, it could lose about half of its current volume by 2100 as a result of a 1°C increase in the planet's average temperature. With an average revisit time at the equator of five days, the Copernicus Sentinel-2 satellites provide crucial data that is used to monitor the impact of climate change and its consequences on alpine environments.",
+    "categories": "Aletschgletscher|Retreat of glaciers in Switzerland|Attribution Copernicus|Photographs taken on 2021-06-15|2021 satellite pictures|Photos of Switzerland by Sentinel-2|Copernicus files uploaded by OptimusPrimeBot"
+  }
+]

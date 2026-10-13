@@ -1,10 +1,11 @@
 import { useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { latLonToXYZ } from "@/lib/geo";
 import { useCloudMap } from "@/labs/shared/materials";
 import { useQuality } from "@/labs/shared/perf";
+import { useLabControls } from '@/lib/store/lab-controls';
 
 const DAY = "/textures/earth-day.jpg";
 const NIGHT = "/textures/earth-night.jpg";
@@ -28,25 +29,54 @@ const earthFrag = /* glsl */ `
   uniform sampler2D nightMap;
   uniform sampler2D bumpMap;
   uniform vec3 sunDirection;
+  uniform bool eclipseEnabled;
+  uniform vec3 occultingPosition;
+  uniform float occultingRadius;
+  uniform vec3 solarPosition;
+  uniform float solarRadius;
   varying vec2 vUv;
   varying vec3 vNormalW;
   varying vec3 vPosW;
   void main() {
     vec3 n = normalize(vNormalW);
     float ndl = dot(n, normalize(sunDirection));
-    float dayF = smoothstep(-0.08, 0.22, ndl);
+    float dayF = smoothstep(-0.012, 0.012, ndl);
     vec3 day = texture2D(dayMap, vUv).rgb;
     vec3 night = texture2D(nightMap, vUv).rgb * 1.35;
     night *= (1.0 - dayF);
-    vec3 color = mix(night, day, dayF);
-    float bump = texture2D(bumpMap, vUv).r;
-    color *= 0.88 + bump * 0.22;
+    // Perturb the lighting normal from the actual terrain map; keep the
+    // geometric normal for the day/night boundary and eclipse calculation.
+    float height = texture2D(bumpMap, vUv).r;
+    vec3 dp1=dFdx(vPosW), dp2=dFdy(vPosW);
+    vec3 r1=cross(dp2,n), r2=cross(n,dp1);
+    float det=dot(dp1,r1);
+    vec3 surfaceNormal=abs(det)<1e-12?n:normalize(abs(det)*n-sign(det)*.002*(dFdx(height)*r1+dFdy(height)*r2));
+    float diffuse=max(dot(surfaceNormal,normalize(sunDirection)),0.0);
+    vec3 color = mix(night * 0.65 + day * 0.018, day * (0.1 + 0.9 * sqrt(diffuse)), dayF);
     vec3 view = normalize(cameraPosition - vPosW);
     float fresnel = pow(1.0 - max(dot(n, view), 0.0), 2.2);
-    color += vec3(0.28, 0.58, 0.9) * fresnel * 0.34;
+    color += vec3(0.28, 0.58, 0.9) * fresnel * 0.24 * smoothstep(-.18,.35,ndl);
     float spec = pow(max(dot(reflect(-normalize(sunDirection), n), view), 0.0), 22.0);
-    color += vec3(0.6, 0.75, 0.95) * spec * dayF * 0.26;
+    float ocean = smoothstep(0.015, 0.09, day.b - max(day.r, day.g));
+    color += vec3(0.6, 0.75, 0.95) * spec * dayF * ocean * 0.26;
+    if(eclipseEnabled && ndl>0.0){
+      vec3 a=solarPosition-vPosW, b=occultingPosition-vPosW;
+      float r=asin(clamp(solarRadius/length(a),0.0,1.0));
+      float m=asin(clamp(occultingRadius/length(b),0.0,1.0));
+      float d=acos(clamp(dot(normalize(a),normalize(b)),-1.0,1.0));
+      float overlap=0.0;
+      if(d<=abs(r-m))overlap=min(r*r,m*m)/(r*r);
+      else if(d<r+m){
+        float c1=acos(clamp((d*d+r*r-m*m)/(2.0*d*r),-1.0,1.0));
+        float c2=acos(clamp((d*d+m*m-r*r)/(2.0*d*m),-1.0,1.0));
+        float lens=.5*sqrt(max(0.0,(-d+r+m)*(d+r-m)*(d-r+m)*(d+r+m)));
+        overlap=(r*r*c1+m*m*c2-lens)/(3.14159265359*r*r);
+      }
+      color*=1.0-.97*clamp(overlap,0.0,1.0);
+    }
     gl_FragColor = vec4(color, 1.0);
+    #include <tonemapping_fragment>
+    #include <colorspace_fragment>
   }
 `;
 
@@ -55,20 +85,21 @@ export function EarthMesh({
   radius = 1,
   segments,
   clouds = false,
+  occluder,
 }: {
   sunDirection?: THREE.Vector3;
   radius?: number;
   segments?: number;
   clouds?: boolean;
+  occluder?: {position:THREE.Vector3;radius:number;sunPosition:THREE.Vector3;sunRadius:number};
 }) {
-  const dayMap = useTexture(DAY);
-  const nightMap = useTexture(NIGHT);
-  const bumpMap = useTexture(BUMP);
+  const [dayMap,nightMap,bumpMap] = useTexture([DAY,NIGHT,BUMP]);
   const q = useQuality();
   const segs = segments ?? q.sphere;
   const mat = useRef<THREE.ShaderMaterial>(null);
   const sunRef = useRef(sunDirection);
   sunRef.current = sunDirection;
+  const eclipseRef=useRef(occluder);eclipseRef.current=occluder;
 
   useMemo(() => {
     dayMap.colorSpace = THREE.SRGBColorSpace;
@@ -84,6 +115,7 @@ export function EarthMesh({
       nightMap: { value: nightMap },
       bumpMap: { value: bumpMap },
       sunDirection: { value: sunDirection.clone() },
+      eclipseEnabled:{value:false},occultingPosition:{value:new THREE.Vector3()},occultingRadius:{value:0},solarPosition:{value:new THREE.Vector3()},solarRadius:{value:0},
     }),
     [dayMap, nightMap, bumpMap],
   );
@@ -91,12 +123,15 @@ export function EarthMesh({
   useFrame(() => {
     if (mat.current) {
       mat.current.uniforms.sunDirection.value.copy(sunRef.current);
+      const e=eclipseRef.current,u=mat.current.uniforms;u.eclipseEnabled.value=Boolean(e);
+      if(e){u.occultingPosition.value.copy(e.position);u.occultingRadius.value=e.radius;u.solarPosition.value.copy(e.sunPosition);u.solarRadius.value=e.sunRadius;}
     }
   });
 
   return (
     <group>
-      <mesh>
+      {/* Three's equirectangular u=.5 points +X; our geographic Greenwich is −Z. */}
+      <mesh rotation={[0, Math.PI / 2, 0]}>
         <sphereGeometry args={[radius, segs, segs]} />
         <shaderMaterial
           ref={mat}
@@ -113,12 +148,9 @@ export function EarthMesh({
 export function CloudLayer({ radius = 1.012 }: { radius?: number }) {
   const map = useCloudMap();
   const q = useQuality();
-  const ref = useRef<THREE.Mesh>(null);
-  useFrame((_, d) => {
-    if (ref.current) ref.current.rotation.y += Math.min(d, 0.1) * 0.004;
-  });
+  const t = useLabControls(s=>s.t);
   return (
-    <mesh ref={ref}>
+    <mesh rotation={[0,Math.PI/2+t*.08,0]}>
       <sphereGeometry args={[radius, q.sphere, q.sphere]} />
       <meshStandardMaterial
         map={map}
@@ -168,9 +200,11 @@ export function Atmosphere({ radius = 1.035 }: { radius?: number }) {
 export function AxisLine({
   radius = 1.18,
   tiltDeg = 23.44,
+  markerRadius = .028,
 }: {
   radius?: number;
   tiltDeg?: number;
+  markerRadius?: number;
 }) {
   const obj = useMemo(() => {
     const g = new THREE.BufferGeometry().setFromPoints([
@@ -184,11 +218,12 @@ export function AxisLine({
     });
     return new THREE.Line(g, m);
   }, [radius]);
+  useEffect(()=>()=>{obj.geometry.dispose();obj.material.dispose();},[obj]);
   return (
     <group rotation={[0, 0, THREE.MathUtils.degToRad(tiltDeg)]}>
       <primitive object={obj} />
       <mesh position={[0, radius, 0]}>
-        <sphereGeometry args={[0.028, 16, 16]} />
+        <sphereGeometry args={[markerRadius, 16, 16]} />
         <meshBasicMaterial color="#7FD4FF" />
       </mesh>
     </group>
@@ -238,6 +273,7 @@ export function Graticule({ radius = 1.004 }: { radius?: number }) {
     });
     return new THREE.LineSegments(g, m);
   }, [radius]);
+  useEffect(()=>()=>{obj.geometry.dispose();obj.material.dispose();},[obj]);
   return <primitive object={obj} />;
 }
 
@@ -247,9 +283,10 @@ export function Starfield({ count }: { count?: number }) {
   const positions = useMemo(() => {
     const a = new Float32Array(n * 3);
     for (let i = 0; i < n; i++) {
-      const r = 28 + Math.random() * 40;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
+      const random=(offset:number)=>{const v=Math.sin((i+1)*127.1+offset*311.7)*43758.5453;return v-Math.floor(v);};
+      const r = 28 + random(1) * 40;
+      const theta = random(2) * Math.PI * 2;
+      const phi = Math.acos(2 * random(3) - 1);
       a[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       a[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
       a[i * 3 + 2] = r * Math.cos(phi);
@@ -261,6 +298,7 @@ export function Starfield({ count }: { count?: number }) {
     g.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     return g;
   }, [positions]);
+  useEffect(()=>()=>geom.dispose(),[geom]);
   return (
     <points geometry={geom}>
       <pointsMaterial color="#F4EFE6" size={0.045} sizeAttenuation />

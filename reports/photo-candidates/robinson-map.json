@@ -1,0 +1,35 @@
+[
+  {
+    "id": "robinson-map-1",
+    "title": "File:Robinson-5400.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Robinson-5400.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Robinson-5400.jpg/1280px-Robinson-5400.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "No machine-readable author provided. Mdf assumed (based on copyright claims).",
+    "description": "Robinson projection of the Earth.  The source image is a product of NASA's Blue Marble project.",
+    "categories": "Maps with Robinson projection|Files with no machine-readable source|21st-century maps of the world|Self-published work|PD-self|Topographic maps of the world|Language-neutral maps|Assumed own work|Blue Marble 2002 images"
+  },
+  {
+    "id": "robinson-map-2",
+    "title": "File:Robinson-projection.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Robinson-projection.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Robinson-projection.jpg/1280px-Robinson-projection.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "No machine-readable author provided. Mdf assumed (based on copyright claims).",
+    "description": "A Robinson projection of a Visible Earth image collected by the Earth Observatory experiment of the U.S. Government's NASA space agency. The reticle is 15 degrees in latitude and longitude.",
+    "categories": "Maps with Robinson projection|Files with no machine-readable source|21st-century maps of the world|Self-published work|PD-self|Language-neutral maps|Assumed own work|Blue Marble 2002 images|Global maps centered Greenwich"
+  },
+  {
+    "id": "robinson-map-3",
+    "title": "File:Robinson projection SW.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Robinson_projection_SW.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Robinson_projection_SW.jpg/1280px-Robinson_projection_SW.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Strebe",
+    "description": "The world on Robinson projection. 15° graticule. Imagery is a derivative of NASA's Blue Marble summer month composite with oceans lightened to enhance legibility and contrast. Image created with the Geocart map projection software.",
+    "categories": "Maps with Robinson projection|Self-published work|Featured pictures on Wikipedia, English|Images of map projections|Robinson projection|Maps with equal-area projection|Files with Assessments template missing SDC Commons no value quality assessment|Maps with latitude and longitude grid"
+  }
+]

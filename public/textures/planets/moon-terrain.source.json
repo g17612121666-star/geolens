@@ -1,0 +1,30 @@
+{
+  "source": "https://svs.gsfc.nasa.gov/4720",
+  "credit": "NASA Scientific Visualization Studio / LROC / LOLA; Ernie Wright",
+  "license": "NASA media use guidelines; credit retained",
+  "color": "2019 LROC natural-colour mosaic adapted for visualisation, not a scientific colour measurement",
+  "height": {
+    "origin": "LRO LOLA gridded elevation",
+    "encodedKm": [
+      -12,
+      12
+    ],
+    "referenceRadiusKm": 1737.4,
+    "sourceRangeKm": [
+      -8.981499671936035,
+      10.68549919128418
+    ],
+    "verticalExaggeration": 1,
+    "quantisationKm": 0.09411764705882353
+  },
+  "sources": [
+    {
+      "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_poles_4k.tif",
+      "sha256": "918649a7f8ed2f1329b2cd95bb0d25483befdcb60ae1a66db681a637cc21344f"
+    },
+    {
+      "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/ldem_16_uint.tif",
+      "sha256": "45a2b32d56e81ed30db07fead8abc842b249b6511219d9ca2c53f81bc2dc5d62"
+    }
+  ]
+}

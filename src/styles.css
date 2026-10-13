@@ -17,6 +17,7 @@
   --color-fault: #e24b4b;
   --color-glass: rgb(255 255 255 / 0.08);
   --color-glass-border: rgb(255 255 255 / 0.1);
+  --color-ink: #ffffff;
 
   --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
   --font-sans: "Geist", "Segoe UI", system-ui, sans-serif;
@@ -99,9 +100,9 @@
     [data-print-hide] {
       display: none !important;
     }
-    body {
-      background: white;
-      color: #111;
+    html, body, body > div:has([data-teacher-note]) {
+      background: white !important;
+      color: #111 !important;
     }
     a {
       color: #111;
@@ -113,12 +114,25 @@
     main {
       padding-top: 0 !important;
     }
+    [data-teacher-note], [data-teacher-note] * {
+      color: #111 !important;
+      background-color: transparent !important;
+      border-color: #ccc !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+    [data-teacher-note] li, [data-teacher-note] figure {
+      break-inside: avoid;
+    }
+    [data-teacher-note] h2, [data-teacher-note] h3 {
+      break-after: avoid;
+    }
   }
 }
 
 @utility glass {
-  background: rgb(255 255 255 / 0.08);
-  border: 1px solid rgb(255 255 255 / 0.1);
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
@@ -143,6 +157,53 @@
   }
 }
 
-.font-cjk {
-  font-family: "Noto Sans SC Bio", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+/* Formula typography is deliberately independent from all other site text. */
+.formula, math { font-family: Calibri, "Times New Roman", serif; font-variant-numeric: lining-nums tabular-nums; letter-spacing: normal; }
+.lab-showcase-window { display:flex; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:none; padding-block:4px 8px; }
+.lab-showcase-window::-webkit-scrollbar { display:none; }
+.lab-showcase-row { display:flex; flex:none; gap:20px; padding-right:20px; }
+.lab-showcase-card { display:flex; flex-direction:column; flex:none; width:300px; border:1px solid var(--color-glass-border); border-radius:16px; overflow:hidden; background:var(--color-basalt); transition:border-color 180ms; }
+.lab-showcase-card:hover, .lab-showcase-card:focus-visible { border-color:var(--color-glacier); }
+.lab-showcase-card:focus-visible { outline:2px solid var(--color-glacier); outline-offset:2px; }
+@media(max-width:640px){ .lab-showcase-card { width:260px; } }
+
+/* Quiet entry motion, with typefaces and classroom projection kept intact. */
+@keyframes text-arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes loading-sweep { from { transform: translateX(-110%); } to { transform: translateX(340%); } }
+.loading-progress { width: 100%; }
+.loading-progress-sweep { width: 30%; animation: loading-sweep 1.4s ease-in-out infinite; }
+.route-content h1 { animation: text-arrive .48s cubic-bezier(.2,.65,.3,1) both; }
+.route-content h1 + p { animation: text-arrive .55s .08s ease-out both; }
+[data-lab-entry="ready"] > div > main h1 { animation: text-arrive .4s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+ .route-content h1, .route-content h1 + p { animation: none; }
+ .loading-progress-sweep { animation: none; width: 100%; opacity: .5; }
 }
+@media print { .loading-progress, .lab-entry-panel { display: none; } }
+
+[data-lab-entry="loading"] > div[inert] h1 { animation: none; }
+
+/* The palette changes; photographs, physical materials and formula fonts do not. */
+:root[data-theme="light"] {
+ --color-void:#f4f6f3;--color-basalt:#ffffff;--color-trench:#eaf0eb;--color-slate:#dde7e1;
+ --color-chalk:#19342b;--color-paper:#18392e;--color-mist:#52685e;
+ --color-glacier:#007969;--color-ice:#17658a;--color-magma:#b63d19;
+ --color-sandstone:#886020;--color-moss:#49683a;--color-fault:#b83232;
+ --color-ink:#19342b;--color-glass:rgb(25 52 43 / .035);--color-glass-border:rgb(25 52 43 / .16);
+}
+/* Existing white-tint utility surfaces become ink tints in daylight. */
+:root[data-theme="light"] :is([class*="border-white"],[class*="divide-white"]) {border-color:var(--color-glass-border);}
+:root[data-theme="light"] :is([class^="bg-white/"],[class*=" bg-white/"]) {background-color:var(--color-glass);}
+:root[data-theme="light"] [class*="hover:bg-white"]:hover {background-color:rgb(25 52 43 / .07);}
+:root[data-theme="light"] .bg-glacier {color:#fff;}
+:root[data-theme="light"] .bg-magma {color:#fff;}
+
+/* Shared editorial rhythm for the Geolens collections. */
+.editorial-card {transition: border-color 180ms, transform 180ms;}
+.editorial-card:hover {border-color:var(--color-glacier);transform:translateY(-3px);}
+.hero-earth-poster {background:url('/textures/earth-day.jpg') 50% 50% / 200% 100%;box-shadow:inset -28px -12px 40px #071c32,inset 10px 5px 25px #ffffff30;}
+.hero-globe {max-height:600px;}
+@media(max-width:767px){.hero-globe {width:min(100%,360px);margin-inline:auto;}.home-intro{gap:0;}.home-intro h1{font-size:clamp(2.75rem,10vw,3.6rem);}}
+@media(prefers-reduced-motion:reduce){.editorial-card:hover{transform:none;}}
+
+.realm-cover img{width:100%;max-height:26rem;object-fit:cover;}

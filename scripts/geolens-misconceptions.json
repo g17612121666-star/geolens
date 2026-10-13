@@ -1,0 +1,250 @@
+{
+  "seasons": {
+    "claim": "Summer happens because Earth is closer to the Sun.",
+    "truth": "Earth’s axial tilt changes both the angle of sunlight and the length of daylight. The hemisphere tilted towards the Sun has summer while the other has winter. Earth is closest to the Sun in early January, so orbital distance cannot explain their opposite seasons."
+  },
+  "rotation": {
+    "claim": "Time zones determine where day and night occur.",
+    "truth": "Earth’s rotation carries places into and out of sunlight. Time zones assign civil clock times to regions; their boundaries reflect political and practical choices. Changing a time-zone boundary would change the clock label, while sunrise and sunset would still follow Earth’s rotation and the Sun’s direction."
+  },
+  "moon-phases": {
+    "claim": "A crescent Moon forms when Earth’s shadow covers part of the Moon.",
+    "truth": "Sunlight normally illuminates half the Moon. A crescent occurs when we see only a narrow part of that illuminated half from Earth; the rest of the visible disc is mostly on the Moon’s night side. Earth’s shadow darkens the Moon during a lunar eclipse."
+  },
+  "earth-interior": {
+    "claim": "The mantle is a continuous layer of liquid magma.",
+    "truth": "The mantle is predominantly solid rock that can deform slowly over geological time. Partial melting occurs in particular settings and supplies magma, but it does not make the whole mantle liquid. Earth’s liquid outer core is a separate layer composed mainly of metal."
+  },
+  "plate-boundaries": {
+    "claim": "Continents move through an ocean floor that stays still.",
+    "truth": "Both continents and ocean floor are carried by lithospheric plates. A plate may include continental and oceanic crust, and its boundary need not follow a coastline. Relative plate motion produces spreading, convergence or sideways slip, with different landforms and geological activity at each type of boundary."
+  },
+  "contours": {
+    "claim": "The V-shaped bend of a contour always points downhill.",
+    "truth": "Where a contour crosses a stream valley, its bend generally points uphill and upstream. Around a projecting spur, the bend points downhill. Follow the height labels and nearby drainage to distinguish the two; the shape of a single line without context can be misleading."
+  },
+  "rivers": {
+    "claim": "A river’s upper, middle and lower courses are separate kinds of river.",
+    "truth": "These terms describe reaches along one river system. Gradient, channel form, discharge and sediment can change downstream, often gradually and with local interruptions. They help compare patterns along a long profile, but they do not divide every river into three sharply bounded sections."
+  },
+  "water-cycle": {
+    "claim": "Because the global water cycle conserves water, a local reservoir cannot run out.",
+    "truth": "Water can leave a local store faster than it is replenished. Withdrawals, evaporation and downstream releases may exceed inflow, reducing the stored volume even while water remains elsewhere on Earth. A regional water balance therefore needs the amounts and timing of both inputs and outputs."
+  },
+  "solar-system": {
+    "claim": "A picture comparing planet sizes also shows their correct spacing.",
+    "truth": "Planet radii and orbital distances differ across such large ranges that many illustrations use separate scales for them. A size-comparison view may preserve relative radii while arranging planets close together. Check the stated scale before using a displayed gap as a physical distance."
+  },
+  "sun-earth": {
+    "claim": "Sunlight above the atmosphere supplies the same energy to every square metre of ground.",
+    "truth": "The angle of the rays changes how incoming energy is spread over a horizontal surface. At a lower Sun angle the same beam covers more ground, and day length also changes daily energy receipt. Clouds, reflection and atmospheric absorption further modify the energy reaching the surface."
+  },
+  "universe-scale": {
+    "claim": "Equal gaps on a logarithmic distance display represent equal physical distances.",
+    "truth": "On a logarithmic scale, equal displayed intervals represent equal ratios rather than equal additions. Moving one interval might multiply the distance by ten. Read the distance labels and distinguish the size of a displayed object from the much larger separation between objects."
+  },
+  "geologic-time": {
+    "claim": "The Grand Canyon is as old as the rocks exposed in its walls.",
+    "truth": "The rocks formed before erosion exposed them in the canyon. Rock formation, deformation, uplift and river incision belong to different parts of the geological history and require different evidence to date. An old rock can therefore form the wall of a much younger landform."
+  },
+  "eclipses": {
+    "claim": "Every full Moon produces a lunar eclipse.",
+    "truth": "A lunar eclipse requires the full Moon to pass through Earth’s shadow. The Moon’s orbital plane is tilted by about five degrees relative to Earth’s orbital plane, so it usually passes above or below that shadow. An eclipse occurs only when the alignment is sufficiently close to an orbital node."
+  },
+  "tides": {
+    "claim": "Spring tides occur only during the spring season.",
+    "truth": "Spring tides are periods of relatively large tidal range around new and full Moon, when solar and lunar tide-generating effects reinforce each other. They occur throughout the year. The height and timing at an actual coast also depend on water depth, basin shape and local conditions."
+  },
+  "solar-altitude": {
+    "claim": "The Sun is directly overhead at local noon everywhere on Earth.",
+    "truth": "Local solar noon is when the Sun reaches its daily highest position, but that position need not be overhead. Noon altitude depends on latitude and solar declination. The Sun can be directly overhead only between the tropics, and only on dates appropriate to the latitude."
+  },
+  "continental-drift": {
+    "claim": "Matching modern coastlines is enough to prove how the continents once fitted together.",
+    "truth": "Coastlines change with sea level, erosion and deposition, so their fit is approximate. Reconstructions also use continental margins, matching rock sequences and structures, fossils, and magnetic evidence. Agreement among different kinds of evidence provides a stronger basis for estimating past continental positions."
+  },
+  "hotspots": {
+    "claim": "A hotspot must remain perfectly fixed while its plate moves.",
+    "truth": "A volcanic age track records motion of a plate relative to a region of melting. Plate motion is important, but the source can also shift as the mantle moves. Track direction and age therefore constrain relative motion without requiring an exactly stationary source."
+  },
+  "seafloor-spreading": {
+    "claim": "Every magnetic stripe on the ocean floor represents the same amount of time.",
+    "truth": "Geomagnetic reversals occur at irregular intervals, and spreading rates can change. A stripe’s width depends on both the duration of its polarity interval and the rate at which crust moved away from the ridge. Matching sequences are stronger evidence than an assumption of equally spaced reversals."
+  },
+  "atmosphere-layers": {
+    "claim": "The tropopause is the top of the atmosphere.",
+    "truth": "The tropopause marks the boundary between the troposphere and stratosphere. Air continues far above it, becoming progressively less dense. Atmospheric layers are defined mainly by temperature structure, while the tropopause’s height changes with latitude, season and weather."
+  },
+  "energy-budget": {
+    "claim": "Greenhouse gases mainly warm Earth by trapping incoming visible sunlight.",
+    "truth": "Much incoming solar radiation reaches the surface, where some is absorbed. The warmed surface emits thermal infrared radiation, which greenhouse gases and clouds absorb and emit. This exchange changes the surface temperature needed for the Earth system to balance absorbed solar energy with energy leaving for space."
+  },
+  "thermal-circulation": {
+    "claim": "A sea breeze always blows from sea to land, by day and by night.",
+    "truth": "A daytime sea breeze can develop when land warms faster than nearby water, creating a circulation with onshore flow near the surface. Overnight cooling may support a land breeze in the opposite direction. Background winds, clouds and coastal terrain can weaken or prevent either circulation."
+  },
+  "wind": {
+    "claim": "Wind always blows straight from high pressure to low pressure.",
+    "truth": "The pressure-gradient force accelerates air towards lower pressure, while Earth’s rotation deflects moving air and friction affects flow near the surface. Their combined effects determine wind direction. Winds aloft can run approximately along isobars, while surface winds commonly cross them towards lower pressure."
+  },
+  "three-cell": {
+    "claim": "The three atmospheric cells are fixed loops followed by individual air parcels.",
+    "truth": "The three-cell model describes broad averages of circulation across latitude. Real air moves through changing weather systems and mixes between regions. Continents, seasons and ocean conditions disturb the pattern, and the midlatitude Ferrel circulation is maintained largely by weather systems rather than a simple isolated convection loop."
+  },
+  "fronts": {
+    "claim": "A front is a solid wall that keeps two air masses completely separate.",
+    "truth": "A front is a transition zone across which properties such as temperature and humidity change. Its slope and movement affect how air is lifted, with cloud and precipitation depending on moisture and stability. Mixing occurs, and real fronts have more complex shapes than a single dividing line."
+  },
+  "cyclone-anticyclone": {
+    "claim": "High pressure always brings hot, sunny weather.",
+    "truth": "High pressure is commonly associated with descending air, but surface weather also depends on season, moisture and temperature. An anticyclone can bring clear skies or persistent fog and low cloud. In winter, weak winds and clear nights can allow strong cooling near the ground."
+  },
+  "climate-types": {
+    "claim": "One unusual day of weather can change a place’s climate classification.",
+    "truth": "Climate classifications use long-term patterns, such as monthly temperature and precipitation statistics. A heatwave or wet day is an event within that distribution. Classifying a place therefore requires a representative record, while a longer-lasting shift in the statistics may eventually change its classification."
+  },
+  "drainage-basin": {
+    "claim": "All rain falling within a drainage basin reaches its river immediately.",
+    "truth": "Rainfall can be intercepted, infiltrate soil, replenish groundwater, evaporate or enter surface runoff. These pathways have different travel times, and some water remains stored or leaves through evapotranspiration. The river’s response depends on both rainfall and the basin’s existing conditions."
+  },
+  "hydrograph": {
+    "claim": "Peak river discharge occurs at exactly the same time as peak rainfall.",
+    "truth": "Water takes time to move through a catchment and its stores, so the discharge peak commonly follows the rainfall peak. The delay depends on rainfall location and duration, catchment size, slopes, soil conditions and drainage. State which rainfall reference is used when measuring lag time."
+  },
+  "river-hydrology": {
+    "claim": "A river’s seasonal flow pattern depends only on the amount of rain each month.",
+    "truth": "Rainfall matters, but snow accumulation and melt, evaporation, groundwater storage and reservoir operation can shift the timing of discharge. Water received in one season may reach the river in another. Explaining a regime therefore requires both the inputs and the processes that delay or remove water."
+  },
+  "ocean-currents": {
+    "claim": "Ocean currents are driven only by differences in water temperature.",
+    "truth": "Winds and pressure gradients drive much upper-ocean circulation, with Earth’s rotation and coastlines shaping the flow. Temperature and salinity affect density and contribute to overturning, while mixing connects different depths. Surface gyres and deep circulation are related but cannot be explained by temperature alone."
+  },
+  "thermohaline": {
+    "claim": "The ocean conveyor is one continuous pipe carrying water along a fixed route.",
+    "truth": "The conveyor image simplifies a network of branching currents, mixing and exchanges between depths. Temperature and salinity influence density, while winds and mixing also help drive circulation. A parcel can follow many routes and take a range of times to move between ocean regions."
+  },
+  "carbon-cycle": {
+    "claim": "Carbon released by burning fossil fuels is immediately removed by the natural carbon cycle.",
+    "truth": "Burning fossil fuels transfers carbon from long-term geological stores into the atmosphere. Land and oceans absorb some of it, but uptake does not instantly match all emissions. Atmospheric carbon increases when inputs exceed removals, and different stores exchange carbon over very different timescales."
+  },
+  "enso": {
+    "claim": "El Niño causes the same weather in every affected place during every event.",
+    "truth": "ENSO changes tropical Pacific ocean and atmospheric conditions, influencing weather probabilities in many regions. The response depends on season, event strength and other climate conditions. A regional tendency towards wetter or drier weather is not a guarantee for every location, day or event."
+  },
+  "landform-types": {
+    "claim": "A landform’s shape tells us which single process created it.",
+    "truth": "A landscape can record several processes acting at different times. A river may occupy a valley widened by ice, while rock structure influences both erosion and slope failure. Shape provides clues, but interpreting the history also needs evidence such as sediments, rock relationships and chronology."
+  },
+  "river-erosion": {
+    "claim": "Weathering and river erosion describe the same process.",
+    "truth": "Weathering breaks down or alters rock in place, while erosion wears away and removes material. A river can exploit rock weakened by weathering and use transported sediment to abrade its bed. The processes can work together without being interchangeable."
+  },
+  "river-deposition": {
+    "claim": "A river deposits all its sediment as soon as the water slows down.",
+    "truth": "Deposition depends on the ability of the flow to keep particular particles moving. Coarser material often settles or stops first as transport capacity falls, while finer particles may remain suspended farther downstream. Sediment size, turbulence, water depth and incoming supply all affect the result."
+  },
+  "river-capture": {
+    "claim": "A drainage divide is permanent, so one river cannot gain another river’s headwaters.",
+    "truth": "Erosion, tectonic change or other landscape adjustment can shift a divide and divert flow into a neighbouring basin. The capturing river gains drainage area while the former channel may carry a smaller stream. Landforms such as wind gaps can help reconstruct the change."
+  },
+  "coasts": {
+    "claim": "Groynes create new beach sediment without affecting nearby coasts.",
+    "truth": "Groynes interrupt alongshore sediment movement and can retain material on one side. They redistribute an existing supply rather than create it, potentially reducing delivery farther along the coast. Their effects therefore need to be considered within the wider sediment budget."
+  },
+  "glaciers": {
+    "claim": "A retreating glacier must be flowing uphill.",
+    "truth": "Glacier ice generally moves downslope under gravity even when its terminus retreats. The front moves back when local ice loss exceeds the supply of ice moving towards it. Ice velocity and the change in the terminus position describe different aspects of glacier behaviour."
+  },
+  "karst": {
+    "claim": "An underground drainage basin must have exactly the same boundary as the surface basin.",
+    "truth": "Water in soluble rock can follow connected fractures and passages beneath a surface divide. Its underground route may therefore lead to a different outlet from the one suggested by topography. Dye tracing and other observations can help establish the actual groundwater connections."
+  },
+  "folds-faults": {
+    "claim": "The hanging wall is always the side of a fault that moves down.",
+    "truth": "The hanging wall is defined by its position above an inclined fault plane. It moves down relative to the footwall in a normal fault and up in a reverse fault. Identify the plane and blocks before using their displacement to name the fault type."
+  },
+  "aeolian": {
+    "claim": "Every desert is covered by dunes.",
+    "truth": "Many deserts expose bedrock, gravel or other surfaces with little loose sand. Dunes require a suitable sediment supply and wind conditions that allow accumulation. Wind can erode one area while depositing material elsewhere, so aridity alone does not determine the landform."
+  },
+  "rock-cycle": {
+    "claim": "Metamorphic rock forms when an existing rock melts completely.",
+    "truth": "Metamorphism changes a rock’s minerals or texture while it remains largely solid, under changed temperature, pressure or fluid conditions. Complete melting produces magma; subsequent crystallisation forms igneous rock. The rock cycle includes different possible pathways rather than one compulsory sequence."
+  },
+  "soil-profile": {
+    "claim": "Every soil contains the same sequence and thickness of horizons.",
+    "truth": "Soil profiles develop through interactions among parent material, climate, organisms, relief and time. Some horizons may be absent, weakly developed or altered by erosion and land use. Colour helps describe a profile, but classification also depends on diagnostic properties and processes."
+  },
+  "soil-texture": {
+    "claim": "A soil’s colour determines whether it is sand, silt or clay.",
+    "truth": "Texture depends on the proportions of mineral particles in defined size classes. Colour reflects other properties, including organic matter, iron compounds and drainage conditions. Two soils can therefore look similar while having different textures, and texture differs from the way particles are grouped into structure."
+  },
+  "weathering": {
+    "claim": "Chemical and mechanical weathering are separate alternatives that cannot act together.",
+    "truth": "Several weathering processes can affect the same rock. Mechanical cracking exposes new surfaces to chemical reactions, while chemical alteration can weaken material for later breakage. Temperature, water, organisms and rock properties influence which processes are most effective in a particular setting."
+  },
+  "soil-erosion": {
+    "claim": "Vegetation prevents all soil erosion.",
+    "truth": "Plant cover can intercept raindrops, protect the soil and slow surface flow, reducing erosion. Its effectiveness depends on cover density, roots, soil condition, slope and the event itself. Even a vegetated slope can lose sediment during intense runoff or other disturbances."
+  },
+  "earthquakes": {
+    "claim": "Earthquake magnitude and shaking intensity are the same measurement.",
+    "truth": "Magnitude describes the earthquake’s size at its source. Intensity describes shaking and effects at a particular place, so it varies with distance, local ground and buildings. One earthquake can therefore have a single reported magnitude but many different local intensities."
+  },
+  "volcanoes": {
+    "claim": "A volcano’s size alone predicts how explosive its next eruption will be.",
+    "truth": "Eruption behaviour depends on magma properties, gas, ascent conditions and possible interaction with water or ice. Large shield volcanoes often produce fluid lava flows, but basaltic eruptions can also be explosive. The existing landform records earlier activity without determining every future event."
+  },
+  "tsunami": {
+    "claim": "A tsunami and a storm surge are the same kind of coastal wave.",
+    "truth": "A tsunami is a sequence of long waves generated by rapid water displacement, such as seafloor movement or a landslide. Storm surge is an abnormal water-level rise driven mainly by storm winds and atmospheric pressure. Their causes, propagation and warning evidence differ."
+  },
+  "tropical-cyclone": {
+    "claim": "The calm eye means a tropical cyclone has passed and the danger is over.",
+    "truth": "The eye is surrounded by the eyewall, where winds and convection are strong. If the eye crosses a location, the opposite eyewall may arrive after a temporary lull, with a changed wind direction. Rainfall, flooding and coastal water levels can also remain hazardous beyond the strongest winds."
+  },
+  "graticule": {
+    "claim": "The coordinates 0 degrees latitude and 0 degrees longitude locate Greenwich.",
+    "truth": "Greenwich is close to zero longitude but about 51.5 degrees north of the equator. Zero latitude lies on the equator, so the two zero coordinates meet in the Gulf of Guinea. Latitude and longitude identify separate angular directions and must both be specified."
+  },
+  "map-projections": {
+    "claim": "One flat world map can preserve every area, shape, distance and direction.",
+    "truth": "Flattening Earth’s curved surface necessarily introduces distortion. A projection may preserve a selected property, such as area, while changing others. Compare a map with a globe and choose its projection according to the task, rather than assuming all visual comparisons are equally reliable."
+  },
+  "grid-references": {
+    "claim": "A six-figure British National Grid reference identifies an exact point.",
+    "truth": "A six-figure reference identifies a 100-metre square within the relevant lettered grid square. More digits specify a smaller area, but extra precision does not guarantee an accurate observation. Read eastings before northings and include the letter pair when the wider location is needed."
+  },
+  "mass-movement": {
+    "claim": "Rain can destabilise a slope only by making the material heavier.",
+    "truth": "Added water can increase weight, but rising pore-water pressure can also reduce effective stress and frictional resistance along a potential slip surface. Drainage, cohesion, slope geometry and material properties influence stability, so the effect is not explained by added mass alone."
+  },
+  "rain-shadow": {
+    "claim": "A mountain creates the moisture that falls as rain on its windward side.",
+    "truth": "The approaching air already contains water vapour. Forced uplift makes the air expand and cool; if saturation is reached, condensation and precipitation may follow. After moisture loss, descending air can become warmer and drier on the leeward side, although the outcome depends on the incoming conditions."
+  },
+  "groundwater": {
+    "claim": "Groundwater usually occupies a single underground lake.",
+    "truth": "Most groundwater occupies connected pores and fractures in rock or sediment. In an unconfined aquifer, the water table marks the top of the saturated zone. In a confined aquifer, water in a well may rise above the aquifer because of pressure rather than an underground open lake."
+  },
+  "isostasy": {
+    "claim": "Postglacial rebound shows that the mantle beneath the crust is liquid lava.",
+    "truth": "The mantle is predominantly solid rock but can deform slowly over long timescales. Removing an ice load changes the equilibrium supported by the underlying material, allowing the land to rise over time. An equilibrium-height model does not by itself calculate how fast that rebound occurs."
+  },
+  "wilson-cycle": {
+    "claim": "Every ocean basin follows the same fixed timetable from opening to closure.",
+    "truth": "The Wilson cycle organises possible stages of rifting, ocean spreading, subduction and collision. Real basins differ in geometry, plate motions and duration, and some rifts stop developing. The framework helps interpret geological evidence without prescribing one schedule for every ocean."
+  },
+  "soil-catena": {
+    "claim": "Soils on one hillside must be identical because they share a climate.",
+    "truth": "Position on a slope affects drainage, erosion, deposition and the movement of dissolved material. These differences can produce contrasting soils even on similar parent material under the same regional climate. The pattern depends on local conditions rather than a universal sequence of thicknesses."
+  },
+  "periglacial": {
+    "claim": "Permafrost is simply a glacier buried beneath the soil.",
+    "truth": "Permafrost is ground that remains at or below zero degrees Celsius for at least two consecutive years. It may contain ground ice, but it need not be entirely frozen water. Seasonal thaw can affect the active layer above it, while glaciers are separate bodies of accumulated, flowing ice."
+  },
+  "storm-surge": {
+    "claim": "A hurricane’s wind category fully describes its coastal flood threat.",
+    "truth": "Coastal water rise also depends on storm size, track, duration, atmospheric pressure and the shape and depth of the coast. Tide, waves and river flow further affect flooding. A wind category therefore cannot specify the water level or inundation at a particular location."
+  }
+}

@@ -1,0 +1,11 @@
+[
+ {"source":"mauritania-upwelling-modis","terms":["Canary Current","Eastern boundary current","Upwelling"]},
+ {"source":"sri-lanka-sea-breeze-modis","terms":["Sea breeze","Onshore flow"]},
+ {"source":"amsre-warm-pool-anomaly","terms":["Warm pool"]},
+ {"source":"os-northeast-scotland-grid","terms":["OSGB","False origin","Four-figure grid reference","Six-figure grid reference"],"caption":"Ordnance Survey sheet NO, northeast Scotland. British National Grid eastings and northings are measured from a false origin southwest of Great Britain. Four figures identify a 1 km square; six identify a 100 m square. This reduced 1:250,000 sheet illustrates the system; use a detailed map for precise references."},
+ {"source":"place-uk-dwn","terms":["Cfb","Köppen"],"caption":"Exmoor, North Devon: a landscape within the Cfb oceanic climate region. Köppen classes use long-term monthly temperature and precipitation, not the weather on the day of the photograph."},
+ {"source":"place-mn","terms":["Continentality"],"caption":"Steppe near Jargalant, Mongolia, far from a moderating ocean. Continental interiors often have larger annual temperature ranges; a weather station's long-term record is needed to measure that range."},
+ {"source":"san-andreas-highsmith","terms":["Surface trace"],"caption":"The San Andreas Fault cuts through the Carrizo Plain, California. Its surface trace is where the fault intersects the ground; it is only the exposed line of a fault extending through the crust."},
+ {"source":"sdo-venus-transit","terms":["Revolution"],"caption":"SDO recorded Venus crossing the Sun's disc in June 2012. A transit is an observable alignment of orbiting bodies. Revolution means motion around another body; this time sequence is not a scale drawing of the orbits."},
+ {"source":"gulf-stream-modis","terms":["Gyre"],"caption":"MODIS observations trace warm Gulf Stream water in the western North Atlantic. The Gulf Stream is one part of the basin-scale subtropical gyre; a single current image does not show the whole circulation."}
+]

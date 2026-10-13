@@ -1,9 +1,10 @@
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import type { CanvasProps } from "@react-three/fiber";
 import { ContactShadows } from "@react-three/drei";
+import { SceneProgress, useEntryReady } from "@/components/lab/load-gate";
+import { FitScienceView } from "./fit-science-view";
 import { ClientCanvas, useWebGL } from "@/components/globe/client-canvas";
 import { LabThumb } from "@/components/lab-thumb";
-import { usePrefersReducedMotion } from "@/hooks/use-media";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { GenericFallback } from "./fallback";
 import { LabLights, StudioOrbit } from "./kit";
@@ -21,6 +22,10 @@ export function LabStudio({
   maxDistance,
   target,
   lights = true,
+  trueScaleText,
+  groundShadows = true,
+  fit = false,
+  fitRevision = "",
 }: {
   slug: string;
   title: string;
@@ -33,9 +38,16 @@ export function LabStudio({
   maxDistance?: number;
   target?: [number, number, number];
   lights?: boolean;
+  trueScaleText?: string;
+  groundShadows?: boolean;
+  fit?: boolean;
+  fitRevision?: string;
 }) {
   const webgl = useWebGL();
-  const reduced = usePrefersReducedMotion();
+  const entryReady = useEntryReady();
+  useEffect(() => {
+    if (webgl === false) entryReady?.(true);
+  }, [webgl, entryReady]);
   const playing = useLabControls((s) => s.playing);
   const trueScale = useLabControls((s) => s.trueScale);
   const setTrueScale = useLabControls((s) => s.setTrueScale);
@@ -51,7 +63,9 @@ export function LabStudio({
             <LabThumb slug={slug} />
           </div>
         </div>
-        <p className="mt-3 font-mono text-sm text-mist">Loading {title}…</p>
+        <div className="mt-4 w-full max-w-md">
+          <SceneProgress />
+        </div>
       </div>
     );
   }
@@ -65,12 +79,12 @@ export function LabStudio({
       <ClientCanvas
         camera={camera ?? { position: [0, 1.4, 5.4], fov: 40 }}
         dpr={q.dpr}
-        frameloop={reduced && !playing ? "demand" : "always"}
+        frameloop={playing ? "always" : "demand"}
         shadows={q.shadows}
       >
         {lights && <LabLights />}
-        {children}
-        {lights && q.shadows && (
+        {fit ? <FitScienceView revision={fitRevision}>{children}</FitScienceView> : children}
+        {lights && groundShadows && q.shadows && (
           <ContactShadows
             opacity={0.42}
             scale={18}
@@ -80,34 +94,42 @@ export function LabStudio({
             color="#000000"
           />
         )}
-        <StudioOrbit minDistance={minDistance} maxDistance={maxDistance} target={target} />
+        <StudioOrbit
+          minDistance={minDistance}
+          maxDistance={maxDistance}
+          target={target}
+          autoFit={fit}
+        />
       </ClientCanvas>
-      <p className="sr-only" aria-live="polite">
-        {liveText ?? title}
-      </p>
+      {liveText && (
+        <p className="sr-only" aria-live="polite">
+          {liveText}
+        </p>
+      )}
       {exaggeration && (
         <button
           type="button"
           onClick={() => setTrueScale(!trueScale)}
-          className="pointer-events-auto absolute left-1/2 top-[4.6rem] z-10 -translate-x-1/2 rounded-full border border-white/10 bg-basalt/80 px-3 py-1 font-mono text-[10px] text-mist backdrop-blur-md hover:text-chalk"
+          className="pointer-events-auto absolute left-1/2 top-2 z-10 min-h-11 w-max max-w-[calc(100%-2rem)] -translate-x-1/2 rounded-xl border border-white/10 bg-basalt/90 px-3 py-2 text-center font-mono text-[13px] text-mist backdrop-blur-md hover:text-chalk md:top-[10rem] md:max-w-[32rem]"
         >
-          {trueScale ? "True scale · click for teaching exaggeration" : exaggeration}
+          {trueScale
+            ? (trueScaleText ?? "True relative geometry · click for teaching view")
+            : exaggeration}
         </button>
       )}
       {inspect && (
         <div className="pointer-events-auto absolute bottom-28 left-1/2 z-10 w-[min(28rem,calc(100%-2rem))] -translate-x-1/2 rounded-2xl border border-white/10 bg-basalt/85 px-4 py-3 backdrop-blur-xl">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-glacier">Inspect</p>
-              <p className="mt-1 font-medium text-chalk">{inspect.name}</p>
-              <p className="mt-1 text-[12px] leading-5 text-mist">{inspect.note}</p>
+              <h3 className="text-base font-semibold leading-6 text-chalk">{inspect.name}</h3>
+              <p className="mt-2 text-sm leading-6 text-mist">{inspect.note}</p>
             </div>
             <button
               type="button"
-              className="shrink-0 font-mono text-[11px] text-mist hover:text-chalk"
+              className="shrink-0 font-mono text-[13px] text-mist hover:text-chalk"
               onClick={() => setInspect(null)}
             >
-              Close
+              {"Close"}
             </button>
           </div>
         </div>

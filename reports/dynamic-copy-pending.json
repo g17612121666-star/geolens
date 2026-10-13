@@ -1,0 +1,46 @@
+[
+  {
+    "text": "description",
+    "files": [
+      "src\\routes\\$.tsx",
+      "src\\routes\\__root.tsx"
+    ]
+  },
+  {
+    "text": "TerraLens",
+    "files": [
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "atlas:{0}",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\search.tsx"
+    ]
+  },
+  {
+    "text": "viewport",
+    "files": [
+      "src\\routes\\__root.tsx"
+    ]
+  },
+  {
+    "text": "theme-color",
+    "files": [
+      "src\\routes\\__root.tsx"
+    ]
+  },
+  {
+    "text": "apple-mobile-web-app-title",
+    "files": [
+      "src\\routes\\__root.tsx"
+    ]
+  },
+  {
+    "text": "application-name",
+    "files": [
+      "src\\routes\\__root.tsx"
+    ]
+  }
+]

@@ -1,3 +1,1 @@
-import { makeGlbScene } from "@/labs/shared/make-glb-scene";
-
-export default makeGlbScene("map-projections");
+export { ProjectionScene as default } from '../shared/skills-scenes';

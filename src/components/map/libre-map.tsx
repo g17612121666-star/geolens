@@ -1,14 +1,9 @@
-import { useEffect, useRef, useState } from "react";
-import {
-  attachStyleFallback,
-  CARTO_VOYAGER_STYLE,
-  ESRI_OCEAN_STYLE,
-  FIORD,
-  OSM_RASTER_STYLE,
-  OSM_RELIEF_STYLE,
-  type MapBasemap,
-} from "@/lib/map-style";
+import { LoadingProgress } from "@/components/loading-progress";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
+import { attachStyleFallback, basemapStyle, type MapBasemap, type MapPhase } from "@/lib/map-style";
 import { plateColor } from "@/lib/map-overlays";
+import { pageScrollUnlessCtrl } from "@/lib/embedded-wheel";
 
 export { FIORD, LIBERTY } from "@/lib/map-style";
 
@@ -43,6 +38,15 @@ export type Overlay = {
 type MapHandle = {
   remove: () => void;
   flyTo: (o: { center: [number, number]; zoom?: number; essential?: boolean }) => void;
+  fitBounds?: (
+    bounds: [[number, number], [number, number]],
+    options: {
+      padding: number | { top: number; bottom: number; left: number; right: number };
+      maxZoom: number;
+      duration: number;
+      essential: boolean;
+    },
+  ) => void;
   getCanvas: () => HTMLCanvasElement;
   loaded: () => boolean;
   isStyleLoaded?: () => boolean;
@@ -58,15 +62,17 @@ type MapHandle = {
   resize: () => void;
   zoomIn?: () => void;
   zoomOut?: () => void;
-  queryRenderedFeatures?: (pt: unknown, opts?: { layers?: string[] }) => { properties?: Record<string, string>; geometry?: { type: string } }[];
+  queryRenderedFeatures?: (
+    pt: unknown,
+    opts?: { layers?: string[] },
+  ) => { properties?: Record<string, string>; geometry?: { type: string } }[];
 };
 
 const CREDIT: Record<MapBasemap, string> = {
   openfreemap: "OpenFreeMap vector · OpenStreetMap contributors",
-  osm: "OpenStreetMap raster (fallback if vector tiles were silent)",
-  carto: "OpenStreetMap data · CARTO Voyager (political outlines)",
+  osm: "OpenStreetMap contributors · raster basemap",
   "natural-earth": "Natural Earth 110m land — offline fallback. Coastlines only.",
-  relief: "OpenTopoMap relief · OSM / SRTM. Tibet, rifts and trenches as height.",
+  relief: "OpenTopoMap relief · OSM / SRTM · land elevation",
   bathymetry: "Esri Ocean / GEBCO. Seafloor as colour. Not a navigation chart.",
 };
 
@@ -120,7 +126,8 @@ function paintCoast(
   };
   const walk = (geom: { type: string; coordinates: unknown }) => {
     if (geom.type === "Polygon") (geom.coordinates as number[][][]).forEach(ring);
-    else if (geom.type === "MultiPolygon") (geom.coordinates as number[][][][]).forEach((poly) => poly.forEach(ring));
+    else if (geom.type === "MultiPolygon")
+      (geom.coordinates as number[][][][]).forEach((poly) => poly.forEach(ring));
   };
   for (const f of fc.features) walk(f.geometry);
 }
@@ -357,13 +364,19 @@ export function LibreMap({
   overlays = [],
   marker,
   markerB,
+  markerContent,
+  markerBContent,
   onClick,
+  onMarkerDrag,
   onFeature,
   onMove,
+  onViewChange,
+  inspectFeatures = true,
   className = "h-[28rem] w-full overflow-hidden rounded-2xl border border-white/10 bg-trench",
   label,
   graticule = false,
   draggableMarker = false,
+  fitMarkers = false,
 }: {
   center: [number, number];
   zoom?: number;
@@ -374,15 +387,48 @@ export function LibreMap({
   overlays?: Overlay[];
   marker?: [number, number] | null;
   markerB?: [number, number] | null;
+  /** Accessible readings anchored to the same coordinates as the draggable pin. */
+  markerContent?: ReactNode;
+  markerBContent?: ReactNode;
   onClick?: (c: MapClick) => void;
+  onMarkerDrag?: (c: MapClick) => void;
   onFeature?: (f: MapFeatureHit) => void;
   onMove?: (c: MapClick) => void;
+  onViewChange?: (view: { center: [number, number]; zoom: number }) => void;
+  inspectFeatures?: boolean;
   className?: string;
   label?: string;
   graticule?: boolean;
   draggableMarker?: boolean;
+  fitMarkers?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [portalA, setPortalA] = useState<HTMLElement | null>(null),
+    [portalB, setPortalB] = useState<HTMLElement | null>(null);
+  const customA = markerContent != null,
+    customB = markerBContent != null;
+  const markerModes = useRef({ a: customA, b: customB });
+  const pinsRef = useRef({ marker, markerB, fitMarkers, custom: customA || customB });
+  pinsRef.current = { marker, markerB, fitMarkers, custom: customA || customB };
+  function framePins(m: MapHandle | null, duration = 0) {
+    const { marker: a, markerB: b, fitMarkers: fit, custom } = pinsRef.current;
+    if (!m || !fit || !a || !b) return;
+    let lonB = b[0];
+    if (lonB - a[0] > 180) lonB -= 360;
+    if (lonB - a[0] < -180) lonB += 360;
+    m.fitBounds?.(
+      [
+        [Math.min(a[0], lonB), Math.min(a[1], b[1])],
+        [Math.max(a[0], lonB), Math.max(a[1], b[1])],
+      ],
+      {
+        padding: custom ? { top: 80, bottom: 110, left: 70, right: 70 } : 60,
+        maxZoom: 6,
+        duration,
+        essential: false,
+      },
+    );
+  }
   const mapRef = useRef<MapHandle | null>(null);
   const markerRef = useRef<{
     setLngLat: (p: [number, number]) => unknown;
@@ -395,27 +441,47 @@ export function LibreMap({
   } | null>(null);
   const clickRef = useRef(onClick);
   clickRef.current = onClick;
+  const markerDragRef = useRef(onMarkerDrag);
+  markerDragRef.current = onMarkerDrag;
   const featRef = useRef(onFeature);
   featRef.current = onFeature;
   const moveRef = useRef(onMove);
   moveRef.current = onMove;
-  const overlayKey = overlays.map((o) => `${o.id}:${o.opacity ?? 1}:${o.color}:${o.width ?? 0}`).join("|") + (graticule ? "|g" : "");
+  const viewRef = useRef(onViewChange);
+  viewRef.current = onViewChange;
+  const inspectRef = useRef(inspectFeatures);
+  inspectRef.current = inspectFeatures;
   const overlaysRef = useRef(overlays);
   overlaysRef.current = overlays;
   const overlayIdsRef = useRef<string[]>([]);
   const graticuleRef = useRef(graticule);
   graticuleRef.current = graticule;
-  const reliefRef = useRef(relief);
-  reliefRef.current = relief;
+  const requestedBase: MapBasemap =
+    baseMap === "political"
+      ? "osm"
+      : baseMap === "bathymetry"
+        ? "bathymetry"
+        : relief || baseMap === "relief"
+          ? "relief"
+          : "openfreemap";
+  const requestedBaseRef = useRef(requestedBase);
+  requestedBaseRef.current = requestedBase;
+  const fallbackRef = useRef<ReturnType<typeof attachStyleFallback> | null>(null);
   const [basemap, setBasemap] = useState<MapBasemap | null>(null);
   const [failed, setFailed] = useState(false);
-  const [ready, setReady] = useState(false);
+  const [phase, setPhase] = useState<MapPhase>("loading");
+  const [retry, setRetry] = useState(0);
+  const [mapVersion, setMapVersion] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
     let detach = () => undefined as void;
     const el = ref.current;
     if (!el) return;
+    setFailed(false);
+    setPhase("loading");
+    setPortalA(null);
+    setPortalB(null);
 
     void (async () => {
       try {
@@ -427,8 +493,7 @@ export function LibreMap({
         } catch {
           /* already set */
         }
-        const startVector = !styleUrl;
-        const style = styleUrl ?? FIORD;
+        const style = styleUrl ?? basemapStyle(requestedBaseRef.current);
         const m = new maplibregl.Map({
           container: el,
           style,
@@ -440,105 +505,134 @@ export function LibreMap({
           keyboard: true,
           dragRotate: false,
           pitchWithRotate: false,
+          touchPitch: false,
         });
-        m.addControl(new maplibregl.NavigationControl({ showCompass: false, visualizePitch: false }), "top-right");
-        m.addControl(new maplibregl.ScaleControl({ maxWidth: 140, unit: "metric" }), "bottom-right");
-        detach = attachStyleFallback(m as never, {
-          relief: false,
-          start: startVector ? "openfreemap" : "osm",
+        // Keep north up for geographic bearings and weather wind staffs.
+        m.touchZoomRotate.disableRotation();
+        m.keyboard.disableRotation();
+        m.addControl(
+          new maplibregl.NavigationControl({ showCompass: false, visualizePitch: false }),
+          "top-right",
+        );
+        m.addControl(
+          new maplibregl.ScaleControl({ maxWidth: 140, unit: "metric" }),
+          "bottom-right",
+        );
+        const fallback = attachStyleFallback(m as never, {
+          start: requestedBaseRef.current,
           onBasemap: (b) => {
             if (cancelled) return;
             setBasemap(b);
-            if (b === "natural-earth") setFailed(true);
+          },
+          onPhase: (p) => {
+            if (!cancelled) setPhase(p);
           },
         });
+        fallbackRef.current = fallback;
+        detach = fallback;
         const syncOverlays = () => {
           const next = overlaysRef.current;
-          applyOverlays(m as unknown as MapHandle, next, overlayIdsRef.current, graticuleRef.current);
-          overlayIdsRef.current = next.map((o) => o.id).concat(graticuleRef.current ? ["graticule"] : []);
+          applyOverlays(
+            m as unknown as MapHandle,
+            next,
+            overlayIdsRef.current,
+            graticuleRef.current,
+          );
+          overlayIdsRef.current = next
+            .map((o) => o.id)
+            .concat(graticuleRef.current ? ["graticule"] : []);
           next.forEach((o) => {
             if (o.labels !== false && !o.fill) overlayIdsRef.current.push(`${o.id}-label`);
           });
         };
         m.on("load", () => {
           m.resize();
-          setReady(true);
+          framePins(m as unknown as MapHandle);
           syncOverlays();
         });
         m.on("style.load", syncOverlays);
-        m.on("click", (e: { lngLat: { lat: number; lng: number }; point: { x: number; y: number } }) => {
-          const layers = overlaysRef.current.map((o) => o.id);
-          const hits =
-            layers.length && m.queryRenderedFeatures
-              ? m.queryRenderedFeatures(e.point as never, { layers })
-              : [];
-          const hit = hits[0];
-          const props = hit?.properties;
-          if (props?.name || props?.title) {
-            featRef.current?.({
-              title: props.title || props.name,
-              note: props.note || "",
-              kind: props.kind || "",
-              lat: e.lngLat.lat,
-              lon: e.lngLat.lng,
-            });
-            try {
-              new maplibregl.Popup({ closeButton: true, maxWidth: "240px", className: "tl-popup" })
-                .setLngLat(e.lngLat)
-                .setHTML(
-                  `<p style="font:500 13px Geist,sans-serif;margin:0 0 4px;color:#F4EFE6">${props.title || props.name}</p>
+        m.on(
+          "click",
+          (e: { lngLat: { lat: number; lng: number }; point: { x: number; y: number } }) => {
+            const layers = overlaysRef.current.map((o) => o.id).filter((id) => m.getLayer(id));
+            const hits =
+              inspectRef.current && layers.length && m.queryRenderedFeatures
+                ? m.queryRenderedFeatures(e.point as never, { layers })
+                : [];
+            const hit = hits[0];
+            const props = hit?.properties;
+            if (props?.name || props?.title) {
+              featRef.current?.({
+                title: props.title || props.name,
+                note: props.note || "",
+                kind: props.kind || "",
+                lat: e.lngLat.lat,
+                lon: e.lngLat.lng,
+              });
+              try {
+                new maplibregl.Popup({
+                  closeButton: true,
+                  maxWidth: "240px",
+                  className: "tl-popup",
+                })
+                  .setLngLat(e.lngLat)
+                  .setHTML(
+                    `<p style="font:500 13px Geist,sans-serif;margin:0 0 4px;color:#F4EFE6">${props.title || props.name}</p>
                    <p style="font:400 12px Geist,sans-serif;margin:0;color:#C4D0CC">${props.note || props.kind || ""}</p>`,
-                )
-                .addTo(m);
-            } catch {
-              /* */
+                  )
+                  .addTo(m);
+              } catch {
+                /* */
+              }
             }
-          }
-          clickRef.current?.({ lat: e.lngLat.lat, lon: e.lngLat.lng });
-        });
+            if (!(featRef.current && (props?.name || props?.title)))
+              clickRef.current?.({
+                lat: e.lngLat.lat,
+                lon: ((((e.lngLat.lng + 180) % 360) + 360) % 360) - 180,
+              });
+          },
+        );
         m.on("mousemove", (e: { lngLat: { lat: number; lng: number } }) => {
           moveRef.current?.({ lat: e.lngLat.lat, lon: e.lngLat.lng });
         });
+        m.on("moveend", () => {
+          const c = m.getCenter();
+          viewRef.current?.({
+            center: [((((c.lng + 180) % 360) + 360) % 360) - 180, c.lat],
+            zoom: m.getZoom(),
+          });
+        });
         if (clickRef.current) m.getCanvas().style.cursor = "crosshair";
         mapRef.current = m as unknown as MapHandle;
-        if (marker) {
-          const mk = new maplibregl.Marker({ color: "#3EE0C6", draggable: draggableMarker }).setLngLat(marker).addTo(m);
-          if (draggableMarker) {
-            mk.on("dragend", () => {
-              const ll = mk.getLngLat();
-              clickRef.current?.({ lat: ll.lat, lon: ll.lng });
-            });
-          }
-          markerRef.current = mk;
-        }
-        if (markerB) {
-          const mkB = new maplibregl.Marker({ color: "#FF6A3D" }).setLngLat(markerB).addTo(m);
-          markerBRef.current = mkB;
-        }
-        const onKey = (ev: KeyboardEvent) => {
-          if (ev.target instanceof HTMLInputElement || ev.target instanceof HTMLTextAreaElement) return;
-          if (ev.key === "+" || ev.key === "=") m.zoomIn();
-          if (ev.key === "-" || ev.key === "_") m.zoomOut();
-        };
-        window.addEventListener("keydown", onKey);
-        const ro = new ResizeObserver(() => m.resize());
+        setMapVersion((n) => n + 1);
+        // MapLibre handles +/- on its focused canvas. A window listener would
+        // zoom every locator on an Atlas comparison and double-handle the key.
+        const ro = new ResizeObserver(() => {
+          m.resize();
+          // A portrait viewport or newly loaded CSS changes the fitted extent.
+          // Keep both readings clear of the map controls after that resize.
+          framePins(m as unknown as MapHandle);
+        });
         ro.observe(el);
         const tResize = [50, 250, 800].map((ms) => window.setTimeout(() => m.resize(), ms));
         const prevDetach = detach;
         detach = () => {
           tResize.forEach((id) => window.clearTimeout(id));
-          window.removeEventListener("keydown", onKey);
           ro.disconnect();
           prevDetach();
         };
       } catch {
-        if (!cancelled) setFailed(true);
+        if (!cancelled) {
+          setFailed(true);
+          setPhase("error");
+        }
       }
     })();
 
     return () => {
       cancelled = true;
       detach();
+      fallbackRef.current = null;
       markerRef.current?.remove();
       markerRef.current = null;
       markerBRef.current?.remove();
@@ -548,69 +642,98 @@ export function LibreMap({
       overlayIdsRef.current = [];
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [styleUrl, draggableMarker]);
+  }, [styleUrl, draggableMarker, retry]);
 
-  const reliefWas = useRef(false);
-  const baseWas = useRef(baseMap);
+  useEffect(() => {
+    fallbackRef.current?.select(requestedBase);
+  }, [requestedBase]);
+
   useEffect(() => {
     const m = mapRef.current;
-    if (!m) return;
-    if (baseMap !== baseWas.current) {
-      try {
-        if (baseMap === "relief") {
-          m.setStyle(OSM_RELIEF_STYLE);
-          setBasemap("relief");
-        } else if (baseMap === "political") {
-          m.setStyle(CARTO_VOYAGER_STYLE);
-          setBasemap("carto");
-        } else if (baseMap === "bathymetry") {
-          m.setStyle(ESRI_OCEAN_STYLE);
-          setBasemap("bathymetry");
-        } else {
-          m.setStyle(FIORD);
-          setBasemap("openfreemap");
-        }
-      } catch {
-        /* */
-      }
-      baseWas.current = baseMap;
-    } else if (relief && !reliefWas.current) {
-      try {
-        m.setStyle(OSM_RELIEF_STYLE);
-        setBasemap("relief");
-      } catch {
-        /* */
-      }
-    } else if (!relief && reliefWas.current && baseMap === "vector") {
-      try {
-        m.setStyle(FIORD);
-        setBasemap("openfreemap");
-      } catch {
-        /* */
-      }
-    }
-    reliefWas.current = relief;
+    if (!m || !m.isStyleLoaded?.()) return;
     applyOverlays(m, overlays, overlayIdsRef.current, graticule);
     overlayIdsRef.current = overlays.map((o) => o.id).concat(graticule ? ["graticule"] : []);
     overlays.forEach((o) => {
       if (o.labels !== false && !o.fill) overlayIdsRef.current.push(`${o.id}-label`);
       if (o.polygon) overlayIdsRef.current.push(`${o.id}-outline`);
     });
-  }, [overlayKey, graticule, relief, baseMap]);
+  }, [overlays, graticule]);
 
   useEffect(() => {
-    mapRef.current?.flyTo({ center, zoom, essential: true });
-  }, [center[0], center[1], zoom]);
+    mapRef.current?.flyTo({ center, zoom, essential: false });
+  }, [center[0], center[1], zoom, mapVersion]);
 
   useEffect(() => {
-    if (!marker || !markerRef.current) return;
-    markerRef.current.setLngLat(marker);
-  }, [marker?.[0], marker?.[1]]);
+    framePins(mapRef.current, 500);
+  }, [
+    fitMarkers,
+    marker?.[0],
+    marker?.[1],
+    markerB?.[0],
+    markerB?.[1],
+    mapVersion,
+    customA,
+    customB,
+  ]);
 
   useEffect(() => {
+    if (markerModes.current.a !== customA) {
+      markerRef.current?.remove();
+      markerRef.current = null;
+      setPortalA(null);
+      markerModes.current.a = customA;
+    }
+    if (!marker) {
+      markerRef.current?.remove();
+      markerRef.current = null;
+      setPortalA(null);
+      return;
+    }
+    if (markerRef.current) {
+      markerRef.current.setLngLat(marker);
+      return;
+    }
+    const m = mapRef.current;
+    if (!m) return;
+    let cancelled = false;
+    void import("maplibre-gl").then((maplibregl) => {
+      if (cancelled || mapRef.current !== m || markerRef.current) return;
+      const element = customA ? document.createElement("div") : undefined;
+      const mk = new maplibregl.Marker({
+        color: "#3EE0C6",
+        draggable: draggableMarker,
+        ...(element ? { element, anchor: "center" as const } : {}),
+      })
+        .setLngLat(marker)
+        .addTo(m as never);
+      if (element) setPortalA(element);
+      mk.getElement().setAttribute("aria-label", "Location A");
+      if (draggableMarker)
+        mk.on("dragend", () => {
+          const ll = mk.getLngLat();
+          (markerDragRef.current ?? clickRef.current)?.({
+            lat: ll.lat,
+            lon: ((((ll.lng + 180) % 360) + 360) % 360) - 180,
+          });
+        });
+      markerRef.current = mk;
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [marker?.[0], marker?.[1], mapVersion, draggableMarker, customA]);
+
+  useEffect(() => {
+    if (markerModes.current.b !== customB) {
+      markerBRef.current?.remove();
+      markerBRef.current = null;
+      setPortalB(null);
+      markerModes.current.b = customB;
+    }
     if (!markerB) {
       markerBRef.current?.remove();
       markerBRef.current = null;
+      setPortalB(null);
       return;
     }
     if (markerBRef.current) {
@@ -619,32 +742,67 @@ export function LibreMap({
     }
     const m = mapRef.current;
     if (!m) return;
+    let cancelled = false;
     void import("maplibre-gl").then((maplibregl) => {
-      if (!mapRef.current || markerBRef.current) return;
-      const mkB = new maplibregl.Marker({ color: "#FF6A3D" }).setLngLat(markerB).addTo(m as never);
+      if (cancelled || mapRef.current !== m || markerBRef.current) return;
+      const element = customB ? document.createElement("div") : undefined;
+      const mkB = new maplibregl.Marker({
+        color: "#FF6A3D",
+        ...(element ? { element, anchor: "center" as const } : {}),
+      })
+        .setLngLat(markerB)
+        .addTo(m as never);
+      if (element) setPortalB(element);
+      mkB.getElement().setAttribute("aria-label", "Location B");
       markerBRef.current = mkB;
     });
-  }, [markerB?.[0], markerB?.[1]]);
+    return () => {
+      cancelled = true;
+    };
+  }, [markerB?.[0], markerB?.[1], mapVersion, customB]);
 
   const credit = basemap ? CREDIT[basemap] : null;
 
   return (
-    <div className="relative">
+    <div className="relative" data-basemap={basemap ?? "loading"} data-map-phase={phase}>
+      {portalA && marker && createPortal(markerContent, portalA)}
+      {portalB && markerB && createPortal(markerBContent, portalB)}
       <div className={`relative min-h-[16rem] ${className}`}>
-        <StaticCoast className="h-full w-full" hidden={ready && !failed} />
-        <div ref={ref} className="absolute inset-0 h-full w-full min-h-[16rem]" role="img" aria-label={label ?? "Map"} />
+        {failed && <StaticCoast className="h-full w-full" hidden={false} />}
+        <div
+          ref={ref}
+          onWheelCapture={pageScrollUnlessCtrl}
+          data-wheel-zoom="ctrl"
+          title={"Drag to pan · Ctrl + scroll to zoom · pinch on touch screens"}
+          className="absolute inset-0 h-full w-full min-h-[16rem]"
+          role="region"
+          aria-label={label ?? "Interactive map"}
+        />
       </div>
-      {credit && (
-        <p className="pointer-events-none absolute bottom-8 left-2 right-28 rounded-full border border-white/10 bg-basalt/85 px-3 py-1 font-mono text-[10px] text-mist backdrop-blur-md md:bottom-2">
-          {credit}
-        </p>
-      )}
-      {failed && (
-        <p className="mt-2 text-sm text-sandstone">
-          Online tiles did not load. Showing Natural Earth coastlines so the map is still usable.
-          Pan, pinch, double-click zoom, and keyboard +/− still work. Overlays still draw.
-        </p>
-      )}
+      {credit && <p className="mt-2 font-mono text-xs leading-5 text-mist">{credit}</p>}
+      <div role="status" aria-live="polite" className="mt-2 text-sm leading-6 text-mist">
+        {phase === "loading" && (
+          <LoadingProgress
+            label={"Loading the basemap"}
+            detail="Preparing map style and visible tiles…"
+          />
+        )}
+        {phase === "offline" &&
+          "Online tiles are unavailable. Local coastlines remain interactive; street detail is unavailable."}
+        {phase === "error" &&
+          (failed
+            ? "Interactive mapping is unavailable in this browser. The world overview is static."
+            : "The basemap could not load. Try again when the connection is available.")}
+        {(phase === "offline" || phase === "error") && (
+          <button
+            type="button"
+            className="ml-2 min-h-11 px-3 text-glacier underline"
+            onClick={() => setRetry((n) => n + 1)}
+          >
+            {"Retry map"}
+          </button>
+        )}
+      </div>
     </div>
   );
 }

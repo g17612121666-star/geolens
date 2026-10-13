@@ -1,0 +1,35 @@
+[
+  {
+    "id": "grid-references-1",
+    "title": "File:Yosemite-creek-campground-topo.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yosemite-creek-campground-topo.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Yosemite-creek-campground-topo.jpg/1280px-Yosemite-creek-campground-topo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "USGS",
+    "description": "Topographic Map of a section of Yosemite Creek and Yosemite National Park — showing Yosemite Creek Campground, located south of the Tioga Road, on the creek.\n\nA trailhead for the hiking trail downstream to the top of Yosemite Falls is located here.",
+    "categories": "Yosemite Creek|Views from Tioga Road|Yosemite Creek Campground|PD USGS|Topographic maps of Yosemite National Park"
+  },
+  {
+    "id": "grid-references-2",
+    "title": "File:United States Geological Survey Map Yosemite, Published 1958.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:United_States_Geological_Survey_Map_Yosemite,_Published_1958.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/United_States_Geological_Survey_Map_Yosemite%2C_Published_1958.jpg/1280px-United_States_Geological_Survey_Map_Yosemite%2C_Published_1958.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "United States Department of the Interior Geological Survey",
+    "description": "Topgraphic map of Yosemite National Park, California",
+    "categories": "PD US Government|Topographic maps of California|Large images|CC-PD-Mark|Topographic maps of Yosemite National Park"
+  },
+  {
+    "id": "grid-references-3",
+    "title": "File:Yosemite 1894 1-125,000 - PCL Map Collection - txu-pclmaps-topo-ca-yosemite-1894.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yosemite_1894_1-125,000_-_PCL_Map_Collection_-_txu-pclmaps-topo-ca-yosemite-1894.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Yosemite_1894_1-125%2C000_-_PCL_Map_Collection_-_txu-pclmaps-topo-ca-yosemite-1894.jpg/1280px-Yosemite_1894_1-125%2C000_-_PCL_Map_Collection_-_txu-pclmaps-topo-ca-yosemite-1894.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "United States Geological Survey",
+    "description": "Yosemite 1894 1:125,000 (4.1MB) - California Topographic Maps",
+    "categories": "Maps in the Perry-Castañeda Library|USGS topographic maps of California|Uploaded with OpenRefine|PD USGS|Media needing category review as of 20 April 2025"
+  }
+]

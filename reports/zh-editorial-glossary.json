@@ -1,0 +1,5006 @@
+[
+  {
+    "term": {
+      "id": 281,
+      "key": "A horizon",
+      "zh": "A 层（表土层）"
+    },
+    "def": {
+      "id": 822,
+      "key": "A mineral soil horizon near the surface, usually darkened by organic matter mixed with mineral particles.",
+      "zh": "靠近地表的矿质土层，通常因有机质与矿物颗粒混合而颜色较深。"
+    }
+  },
+  {
+    "term": {
+      "id": 282,
+      "key": "Abrasion",
+      "zh": "磨蚀"
+    },
+    "def": {
+      "id": 823,
+      "key": "Wearing away of rock by sediment carried against it by water, wind or ice; also called corrasion.",
+      "zh": "水、风或冰搬运的沉积物摩擦、撞击岩石，使其磨损的作用，也称磨蚀作用。"
+    }
+  },
+  {
+    "term": {
+      "id": 283,
+      "key": "Absorption",
+      "zh": "吸收"
+    },
+    "def": {
+      "id": 824,
+      "key": "Radiation taken up by a surface or gas and converted to energy in that matter.",
+      "zh": "地表或气体接收入射辐射，并将其转化为自身能量的过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 284,
+      "key": "Abstraction",
+      "zh": "取水"
+    },
+    "def": {
+      "id": 825,
+      "key": "Human removal of water from a store.",
+      "zh": "人类从水体或其他水储库中取用水。"
+    }
+  },
+  {
+    "term": {
+      "id": 285,
+      "key": "Active layer",
+      "zh": "活动层"
+    },
+    "def": {
+      "id": 826,
+      "key": "The surface layer above permafrost that thaws seasonally and freezes again.",
+      "zh": "多年冻土上方随季节解冻、又重新冻结的地表土层。"
+    }
+  },
+  {
+    "term": {
+      "id": 286,
+      "key": "Adiabatic cooling",
+      "zh": "绝热冷却"
+    },
+    "def": {
+      "id": 827,
+      "key": "Cooling as an air parcel expands when pressure falls, without exchanging heat with its surroundings. Rising air commonly cools this way.",
+      "zh": "气块在气压降低时膨胀，在不与周围交换热量的情况下冷却。上升空气通常以这种方式降温。"
+    }
+  },
+  {
+    "term": {
+      "id": 287,
+      "key": "Af",
+      "zh": "Af 热带雨林气候"
+    },
+    "def": {
+      "id": 828,
+      "key": "Köppen tropical rainforest climate: every month averages at least 18 °C and receives at least 60 mm of precipitation.",
+      "zh": "柯本热带雨林气候：各月平均气温均不低于 18 °C，且各月降水量均不少于 60 mm。"
+    }
+  },
+  {
+    "term": {
+      "id": 288,
+      "key": "Age-progressive chain",
+      "zh": "年龄递变火山链"
+    },
+    "def": {
+      "id": 829,
+      "key": "Volcanoes that get older away from the active centre, recording plate motion.",
+      "zh": "离活动中心越远、年龄通常越老的一列火山，可记录板块的运动。"
+    }
+  },
+  {
+    "term": {
+      "id": 289,
+      "key": "Air mass",
+      "zh": "气团"
+    },
+    "def": {
+      "id": 830,
+      "key": "A large body of air with broadly similar temperature and moisture characteristics acquired over a source region.",
+      "zh": "在源地形成、温度和湿度特征大致相近的大范围空气。"
+    }
+  },
+  {
+    "term": {
+      "id": 290,
+      "key": "Albedo",
+      "zh": "反照率"
+    },
+    "def": {
+      "id": 831,
+      "key": "Fraction of incoming shortwave reflected by a surface. Fresh snow high; dark peat low.",
+      "zh": "地表反射的短波辐射占入射短波辐射的比例。新雪反照率较高，深色泥炭较低。"
+    }
+  },
+  {
+    "term": {
+      "id": 291,
+      "key": "Anticline",
+      "zh": "背斜"
+    },
+    "def": {
+      "id": 832,
+      "key": "A fold with the oldest rocks in its core. In a simple upright anticline, the layers arch upwards and dip away from the centre; overturned folds can have different geometry.",
+      "zh": "核部岩层较老的褶皱。直立背斜通常向上拱起、两翼向外倾斜；倒转褶皱的外形可能不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 292,
+      "key": "Anticyclone",
+      "zh": "反气旋"
+    },
+    "def": {
+      "id": 833,
+      "key": "High-pressure system. Sinking air, often clearer, not a sunshine guarantee in winter fog.",
+      "zh": "高气压系统，常伴随空气下沉和较晴朗的天气；冬季也可能出现雾，晴天并非必然。"
+    }
+  },
+  {
+    "term": {
+      "id": 293,
+      "key": "Appalachians",
+      "zh": "阿巴拉契亚山脉"
+    },
+    "def": {
+      "id": 834,
+      "key": "An ancient mountain belt in eastern North America, assembled through several Palaeozoic collisions during the closing of oceans and formation of Pangaea.",
+      "zh": "北美东部的古老山系，由古生代多次大陆碰撞、海洋闭合及盘古大陆形成过程塑造。"
+    }
+  },
+  {
+    "term": {
+      "id": 294,
+      "key": "Aquifer",
+      "zh": "含水层"
+    },
+    "def": {
+      "id": 835,
+      "key": "Rock or sediment that stores and yields useful water.",
+      "zh": "能够储存并向水井或泉提供有用水量的岩石或沉积物层。"
+    }
+  },
+  {
+    "term": {
+      "id": 295,
+      "key": "Aquitard",
+      "zh": "弱透水层"
+    },
+    "def": {
+      "id": 836,
+      "key": "A layer of rock or sediment with low permeability that slows groundwater flow. It may confine an aquifer without being completely impermeable.",
+      "zh": "渗透性较低、能减缓地下水流动的地层，可形成承压条件，但不一定完全不透水。"
+    }
+  },
+  {
+    "term": {
+      "id": 296,
+      "key": "Arête",
+      "zh": "刃脊"
+    },
+    "def": {
+      "id": 837,
+      "key": "A narrow, sharp ridge formed where glaciers erode adjoining valleys or cirques. Striding Edge in the Lake District is an example.",
+      "zh": "相邻冰斗或冰川谷侵蚀后留下的狭窄尖锐山脊，例如英国湖区的 Striding Edge。"
+    }
+  },
+  {
+    "term": {
+      "id": 297,
+      "key": "Asthenosphere",
+      "zh": "软流圈"
+    },
+    "def": {
+      "id": 838,
+      "key": "A mechanically weak part of the upper mantle beneath the lithosphere. It is predominantly solid rock that deforms slowly over geological time.",
+      "zh": "岩石圈下方较软弱的上地幔，主要为固态，在地质时间尺度上可发生缓慢蠕变。"
+    }
+  },
+  {
+    "term": {
+      "id": 298,
+      "key": "Astronomical unit",
+      "zh": "天文单位"
+    },
+    "def": {
+      "id": 839,
+      "key": "A defined length of 149,597,870,700 m, approximately Earth's mean distance from the Sun; abbreviated au or AU.",
+      "zh": "天文单位，定义为 149,597,870,700 m，约为日地平均距离，符号 au 或 AU。"
+    }
+  },
+  {
+    "term": {
+      "id": 299,
+      "key": "Attrition",
+      "zh": "磨圆作用"
+    },
+    "def": {
+      "id": 840,
+      "key": "Load particles colliding and rounding each other.",
+      "zh": "搬运中的颗粒相互碰撞、磨损，逐渐变小、变圆的过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 300,
+      "key": "Axial tilt",
+      "zh": "地轴倾角"
+    },
+    "def": {
+      "id": 841,
+      "key": "The angle between a body's rotation axis and the perpendicular to its orbital plane. Earth's tilt is about 23.44°, and its axis keeps nearly the same direction over one orbit.",
+      "zh": "自转轴与公转轨道面法线的夹角。地球约为 23.44°；在一年中，地轴大致指向同一方向。"
+    }
+  },
+  {
+    "term": {
+      "id": 301,
+      "key": "B horizon",
+      "zh": "B 层（淀积层）"
+    },
+    "def": {
+      "id": 842,
+      "key": "Subsoil where materials accumulate. Colour and clay often change here.",
+      "zh": "常表现出物质淀积、颜色变化或黏土增加等特征的下部土层。"
+    }
+  },
+  {
+    "term": {
+      "id": 302,
+      "key": "Backslope",
+      "zh": "坡背"
+    },
+    "def": {
+      "id": 843,
+      "key": "The main, usually steep section of a hillslope between its shoulder and footslope; material commonly moves through it downslope.",
+      "zh": "坡肩与坡脚之间的主要陡坡段，水和松散物质常由此向下移动。"
+    }
+  },
+  {
+    "term": {
+      "id": 303,
+      "key": "Barchan",
+      "zh": "新月形沙丘"
+    },
+    "def": {
+      "id": 844,
+      "key": "A crescent-shaped dune formed where sand supply is limited and wind mainly blows from one direction. Its horns extend downwind.",
+      "zh": "沙源较少、主导风向较稳定时形成的新月形沙丘，两端通常指向下风方向。"
+    }
+  },
+  {
+    "term": {
+      "id": 304,
+      "key": "Barrier",
+      "zh": "屏障"
+    },
+    "def": {
+      "id": 845,
+      "key": "In a rain-shadow model, high ground that forces approaching air to rise; its height and orientation influence uplift.",
+      "zh": "雨影效应中迫使空气抬升的高地。地形高度及其相对风向的朝向都会影响抬升。"
+    }
+  },
+  {
+    "term": {
+      "id": 305,
+      "key": "Barrier island",
+      "zh": "障壁岛"
+    },
+    "def": {
+      "id": 846,
+      "key": "An elongated sandy island lying roughly parallel to the coast, separated from the mainland by a lagoon or other shallow water.",
+      "zh": "大致平行于海岸的狭长沙质岛屿，通常与陆地之间隔着潟湖。"
+    }
+  },
+  {
+    "term": {
+      "id": 306,
+      "key": "Basalt",
+      "zh": "玄武岩"
+    },
+    "def": {
+      "id": 847,
+      "key": "A fine-grained volcanic rock rich in iron- and magnesium-bearing minerals. Basaltic magma is generally less viscous than silica-rich magma.",
+      "zh": "富含铁、镁的细粒火山岩。与富硅岩浆相比，玄武质岩浆的黏度通常较低。"
+    }
+  },
+  {
+    "term": {
+      "id": 307,
+      "key": "Baseflow",
+      "zh": "基流"
+    },
+    "def": {
+      "id": 848,
+      "key": "The sustained part of river discharge supplied mainly by groundwater and other delayed stores between rainfall events.",
+      "zh": "主要由地下水及其他延迟储水补给、在降雨间歇期维持河流流量的部分。"
+    }
+  },
+  {
+    "term": {
+      "id": 308,
+      "key": "Basin",
+      "zh": "盆地"
+    },
+    "def": {
+      "id": 849,
+      "key": "A low area surrounded by higher ground. A drainage basin is the land area that sends water to a particular river, lake or other outlet.",
+      "zh": "周围地势较高的低地；流域则指将水汇向同一出口的集水区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 309,
+      "key": "Beheaded stream",
+      "zh": "断头河"
+    },
+    "def": {
+      "id": 850,
+      "key": "A stream whose former headwaters have been diverted into another drainage system by river capture.",
+      "zh": "上游水源因河流袭夺而被引走的河流。"
+    }
+  },
+  {
+    "term": {
+      "id": 310,
+      "key": "Biological weathering",
+      "zh": "生物风化"
+    },
+    "def": {
+      "id": 851,
+      "key": "Living agents: roots, lichens, burrowers. Mechanical and chemical work by organisms.",
+      "zh": "植物根系、地衣或穴居动物等生物引起或促进的物理、化学风化。"
+    }
+  },
+  {
+    "term": {
+      "id": 311,
+      "key": "Biome",
+      "zh": "生物群系"
+    },
+    "def": {
+      "id": 852,
+      "key": "A large ecological region characterised by its vegetation and associated organisms, influenced strongly by climate, soils and disturbance.",
+      "zh": "由气候、土壤及干扰等共同影响，以主要植被和生物群落为特征的大型生态区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 312,
+      "key": "Blockfield",
+      "zh": "石海"
+    },
+    "def": {
+      "id": 853,
+      "key": "A sheet of frost-shattered blocks on a plateau.",
+      "zh": "大量岩块覆盖的地表，常见于受冻裂风化影响的高地或高原。"
+    }
+  },
+  {
+    "term": {
+      "id": 313,
+      "key": "Buys Ballot’s law",
+      "zh": "白贝罗定律"
+    },
+    "def": {
+      "id": 854,
+      "key": "With your back to the wind in the Northern Hemisphere, lower pressure generally lies to your left; the relation reverses in the Southern Hemisphere. Surface friction modifies the angle.",
+      "zh": "背风而立时，北半球低压大致在左侧，南半球相反；近地面摩擦会使关系有所偏转。"
+    }
+  },
+  {
+    "term": {
+      "id": 314,
+      "key": "BWh",
+      "zh": "BWh 热带沙漠气候"
+    },
+    "def": {
+      "id": 855,
+      "key": "Köppen hot desert climate: precipitation falls below the desert aridity threshold and mean annual temperature is at least 18 °C.",
+      "zh": "柯本热沙漠气候：降水低于沙漠干旱阈值，年平均气温不低于 18 °C。"
+    }
+  },
+  {
+    "term": {
+      "id": 315,
+      "key": "Caldera",
+      "zh": "破火山口"
+    },
+    "def": {
+      "id": 856,
+      "key": "A large volcanic depression formed mainly when the ground collapses into an underlying magma reservoir after magma is withdrawn.",
+      "zh": "岩浆大量移出储库后，上方地面塌陷形成的大型火山洼地。"
+    }
+  },
+  {
+    "term": {
+      "id": 316,
+      "key": "Caledonides",
+      "zh": "加里东山系"
+    },
+    "def": {
+      "id": 857,
+      "key": "An ancient mountain belt formed during Palaeozoic continental collisions, now exposed in places including Scotland, Scandinavia and Greenland.",
+      "zh": "古生代大陆碰撞形成的古老山系，其遗迹见于苏格兰、斯堪的纳维亚和格陵兰等地。"
+    }
+  },
+  {
+    "term": {
+      "id": 317,
+      "key": "Cambrian",
+      "zh": "寒武纪"
+    },
+    "def": {
+      "id": 858,
+      "key": "The earliest period of the Palaeozoic Era, beginning about 539 million years ago; its rocks record a major diversification of animal life.",
+      "zh": "古生代最早的纪，开始于约 5.39 亿年前，期间动物发生显著多样化。"
+    }
+  },
+  {
+    "term": {
+      "id": 318,
+      "key": "Canary Current",
+      "zh": "加那利寒流"
+    },
+    "def": {
+      "id": 859,
+      "key": "Cooler eastern-boundary current of the North Atlantic gyre.",
+      "zh": "北大西洋东部边界较冷的洋流。"
+    }
+  },
+  {
+    "term": {
+      "id": 319,
+      "key": "Canyon",
+      "zh": "峡谷"
+    },
+    "def": {
+      "id": 860,
+      "key": "A deep, steep-sided incision, often cut into a plateau. The hole, not the host landform.",
+      "zh": "通常由河流下切形成的深而陡的峡谷，常见于高原；峡谷是切入地表的谷地，不是高原本身。"
+    }
+  },
+  {
+    "term": {
+      "id": 320,
+      "key": "Carbonation",
+      "zh": "碳酸溶蚀"
+    },
+    "def": {
+      "id": 861,
+      "key": "Chemical weathering in which dissolved carbon dioxide forms weak carbonic acid that reacts with carbonate minerals such as calcite.",
+      "zh": "二氧化碳溶于水形成弱碳酸，并与方解石等碳酸盐矿物反应的过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 321,
+      "key": "Catena",
+      "zh": "土壤链"
+    },
+    "def": {
+      "id": 862,
+      "key": "A sequence of soils down a slope, linked by water and sediment.",
+      "zh": "同一坡面上因水和沉积物迁移而相互联系的一系列土壤。"
+    }
+  },
+  {
+    "term": {
+      "id": 322,
+      "key": "Cfb",
+      "zh": "Cfb 温带海洋性气候"
+    },
+    "def": {
+      "id": 863,
+      "key": "Köppen temperate oceanic climate, with no dry season and warm rather than hot summers. London is a familiar example.",
+      "zh": "柯本温带海洋性气候，无明显干季，夏季温和。伦敦是常见例子。"
+    }
+  },
+  {
+    "term": {
+      "id": 323,
+      "key": "Chemical weathering",
+      "zh": "化学风化"
+    },
+    "def": {
+      "id": 864,
+      "key": "Change the minerals. Carbonation, hydrolysis, oxidation.",
+      "zh": "通过碳酸化、水解、氧化等反应改变矿物成分的风化作用。"
+    }
+  },
+  {
+    "term": {
+      "id": 324,
+      "key": "Cirque",
+      "zh": "冰斗"
+    },
+    "def": {
+      "id": 865,
+      "key": "A bowl-shaped hollow with steep sides at the head of a glacial valley, enlarged by ice erosion and weathering. A lake, called a tarn, may occupy it after the ice retreats.",
+      "zh": "山地冰川源头常见的陡壁碗状洼地，由冰川侵蚀和风化共同形成；冰川退去后可积水成冰斗湖。"
+    }
+  },
+  {
+    "term": {
+      "id": 325,
+      "key": "Clay",
+      "zh": "黏土"
+    },
+    "def": {
+      "id": 866,
+      "key": "The finest soil mineral particles, less than 0.002 mm across in the USDA system. Their large surface area strongly affects water and nutrient retention.",
+      "zh": "按美国农业部粒级标准，粒径小于 0.002 mm 的颗粒。比表面积大，常有较强的保水、保肥能力。"
+    }
+  },
+  {
+    "term": {
+      "id": 326,
+      "key": "Climate",
+      "zh": "气候"
+    },
+    "def": {
+      "id": 867,
+      "key": "The statistical pattern of weather over a long period, commonly 30 years, including averages, seasonal variation and extremes.",
+      "zh": "天气的长期统计特征，常以 30 年为参考时段，包括平均状况、季节变化及极端事件。"
+    }
+  },
+  {
+    "term": {
+      "id": 327,
+      "key": "Clint",
+      "zh": "石灰岩块"
+    },
+    "def": {
+      "id": 868,
+      "key": "The block on a limestone pavement.",
+      "zh": "石灰岩溶沟之间保留下来的块状岩面。"
+    }
+  },
+  {
+    "term": {
+      "id": 328,
+      "key": "Cold front",
+      "zh": "冷锋"
+    },
+    "def": {
+      "id": 869,
+      "key": "The advancing boundary of a colder air mass that displaces warmer air. Uplift near the front can produce cloud and rain, with weather depending on moisture and stability.",
+      "zh": "冷空气推进并迫使暖空气抬升的边界。云雨发展还取决于水汽和大气稳定度。"
+    }
+  },
+  {
+    "term": {
+      "id": 329,
+      "key": "Colluvium",
+      "zh": "坡积物"
+    },
+    "def": {
+      "id": 870,
+      "key": "Sediment moved downslope by gravity and wash, dumped toward the toe.",
+      "zh": "主要由重力和坡面冲刷搬运，在坡下或坡脚堆积的松散物质。"
+    }
+  },
+  {
+    "term": {
+      "id": 330,
+      "key": "Comma cloud",
+      "zh": "逗点云"
+    },
+    "def": {
+      "id": 871,
+      "key": "A curved, comma-like cloud pattern often seen in satellite views of developing or mature extratropical cyclones.",
+      "zh": "温带气旋中常在卫星图像上出现的逗号状云系。"
+    }
+  },
+  {
+    "term": {
+      "id": 331,
+      "key": "Competence",
+      "zh": "搬运能力（最大粒径）"
+    },
+    "def": {
+      "id": 872,
+      "key": "Largest particle the flow can move.",
+      "zh": "水流能够搬运的最大颗粒粒径。"
+    }
+  },
+  {
+    "term": {
+      "id": 332,
+      "key": "Compromise projection",
+      "zh": "折衷投影"
+    },
+    "def": {
+      "id": 873,
+      "key": "A map projection that balances several kinds of distortion without preserving any one property exactly everywhere.",
+      "zh": "在面积、形状、距离等变形之间折中的地图投影，无法在全球范围完全保持其中所有性质。"
+    }
+  },
+  {
+    "term": {
+      "id": 333,
+      "key": "Conduit",
+      "zh": "通道"
+    },
+    "def": {
+      "id": 874,
+      "key": "A passage through which magma and volcanic gases rise towards an eruptive vent.",
+      "zh": "岩浆和气体通向火山喷口的通道。"
+    }
+  },
+  {
+    "term": {
+      "id": 334,
+      "key": "Cone of depression",
+      "zh": "降落漏斗"
+    },
+    "def": {
+      "id": 875,
+      "key": "Lowering of the table around a pumping well.",
+      "zh": "抽水井周围地下水位降低形成的漏斗状区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 335,
+      "key": "Confined aquifer",
+      "zh": "承压含水层"
+    },
+    "def": {
+      "id": 876,
+      "key": "A saturated permeable layer bounded above by a low-permeability layer. Water in a well rises to its pressure level, which may or may not reach the ground surface.",
+      "zh": "上覆低渗透层的饱和含水层。井中水位可上升至相应压力水头，但不一定高于地面。"
+    }
+  },
+  {
+    "term": {
+      "id": 336,
+      "key": "Confluence",
+      "zh": "汇流点"
+    },
+    "def": {
+      "id": 877,
+      "key": "The meeting of two streams.",
+      "zh": "两条河流或溪流汇合的位置。"
+    }
+  },
+  {
+    "term": {
+      "id": 337,
+      "key": "Conformal",
+      "zh": "保角"
+    },
+    "def": {
+      "id": 878,
+      "key": "Preserves local shape and angles. Area then takes the hit.",
+      "zh": "局部保持角度及微小形状的投影性质，通常会产生面积变形。"
+    }
+  },
+  {
+    "term": {
+      "id": 338,
+      "key": "Constructive wave",
+      "zh": "建设性波浪"
+    },
+    "def": {
+      "id": 879,
+      "key": "Strong swash, weaker backwash. Can build a berm.",
+      "zh": "教学分类中上冲作用较强、回流较弱，往往有利于海滩和滩脊堆积的波浪。"
+    }
+  },
+  {
+    "term": {
+      "id": 117,
+      "key": "Continental drift",
+      "zh": "大陆漂移"
+    },
+    "def": {
+      "id": 880,
+      "key": "Wegener’s description of moving continents. Plates are the mechanism he lacked.",
+      "zh": "魏格纳提出的大陆相对移动概念；当时尚未建立现代板块构造机制。"
+    }
+  },
+  {
+    "term": {
+      "id": 339,
+      "key": "Continental shelf",
+      "zh": "大陆架"
+    },
+    "def": {
+      "id": 881,
+      "key": "The gently sloping, submerged outer part of a continent, extending from the coast to the shelf break.",
+      "zh": "从海岸延伸至陆架坡折处、坡度较缓的水下大陆边缘。"
+    }
+  },
+  {
+    "term": {
+      "id": 340,
+      "key": "Continentality",
+      "zh": "大陆性"
+    },
+    "def": {
+      "id": 882,
+      "key": "How much a place’s temperature range is set by inland position rather than ocean.",
+      "zh": "远离海洋后，因海洋调节减弱而出现的气候特征，常表现为更大的温度变化幅度。"
+    }
+  },
+  {
+    "term": {
+      "id": 341,
+      "key": "Contour",
+      "zh": "等高线"
+    },
+    "def": {
+      "id": 883,
+      "key": "Line joining points of equal height above datum.",
+      "zh": "地图上连接同一基准面以上相同高度位置的线。"
+    }
+  },
+  {
+    "term": {
+      "id": 342,
+      "key": "Contour interval",
+      "zh": "等高距"
+    },
+    "def": {
+      "id": 884,
+      "key": "The height step between adjacent contours.",
+      "zh": "相邻等高线之间的高度差。"
+    }
+  },
+  {
+    "term": {
+      "id": 343,
+      "key": "Convergence",
+      "zh": "辐合"
+    },
+    "def": {
+      "id": 885,
+      "key": "Air flowing together. At a surface low it feeds rise.",
+      "zh": "空气在水平方向汇聚，近地面低压中的辐合常有助于上升运动。"
+    }
+  },
+  {
+    "term": {
+      "id": 344,
+      "key": "Convergent",
+      "zh": "汇聚边界"
+    },
+    "def": {
+      "id": 886,
+      "key": "Plates move together. Subduction or collision.",
+      "zh": "板块相向运动的边界，可发生俯冲或大陆碰撞。"
+    }
+  },
+  {
+    "term": {
+      "id": 345,
+      "key": "Conveyor",
+      "zh": "输送环流"
+    },
+    "def": {
+      "id": 887,
+      "key": "A simplified description of interconnected deep and surface ocean circulation. Real flow involves branching currents, mixing, winds and density differences.",
+      "zh": "将深层与表层洋流联系起来的简化传送带比喻。真实环流会分支、混合，并受风和密度共同影响。"
+    }
+  },
+  {
+    "term": {
+      "id": 346,
+      "key": "Coriolis",
+      "zh": "科里奥利效应"
+    },
+    "def": {
+      "id": 888,
+      "key": "An apparent acceleration in a rotating reference frame. For horizontal motion on Earth it deflects flow right in the Northern Hemisphere and left in the Southern; that horizontal component vanishes at the equator.",
+      "zh": "旋转参考系中的表观加速度。水平运动在北半球偏右、南半球偏左；赤道处相应的水平偏转分量为零。"
+    }
+  },
+  {
+    "term": {
+      "id": 347,
+      "key": "Cover",
+      "zh": "植被覆盖"
+    },
+    "def": {
+      "id": 889,
+      "key": "Vegetation or residue that intercepts splash and raises roughness.",
+      "zh": "覆盖地面的植被或残体，可截留雨滴、减弱溅蚀并增加地表粗糙度。"
+    }
+  },
+  {
+    "term": {
+      "id": 348,
+      "key": "Crest",
+      "zh": "坡顶"
+    },
+    "def": {
+      "id": 890,
+      "key": "The highest part of a hill or ridge. Soil thickness and drainage there depend on the local relief, geology and climate.",
+      "zh": "山丘或山脊的最高部位，其土壤和排水还取决于当地地质、地形与气候。"
+    }
+  },
+  {
+    "term": {
+      "id": 349,
+      "key": "Crown",
+      "zh": "滑坡顶缘"
+    },
+    "def": {
+      "id": 891,
+      "key": "The upslope crack and head of the failed block.",
+      "zh": "滑坡体上缘的裂缝或后缘区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 350,
+      "key": "Crust",
+      "zh": "地壳"
+    },
+    "def": {
+      "id": 892,
+      "key": "Earth's outermost compositional layer of solid rock. Oceanic crust averages about 7 km thick; continental crust commonly spans roughly 30–70 km.",
+      "zh": "地球最外侧的固态成分圈层。洋壳平均约 7 km 厚，大陆地壳常约 30–70 km 厚。"
+    }
+  },
+  {
+    "term": {
+      "id": 351,
+      "key": "Curie point",
+      "zh": "居里点"
+    },
+    "def": {
+      "id": 893,
+      "key": "The temperature above which a material loses its spontaneous ferromagnetic or ferrimagnetic ordering; about 580 °C for pure magnetite.",
+      "zh": "铁磁或亚铁磁物质失去自发磁有序的温度。磁铁矿约为 580 °C。"
+    }
+  },
+  {
+    "term": {
+      "id": 352,
+      "key": "Cut bank",
+      "zh": "侵蚀岸"
+    },
+    "def": {
+      "id": 894,
+      "key": "The outer bank, eroded by faster flow.",
+      "zh": "曲流外侧常受侵蚀的河岸，通常与较强水流及河道内的三维流动有关。"
+    }
+  },
+  {
+    "term": {
+      "id": 353,
+      "key": "Cyclone",
+      "zh": "气旋"
+    },
+    "def": {
+      "id": 895,
+      "key": "A circulation around a low-pressure centre: anticlockwise in the Northern Hemisphere and clockwise in the Southern. Tropical and extratropical cyclones form through different processes.",
+      "zh": "低气压系统，北半球通常逆时针、南半球通常顺时针旋转；热带与温带气旋的形成机制不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 354,
+      "key": "Dam regulation",
+      "zh": "水坝调节"
+    },
+    "def": {
+      "id": 896,
+      "key": "Changes to a river's discharge timing and magnitude caused by storing and releasing water from a reservoir.",
+      "zh": "水库蓄泄改变河流流量的大小及其时间分布。"
+    }
+  },
+  {
+    "term": {
+      "id": 355,
+      "key": "Day length",
+      "zh": "昼长"
+    },
+    "def": {
+      "id": 897,
+      "key": "Hours the Sun is above the horizon. Near 12 h at the equator. A wide swing at London.",
+      "zh": "太阳位于地平线以上的时长。赤道附近约 12 小时，较高纬度随季节变化明显。"
+    }
+  },
+  {
+    "term": {
+      "id": 356,
+      "key": "Declination",
+      "zh": "太阳赤纬"
+    },
+    "def": {
+      "id": 898,
+      "key": "The latitude where the Sun is overhead at noon. It travels between 23.44°N and 23.44°S.",
+      "zh": "太阳直射点所在的纬度，一年中大约在南北纬 23.44° 之间变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 357,
+      "key": "Deep time",
+      "zh": "地质深时"
+    },
+    "def": {
+      "id": 899,
+      "key": "The immense timespan of geological history, extending back about 4.54 billion years to Earth's formation.",
+      "zh": "描述地球约 45.4 亿年历史的漫长地质时间尺度。"
+    }
+  },
+  {
+    "term": {
+      "id": 358,
+      "key": "Deep water formation",
+      "zh": "深层水形成"
+    },
+    "def": {
+      "id": 900,
+      "key": "Sinking where the surface becomes dense enough. High-latitude seas, not equatorial shallows.",
+      "zh": "高纬度海水增密、下沉并形成深层水的过程，不是赤道浅海中的普遍下沉。"
+    }
+  },
+  {
+    "term": {
+      "id": 359,
+      "key": "Deflation",
+      "zh": "吹蚀"
+    },
+    "def": {
+      "id": 901,
+      "key": "Wind lifting and removing loose particles from a surface.",
+      "zh": "风吹走地表松散颗粒的过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 360,
+      "key": "Delta",
+      "zh": "三角洲"
+    },
+    "def": {
+      "id": 902,
+      "key": "A body of sediment built where a river enters a sea or lake and deposits enough material to accumulate. Distributary channels often cross its surface.",
+      "zh": "河流进入海洋或湖泊时，沉积物累积形成的地貌，常有分流河道。"
+    }
+  },
+  {
+    "term": {
+      "id": 361,
+      "key": "Density",
+      "zh": "密度"
+    },
+    "def": {
+      "id": 903,
+      "key": "Mass divided by volume, measured in kg m⁻³. In most ocean conditions, cooling or increasing salinity makes seawater denser.",
+      "zh": "单位体积的质量，SI 单位为 kg/m³。多数海洋条件下，降温或盐度增加会使海水密度增大。"
+    }
+  },
+  {
+    "term": {
+      "id": 362,
+      "key": "Depression",
+      "zh": "低压系统"
+    },
+    "def": {
+      "id": 904,
+      "key": "In meteorology, a region of low atmospheric pressure; in UK usage, commonly an extratropical cyclone.",
+      "zh": "气象学中的低气压系统；英国常用此词指温带气旋。"
+    }
+  },
+  {
+    "term": {
+      "id": 363,
+      "key": "Destructive wave",
+      "zh": "破坏性波浪"
+    },
+    "def": {
+      "id": 905,
+      "key": "A teaching description for waves that tend to remove sediment from a beach, with strong backwash relative to swash. Net change also depends on sediment and wave conditions.",
+      "zh": "教学分类中回流较强、常导致海滩物质净移出的波浪；实际结果取决于波浪和沉积物条件。"
+    }
+  },
+  {
+    "term": {
+      "id": 364,
+      "key": "Discharge",
+      "zh": "流量"
+    },
+    "def": {
+      "id": 906,
+      "key": "The volume of water passing a river cross-section per unit time, usually measured in m³ s⁻¹. For mean velocity v and cross-sectional area A, Q = Av.",
+      "zh": "单位时间通过河流横断面的水体积：Q = Av，SI 单位为 m³/s。"
+    }
+  },
+  {
+    "term": {
+      "id": 365,
+      "key": "Distortion",
+      "zh": "变形"
+    },
+    "def": {
+      "id": 907,
+      "key": "A change in area, shape, distance or direction caused by projecting a curved surface onto a plane. No flat world map preserves all of them everywhere.",
+      "zh": "将曲面表示在平面上时产生的面积、形状、距离或方向变化；无法同时保持全部性质。"
+    }
+  },
+  {
+    "term": {
+      "id": 366,
+      "key": "Divergence",
+      "zh": "辐散"
+    },
+    "def": {
+      "id": 908,
+      "key": "Air spreading apart. Aloft over a low, or at the surface of a high.",
+      "zh": "空气在水平方向向外散开，可见于低压上空或近地面高压区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 367,
+      "key": "Divergent",
+      "zh": "离散边界"
+    },
+    "def": {
+      "id": 909,
+      "key": "Plates move apart. Mid-ocean ridge or continental rift.",
+      "zh": "板块相互分离的边界，例如洋中脊和裂谷。"
+    }
+  },
+  {
+    "term": {
+      "id": 368,
+      "key": "Doline",
+      "zh": "溶蚀洼地"
+    },
+    "def": {
+      "id": 910,
+      "key": "A closed depression in karst terrain, formed by dissolution or collapse of soluble rock. Also called a sinkhole; some drain underground and others hold water.",
+      "zh": "喀斯特地区因溶蚀或塌陷形成的封闭洼地，也称岩溶漏斗；部分可积水。"
+    }
+  },
+  {
+    "term": {
+      "id": 128,
+      "key": "Drainage basin",
+      "zh": "流域"
+    },
+    "def": {
+      "id": 911,
+      "key": "The area of land drained by a river and its tributaries, bounded by the watershed.",
+      "zh": "由分水岭包围、向同一河流及其支流汇水的陆地区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 369,
+      "key": "Drawdown",
+      "zh": "水位降深"
+    },
+    "def": {
+      "id": 912,
+      "key": "A lowering of water level. In the tsunami lab it means the withdrawal of the sea before some waves; many tsunami arrive without this warning. Groundwater drawdown means a lowered water table or pressure level.",
+      "zh": "水位下降。部分海啸来临前海水会退去，但并非所有海啸都有此信号；地下水语境中指水位或压力水头降低。"
+    }
+  },
+  {
+    "term": {
+      "id": 370,
+      "key": "Drumlin",
+      "zh": "鼓丘"
+    },
+    "def": {
+      "id": 913,
+      "key": "An elongated hill streamlined beneath moving ice, commonly made of glacial sediment and sometimes containing bedrock. Its long axis usually follows former ice flow.",
+      "zh": "冰川下方形成的流线型长丘，可由冰碛物或基岩构成，长轴通常与原冰流方向大致一致。"
+    }
+  },
+  {
+    "term": {
+      "id": 371,
+      "key": "E horizon",
+      "zh": "E 层（淋溶层）"
+    },
+    "def": {
+      "id": 914,
+      "key": "Eluviated, often paler layer from which clay and iron have been washed.",
+      "zh": "黏土、铁等物质被淋洗迁出、通常较浅色的土壤淋溶层。"
+    }
+  },
+  {
+    "term": {
+      "id": 372,
+      "key": "Eastern boundary current",
+      "zh": "东部边界流"
+    },
+    "def": {
+      "id": 915,
+      "key": "Broader, cooler return on the eastern side of the same gyre — Canary in the North Atlantic.",
+      "zh": "大洋副热带环流东侧通常较宽、较冷的洋流，例如加那利寒流。"
+    }
+  },
+  {
+    "term": {
+      "id": 373,
+      "key": "Easting",
+      "zh": "东向坐标"
+    },
+    "def": {
+      "id": 916,
+      "key": "A grid coordinate measuring distance east from a defined origin. Read eastings before northings in a grid reference.",
+      "zh": "相对于坐标原点向东的距离。读图网格坐标时先读东距，再读北距。"
+    }
+  },
+  {
+    "term": {
+      "id": 374,
+      "key": "Ecliptic",
+      "zh": "黄道"
+    },
+    "def": {
+      "id": 917,
+      "key": "The plane of Earth’s orbit. The Moon is tilted about 5° to it.",
+      "zh": "地球绕日轨道所在的平面。月球轨道相对该平面倾斜约 5°。"
+    }
+  },
+  {
+    "term": {
+      "id": 375,
+      "key": "El Niño",
+      "zh": "厄尔尼诺"
+    },
+    "def": {
+      "id": 918,
+      "key": "The warm phase of ENSO, marked by unusually warm sea-surface temperatures in the central and eastern equatorial Pacific and coupled atmospheric changes.",
+      "zh": "ENSO 的暖位相，赤道中东太平洋海温异常偏高，并伴随大气环流变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 376,
+      "key": "Elbow of capture",
+      "zh": "袭夺弯"
+    },
+    "def": {
+      "id": 919,
+      "key": "Sharp turn at the capture point, where water now flows into the pirate.",
+      "zh": "被袭夺河流转入袭夺河道时出现的明显急弯。"
+    }
+  },
+  {
+    "term": {
+      "id": 377,
+      "key": "Emission",
+      "zh": "辐射发射"
+    },
+    "def": {
+      "id": 920,
+      "key": "Radiation given out. Warm ground emits longwave.",
+      "zh": "物体向外释放辐射的过程，例如温暖地表发出的长波辐射。"
+    }
+  },
+  {
+    "term": {
+      "id": 378,
+      "key": "Energy budget",
+      "zh": "能量收支"
+    },
+    "def": {
+      "id": 921,
+      "key": "Balance of incoming and outgoing radiation for a surface or the planet.",
+      "zh": "系统接收与放出能量之间的收支关系，地球能量收支主要涉及辐射。"
+    }
+  },
+  {
+    "term": {
+      "id": 379,
+      "key": "ENSO",
+      "zh": "厄尔尼诺–南方涛动"
+    },
+    "def": {
+      "id": 922,
+      "key": "Coupled ocean–atmosphere state of the tropical Pacific. Neutral, El Niño, La Niña.",
+      "zh": "热带太平洋海洋与大气相互耦合的变化，包括中性、厄尔尼诺和拉尼娜状态。"
+    }
+  },
+  {
+    "term": {
+      "id": 380,
+      "key": "Epicentre",
+      "zh": "震中"
+    },
+    "def": {
+      "id": 923,
+      "key": "Surface point vertically above the focus. The map dot.",
+      "zh": "地表上位于震源正上方的位置。"
+    }
+  },
+  {
+    "term": {
+      "id": 381,
+      "key": "Equal-area",
+      "zh": "等积"
+    },
+    "def": {
+      "id": 924,
+      "key": "Preserves relative area of regions. Distorts shape.",
+      "zh": "保持相对面积的投影性质，但形状等其他性质会变形。"
+    }
+  },
+  {
+    "term": {
+      "id": 382,
+      "key": "Equator",
+      "zh": "赤道"
+    },
+    "def": {
+      "id": 925,
+      "key": "0° latitude. It is a parallel, not a meridian.",
+      "zh": "纬度为 0° 的纬线，不是经线。"
+    }
+  },
+  {
+    "term": {
+      "id": 383,
+      "key": "Equinox",
+      "zh": "春分／秋分"
+    },
+    "def": {
+      "id": 926,
+      "key": "The instant when the Sun crosses Earth's equatorial plane. Daylight is close to twelve hours around this date, but the Sun's disc, refraction and latitude affect observed day length.",
+      "zh": "太阳越过赤道面的时刻。此时昼夜大致相等，但太阳视圆面、大气折射和纬度会影响实际日长。"
+    }
+  },
+  {
+    "term": {
+      "id": 384,
+      "key": "Erg",
+      "zh": "沙海"
+    },
+    "def": {
+      "id": 927,
+      "key": "A sand sea. Needs a sand supply. Not every desert.",
+      "zh": "广泛覆盖沙丘的沙海，需要足够沙源；并非所有沙漠都是沙海。"
+    }
+  },
+  {
+    "term": {
+      "id": 385,
+      "key": "Erosion",
+      "zh": "侵蚀"
+    },
+    "def": {
+      "id": 928,
+      "key": "The wearing away and removal of material by moving water, wind, ice or gravity. Weathering breaks down material in place.",
+      "zh": "水、风、冰或重力造成物质磨损和移走的过程。风化则主要是在原地使物质破碎或改变。"
+    }
+  },
+  {
+    "term": {
+      "id": 386,
+      "key": "Estuary",
+      "zh": "河口湾"
+    },
+    "def": {
+      "id": 929,
+      "key": "A partly enclosed coastal water body where freshwater meets and mixes with seawater, influenced by tides.",
+      "zh": "淡水与海水交汇混合、受潮汐影响的半封闭海岸水体。"
+    }
+  },
+  {
+    "term": {
+      "id": 387,
+      "key": "Eustatic",
+      "zh": "全球海平面变化"
+    },
+    "def": {
+      "id": 930,
+      "key": "Describing a change in global mean sea level, for example from changing ocean-water volume or ocean-basin capacity.",
+      "zh": "全球平均海平面的变化，例如海水总体积或海盆容积变化造成的升降。"
+    }
+  },
+  {
+    "term": {
+      "id": 388,
+      "key": "Evaporative cooling",
+      "zh": "蒸发冷却"
+    },
+    "def": {
+      "id": 931,
+      "key": "Heat used to evaporate water, so a wet surface warms more slowly than a dry one.",
+      "zh": "水蒸发需要吸收热量，因此湿润表面往往比干燥表面升温慢。"
+    }
+  },
+  {
+    "term": {
+      "id": 389,
+      "key": "Evapotranspiration",
+      "zh": "蒸散"
+    },
+    "def": {
+      "id": 932,
+      "key": "Evaporation plus transpiration. A land transfer back to air.",
+      "zh": "蒸发与植物蒸腾的总和，将陆地上的水转移回大气。"
+    }
+  },
+  {
+    "term": {
+      "id": 390,
+      "key": "Extra-tropical",
+      "zh": "温带气旋"
+    },
+    "def": {
+      "id": 933,
+      "key": "Outside the tropics. An extratropical cyclone is a storm system usually associated with fronts and horizontal temperature contrasts.",
+      "zh": "热带以外的。温带气旋通常与锋面及水平方向的温度差异有关。"
+    }
+  },
+  {
+    "term": {
+      "id": 391,
+      "key": "Eye",
+      "zh": "风眼"
+    },
+    "def": {
+      "id": 934,
+      "key": "Calm centre of a tropical cyclone, often with descending air.",
+      "zh": "热带气旋中心相对平静的区域，常伴有下沉气流。"
+    }
+  },
+  {
+    "term": {
+      "id": 392,
+      "key": "Eyewall",
+      "zh": "眼墙"
+    },
+    "def": {
+      "id": 935,
+      "key": "Ring of strongest convection, wind and rain around the eye.",
+      "zh": "围绕风眼、对流及风雨通常最强的环状区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 393,
+      "key": "Falling limb",
+      "zh": "退水段"
+    },
+    "def": {
+      "id": 936,
+      "key": "Discharge declining after the peak as the catchment empties.",
+      "zh": "洪峰之后，流域储水逐渐排出、河流流量下降的过程线部分。"
+    }
+  },
+  {
+    "term": {
+      "id": 394,
+      "key": "False origin",
+      "zh": "假原点"
+    },
+    "def": {
+      "id": 937,
+      "key": "An offset origin used to keep map-grid coordinates convenient and usually positive. The British National Grid uses one southwest of Great Britain.",
+      "zh": "为使地图网格坐标便于使用、通常保持为正值而设置的偏移原点。英国国家格网的假原点位于大不列颠西南方。"
+    }
+  },
+  {
+    "term": {
+      "id": 395,
+      "key": "Fast cycle",
+      "zh": "快速循环"
+    },
+    "def": {
+      "id": 938,
+      "key": "Carbon exchanges among the atmosphere, living organisms, soils and upper ocean over relatively short timescales, from days to centuries.",
+      "zh": "大气、生物、土壤和上层海洋之间较快的碳交换，时间尺度从几天到几百年不等。"
+    }
+  },
+  {
+    "term": {
+      "id": 396,
+      "key": "Ferrel cell",
+      "zh": "费雷尔环流"
+    },
+    "def": {
+      "id": 939,
+      "key": "The mean midlatitude atmospheric circulation, with poleward near-surface flow and equatorward flow aloft. It is an indirect cell maintained largely by weather systems.",
+      "zh": "中纬度平均大气环流，近地面向极地、上空向赤道流动，主要由天气系统维持，是热力间接环流。"
+    }
+  },
+  {
+    "term": {
+      "id": 397,
+      "key": "Fissure eruption",
+      "zh": "裂隙式喷发"
+    },
+    "def": {
+      "id": 940,
+      "key": "Magma erupting along a crack, often basalt at a rift. Iceland habit.",
+      "zh": "岩浆沿裂隙喷出的火山活动，常见于裂谷中的玄武质喷发，例如冰岛。"
+    }
+  },
+  {
+    "term": {
+      "id": 398,
+      "key": "Floodplain",
+      "zh": "洪泛平原"
+    },
+    "def": {
+      "id": 941,
+      "key": "Relatively flat land beside a river that is shaped by channel migration and flood deposition and may be inundated when the river overflows.",
+      "zh": "河道两侧相对平坦、由河道迁移和洪水沉积塑造的区域，河水漫溢时可能被淹没。"
+    }
+  },
+  {
+    "term": {
+      "id": 399,
+      "key": "Flux",
+      "zh": "通量"
+    },
+    "def": {
+      "id": 942,
+      "key": "A rate of transfer of a quantity such as water, carbon or energy; some uses express that rate per unit area.",
+      "zh": "水、碳或能量等量的转移速率；某些语境下还要除以单位面积。"
+    }
+  },
+  {
+    "term": {
+      "id": 400,
+      "key": "Focus",
+      "zh": "震源"
+    },
+    "def": {
+      "id": 943,
+      "key": "Where the slip starts in the rock.",
+      "zh": "地震断层滑动在岩石内部开始的位置，即震源。"
+    }
+  },
+  {
+    "term": {
+      "id": 401,
+      "key": "Föhn / chinook",
+      "zh": "焚风／钦诺克风"
+    },
+    "def": {
+      "id": 944,
+      "key": "Warm dry descent on the lee. A named wind, same machine.",
+      "zh": "背风坡空气下沉增温形成的暖干风；焚风和奇努克风是地区性名称。"
+    }
+  },
+  {
+    "term": {
+      "id": 402,
+      "key": "Foliation",
+      "zh": "面理"
+    },
+    "def": {
+      "id": 945,
+      "key": "Layered mineral fabric from directed stress during metamorphism.",
+      "zh": "变质过程中受定向应力等影响而形成的矿物定向排列或层状构造。"
+    }
+  },
+  {
+    "term": {
+      "id": 403,
+      "key": "Footwall",
+      "zh": "下盘"
+    },
+    "def": {
+      "id": 946,
+      "key": "The block below the fault plane.",
+      "zh": "断层面下方的岩块，即下盘。"
+    }
+  },
+  {
+    "term": {
+      "id": 404,
+      "key": "Fossil fuel",
+      "zh": "化石燃料"
+    },
+    "def": {
+      "id": 947,
+      "key": "Coal, oil or natural gas formed from ancient organic material. Burning it transfers carbon from long-term geological stores to the atmosphere.",
+      "zh": "由古代有机物形成的煤、石油或天然气。燃烧会把长期地质储库中的碳释放到大气中。"
+    }
+  },
+  {
+    "term": {
+      "id": 405,
+      "key": "Four-figure grid reference",
+      "zh": "四位方格坐标"
+    },
+    "def": {
+      "id": 948,
+      "key": "Names a 1 km square by its south-west corner.",
+      "zh": "以西南角坐标标识一个 1 km × 1 km 方格的四位格网坐标。"
+    }
+  },
+  {
+    "term": {
+      "id": 406,
+      "key": "Fracture zone",
+      "zh": "断裂带"
+    },
+    "def": {
+      "id": 949,
+      "key": "A long seafloor feature extending beyond a ridge-offset transform fault. Beyond the active transform segment, both sides move with the same plate.",
+      "zh": "从洋中脊错断处的活动转换断层向外延伸的海底长条地形；在活动段之外，两侧属于同一板块并同向运动。"
+    }
+  },
+  {
+    "term": {
+      "id": 407,
+      "key": "Friction",
+      "zh": "摩擦"
+    },
+    "def": {
+      "id": 950,
+      "key": "Surface drag that slows the wind, weakens Coriolis, and lets PGF pull across isobars toward low.",
+      "zh": "地表阻力使风速减小、科里奥利作用减弱，从而使气压梯度力推动风跨越等压线吹向低压。"
+    }
+  },
+  {
+    "term": {
+      "id": 408,
+      "key": "Frost shattering",
+      "zh": "冻融破碎"
+    },
+    "def": {
+      "id": 951,
+      "key": "Rock breakdown associated with freezing water and ice growth in cracks. Repeated freezing, thawing and ice segregation can widen the fractures.",
+      "zh": "裂缝内的水冻结及冰生长使岩石破碎。反复冻融和分凝冰生长都可扩大裂缝。"
+    }
+  },
+  {
+    "term": {
+      "id": 409,
+      "key": "Gas giant",
+      "zh": "气态巨行星"
+    },
+    "def": {
+      "id": 952,
+      "key": "Jupiter and Saturn: thick hydrogen–helium envelopes. Not small rocky worlds with weather like ours.",
+      "zh": "木星、土星等具有厚厚氢氦包层的巨大行星，与具有地球式地表天气的岩质行星不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 410,
+      "key": "Geodynamo",
+      "zh": "地磁发电机"
+    },
+    "def": {
+      "id": 953,
+      "key": "The generation of Earth's magnetic field by motion of electrically conducting liquid metal in the outer core, influenced by Earth's rotation.",
+      "zh": "外核中导电液态金属的运动产生地球磁场的机制，同时受到地球自转影响。"
+    }
+  },
+  {
+    "term": {
+      "id": 411,
+      "key": "Geostrophic wind",
+      "zh": "地转风"
+    },
+    "def": {
+      "id": 954,
+      "key": "PGF balanced by Coriolis. Friction neglected. Flow along the isobars.",
+      "zh": "忽略摩擦时，气压梯度力与科里奥利力平衡形成的风，方向沿等压线。"
+    }
+  },
+  {
+    "term": {
+      "id": 412,
+      "key": "Glacial rebound",
+      "zh": "冰后回弹"
+    },
+    "def": {
+      "id": 955,
+      "key": "Land rising after ice has gone. Scotland, Hudson Bay, Fennoscandia.",
+      "zh": "冰川消退、冰荷载减小后的地面回升，例如苏格兰、哈德孙湾和芬诺斯堪的亚地区。"
+    }
+  },
+  {
+    "term": {
+      "id": 413,
+      "key": "Gley",
+      "zh": "潜育层"
+    },
+    "def": {
+      "id": 956,
+      "key": "Soil features associated with prolonged saturation and oxygen shortage, often including grey colours and rusty mottles from changes in iron chemistry.",
+      "zh": "土壤长期饱水、缺氧时产生的特征，常因铁的化学状态变化而呈灰色并出现锈斑。"
+    }
+  },
+  {
+    "term": {
+      "id": 414,
+      "key": "Gnomon",
+      "zh": "日晷晷针"
+    },
+    "def": {
+      "id": 957,
+      "key": "The part of a sundial that casts a shadow. For a vertical gnomon on level ground, shadow length depends on its height and the Sun's altitude.",
+      "zh": "日晷中投下影子的构件。竖直晷针立于水平地面时，影长由晷针高度和太阳高度角决定。"
+    }
+  },
+  {
+    "term": {
+      "id": 415,
+      "key": "Gores",
+      "zh": "分瓣地图"
+    },
+    "def": {
+      "id": 958,
+      "key": "Tapered strips of a map designed to be fitted around a globe; small strips reduce the distortion needed to cover a sphere.",
+      "zh": "用于拼贴在球面上的两端渐窄地图条带；条带越窄，贴合球面所需的变形通常越小。"
+    }
+  },
+  {
+    "term": {
+      "id": 416,
+      "key": "Gorge",
+      "zh": "狭谷"
+    },
+    "def": {
+      "id": 959,
+      "key": "Steep-sided valley, often the scar a retreating fall leaves.",
+      "zh": "两侧陡峭的狭谷，有时由瀑布后退留下。"
+    }
+  },
+  {
+    "term": {
+      "id": 417,
+      "key": "Graticule",
+      "zh": "经纬网"
+    },
+    "def": {
+      "id": 960,
+      "key": "The network of meridians and parallels on a globe or map.",
+      "zh": "地球仪或地图上的经线与纬线网络。"
+    }
+  },
+  {
+    "term": {
+      "id": 418,
+      "key": "Greenhouse effect",
+      "zh": "温室效应"
+    },
+    "def": {
+      "id": 961,
+      "key": "Warming of a planet's surface and lower atmosphere because gases and clouds absorb and emit thermal infrared radiation, affecting the loss of energy to space.",
+      "zh": "气体和云吸收并发射热红外辐射，影响向太空的能量散失，从而使行星地表及低层大气增暖的作用。"
+    }
+  },
+  {
+    "term": {
+      "id": 419,
+      "key": "Grid square",
+      "zh": "方格"
+    },
+    "def": {
+      "id": 962,
+      "key": "An area identified by a map grid. In British National Grid notation, four, six and eight figures identify 1 km, 100 m and 10 m squares respectively.",
+      "zh": "由地图网格标识的区域。英国国家格网的四位、六位、八位坐标分别对应 1 km、100 m、10 m 方格。"
+    }
+  },
+  {
+    "term": {
+      "id": 234,
+      "key": "Groyne",
+      "zh": "丁坝"
+    },
+    "def": {
+      "id": 963,
+      "key": "A barrier across the beach that traps sediment up-drift and can starve down-drift.",
+      "zh": "横跨海滩修建的障碍物，可截留上游方向的沿岸漂沙，也可能减少下游方向的沉积物供应。"
+    }
+  },
+  {
+    "term": {
+      "id": 420,
+      "key": "Gryke",
+      "zh": "溶蚀裂隙"
+    },
+    "def": {
+      "id": 964,
+      "key": "Dissolved fissure between clints.",
+      "zh": "石灰岩块之间经溶蚀扩大的裂隙，即溶沟。"
+    }
+  },
+  {
+    "term": {
+      "id": 421,
+      "key": "Gulf Stream",
+      "zh": "湾流"
+    },
+    "def": {
+      "id": 965,
+      "key": "A fast, warm western-boundary current in the North Atlantic, flowing from the Florida Straits along the eastern United States before turning offshore.",
+      "zh": "北大西洋强而暖的西部边界洋流，从佛罗里达海峡沿美国东岸流动，随后转向外海。"
+    }
+  },
+  {
+    "term": {
+      "id": 422,
+      "key": "Gully",
+      "zh": "侵蚀沟"
+    },
+    "def": {
+      "id": 966,
+      "key": "Larger than a rill; a channel you cannot remove with ordinary tillage.",
+      "zh": "比细沟更大的侵蚀沟，通常不能用普通耕作消除。"
+    }
+  },
+  {
+    "term": {
+      "id": 423,
+      "key": "Guyot",
+      "zh": "平顶海山"
+    },
+    "def": {
+      "id": 967,
+      "key": "A submerged seamount with a relatively flat summit, commonly formed when a volcanic island is eroded near sea level and later subsides.",
+      "zh": "顶部较平、位于海面以下的海山，常由火山岛在海平面附近受侵蚀后逐渐下沉形成。"
+    }
+  },
+  {
+    "term": {
+      "id": 424,
+      "key": "Gyre",
+      "zh": "大洋环流"
+    },
+    "def": {
+      "id": 968,
+      "key": "A basin-scale looping surface current system. Five subtropical gyres on a school globe.",
+      "zh": "大洋盆地尺度的环流系统。常见教学图中有五个主要副热带环流。"
+    }
+  },
+  {
+    "term": {
+      "id": 425,
+      "key": "Hadley cell",
+      "zh": "哈德莱环流"
+    },
+    "def": {
+      "id": 969,
+      "key": "Tropical thermally direct cell. Rise near the ITCZ, sink in the subtropics.",
+      "zh": "热带热力直接环流：空气在赤道辐合带附近上升，在副热带下沉。"
+    }
+  },
+  {
+    "term": {
+      "id": 426,
+      "key": "Hanging valley",
+      "zh": "悬谷"
+    },
+    "def": {
+      "id": 970,
+      "key": "A tributary trough left high when the trunk ice overdeepened.",
+      "zh": "主冰川侵蚀较深，使支流冰川谷的谷底悬在主谷之上的谷地。"
+    }
+  },
+  {
+    "term": {
+      "id": 427,
+      "key": "Hanging wall",
+      "zh": "上盘"
+    },
+    "def": {
+      "id": 971,
+      "key": "The block above the fault plane.",
+      "zh": "断层面上方的岩块，即上盘。"
+    }
+  },
+  {
+    "term": {
+      "id": 428,
+      "key": "Headward erosion",
+      "zh": "溯源侵蚀"
+    },
+    "def": {
+      "id": 972,
+      "key": "Cutting back at the source, which can move a watershed.",
+      "zh": "河流源头向上游延伸的侵蚀，可使分水岭位置移动。"
+    }
+  },
+  {
+    "term": {
+      "id": 429,
+      "key": "Helicoidal flow",
+      "zh": "螺旋流"
+    },
+    "def": {
+      "id": 973,
+      "key": "The corkscrew current in a meander: outer erosion, inner deposition.",
+      "zh": "曲流中类似螺旋的三维水流，与外岸侵蚀、内岸沉积相联系。"
+    }
+  },
+  {
+    "term": {
+      "id": 430,
+      "key": "Hill",
+      "zh": "丘陵"
+    },
+    "def": {
+      "id": 974,
+      "key": "Smaller relief, often rounded. A continuum with mountain, not a fixed-height law.",
+      "zh": "起伏相对较小、常较圆缓的高地；与山地之间是连续变化，不能用一个通用高度阈值严格划分。"
+    }
+  },
+  {
+    "term": {
+      "id": 431,
+      "key": "Horizon",
+      "zh": "土壤发生层"
+    },
+    "def": {
+      "id": 975,
+      "key": "A layer in a soil profile with its own colour, texture and chemistry.",
+      "zh": "土壤剖面中具有特定颜色、质地和化学特征的层次。"
+    }
+  },
+  {
+    "term": {
+      "id": 432,
+      "key": "Horn",
+      "zh": "角峰"
+    },
+    "def": {
+      "id": 976,
+      "key": "A sharp pyramidal mountain peak formed by erosion from glaciers on several sides; the Matterhorn is a well-known example.",
+      "zh": "多个方向的冰川侵蚀形成的尖锐金字塔状山峰，马特洪峰是著名例子。"
+    }
+  },
+  {
+    "term": {
+      "id": 433,
+      "key": "Hotspot",
+      "zh": "热点"
+    },
+    "def": {
+      "id": 977,
+      "key": "A region of persistent volcanism that can occur within a plate or at a boundary. Many hotspots are associated with mantle upwelling; not all have an established deep plume origin.",
+      "zh": "可位于板块内部或边界的持续火山活动区。许多热点与地幔上涌有关，但并非所有热点都已证实源自深部地幔柱。"
+    }
+  },
+  {
+    "term": {
+      "id": 434,
+      "key": "Hydraulic action",
+      "zh": "水力作用"
+    },
+    "def": {
+      "id": 978,
+      "key": "Force of water and trapped air on joints and the bed.",
+      "zh": "水流及被压缩空气对河床和岩石裂隙施加作用力的侵蚀过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 435,
+      "key": "Hydrograph",
+      "zh": "流量过程线"
+    },
+    "def": {
+      "id": 979,
+      "key": "A graph showing how river discharge or water level changes with time. A storm hydrograph may be shown alongside a separate rainfall graph to compare timing and response.",
+      "zh": "显示河流流量或水位随时间变化的图。暴雨流量过程线可与单独的降雨图对照，以比较时间和响应。"
+    }
+  },
+  {
+    "term": {
+      "id": 436,
+      "key": "Ice giant",
+      "zh": "冰巨行星"
+    },
+    "def": {
+      "id": 980,
+      "key": "Uranus or Neptune: a giant planet with a hydrogen–helium atmosphere and an interior enriched in substances such as water, ammonia and methane. These are not simply layers of ordinary frozen ice.",
+      "zh": "天王星或海王星这类巨行星，具有氢氦大气，内部富含水、氨、甲烷等物质；并不是简单的普通冰层堆叠。"
+    }
+  },
+  {
+    "term": {
+      "id": 437,
+      "key": "Ice wedge",
+      "zh": "冰楔"
+    },
+    "def": {
+      "id": 981,
+      "key": "A wedge of ground ice formed as water enters thermal-contraction cracks and freezes repeatedly in permafrost.",
+      "zh": "多年冻土发生热收缩裂缝后，水反复进入并冻结形成的楔状地下冰体。"
+    }
+  },
+  {
+    "term": {
+      "id": 438,
+      "key": "Igneous",
+      "zh": "火成岩"
+    },
+    "def": {
+      "id": 982,
+      "key": "Rock crystallised from melt. Intrusive cools slowly; extrusive cools at the surface.",
+      "zh": "熔体冷却结晶形成的岩石。侵入岩通常冷却较慢，喷出岩在地表附近冷却。"
+    }
+  },
+  {
+    "term": {
+      "id": 439,
+      "key": "Incidence",
+      "zh": "入射角"
+    },
+    "def": {
+      "id": 983,
+      "key": "The angle between incoming radiation and the surface normal. A larger incidence angle spreads the same beam over more ground; solar altitude is measured above the horizon instead.",
+      "zh": "入射辐射方向与地表法线之间的夹角。角度越大，同一束辐射覆盖的地面通常越广；太阳高度角则从地平线量起。"
+    }
+  },
+  {
+    "term": {
+      "id": 440,
+      "key": "Inner core",
+      "zh": "内核"
+    },
+    "def": {
+      "id": 984,
+      "key": "Solid iron–nickel sphere ~1220 km in radius.",
+      "zh": "主要由铁镍合金组成的固态内核，半径约 1,220 km。"
+    }
+  },
+  {
+    "term": {
+      "id": 441,
+      "key": "Insolation",
+      "zh": "太阳辐射输入"
+    },
+    "def": {
+      "id": 985,
+      "key": "Incoming solar radiation at a surface. Incidence and atmosphere both cut it.",
+      "zh": "地表接收到的太阳辐射，受入射角及大气吸收、散射等影响。"
+    }
+  },
+  {
+    "term": {
+      "id": 442,
+      "key": "Intensity",
+      "zh": "强度"
+    },
+    "def": {
+      "id": 986,
+      "key": "The strength of earthquake shaking and its effects at a particular place. It depends on the earthquake, distance, local ground and built structures.",
+      "zh": "某地点地震震动及影响的强弱，取决于地震本身、距离、当地地基及建筑条件。"
+    }
+  },
+  {
+    "term": {
+      "id": 443,
+      "key": "Interception",
+      "zh": "截留"
+    },
+    "def": {
+      "id": 987,
+      "key": "Rain caught on vegetation before it hits the ground.",
+      "zh": "降水到达地面之前，被植被截留的过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 444,
+      "key": "Interfluve",
+      "zh": "河间地"
+    },
+    "def": {
+      "id": 988,
+      "key": "The higher ground between neighbouring channels, inside the basin.",
+      "zh": "同一流域内相邻河道之间较高的地带。"
+    }
+  },
+  {
+    "term": {
+      "id": 445,
+      "key": "International Date Line",
+      "zh": "国际日期变更线"
+    },
+    "def": {
+      "id": 989,
+      "key": "The civil date-change near 180°. It is not the Greenwich meridian, and it jogs for islands.",
+      "zh": "大致位于 180° 经线附近的民用日期分界线，会为岛屿等绕行；它不是格林尼治本初子午线。"
+    }
+  },
+  {
+    "term": {
+      "id": 446,
+      "key": "Intraplate volcanism",
+      "zh": "板内火山活动"
+    },
+    "def": {
+      "id": 990,
+      "key": "Melting inside a plate, not at a ridge, trench, or transform.",
+      "zh": "发生在板块内部，而不是洋中脊、海沟或转换边界上的火山活动。"
+    }
+  },
+  {
+    "term": {
+      "id": 447,
+      "key": "Inverse barometer",
+      "zh": "倒气压效应"
+    },
+    "def": {
+      "id": 991,
+      "key": "Low pressure lets the sea surface rise a little. Wind usually does more.",
+      "zh": "低气压使海面略有抬升的效应。在风暴增水中，风的作用通常更大。"
+    }
+  },
+  {
+    "term": {
+      "id": 448,
+      "key": "Inversion",
+      "zh": "逆温"
+    },
+    "def": {
+      "id": 992,
+      "key": "In structural geology, the uplift and shortening of a previously subsiding basin. A temperature inversion in meteorology is a different use of the word.",
+      "zh": "构造地质学中，原先沉降的盆地受到挤压、缩短和抬升的过程；气象学中的逆温是另一种含义。"
+    }
+  },
+  {
+    "term": {
+      "id": 449,
+      "key": "Isobar",
+      "zh": "等压线"
+    },
+    "def": {
+      "id": 993,
+      "key": "A line of equal pressure on a chart. Tight packing means a steep PGF.",
+      "zh": "气压图上连接相同气压位置的线。等压线越密，气压梯度通常越大。"
+    }
+  },
+  {
+    "term": {
+      "id": 159,
+      "key": "Isostasy",
+      "zh": "地壳均衡"
+    },
+    "def": {
+      "id": 994,
+      "key": "Buoyancy of the crust (and lithosphere) in a denser mantle. Load down, unload up.",
+      "zh": "地壳及岩石圈在密度较大的地幔上保持浮力平衡的关系；增加荷载趋于下沉，移除荷载趋于回升。"
+    }
+  },
+  {
+    "term": {
+      "id": 450,
+      "key": "ITCZ",
+      "zh": "热带辐合带"
+    },
+    "def": {
+      "id": 995,
+      "key": "The intertropical convergence zone: a shifting belt where tropical trade winds meet and moist air often rises. Its position varies with season, oceans and land heating.",
+      "zh": "赤道辐合带：热带信风汇聚、湿空气常上升的带状区域，其位置随季节、海洋及陆地受热变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 451,
+      "key": "K–Pg",
+      "zh": "白垩纪–古近纪界线"
+    },
+    "def": {
+      "id": 996,
+      "key": "The Cretaceous–Palaeogene boundary, about 66 million years ago, marking a major mass extinction associated with the Chicxulub impact and wider environmental change.",
+      "zh": "约 6,600 万年前的白垩纪—古近纪界线，对应与希克苏鲁伯撞击及广泛环境变化有关的一次大规模灭绝。"
+    }
+  },
+  {
+    "term": {
+      "id": 452,
+      "key": "ka",
+      "zh": "千年前（ka）"
+    },
+    "def": {
+      "id": 997,
+      "key": "A thousand years. Used with an age reference to express geological dates, for example 20 ka before present.",
+      "zh": "千年。表达地质年代时应说明参考点，例如距今 20 ka。"
+    }
+  },
+  {
+    "term": {
+      "id": 453,
+      "key": "Kepler’s third law",
+      "zh": "开普勒第三定律"
+    },
+    "def": {
+      "id": 998,
+      "key": "For bodies orbiting the same dominant mass, orbital period squared is proportional to the cube of the semi-major axis: T² ∝ a³.",
+      "zh": "围绕同一主导质量天体运行时，公转周期的平方与轨道半长轴的立方成正比：T² ∝ a³。"
+    }
+  },
+  {
+    "term": {
+      "id": 454,
+      "key": "Knoll",
+      "zh": "圆顶小丘"
+    },
+    "def": {
+      "id": 999,
+      "key": "A small isolated hill: closed contour loops.",
+      "zh": "孤立的小丘，在等高线图上通常表现为闭合圈线。"
+    }
+  },
+  {
+    "term": {
+      "id": 455,
+      "key": "Köppen",
+      "zh": "柯本气候分类"
+    },
+    "def": {
+      "id": 1000,
+      "key": "A climate classification using temperature and precipitation, often mapped to biomes.",
+      "zh": "根据气温与降水划分气候类型的分类体系，常用于比较气候与生物群系。"
+    }
+  },
+  {
+    "term": {
+      "id": 456,
+      "key": "La Niña",
+      "zh": "拉尼娜"
+    },
+    "def": {
+      "id": 1001,
+      "key": "The cool phase of ENSO, with unusually cool central and eastern equatorial Pacific surface waters and associated changes in tropical winds and rainfall.",
+      "zh": "ENSO 的冷位相，赤道中东太平洋海温异常偏低，并伴随热带风场和降雨变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 457,
+      "key": "Lag time",
+      "zh": "滞后时间"
+    },
+    "def": {
+      "id": 1002,
+      "key": "The delay between a rainfall reference, commonly peak rainfall, and peak river discharge. State the convention used when reading a storm hydrograph.",
+      "zh": "降雨参考时刻与河流洪峰之间的时差，常用降雨峰值作参考。读图时应明确采用的约定。"
+    }
+  },
+  {
+    "term": {
+      "id": 458,
+      "key": "Land breeze",
+      "zh": "陆风"
+    },
+    "def": {
+      "id": 1003,
+      "key": "A local wind from land towards the sea, commonly at night when land has cooled faster. Larger-scale winds can weaken or prevent it.",
+      "zh": "由陆地吹向海洋的局地风，常发生在陆地夜间冷却较快时；大尺度风可减弱或阻止它。"
+    }
+  },
+  {
+    "term": {
+      "id": 459,
+      "key": "Lapse rate",
+      "zh": "气温垂直递减率"
+    },
+    "def": {
+      "id": 1004,
+      "key": "How temperature changes with height. A positive environmental lapse usually means it gets colder up.",
+      "zh": "温度随高度变化的速率。环境直减率为正时，通常表示越高越冷。"
+    }
+  },
+  {
+    "term": {
+      "id": 460,
+      "key": "Latitude",
+      "zh": "纬度"
+    },
+    "def": {
+      "id": 1005,
+      "key": "Angle from the equator. It sets how oblique the noon beam is, before tilt aims the season.",
+      "zh": "相对于赤道的角度，影响正午太阳光的倾斜程度；地轴倾斜再使其随季节变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 461,
+      "key": "Leeward",
+      "zh": "背风侧"
+    },
+    "def": {
+      "id": 1006,
+      "key": "The side sheltered from the prevailing wind. Descending air there often warms and has lower relative humidity.",
+      "zh": "背向盛行风、受遮蔽的一侧。下沉空气通常增温，相对湿度降低。"
+    }
+  },
+  {
+    "term": {
+      "id": 462,
+      "key": "Levée",
+      "zh": "天然堤"
+    },
+    "def": {
+      "id": 1007,
+      "key": "A raised bank beside a river, either built naturally by overbank sediment deposition or constructed to reduce flooding. Also written levee.",
+      "zh": "河流旁隆起的堤岸，可由漫滩洪水沉积自然形成，也可为防洪人工修建；也写作 levee。"
+    }
+  },
+  {
+    "term": {
+      "id": 463,
+      "key": "Levee",
+      "zh": "天然堤"
+    },
+    "def": {
+      "id": 1008,
+      "key": "A raised bank beside a river, either built naturally by overbank sediment deposition or constructed to reduce flooding. Also written levée.",
+      "zh": "河流旁隆起的堤岸，可由漫滩洪水沉积自然形成，也可为防洪人工修建；也写作 levée。"
+    }
+  },
+  {
+    "term": {
+      "id": 464,
+      "key": "Light year",
+      "zh": "光年"
+    },
+    "def": {
+      "id": 1009,
+      "key": "The distance light travels in a vacuum in one Julian year: about 9.46 × 10¹⁵ m. It is a length, not a duration.",
+      "zh": "光在真空中一个儒略年走过的距离，约 9.46 × 10¹⁵ m。它是长度单位，不是时间单位。"
+    }
+  },
+  {
+    "term": {
+      "id": 465,
+      "key": "Limestone pavement",
+      "zh": "石灰岩铺石地貌"
+    },
+    "def": {
+      "id": 1010,
+      "key": "Clints and grykes on a bare carbonate surface.",
+      "zh": "裸露碳酸盐岩表面，由石灰岩块和其间溶沟构成的地貌。"
+    }
+  },
+  {
+    "term": {
+      "id": 466,
+      "key": "Lithification",
+      "zh": "成岩作用"
+    },
+    "def": {
+      "id": 1011,
+      "key": "Compaction and cementation that turn sediment into sedimentary rock.",
+      "zh": "沉积物经压实、胶结等过程转变为沉积岩。"
+    }
+  },
+  {
+    "term": {
+      "id": 467,
+      "key": "Lithosphere",
+      "zh": "岩石圈"
+    },
+    "def": {
+      "id": 1012,
+      "key": "Crust plus the rigid top of the mantle. Plates are lithosphere, not crust alone.",
+      "zh": "地壳与上地幔顶部刚性部分的总称。板块由岩石圈组成，并非只有地壳。"
+    }
+  },
+  {
+    "term": {
+      "id": 468,
+      "key": "Loam",
+      "zh": "壤土"
+    },
+    "def": {
+      "id": 1013,
+      "key": "A USDA soil-texture class containing a mixture of sand, silt and clay; loam is not defined as equal thirds of the three fractions.",
+      "zh": "美国农业部土壤质地分类中，砂、粉砂、黏土按一定范围混合的壤土，并不要求三者各占三分之一。"
+    }
+  },
+  {
+    "term": {
+      "id": 469,
+      "key": "Local stars",
+      "zh": "近邻恒星"
+    },
+    "def": {
+      "id": 1014,
+      "key": "Stars in the Sun's neighbourhood, at distances usually expressed in light years or parsecs. The nearest star system is Alpha Centauri.",
+      "zh": "太阳邻域内的恒星，距离常用光年或秒差距表示；最近的恒星系统为半人马座 α 星系统。"
+    }
+  },
+  {
+    "term": {
+      "id": 470,
+      "key": "Log spiral",
+      "zh": "对数螺线"
+    },
+    "def": {
+      "id": 1015,
+      "key": "A spiral whose radius grows exponentially with angle. A geological-time display can use such a layout, but its labels must state how time is mapped to distance.",
+      "zh": "半径随转角指数增长的螺线。地质时间展示可采用此布局，但必须说明时间与距离的映射方式。"
+    }
+  },
+  {
+    "term": {
+      "id": 471,
+      "key": "Long profile",
+      "zh": "纵剖面"
+    },
+    "def": {
+      "id": 1016,
+      "key": "The variation in river-bed elevation along a river from its source towards its mouth.",
+      "zh": "从河源至河口，河床高程沿河流方向的变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 472,
+      "key": "Longitude",
+      "zh": "经度"
+    },
+    "def": {
+      "id": 1017,
+      "key": "Angle from the prime meridian, 0° to 180° E or W. 15° is about one hour.",
+      "zh": "相对于本初子午线的角度，分东经、西经，各为 0°–180°；15° 经度约对应一小时太阳时差。"
+    }
+  },
+  {
+    "term": {
+      "id": 473,
+      "key": "Longshore drift",
+      "zh": "沿岸漂沙"
+    },
+    "def": {
+      "id": 1018,
+      "key": "Alongshore transport by angled waves.",
+      "zh": "斜向入射波浪等造成的沉积物沿岸搬运。"
+    }
+  },
+  {
+    "term": {
+      "id": 474,
+      "key": "Longwave",
+      "zh": "长波辐射"
+    },
+    "def": {
+      "id": 1019,
+      "key": "Earth-emitted infrared from the ground, ocean, and atmosphere.",
+      "zh": "地表、海洋和大气发出的热红外辐射。"
+    }
+  },
+  {
+    "term": {
+      "id": 475,
+      "key": "Lunar eclipse",
+      "zh": "月食"
+    },
+    "def": {
+      "id": 1020,
+      "key": "An eclipse occurring when the Moon passes through Earth's shadow near full Moon and an orbital node. It can be penumbral, partial or total.",
+      "zh": "满月附近且月球接近轨道交点时，月球进入地球影子形成的天象，可分为半影月食、月偏食和月全食。"
+    }
+  },
+  {
+    "term": {
+      "id": 476,
+      "key": "Ma",
+      "zh": "百万年前（Ma）"
+    },
+    "def": {
+      "id": 1021,
+      "key": "A million years. Often used for geological ages, such as 66 Ma; Myr commonly denotes a duration of a million years.",
+      "zh": "百万年，常用于地质年龄，例如 66 Ma；Myr 常用于表示百万年的时长。"
+    }
+  },
+  {
+    "term": {
+      "id": 477,
+      "key": "Magma",
+      "zh": "岩浆"
+    },
+    "def": {
+      "id": 1022,
+      "key": "Partly or wholly molten rock beneath the surface, often containing crystals and dissolved gases. Molten rock erupted at the surface is called lava.",
+      "zh": "地下部分或完全熔融的岩石，常含晶体和溶解气体。喷出地表后的熔融岩石称为熔岩。"
+    }
+  },
+  {
+    "term": {
+      "id": 478,
+      "key": "Magnetic reversal",
+      "zh": "地磁倒转"
+    },
+    "def": {
+      "id": 1023,
+      "key": "The geomagnetic field flips. Cooling basalt keeps a snapshot of polarity.",
+      "zh": "地磁场极性发生反转。冷却的玄武岩可记录当时的磁极性。"
+    }
+  },
+  {
+    "term": {
+      "id": 479,
+      "key": "Magnetic stripe",
+      "zh": "磁性条带"
+    },
+    "def": {
+      "id": 1024,
+      "key": "A band of normal or reversed polarity, mirrored on both flanks of the ridge.",
+      "zh": "记录正向或反向地磁极性的海底岩石带，在洋中脊两侧常呈大致对称分布。"
+    }
+  },
+  {
+    "term": {
+      "id": 480,
+      "key": "Magnitude",
+      "zh": "震级"
+    },
+    "def": {
+      "id": 1025,
+      "key": "A scale for source size. Not the same as intensity.",
+      "zh": "衡量地震震源规模的量级，与某地点的地震烈度不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 481,
+      "key": "Mantle",
+      "zh": "地幔"
+    },
+    "def": {
+      "id": 1026,
+      "key": "Solid but convecting silicate rock to ~2900 km. Most of Earth’s volume. Not a magma ocean.",
+      "zh": "延伸至约 2,900 km 深、占地球大部分体积的硅酸盐岩石圈层，主要呈固态并缓慢对流，不是全球岩浆海。"
+    }
+  },
+  {
+    "term": {
+      "id": 482,
+      "key": "Mantle plume",
+      "zh": "地幔柱"
+    },
+    "def": {
+      "id": 1027,
+      "key": "An upwelling of unusually hot mantle material that may supply hotspot volcanism. It is mostly deforming solid rock, with partial melting possible near the top.",
+      "zh": "异常高温地幔物质的上涌体，可能为热点火山供给热量和物质；主要是变形的固态岩石，顶部可发生部分熔融。"
+    }
+  },
+  {
+    "term": {
+      "id": 156,
+      "key": "Mass movement",
+      "zh": "块体运动"
+    },
+    "def": {
+      "id": 1028,
+      "key": "Downslope movement of rock or soil under gravity. Water is a trigger, not the transport.",
+      "zh": "岩石或土体在重力作用下沿坡移动。水可作为诱因，但不是定义中的搬运介质。"
+    }
+  },
+  {
+    "term": {
+      "id": 483,
+      "key": "Meander",
+      "zh": "曲流"
+    },
+    "def": {
+      "id": 1029,
+      "key": "A bend in a river channel. Outer-bank erosion and inner-bank deposition commonly move the bend across a floodplain; a cutoff can leave an oxbow lake.",
+      "zh": "河道弯曲形成的曲流。外岸侵蚀、内岸沉积常使弯道迁移；截弯后可留下牛轭湖。"
+    }
+  },
+  {
+    "term": {
+      "id": 484,
+      "key": "Mechanical weathering",
+      "zh": "物理风化"
+    },
+    "def": {
+      "id": 1030,
+      "key": "Break without composition change. Frost, unloading, thermal stress.",
+      "zh": "在基本不改变化学成分的情况下使岩石破碎，例如冻裂、卸荷和热应力作用。"
+    }
+  },
+  {
+    "term": {
+      "id": 485,
+      "key": "Megathrust",
+      "zh": "巨型逆冲断层"
+    },
+    "def": {
+      "id": 1031,
+      "key": "A large, low-angle thrust fault at a subduction boundary. Sudden slip on its shallow offshore part can displace the seafloor and generate a tsunami.",
+      "zh": "俯冲边界上的大型低角度逆冲断层。其浅部海域段突然滑动可使海床位移并产生海啸。"
+    }
+  },
+  {
+    "term": {
+      "id": 486,
+      "key": "Mercator",
+      "zh": "墨卡托投影"
+    },
+    "def": {
+      "id": 1032,
+      "key": "Conformal cylindrical. Rhumb lines straight. Distorts area toward the poles.",
+      "zh": "局部保角的圆柱投影，等角航线为直线，但越靠近两极，面积变形越大。"
+    }
+  },
+  {
+    "term": {
+      "id": 487,
+      "key": "Meridian",
+      "zh": "经线"
+    },
+    "def": {
+      "id": 1033,
+      "key": "A line of longitude. Local solar noon is when the Sun crosses your meridian.",
+      "zh": "经线。太阳通过当地子午线时，通常对应当地太阳正午。"
+    }
+  },
+  {
+    "term": {
+      "id": 488,
+      "key": "Mesosphere",
+      "zh": "中间层"
+    },
+    "def": {
+      "id": 1034,
+      "key": "The atmospheric layer roughly 50–85 km above the surface, in which temperature generally falls with altitude. Many meteors become luminous here.",
+      "zh": "距地表约 50–85 km 的大气层，温度通常随高度降低，许多流星在这里发光。"
+    }
+  },
+  {
+    "term": {
+      "id": 489,
+      "key": "Metamorphic",
+      "zh": "变质岩"
+    },
+    "def": {
+      "id": 1035,
+      "key": "Existing rock changed in the solid by heat and/or pressure, without full melt.",
+      "zh": "原有岩石在热和／或压力作用下，以固态发生改变形成的岩石；完全熔融属于另一过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 490,
+      "key": "Mid-ocean ridge",
+      "zh": "大洋中脊"
+    },
+    "def": {
+      "id": 1036,
+      "key": "A submarine mountain system at a spreading boundary, where mantle upwelling and melting form new oceanic crust. Seafloor generally becomes older away from the spreading axis.",
+      "zh": "海底扩张边界上的山系，地幔上涌及熔融形成新洋壳，海底年龄一般随离扩张轴距离增加而增大。"
+    }
+  },
+  {
+    "term": {
+      "id": 491,
+      "key": "Midlatitude cyclone",
+      "zh": "中纬度气旋"
+    },
+    "def": {
+      "id": 1037,
+      "key": "An extratropical low-pressure system that develops from contrasts in temperature and is commonly associated with warm and cold fronts.",
+      "zh": "由温度差异发展而成的温带低压系统，常伴有暖锋和冷锋。"
+    }
+  },
+  {
+    "term": {
+      "id": 492,
+      "key": "Misfit stream",
+      "zh": "不适应河"
+    },
+    "def": {
+      "id": 1038,
+      "key": "A stream smaller than the valley it occupies, sometimes following river capture or the loss of former glacial meltwater discharge.",
+      "zh": "相对于所在河谷明显偏小的河流，可能与河流袭夺或过去冰川融水流量减少有关。"
+    }
+  },
+  {
+    "term": {
+      "id": 493,
+      "key": "Mollisol",
+      "zh": "软土"
+    },
+    "def": {
+      "id": 1039,
+      "key": "A USDA soil order characterised by a dark, base-rich surface horizon, often formed beneath grassland. It is not an exact synonym for every chernozem classification.",
+      "zh": "美国农业部土壤分类中的软土，具有深色、富含盐基的表层，常形成于草原下；并不与所有分类中的黑钙土完全等同。"
+    }
+  },
+  {
+    "term": {
+      "id": 494,
+      "key": "Moraine",
+      "zh": "冰碛"
+    },
+    "def": {
+      "id": 1040,
+      "key": "An accumulation of debris transported or deposited by a glacier, including lateral, medial, terminal and ground moraines.",
+      "zh": "冰川搬运或堆积的碎屑物质，包括侧碛、中碛、终碛及底碛。"
+    }
+  },
+  {
+    "term": {
+      "id": 495,
+      "key": "Mountain",
+      "zh": "山地"
+    },
+    "def": {
+      "id": 1041,
+      "key": "A landform with substantial elevation and relief relative to its surroundings. There is no single globally accepted height separating mountains from hills.",
+      "zh": "相对于周围具有显著高度和起伏的地貌。全球没有统一的山地与丘陵高度分界标准。"
+    }
+  },
+  {
+    "term": {
+      "id": 496,
+      "key": "Mouth",
+      "zh": "河口"
+    },
+    "def": {
+      "id": 1042,
+      "key": "Where the river exits to sea, lake, or a larger river. Not always a delta.",
+      "zh": "河流流入海洋、湖泊或更大河流的位置，并不一定形成三角洲。"
+    }
+  },
+  {
+    "term": {
+      "id": 497,
+      "key": "Nabkha",
+      "zh": "灌丛沙堆"
+    },
+    "def": {
+      "id": 1043,
+      "key": "Sand trapped at a plant. Vegetation as roughness.",
+      "zh": "植被阻挡风沙后形成的沙堆，体现植物增加地表粗糙度的作用。"
+    }
+  },
+  {
+    "term": {
+      "id": 498,
+      "key": "NADW",
+      "zh": "北大西洋深层水"
+    },
+    "def": {
+      "id": 1044,
+      "key": "North Atlantic Deep Water: a group of deep water masses formed through cooling, mixing and sinking in the North Atlantic and neighbouring seas.",
+      "zh": "北大西洋深层水：在北大西洋及邻近海域通过冷却、混合和下沉形成的一组深层水团。"
+    }
+  },
+  {
+    "term": {
+      "id": 499,
+      "key": "Neap tide",
+      "zh": "小潮"
+    },
+    "def": {
+      "id": 1045,
+      "key": "Smaller range. Sun and Moon at right angles. Quarter moons.",
+      "zh": "潮差较小的潮汐，通常出现在上弦、下弦附近，此时日月方向约成直角。"
+    }
+  },
+  {
+    "term": {
+      "id": 500,
+      "key": "Near side",
+      "zh": "月球正面"
+    },
+    "def": {
+      "id": 1046,
+      "key": "The hemisphere of the Moon that usually faces Earth because the Moon rotates once per orbit. Libration lets us see somewhat more than half its surface over time.",
+      "zh": "由于月球每公转一周恰好自转一周，通常朝向地球的半球。天平动使我们长期可见的月面略多于一半。"
+    }
+  },
+  {
+    "term": {
+      "id": 501,
+      "key": "Nick point",
+      "zh": "裂点"
+    },
+    "def": {
+      "id": 1047,
+      "key": "A break of slope, often a waterfall, that can retreat upstream.",
+      "zh": "河流纵剖面上的坡度突变处，常表现为瀑布，可向上游后退。"
+    }
+  },
+  {
+    "term": {
+      "id": 502,
+      "key": "Nival",
+      "zh": "融雪补给型"
+    },
+    "def": {
+      "id": 1048,
+      "key": "Snowmelt-dominated regime. Spring peak as the pack goes.",
+      "zh": "以融雪补给为主的河流水文类型，积雪消融时常出现春季流量峰值。"
+    }
+  },
+  {
+    "term": {
+      "id": 503,
+      "key": "Nivation",
+      "zh": "雪蚀"
+    },
+    "def": {
+      "id": 1049,
+      "key": "Weathering, meltwater movement and other processes around persistent snow patches that can help enlarge shallow hollows.",
+      "zh": "持久积雪斑周围的风化、融水迁移等过程，可共同扩大浅洼地。"
+    }
+  },
+  {
+    "term": {
+      "id": 504,
+      "key": "Node",
+      "zh": "交点"
+    },
+    "def": {
+      "id": 1050,
+      "key": "Where the Moon’s orbit crosses the ecliptic. Eclipses need the Moon near a node.",
+      "zh": "月球轨道与黄道面的交点。日月食需要月球靠近交点。"
+    }
+  },
+  {
+    "term": {
+      "id": 505,
+      "key": "Noon altitude",
+      "zh": "正午太阳高度"
+    },
+    "def": {
+      "id": 1051,
+      "key": "90° − |φ − δ|. School formula. φ is latitude, δ is declination.",
+      "zh": "正午太阳高度角近似为 90° − |φ − δ|，其中 φ 为纬度，δ 为太阳赤纬。"
+    }
+  },
+  {
+    "term": {
+      "id": 506,
+      "key": "Normal fault",
+      "zh": "正断层"
+    },
+    "def": {
+      "id": 1052,
+      "key": "Extension. Hanging wall down.",
+      "zh": "拉伸环境中，上盘相对下盘向下移动的断层。"
+    }
+  },
+  {
+    "term": {
+      "id": 507,
+      "key": "Northing",
+      "zh": "北向坐标"
+    },
+    "def": {
+      "id": 1053,
+      "key": "How far north in the grid. Read second. Up the stairs.",
+      "zh": "在格网中相对于原点向北的距离，读坐标时放在东距之后。"
+    }
+  },
+  {
+    "term": {
+      "id": 508,
+      "key": "O horizon",
+      "zh": "O 层（有机层）"
+    },
+    "def": {
+      "id": 1054,
+      "key": "Organic layer at the top: litter and decomposing material.",
+      "zh": "土壤顶部以枯枝落叶及分解中的有机物为主的有机层。"
+    }
+  },
+  {
+    "term": {
+      "id": 509,
+      "key": "Occlusion",
+      "zh": "锢囚"
+    },
+    "def": {
+      "id": 1055,
+      "key": "Cold front catching a warm front; warm air lifted off the surface.",
+      "zh": "冷锋追上暖锋，使暖空气离开地面的过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 510,
+      "key": "Oceanic crust",
+      "zh": "洋壳"
+    },
+    "def": {
+      "id": 1056,
+      "key": "Basalt and gabbro, ~7 km thick, young at ridges, old toward trenches.",
+      "zh": "主要由玄武岩和辉长岩组成、平均约 7 km 厚的地壳；通常在洋中脊较年轻，向海沟方向较老。"
+    }
+  },
+  {
+    "term": {
+      "id": 511,
+      "key": "Onshore flow",
+      "zh": "向岸流"
+    },
+    "def": {
+      "id": 1057,
+      "key": "Surface wind from sea toward land.",
+      "zh": "从海洋吹向陆地的近地面气流。"
+    }
+  },
+  {
+    "term": {
+      "id": 512,
+      "key": "Orbital inclination",
+      "zh": "轨道倾角"
+    },
+    "def": {
+      "id": 1058,
+      "key": "The Moon’s orbit is tilted ~5° to Earth’s orbit. That is why eclipses are rare.",
+      "zh": "月球轨道相对于地球绕日轨道倾斜约 5°，因此并非每个月都发生日月食。"
+    }
+  },
+  {
+    "term": {
+      "id": 513,
+      "key": "Orbital period",
+      "zh": "公转周期"
+    },
+    "def": {
+      "id": 1059,
+      "key": "Time for one trip around the Sun. Mercury ~88 days. Earth 1 year. Neptune ~165 years.",
+      "zh": "完成一周公转所需的时间。例如水星约 88 天、地球约 1 年、海王星约 165 年。"
+    }
+  },
+  {
+    "term": {
+      "id": 514,
+      "key": "Order of magnitude",
+      "zh": "数量级"
+    },
+    "def": {
+      "id": 1060,
+      "key": "A scale step of a factor of ten. Quantities differing by three orders of magnitude differ by roughly a factor of one thousand.",
+      "zh": "相差十倍的一个尺度级别。相差三个数量级约为相差一千倍。"
+    }
+  },
+  {
+    "term": {
+      "id": 515,
+      "key": "Orogeny",
+      "zh": "造山作用"
+    },
+    "def": {
+      "id": 1061,
+      "key": "A mountain-building episode, often from collision.",
+      "zh": "形成山系的地质过程，常与板块碰撞有关。"
+    }
+  },
+  {
+    "term": {
+      "id": 516,
+      "key": "Orographic rainfall",
+      "zh": "地形雨"
+    },
+    "def": {
+      "id": 1062,
+      "key": "Rain forced by air rising over high ground.",
+      "zh": "空气遇高地被迫抬升、冷却后形成的降雨。"
+    }
+  },
+  {
+    "term": {
+      "id": 517,
+      "key": "OSGB",
+      "zh": "英国国家格网"
+    },
+    "def": {
+      "id": 1063,
+      "key": "Ordnance Survey Great Britain. OSGB36 is a geodetic datum used with the British National Grid; it differs from the global WGS84 reference system.",
+      "zh": "英国地形测量局相关参考体系。OSGB36 是英国国家格网使用的测地基准，与全球 WGS84 参考系统不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 518,
+      "key": "Outer core",
+      "zh": "外核"
+    },
+    "def": {
+      "id": 1064,
+      "key": "Earth's liquid metallic layer, mainly iron with nickel and lighter elements, between about 2,890 and 5,150 km depth. It does not transmit shear waves.",
+      "zh": "地球深约 2,890–5,150 km 的液态金属层，主要由铁、镍及较轻元素组成，不能传播普通剪切波。"
+    }
+  },
+  {
+    "term": {
+      "id": 519,
+      "key": "Oxbow",
+      "zh": "牛轭湖"
+    },
+    "def": {
+      "id": 1065,
+      "key": "A curved former meander channel separated from the main river. It may contain an oxbow lake or gradually fill with sediment.",
+      "zh": "曲流截弯后与主河道分离的弯曲旧河道，可形成牛轭湖，也可逐渐被沉积物填满。"
+    }
+  },
+  {
+    "term": {
+      "id": 520,
+      "key": "Oxisol",
+      "zh": "氧化土"
+    },
+    "def": {
+      "id": 1066,
+      "key": "Highly weathered tropical soil; deep, leached, often red.",
+      "zh": "强烈风化的热带土壤，通常土层深、淋溶强，常呈红色。"
+    }
+  },
+  {
+    "term": {
+      "id": 521,
+      "key": "Ozone layer",
+      "zh": "臭氧层"
+    },
+    "def": {
+      "id": 1067,
+      "key": "Region of higher ozone in the stratosphere that absorbs ultraviolet and heats that layer.",
+      "zh": "平流层中臭氧浓度较高的区域，吸收紫外线并使该层增温。"
+    }
+  },
+  {
+    "term": {
+      "id": 522,
+      "key": "P-wave",
+      "zh": "P 波（纵波）"
+    },
+    "def": {
+      "id": 1068,
+      "key": "A compressional seismic wave with particle motion parallel to its travel direction. It travels through solids and liquids and is the faster body-wave type.",
+      "zh": "质点振动方向与传播方向平行的压缩地震波，可通过固体和液体，是传播较快的体波。"
+    }
+  },
+  {
+    "term": {
+      "id": 523,
+      "key": "Pangaea",
+      "zh": "盘古大陆"
+    },
+    "def": {
+      "id": 1069,
+      "key": "The late Palaeozoic–Mesozoic supercontinent. Not the only one in Earth history.",
+      "zh": "古生代晚期至中生代的盘古超大陆，并非地球历史上唯一的超大陆。"
+    }
+  },
+  {
+    "term": {
+      "id": 524,
+      "key": "Parallel",
+      "zh": "纬线"
+    },
+    "def": {
+      "id": 1070,
+      "key": "A line of latitude, parallel to the equator. Parallels never meet.",
+      "zh": "与赤道平行的纬线，各条纬线互不相交。"
+    }
+  },
+  {
+    "term": {
+      "id": 525,
+      "key": "Parsec",
+      "zh": "秒差距"
+    },
+    "def": {
+      "id": 1071,
+      "key": "The distance at which one astronomical unit subtends one arcsecond; about 3.26 light years, or 3.086 × 10¹⁶ m.",
+      "zh": "1 个天文单位张角为 1 角秒时的距离，约 3.26 光年或 3.086 × 10¹⁶ m。"
+    }
+  },
+  {
+    "term": {
+      "id": 526,
+      "key": "Partial melt",
+      "zh": "部分熔融"
+    },
+    "def": {
+      "id": 1072,
+      "key": "A fraction of the rock is liquid. A plume is not a magma ocean.",
+      "zh": "岩石中只有部分物质熔融。地幔柱并不等于岩浆海。"
+    }
+  },
+  {
+    "term": {
+      "id": 527,
+      "key": "Passive margin",
+      "zh": "被动大陆边缘"
+    },
+    "def": {
+      "id": 1073,
+      "key": "A quiet continent–ocean edge after rifting, like much of the modern Atlantic.",
+      "zh": "大陆裂解后形成的相对稳定大陆—海洋边缘，例如现代大西洋的大部分边缘。"
+    }
+  },
+  {
+    "term": {
+      "id": 528,
+      "key": "Patterned ground",
+      "zh": "构造土"
+    },
+    "def": {
+      "id": 1074,
+      "key": "Repeated ground patterns such as polygons, circles or stripes, produced by processes including frost sorting and thermal contraction in cold environments.",
+      "zh": "寒冷环境中，冻融分选、热收缩等过程形成的多边形、圆环或条带等重复地表图案。"
+    }
+  },
+  {
+    "term": {
+      "id": 529,
+      "key": "Peak discharge",
+      "zh": "洪峰流量"
+    },
+    "def": {
+      "id": 1075,
+      "key": "The greatest rate of river flow during a specified event or period, measured in m³ s⁻¹.",
+      "zh": "某次事件或指定时段内最大的河流流量，单位为 m³/s。"
+    }
+  },
+  {
+    "term": {
+      "id": 530,
+      "key": "Penumbra",
+      "zh": "半影"
+    },
+    "def": {
+      "id": 1076,
+      "key": "The part of a shadow where the light source is only partly obscured. On the Moon it produces subtler dimming than the umbra.",
+      "zh": "光源只有部分被遮挡的阴影区域。月球进入地球半影时，变暗通常比进入本影轻微。"
+    }
+  },
+  {
+    "term": {
+      "id": 531,
+      "key": "Periglacial",
+      "zh": "冰缘作用"
+    },
+    "def": {
+      "id": 1077,
+      "key": "Cold-climate processes at the ice margin, or in cold ground with no glacier.",
+      "zh": "冰川边缘或没有冰川的寒冷地表环境中发生的寒地地貌过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 532,
+      "key": "Perihelion",
+      "zh": "近日点"
+    },
+    "def": {
+      "id": 1078,
+      "key": "Nearest point to the Sun. Early January. A few percent extra insolation, not the cause of seasons.",
+      "zh": "轨道上最接近太阳的位置。地球在一月初经过近日点，入射太阳辐射略有增加，但这不是四季成因。"
+    }
+  },
+  {
+    "term": {
+      "id": 533,
+      "key": "Permafrost",
+      "zh": "多年冻土"
+    },
+    "def": {
+      "id": 1079,
+      "key": "Ground that remains at or below 0 °C for at least two consecutive years. It may contain ice but need not be permanently ice-filled.",
+      "zh": "连续至少两年保持在 0 °C 或以下的地层。可含冰，但不要求始终充满冰。"
+    }
+  },
+  {
+    "term": {
+      "id": 534,
+      "key": "PGF",
+      "zh": "气压梯度力"
+    },
+    "def": {
+      "id": 1080,
+      "key": "Pressure-gradient force: the force per unit mass associated with a pressure difference, directed from higher towards lower pressure.",
+      "zh": "气压梯度力：与气压差有关、由高压指向低压的单位质量作用力。"
+    }
+  },
+  {
+    "term": {
+      "id": 535,
+      "key": "Phase",
+      "zh": "月相"
+    },
+    "def": {
+      "id": 1081,
+      "key": "The fraction of the near side that is sunlit, as seen from Earth.",
+      "zh": "从地球看见的月球近侧半球中，被太阳照亮部分的比例与形状。"
+    }
+  },
+  {
+    "term": {
+      "id": 536,
+      "key": "Photosphere",
+      "zh": "光球"
+    },
+    "def": {
+      "id": 1082,
+      "key": "The visible layer of the Sun from which most of its observed light escapes. Sunspots are relatively cooler, magnetically active regions within it.",
+      "zh": "太阳可见表层，大部分观测到的太阳光由此逸出。太阳黑子是其中相对较冷、磁活动较强的区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 537,
+      "key": "Photosynthesis",
+      "zh": "光合作用"
+    },
+    "def": {
+      "id": 1083,
+      "key": "The use of light energy to build organic molecules from carbon dioxide and water. Oxygen-producing photosynthesis transfers carbon into living matter.",
+      "zh": "利用光能，将二氧化碳和水转化为有机物的过程。产氧光合作用使碳进入生物体。"
+    }
+  },
+  {
+    "term": {
+      "id": 538,
+      "key": "Pirate stream",
+      "zh": "袭夺河"
+    },
+    "def": {
+      "id": 1084,
+      "key": "The aggressor that captures by headward erosion.",
+      "zh": "通过溯源侵蚀等过程夺取邻近河流水源的河流。"
+    }
+  },
+  {
+    "term": {
+      "id": 539,
+      "key": "Plain",
+      "zh": "平原"
+    },
+    "def": {
+      "id": 1085,
+      "key": "Low, gently sloping, open land.",
+      "zh": "地势较低、坡度较缓而开阔的地貌。"
+    }
+  },
+  {
+    "term": {
+      "id": 540,
+      "key": "Planetary ring",
+      "zh": "行星环"
+    },
+    "def": {
+      "id": 1086,
+      "key": "A collection of particles orbiting a planet, ranging from fine dust to larger fragments. Saturn's rings consist mainly of water ice.",
+      "zh": "绕行星运行的颗粒集合，粒径从细尘到较大碎块不等；土星环主要由水冰组成。"
+    }
+  },
+  {
+    "term": {
+      "id": 541,
+      "key": "Plateau",
+      "zh": "高原"
+    },
+    "def": {
+      "id": 1087,
+      "key": "Elevated land with a relatively flat top.",
+      "zh": "海拔相对较高、顶部较平坦的地貌。"
+    }
+  },
+  {
+    "term": {
+      "id": 542,
+      "key": "Plunge pool",
+      "zh": "瀑布潭"
+    },
+    "def": {
+      "id": 1088,
+      "key": "Deep hollow at the foot of a fall, scoured by falling water and load.",
+      "zh": "瀑布下方因落水和搬运颗粒冲刷形成的深凹地。"
+    }
+  },
+  {
+    "term": {
+      "id": 543,
+      "key": "Pluvial",
+      "zh": "雨水补给型"
+    },
+    "def": {
+      "id": 1089,
+      "key": "Describing a river regime mainly controlled by rainfall; its discharge seasonality reflects rainfall and catchment storage.",
+      "zh": "主要由降雨控制的河流水文类型，其季节变化反映降雨和流域储水共同作用。"
+    }
+  },
+  {
+    "term": {
+      "id": 544,
+      "key": "Polar cell",
+      "zh": "极地环流"
+    },
+    "def": {
+      "id": 1090,
+      "key": "High-latitude cell. Rise near 60°, sink at the pole.",
+      "zh": "高纬度平均环流，空气大致在 60° 纬度附近上升、极地附近下沉。"
+    }
+  },
+  {
+    "term": {
+      "id": 545,
+      "key": "Pore pressure",
+      "zh": "孔隙水压力"
+    },
+    "def": {
+      "id": 1091,
+      "key": "The pressure of water or gas within pores in soil or rock. Increasing water pressure can reduce effective stress and resistance to slope failure.",
+      "zh": "土壤或岩石孔隙中水或气体的压力。水压升高可降低有效应力及边坡抗滑能力。"
+    }
+  },
+  {
+    "term": {
+      "id": 546,
+      "key": "Pothole",
+      "zh": "壶穴"
+    },
+    "def": {
+      "id": 1092,
+      "key": "Bed hollow where pebbles swirl and abrade.",
+      "zh": "河床上由旋转水流与砂砾磨蚀形成的圆形凹穴。"
+    }
+  },
+  {
+    "term": {
+      "id": 547,
+      "key": "Power of ten",
+      "zh": "十的幂"
+    },
+    "def": {
+      "id": 1093,
+      "key": "A number written as 10 raised to an exponent, used to express large or small quantities and compare their scales.",
+      "zh": "以 10 的指数形式表示的数，便于表达极大或极小的量及比较尺度。"
+    }
+  },
+  {
+    "term": {
+      "id": 548,
+      "key": "Precambrian",
+      "zh": "前寒武纪"
+    },
+    "def": {
+      "id": 1094,
+      "key": "The informal span of Earth history before the Cambrian Period, covering the Hadean, Archaean and Proterozoic eons.",
+      "zh": "寒武纪以前地球历史的非正式统称，包括冥古宙、太古宙和元古宙。"
+    }
+  },
+  {
+    "term": {
+      "id": 549,
+      "key": "Pressure difference",
+      "zh": "气压差"
+    },
+    "def": {
+      "id": 1095,
+      "key": "A difference in pressure between two places. It creates a pressure-gradient force that can start air moving.",
+      "zh": "两地气压之差，可形成推动空气运动的气压梯度力。"
+    }
+  },
+  {
+    "term": {
+      "id": 550,
+      "key": "Pressure gradient",
+      "zh": "气压梯度"
+    },
+    "def": {
+      "id": 1096,
+      "key": "How pressure changes with distance. Steep gradient, strong PGF, strong wind.",
+      "zh": "气压随距离的变化率。梯度越大，气压梯度力越强，通常可产生更强的风。"
+    }
+  },
+  {
+    "term": {
+      "id": 551,
+      "key": "Prime meridian",
+      "zh": "本初子午线"
+    },
+    "def": {
+      "id": 1097,
+      "key": "The chosen zero of longitude. The modern reference meridian used by WGS84 lies about 102 m east of the historic Greenwich transit circle.",
+      "zh": "人为选定的 0° 经线。WGS84 所用现代参考子午线位于历史格林尼治中星仪以东约 102 m。"
+    }
+  },
+  {
+    "term": {
+      "id": 552,
+      "key": "Projection",
+      "zh": "地图投影"
+    },
+    "def": {
+      "id": 1098,
+      "key": "A rule for flattening the globe onto a plane. Every rule distorts something.",
+      "zh": "将地球曲面映射到平面的规则。任何平面地图都会产生某些变形。"
+    }
+  },
+  {
+    "term": {
+      "id": 553,
+      "key": "Pyroclastic",
+      "zh": "火山碎屑"
+    },
+    "def": {
+      "id": 1099,
+      "key": "Fragmented material from explosive eruption: ash, pumice, blocks.",
+      "zh": "爆炸式喷发产生的碎屑物质，例如火山灰、浮石和岩块。"
+    }
+  },
+  {
+    "term": {
+      "id": 554,
+      "key": "Quadrature",
+      "zh": "方照"
+    },
+    "def": {
+      "id": 1100,
+      "key": "Sun and Moon at right angles as seen from Earth. Neap tide.",
+      "zh": "从地球看，太阳与月球方向成直角的状态，通常与小潮相联系。"
+    }
+  },
+  {
+    "term": {
+      "id": 555,
+      "key": "R horizon",
+      "zh": "R 层（基岩）"
+    },
+    "def": {
+      "id": 1101,
+      "key": "Bedrock. Not soil.",
+      "zh": "坚硬基岩层，不属于土壤本身。"
+    }
+  },
+  {
+    "term": {
+      "id": 556,
+      "key": "Radiosonde",
+      "zh": "无线电探空仪"
+    },
+    "def": {
+      "id": 1102,
+      "key": "Balloon-borne package that profiles temperature, humidity and pressure with height.",
+      "zh": "由气球携带、测量温度、湿度、气压随高度变化的仪器。"
+    }
+  },
+  {
+    "term": {
+      "id": 157,
+      "key": "Rain shadow",
+      "zh": "雨影"
+    },
+    "def": {
+      "id": 1103,
+      "key": "Dry region leeward of a barrier, after the air has already dropped water.",
+      "zh": "湿空气越过山地并损失部分水分后，背风侧形成的相对干燥区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 557,
+      "key": "Rain splash",
+      "zh": "雨滴溅蚀"
+    },
+    "def": {
+      "id": 1104,
+      "key": "Drop impact that detaches particles at the soil surface.",
+      "zh": "雨滴撞击地面，使土壤颗粒分离并飞溅的过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 558,
+      "key": "Rainband",
+      "zh": "雨带"
+    },
+    "def": {
+      "id": 1105,
+      "key": "Spiral band of showers and storms outside the eyewall.",
+      "zh": "热带气旋眼墙外，由阵雨和雷暴组成的螺旋状云雨带。"
+    }
+  },
+  {
+    "term": {
+      "id": 559,
+      "key": "Raised beach",
+      "zh": "抬升海滩"
+    },
+    "def": {
+      "id": 1106,
+      "key": "A former beach now above present sea level because of land uplift, a fall in sea level, or both.",
+      "zh": "因陆地抬升、海平面下降或两者共同作用，而位于现今海面之上的古海滩。"
+    }
+  },
+  {
+    "term": {
+      "id": 560,
+      "key": "Ranker",
+      "zh": "薄层酸性山地土"
+    },
+    "def": {
+      "id": 1107,
+      "key": "A traditional soil term for a shallow, often acidic soil over hard, non-calcareous rock; commonly found on steep or exposed ground.",
+      "zh": "传统土壤名称，通常指硬质非钙质基岩上浅薄、常偏酸性的土壤，常见于陡坡或裸露地带。"
+    }
+  },
+  {
+    "term": {
+      "id": 561,
+      "key": "Recharge",
+      "zh": "地下水补给"
+    },
+    "def": {
+      "id": 1108,
+      "key": "Water added to the aquifer, usually from rain and infiltration.",
+      "zh": "进入含水层的补给水，通常来源于降雨及下渗。"
+    }
+  },
+  {
+    "term": {
+      "id": 562,
+      "key": "Regime",
+      "zh": "水文情势"
+    },
+    "def": {
+      "id": 1109,
+      "key": "The characteristic seasonal pattern of river discharge, influenced by rainfall, snowmelt, storage and human regulation.",
+      "zh": "河流流量特有的季节变化型态，受降雨、融雪、储水及人工调节等影响。"
+    }
+  },
+  {
+    "term": {
+      "id": 563,
+      "key": "Relief",
+      "zh": "地形起伏"
+    },
+    "def": {
+      "id": 1110,
+      "key": "The variation in elevation within an area, often expressed as the difference between its highest and lowest points.",
+      "zh": "一个区域内高程的起伏变化，常以最高点与最低点的高差表示。"
+    }
+  },
+  {
+    "term": {
+      "id": 564,
+      "key": "Residence time",
+      "zh": "停留时间"
+    },
+    "def": {
+      "id": 1111,
+      "key": "The typical time material remains in a store. For a well-mixed store at steady state, mean residence time is its amount divided by its outflow rate.",
+      "zh": "物质在储库中停留的典型时间。对于充分混合且处于稳态的储库，平均停留时间为储量除以流出速率。"
+    }
+  },
+  {
+    "term": {
+      "id": 565,
+      "key": "Respiration",
+      "zh": "呼吸作用"
+    },
+    "def": {
+      "id": 1112,
+      "key": "Processes that release energy from organic matter. Aerobic respiration consumes oxygen and releases carbon dioxide and water.",
+      "zh": "分解有机物并释放能量的过程。有氧呼吸消耗氧气，释放二氧化碳和水。"
+    }
+  },
+  {
+    "term": {
+      "id": 566,
+      "key": "Resurgence",
+      "zh": "地下河复出"
+    },
+    "def": {
+      "id": 1113,
+      "key": "Where underground drainage returns to the surface.",
+      "zh": "地下水系重新出露地表的位置。"
+    }
+  },
+  {
+    "term": {
+      "id": 567,
+      "key": "Reverse fault",
+      "zh": "逆断层"
+    },
+    "def": {
+      "id": 1114,
+      "key": "Shortening. Hanging wall up. Thrust if the plane is gentle.",
+      "zh": "挤压环境中，上盘相对下盘上升的断层；断层面倾角较小时称逆冲断层。"
+    }
+  },
+  {
+    "term": {
+      "id": 568,
+      "key": "Revolution",
+      "zh": "公转"
+    },
+    "def": {
+      "id": 1115,
+      "key": "One trip around the Sun. About 365.25 days. Not the same as rotation (the daily spin).",
+      "zh": "地球绕太阳运行一周，约需 365.25 天；与每日绕轴旋转的自转不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 569,
+      "key": "Rhumb line",
+      "zh": "等角航线"
+    },
+    "def": {
+      "id": 1116,
+      "key": "A path of constant compass bearing, shown as a straight line on a Mercator map. Except for special cases, it is not the shortest path on a sphere.",
+      "zh": "保持恒定罗盘方位角的路径，在墨卡托地图上为直线；除特殊情况外，并不是球面上的最短路径。"
+    }
+  },
+  {
+    "term": {
+      "id": 570,
+      "key": "Rift",
+      "zh": "裂谷"
+    },
+    "def": {
+      "id": 1117,
+      "key": "An elongated region where the lithosphere is extending and thinning. Some continental rifts develop into ocean basins; others cease spreading.",
+      "zh": "岩石圈拉伸、减薄形成的狭长区域。部分大陆裂谷最终发展成海盆，也有部分停止扩张。"
+    }
+  },
+  {
+    "term": {
+      "id": 571,
+      "key": "Rill",
+      "zh": "细沟"
+    },
+    "def": {
+      "id": 1118,
+      "key": "Small erosional channel cut by running water. Can grow into a gully.",
+      "zh": "流水侵蚀形成的小沟，可继续发展成冲沟。"
+    }
+  },
+  {
+    "term": {
+      "id": 572,
+      "key": "Rising limb",
+      "zh": "涨水段"
+    },
+    "def": {
+      "id": 1119,
+      "key": "The increase in discharge as the catchment starts to contribute.",
+      "zh": "流域开始向河道集中供水时，流量过程线上升的部分。"
+    }
+  },
+  {
+    "term": {
+      "id": 573,
+      "key": "Root",
+      "zh": "山根"
+    },
+    "def": {
+      "id": 1120,
+      "key": "Thick crust under a mountain, the submerged part of the raft.",
+      "zh": "山地下方增厚的地壳，可类比浮体下方伸入较密介质的部分。"
+    }
+  },
+  {
+    "term": {
+      "id": 574,
+      "key": "Rotation",
+      "zh": "自转"
+    },
+    "def": {
+      "id": 1121,
+      "key": "Earth spinning on its axis. One solar day ≈ 24 hours.",
+      "zh": "地球绕自转轴旋转。一个太阳日约为 24 小时。"
+    }
+  },
+  {
+    "term": {
+      "id": 575,
+      "key": "Rotational slump",
+      "zh": "旋转滑坡"
+    },
+    "def": {
+      "id": 1122,
+      "key": "A slice of slope that rotates on a curved shear. Crown drops; toe shoves.",
+      "zh": "坡体沿弯曲剪切面发生旋转的滑动，上部下降、坡脚向外推移。"
+    }
+  },
+  {
+    "term": {
+      "id": 576,
+      "key": "Run-up",
+      "zh": "爬高"
+    },
+    "def": {
+      "id": 1123,
+      "key": "The maximum elevation reached by a wave above a specified reference sea level as it moves onto land; distinct from inland inundation distance.",
+      "zh": "波浪爬上陆地后，相对于指定参考海面的最大高程；与向内陆的淹没距离不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 577,
+      "key": "S-wave",
+      "zh": "S 波（横波）"
+    },
+    "def": {
+      "id": 1124,
+      "key": "A shear seismic wave with particle motion perpendicular to its travel direction. It propagates through solids but not through the liquid outer core.",
+      "zh": "质点振动方向与传播方向垂直的剪切地震波，可在固体中传播，但不能通过液态外核。"
+    }
+  },
+  {
+    "term": {
+      "id": 578,
+      "key": "Saffir–Simpson",
+      "zh": "萨菲尔–辛普森等级"
+    },
+    "def": {
+      "id": 1125,
+      "key": "A five-category hurricane scale based on maximum sustained wind speed. It does not rate rainfall, storm surge or the full impact of a cyclone.",
+      "zh": "按最大持续风速划分的五级飓风等级，不包括降雨、风暴潮或气旋全部影响。"
+    }
+  },
+  {
+    "term": {
+      "id": 579,
+      "key": "Salinity",
+      "zh": "盐度"
+    },
+    "def": {
+      "id": 1126,
+      "key": "Salt content. More salt, higher density, all else equal.",
+      "zh": "海水含盐程度。在其他条件相同时，盐度增加通常使密度增大。"
+    }
+  },
+  {
+    "term": {
+      "id": 580,
+      "key": "Saltation",
+      "zh": "跃移"
+    },
+    "def": {
+      "id": 1127,
+      "key": "Transport in short hops or bounces, especially of sand grains moved by wind or flowing water.",
+      "zh": "颗粒以短距离跳跃或弹跳方式搬运，常见于风或流水搬运沙粒。"
+    }
+  },
+  {
+    "term": {
+      "id": 581,
+      "key": "Sand",
+      "zh": "砂粒"
+    },
+    "def": {
+      "id": 1128,
+      "key": "Soil mineral particles 0.05–2 mm across in the USDA system. Other sediment classifications use a slightly different lower boundary.",
+      "zh": "按美国农业部标准，土壤中粒径为 0.05–2 mm 的矿物颗粒；其他沉积物分类的下限略有不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 582,
+      "key": "Scale jump",
+      "zh": "尺度切换"
+    },
+    "def": {
+      "id": 1129,
+      "key": "A change between views representing very different sizes or distances. Each view needs its own scale because a single display cannot resolve all of them.",
+      "zh": "在表示完全不同尺寸或距离的视图之间切换。一个画面无法同时分辨所有尺度，因此各视图需分别注明比例。"
+    }
+  },
+  {
+    "term": {
+      "id": 583,
+      "key": "Sea breeze",
+      "zh": "海风"
+    },
+    "def": {
+      "id": 1130,
+      "key": "Daytime onshore flow driven by land heating faster than the sea.",
+      "zh": "白天地面比海面升温快，由此推动从海洋吹向陆地的局地风。"
+    }
+  },
+  {
+    "term": {
+      "id": 119,
+      "key": "Seafloor spreading",
+      "zh": "海底扩张"
+    },
+    "def": {
+      "id": 1131,
+      "key": "New oceanic crust at a ridge. Ocean floor is plate too, born and later destroyed.",
+      "zh": "洋中脊形成新洋壳并向两侧移动的过程。海底也是板块的一部分，可以形成并最终被消耗。"
+    }
+  },
+  {
+    "term": {
+      "id": 584,
+      "key": "Seamount",
+      "zh": "海山"
+    },
+    "def": {
+      "id": 1132,
+      "key": "An underwater mountain, usually volcanic. Seamounts need not lie on an age-progressive hotspot chain or have once stood above sea level.",
+      "zh": "通常由火山形成的海底山体。并不一定属于年龄递变的热点链，也不一定曾露出海面。"
+    }
+  },
+  {
+    "term": {
+      "id": 585,
+      "key": "Sediment budget",
+      "zh": "泥沙收支"
+    },
+    "def": {
+      "id": 1133,
+      "key": "Supply, transport, deposition, interruption. The whole-coast accounts.",
+      "zh": "对海岸沉积物供应、搬运、堆积和受阻等过程的收支核算。"
+    }
+  },
+  {
+    "term": {
+      "id": 586,
+      "key": "Sedimentary",
+      "zh": "沉积岩"
+    },
+    "def": {
+      "id": 1134,
+      "key": "Rock from deposited fragments or precipitates, then lithified.",
+      "zh": "沉积的碎屑或化学沉淀物等，经成岩作用形成的岩石。"
+    }
+  },
+  {
+    "term": {
+      "id": 587,
+      "key": "Semi-diurnal tide",
+      "zh": "半日潮"
+    },
+    "def": {
+      "id": 1135,
+      "key": "A tidal pattern with two high waters and two low waters in each lunar day, which averages about 24 hours 50 minutes.",
+      "zh": "平均约 24 小时 50 分钟的一个太阴日中，出现两次高潮和两次低潮的潮汐型态。"
+    }
+  },
+  {
+    "term": {
+      "id": 588,
+      "key": "Shear surface",
+      "zh": "剪切面"
+    },
+    "def": {
+      "id": 1136,
+      "key": "The failure plane. Curved in a slump. Not a vertical cliff face.",
+      "zh": "滑动破坏发生的面。旋转滑坡中通常呈曲面，并不是竖直崖壁。"
+    }
+  },
+  {
+    "term": {
+      "id": 589,
+      "key": "Shelf",
+      "zh": "大陆架"
+    },
+    "def": {
+      "id": 1137,
+      "key": "Shallow seafloor beside a continent. It lets a surge stand up.",
+      "zh": "大陆边缘较浅的海底区域，可影响并增强沿岸风暴增水。"
+    }
+  },
+  {
+    "term": {
+      "id": 590,
+      "key": "Shelf fit",
+      "zh": "大陆架拼合"
+    },
+    "def": {
+      "id": 1138,
+      "key": "Comparison of continental margins, rather than modern coastlines, when reconstructing former continental positions. Sediment cover and deformation make the fit approximate.",
+      "zh": "重建古大陆位置时比较大陆边缘而非现代海岸线。沉积覆盖和后期变形使拼合只能近似。"
+    }
+  },
+  {
+    "term": {
+      "id": 591,
+      "key": "Shield volcano",
+      "zh": "盾状火山"
+    },
+    "def": {
+      "id": 1139,
+      "key": "A broad volcano with gentle slopes built mainly by fluid lava flows, commonly basaltic. Mauna Loa is a classic example.",
+      "zh": "主要由流动性较强、常为玄武质的熔岩堆积而成的宽缓火山，冒纳罗亚火山是典型例子。"
+    }
+  },
+  {
+    "term": {
+      "id": 592,
+      "key": "Shoaling",
+      "zh": "浅化变形"
+    },
+    "def": {
+      "id": 1140,
+      "key": "The change in a wave as it enters shallower water: it slows, its wavelength shortens, and its height may increase before breaking.",
+      "zh": "波浪进入浅水后发生的变化：波速降低、波长缩短，破碎前波高可能增加。"
+    }
+  },
+  {
+    "term": {
+      "id": 593,
+      "key": "Shortwave",
+      "zh": "短波辐射"
+    },
+    "def": {
+      "id": 1141,
+      "key": "Solar radiation: ultraviolet, visible, near-infrared.",
+      "zh": "太阳辐射中主要包括紫外线、可见光及近红外的部分。"
+    }
+  },
+  {
+    "term": {
+      "id": 594,
+      "key": "Sidereal day",
+      "zh": "恒星日"
+    },
+    "def": {
+      "id": 1142,
+      "key": "Time to face the same star again: about 23 h 56 min. Shorter than the solar day because Earth also orbits.",
+      "zh": "地球重新朝向同一恒星所需的时间，约 23 小时 56 分钟；由于地球同时公转，比太阳日略短。"
+    }
+  },
+  {
+    "term": {
+      "id": 595,
+      "key": "Silt",
+      "zh": "粉粒"
+    },
+    "def": {
+      "id": 1143,
+      "key": "Soil mineral particles 0.002–0.05 mm across in the USDA system, intermediate between clay and sand.",
+      "zh": "按美国农业部标准，土壤中粒径为 0.002–0.05 mm 的矿物颗粒，介于黏土和砂之间。"
+    }
+  },
+  {
+    "term": {
+      "id": 596,
+      "key": "Six-figure grid reference",
+      "zh": "六位方格坐标"
+    },
+    "def": {
+      "id": 1144,
+      "key": "Locates a 100 m square on the OS grid. Not a pin.",
+      "zh": "英国地形图格网中标识一个 100 m × 100 m 方格的六位坐标，并非一个精确点位。"
+    }
+  },
+  {
+    "term": {
+      "id": 597,
+      "key": "Slip-off slope",
+      "zh": "堆积岸"
+    },
+    "def": {
+      "id": 1145,
+      "key": "Deposition on the inner bend of a meander.",
+      "zh": "曲流内侧因沉积形成的缓坡。"
+    }
+  },
+  {
+    "term": {
+      "id": 598,
+      "key": "Slow cycle",
+      "zh": "慢速循环"
+    },
+    "def": {
+      "id": 1146,
+      "key": "Carbon transfer through rocks, sediments and the deep Earth, involving weathering, burial, metamorphism and volcanism over geological timescales.",
+      "zh": "碳在岩石、沉积物和地球内部之间的长期迁移，涉及风化、埋藏、变质和火山活动等地质过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 599,
+      "key": "Snowmelt",
+      "zh": "融雪"
+    },
+    "def": {
+      "id": 1147,
+      "key": "Stored winter snow becoming spring discharge. A nival bump.",
+      "zh": "冬季储存的积雪融化后补给河流，常形成融雪型春季流量峰值。"
+    }
+  },
+  {
+    "term": {
+      "id": 600,
+      "key": "Solar altitude",
+      "zh": "太阳高度"
+    },
+    "def": {
+      "id": 1148,
+      "key": "Angle of the Sun above the horizon. Noon altitude is the day’s peak.",
+      "zh": "太阳相对于地平线的仰角；太阳正午时通常达到当天最高值。"
+    }
+  },
+  {
+    "term": {
+      "id": 601,
+      "key": "Solar constant",
+      "zh": "太阳常数"
+    },
+    "def": {
+      "id": 1149,
+      "key": "Total solar irradiance near Earth's mean orbital distance, about 1,361 W m⁻² on a surface perpendicular to the rays above the atmosphere. It varies slightly over time.",
+      "zh": "在地球平均轨道距离、大气层外且垂直于太阳光的平面上，总太阳辐照度约为 1,361 W/m²，随时间略有变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 602,
+      "key": "Solar day",
+      "zh": "太阳日"
+    },
+    "def": {
+      "id": 1150,
+      "key": "Noon to noon. About 24 hours. The school-clock day.",
+      "zh": "相邻两次太阳正午之间的时间，平均约为 24 小时。"
+    }
+  },
+  {
+    "term": {
+      "id": 603,
+      "key": "Solar eclipse",
+      "zh": "日食"
+    },
+    "def": {
+      "id": 1151,
+      "key": "An eclipse near new Moon when the Moon passes between Earth and the Sun close to an orbital node. The apparent sizes determine whether it is total, annular or partial.",
+      "zh": "新月附近且接近轨道交点时，月球位于日地之间遮挡太阳。视大小及位置决定发生全食、环食或偏食。"
+    }
+  },
+  {
+    "term": {
+      "id": 604,
+      "key": "Solstice",
+      "zh": "夏至／冬至"
+    },
+    "def": {
+      "id": 1152,
+      "key": "When one hemisphere leans most toward the Sun (June, NH) or most away (December, NH).",
+      "zh": "某半球相对太阳最倾向或最背离的时刻；北半球六月为夏至、十二月为冬至。"
+    }
+  },
+  {
+    "term": {
+      "id": 605,
+      "key": "Source",
+      "zh": "源头"
+    },
+    "def": {
+      "id": 1153,
+      "key": "Where channelised flow begins — a spring, a gathering of rills, or a lake outlet.",
+      "zh": "集中成河道的水流开始之处，可以是泉、汇集的细沟或湖泊出口。"
+    }
+  },
+  {
+    "term": {
+      "id": 236,
+      "key": "Spit",
+      "zh": "沙嘴"
+    },
+    "def": {
+      "id": 1154,
+      "key": "An elongated deposit of sand or shingle attached to land at one end and extending into water, commonly built by longshore sediment transport.",
+      "zh": "一端与陆地相连、向水中延伸的狭长沙砾堆积体，常由沿岸沉积物搬运形成。"
+    }
+  },
+  {
+    "term": {
+      "id": 606,
+      "key": "Spot height",
+      "zh": "高程点"
+    },
+    "def": {
+      "id": 1155,
+      "key": "A surveyed point with a printed elevation.",
+      "zh": "测量得到并在地图上标注高程的点。"
+    }
+  },
+  {
+    "term": {
+      "id": 607,
+      "key": "Spreading rate",
+      "zh": "扩张速率"
+    },
+    "def": {
+      "id": 1156,
+      "key": "How fast plates separate at a ridge. Centimetres per year, not a weather story.",
+      "zh": "板块在洋中脊两侧分离的速率，常以 cm/年表示，属于地质时间尺度的过程。"
+    }
+  },
+  {
+    "term": {
+      "id": 608,
+      "key": "Spring line",
+      "zh": "泉线"
+    },
+    "def": {
+      "id": 1157,
+      "key": "Where the water table meets the hillside and water emerges.",
+      "zh": "地下水面与山坡相交、地下水出露的一带。"
+    }
+  },
+  {
+    "term": {
+      "id": 609,
+      "key": "Spring tide",
+      "zh": "大潮"
+    },
+    "def": {
+      "id": 1158,
+      "key": "Larger range. Sun and Moon pull along one line. New or full. Twice a month, not the season.",
+      "zh": "日月引潮作用方向大致共线时形成的较大潮差，通常在新月和满月附近，每月约两次，与春季无关。"
+    }
+  },
+  {
+    "term": {
+      "id": 610,
+      "key": "Spur",
+      "zh": "山脊"
+    },
+    "def": {
+      "id": 1159,
+      "key": "A ridge of high ground. Contours V downhill.",
+      "zh": "向较低地势伸出的山脊，等高线的 V 形通常指向下坡方向。"
+    }
+  },
+  {
+    "term": {
+      "id": 611,
+      "key": "Squall line",
+      "zh": "飑线"
+    },
+    "def": {
+      "id": 1160,
+      "key": "A narrow, often violent band of convection, commonly along or ahead of a cold front.",
+      "zh": "狭窄、常较猛烈的强对流带，常位于冷锋附近或前方。"
+    }
+  },
+  {
+    "term": {
+      "id": 226,
+      "key": "Stack",
+      "zh": "海蚀柱"
+    },
+    "def": {
+      "id": 1161,
+      "key": "An isolated pillar of coastal rock left by erosion and cliff retreat, sometimes after the collapse of a sea arch. Old Harry is chalk; Durdle Door is an arch in limestone.",
+      "zh": "海岸侵蚀和崖壁后退留下的孤立岩柱，有时由海蚀拱门塌落形成。Old Harry 为白垩岩柱，Durdle Door 则是石灰岩拱门。"
+    }
+  },
+  {
+    "term": {
+      "id": 612,
+      "key": "Stage",
+      "zh": "水位"
+    },
+    "def": {
+      "id": 1162,
+      "key": "Height of the water surface. Not the same as discharge.",
+      "zh": "水面的高度，即水位，与单位时间通过的水量不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 613,
+      "key": "Stalactite",
+      "zh": "钟乳石"
+    },
+    "def": {
+      "id": 1163,
+      "key": "Dripstone growing down from a cave roof, if the drip has time.",
+      "zh": "从洞顶向下生长的滴石沉积体，即钟乳石。"
+    }
+  },
+  {
+    "term": {
+      "id": 614,
+      "key": "Still-water flood",
+      "zh": "静水淹没范围"
+    },
+    "def": {
+      "id": 1164,
+      "key": "Flooding described by the water level after short-period surface waves are averaged out. Coastal still-water level can include the tide and storm surge.",
+      "zh": "将短周期海浪平均去除后，按静水位描述的淹没。沿岸静水位可包括天文潮和风暴增水。"
+    }
+  },
+  {
+    "term": {
+      "id": 615,
+      "key": "Store",
+      "zh": "储库"
+    },
+    "def": {
+      "id": 1165,
+      "key": "A place water sits: ocean, ice, aquifer, lake, soil, air.",
+      "zh": "水被储存的地方，例如海洋、冰、含水层、湖泊、土壤和大气。"
+    }
+  },
+  {
+    "term": {
+      "id": 163,
+      "key": "Storm surge",
+      "zh": "风暴潮"
+    },
+    "def": {
+      "id": 1166,
+      "key": "Sea-level rise from wind pile-up and low pressure. Not a tsunami.",
+      "zh": "风应力堆水及低气压等造成的海面异常升高，与海啸不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 616,
+      "key": "Stratosphere",
+      "zh": "平流层"
+    },
+    "def": {
+      "id": 1167,
+      "key": "Layer above the tropopause, heated by ozone absorbing ultraviolet.",
+      "zh": "对流层顶上方的大气层，臭氧吸收紫外线使这一层增温。"
+    }
+  },
+  {
+    "term": {
+      "id": 617,
+      "key": "Stratovolcano",
+      "zh": "层状火山"
+    },
+    "def": {
+      "id": 1168,
+      "key": "A commonly steep-sided volcano built from successive lava flows and fragmental deposits. Its magma composition and eruption style can vary; many form above subduction zones.",
+      "zh": "由多次熔岩流和火山碎屑沉积组成、通常坡度较陡的火山。岩浆成分和喷发方式可不同，许多位于俯冲带上方。"
+    }
+  },
+  {
+    "term": {
+      "id": 618,
+      "key": "Strike-slip",
+      "zh": "走滑"
+    },
+    "def": {
+      "id": 1169,
+      "key": "Fault movement that is mainly horizontal and parallel to the fault's strike. Some strike-slip faults form plate-transform boundaries; others lie within plates.",
+      "zh": "沿断层走向、以水平位移为主的运动。部分走滑断层构成板块转换边界，其他位于板块内部。"
+    }
+  },
+  {
+    "term": {
+      "id": 227,
+      "key": "Stump",
+      "zh": "海蚀残柱"
+    },
+    "def": {
+      "id": 1170,
+      "key": "What remains in the surf after a stack fails.",
+      "zh": "海蚀柱崩塌后，在浪区中留下的较低岩礁。"
+    }
+  },
+  {
+    "term": {
+      "id": 619,
+      "key": "Subduction",
+      "zh": "俯冲"
+    },
+    "def": {
+      "id": 1171,
+      "key": "The descent of one lithospheric plate beneath another into the mantle at a convergent boundary, commonly involving oceanic lithosphere.",
+      "zh": "汇聚边界上一块岩石圈向另一块下方进入地幔的过程，常涉及大洋岩石圈。"
+    }
+  },
+  {
+    "term": {
+      "id": 620,
+      "key": "Subtropical high",
+      "zh": "副热带高压"
+    },
+    "def": {
+      "id": 1172,
+      "key": "Belt of sinking air on the poleward side of Hadley. Deserts often sit under it.",
+      "zh": "哈德莱环流靠近极地一侧的下沉气流带，许多沙漠分布在其影响区。"
+    }
+  },
+  {
+    "term": {
+      "id": 621,
+      "key": "Sun path",
+      "zh": "太阳轨迹"
+    },
+    "def": {
+      "id": 1173,
+      "key": "The day’s arc on the sky dome. Date and latitude write it.",
+      "zh": "太阳在一天中经过天空的视轨迹，由日期和纬度等决定。"
+    }
+  },
+  {
+    "term": {
+      "id": 622,
+      "key": "Sunspot",
+      "zh": "太阳黑子"
+    },
+    "def": {
+      "id": 1174,
+      "key": "A relatively cool, dark region of the solar photosphere associated with strong magnetic fields.",
+      "zh": "太阳光球中温度相对较低、颜色较暗且磁场较强的区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 623,
+      "key": "Supercontinent",
+      "zh": "超大陆"
+    },
+    "def": {
+      "id": 1175,
+      "key": "An assembly of most continents. Pangaea is one of several in Earth history.",
+      "zh": "地球大部分大陆汇聚形成的巨大大陆。盘古大陆是地球历史中的例子之一。"
+    }
+  },
+  {
+    "term": {
+      "id": 624,
+      "key": "Surface current",
+      "zh": "表层洋流"
+    },
+    "def": {
+      "id": 1176,
+      "key": "Flow in the upper ocean, driven by winds and pressure gradients and modified by rotation, coastlines and mixing.",
+      "zh": "上层海洋中的水流，受风和压力梯度驱动，并受自转、海岸及混合影响。"
+    }
+  },
+  {
+    "term": {
+      "id": 625,
+      "key": "Surface trace",
+      "zh": "地表断层迹线"
+    },
+    "def": {
+      "id": 1177,
+      "key": "Where the sloping front meets the ground. The line on the chart.",
+      "zh": "倾斜锋面与地面的交线，即天气图上画出的锋线。"
+    }
+  },
+  {
+    "term": {
+      "id": 626,
+      "key": "Surface wave",
+      "zh": "面波"
+    },
+    "def": {
+      "id": 1178,
+      "key": "Love and Rayleigh waves along the free surface. Often the damage in town.",
+      "zh": "沿地球自由表面传播的勒夫波和瑞利波，常对地面建筑造成显著震动。"
+    }
+  },
+  {
+    "term": {
+      "id": 627,
+      "key": "Suspension",
+      "zh": "悬移"
+    },
+    "def": {
+      "id": 1179,
+      "key": "Transport of fine sediment within moving water or air, kept aloft by turbulence rather than continuously resting on the bed or ground.",
+      "zh": "细颗粒在运动的水或空气中被湍流维持悬浮并搬运，而非持续接触河床或地面。"
+    }
+  },
+  {
+    "term": {
+      "id": 628,
+      "key": "Swallow hole",
+      "zh": "落水洞"
+    },
+    "def": {
+      "id": 1180,
+      "key": "An opening where a surface stream enters underground drainage, usually in karst. A doline or sinkhole is a depression and need not contain a sinking stream.",
+      "zh": "地表溪流进入地下水系的开口，常见于喀斯特地区。岩溶洼地不一定具有吞入溪流的洞口。"
+    }
+  },
+  {
+    "term": {
+      "id": 629,
+      "key": "Syncline",
+      "zh": "向斜"
+    },
+    "def": {
+      "id": 1181,
+      "key": "A fold with the youngest rocks in its core. In a simple upright syncline, layers dip towards the centre; erosion can leave either a ridge or valley above it.",
+      "zh": "核部岩层最年轻的褶皱。简单直立向斜中，岩层向中心倾斜；侵蚀后其上方可以是山脊，也可以是谷地。"
+    }
+  },
+  {
+    "term": {
+      "id": 630,
+      "key": "Synodic month",
+      "zh": "朔望月"
+    },
+    "def": {
+      "id": 1182,
+      "key": "New Moon to new Moon: about 29.53 days.",
+      "zh": "从一次新月到下一次新月的时间，约为 29.53 天。"
+    }
+  },
+  {
+    "term": {
+      "id": 631,
+      "key": "Syzygy",
+      "zh": "日地月共线"
+    },
+    "def": {
+      "id": 1183,
+      "key": "Sun, Moon, and Earth in one line. Spring tide. Exam word for the alignment.",
+      "zh": "太阳、月球和地球大致共线的状态，通常与大潮相联系。"
+    }
+  },
+  {
+    "term": {
+      "id": 632,
+      "key": "Teleconnection",
+      "zh": "遥相关"
+    },
+    "def": {
+      "id": 1184,
+      "key": "A statistical relationship between climate or weather variations in distant regions, such as the influence of ENSO on rainfall probabilities.",
+      "zh": "相距遥远地区的天气或气候变化之间的统计联系，例如 ENSO 对其他地区降雨概率的影响。"
+    }
+  },
+  {
+    "term": {
+      "id": 633,
+      "key": "Terminator",
+      "zh": "晨昏线"
+    },
+    "def": {
+      "id": 1185,
+      "key": "The boundary between the illuminated and dark hemispheres of a planet or moon. Earth's rotation carries places across it; changing solar declination alters its seasonal orientation.",
+      "zh": "行星或卫星上受光半球与黑暗半球的分界。地球自转使地点穿过该线，太阳赤纬变化使其朝向随季节改变。"
+    }
+  },
+  {
+    "term": {
+      "id": 634,
+      "key": "Terminator (day–night)",
+      "zh": "晨昏线（昼夜分界）"
+    },
+    "def": {
+      "id": 1186,
+      "key": "The boundary between Earth's illuminated and dark hemispheres. Its position changes with time of day and with the Sun's seasonal declination.",
+      "zh": "地球受光半球与黑暗半球的分界，其位置随一天中的时刻及太阳季节性赤纬变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 635,
+      "key": "Ternary plot",
+      "zh": "三元图"
+    },
+    "def": {
+      "id": 1187,
+      "key": "Three components that must sum to 100 percent. Silt is the remainder here.",
+      "zh": "表示三个分量的图，三者总和必须为 100%；本实验中粉砂比例由其余两者计算得到。"
+    }
+  },
+  {
+    "term": {
+      "id": 636,
+      "key": "Terrane",
+      "zh": "地体"
+    },
+    "def": {
+      "id": 1188,
+      "key": "A body of crust with a geological history distinct from neighbouring regions, often joined to a continent by tectonic accretion.",
+      "zh": "与相邻地区具有不同地质历史的一块地壳，常通过构造增生拼接到大陆上。"
+    }
+  },
+  {
+    "term": {
+      "id": 637,
+      "key": "Terrestrial planet",
+      "zh": "类地行星"
+    },
+    "def": {
+      "id": 1189,
+      "key": "Mercury, Venus, Earth, Mars: rock and metal, close in.",
+      "zh": "主要由岩石和金属构成的类地行星，包括水星、金星、地球和火星。"
+    }
+  },
+  {
+    "term": {
+      "id": 638,
+      "key": "Texture",
+      "zh": "土壤质地"
+    },
+    "def": {
+      "id": 1190,
+      "key": "The sand, silt and clay proportions of the mineral soil.",
+      "zh": "矿质土壤中砂、粉砂与黏土所占的比例，即土壤质地。"
+    }
+  },
+  {
+    "term": {
+      "id": 122,
+      "key": "Thermal circulation",
+      "zh": "热力环流"
+    },
+    "def": {
+      "id": 1191,
+      "key": "A loop driven by uneven heating and the pressure difference that follows.",
+      "zh": "因受热不均及随之产生的气压差而驱动的环流。"
+    }
+  },
+  {
+    "term": {
+      "id": 639,
+      "key": "Thermal equator",
+      "zh": "热赤道"
+    },
+    "def": {
+      "id": 1192,
+      "key": "A belt of the highest mean temperatures at a given season. It shifts with seasonal heating and geography and does not always coincide with the geographic equator or ITCZ.",
+      "zh": "某季节平均气温最高的一带，随季节受热和地理分布移动，并不总与地理赤道或赤道辐合带重合。"
+    }
+  },
+  {
+    "term": {
+      "id": 640,
+      "key": "Thermohaline",
+      "zh": "温盐环流"
+    },
+    "def": {
+      "id": 1193,
+      "key": "Relating to seawater density differences caused by temperature and salinity. These contribute to ocean overturning alongside wind forcing and mixing.",
+      "zh": "与海水温度、盐度引起的密度差异有关。这些差异与风及混合共同影响海洋翻转环流。"
+    }
+  },
+  {
+    "term": {
+      "id": 641,
+      "key": "Thermosphere",
+      "zh": "热层"
+    },
+    "def": {
+      "id": 1194,
+      "key": "The very thin atmospheric layer above roughly 85 km where kinetic temperature generally rises with altitude as gases absorb energetic solar radiation. Much auroral activity occurs here.",
+      "zh": "约 85 km 以上空气十分稀薄的大气层，气体吸收高能太阳辐射，动理学温度通常随高度上升；许多极光出现在此。"
+    }
+  },
+  {
+    "term": {
+      "id": 642,
+      "key": "Tidal bulge",
+      "zh": "潮汐隆起"
+    },
+    "def": {
+      "id": 1195,
+      "key": "An idealised elevation of the ocean surface in an equilibrium-tide model. Real tides are moving waves modified by basin shape, depth, rotation and coastlines.",
+      "zh": "平衡潮模型中理想化的海面隆起。真实潮汐是受海盆形状、水深、自转和海岸影响的传播波。"
+    }
+  },
+  {
+    "term": {
+      "id": 643,
+      "key": "Tidal range",
+      "zh": "潮差"
+    },
+    "def": {
+      "id": 1196,
+      "key": "High water minus low water. Springs large, neaps small. Coasts then reshape the number.",
+      "zh": "高潮水位与低潮水位之差。大潮通常较大、小潮较小，实际数值还受海岸和海盆形状影响。"
+    }
+  },
+  {
+    "term": {
+      "id": 644,
+      "key": "Till",
+      "zh": "冰碛物"
+    },
+    "def": {
+      "id": 1197,
+      "key": "Sediment deposited directly by glacier ice, usually containing an unsorted mixture of particle sizes.",
+      "zh": "由冰川直接沉积的物质，通常包含未分选的多种粒径颗粒。"
+    }
+  },
+  {
+    "term": {
+      "id": 645,
+      "key": "Time zone",
+      "zh": "时区"
+    },
+    "def": {
+      "id": 1198,
+      "key": "A region using an agreed standard civil time. Boundaries follow political and practical choices and are not necessarily 15° wide.",
+      "zh": "采用共同标准民用时间的区域，其边界由政治和实际需要确定，不一定宽 15° 经度。"
+    }
+  },
+  {
+    "term": {
+      "id": 646,
+      "key": "Toe",
+      "zh": "坡脚"
+    },
+    "def": {
+      "id": 1199,
+      "key": "The downslope bulge. On a coast, waves pick it apart.",
+      "zh": "坡体下部向外鼓出的部位；海岸上的坡脚可继续受到波浪侵蚀。"
+    }
+  },
+  {
+    "term": {
+      "id": 647,
+      "key": "Tombolo",
+      "zh": "连岛沙洲"
+    },
+    "def": {
+      "id": 1200,
+      "key": "A ridge of deposited sand or shingle connecting an island to the mainland or another island, often formed where wave refraction favours deposition.",
+      "zh": "连接岛屿与大陆或另一岛屿的沙砾堆积脊，常形成于波浪折射有利于沉积的位置。"
+    }
+  },
+  {
+    "term": {
+      "id": 648,
+      "key": "Top of atmosphere",
+      "zh": "大气顶"
+    },
+    "def": {
+      "id": 1201,
+      "key": "A reference level above most atmospheric absorption and scattering, used when describing incoming and outgoing radiation. Solar irradiance also needs a specified distance and surface orientation.",
+      "zh": "描述入射和出射辐射时，位于大部分大气吸收、散射层之上的参考高度；太阳辐照度还需注明距离及平面朝向。"
+    }
+  },
+  {
+    "term": {
+      "id": 649,
+      "key": "Trade winds",
+      "zh": "信风"
+    },
+    "def": {
+      "id": 1202,
+      "key": "Surface return of the Hadley cell, toward the ITCZ, deflected by Coriolis.",
+      "zh": "哈德莱环流近地面返回赤道辐合带的风，方向受科里奥利作用偏转。"
+    }
+  },
+  {
+    "term": {
+      "id": 650,
+      "key": "Transfer",
+      "zh": "输送"
+    },
+    "def": {
+      "id": 1203,
+      "key": "A flow between stores.",
+      "zh": "物质或能量在储库之间的转移。"
+    }
+  },
+  {
+    "term": {
+      "id": 651,
+      "key": "Transform",
+      "zh": "转换边界"
+    },
+    "def": {
+      "id": 1204,
+      "key": "Plates slide past. Strike-slip faults.",
+      "zh": "板块彼此水平滑过的边界，以走滑运动为主。"
+    }
+  },
+  {
+    "term": {
+      "id": 652,
+      "key": "Trench",
+      "zh": "海沟"
+    },
+    "def": {
+      "id": 1205,
+      "key": "A long, narrow depression in the seafloor associated with a subduction zone, where an oceanic plate bends down towards the mantle.",
+      "zh": "俯冲带附近狭长的海底洼地，海洋板块在此弯曲并向地幔下沉。"
+    }
+  },
+  {
+    "term": {
+      "id": 653,
+      "key": "Tributary",
+      "zh": "支流"
+    },
+    "def": {
+      "id": 1206,
+      "key": "A stream that joins a larger channel.",
+      "zh": "汇入更大河道的河流或溪流。"
+    }
+  },
+  {
+    "term": {
+      "id": 152,
+      "key": "Tropical cyclone",
+      "zh": "热带气旋"
+    },
+    "def": {
+      "id": 1207,
+      "key": "Warm-core organised storm over a warm ocean. Name depends on basin.",
+      "zh": "在暖海洋上形成、有组织的暖心风暴系统，不同海域使用不同名称。"
+    }
+  },
+  {
+    "term": {
+      "id": 654,
+      "key": "Tropics",
+      "zh": "回归线之间的热带"
+    },
+    "def": {
+      "id": 1208,
+      "key": "23.44°N to 23.44°S. Overhead Sun lives only in this belt, and not every day.",
+      "zh": "南北纬约 23.44° 之间的区域。太阳直射点只会出现在这一带，但并非各地每天都被直射。"
+    }
+  },
+  {
+    "term": {
+      "id": 655,
+      "key": "Tropopause",
+      "zh": "对流层顶"
+    },
+    "def": {
+      "id": 1209,
+      "key": "The boundary between the troposphere and stratosphere, identified mainly by a change in the vertical temperature gradient. Its altitude varies with latitude and weather.",
+      "zh": "对流层与平流层的分界，主要按垂直温度梯度变化识别，高度随纬度和天气变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 656,
+      "key": "Troposphere",
+      "zh": "对流层"
+    },
+    "def": {
+      "id": 1210,
+      "key": "The lowest atmospheric layer, containing most air mass and nearly all weather. It is typically about 8 km deep near the poles and 16–18 km near the tropics.",
+      "zh": "大气最下层，含有大部分空气质量，几乎所有天气过程发生于此；极地厚度约 8 km，热带约 16–18 km。"
+    }
+  },
+  {
+    "term": {
+      "id": 182,
+      "key": "True scale",
+      "zh": "真实比例"
+    },
+    "def": {
+      "id": 1211,
+      "key": "A view in which stated lengths use the same scale factor. If a display still exaggerates a feature or compresses distances, it must identify that exception explicitly.",
+      "zh": "所说明的长度采用同一比例因子的视图。如果仍夸张某些特征或压缩距离，必须明确注明例外。"
+    }
+  },
+  {
+    "term": {
+      "id": 151,
+      "key": "Tsunami",
+      "zh": "海啸"
+    },
+    "def": {
+      "id": 1212,
+      "key": "Long-period wave from a sudden water displacement, often seafloor slip.",
+      "zh": "水体突然位移形成的长周期波，常由海底断层滑动引发。"
+    }
+  },
+  {
+    "term": {
+      "id": 657,
+      "key": "U-trough",
+      "zh": "U 形谷"
+    },
+    "def": {
+      "id": 1213,
+      "key": "Wide floor and steep walls overdeepened by ice.",
+      "zh": "冰川侵蚀形成的谷底较宽、谷壁较陡的 U 形谷。"
+    }
+  },
+  {
+    "term": {
+      "id": 658,
+      "key": "Umbra",
+      "zh": "本影"
+    },
+    "def": {
+      "id": 1214,
+      "key": "The dark core of a shadow. A total lunar eclipse puts the Moon in Earth’s umbra.",
+      "zh": "光源被完全遮挡的较暗阴影核心。月全食时月球完全进入地球本影。"
+    }
+  },
+  {
+    "term": {
+      "id": 659,
+      "key": "Upwelling",
+      "zh": "上升流"
+    },
+    "def": {
+      "id": 1215,
+      "key": "The movement of deeper water towards the surface, often driven by winds that move surface water away or by large-scale ocean circulation.",
+      "zh": "较深水体向表层运动的过程，常由风使表层水离开或大尺度海洋环流驱动。"
+    }
+  },
+  {
+    "term": {
+      "id": 660,
+      "key": "Urban heat island",
+      "zh": "城市热岛"
+    },
+    "def": {
+      "id": 1216,
+      "key": "An urban area that is warmer than nearby surroundings, often most evident at night. Surface materials, reduced evaporation, urban geometry and waste heat contribute.",
+      "zh": "城市比周围地区偏暖的现象，常在夜间更明显。地表材料、蒸发减少、城市几何形态及废热都会影响它。"
+    }
+  },
+  {
+    "term": {
+      "id": 661,
+      "key": "USDA texture triangle",
+      "zh": "USDA 土壤质地三角图"
+    },
+    "def": {
+      "id": 1217,
+      "key": "Ternary chart that names a class from sand, silt and clay percentages.",
+      "zh": "根据砂、粉砂、黏土百分比确定土壤质地类别的三元图。"
+    }
+  },
+  {
+    "term": {
+      "id": 662,
+      "key": "V-valley",
+      "zh": "V 形谷"
+    },
+    "def": {
+      "id": 1218,
+      "key": "Cross-profile of upland fluvial vertical erosion. Ice makes U.",
+      "zh": "流水以下切为主形成的 V 形河谷横剖面，与冰川形成的宽底 U 形谷不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 663,
+      "key": "Valley",
+      "zh": "谷地"
+    },
+    "def": {
+      "id": 1219,
+      "key": "Low ground, often with a stream. Contours V uphill.",
+      "zh": "常有河流经过的低地，等高线的 V 形通常指向上游或高处。"
+    }
+  },
+  {
+    "term": {
+      "id": 664,
+      "key": "Vine–Matthews",
+      "zh": "瓦因–马修斯假说"
+    },
+    "def": {
+      "id": 1220,
+      "key": "Magnetic stripes as a tape recorder of reversals and spreading.",
+      "zh": "用海底磁条带记录地磁反转与海底扩张的解释框架。"
+    }
+  },
+  {
+    "term": {
+      "id": 665,
+      "key": "Viscosity",
+      "zh": "黏度"
+    },
+    "def": {
+      "id": 1221,
+      "key": "Resistance to flow. High viscosity plus gas makes explosive eruptions more likely.",
+      "zh": "流体抵抗流动的性质。较高黏度与气体共同作用时，往往更有利于爆炸式喷发。"
+    }
+  },
+  {
+    "term": {
+      "id": 666,
+      "key": "Walker cell",
+      "zh": "沃克环流"
+    },
+    "def": {
+      "id": 1222,
+      "key": "Zonal tropical Pacific circulation. Neutral: rise west, sink east.",
+      "zh": "热带太平洋的东西向环流。中性状态下通常西部上升、东部下沉。"
+    }
+  },
+  {
+    "term": {
+      "id": 667,
+      "key": "Warm front",
+      "zh": "暖锋"
+    },
+    "def": {
+      "id": 1223,
+      "key": "Leading edge of warmer air. Gentler slope. Cloud thickening ahead.",
+      "zh": "暖空气推进的前缘，锋面坡度通常较缓，前方云层往往逐渐增厚。"
+    }
+  },
+  {
+    "term": {
+      "id": 668,
+      "key": "Warm pool",
+      "zh": "暖池"
+    },
+    "def": {
+      "id": 1224,
+      "key": "A region of unusually warm tropical surface water. In the Pacific, its extent and position change with winds and ENSO.",
+      "zh": "热带表层海水异常温暖的区域。太平洋暖池的范围和位置随风及 ENSO 变化。"
+    }
+  },
+  {
+    "term": {
+      "id": 669,
+      "key": "Warm sector",
+      "zh": "暖区"
+    },
+    "def": {
+      "id": 1225,
+      "key": "The milder air between the warm front and the cold front in a midlatitude cyclone.",
+      "zh": "温带气旋中，位于暖锋和冷锋之间的较暖空气区域。"
+    }
+  },
+  {
+    "term": {
+      "id": 670,
+      "key": "Water table",
+      "zh": "潜水面"
+    },
+    "def": {
+      "id": 1226,
+      "key": "Top of the saturated zone. A surface through the pores, not a lake shore.",
+      "zh": "地下饱和带的上界，是穿过土壤和岩石孔隙的面，并非地下湖岸。"
+    }
+  },
+  {
+    "term": {
+      "id": 671,
+      "key": "Watershed",
+      "zh": "分水岭"
+    },
+    "def": {
+      "id": 1227,
+      "key": "In UK geography, the drainage divide separating basins. In US usage, watershed commonly means the entire drainage basin; check the context.",
+      "zh": "英国地理语境通常指分隔流域的分水岭；美国用法常指整个流域，需结合上下文判断。"
+    }
+  },
+  {
+    "term": {
+      "id": 672,
+      "key": "Wavelength",
+      "zh": "波长"
+    },
+    "def": {
+      "id": 1228,
+      "key": "Crest to crest. A tsunami’s is huge in deep water.",
+      "zh": "相邻波峰之间的距离。深海中海啸的波长通常很大。"
+    }
+  },
+  {
+    "term": {
+      "id": 147,
+      "key": "Weathering",
+      "zh": "风化"
+    },
+    "def": {
+      "id": 1229,
+      "key": "Physical breakdown or chemical alteration of rock at or near Earth's surface, without transporting the material away. Chemical weathering also participates in the carbon cycle.",
+      "zh": "地表或近地表岩石的物理破碎、化学改变，物质并未被搬走。化学风化也参与碳循环。"
+    }
+  },
+  {
+    "term": {
+      "id": 673,
+      "key": "Weathering (to sediment)",
+      "zh": "风化形成碎屑"
+    },
+    "def": {
+      "id": 1230,
+      "key": "Breakdown that feeds the sedimentary path. Not the same as erosion.",
+      "zh": "岩石分解产生沉积物的过程，与将物质移走的侵蚀不同。"
+    }
+  },
+  {
+    "term": {
+      "id": 674,
+      "key": "Westerlies",
+      "zh": "西风"
+    },
+    "def": {
+      "id": 1231,
+      "key": "Midlatitude west-to-east winds. The UK’s usual steering, under the Ferrel story.",
+      "zh": "中纬度主要由西向东的盛行风，与费雷尔环流的平均结构有关，常影响英国天气系统移动。"
+    }
+  },
+  {
+    "term": {
+      "id": 675,
+      "key": "Western boundary current",
+      "zh": "西部边界流"
+    },
+    "def": {
+      "id": 1232,
+      "key": "Narrow, fast, warm current on the western side of a subtropical gyre — Gulf Stream, Kuroshio.",
+      "zh": "副热带大洋环流西侧狭窄、快速且较暖的洋流，例如湾流和黑潮。"
+    }
+  },
+  {
+    "term": {
+      "id": 676,
+      "key": "WGS84",
+      "zh": "WGS84 地理坐标基准"
+    },
+    "def": {
+      "id": 1233,
+      "key": "A global geodetic reference system used by GPS, including a reference ellipsoid and coordinate frame. Converting to the British National Grid requires a projection and datum transformation.",
+      "zh": "GPS 使用的全球测地参考系统，包含参考椭球及坐标框架。转换为英国国家格网时需要投影和基准转换。"
+    }
+  },
+  {
+    "term": {
+      "id": 160,
+      "key": "Wilson cycle",
+      "zh": "威尔逊旋回"
+    },
+    "def": {
+      "id": 1234,
+      "key": "The opening and closing of ocean basins, named for Tuzo Wilson.",
+      "zh": "大洋盆地反复张开和闭合的构造过程，以图佐·威尔逊命名。"
+    }
+  },
+  {
+    "term": {
+      "id": 677,
+      "key": "Wind gap",
+      "zh": "风口"
+    },
+    "def": {
+      "id": 1235,
+      "key": "A dry col on the old course, left after capture.",
+      "zh": "河流被袭夺后，原河道附近留下的干燥山口。"
+    }
+  },
+  {
+    "term": {
+      "id": 678,
+      "key": "Wind setup",
+      "zh": "风增水"
+    },
+    "def": {
+      "id": 1236,
+      "key": "The slope of the sea surface forced by wind stress.",
+      "zh": "风应力推动海水后形成的海面倾斜和局地抬升。"
+    }
+  },
+  {
+    "term": {
+      "id": 679,
+      "key": "Windward",
+      "zh": "迎风侧"
+    },
+    "def": {
+      "id": 1237,
+      "key": "The upslope side that faces the incoming moist air.",
+      "zh": "面向来流、湿空气沿坡上升的一侧。"
+    }
+  },
+  {
+    "term": {
+      "id": 680,
+      "key": "Yardang",
+      "zh": "雅丹"
+    },
+    "def": {
+      "id": 1238,
+      "key": "Streamlined wind-eroded ridge, wind-parallel. Carved.",
+      "zh": "大致平行于主导风向的流线型风蚀垄，是侵蚀留下的岩体，不是堆积沙丘。"
+    }
+  }
+]

@@ -1,3 +1,1 @@
-import { makeGlbScene } from "@/labs/shared/make-glb-scene";
-
-export default makeGlbScene("drainage-basin");
+export { default } from './catchment';

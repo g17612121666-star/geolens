@@ -15,14 +15,13 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AtlasRouteImport } from './routes/atlas'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as GlossaryRouteImport } from './routes/glossary'
+import { Route as ImageCreditsRouteImport } from './routes/image-credits'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as SkillsRouteImport } from './routes/skills'
 import { Route as TeachersRouteImport } from './routes/teachers'
 import { Route as CaseSlugRouteImport } from './routes/case.$slug'
 import { Route as LabSlugRouteImport } from './routes/lab.$slug'
-import { Route as PathsIndexRouteImport } from './routes/paths.index'
-import { Route as PathsSlugRouteImport } from './routes/paths.$slug'
 import { Route as RealmsRealmRouteImport } from './routes/realms.$realm'
 import { Route as TeachersIndexRouteImport } from './routes/teachers.index'
 import { Route as TeachersSlugRouteImport } from './routes/teachers.$slug'
@@ -64,6 +63,11 @@ const GlossaryRoute = GlossaryRouteImport.update({
   path: '/glossary',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImageCreditsRoute = ImageCreditsRouteImport.update({
+  id: '/image-credits',
+  path: '/image-credits',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -92,16 +96,6 @@ const CaseSlugRoute = CaseSlugRouteImport.update({
 const LabSlugRoute = LabSlugRouteImport.update({
   id: '/lab/$slug',
   path: '/lab/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PathsIndexRoute = PathsIndexRouteImport.update({
-  id: '/paths/',
-  path: '/paths/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PathsSlugRoute = PathsSlugRouteImport.update({
-  id: '/paths/$slug',
-  path: '/paths/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RealmsRealmRoute = RealmsRealmRouteImport.update({
@@ -162,13 +156,13 @@ export interface FileRoutesByFullPath {
   '/atlas': typeof AtlasRoute
   '/explore': typeof ExploreRoute
   '/glossary': typeof GlossaryRoute
+  '/image-credits': typeof ImageCreditsRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/skills': typeof SkillsRoute
   '/teachers': typeof TeachersRouteWithChildren
   '/case/$slug': typeof CaseSlugRoute
   '/lab/$slug': typeof LabSlugRoute
-  '/paths/$slug': typeof PathsSlugRoute
   '/realms/$realm': typeof RealmsRealmRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
@@ -177,7 +171,6 @@ export interface FileRoutesByFullPath {
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
-  '/paths/': typeof PathsIndexRoute
   '/teachers/': typeof TeachersIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
@@ -188,12 +181,12 @@ export interface FileRoutesByTo {
   '/atlas': typeof AtlasRoute
   '/explore': typeof ExploreRoute
   '/glossary': typeof GlossaryRoute
+  '/image-credits': typeof ImageCreditsRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/skills': typeof SkillsRoute
   '/case/$slug': typeof CaseSlugRoute
   '/lab/$slug': typeof LabSlugRoute
-  '/paths/$slug': typeof PathsSlugRoute
   '/realms/$realm': typeof RealmsRealmRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
@@ -202,7 +195,6 @@ export interface FileRoutesByTo {
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
-  '/paths': typeof PathsIndexRoute
   '/teachers': typeof TeachersIndexRoute
   '/tools': typeof ToolsIndexRoute
 }
@@ -214,13 +206,13 @@ export interface FileRoutesById {
   '/atlas': typeof AtlasRoute
   '/explore': typeof ExploreRoute
   '/glossary': typeof GlossaryRoute
+  '/image-credits': typeof ImageCreditsRoute
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/skills': typeof SkillsRoute
   '/teachers': typeof TeachersRouteWithChildren
   '/case/$slug': typeof CaseSlugRoute
   '/lab/$slug': typeof LabSlugRoute
-  '/paths/$slug': typeof PathsSlugRoute
   '/realms/$realm': typeof RealmsRealmRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
@@ -229,7 +221,6 @@ export interface FileRoutesById {
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
-  '/paths/': typeof PathsIndexRoute
   '/teachers/': typeof TeachersIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
@@ -242,13 +233,13 @@ export interface FileRouteTypes {
     | '/atlas'
     | '/explore'
     | '/glossary'
+    | '/image-credits'
     | '/privacy'
     | '/search'
     | '/skills'
     | '/teachers'
     | '/case/$slug'
     | '/lab/$slug'
-    | '/paths/$slug'
     | '/realms/$realm'
     | '/teachers/$slug'
     | '/tools/atlas'
@@ -257,7 +248,6 @@ export interface FileRouteTypes {
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
-    | '/paths/'
     | '/teachers/'
     | '/tools/'
   fileRoutesByTo: FileRoutesByTo
@@ -268,12 +258,12 @@ export interface FileRouteTypes {
     | '/atlas'
     | '/explore'
     | '/glossary'
+    | '/image-credits'
     | '/privacy'
     | '/search'
     | '/skills'
     | '/case/$slug'
     | '/lab/$slug'
-    | '/paths/$slug'
     | '/realms/$realm'
     | '/teachers/$slug'
     | '/tools/atlas'
@@ -282,7 +272,6 @@ export interface FileRouteTypes {
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
-    | '/paths'
     | '/teachers'
     | '/tools'
   id:
@@ -293,13 +282,13 @@ export interface FileRouteTypes {
     | '/atlas'
     | '/explore'
     | '/glossary'
+    | '/image-credits'
     | '/privacy'
     | '/search'
     | '/skills'
     | '/teachers'
     | '/case/$slug'
     | '/lab/$slug'
-    | '/paths/$slug'
     | '/realms/$realm'
     | '/teachers/$slug'
     | '/tools/atlas'
@@ -308,7 +297,6 @@ export interface FileRouteTypes {
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
-    | '/paths/'
     | '/teachers/'
     | '/tools/'
   fileRoutesById: FileRoutesById
@@ -320,13 +308,13 @@ export interface RootRouteChildren {
   AtlasRoute: typeof AtlasRoute
   ExploreRoute: typeof ExploreRoute
   GlossaryRoute: typeof GlossaryRoute
+  ImageCreditsRoute: typeof ImageCreditsRoute
   PrivacyRoute: typeof PrivacyRoute
   SearchRoute: typeof SearchRoute
   SkillsRoute: typeof SkillsRoute
   TeachersRoute: typeof TeachersRouteWithChildren
   CaseSlugRoute: typeof CaseSlugRoute
   LabSlugRoute: typeof LabSlugRoute
-  PathsSlugRoute: typeof PathsSlugRoute
   RealmsRealmRoute: typeof RealmsRealmRoute
   ToolsAtlasRoute: typeof ToolsAtlasRoute
   ToolsEarthMotionRoute: typeof ToolsEarthMotionRoute
@@ -334,7 +322,6 @@ export interface RootRouteChildren {
   ToolsMapRoute: typeof ToolsMapRoute
   ToolsWeatherRoute: typeof ToolsWeatherRoute
   TopicSlugRoute: typeof TopicSlugRoute
-  PathsIndexRoute: typeof PathsIndexRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
@@ -382,6 +369,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlossaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/image-credits': {
+      id: '/image-credits'
+      path: '/image-credits'
+      fullPath: '/image-credits'
+      preLoaderRoute: typeof ImageCreditsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -422,20 +416,6 @@ declare module '@tanstack/react-router' {
       path: '/lab/$slug'
       fullPath: '/lab/$slug'
       preLoaderRoute: typeof LabSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/paths/': {
-      id: '/paths/'
-      path: '/paths'
-      fullPath: '/paths/'
-      preLoaderRoute: typeof PathsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/paths/$slug': {
-      id: '/paths/$slug'
-      path: '/paths/$slug'
-      fullPath: '/paths/$slug'
-      preLoaderRoute: typeof PathsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/realms/$realm': {
@@ -532,13 +512,13 @@ const rootRouteChildren: RootRouteChildren = {
   AtlasRoute: AtlasRoute,
   ExploreRoute: ExploreRoute,
   GlossaryRoute: GlossaryRoute,
+  ImageCreditsRoute: ImageCreditsRoute,
   PrivacyRoute: PrivacyRoute,
   SearchRoute: SearchRoute,
   SkillsRoute: SkillsRoute,
   TeachersRoute: TeachersRouteWithChildren,
   CaseSlugRoute: CaseSlugRoute,
   LabSlugRoute: LabSlugRoute,
-  PathsSlugRoute: PathsSlugRoute,
   RealmsRealmRoute: RealmsRealmRoute,
   ToolsAtlasRoute: ToolsAtlasRoute,
   ToolsEarthMotionRoute: ToolsEarthMotionRoute,
@@ -546,7 +526,6 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsMapRoute: ToolsMapRoute,
   ToolsWeatherRoute: ToolsWeatherRoute,
   TopicSlugRoute: TopicSlugRoute,
-  PathsIndexRoute: PathsIndexRoute,
   ToolsIndexRoute: ToolsIndexRoute,
 }
 export const routeTree = rootRouteImport

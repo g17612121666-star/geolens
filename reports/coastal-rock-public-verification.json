@@ -1,0 +1,39 @@
+{
+  "deployment": "dpl_cj8d7WoCPTQ2cZVvnFdciFmGe24G",
+  "verifiedAt": "2026-09-20T15:52:11.588Z",
+  "checks": [
+    {
+      "path": "/lab/coasts",
+      "status": 200,
+      "bytes": 44729
+    },
+    {
+      "path": "/textures/pbr/rock_face.source.json",
+      "status": 200,
+      "bytes": 1695,
+      "sha256": "24c01915e08f8d2f6408fee27878da9013471e516b530043077c0fc9ceed7cac",
+      "matchesLocal": true
+    },
+    {
+      "path": "/textures/pbr/rock_face_diff.webp",
+      "status": 200,
+      "bytes": 833716,
+      "sha256": "eecf4035f7b26fd8c570e7953790847682087e7696610e2ba52601bee76810de",
+      "matchesLocal": true
+    },
+    {
+      "path": "/textures/pbr/rock_face_disp.webp",
+      "status": 200,
+      "bytes": 130964,
+      "sha256": "2e64394c47c9ab9b8707519a4f57ef8a015558e427d2d11324174aa6058b67c1",
+      "matchesLocal": true
+    },
+    {
+      "path": "/textures/pbr/rock_face_rough.webp",
+      "status": 200,
+      "bytes": 40688,
+      "sha256": "617a018a680569142ff29271a929d6d26a509927690ebec24e083d21a2347cfd",
+      "matchesLocal": true
+    }
+  ]
+}

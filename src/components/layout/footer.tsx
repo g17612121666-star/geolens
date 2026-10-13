@@ -1,119 +1,52 @@
 import { Link } from "@tanstack/react-router";
-import {
-  CONTACT_LEAD,
-  PRODUCER_IG,
-  PRODUCER_IG_HANDLE,
-  PRODUCER_X,
-  PRODUCER_X_HANDLE,
-} from "@/lib/contact";
 import { MailLink } from "@/components/mail-link";
-
-const STUDIO = [
-  { to: "/explore", label: "Explore" },
-  { to: "/paths", label: "Paths" },
-  { to: "/teachers", label: "Teachers" },
-  { to: "/search", label: "Search" },
-  { to: "/about", label: "About" },
-  { to: "/privacy", label: "Privacy" },
-] as const;
-
-const TOOLS = [
-  { to: "/tools/earth-motion", label: "Earth motion" },
-  { to: "/tools/map", label: "World map studio" },
-  { to: "/tools/live-weather", label: "Live weather" },
-  { to: "/atlas", label: "Atlas" },
-  { to: "/glossary", label: "Glossary" },
-] as const;
-
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-basalt">
-      <div className="mx-auto grid max-w-[1280px] gap-10 px-5 py-14 md:grid-cols-4">
+      <div className="mx-auto grid max-w-[1280px] gap-8 px-5 py-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
         <div>
-          <p className="font-display text-2xl text-chalk">TerraLens</p>
-          <p className="mt-3 max-w-md text-sm leading-6 text-mist">
-            Free 3D labs for geography and Earth science students. Always.
+          <Link to="/" className="font-display text-3xl text-chalk">
+            Geolens
+          </Link>
+          <p className="mt-3 max-w-sm text-sm leading-6 text-mist">
+            Free 3D Earth science for students, teachers and school geography clubs. Explore without
+            an account, adverts or a paywall.
           </p>
-          <p className="mt-4 text-xs leading-5 text-mist">
-            Not affiliated with Kongsberg Geospatial or any other TerraLens product.
+          <p className="mt-4 text-sm text-mist">
+            Created by{" "}
+            <Link to="/about" className="text-ice">
+              Li Zeyu
+            </Link>
+            .
           </p>
-          <p className="mt-4 text-xs leading-5 text-mist">
-            {CONTACT_LEAD}{" "}
-            <MailLink />
-            {" · "}
-            <a href={PRODUCER_IG} className="text-ice hover:underline" target="_blank" rel="noreferrer">
-              Instagram {PRODUCER_IG_HANDLE}
-            </a>
-            {" · "}
-            <a href={PRODUCER_X} className="text-ice hover:underline" target="_blank" rel="noreferrer">
-              X {PRODUCER_X_HANDLE}
-            </a>
-          </p>
-          <p className="mt-6 font-mono text-xs text-mist">Free for students and teachers. Always.</p>
         </div>
-        <div>
-          <p className="section-label mb-3">Studio</p>
-          <ul className="space-y-2 text-sm">
-            {STUDIO.map((l) => (
-              <li key={l.to}>
-                <Link to={l.to} className="text-chalk/90 hover:text-glacier">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
+        <nav aria-label="Learning resources">
+          <p className="section-label mb-3">Learn</p>
+          <div className="flex flex-col gap-2 text-sm">
+            <Link to="/explore">Explore</Link>
+            <Link to="/atlas">Atlas</Link>
+            <Link to="/glossary">Glossary</Link>
+            <Link to="/teachers">Teachers</Link>
+          </div>
+        </nav>
+        <nav aria-label="Geography tools">
           <p className="section-label mb-3">Tools</p>
-          <ul className="space-y-2 text-sm">
-            {TOOLS.map((l) => (
-              <li key={l.to}>
-                <Link to={l.to} className="text-chalk/90 hover:text-glacier">
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p className="section-label mb-3">Sources</p>
-          <ul className="space-y-2 text-sm text-mist">
-            <li>
-              <a href="https://www.nasa.gov/" className="text-ice hover:underline" target="_blank" rel="noreferrer">
-                NASA
-              </a>{" "}
-              Blue Marble / SVS
-            </li>
-            <li>
-              <a href="https://www.usgs.gov/" className="text-ice hover:underline" target="_blank" rel="noreferrer">
-                USGS
-              </a>{" "}
-              ·{" "}
-              <a href="https://www.bgs.ac.uk/" className="text-ice hover:underline" target="_blank" rel="noreferrer">
-                BGS
-              </a>{" "}
-              ·{" "}
-              <a href="https://www.noaa.gov/" className="text-ice hover:underline" target="_blank" rel="noreferrer">
-                NOAA
-              </a>
-            </li>
-            <li>
-              <a href="https://www.metoffice.gov.uk/" className="text-ice hover:underline" target="_blank" rel="noreferrer">
-                Met Office
-              </a>{" "}
-              · Natural Earth
-            </li>
-            <li>OpenStreetMap where mapped</li>
-          </ul>
-          <p className="mt-6 text-xs leading-5 text-mist">
-            Lab geometry is original to TerraLens (
-            <a href="https://creativecommons.org/licenses/by-nc/4.0/" className="text-ice hover:underline" target="_blank" rel="noreferrer">
-              CC BY-NC 4.0
-            </a>
-            ). NASA Blue Marble is public domain. Cite USGS, BGS, NOAA, and the Met Office for numbers. SI units
-            first.
-          </p>
-        </div>
+          <div className="flex flex-col gap-2 text-sm">
+            <Link to="/tools/earth-motion">Earth motion</Link>
+            <Link to="/tools/live-weather">Live weather</Link>
+            <Link to="/tools/map">World map</Link>
+            <Link to="/search">Search Geolens</Link>
+          </div>
+        </nav>
+        <nav aria-label="About and credits">
+          <p className="section-label mb-3">Geolens</p>
+          <div className="flex flex-col gap-2 text-sm">
+            <Link to="/about">About</Link>
+            <Link to="/image-credits">Image credits</Link>
+            <Link to="/privacy">Privacy</Link>
+            <MailLink />
+          </div>
+        </nav>
       </div>
     </footer>
   );

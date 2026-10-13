@@ -1,0 +1,35 @@
+[
+  {
+    "id": "atlas-no-1",
+    "title": "File:Scenic Norway Landscape with Snow.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scenic_Norway_Landscape_with_Snow.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Scenic_Norway_Landscape_with_Snow.jpg/1280px-Scenic_Norway_Landscape_with_Snow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Gixeji312",
+    "description": "Scenic Norway Landscape",
+    "categories": "CC-Zero|Self-published work|Unidentified locations in Norway"
+  },
+  {
+    "id": "atlas-no-2",
+    "title": "File:Norway landscape August 1974 02.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Norway_landscape_August_1974_02.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Norway_landscape_August_1974_02.jpg/1280px-Norway_landscape_August_1974_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "per source. Please credit \"Family photos of Infrogmation\"",
+    "description": "Visiting Norway, August 1974. \nPer my grandmother's caption \"Bergen Norway Fjords\".",
+    "categories": "Geography of Vestland|1974 in Bergen, Norway"
+  },
+  {
+    "id": "atlas-no-3",
+    "title": "File:Norway landscape August 1974 01.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Norway_landscape_August_1974_01.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Norway_landscape_August_1974_01.jpg/1280px-Norway_landscape_August_1974_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "per source. Please credit \"Family photos of Infrogmation\"",
+    "description": "Visiting Norway, August 1974. \nPer my grandmother's caption \"Bergen Norway Fjords\". \n\nGrandfather stands with mug of beer.",
+    "categories": "Geography of Vestland|Beer mugs|1974 in Bergen, Norway|Men with beer"
+  }
+]

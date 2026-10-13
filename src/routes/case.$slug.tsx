@@ -17,7 +17,7 @@ export const Route = createFileRoute("/case/$slug")({
     const c = CASE_BY_SLUG[params.slug];
     return headFor({
       title: c?.title ?? "Case",
-      description: c?.lede ?? "A TerraLens case study.",
+      description: c?.lede ?? "A Geolens case study.",
       path: `/case/${params.slug}`,
       image: c ? caseFigure(c.slug)?.src : undefined,
     });
@@ -42,8 +42,13 @@ function CasePage() {
   });
   return (
     <main id="main" className="mx-auto max-w-[720px] px-5 pb-24 pt-24">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <p className="section-label">Case study · {c.region}</p>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <p className="section-label">
+        {"Case study"} <span className="ml-3 text-mist">{c.region}</span>
+      </p>
       <h1 className="mt-3 font-display text-4xl">{c.title}</h1>
       <p className="mt-2 text-glacier">{c.place}</p>
       <p className="mt-6 text-lg leading-7 text-chalk/90">{c.lede}</p>
@@ -51,7 +56,8 @@ function CasePage() {
       <div className="mt-8">
         <MiniMap lat={c.lat} lon={c.lon} zoom={c.zoom} label={c.title} />
         <p className="mt-2 font-mono text-[11px] text-mist">
-          Locator · OpenStreetMap / OpenFreeMap · {c.lat.toFixed(2)}°, {c.lon.toFixed(2)}°
+          {"Location: "}
+          {c.lat.toFixed(2)}°, {c.lon.toFixed(2)}°
         </p>
       </div>
       <div className="mt-8 space-y-4 text-[17px] leading-7 text-mist">
@@ -62,18 +68,21 @@ function CasePage() {
       {openSlug && (
         <div className="mt-8">
           <Button asChild>
-            <a href={href}>Open this state in the lab</a>
+            <a href={href}>{"Open this state in the lab"}</a>
           </Button>
         </div>
       )}
       <section className="mt-10 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-        <p className="section-label">Exam-style question</p>
+        <p className="section-label">{"Exam-style question"}</p>
         <p className="mt-3 text-chalk">{c.exam.prompt}</p>
-        <p className="mt-3 text-sm text-mist">Teacher hint: {c.exam.hint}</p>
+        <p className="mt-3 text-sm text-mist">
+          {"Teacher hint: "}
+          {c.exam.hint}
+        </p>
       </section>
       {labs.length > 0 && (
         <div className="mt-10">
-          <p className="section-label mb-3">Process labs</p>
+          <p className="section-label mb-3">{"Process labs"}</p>
           <div className="flex flex-wrap gap-2">
             {labs.map((lab) => (
               <Link key={lab.slug} to="/lab/$slug" params={{ slug: lab.slug }}>
@@ -84,12 +93,17 @@ function CasePage() {
         </div>
       )}
       <div className="mt-10">
-        <p className="section-label mb-2">Sources</p>
+        <p className="section-label mb-2">{"Sources"}</p>
         <ul className="space-y-1 text-sm text-mist">
           {c.sources.map((s) => (
             <li key={s.label}>
               {s.href ? (
-                <a href={s.href} className="text-ice hover:underline" target="_blank" rel="noreferrer">
+                <a
+                  href={s.href}
+                  className="text-ice hover:underline"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {s.label}
                 </a>
               ) : (

@@ -1,27 +1,30 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { hasPlayback } from "@/lib/labs/playback";
+import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
 import type { LabMeta } from "@/lib/labs/types";
 import { defaultParams } from "@/lib/labs/defaults";
 import { useLabControls } from "@/lib/store/lab-controls";
-import { Badge } from "@/components/ui/badge";
 import { StepRail } from "./step-rail";
 import { WhyPanel } from "./why-panel";
 import { ControlBar } from "./control-bar";
-import { useIsCompact } from "@/hooks/use-media";
+import { useIsCompact, useMediaQuery } from "@/hooks/use-media";
 import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state";
 
 const KEYS: { key: string; does: string }[] = [
   { key: "Space", does: "Play / pause" },
   { key: "← →", does: "Scrub time" },
-  { key: "L", does: "Labels" },
-  { key: "R", does: "Reset" },
+  { key: "L", does: "Show or hide labels" },
+  { key: "R", does: "Reset the experiment" },
   { key: "F", does: "Fullscreen" },
-  { key: "P", does: "Projector" },
-  { key: "T", does: "True scale" },
+  { key: "P", does: "Switch projector view" },
+  { key: "T", does: "Compare model scales" },
   { key: "Click", does: "Inspect a named part" },
+  { key: "Drag", does: "Rotate the model" },
+  { key: "Ctrl + scroll", does: "Zoom in or out" },
   { key: "?", does: "This list" },
 ];
 
 export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
+  const [interactive, setInteractive] = useState(false);
   const hydrate = useLabControls((s) => s.hydrate);
   const toggle = useLabControls((s) => s.toggle);
   const reset = useLabControls((s) => s.reset);
@@ -38,26 +41,80 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
   const setPanelTab = useLabControls((s) => s.setPanelTab);
   const setTrueScale = useLabControls((s) => s.setTrueScale);
   const trueScale = useLabControls((s) => s.trueScale);
+  const params = useLabControls((s) => s.params);
+  const playback = hasPlayback(lab, params, explode);
+  useEffect(() => {
+    if (!playback) useLabControls.getState().pause();
+  }, [playback]);
   const compact = useIsCompact();
+  const shortViewport = useMediaQuery("(max-height: 800px)");
   const root = useRef<HTMLDivElement>(null);
+  const heading = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const element = heading.current,
+      container = root.current;
+    if (!element || !container || compact) return;
+    const measure = () =>
+      container.style.setProperty(
+        "--lab-heading-bottom",
+        `${element.getBoundingClientRect().bottom - container.getBoundingClientRect().top + 12}px`,
+      );
+    const observer = new ResizeObserver(measure);
+    observer.observe(element);
+    measure();
+    return () => observer.disconnect();
+  }, [compact, layout, lab.slug]);
   const [fs, setFs] = useState(false);
   const [drawer, setDrawer] = useState<"steps" | "why" | null>(null);
   const [keysOpen, setKeysOpen] = useState(false);
+  const [shareStatus, setShareStatus] = useState("Copy this lab’s link");
+  const [barHeight, setBarHeight] = useState(130);
+  useEffect(() => {
+    const bar = root.current?.querySelector("[data-lab-controls]");
+    if (!bar) return;
+    const observer = new ResizeObserver(() => setBarHeight(bar.getBoundingClientRect().height));
+    observer.observe(bar);
+    return () => observer.disconnect();
+  }, [compact, lab.slug]);
   const projector = layout === "projector" && !compact;
+  useEffect(() => {
+    const changed = () => setFs(Boolean(document.fullscreenElement));
+    document.addEventListener("fullscreenchange", changed);
+    return () => document.removeEventListener("fullscreenchange", changed);
+  }, []);
   useLabUrlSync();
 
   useEffect(() => {
     hydrate(defaultParams(lab));
+    setInteractive(true);
     if (lab.controls.slice) {
       useLabControls.getState().setSlice(0.42);
     }
-    applyLabUrl();
+    applyLabUrl(lab);
+    if (useLabControls.getState().step === 3) {
+      useLabControls.getState().setPanelTab("check");
+      setDrawer("why");
+    } else if (new URLSearchParams(window.location.search).get("lesson") === "1") {
+      setDrawer("steps");
+    }
   }, [lab.slug, hydrate, lab]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (root.current?.closest('[data-lab-entry="loading"]')) return;
       const tag = (e.target as HTMLElement | null)?.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      if (
+        tag === "INPUT" ||
+        tag === "TEXTAREA" ||
+        tag === "SELECT" ||
+        (e.target as HTMLElement | null)?.isContentEditable
+      )
+        return;
+      if (
+        e.code === "Space" &&
+        (e.target as HTMLElement | null)?.closest('button,a,[role="button"]')
+      )
+        return;
       if (e.key === "?" || (e.shiftKey && e.key === "/")) {
         e.preventDefault();
         setKeysOpen((v) => !v);
@@ -67,16 +124,16 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
         setKeysOpen(false);
         return;
       }
-      if (e.code === "Space") {
+      if (e.code === "Space" && playback) {
         e.preventDefault();
         toggle();
       } else if (e.key === "r" || e.key === "R") {
         reset(defaultParams(lab));
       } else if (e.key === "l" || e.key === "L") {
         setLabels(!labels);
-      } else if (e.key === "e" || e.key === "E") {
+      } else if ((e.key === "e" || e.key === "E") && lab.controls.explode) {
         setExplode(explode > 0.5 ? 0 : 1);
-      } else if (e.key === "x" || e.key === "X") {
+      } else if ((e.key === "x" || e.key === "X") && lab.controls.slice) {
         setSlice(slice > 0.5 ? 0 : 1);
       } else if (e.key === "p" || e.key === "P") {
         setLayout(layout === "projector" ? "hud" : "projector");
@@ -84,24 +141,41 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
         void toggleFs();
       } else if (e.key === "t" || e.key === "T") {
         setTrueScale(!trueScale);
-      } else if (e.key === "ArrowRight") {
+      } else if (e.key === "ArrowRight" && playback) {
+        e.preventDefault();
         setT(t + 0.02);
-      } else if (e.key === "ArrowLeft") {
+      } else if (e.key === "ArrowLeft" && playback) {
+        e.preventDefault();
         setT(t - 0.02);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [toggle, reset, lab, setT, t, setLabels, labels, setExplode, explode, setSlice, slice, layout, setLayout, setTrueScale, trueScale]);
+  }, [
+    toggle,
+    reset,
+    lab,
+    playback,
+    setT,
+    t,
+    setLabels,
+    labels,
+    setExplode,
+    explode,
+    setSlice,
+    slice,
+    layout,
+    setLayout,
+    setTrueScale,
+    trueScale,
+  ]);
 
   async function toggleFs() {
     if (!root.current) return;
     if (!document.fullscreenElement) {
       await root.current.requestFullscreen().catch(() => undefined);
-      setFs(true);
     } else {
       await document.exitFullscreen().catch(() => undefined);
-      setFs(false);
     }
   }
 
@@ -111,15 +185,26 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
   ];
 
   const keysPanel = keysOpen && (
-    <div className="pointer-events-auto absolute bottom-24 left-1/2 z-30 w-[min(22rem,calc(100%-2rem))] -translate-x-1/2 rounded-2xl border border-white/10 bg-basalt/95 p-4 backdrop-blur-xl">
+    <div
+      role="dialog"
+      aria-label="Model controls"
+      className="pointer-events-auto fixed left-1/2 top-24 z-50 max-h-[70vh] w-[min(26rem,calc(100%-2rem))] -translate-x-1/2 overflow-y-auto rounded-2xl border border-white/10 bg-basalt/95 p-4 backdrop-blur-xl"
+    >
       <div className="flex items-center justify-between">
-        <p className="section-label">Keys</p>
-        <button type="button" className="text-sm text-mist hover:text-chalk" onClick={() => setKeysOpen(false)}>
-          Close
+        <p className="section-label">{"Keys"}</p>
+        <button
+          type="button"
+          className="text-sm text-mist hover:text-chalk"
+          onClick={() => setKeysOpen(false)}
+        >
+          {"Close"}
         </button>
       </div>
-      <ul className="mt-3 space-y-1.5 font-mono text-[12px] text-chalk">
-        {[...KEYS, ...extraKeys].map((row) => (
+      <ul className="mt-3 space-y-1.5 font-mono text-sm text-chalk">
+        {[
+          ...KEYS.filter((row) => playback || !["Space", "← →"].includes(row.key)),
+          ...extraKeys,
+        ].map((row) => (
           <li key={row.key} className="flex justify-between gap-4">
             <span className="text-glacier">{row.key}</span>
             <span className="text-mist">{row.does}</span>
@@ -130,58 +215,72 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
   );
 
   const titleBlock = (
-    <div className={projector ? "max-w-3xl" : "max-w-xl"}>
-      <p className="section-label">Lab</p>
+    <div ref={heading} className={projector ? "max-w-3xl" : "max-w-2xl"}>
       <h1 className="font-display text-[24px] leading-8 text-chalk md:text-[32px] md:leading-10">
         {lab.title}
       </h1>
-      {!projector && (
+      {!projector && (compact || !shortViewport) && (
         <>
-          <div className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-1.5">
-            {lab.curriculum.map((c) => (
-              <Badge key={c} tone="mist" className="shrink-0 whitespace-nowrap">
-                {c}
-              </Badge>
-            ))}
-          </div>
-          <p className="mt-3 text-sm leading-6 text-chalk/85">
-            <span className="text-mist">By the end you can </span>
-            {lab.objective.charAt(0).toLowerCase() + lab.objective.slice(1)}
+          <p className="mt-3 text-sm leading-6 text-chalk/85">{lab.objective}</p>
+          <p className="mt-2 text-sm text-mist">
+            Drag to rotate. Hold Ctrl and scroll to zoom, or pinch on a touch screen.
           </p>
         </>
       )}
-      {projector && (
-        <p className="mt-1 text-sm text-mist">{lab.objective}</p>
-      )}
+      {projector && <p className="sr-only">{lab.objective}</p>}
     </div>
   );
 
   if (compact) {
     return (
-      <div ref={root} id="main" className="flex h-dvh flex-col overflow-hidden bg-void">
-        <div className="relative min-h-0 flex-[1.05]">{scene}</div>
-        <div className="z-10 max-h-[48vh] shrink-0 overflow-y-auto border-t border-white/10 bg-basalt">
-          <div className="px-4 pt-4">{titleBlock}</div>
+      <div
+        ref={root}
+        data-lab-slug={lab.slug}
+        data-lab-ready={interactive}
+        inert={!interactive}
+        id="main"
+        className="min-h-dvh bg-void pt-16"
+      >
+        <div className="px-4 pb-3">{titleBlock}</div>
+        <div className="relative h-[62svh] min-h-[400px]">{scene}</div>
+        <div className="relative z-10 border-t border-white/10 bg-basalt">
+          <div className="p-3">
+            <ControlBar
+              lab={lab}
+              fullscreen={fs}
+              onToggleFullscreen={() => void toggleFs()}
+              onOpenKeys={() => setKeysOpen((v) => !v)}
+            />
+          </div>
           <p className="px-4 pt-2 text-xs text-mist">
-            Best on a computer or projector.{" "}
             <button
               type="button"
               className="text-glacier underline"
-              onClick={() => void navigator.clipboard?.writeText(labShareUrl())}
+              onClick={() => {
+                if (!navigator.clipboard) {
+                  setShareStatus("Use the address bar to share");
+                  return;
+                }
+                void navigator.clipboard
+                  .writeText(labShareUrl())
+                  .then(() => setShareStatus("Link copied"))
+                  .catch(() => setShareStatus("Use the address bar to share"));
+              }}
             >
-              Copy this lab’s link
+              {shareStatus}
             </button>
             {" · "}
-            <button type="button" className="text-glacier underline" onClick={() => setKeysOpen((v) => !v)}>
-              Keys
+            <button
+              type="button"
+              className="text-glacier underline"
+              onClick={() => setKeysOpen((v) => !v)}
+            >
+              {"Keys"}
             </button>
           </p>
           <div className="grid gap-3 p-3 sm:grid-cols-2">
             <StepRail lab={lab} />
             <WhyPanel lab={lab} />
-          </div>
-          <div className="sticky bottom-0 px-3 pb-3">
-            <ControlBar lab={lab} fullscreen={fs} onToggleFullscreen={() => void toggleFs()} />
           </div>
         </div>
         {keysPanel}
@@ -190,19 +289,36 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
   }
 
   return (
-    <div ref={root} id="main" className="relative h-dvh overflow-hidden bg-void">
+    <div
+      ref={root}
+      data-lab-slug={lab.slug}
+      data-lab-ready={interactive}
+      inert={!interactive}
+      id="main"
+      style={{ "--lab-controls-height": `${barHeight}px` } as CSSProperties}
+      className="relative h-dvh overflow-hidden bg-void"
+    >
       <div className="absolute inset-0">{scene}</div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-14 z-10 px-4 pt-3 md:px-6">
-        <div className="pointer-events-auto">{titleBlock}</div>
-      </div>
+      {projector && (
+        <div className="pointer-events-none absolute inset-x-0 top-14 z-10 px-4 pt-3 md:px-6">
+          <div className="pointer-events-auto">{titleBlock}</div>
+        </div>
+      )}
 
       {!projector && (
         <>
-          <div className="pointer-events-none absolute bottom-24 left-4 top-56 z-10 flex items-start md:left-6">
-            <StepRail lab={lab} />
+          <div className="pointer-events-auto absolute left-6 right-[25rem] top-20 z-10">
+            {titleBlock}
           </div>
-          <div className="pointer-events-none absolute bottom-24 right-4 top-56 z-10 flex items-start md:right-6">
+          <div
+            style={{
+              bottom: "calc(var(--lab-controls-height, 130px) + 2rem)",
+              scrollbarWidth: "thin",
+            }}
+            className="pointer-events-auto absolute right-6 top-20 z-10 flex w-[22rem] flex-col gap-4 overflow-x-hidden overflow-y-auto pr-1"
+          >
+            <StepRail lab={lab} />
             <WhyPanel lab={lab} />
           </div>
         </>
@@ -215,7 +331,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             className="h-11 rounded-full border border-white/10 bg-basalt/80 px-4 text-sm text-chalk"
             onClick={() => setDrawer(drawer === "steps" ? null : "steps")}
           >
-            Steps
+            {"Steps"}
           </button>
           <button
             type="button"
@@ -225,34 +341,30 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
               setDrawer(drawer === "why" ? null : "why");
             }}
           >
-            Why
+            {"Why"}
           </button>
         </div>
       )}
 
       {projector && drawer === "steps" && (
-        <div className="pointer-events-auto absolute bottom-24 left-4 top-24 z-20 md:left-6">
+        <div className="pointer-events-auto absolute bottom-24 left-4 top-28 z-20 w-72 overflow-y-auto md:left-6">
           <StepRail lab={lab} />
         </div>
       )}
       {projector && drawer === "why" && (
-        <div className="pointer-events-auto absolute bottom-24 right-4 top-24 z-20 md:right-6">
+        <div className="pointer-events-auto absolute bottom-24 right-4 top-28 z-20 w-[22rem] overflow-y-auto md:right-6">
           <WhyPanel lab={lab} />
         </div>
       )}
 
       <div className="pointer-events-none absolute inset-x-0 bottom-3 z-10 px-3 md:bottom-4 md:px-6">
-        <ControlBar lab={lab} fullscreen={fs} onToggleFullscreen={() => void toggleFs()} />
+        <ControlBar
+          lab={lab}
+          fullscreen={fs}
+          onToggleFullscreen={() => void toggleFs()}
+          onOpenKeys={() => setKeysOpen((v) => !v)}
+        />
       </div>
-
-      <button
-        type="button"
-        onClick={() => setKeysOpen((v) => !v)}
-        className="pointer-events-auto absolute bottom-[4.6rem] left-1/2 z-20 hidden h-11 min-w-11 -translate-x-1/2 items-center justify-center rounded-full border border-white/10 bg-basalt/80 px-3 font-mono text-[12px] text-mist hover:text-chalk xl:flex"
-        aria-label="Keyboard shortcuts"
-      >
-        ?
-      </button>
 
       {keysPanel}
     </div>

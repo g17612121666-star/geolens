@@ -1,0 +1,5482 @@
+[
+  {
+    "text": "60 × 40 m selected landform · relief ×2 · wind points +x",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 10 m · equal distances · sand grains enlarged",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "Gentler stoss slope",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "Wind-eroded ridges",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "Wind carries sand up the windward stoss slope. Transport includes saltation, surface creep and suspension of sufficiently fine material. The drawn grains are enlarged direction markers.",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "Yardangs are streamlined erosional remnants, commonly aligned with prevailing erosive winds. Abrasion and deflation act with weathering and rock structure. They are not heaps of deposited dune sand.",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "Horns point downwind",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "Tapered downwind ends",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "The crescent tips lie downwind of the central crest. The centre leeward slip face is 32° at true scale; twice-enlarged relief makes it look steeper. Actual repose angles vary.",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "These invented ridges taper along the wind direction. Their shapes do not determine a wind speed or erosion rate.",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "Barchan: deposited sand, a gentler windward slope and a steeper lee slip face. Migration translates the chosen shape downwind without assigning a rate.",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": "Yardang: rock carved into streamlined ridges, aligned broadly with the erosive wind.",
+    "files": [
+      "src\\labs\\aeolian\\wind-landforms.tsx"
+    ]
+  },
+  {
+    "text": " shown",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Reference temperature profile · horizontal: °C · vertical: km",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Altitude ×8 · gas layers, not solid shells · T restores the thin film",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Reference temperature profile · axes use different labelled units",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Earth and altitude share a scale · layer boundaries are approximate",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "km",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx",
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "°C",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Reference trend: the tropospheric section follows the chosen lapse rate. The rest is an illustrative atmospheric profile, not a radiosonde observation.",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Exploded spacing is for naming layers.",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Cloud-map shell at a reference 3 km; an illustration, not live weather. Thermosphere: very sparse gas.",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Invented closed budget · sphere volume ∝ stored carbon · no geographic distances",
+    "files": [
+      "src\\labs\\carbon-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Volumes encode this invented budget, not observed global reservoir sizes",
+    "files": [
+      "src\\labs\\carbon-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Rainforest example",
+    "files": [
+      "src\\labs\\climate-types\\climate-globe.tsx"
+    ]
+  },
+  {
+    "text": "Desert example",
+    "files": [
+      "src\\labs\\climate-types\\climate-globe.tsx"
+    ]
+  },
+  {
+    "text": "Seasonal forest example",
+    "files": [
+      "src\\labs\\climate-types\\climate-globe.tsx"
+    ]
+  },
+  {
+    "text": "Conifer forest example",
+    "files": [
+      "src\\labs\\climate-types\\climate-globe.tsx"
+    ]
+  },
+  {
+    "text": "Tundra example",
+    "files": [
+      "src\\labs\\climate-types\\climate-globe.tsx"
+    ]
+  },
+  {
+    "text": "This constructed 60 × 44 m biome example has equal geometric scales. It illustrates one possible climate–vegetation association, not the land cover at the selected reference point. A family can include several biomes; land use, soil, fire and history also matter. Polar EF ice-cap climate differs from this ET-like tundra example.",
+    "files": [
+      "src\\labs\\climate-types\\climate-globe.tsx"
+    ]
+  },
+  {
+    "text": "Köppen–Geiger A–E · 1991–2020 · classified raster, not current weather",
+    "files": [
+      "src\\labs\\climate-types\\climate-globe.tsx"
+    ]
+  },
+  {
+    "text": "Globe has geographic proportions · separate biome plot 60 × 44 m · no shared globe-to-plot scale",
+    "files": [
+      "src\\labs\\climate-types\\climate-globe.tsx"
+    ]
+  },
+  {
+    "text": "A possible headland sequence: wave erosion enlarges an opening, an arch can form, roof collapse isolates a stack, and further erosion lowers it. Rock structure and strength control the sequence; no stage has a prescribed age.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Headland: 1 scene unit = 10 m · common distances",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Beach / spit: 1 scene unit = 20 m · vertical ×2",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Headland: common 10 m scale · water symbols enlarged",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Beach / spit: common 20 m scale · grains and vegetation enlarged",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Selected beach profiles illustrate possible net sediment gain or loss. Real cross-shore transport depends on wave period, height, grain size, beach slope and water level; a wave label alone does not predict the outcome.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Oblique swash and roughly downslope backwash can move grains alongshore. Alongshore currents also transport sediment. The groyne intercepts the illustrated supply, but bypassing and changing wave directions occur in real systems.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "A spit is attached to land at one end and extends into water as sediment accumulates. A hooked end can reflect changing waves and currents. Growth is selected geometry, not a predicted rate or complete sediment budget.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Inspect the cave from the seaward side, then compare arch, stack and stump. Openings are cut into a solid rock body; the cave retains a back wall.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Swash moves grains obliquely up the beach; backwash returns downslope. The zigzag is one transport pathway, not the full nearshore circulation.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "A spit extends from the shore into a bay. Change Spit extent to compare the attached deposit; the water beyond remains open.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Groyne on: illustrated grains are intercepted updrift. This does not create new sediment.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "Select Constructive waves to compare a berm-bearing profile; the alternatives are chosen beach states.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "No erosion or growth rate is calculated. Rock structure, waves, tides and sediment supply control real coasts.",
+    "files": [
+      "src\\labs\\coasts\\coast.tsx"
+    ]
+  },
+  {
+    "text": "GPlates MULLER2019 · 10 Ma snapshots · modern coastline shapes reconstructed",
+    "files": [
+      "src\\labs\\continental-drift\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Spherical globe · no invented continent trajectories",
+    "files": [
+      "src\\labs\\continental-drift\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Evidence: Mesosaurus fossils occur in southern Africa and South America; matching rock belts and glacial deposits add independent tests. A coastline fit alone is insufficient.",
+    "files": [
+      "src\\labs\\continental-drift\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Scrub towards 200–250 Ma to examine Pangaea; orbit the globe to compare continental positions.",
+    "files": [
+      "src\\labs\\continental-drift\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Relief ×2.5 · same hill and contour vertices · T restores equal horizontal / vertical scale",
+    "files": [
+      "src\\labs\\contours\\scene.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 100 m in all directions",
+    "files": [
+      "src\\labs\\contours\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Click any point on the surface to measure its elevation above this model's datum.",
+    "files": [
+      "src\\labs\\contours\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Conceptual pressure centre · surface flow and vertical motion enlarged",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Kinematic illustration · arrow length is not a measured wind speed",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "H · sinking",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "L · rising",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Surface convergence under a low is balanced by ascent and outflow aloft; surface divergence under a high is supplied by descent. The vertical arrow is exaggerated.",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "SH",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "NH",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Viewed from above. Hemisphere reversal changes rotation, while a low still converges and a high still diverges near the surface.",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Fronts · cold blue / warm coral",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "These two example surface traces identify a developing extratropical cyclone. They are not an eyewall, and real fronts are neither circular nor rigidly rotating spokes. Open Fronts for their vertical geometry.",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Southern",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx",
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Northern",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx",
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "high pressure, surface divergence and subsidence",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "low pressure, surface convergence and ascent",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Subsidence often suppresses deep cloud, but fog or low stratus may persist.",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Blue and coral traces mark example cold and warm fronts. This is an extratropical system, not a tropical eyewall.",
+    "files": [
+      "src\\labs\\cyclone-anticyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Idealised surface catchment · relief, channels and vegetation enlarged",
+    "files": [
+      "src\\labs\\drainage-basin\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Catchment topology is shown; this is not a surveyed elevation model",
+    "files": [
+      "src\\labs\\drainage-basin\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Crust ×4 thickness · T restores a 35 km reference crust",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Radii to scale · 35 km reference crust · colours identify materials",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Blue: P compression crosses solids and liquid. Amber: S shear stops at the liquid core. Radial transmission overlays, not seismic ray tracing; Play moves the P packet and S oscillations.",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "R = 6,371 km · core boundary 3,480 km · inner core 1,221 km. Slice exposes closed material sections. Dashed mantle interfaces mark 410 and 660 km phase transitions. Colours, metal highlights and grain identify materials; they are not interior observations.",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": " Exploded positions are for inspection; reset spacing to compare depths.",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "One geometric scale · 1 scene unit = 50 km · hypocentre marker enlarged",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "P = 6 km/s · S = 3.5 km/s in a uniform solid · no ray refraction",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The epicentre is vertically above the hypocentre. It is not necessarily where the inclined fault reaches the surface.",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Rupture starts at the focus or hypocentre. This point-source experiment launches spherical fronts in a uniform solid; real ruptures extend over a fault area.",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Station · 50 km",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The station is 50 km horizontally from the epicentre. Straight-ray travel distance is the square root of depth squared plus 50 km squared.",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "s · ",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "P: ",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "S: ",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "s.",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "One-layer radiation experiment · arrows show global mean fluxes",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Arrow widths represent flux; positions are not atmospheric heights",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The solar irradiance of 1361 W/m² is divided by four to average a disc intercept over the area of a sphere.",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Planetary albedo is the fraction of incoming sunlight reflected to space. It includes atmosphere, clouds and surface.",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Outgoing longwave equals surface radiation transmitted through the layer plus upward radiation emitted by the layer. At equilibrium it balances absorbed sunlight.",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "IR layer · ε = 0.78",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "No infrared absorption",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "A grey layer absorbs and emits infrared but is transparent to sunlight. This deliberately omits convection, latent heat and spectral detail.",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "W/m².",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Ocean depths ×10,000 · 15,000 km section · atmospheric loop schematic",
+    "files": [
+      "src\\labs\\enso\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Ocean uses 1 scene unit = 3000 km · atmospheric arrows remain schematic",
+    "files": [
+      "src\\labs\\enso\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Convection shifts with warm water",
+    "files": [
+      "src\\labs\\enso\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The Walker circulation is schematic. In El Niño, principal ascent shifts towards the central Pacific and normal easterly trades weaken. Real events differ in strength and location.",
+    "files": [
+      "src\\labs\\enso\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Ideal western equatorial Pacific, towards Indonesia. Temperatures are prescribed teaching values, not observations or an index-to-temperature calibration.",
+    "files": [
+      "src\\labs\\enso\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Ideal eastern equatorial Pacific, towards South America. Stronger trades usually favour a shallower eastern thermocline and stronger cold-water upwelling.",
+    "files": [
+      "src\\labs\\enso\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Equal geometric scales · coloured beds mark relative ages",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 1 km · any exploded gaps are for inspection only",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Anticline · older core",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Syncline · younger core",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "These beds remain upright: the oldest bed is at the bottom of the original sequence. Core age defines anticline versus syncline; inverted folds cannot be named from shape alone.",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Strike-slip · lateral offset",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The cream marker crosses an originally continuous horizontal surface. The right block moves along a vertical fault with no vertical component in this example.",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The footwall lies below the inclined fault plane. It is held fixed here so the hanging-wall displacement is easy to compare.",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Hanging wall · down",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Hanging wall · up",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The hanging wall lies above the 60° dipping fault. Motion is parallel to that plane: down for normal faulting, up for reverse faulting.",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Upright anticline",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Upright syncline",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Normal fault · extension",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Reverse fault · shortening",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Strike-slip fault",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx",
+      "controls:folds-faults"
+    ]
+  },
+  {
+    "text": "Vertical dimensions ×20 · cold slope 1:50 · warm slope 1:150",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "Common geometric scale · 1 scene unit = 100 km",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "Cold air",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "The advancing cold air undercuts warmer air. The ideal boundary slopes 1 vertically to 50 horizontally; the teaching view enlarges its vertical dimension.",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "Warm air lifted off surface",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "Occlusion removes the surface warm sector where the colder advancing air catches the cool air ahead. This example is a cold-type occlusion; real structures vary.",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "Cool air ahead",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "The ideal warm-front boundary slopes 1:150. Cloud symbols show possible ascent and condensation, not a calculated cloud base or rainfall rate.",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "Time is proportional to arc length in both views · this is not a rock section",
+    "files": [
+      "src\\labs\\geologic-time\\timeline.tsx"
+    ]
+  },
+  {
+    "text": "The approximate age of Earth is 4.54 billion years. This viewing window begins at that estimate, not at an exact globally dated rock boundary.",
+    "files": [
+      "src\\labs\\geologic-time\\timeline.tsx"
+    ]
+  },
+  {
+    "text": "This window enlarges a shorter interval with a new time-per-length scale. It does not change the duration of any unit.",
+    "files": [
+      "src\\labs\\geologic-time\\timeline.tsx"
+    ]
+  },
+  {
+    "text": "Present",
+    "files": [
+      "src\\labs\\geologic-time\\timeline.tsx"
+    ]
+  },
+  {
+    "text": "Recent human history occupies a tiny fraction of the full window. A visibility marker is enlarged, not the duration it represents.",
+    "files": [
+      "src\\labs\\geologic-time\\timeline.tsx"
+    ]
+  },
+  {
+    "text": "Quaternary · within the Cenozoic",
+    "files": [
+      "src\\labs\\geologic-time\\timeline.tsx"
+    ]
+  },
+  {
+    "text": "Several adjacent cirques can erode back towards a mountain summit, leaving a pyramidal peak. This prescribed three-basin form illustrates the relationship, not a surveyed mountain or a calculated erosion history.",
+    "files": [
+      "src\\labs\\glaciers\\cirques.tsx"
+    ]
+  },
+  {
+    "text": "A narrow ridge separates adjacent glacially eroded hollows or valleys. The ridge is a remnant between basins, not a deposited wall.",
+    "files": [
+      "src\\labs\\glaciers\\cirques.tsx"
+    ]
+  },
+  {
+    "text": "A bowl-shaped hollow with steep headwalls and a gentler floor can be eroded at the head of a glacier. The thin ice overlay and moving symbols only indicate a possible flow direction; thickness and rate are not solved.",
+    "files": [
+      "src\\labs\\glaciers\\cirques.tsx"
+    ]
+  },
+  {
+    "text": "Snow persisting across years compacts to firn and ice. The illustrated head is a source area, not a calculated equilibrium-line altitude.",
+    "files": [
+      "src\\labs\\glaciers\\glacier.tsx"
+    ]
+  },
+  {
+    "text": "Abrasion and quarrying by debris-bearing ice can broaden and deepen a valley. Hiding present ice exposes the selected bed; it does not simulate the rate or history of valley erosion.",
+    "files": [
+      "src\\labs\\glaciers\\glacier.tsx"
+    ]
+  },
+  {
+    "text": "This ridge marks a chosen earlier ice margin. Unsorted debris can accumulate at a margin that remains in roughly one position. A retreating glacier still moves its surviving ice down-valley.",
+    "files": [
+      "src\\labs\\glaciers\\glacier.tsx"
+    ]
+  },
+  {
+    "text": "Vertical ×20 · well, grains and pore symbols enlarged · steady radial flow",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "Equal horizontal and vertical scale · 1 scene unit = 200 m",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "A low-permeability layer confines the aquifer below 12 m. The blue pressure surface above it is the level in a well, not an extra water-filled layer.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "Pressure head",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "The potentiometric surface is the level to which water rises in a well. The confined aquifer remains saturated beneath its lid.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "The water table separates saturated pores below from an unsaturated zone above. The coloured surface is a level, not a hollow lake.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "Pumping well",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "The pumping rate is imposed on a fully penetrating ideal well. In this steady experiment a fixed-head boundary supplies the withdrawal; it does not model long-term storage depletion.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "Q = ",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "m.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx",
+      "src\\labs\\rain-shadow\\parcel.tsx",
+      "src\\labs\\storm-surge\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Confined: 12 m saturated thickness; gold is pressure head.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "Unconfined: blue marks the top of saturated pores.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "Play moves enlarged flow tracers through a fixed head field; tracer progress is not pumping duration or storage depletion.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "Set pumping above zero to follow inward flow tracers.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "Yellowstone · NE",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Hawaiʻi · SE",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Young end of the Yellowstone volcanic track. Its older volcanic centres extend southwest along the Snake River Plain. The three large caldera-forming eruptions at Yellowstone are not the entire hotspot history.",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "The southeastern end includes active Hawaiian volcanism. Kauaʻi, to the northwest, preserves rocks about 5–5.5 million years old. Not every volcano at a given island is the same age.",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Older · SW",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Older · NW",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "The southwest end of the recognised Yellowstone track reaches roughly 17 Ma. These five illustrated depressions are symbols, not surveyed caldera outlines or an eruption sequence.",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Kauaʻi provides an approximately 5.5 Ma reference at the northwestern end of the main island comparison. The full Hawaiian–Emperor chain is much longer and older. These volcanic shapes are not island coastlines.",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Hot, mostly solid mantle",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "A plume hypothesis involves an upwelling thermal anomaly in mostly solid mantle. Partial melting can occur during ascent; this is not a hollow pipe or a column of liquid magma. Geometry and thermal colour are schematic.",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Independent hotspot sections · age direction is geographic · geometry not to scale",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "No surveyed depth or distance scale · plate thickness and thermal anomalies are schematic",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Choose a hotspot",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Enable Hawaiʻi or Yellowstone in the controls to compare an oceanic and a continental setting.",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Hawaiʻi: older towards NW; Kauaʻi reference ≈5.5 Ma. ",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Yellowstone: older towards SW; recognised track ≈17 Ma. ",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Select one or both independent examples.",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "Play follows plate motion relative to each chosen thermal anomaly; the landform snapshot translates over the fixed thermal anomaly. Travel has no assigned rate.",
+    "files": [
+      "src\\labs\\hotspots\\tracks.tsx"
+    ]
+  },
+  {
+    "text": "1 km² idealised catchment · relief, river width and vegetation enlarged · 24-hour storm view",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx"
+    ]
+  },
+  {
+    "text": "Storm model uses SI volumes and time · land geometry is conceptual",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx"
+    ]
+  },
+  {
+    "text": "The bar shows selected discharge, not a measured water depth. Channel width and rain respond to the same selected storm hour as the graph.",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx"
+    ]
+  },
+  {
+    "text": "h",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx",
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "m³/s",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx",
+      "src\\labs\\river-hydrology\\scene.tsx"
+    ]
+  },
+  {
+    "text": "mm/h · Q ",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx"
+    ]
+  },
+  {
+    "text": "h.",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx"
+    ]
+  },
+  {
+    "text": "Load and vertical displacement ×5 · local Airy equilibrium",
+    "files": [
+      "src\\labs\\isostasy\\column.tsx"
+    ]
+  },
+  {
+    "text": "All lengths share a scale · 1 scene unit = 10 km",
+    "files": [
+      "src\\labs\\isostasy\\column.tsx"
+    ]
+  },
+  {
+    "text": "Mantle · solid, creeping",
+    "files": [
+      "src\\labs\\isostasy\\column.tsx"
+    ]
+  },
+  {
+    "text": "The mantle can deform over long timescales while remaining mostly solid. The surrounding volume is translucent to reveal the crustal root, not to depict a liquid tank.",
+    "files": [
+      "src\\labs\\isostasy\\column.tsx"
+    ]
+  },
+  {
+    "text": "Ice loading depresses the column by its added mass divided by mantle density. Real adjustment is delayed and spreads through lithospheric flexure.",
+    "files": [
+      "src\\labs\\isostasy\\column.tsx"
+    ]
+  },
+  {
+    "text": "Selected 60 × 30 m limestone block · relief ×1.3 · joints enlarged",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 10 m · common geometric scale · joints, tracers and vegetation enlarged",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "Cave passage",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "A selected open passage lies within soluble rock. Dissolution can enlarge fractures and bedding-plane openings. Most of the landscape remains rock; it is not a hollow underground lake. Cave networks can be much more complex.",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "Clints and grykes",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "Clints are limestone blocks; grykes are enlarged fissures between them. Joint opening is exaggerated for inspection and changes a chosen geometry, not a calculated dissolution rate.",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "This surface depression is a solutional sinkhole example. Other sinkholes involve subsidence or collapse. Water can enter connected fractures and underground drainage; not all depressions open directly into a large cave.",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "Spring",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "Groundwater emerges where the connected drainage intersects the land surface. The route is schematic; it does not calculate hydraulic head, transit time or contaminant transport.",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "CaCO₃ + CO₂ + H₂O → Ca²⁺ + 2HCO₃⁻.",
+    "files": [
+      "src\\labs\\karst\\karst.tsx",
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Cutaway exposes a selected passage and enlarged flow tracers.",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "The front rock face hides the passage; enable Cutaway to inspect it.",
+    "files": [
+      "src\\labs\\karst\\karst.tsx"
+    ]
+  },
+  {
+    "text": "High relief and steep, rugged slopes characterise this mountain example. There is no universal height threshold separating all mountains and hills.",
+    "files": [
+      "src\\labs\\landform-types\\terrain.tsx"
+    ]
+  },
+  {
+    "text": "This hill has lower relief and gentler slopes than the mountain selected here. Height alone does not define every landform.",
+    "files": [
+      "src\\labs\\landform-types\\terrain.tsx"
+    ]
+  },
+  {
+    "text": "A plateau is an extensive relatively level high surface. Its edge may be steep, and rivers may dissect it; plateaux have different origins.",
+    "files": [
+      "src\\labs\\landform-types\\terrain.tsx"
+    ]
+  },
+  {
+    "text": "A plain has relatively low local relief. Plains can occur at high or low elevation; this selected example is low.",
+    "files": [
+      "src\\labs\\landform-types\\terrain.tsx"
+    ]
+  },
+  {
+    "text": "A basin is a depression relative to its surroundings. It can have an outlet or internal drainage; the shape alone does not guarantee a lake.",
+    "files": [
+      "src\\labs\\landform-types\\terrain.tsx"
+    ]
+  },
+  {
+    "text": "Both samples: 4 × 4 km · relief ×2 · identical comparison scale",
+    "files": [
+      "src\\labs\\landform-types\\terrain.tsx"
+    ]
+  },
+  {
+    "text": "Both samples: 1 scene unit = 1 km · common horizontal and vertical scale · vegetation / clasts enlarged",
+    "files": [
+      "src\\labs\\landform-types\\terrain.tsx"
+    ]
+  },
+  {
+    "text": "Selected circular slip · 1 scene unit = 10 m · no vertical exaggeration",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Uniform 2-D slope at a common scale · illustrative post-failure rotation · vegetation and roots enlarged",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Crown / head scarp",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The curved base stays at a fixed radius. Rigid rotation moves the head down and the toe outward or upward; it does not stretch a generic block along a straight slope.",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The toe may bulge during rotational movement. Real slumps deform, can develop multiple shear surfaces and may turn into flows; the rigid block here is an illustration.",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Curved shear surface",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "This is one prescribed slip circle, not a search for the critical failure surface. The strength calculation refers to the initial geometry. Blue lines show prescribed pressure heads, not an underground open lake.",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "kPa. ",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Resistance below driving demand: Play shows a prescribed rotation.",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Resistance exceeds driving demand here: increase pore pressure to compare.",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Geographic globe · current routes schematic · widths and tracers enlarged",
+    "files": [
+      "src\\labs\\ocean-currents\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Earth is spherical at one scale · current symbols remain enlarged for reading",
+    "files": [
+      "src\\labs\\ocean-currents\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Selected schematic surface routes over a NASA Earth image. These are not measured streamlines, current-speed data or a navigation forecast.",
+    "files": [
+      "src\\labs\\ocean-currents\\scene.tsx"
+    ]
+  },
+  {
+    "text": "10 m wide, 5 m deep · prescribed 0.7 m active layer · common scale",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Ice-wedge polygon network · ideal topology, not a field survey",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 1 m · no vertical exaggeration",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Polygon spacing is illustrative · cracks enlarged for clarity",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Seasonal layer frozen",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Seasonal thaw depth is prescribed, reaching at most 0.7 m. This is not a heat-conduction calculation or a forecast of thaw. The dashed line is the selected maximum active-layer depth.",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Permafrost is ground remaining at or below 0 °C for at least two consecutive years; it is not necessarily pure ice. This section assumes established permafrost below the active layer.",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Winter thermal contraction opens cracks. Water entering them can refreeze and add ice veins over repeated years. This differs from simply expanding all water by 9%, and from a glacier eroding a valley.",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Thermal-contraction polygon network",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "This seven-cell pattern with uneven margins shows the topology of an ice-wedge network. Natural polygons are irregular. Lines locate wedge margins below the surface; they are not a layer of exposed blue ice covering the ground.",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Winter phase: frozen ground can contract and crack.",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Thaw-season phase: the active layer thaws above permafrost.",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Seasonal transition.",
+    "files": [
+      "src\\labs\\periglacial\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Schematic cross-section · arrows show relative motion",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Globe to scale · boundaries from Bird PB2002 · reconstructed coastlines from GPlates",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Schematic cross-section · no measured length or speed scale",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Spherical geometry unchanged · marker sizes enlarged for legibility",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Hawaii hotspot",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx",
+      "controls:plate-boundaries"
+    ]
+  },
+  {
+    "text": "Young volcanism at the southeastern end of the Hawaiian chain. Older islands extend northwest as the Pacific plate moves relative to the hotspot.",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Divergent: apart. Ridge, rift, new oceanic crust.",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Convergent: together. Oceanic subduction shown; continental collision is a different end-member.",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Transform: parallel slip. Play shows opposing directions.",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Present-day NASA Blue Marble with Bird PB2002 plate boundaries. Teal divergent · coral convergent · sand transform.",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Teal divergent · coral convergent · sand transform.",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Modern PB2002 boundaries are hidden in ancient views.",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": " Return to 0 Ma to locate present-day Hawaii.",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Relief ×2.5 · parcel ascent and descent · simplified lapse rates",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 3 km in every direction · parcel marker enlarged",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "Windward · rising",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "Unsaturated air cools at about 9.8 °C/km. Above the lifting condensation level this experiment uses 6 °C/km; real saturated lapse rates vary with temperature and pressure.",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "Leeward · descending",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "After condensate has fallen out, descending unsaturated air warms at about 9.8 °C/km. This idealisation excludes mixing and radiative heating.",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "m · ",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "°C, ",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "This ridge is too low to reach condensation.",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "Condensate is assumed to fall out; this is not a rainfall forecast.",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "Invented 6 × 4 km catchments · relief ×2 · three selected stages",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 1 km · common distances · water and vegetation symbols enlarged",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "Captured headwaters",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "Neighbouring river",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "The upstream water formerly continued east across the scene. After interception it turns into the lower captor valley. Channel widths and tracer speed do not quantify discharge.",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "Captor stream",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "Headward erosion extends this lower valley towards a divide. When the divide is breached, a new lower route can divert the neighbouring river. Relative base level, rock and structure affect the process.",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "Beheaded reach",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "A reduced local stream may occupy the former valley. An elbow of capture and an underfit valley are clues; neither proves capture without other geomorphic and geological evidence.",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "Before capture: two separate drainage routes.",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "Headward erosion: the captor approaches the divide.",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "After capture: headwater flow turns into the lower outlet; the former downstream reach loses that supply.",
+    "files": [
+      "src\\labs\\river-capture\\capture.tsx"
+    ]
+  },
+  {
+    "text": "600 × 400 m conceptual reach · relief ×5 · sediment symbols enlarged",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 100 m · one geometric scale · water, sediment and vegetation symbols enlarged",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Point bar",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx",
+      "term-alias"
+    ]
+  },
+  {
+    "text": "This inner-bank deposit is on the inside of a bend. Secondary circulation, boundary shear and sediment supply shape erosion and deposition; a single surface-speed arrow cannot explain the entire cross-section.",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Natural levee",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Repeated overbank flows can deposit relatively coarse sediment near the channel, building low banks. These are sedimentary landforms, not constructed flood defences.",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Fine material can travel farther in overbank flow. Natural levees and floodplain sediments vary with flow, sediment size, vegetation and repeated floods.",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Distributaries",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "A delta can grow where sediment supply and deposition exceed removal and available space is filled. Channels split and shift; this three-branch pattern is an illustration.",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "River mouth",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Not every river mouth builds a delta. Tides, waves, sea-level history and sediment supply can maintain an estuary. Neither receiving water nor the absence of tides alone determines the outcome.",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Settling · 2 m / 20 min",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Separate enlarged vessel: the global timeline spans 20 minutes. The grain position uses the stated Stokes settling speed through 2 m of still fresh water. The vessel is not at the landscape scale.",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Inner-bank point bar within a curved channel. Flow tracers move downstream; the selected bar is not growing.",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Overbank flow shown",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Channel flow shown",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "A sediment-built delta with branching distributaries meets standing water. This is one mouth type; estuaries are different receiving environments.",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Abrasion in a pothole",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Turbulent flow can circulate sediment against bedrock and excavate a hollow. Stones shown here are enlarged tracers; some potholes also grow through suspended sediment abrasion and hydraulic processes.",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Pothole close-up · 1 unit = 1 m · sediment enlarged",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "60 × 40 m terrain · vertical ×1.5 · retreat prescribed, not dated",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Pothole geometry at common metre scale · sediment enlarged",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 10 m · equal horizontal and vertical scale",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Resistant cap",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "This example places more resistant rock above weaker rock. Undercutting and failure can cause upstream retreat; not every waterfall forms from this arrangement.",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Impact, turbulent flow and sediment abrasion can deepen a pool. The displayed depth and retreat are chosen geometries, not calculated erosion rates.",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "V-shaped valley",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx",
+      "controls:river-erosion"
+    ]
+  },
+  {
+    "text": "River incision together with weathering and slope movement can produce a V-shaped cross-section. The river alone does not cut the entire valley side, and not all river valleys are V-shaped.",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Flow circulates abrasive sediment in a bedrock hollow. The closed rock body surrounds a 1.24 m wide, 0.9 m deep example.",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "A narrow channel cuts the valley floor; weathering and slope processes act on both sides. The water moves downstream while the selected valley remains fixed.",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Two invented 100 km² catchments · relief ×10 · channel width symbolic",
+    "files": [
+      "src\\labs\\river-hydrology\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Terrain uses 1 scene unit = 3.125 km · river width, dam and vegetation remain enlarged symbols",
+    "files": [
+      "src\\labs\\river-hydrology\\scene.tsx"
+    ]
+  },
+  {
+    "text": "An invented maritime regime has wetter winters and a ten-day linear routing store. Forty per cent of liquid input is assigned to losses; these assumptions are not a fit to the Thames.",
+    "files": [
+      "src\\labs\\river-hydrology\\scene.tsx"
+    ]
+  },
+  {
+    "text": "An invented seasonal temperature cycle stores winter snowfall. Positive temperatures melt up to 3 mm snow-water equivalent per °C per day; seven-day routing delivers runoff. A dam adds a sixty-day linear reservoir, not a real operating policy.",
+    "files": [
+      "src\\labs\\river-hydrology\\scene.tsx"
+    ]
+  },
+  {
+    "text": "on: storage smooths and delays outflow",
+    "files": [
+      "src\\labs\\river-hydrology\\scene.tsx"
+    ]
+  },
+  {
+    "text": "off",
+    "files": [
+      "src\\labs\\river-hydrology\\scene.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Long-profile relief ×12 · channel breadth enlarged",
+    "files": [
+      "src\\labs\\rivers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Long-profile relief ×1 · channel breadth and vegetation still enlarged",
+    "files": [
+      "src\\labs\\rivers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Upper course · steeper",
+    "files": [
+      "src\\labs\\rivers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "A steep long profile often favours incision; channel shape, sediment and discharge also matter.",
+    "files": [
+      "src\\labs\\rivers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Meanders",
+    "files": [
+      "src\\labs\\rivers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Outside bends tend to erode; slower flow along inside bends favours deposition.",
+    "files": [
+      "src\\labs\\rivers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Lower course · gentler",
+    "files": [
+      "src\\labs\\rivers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Low gradient and a wider channel. Increased discharge raises water level and flow capacity; it does not automatically cause deposition.",
+    "files": [
+      "src\\labs\\rivers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Rock and material examples · positions and specimen sizes are schematic",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "No common sample mass, process rate or geographic scale is implied",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Igneous rock forms by cooling and crystallisation of melt. This coarse-grained texture is illustrative, not a scan or a mineral identification.",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "This clastic sedimentary example is bedded. Compaction and cementation can lithify sediment; chemical and biological sedimentary rocks have other pathways.",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "This foliated example illustrates solid-state recrystallisation and deformation. Not all metamorphic rocks are foliated, and melting is a separate process.",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Loose sediment is material that can be transported and deposited. Grain sizes are enlarged. It is not yet a lithified sedimentary rock.",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Magma is melt that may contain crystals and gas. It becomes igneous rock on cooling and solidification, not merely by becoming hotter.",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Vertical dimensions ×12 · ocean removed · magnetic colours symbolic",
+    "files": [
+      "src\\labs\\seafloor-spreading\\scene.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 20 km · only an upper slice of crust is exposed",
+    "files": [
+      "src\\labs\\seafloor-spreading\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Ridge axis · age 0",
+    "files": [
+      "src\\labs\\seafloor-spreading\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Basalt forms at the spreading centre and moves away with each flank. Decompression generates partial melt below; it does not turn the whole mantle into a magma ocean.",
+    "files": [
+      "src\\labs\\seafloor-spreading\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Age increases with distance from the axis: age = distance / half spreading rate. This ideal experiment has equal rates on both flanks.",
+    "files": [
+      "src\\labs\\seafloor-spreading\\scene.tsx"
+    ]
+  },
+  {
+    "text": "A stripe of the same age is found at the same distance on the opposite flank. Its width depends on both reversal duration and spreading rate.",
+    "files": [
+      "src\\labs\\seafloor-spreading\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Earth close-up · rays show sunlight direction · same tilt and year controls",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Earth enlarged · fixed axial direction · T compares actual sizes and distances",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Spherical Earth · surface locations to scale · arrows are direction symbols",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Earth radius and orbit distance share a scale · reset to inspect the tiny Earth",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Sun",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "At one focus. Orbit stretch is a hypothetical experiment; Earth's present eccentricity is about 0.0167.",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Latitude directly under the Sun. North keeps a fixed direction while Earth orbits.",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "March equinox",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "June solstice",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "September equinox",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "December solstice",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "AU. ",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Stretched orbit: labels mark directions, not equal time intervals.",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Set tilt to zero to compare 12-hour days throughout the orbit.",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Earth blocks the entire solar disc inside this cone. Earth's atmosphere is omitted from the geometric edge.",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Earth blocks only part of the solar disc in the outer shadow.",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Moon",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Earth · solar obscuration",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Surface darkness is calculated from the overlapping apparent solar and lunar discs. The translucent volume is the Moon's penumbra. Radii and separations use one scale; this close view omits the distant Moon.",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Moon near side · LROC colour + LOLA measured relief · no vertical exaggeration",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "New",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Full",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Earth–Moon radii and separation share one scale",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Earth and Moon enlarged · correct size ratio · separation shortened",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Reference lunar radius 1737.4 km · relief shares the radius scale",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Same scale in every direction · atmosphere omitted",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "The phase is the illuminated fraction viewed from Earth. It is not Earth's shadow falling on the Moon.",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Sunlight ←",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Solar shadow",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "new",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "full",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": ". Use Shadow close-up to inspect an eclipse.",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Exaggerated equilibrium-tide potential; lunar + solar terms. Coastlines, friction and inertia determine real tides.",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Earth rotates eastward · 15° per mean solar hour · Sun direction held fixed",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Spherical Earth · time-zone lines are ideal 15° meridians, not civil borders",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Civil time zones may depart from these ideal meridians.",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Day and night come from geometry, not time-zone boundaries.",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Spherical coordinates · lines and marker enlarged for clarity",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Latitude and longitude angles are true; Earth represented as a sphere",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "S",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx",
+      "src\\labs\\sun-earth\\insolation.tsx",
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "N",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx",
+      "src\\labs\\sun-earth\\insolation.tsx",
+      "src\\labs\\three-cell\\scene.tsx",
+      "src\\routes\\tools.earth-motion.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "W",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "E",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx",
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "Latitude is north or south of the equator. Longitude is east or west of Greenwich. Poles are shared by every meridian.",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Local sky sphere · horizon and solar path use true angles",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Sky directions are angular · the Sun is drawn larger than its angular diameter",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "North",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "South",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "East",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "West",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Divergent · new basalt",
+    "files": [
+      "src\\labs\\shared\\plate-section.tsx"
+    ]
+  },
+  {
+    "text": "The crustal flanks separate while new basalt fills the ridge. Gold markers travel with each flank. Partial melt is local; the mantle volume below stays mostly solid.",
+    "files": [
+      "src\\labs\\shared\\plate-section.tsx"
+    ]
+  },
+  {
+    "text": "Convergent · descending slab",
+    "files": [
+      "src\\labs\\shared\\plate-section.tsx"
+    ]
+  },
+  {
+    "text": "Oceanic lithosphere descends below the overriding continent. Gold markers follow the descending path; the upper surface has a trench and volcanic-arc relief. Geometry and speed are schematic.",
+    "files": [
+      "src\\labs\\shared\\plate-section.tsx"
+    ]
+  },
+  {
+    "text": "Transform · offset marker",
+    "files": [
+      "src\\labs\\shared\\plate-section.tsx"
+    ]
+  },
+  {
+    "text": "The two halves of one cream surface marker separate along the fault. Crust slides laterally; it is neither created nor consumed. Play and the time slider move the same blocks.",
+    "files": [
+      "src\\labs\\shared\\plate-section.tsx"
+    ]
+  },
+  {
+    "text": "Mantle · mostly solid",
+    "files": [
+      "src\\labs\\shared\\plate-section.tsx",
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Rock texture distinguishes material. The section has no measured speed or length scale and does not depict a global magma ocean.",
+    "files": [
+      "src\\labs\\shared\\plate-section.tsx"
+    ]
+  },
+  {
+    "text": "Local 100 km square · eastings first, then northings · 100 m precision",
+    "files": [
+      "src\\labs\\shared\\skills-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Planar grid scale equal on both axes · fictional local square",
+    "files": [
+      "src\\labs\\shared\\skills-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Six figures identify a 100 m grid square. The marker shows its southwest corner; it is not a surveyed point accurate to one metre.",
+    "files": [
+      "src\\labs\\shared\\skills-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Globe → flat map · ±85° latitude · projection distorts length, shape or area",
+    "files": [
+      "src\\labs\\shared\\skills-scenes.tsx"
+    ]
+  },
+  {
+    "text": "No flat world map preserves all distances, shapes and areas",
+    "files": [
+      "src\\labs\\shared\\skills-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Mercator is conformal locally; area grows strongly towards the poles.",
+    "files": [
+      "src\\labs\\shared\\skills-scenes.tsx"
+    ]
+  },
+  {
+    "text": "Equal area is preserved in the fully flat view; shapes are distorted.",
+    "files": [
+      "src\\labs\\shared\\skills-scenes.tsx"
+    ]
+  },
+  {
+    "text": "This compromise balances several distortions; it is not equal-area or conformal.",
+    "files": [
+      "src\\labs\\shared\\skills-scenes.tsx"
+    ]
+  },
+  {
+    "text": "True relative geometry · click for teaching view",
+    "files": [
+      "src\\labs\\shared\\studio.tsx"
+    ]
+  },
+  {
+    "text": "Soil thickness ×20 · 120 m hillslope · topographic slope to scale",
+    "files": [
+      "src\\labs\\soil-catena\\scene.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 20 m · soil and relief use a common scale · blades and roots enlarged",
+    "files": [
+      "src\\labs\\soil-catena\\scene.tsx"
+    ]
+  },
+  {
+    "text": "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one illustrative case.",
+    "files": [
+      "src\\labs\\soil-catena\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Steepening reduces prescribed backslope thickness in this example. The model is not an erosion-rate law and does not guarantee that every steep soil is thin.",
+    "files": [
+      "src\\labs\\soil-catena\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The lower slope receives water and sediment. Accumulation can deepen the soil; wetter conditions may alter drainage and horizon colours.",
+    "files": [
+      "src\\labs\\soil-catena\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Covered plot",
+    "files": [
+      "src\\labs\\soil-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Bare plot",
+    "files": [
+      "src\\labs\\soil-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Two 20 × 10 m plots · surface lowering ×30 · enlarged process tracers",
+    "files": [
+      "src\\labs\\soil-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 5 m · actual mean surface lowering · process tracers enlarged",
+    "files": [
+      "src\\labs\\soil-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "mm.",
+    "files": [
+      "src\\labs\\soil-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Dry wind-transport example.",
+    "files": [
+      "src\\labs\\soil-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Rain detachment and runoff-transport example; blue routes indicate concentrated flow, not calculated rill depths.",
+    "files": [
+      "src\\labs\\soil-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Illustrative 2 m profile · common geometric scale · no compulsory O–A–E–B–C sequence",
+    "files": [
+      "src\\labs\\soil-profile\\profile.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 1 m · grains and roots enlarged for visibility",
+    "files": [
+      "src\\labs\\soil-profile\\profile.tsx"
+    ]
+  },
+  {
+    "text": "USDA texture triangle · percentages sum to 100 · fine-earth fraction only",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Barycentric percentages are exact · slab thickness is a display aid",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Separate enlarged material samples show angular grains and platy clay particles. The trays use different magnifications; neither particle count nor displayed size is a measured soil sample. The percentage is the fine-earth mass fraction.",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": "100% sand",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": "100% silt",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": "100% clay",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Classifies particle sizes, not colour, fertility or organic content. Changing a fraction may reduce the other to keep the total at 100%.",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": "at the same scale",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "enlarged for visibility",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "Mean-radius comparison · one size scale · spacing is a display arrangement",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "Selected body close-up · radius shown below · comparison Earth shares its size scale",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "Radii and orbital distances share one scale · labels are visibility symbols",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "Mean radii remain at one relative scale · positions are not orbital distances",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "en-GB",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx",
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "Earth comparison",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "Both bodies use the same radius multiplier. Positions and lighting are arranged for comparison, not an orbital alignment.",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "km · a = ",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "T restores physical radii at the orbit scale. Choose Inner / all orbits to resolve the inner system.",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "Mercury enhanced colour · Jupiter NASA/GSFC map · Mars and Saturn NASA/JPL-Caltech. The rings are a thin particle disc, not a solid plate.",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "Vertical dimensions ×1000 · 100 km flat shelf · steady coastal setup",
+    "files": [
+      "src\\labs\\storm-surge\\scene.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 20 km · real sea-level rise is small beside shelf width",
+    "files": [
+      "src\\labs\\storm-surge\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Wind stress is rho_air × Cd × speed², using air density 1.225 kg/m³ and constant drag coefficient 0.0015. These are disclosed teaching inputs.",
+    "files": [
+      "src\\labs\\storm-surge\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The offshore end is held at mean sea level and the coast is closed. The steady slope balances onshore wind stress and an imposed atmospheric pressure gradient.",
+    "files": [
+      "src\\labs\\storm-surge\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The shelf is flat. Real coastal bathymetry, storm track, storm duration, tide, Coriolis and wave breaking are excluded.",
+    "files": [
+      "src\\labs\\storm-surge\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Pa (",
+    "files": [
+      "src\\labs\\storm-surge\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Parallel sunlight at 1 AU · 1361 W/m² normal to the beam · local noon meridian",
+    "files": [
+      "src\\labs\\sun-earth\\insolation.tsx"
+    ]
+  },
+  {
+    "text": "Earth sphere at one scale · arrows and selected patch enlarged",
+    "files": [
+      "src\\labs\\sun-earth\\insolation.tsx"
+    ]
+  },
+  {
+    "text": "The leader points to the outward normal at the gold local-noon patch. Its angle to incoming sunlight determines horizontal top-of-atmosphere flux; the daily mean also includes night. Neither calculation includes atmospheric absorption or reflection.",
+    "files": [
+      "src\\labs\\sun-earth\\insolation.tsx"
+    ]
+  },
+  {
+    "text": "Vertical circulation ×4 · prescribed thermal contrast · markers enlarged",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Conceptual domain 20 km wide and 2 km deep · trees and buildings enlarged",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Rural",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Sea",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The temperatures are prescribed to explore circulation direction, not calculated from a full surface-energy budget.",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Urban",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Land",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "A warmer column tends to expand; pressure differences drive a return circulation. Real breezes depend on background wind, moisture, clouds and terrain.",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Surface flow → warmer right",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Surface flow → warmer left",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Equal heating · no loop",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The surface branch flows towards the warmer side, ascent occurs there, and flow returns aloft. Loop height and speed are illustrative.",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "°C. ",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Urban heat compares a city with its rural surroundings.",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Sea breeze: surface flow onshore.",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Land breeze: surface flow offshore.",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Both settings are off: equal temperature gives no thermal circulation.",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Overturning section · depth ×500 · routes and tracers illustrative",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Density experiment · one metre tank · parcel marker enlarged",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "6000 km section, 4 km deep · no vertical exaggeration",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Tank geometry uses a common scale · parcel marker enlarged",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "High latitudes · deep-water formation",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Buoyancy loss can allow convection and formation of dense water. This Atlantic-to-Southern-Ocean section is schematic, not a real pipe or a map of every sinking site.",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Return and upwelling",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Winds and turbulent mixing help return deep water towards the surface, especially through the Southern Ocean. Temperature and salinity alone do not power a complete conveyor.",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Deep return · centuries of transport",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Tracer age varies between routes and water masses. Animation speed is arbitrary; this view does not assign one global turnover time.",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Linear classroom approximation at a common reference pressure. Not the TEOS-10 equation of state; compressibility, mixing and changing coefficients are excluded.",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Reference temperature 10 °C and Absolute Salinity 35 g/kg. The marker is released at mid-depth. Its motion illustrates buoyancy direction; real water deforms and mixes, rather than staying in a rigid sphere.",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Warm upper limb (amber); cold deep return (blue). Choose Density experiment to vary the parcel.",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "neutral",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "denser parcel tends to sink",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "lighter parcel rises towards the surface",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "ρ = 1027 [1 − 0.0002(T − 10) + 0.00076(SA − 35)]",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Cell depth enlarged · zonal-mean circulation, not individual weather systems",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Cell depth 12 km, Earth radius 6371 km · wind arrows enlarged",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Ferrel",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The Ferrel cell is a zonal-mean, thermally indirect circulation maintained mainly by midlatitude eddy transports. Real air follows weather systems, not a neat permanent loop.",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The model prescribes a ±10° annual shift. Real ITCZ position varies with longitude, land, oceans and season; it does not follow a single solar-latitude formula.",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Hadley and Polar: thermally direct. Ferrel: indirect, driven by eddy heat and momentum transports.",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "A hypothetical non-rotating circulation; it is not the observed Earth.",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Gold: tropical / polar surface easterlies · blue: midlatitude westerlies. ",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Earth–Moon sizes enlarged · blue surface is exaggerated tidal potential",
+    "files": [
+      "src\\labs\\tides\\tidal-globe.tsx"
+    ]
+  },
+  {
+    "text": "Earth–Moon sizes and separation share one scale · potential symbol remains enlarged",
+    "files": [
+      "src\\labs\\tides\\tidal-globe.tsx"
+    ]
+  },
+  {
+    "text": "The potential envelope combines lunar and solar quadrupole terms. The Moon changes its direction relative to the Sun through an ideal synodic month.",
+    "files": [
+      "src\\labs\\tides\\tidal-globe.tsx"
+    ]
+  },
+  {
+    "text": "Two tidal lobes",
+    "files": [
+      "src\\labs\\tides\\tidal-globe.tsx"
+    ]
+  },
+  {
+    "text": "Blue is an enlarged, offset surface representing gravitational tidal potential, not an actual shell of ocean or a predicted water height. Ocean basins, inertia, friction and coastlines determine local tide times and ranges.",
+    "files": [
+      "src\\labs\\tides\\tidal-globe.tsx"
+    ]
+  },
+  {
+    "text": "Sun direction →",
+    "files": [
+      "src\\labs\\tides\\tidal-globe.tsx"
+    ]
+  },
+  {
+    "text": "The solar potential term remains fixed in this Sun-relative view. New and full Moon reinforce the lunar and solar patterns; at quarters they partly oppose.",
+    "files": [
+      "src\\labs\\tides\\tidal-globe.tsx"
+    ]
+  },
+  {
+    "text": "Cloud height ×5 · max-wind radius 30 km · ocean domain radius 300 km",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 50 km · 12 km cloud depth at common geometric scale",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The eye has relatively light winds, subsidence and often reduced cloud. It is surrounded by the strong winds and deep convection of the eyewall; it is not a funnel touching the sea.",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The ideal tangential wind reaches its maximum at 30 km radius. Rising moist air and latent heat release are essential to real convection but are not thermodynamically solved here.",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Rainbands",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Cloud shapes are a 3D structural illustration, not satellite data or simulated rainfall. Actual bands, eye size and symmetry vary considerably.",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "80 m/s",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "0 km",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx",
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "30 km",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "150 km",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "hPa. ",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Northern: anticlockwise",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Southern: clockwise",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Bathymetric relief ×20 · wave and depth share the same vertical scale",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 100 km · metres-high waves are barely visible at this scale",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Deep ocean · 4000 m",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "An ideal offshore disturbance has launched a 20-minute long-wave packet with a 0.5 m deep-water amplitude. The source rupture and its seafloor deformation are not solved here.",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Shelf · 100 m",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Wave speed decreases as sqrt(g h). The Green’s-law approximation increases amplitude as depth to the power −1/4, conserving one-dimensional wave-energy flux in slowly varying depth.",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "m",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "500 km",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": " (approximate)",
+    "files": [
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "The moving dot follows a light signal at constant speed. The entire journey is compressed into a short playback. The selected progress and readout use the same fraction of the physical travel time.",
+    "files": [
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "Physical sizes are shown; tiny bodies may be smaller than a pixel.",
+    "files": [
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "Displayed radius enlargement: ",
+    "files": [
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "384400 km is a mean centre distance, not a fixed lunar orbit.",
+    "files": [
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "1 AU is exactly 149597870.7 km; Earth–Sun distance varies during the year.",
+    "files": [
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "4.24 light-years is a rounded distance to Proxima. The line is a distance comparison, not a sky direction or a map of other stars.",
+    "files": [
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "Idealised linear vents · relative geometry",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Idealised forms · relative geometry · cross-section exposes the conduit",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Slope and aspect ratio unchanged · this model has no single real-world size",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Shield end-member",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Composite cone end-member",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Edifice shape records many eruptions. Viscosity, eruption rate, gas, fragmentation and erosion all contribute; this is a comparison, not a predictive formula.",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Fissure vents",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx",
+      "controls:volcanoes"
+    ]
+  },
+  {
+    "text": "A linear crack can erupt basalt. Fissures are a vent geometry, not a distinct viscosity.",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "fissure vents",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "broad shield",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "steeper composite cone",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "A qualitative fragmenting plume is active.",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Lava emerges along the linear opening.",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The advancing lava front follows the selected process progress.",
+    "files": [
+      "src\\labs\\volcanoes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Catchment cutaway · conceptual stores and transfers, not to scale",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "No common scale for land, atmosphere and pore water · sizes are illustrative",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Invented reservoir, initially 10,000 m³. Abstraction moves water to the human-use store, conserving the combined total. The shoreline retreats as the level falls; its shape is illustrative, not a surveyed storage curve.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Water is held on leaves, in living plants and in soil pores. Transpiration returns some to the atmosphere.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Invisible vapour is the main atmospheric water store; clouds contain droplets and ice.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Ocean",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "The largest global water store. Its volume is not proportional to this small catchment.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Pore water",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Water occupies pores and fractures. Blue dots reveal the store in this cut face.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "= 10,000 m³",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Gold follows the dividing ridges; the outlet faces the ocean.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Joint opening change ×10 · initial joint 20 mm wide · water mass fixed",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "0.3 m initial calcite sphere · prescribed dissolution, not a rate law",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Prescribed root thickening in an existing joint · 1 unit = 0.5 m",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Common geometric scale · 1 scene unit = 0.5 m · particles enlarged",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Dissolved ions leave the solid",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Calcite reacts with carbon dioxide and water to give dissolved calcium and bicarbonate. Symbol particles do not show actual ion size, concentration or stoichiometric counts.",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "A fixed water mass occupies about 9% more volume as ice. The joint walls are allowed to move in this geometric experiment; real cracking depends on confinement, water supply, stresses and rock strength. Ice segregation is another important frost-weathering mechanism.",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Root growth can widen an existing joint",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The root and moving walls are a prescribed mechanism, not a growth-rate or force calculation. Roots, microbes and lichens also contribute chemical weathering.",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Process widens an existing joint as a root thickens. The two rock pieces remain in place.",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Vertical dimensions ×2 · idealised 300 km section through a basin",
+    "files": [
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "1 scene unit = 50 km · section is not the full width of a real ocean",
+    "files": [
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "These are idealised stages of ocean-basin opening and closure. A basin need not complete every stage or close along the same boundary; this is not a prediction of the Atlantic’s future.",
+    "files": [
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Continental crust",
+    "files": [
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The unstretched reference continent is about 35 km thick in this section. Rifted margins are simplified; continental collision thickens the crustal root.",
+    "files": [
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Lithosphere includes crust and rigid upper mantle. The section separates crust composition from mantle; it does not represent the mantle as a magma ocean.",
+    "files": [
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Extension and spreading can open a basin.",
+    "files": [
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Oceanic lithosphere subducts; continental crust is not simply swallowed in the same way.",
+    "files": [
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Collision thickens and deforms the continental crust; remnants of an ocean may remain in the suture.",
+    "files": [
+      "src\\labs\\wilson-cycle\\scene.tsx"
+    ]
+  },
+  {
+    "text": "East–north plane · force arrows share a scale · wind has a separate scale",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Forces: 0.001 m/s² per 0.85 units · wind: 10 m/s per 0.5 units",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Lower pressure · north",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The fixed pressure gradient points north, across these parallel isobars. No fronts or curved pressure centres are included.",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Higher pressure · south",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Pressure-gradient acceleration is 0.001 m/s². Each displayed force is acceleration per unit mass.",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "The white arrow is velocity, not an additional force. It uses a different scale from the force arrows.",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "m/s. ",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Steady force balance; pale filaments advect with the wind.",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Without Coriolis or friction, this constant gradient keeps accelerating the air.",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Without friction the wind oscillates; it does not settle spontaneously.",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Flat f-plane experiment; pressure gradient fixed. Tracers wrap at the window edge (150 km per scene unit).",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "WebGL unavailable. NASA Blue Marble still — this is a photograph, not a 2D globe.",
+    "files": [
+      "src\\components\\globe\\hero-earth.tsx"
+    ]
+  },
+  {
+    "text": "Hide grid",
+    "files": [
+      "src\\components\\globe\\hero-earth.tsx"
+    ]
+  },
+  {
+    "text": "Hide names",
+    "files": [
+      "src\\components\\globe\\hero-earth.tsx"
+    ]
+  },
+  {
+    "text": "Teaching exaggeration",
+    "files": [
+      "src\\components\\lab\\control-bar.tsx"
+    ]
+  },
+  {
+    "text": "Classroom HUD",
+    "files": [
+      "src\\components\\lab\\control-bar.tsx"
+    ]
+  },
+  {
+    "text": "Copy unavailable · use the address bar",
+    "files": [
+      "src\\components\\lab\\control-bar.tsx"
+    ]
+  },
+  {
+    "text": "Exit fullscreen",
+    "files": [
+      "src\\components\\lab\\control-bar.tsx"
+    ]
+  },
+  {
+    "text": "TerraLens",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\components\\layout\\header.tsx"
+    ]
+  },
+  {
+    "text": "Instagram ",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx",
+      "src\\routes\\privacy.tsx"
+    ]
+  },
+  {
+    "text": "X ",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "NASA",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "Blue Marble / SVS",
+    "files": [
+      "src\\components\\layout\\footer.tsx"
+    ]
+  },
+  {
+    "text": "USGS",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "BGS",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "NOAA",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "Met Office",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "· Natural Earth",
+    "files": [
+      "src\\components\\layout\\footer.tsx"
+    ]
+  },
+  {
+    "text": "CC BY-NC 4.0",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "Interactive map",
+    "files": [
+      "src\\components\\map\\libre-map.tsx"
+    ]
+  },
+  {
+    "text": "offline",
+    "files": [
+      "src\\components\\map\\libre-map.tsx"
+    ]
+  },
+  {
+    "text": "Online tiles are unavailable. Local coastlines remain interactive; street detail is unavailable.",
+    "files": [
+      "src\\components\\map\\libre-map.tsx"
+    ]
+  },
+  {
+    "text": "error",
+    "files": [
+      "src\\components\\map\\libre-map.tsx"
+    ]
+  },
+  {
+    "text": "Interactive mapping is unavailable in this browser. The world overview is static.",
+    "files": [
+      "src\\components\\map\\libre-map.tsx"
+    ]
+  },
+  {
+    "text": "The basemap could not load. Try again when the connection is available.",
+    "files": [
+      "src\\components\\map\\libre-map.tsx"
+    ]
+  },
+  {
+    "text": "Locator map",
+    "files": [
+      "src\\components\\map\\mini-map.tsx"
+    ]
+  },
+  {
+    "text": "Language and appearance",
+    "files": [
+      "src\\components\\preferences-menu.tsx"
+    ]
+  },
+  {
+    "text": "Site preferences",
+    "files": [
+      "src\\components\\preferences-menu.tsx"
+    ]
+  },
+  {
+    "text": " · all tabs",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "A · ",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "B · ",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "A",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\tools.earth-motion.tsx",
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "B",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\tools.earth-motion.tsx",
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "Teaching location",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "country",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "us-state",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "Unclassified",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "Sampled from the 1 km grid.",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "A–Z",
+    "files": [
+      "src\\routes\\explore.tsx"
+    ]
+  },
+  {
+    "text": " · recall mode",
+    "files": [
+      "src\\routes\\glossary.tsx"
+    ]
+  },
+  {
+    "text": "1 lab",
+    "files": [
+      "src\\routes\\index.tsx"
+    ]
+  },
+  {
+    "text": "__cf_bm",
+    "files": [
+      "src\\routes\\privacy.tsx"
+    ]
+  },
+  {
+    "text": "Close model",
+    "files": [
+      "src\\routes\\teachers.$slug.tsx"
+    ]
+  },
+  {
+    "text": "Load interactive model",
+    "files": [
+      "src\\routes\\teachers.$slug.tsx"
+    ]
+  },
+  {
+    "text": " · experiment",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "UTC · ",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "UTC",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "undefined",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "lat",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "Latitude °N",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "Longitude °E",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "Sun on the geometric horizon all day; no ordinary sunrise or sunset.",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "on",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "T",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Select a point to load model data",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Retry weather",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "UTC.",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "The model timestamps differ. Use the hourly scrubber for an aligned comparison.",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Calm",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "waiting for data",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "cloud",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "mm",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "area",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "at least three corners of a simple polygon",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "two or more points",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "C",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "D",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "s",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "Bird PB2002 (2003), Nordpil conversion · ODC-BY 1.0",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "4 questions with explanations. Give a reason for each choice; there is no score gate.",
+    "files": [
+      "teaching:seasons",
+      "teaching:rotation",
+      "teaching:moon-phases",
+      "teaching:earth-interior",
+      "teaching:plate-boundaries",
+      "teaching:contours",
+      "teaching:rivers",
+      "teaching:water-cycle",
+      "teaching:solar-system",
+      "teaching:sun-earth",
+      "teaching:geologic-time",
+      "teaching:eclipses",
+      "teaching:tides",
+      "teaching:solar-altitude",
+      "teaching:continental-drift",
+      "teaching:seafloor-spreading",
+      "teaching:atmosphere-layers",
+      "teaching:energy-budget",
+      "teaching:thermal-circulation",
+      "teaching:wind",
+      "teaching:three-cell",
+      "teaching:fronts",
+      "teaching:cyclone-anticyclone",
+      "teaching:climate-types",
+      "teaching:drainage-basin",
+      "teaching:hydrograph",
+      "teaching:river-hydrology",
+      "teaching:ocean-currents",
+      "teaching:thermohaline",
+      "teaching:carbon-cycle",
+      "teaching:enso",
+      "teaching:landform-types",
+      "teaching:river-erosion",
+      "teaching:river-deposition",
+      "teaching:river-capture",
+      "teaching:coasts",
+      "teaching:glaciers",
+      "teaching:karst",
+      "teaching:folds-faults",
+      "teaching:aeolian",
+      "teaching:rock-cycle",
+      "teaching:soil-profile",
+      "teaching:soil-texture",
+      "teaching:weathering",
+      "teaching:earthquakes",
+      "teaching:volcanoes",
+      "teaching:tsunami",
+      "teaching:tropical-cyclone",
+      "teaching:graticule",
+      "teaching:map-projections",
+      "teaching:grid-references",
+      "teaching:mass-movement",
+      "teaching:rain-shadow",
+      "teaching:groundwater",
+      "teaching:isostasy",
+      "teaching:wilson-cycle",
+      "teaching:soil-catena",
+      "teaching:periglacial",
+      "teaching:storm-surge"
+    ]
+  },
+  {
+    "text": "Obliquity of the ecliptic",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "UK seasonal day length",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Florida / California insolation",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Greenwich meridian",
+    "files": [
+      "case-link",
+      "term-alias"
+    ]
+  },
+  {
+    "text": "US lower-48 time zones",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Eclipse alignment",
+    "files": [
+      "controls:moon-phases",
+      "controls:eclipses"
+    ]
+  },
+  {
+    "text": "Moonrise, Snowdonia",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Full Moon, Yosemite",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "P/S waves",
+    "files": [
+      "controls:earth-interior"
+    ]
+  },
+  {
+    "text": "Primary / compressional wave",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Secondary / shear wave",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Kola Superdeep borehole",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Yellowstone — a mantle plume",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Divergent · apart",
+    "files": [
+      "controls:plate-boundaries"
+    ]
+  },
+  {
+    "text": "Convergent · together",
+    "files": [
+      "controls:plate-boundaries"
+    ]
+  },
+  {
+    "text": "Transform · slide",
+    "files": [
+      "controls:plate-boundaries"
+    ]
+  },
+  {
+    "text": "Boundary section",
+    "files": [
+      "controls:plate-boundaries"
+    ]
+  },
+  {
+    "text": "San Andreas",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Iceland / Mid-Atlantic Ridge",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "3D hill",
+    "files": [
+      "controls:contours"
+    ]
+  },
+  {
+    "text": "Snowdonia / Eryri",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Yosemite Valley rim",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "A UK upland river",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Mississippi and delta",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Evaporation",
+    "files": [
+      "controls:water-cycle"
+    ]
+  },
+  {
+    "text": "Atmospheric transport",
+    "files": [
+      "controls:water-cycle"
+    ]
+  },
+  {
+    "text": "Precipitation",
+    "files": [
+      "controls:water-cycle"
+    ]
+  },
+  {
+    "text": "Surface runoff",
+    "files": [
+      "controls:water-cycle"
+    ]
+  },
+  {
+    "text": "Infiltration",
+    "files": [
+      "controls:water-cycle"
+    ]
+  },
+  {
+    "text": "Groundwater flow",
+    "files": [
+      "controls:water-cycle"
+    ]
+  },
+  {
+    "text": "Transpiration",
+    "files": [
+      "controls:water-cycle"
+    ]
+  },
+  {
+    "text": "Drainage divide",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "ET",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Thames / Severn",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Colorado River reservoirs",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Orbital motion",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Mean-radius comparison",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Selected body close-up",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Mercury",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Venus",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Earth",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Mars",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Jupiter",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Saturn",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Uranus",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Neptune",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "All eight orbits",
+    "files": [
+      "controls:solar-system"
+    ]
+  },
+  {
+    "text": "Rocky planet",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "AU",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Earth as a labelled planet",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Insolation starts at the Sun",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Sunspot observation",
+    "files": [
+      "controls:sun-earth"
+    ]
+  },
+  {
+    "text": "Total solar irradiance",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Incoming solar radiation",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "TOA",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "UK day length",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Florida insolation",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "3 questions with explanations. Give a reason for each choice; there is no score gate.",
+    "files": [
+      "teaching:universe-scale",
+      "teaching:hotspots",
+      "teaching:soil-erosion"
+    ]
+  },
+  {
+    "text": "Earth–Moon",
+    "files": [
+      "controls:universe-scale"
+    ]
+  },
+  {
+    "text": "Sun–Earth reference",
+    "files": [
+      "controls:universe-scale"
+    ]
+  },
+  {
+    "text": "Nearest stellar neighbour",
+    "files": [
+      "controls:universe-scale"
+    ]
+  },
+  {
+    "text": "Earth underfoot",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Even crust is thin",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Earth history · 4540 Ma",
+    "files": [
+      "controls:geologic-time"
+    ]
+  },
+  {
+    "text": "Phanerozoic · 538.8 Ma",
+    "files": [
+      "controls:geologic-time"
+    ]
+  },
+  {
+    "text": "Quaternary · 2.58 Ma",
+    "files": [
+      "controls:geologic-time"
+    ]
+  },
+  {
+    "text": "Myr / million years ago",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "K–T boundary",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Grand Canyon time",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "A 12 km scratch",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Lunar · full Moon",
+    "files": [
+      "controls:eclipses"
+    ]
+  },
+  {
+    "text": "Solar · new Moon",
+    "files": [
+      "controls:eclipses"
+    ]
+  },
+  {
+    "text": "Shadow close-up",
+    "files": [
+      "controls:eclipses"
+    ]
+  },
+  {
+    "text": "Snowdonia Moon",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Yosemite Moon",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Syzygy tide",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Quadrature tide",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Holderness coast",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Modest Gulf tides",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Elevation angle",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "London day length",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "New York / Miami",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Fossil / fit overlay",
+    "files": [
+      "controls:continental-drift"
+    ]
+  },
+  {
+    "text": "Continental reconstruction",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Iceland",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Hawaii",
+    "files": [
+      "controls:hotspots",
+      "case-link"
+    ]
+  },
+  {
+    "text": "Yellowstone",
+    "files": [
+      "controls:hotspots",
+      "case-link"
+    ]
+  },
+  {
+    "text": "Flat-topped seamount",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Vine–Matthews–Morley hypothesis",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Iceland / MAR",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "A different boundary",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Denver mile-high air",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "UK radiosonde / sea breeze",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Greenhouse return",
+    "files": [
+      "controls:energy-budget"
+    ]
+  },
+  {
+    "text": "Cairngorms snow albedo",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Arizona desert / Phoenix",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Land–sea",
+    "files": [
+      "controls:thermal-circulation"
+    ]
+  },
+  {
+    "text": "Urban heat",
+    "files": [
+      "controls:thermal-circulation"
+    ]
+  },
+  {
+    "text": "UK sea breeze",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Phoenix urban heat",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Southern hemisphere",
+    "files": [
+      "controls:wind",
+      "controls:cyclone-anticyclone",
+      "controls:tropical-cyclone"
+    ]
+  },
+  {
+    "text": "Release from rest",
+    "files": [
+      "controls:wind"
+    ]
+  },
+  {
+    "text": "Pressure-gradient force",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Met Office isobars",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "US Great Plains",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Three cells",
+    "files": [
+      "controls:three-cell"
+    ]
+  },
+  {
+    "text": "Intertropical convergence zone",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Florida wet season",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "ITCZ and seasons",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Occluded front",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "UK midlatitude front",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "US Midwest squall / Sandy contrast",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "UK depression",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Sandy as a hybrid caution",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "A · Tropical",
+    "files": [
+      "controls:climate-types"
+    ]
+  },
+  {
+    "text": "B · Dry",
+    "files": [
+      "controls:climate-types"
+    ]
+  },
+  {
+    "text": "C · Temperate",
+    "files": [
+      "controls:climate-types"
+    ]
+  },
+  {
+    "text": "D · Cold continental",
+    "files": [
+      "controls:climate-types"
+    ]
+  },
+  {
+    "text": "E · Polar",
+    "files": [
+      "controls:climate-types"
+    ]
+  },
+  {
+    "text": "Florida tropical / humid",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "UK temperate",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Outlet",
+    "files": [
+      "controls:drainage-basin"
+    ]
+  },
+  {
+    "text": "Basin overlay",
+    "files": [
+      "controls:drainage-basin"
+    ]
+  },
+  {
+    "text": "Catchment",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Mississippi",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Q",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Somerset Levels",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Shanghai / Huangpu",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Dam on snow-fed river",
+    "files": [
+      "controls:river-hydrology"
+    ]
+  },
+  {
+    "text": "UK upland",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "North Atlantic",
+    "files": [
+      "controls:ocean-currents",
+      "case-link"
+    ]
+  },
+  {
+    "text": "South Atlantic",
+    "files": [
+      "controls:ocean-currents"
+    ]
+  },
+  {
+    "text": "North Pacific",
+    "files": [
+      "controls:ocean-currents"
+    ]
+  },
+  {
+    "text": "South Pacific",
+    "files": [
+      "controls:ocean-currents"
+    ]
+  },
+  {
+    "text": "Indian Ocean",
+    "files": [
+      "controls:ocean-currents"
+    ]
+  },
+  {
+    "text": "North Sea / UK",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Florida current",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Overturning section",
+    "files": [
+      "controls:thermohaline"
+    ]
+  },
+  {
+    "text": "Density experiment",
+    "files": [
+      "controls:thermohaline"
+    ]
+  },
+  {
+    "text": "North Atlantic Deep Water",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Freshwater input caution",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Respiration / decay",
+    "files": [
+      "controls:carbon-cycle"
+    ]
+  },
+  {
+    "text": "Air to ocean",
+    "files": [
+      "controls:carbon-cycle"
+    ]
+  },
+  {
+    "text": "Ocean to air",
+    "files": [
+      "controls:carbon-cycle"
+    ]
+  },
+  {
+    "text": "Silicate-weathering pathway",
+    "files": [
+      "controls:carbon-cycle"
+    ]
+  },
+  {
+    "text": "Burial / sedimentation",
+    "files": [
+      "controls:carbon-cycle"
+    ]
+  },
+  {
+    "text": "Geological degassing",
+    "files": [
+      "controls:carbon-cycle"
+    ]
+  },
+  {
+    "text": "Fossil-fuel combustion",
+    "files": [
+      "controls:carbon-cycle"
+    ]
+  },
+  {
+    "text": "UK energy / stores",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Land-use carbon",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "El Niño–Southern Oscillation",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "US ENSO flavour",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Honest UK language",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Snowdonia",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Grand Canyon plateau",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Waterfall and gorge",
+    "files": [
+      "controls:river-erosion"
+    ]
+  },
+  {
+    "text": "Pothole close-up",
+    "files": [
+      "controls:river-erosion"
+    ]
+  },
+  {
+    "text": "Knickpoint",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Corrasion",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Lake District",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Grand Canyon incision",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Bend and point bar",
+    "files": [
+      "controls:river-deposition"
+    ]
+  },
+  {
+    "text": "Overbank floodplain",
+    "files": [
+      "controls:river-deposition"
+    ]
+  },
+  {
+    "text": "Delta mouth",
+    "files": [
+      "controls:river-deposition"
+    ]
+  },
+  {
+    "text": "Overbank water",
+    "files": [
+      "controls:river-deposition"
+    ]
+  },
+  {
+    "text": "Mississippi delta",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Separate catchments",
+    "files": [
+      "controls:river-capture"
+    ]
+  },
+  {
+    "text": "Approaching the divide",
+    "files": [
+      "controls:river-capture"
+    ]
+  },
+  {
+    "text": "After capture",
+    "files": [
+      "controls:river-capture"
+    ]
+  },
+  {
+    "text": "Mississippi / Atchafalaya",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "UK upland divides",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Holderness",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Outer Banks",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Cwm / corrie",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Glacial trough",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Yosemite",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Cutaway",
+    "files": [
+      "controls:karst"
+    ]
+  },
+  {
+    "text": "Grike",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Swallet / sinking stream",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Yorkshire Dales",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Mammoth Cave",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Jurassic Coast folds",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Barchan dune",
+    "files": [
+      "controls:aeolian"
+    ]
+  },
+  {
+    "text": "Yardang ridges",
+    "files": [
+      "controls:aeolian"
+    ]
+  },
+  {
+    "text": "Dust Bowl",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Dryland weathering",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Cooling and crystallisation",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Weathering: igneous rock",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Weathering: sedimentary rock",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Weathering: metamorphic rock",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Deposition, burial and lithification",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Metamorphism: igneous rock",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Metamorphism: sedimentary rock",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Melting: igneous rock",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Melting: sedimentary rock",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Melting: metamorphic rock",
+    "files": [
+      "controls:rock-cycle"
+    ]
+  },
+  {
+    "text": "Grand Canyon",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Jurassic Coast",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Temperate brown soil",
+    "files": [
+      "controls:soil-profile"
+    ]
+  },
+  {
+    "text": "Mollisol example",
+    "files": [
+      "controls:soil-profile"
+    ]
+  },
+  {
+    "text": "Oxisol example",
+    "files": [
+      "controls:soil-profile"
+    ]
+  },
+  {
+    "text": "Thin limestone soils",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Mollisol at risk",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Clay / peat levels",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Silt on the wind",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Freezing in a joint",
+    "files": [
+      "controls:weathering"
+    ]
+  },
+  {
+    "text": "Carbonate dissolution",
+    "files": [
+      "controls:weathering"
+    ]
+  },
+  {
+    "text": "Root growth",
+    "files": [
+      "controls:weathering"
+    ]
+  },
+  {
+    "text": "Physical weathering",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Freeze–thaw",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Hong Kong granite saprolite",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Cover comparison plot",
+    "files": [
+      "controls:soil-erosion"
+    ]
+  },
+  {
+    "text": "Dry wind transport",
+    "files": [
+      "controls:soil-erosion"
+    ]
+  },
+  {
+    "text": "Loess Plateau",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Hypocentre",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Primary wave",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Secondary wave",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Cascadia",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Composite cone",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Hawaii shields",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Iceland rift",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Surge is not tsunami",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Hurricane / typhoon",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Depression / extra-tropical cyclone",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Katrina / Sandy",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Typhoon Mangkhut",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "US time zones",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Cylindrical equal-area",
+    "files": [
+      "controls:map-projections"
+    ]
+  },
+  {
+    "text": "Winkel I compromise",
+    "files": [
+      "controls:map-projections"
+    ]
+  },
+  {
+    "text": "Equivalent projection",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Orthomorphic",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Loxodrome",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Greenwich as a meridian, not a map",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "High-latitude size trap",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "British National Grid",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Snowdonia OS tile",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Lake District OS tile",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Mass wasting",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Holderness till cliffs",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Hong Kong slopes",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Lee",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Lake District west vs Penrith",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Sierra / Owens rain shadow",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Yorkshire Chalk / limestone water",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Ogallala under the High Plains",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Glacial isostatic adjustment",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Scottish / Lake District rebound",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "North American ice load",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Continental rift",
+    "files": [
+      "controls:wilson-cycle"
+    ]
+  },
+  {
+    "text": "Young ocean",
+    "files": [
+      "controls:wilson-cycle"
+    ]
+  },
+  {
+    "text": "Open ocean",
+    "files": [
+      "controls:wilson-cycle"
+    ]
+  },
+  {
+    "text": "Subduction begins",
+    "files": [
+      "controls:wilson-cycle"
+    ]
+  },
+  {
+    "text": "Ocean closes",
+    "files": [
+      "controls:wilson-cycle"
+    ]
+  },
+  {
+    "text": "Continental collision",
+    "files": [
+      "controls:wilson-cycle"
+    ]
+  },
+  {
+    "text": "Atlantic still opening",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "A different job on a different edge",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Footslope / toeslope",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Yorkshire hillside catena",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Iowa / High Plains hillslope soils",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Ice-wedge section",
+    "files": [
+      "controls:periglacial"
+    ]
+  },
+  {
+    "text": "Polygon network",
+    "files": [
+      "controls:periglacial"
+    ]
+  },
+  {
+    "text": "Felsenmeer",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Cairngorm freeze–thaw",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Alaska / high-Sierra cold ground",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "North Sea 1953 / East coast",
+    "files": [
+      "case-link"
+    ]
+  },
+  {
+    "text": "Katrina / Sandy surge",
+    "files": [
+      "case-link"
+    ]
+  }
+]

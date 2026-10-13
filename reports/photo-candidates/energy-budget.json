@@ -1,0 +1,35 @@
+[
+  {
+    "id": "energy-budget-1",
+    "title": "File:NPP Ceres Shortwave Radiation (8164317498).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NPP_Ceres_Shortwave_Radiation_(8164317498).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/NPP_Ceres_Shortwave_Radiation_%288164317498%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA Goddard Space Flight Center from Greenbelt, MD, USA",
+    "description": "The CERES experiment is one of the highest priority scientific satellite instruments developed for NASA's Earth Observing System (EOS). The doors are open on NASA's Suomi NPP satellite and the newest version of the Clouds and the Earth's Radiant Energy System (CERES) instrument is scanning Earth for the first time, helping to assure continued availability of measurements of the energy leaving the Earth-atmosphere system.\nCERES products include both solar-reflected and Earth-emitted radiation from the top of the atmosphere to the Earth's surface. Cloud properties are determined using simultaneous measurements by other EOS and NPP instruments such as the Moderate Resolution Imaging Spectroradiometer (MODIS) and the Visible and Infrared Sounder (VIRS). Analyses using CERES data, build upon the foundation laid by previous missions such as NASA Earth Radiation Budget Experiment (ERBE), leading to a better understanding of the role of clouds and the energy cycle in global climate change.\nThe sun's radiant energy is the fuel that drives Earth's climate engine. The Earth-atmosphere system constantly tries to maintain a balance between the energy that reaches the Earth from the sun and the energy that flows from Earth back out to space. Energy received from the sun is mostly in the visible (or shortwave) part of the electromagnetic spectrum. About 30% of the solar energy that comes to Earth is reflected back to space. The ratio of reflected-to-incoming energy is called \"albedo\" from the Latin word meaning whiteness. The solar radiation absorbed by the Earth causes the planet to heat up until it is radiating (or emitting) as much energy back into space as it absorbs from the sun. The Earth's thermal emitted radiation is mostly in the infrared (or longwave part of the spectrum. The balance between incoming and outgoing energy is called the Earth's radiation budget.\nThis global view shows CERES top-of-atmosphere (TOA) shortwave radiation from Jan 26 and 27, 2012. Thick cloud cover tends to reflect a large amount of incoming solar energy back to space (blue/green/white image).\nFor more information on the Clouds and Earth's Radiant Energy System (CERES) see ceres.larc.nasa.gov \nNASA/Goddard Space Flight Center Scientific Visualization Studio\nNASA image use policy.\nNASA Goddard Space Flight Center enables NASA’s mission through four scientific endeavors: Earth Science, Heliophysics, Solar System Exploration, and Astrophysics. Goddard plays a leading role in NASA’s accomplishments by contributing compelling scientific knowledge to advance the Agency’s mission.\nFollow us on Twitter\nLike us on Facebook\n\nFind us on Instagram",
+    "categories": "PD NASA|Clouds and the Earth's Radiant Energy System (CERES)|Flickr images reviewed by FlickreviewR|Files from NASA Goddard Space Flight Center Flickr stream"
+  },
+  {
+    "id": "energy-budget-2",
+    "title": "File:CERES FM1 FM2.jpeg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CERES_FM1_FM2.jpeg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/CERES_FM1_FM2.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA",
+    "description": "Two of NASA's CERES instruments appear in the photo. The precision radiometers will measure reflected solar and emitted thermal radiation from the Earth's surface. TRW engineers and technician at TRW in Redondo Beach, California.",
+    "categories": "PD NASA|Clouds and the Earth's Radiant Energy System (CERES)|Photographs taken on 1997-02-15"
+  },
+  {
+    "id": "energy-budget-3",
+    "title": "File:Ceres 2003 2004 clear sky total sky albedo.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ceres_2003_2004_clear_sky_total_sky_albedo.png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Ceres_2003_2004_clear_sky_total_sky_albedo.png/1280px-Ceres_2003_2004_clear_sky_total_sky_albedo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Giorgiogp2",
+    "description": "CERES-Aqua 2003-2004 mean annual clear sky and total sky albedo. Clear sky albedo is the fraction of the incoming solar radiation that is reflected back into space by regions of the Earth on cloud-free days. Total sky albedo include cloudy days.\nData source:http://daac.gsfc.nasa.gov/giovanni/",
+    "categories": "GFDL|License migration redundant|Albedo|Self-published work|Maps of weather in 2003|Maps of weather in 2004|Maps of atmospheric transport|Meteorological maps of the world|Mean meteorological data of the world|Maps of weather and climate by mean data"
+  }
+]

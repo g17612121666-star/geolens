@@ -14,13 +14,7 @@ export const PRODUCER_IG_HANDLE = "@geoscienceli";
 export const PRODUCER_SITE = "https://zeyuli.grok.me";
 
 export const PRODUCER_LINE =
-  "Website producer: Li Zeyu — geoscience educator; Founder & President of the Geoscience Club of Shanghai Pinghe School; IB Class of 2028; student docent at the Shanghai Natural History Museum. Builds free Earth-science tools so a process you can turn in your hands is a process you can explain.";
-
-export const PRODUCER_LINE_ZH =
-  "李泽宇，地球科学教育者；上海平和学校地质社创始人/社长；IB 2028 届。";
-
-export const PRODUCER_QUOTE =
-  "I study how the Earth holds what we leave in it — then I build tools so other people can see it.";
+  "Li Zeyu is an Earth science educator and science communication enthusiast, founder and president of the geography club at Shanghai Pinghe School, and a member of the IB Class of 2028. He also serves as a student docent at the Shanghai Natural History Museum.";
 
 /** Lead-in only. The address itself is always a MailLink so Cloudflare cannot wrap it. */
 export const CONTACT_LEAD = "Questions:";

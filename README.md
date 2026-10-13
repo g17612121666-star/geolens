@@ -1,69 +1,93 @@
-# TerraLens
+# Geolens
 
-See how the Earth works. A free English-language geoscience studio for secondary and high-school students worldwide.
+A free, English-language geography and Earth science website for students, teachers and school geography clubs. Explore 62 interactive 3D labs alongside case studies, teaching notes, a glossary, an atlas and live weather tools.
 
-## Run
+**Website:** [terralens-kohl.vercel.app](https://terralens-kohl.vercel.app/)
+
+This repository contains the complete Geolens redesign, including the source code, photographs, textures, 3D models, map datasets, content, dependency lockfile and verification scripts. It continues the original TerraLens project; the existing website retains its original deployment address.
+
+## Run locally
+
+Use Node.js 22.12+ or Node.js 24 and npm.
 
 ```bash
-npm install
+git clone https://github.com/HarryXin0919/geolens.git
+cd geolens
+npm ci
 npm run dev
 ```
 
-Open the printed local URL. The studio is dark by default.
+The default development address is `http://localhost:8080`. To choose another port, run `npm run dev -- --port 8085`.
 
-## How to add a lab
+The educational site runs without a login, API key or external database. `.grok/app-env.json` contains the public build flags that keep authentication disabled. Map tiles, forecasts and embedded videos still require an internet connection.
 
-1. Add a `LabMeta` object to the matching `src/lib/labs/labs-*.ts` file (title, hook, curriculum, steps, questions, teacher note, sources). Do not list a lab that has no scene.
-2. Create `src/labs/<slug>/scene.tsx` as a **default export**. Use `useLabControls()` for play/pause, `t` (0–1), explode/slice, labels, and extra params. Drive motion with `useLabTick(rate)` so delta time stays capped.
-3. Register the lazy import in `src/labs/registry.ts`.
-4. Put the scene on the shared player: `/lab/<slug>` is already wired by `src/routes/lab.$slug.tsx`.
-5. Hide unfinished work. No grey placeholder cards.
+## Check and build
 
-Shared HUD lives in `src/components/lab/`. Globe primitives live in `src/components/globe/`. Named-object tick list: [models.md](./models.md).
+```bash
+npm run typecheck
+npm run build
+npm run preview
+```
 
-## Data sources
+The production preview defaults to `http://127.0.0.1:8081`. Nitro generates Vercel Build Output API files in `.vercel/output/`.
 
-- NASA Blue Marble (day / night / topology) — `public/textures/`
-- USGS, BGS, NOAA, Met Office, Natural Earth, Open-Meteo, OpenStreetMap / OpenFreeMap
+Example targeted scientific checks:
+
+```bash
+node --experimental-strip-types --test --test-isolation=none scripts/lunar-science.test.mjs scripts/carbon.test.mjs scripts/photo-semantics.test.mjs scripts/preferences.test.mjs
+```
+
+The repository also retains the original App Builder support tooling. Some of its tests and preview helpers assume the original Linux environment; use `npm run preview` for a portable local preview.
+
+## Deploy to Vercel
+
+With the Vercel CLI installed and an authorized account:
+
+```bash
+vercel link
+npm run build
+vercel deploy --prebuilt --prod
+```
+
+Choose the intended project when linking. Local Vercel account/project configuration, generated output, dependency folders, environment secrets and review-image caches are intentionally excluded from Git. They are not needed to reproduce the website from source.
+
+## Project layout
+
+| Directory | Contents |
+| --- | --- |
+| `src/routes/` | Website pages and shared document shell |
+| `src/labs/` | Lab scenes, scientific geometry and shared 3D components |
+| `src/lib/labs/content.json` | Reviewed lab metadata, objectives, questions and teaching copy |
+| `src/lib/` | Scientific models, cases, glossary, atlas and weather logic |
+| `public/` | All runtime photographs, textures, models, map datasets, fonts and icons |
+| `scripts/` | Tests, content dictionaries, media preparation and build tooling |
+| `server/` | Server middleware retained from the original App Builder project |
+| `reports/` | Dated implementation, validation and source-review records |
+
+## Add or update a lab
+
+1. Update its metadata and teaching content in `src/lib/labs/content.json`. Glossary definitions are shared through `scripts/glossary-definitions.json`.
+2. Add `src/labs/<slug>/scene.tsx` with a default export. Use the shared lab controls and `useLabTick()` for animation.
+3. Register its lazy scene import in `src/labs/registry.ts`.
+4. The shared `/lab/<slug>` route supplies the player. Put local runtime assets in `public/` and preserve their source and licence records.
+5. Check the scientific behaviour, loading state, small-screen layout and production build before releasing.
+
+## Data and media credits
+
+Sources include NASA, USGS, BGS, NOAA, the Met Office, Natural Earth, Open-Meteo and OpenStreetMap/OpenFreeMap. Individual assets have their own source and licence information; free access to the website does not replace those terms.
+
+- [Image credits on the website](https://terralens-kohl.vercel.app/image-credits)
+- [Geographic dataset sources](public/geo/SOURCES.md)
+- [Texture sources](public/textures/pbr/SOURCES.md)
+- [Media review](reports/geolens-media-review.md)
+
+## Delivery records
+
+- [Geolens redesign](reports/GEOLENS-DELIVERY.md)
+- [September 2026 production release](reports/GEOLENS-RELEASE-2026-09-21.md)
+
+Historical reports describe the checks performed on their recorded dates; they are not continuous availability guarantees.
 
 ## Stack
 
-TanStack Start, React 19, Tailwind v4, React Three Fiber, drei, Zustand, MapLibre GL.
-
-## Licence
-
-Free for students and teachers. Always.
-
-## Wave 0
-
-Harden the original eight labs and the chrome. Do not restyle.
-
-- Header: Realms · Explore · Paths · Atlas · Tools · Teachers. Search in Tools. No login.
-- Left stepper **Check** opens the right-hand CHECK tab.
-- Curriculum chips wrap with gaps; they no longer concatenate.
-- Below 1100px the HUD stacks under the canvas instead of covering 3D labels.
-- Lab load fallback times out at 2.5s to a still + Play. No infinite “Loading lab…”.
-- Existing eight labs keep their scenes; tilt defaults to 23.44°; P/S waves, time zones, hotspot, basin, 2D/3D hill sit on the control bar.
-- `/search` indexes labs, glossary, and cases. Unknown URLs keep the empty-ocean 404.
-- Case pages: 400–700 words, MapLibre locator, exam question, sources. No “Phase 1 pointer”.
-- Explore headline uses the real lab count.
-
-## Wave 1
-
-Atmosphere parity. Shipped: atmosphere-layers, energy-budget, thermal-circulation, wind, three-cell, fronts, cyclone-anticyclone. Realm hub lists them. Glossary grows from each lab. Atmosphere is not Later.
-
-## Wave 2
-
-Landforms parity. Shipped: landform-types, river-erosion, river-deposition, river-capture, coasts, glaciers, karst, folds-faults. GCSE Physical Landscapes path is contours → rivers → coasts → glaciers. Holderness is a full coastal case.
-
-## Wave 3
-
-Tools and atlas. Shipped: solar-altitude, earth-motion calculator, graticule, map-projections, grid-references, atlas (countries + UK nations + US states), MapLibre studio, live weather (Open-Meteo, educational disclaimer). NGSS Earth in Space path uses rotation, seasons, solar-altitude, moon-phases.
-
-## Wave 4
-
-Soils, carbon, water depth. Shipped: rock-cycle, soil-profile, soil-texture, weathering, soil-erosion, drainage-basin, hydrograph, river-hydrology, carbon-cycle, ocean-currents, thermohaline, enso. A-level water-and-carbon and APES Earth systems paths. Skills page adds hydrograph and the texture triangle.
-
-## Wave 5
-
-Remaining planet and hazards. Shipped: solar-system, sun-earth, universe-scale, geologic-time, eclipses, tides, continental-drift, hotspots, seafloor-spreading, earthquakes, volcanoes, tsunami, tropical-cyclone, climate-types, aeolian. GCSE natural hazards path. Named-object list ≥50, all ticked. Explore uses the real count. About still says free forever.
+React 19, TypeScript, TanStack Start/Router, Vite, Nitro, Tailwind CSS, React Three Fiber/Three.js, drei, Zustand and MapLibre GL.

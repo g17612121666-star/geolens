@@ -8,3 +8,20 @@ screenshots/
 artifacts/
 attachments/
 public/models/previews/
+
+.cache/
+.tanstack/
+.output/
+dist/
+.node_modules.lock
+.grok/*.log
+.grok/*.pid
+
+# Review exports duplicate the production media in public/.
+reports/**/*.jpg
+reports/**/*.jpeg
+reports/**/*.png
+reports/**/*.webp
+reports/**/*.tif
+reports/**/*.glb
+reports/**/*.log

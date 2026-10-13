@@ -1,3 +1,2 @@
-import { makeGlbScene } from "@/labs/shared/make-glb-scene";
-
-export default makeGlbScene("eclipses");
+import { LunarScene } from "../shared/planet-scenes";
+export default function Scene(){return <LunarScene slug="eclipses"/>;}

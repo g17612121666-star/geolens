@@ -1,0 +1,35 @@
+[
+  {
+    "id": "continental-margin-1",
+    "title": "File:Atlantic bathymetry.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atlantic_bathymetry.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Atlantic_bathymetry.jpg/1280px-Atlantic_bathymetry.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NOAA",
+    "description": "The Atlantic Ocean.",
+    "categories": "Maps of Iceland|Geology of Iceland|PD US NOAA|Images with extracted images|Faebot identified duplicates|Bathymetric maps of the Atlantic Ocean|Maps of submarine volcanoes|Submarine volcanism"
+  },
+  {
+    "id": "continental-margin-2",
+    "title": "File:Atlantic bathymetry (cropped - South).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atlantic_bathymetry_(cropped_-_South).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Atlantic_bathymetry_%28cropped_-_South%29.jpg/1280px-Atlantic_bathymetry_%28cropped_-_South%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NOAA",
+    "description": "The Atlantic Ocean.",
+    "categories": "Mid-Atlantic Ridge|PD US NOAA|Extracted images|Faebot identified duplicates|Bathymetric maps of the Atlantic Ocean|Maps of submarine volcanoes|Submarine volcanism"
+  },
+  {
+    "id": "continental-margin-3",
+    "title": "File:Bathymetry of the northeast corner of the Caribbean Plate showing the major faults and plate boundaries.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bathymetry_of_the_northeast_corner_of_the_Caribbean_Plate_showing_the_major_faults_and_plate_boundaries.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Bathymetry_of_the_northeast_corner_of_the_Caribbean_Plate_showing_the_major_faults_and_plate_boundaries.jpg/1280px-Bathymetry_of_the_northeast_corner_of_the_Caribbean_Plate_showing_the_major_faults_and_plate_boundaries.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NOAA",
+    "description": "Batimetría de la esquina noreste de la placa caribeña, demonstrando la fallas mayores y los borders de la placa.",
+    "categories": "Maps of Puerto Rico|Oceanic plateaus|Caribbean tectonic plate|Geology of Puerto Rico|PD US NOAA|Bathymetric maps of the Caribbean|Bathymetric maps of the North Atlantic|Puerto Rico trench|Subduction in North America|Geology of the Antilles"
+  }
+]

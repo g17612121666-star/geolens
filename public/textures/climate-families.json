@@ -1,0 +1,11 @@
+{
+  "sourceUrl": "https://www.gloh2o.org/koppen/",
+  "doi": "https://doi.org/10.1038/s41597-023-02549-6",
+  "license": "CC BY 4.0",
+  "credit": "Beck et al. (2023), V3, 1991\u20132020, official 0.1-degree raster",
+  "sourceSha256": "59b749fe6711e72c720ff903044eb0efb4373524ee434740ed7384a0284c155b",
+  "width": 3600,
+  "height": 1800,
+  "operation": "Codes 1\u201330 grouped into A\u2013E; no interpolation; red-channel data 0=ocean/no data, 1\u20135=A\u2013E",
+  "sha256": "9cea6c83fd3ea25a39111ecb6abfdc795896607912a7da17946b0f34d9d70a1a"
+}

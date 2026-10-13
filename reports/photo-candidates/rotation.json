@@ -1,0 +1,35 @@
+[
+  {
+    "id": "rotation-1",
+    "title": "File:Lights of Java.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lights_of_Java.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Lights_of_Java.jpg/1280px-Lights_of_Java.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA",
+    "description": "This oblique nighttime image, taken by an astronaut aboard the International Space Station, reveals Indonesia's main island chain. With coasts illuminated by city lights, the islands stand out against the darkness of the Indian Ocean. The island of Java is the geographic and economic center of Indonesia. With a population of more than 141 million people, it is the world's most populous island.\nSpacecraft nadir point: 2.8° S, 108.2° E\nPhoto center point: 8.5° S, 112.5° E\nNadir to Photo Center: Southeast\nSpacecraft Altitude: 218 nautical miles (404 km)",
+    "categories": "Central Java|East Java|Images with annotations|ISS Expedition 56 Crew Earth Observations|Featured pictures on Wikipedia, Indonesian|Files with coordinates missing SDC location of creation|PD NASA-AP|Files from NASA with known IDs|Files with Assessments template missing SDC Commons no value quality assessment|Indonesia at night seen from space"
+  },
+  {
+    "id": "rotation-2",
+    "title": "File:ISS-53 New York City, Night Lights.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ISS-53_New_York_City,_Night_Lights.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/ISS-53_New_York_City%2C_Night_Lights.jpg/1280px-ISS-53_New_York_City%2C_Night_Lights.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA",
+    "description": "The well-lit metropolitan area of New York City, its five boroughs -- The Bronx, Manhattan, Queens, Brooklyn and Staten Island -- and part of the state of New Jersey are pictured in this photograph taken during a night pass from the International Space Station on Nov. 23, 2017.",
+    "categories": "Taken with Nikon D5|Night in New York City|Satellite pictures of New York City|Satellite pictures of New Jersey|North America at night seen from space|Photographs taken on 2017-11-23|Files from NASA Johnson Flickr stream|ISS Expedition 53 Crew Earth Observations|PD NASA-AP|Files from NASA with known IDs|Satellite pictures of New York City at night"
+  },
+  {
+    "id": "rotation-3",
+    "title": "File:ISS-65 Night lights of South Africa.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ISS-65_Night_lights_of_South_Africa.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/ISS-65_Night_lights_of_South_Africa.jpg/1280px-ISS-65_Night_lights_of_South_Africa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA",
+    "description": "The night lights of South Africa are blanketed by Earth's atmospheric glow and a starry night sky as the International Space Station orbited 266 miles above.",
+    "categories": "Taken with Nikon D5|Flickr images reviewed by trusted users|Photographs taken on 2021-08-02|Files from NASA Johnson Flickr stream|ISS Expedition 65 Crew Earth Observations|PD NASA-AP|Files from NASA with known IDs|City lights of Africa|Photos of South Africa by ISS Expedition 65 Crew Earth Observations|Airglow from space"
+  }
+]

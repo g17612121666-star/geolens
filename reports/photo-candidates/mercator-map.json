@@ -1,0 +1,35 @@
+[
+  {
+    "id": "mercator-map-1",
+    "title": "File:Mercator-projection.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mercator-projection.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Mercator-projection.jpg/1280px-Mercator-projection.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Mdf",
+    "description": "Mercator projection of the Earth. Source image is from NASA's Earth Observatory \"Blue Marble\" series.",
+    "categories": "21st-century maps of the world|Self-published work|PD-self|Topographic maps of the world|Language-neutral maps|Blue Marble 2002 images|Featured pictures on Wikipedia, Turkish|Global maps centered Greenwich|Files with Assessments template missing SDC Commons no value quality assessment|Maps of the world with Mercator projection"
+  },
+  {
+    "id": "mercator-map-2",
+    "title": "File:Transverse mercator.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Transverse_mercator.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Transverse_mercator.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA",
+    "description": "A black and white map projection showing Earth's continents with grid lines forming concentric circles around both the North and South poles. The map displays the complete global coverage pattern typical of polar-orbiting satellite paths.",
+    "categories": "PD NASA|Transverse Mercator projection|NASA Website files uploaded by OptimusPrimeBot"
+  },
+  {
+    "id": "mercator-map-3",
+    "title": "File:Transverse Mercator Diagram.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Transverse_Mercator_Diagram.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Transverse_Mercator_Diagram.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA",
+    "description": "A black and white map projection showing Earth's continents with grid lines forming concentric circles around both the North and South poles. The map displays the complete global coverage pattern typical of polar-orbiting satellite paths.",
+    "categories": "PD NASA|Transverse Mercator projection|NASA Website files uploaded by OptimusPrimeBot"
+  }
+]

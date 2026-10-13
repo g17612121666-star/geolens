@@ -4,12 +4,7 @@ import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { PBR, useRockNormal, useSoilNormal } from "./materials";
 import { useQuality } from "./perf";
-import {
-  fbm as fbmGeo,
-  iceTongueGeometry,
-  seaVolumeGeometry,
-  jointDisplace,
-} from "./geo";
+import { fbm as fbmGeo, iceTongueGeometry, seaVolumeGeometry, jointDisplace } from "./geo";
 
 export const fbm = fbmGeo;
 export { iceTongueGeometry };
@@ -105,7 +100,14 @@ export function WaterBody({
 }) {
   const q = useQuality();
   const geom = useMemo(
-    () => seaVolumeGeometry(width, depth, thick, Math.max(28, q.terrain / 7), Math.max(18, q.terrain / 10)),
+    () =>
+      seaVolumeGeometry(
+        width,
+        depth,
+        thick,
+        Math.max(28, q.terrain / 7),
+        Math.max(18, q.terrain / 10),
+      ),
     [width, depth, thick, q.terrain],
   );
   const t = useRef(0);
@@ -153,7 +155,12 @@ export function WaterBody({
 }
 
 /** Jointed crustal block — rock mass, not a raw box landform. */
-export function jointedBlockGeometry(w: number, h: number, d: number, segs = 18): THREE.BufferGeometry {
+export function jointedBlockGeometry(
+  w: number,
+  h: number,
+  d: number,
+  segs = 18,
+): THREE.BufferGeometry {
   const g = new THREE.BoxGeometry(w, h, d, segs, Math.max(6, Math.floor(segs / 2)), segs);
   return jointDisplace(g, 0.016);
 }
@@ -225,7 +232,13 @@ export function TillRidge({
   const geom = useMemo(() => tillRidgeGeometry(size[0], size[1], size[2]), [size]);
   return (
     <mesh geometry={geom} position={position} rotation={rotation} castShadow>
-      <meshStandardMaterial color={color} roughness={0.96} metalness={0.02} normalMap={nrm} normalScale={nrmScale} />
+      <meshStandardMaterial
+        color={color}
+        roughness={0.96}
+        metalness={0.02}
+        normalMap={nrm}
+        normalScale={nrmScale}
+      />
     </mesh>
   );
 }

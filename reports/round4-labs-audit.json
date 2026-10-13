@@ -1,0 +1,1065 @@
+[
+  {
+    "slug": "seasons",
+    "title": "Why seasons happen",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [
+      "Final light-theme orbital guide and labelled globe inspected"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Globe detail and fixed axis present; Sun and orbit need contrast on light background."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "rotation",
+    "title": "Earth rotation and the terminator",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Photographic day/night globe and terminator detailed and legible."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "moon-phases",
+    "title": "Moon phases and Sun–Earth–Moon geometry",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Correct size relation; close-up needed to inspect phase; guides pale in light theme."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "earth-interior",
+    "title": "Earth’s interior",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Photographic mantle cut faces, differentiated metallic core, local fill lighting; radii preserved."
+    ],
+    "checkedControls": [
+      "Final light-theme Chinese cutaway inspected"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Layer radii and cutaway visible; metallic core / mantle contrast and fill lighting too dark."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "plate-boundaries",
+    "title": "Plate boundaries",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [
+      "Globe → boundary section; divergent → convergent changes geometry and arrows"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Detailed Blue Marble, boundary traces present; cross-sections still need variant check."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "contours",
+    "title": "Contours ↔ 3D terrain",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Contour alignment clear and terrain textured; keep exact sampled surface"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "rivers",
+    "title": "River long profile",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Approved channel geometry, water and woodland preserved."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Detailed branched mixed forest and continuous channel; preserve approved geometry"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "water-cycle",
+    "title": "Water cycle stores and flows",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Natural reservoir shoreline and linked withdrawal level; cloud volumes and seeded woodland; light-theme flow guides."
+    ],
+    "checkedControls": [
+      "Final Chinese surface-flow readout and reservoir view inspected"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Clouds soft and textured; symbolic lake cylinder needs natural shoreline"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "solar-system",
+    "title": "Solar system",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Orbital overview planets tiny; compare-view controls present, orbit contrast poor in light."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "sun-earth",
+    "title": "Sun and Earth",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Photographic globe, incidence arrows and chart readable."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "universe-scale",
+    "title": "Universe scale",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Distance comparison preserves geometric scale; light signal pale."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "geologic-time",
+    "title": "Geologic time",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Coil is an explicit time axis, materials polished; pale era legend."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "eclipses",
+    "title": "Eclipses",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "True-scale overview cannot resolve bodies; close-up control should be easier / initial view reviewed."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "tides",
+    "title": "Tides",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Moon texture, Earth and tidal shell visible; solar guide pale."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "solar-altitude",
+    "title": "Solar altitude and sun path",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Angle geometry and shadow present; sun path pale on light theme."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "continental-drift",
+    "title": "Continental drift",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Existing pre-baked reconstruction maps and entry progress retained; no fabricated ancient photographic surface."
+    ],
+    "checkedControls": [
+      "Production build age slider 200 Ma → 0 Ma changes reconstruction to modern Blue Marble; Chinese readout follows."
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Reconstruction loads quickly; flat colours intentionally identify reconstructed polygons, no unsupported ancient satellite texture."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "hotspots",
+    "title": "Hotspots",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Cross-section and volcanic chain rendered; inspect alternate Yellowstone state."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "seafloor-spreading",
+    "title": "Seafloor spreading",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Symmetric magnetic bands and textured relief clear."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "atmosphere-layers",
+    "title": "Atmosphere as a thin film",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Globe texture detailed; thin layer bands and pastel legend need light-theme contrast."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "energy-budget",
+    "title": "Earth’s energy budget",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Radiation arrows too pale in light mode; mathematical flux values preserved."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "thermal-circulation",
+    "title": "Thermal circulation",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Schematic circulation visible; land texture grey, only a few regular trees."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "wind",
+    "title": "Wind, PGF and Coriolis",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Pressure plane has texture; force arrows / isobars need light contrast."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "three-cell",
+    "title": "Three-cell circulation",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Globe / cell relation clear; loop arrows and polar particles pale."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "fronts",
+    "title": "Fronts as wedges",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Transparent air masses / cloud field work; warm wedge pale in light mode."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "cyclone-anticyclone",
+    "title": "Cyclone and anticyclone",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Soft clouds and circulation visible; disc texture adequate."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "climate-types",
+    "title": "Climate types",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Koppen raster and foliage detailed; light legend too pale."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "drainage-basin",
+    "title": "Drainage basin",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "One regular tree row; catchment material / river needs bank context"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "hydrograph",
+    "title": "Storm hydrograph",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Shared catchment tree row; light chart text too pale"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "river-hydrology",
+    "title": "River regime",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Light chart labels pale; straight channels and regular trees"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "ocean-currents",
+    "title": "Ocean currents",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Rounded interpolation through the original selected current route."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Globe detailed; selected flow route has coarse polygon corners."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "thermohaline",
+    "title": "Thermohaline conveyor",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Transparent overturning section appropriate; palette contrast can improve."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "carbon-cycle",
+    "title": "Carbon cycle",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Symbolic volume comparison appropriate; light arrows almost invisible"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "enso",
+    "title": "ENSO and the Walker cell",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Clouds and ocean section readable; airborne tracers too pale."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "landform-types",
+    "title": "Landform types",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Smooth brown mountain; regular tree rows"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "river-erosion",
+    "title": "River erosion",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Default view hides waterfall behind foreground cliff; add higher view and rock detail"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "river-deposition",
+    "title": "River deposition",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Some point-bar clasts float as stakes under vertical exaggeration; grass rows"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "river-capture",
+    "title": "River capture",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Natural bank scatter; tree heights no longer stretched by terrain exaggeration."
+    ],
+    "checkedControls": [
+      "Exaggeration source checked: plant scale compensated"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Deep narrow channels hide water; trees in two rows"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "coasts",
+    "title": "Coasts",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Approved photographic rock mapping and arch geometry preserved."
+    ],
+    "checkedControls": [
+      "390 px mobile arch scene, controls and ready gate inspected"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Approved photographic cliff and arch retained after material extraction."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "glaciers",
+    "title": "Glacial landforms",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Jointed alpine shoulders and seeded conifers; flowing opaque ice; open cirques with tapered convex ice, ridges and horn."
+    ],
+    "checkedControls": [
+      "Valley → cirque switch; final tapered ice and open bowl inspected"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Periodic smooth valley walls, regular trees, soil colouring on exposed cliffs; closed-looking cirque bowls"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "karst",
+    "title": "Karst",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Irregular joints, closed rock block/cave, attached cave deposits and photographic world-space material."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Regular paving-like joints and flat cave slab; brown stretched rock"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "folds-faults",
+    "title": "Folds and faults",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Layer geometry legible; shared rock mapping improved"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "aeolian",
+    "title": "Wind landforms",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Sand is dark brown; review sand albedo"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "rock-cycle",
+    "title": "Rock cycle",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Mineral-grain granite material replaces faceted camouflage."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Igneous specimen looks like faceted camouflage; need mineral-grain material; magma too smooth."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "soil-profile",
+    "title": "Soil profile",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Soil layer colours legible but clasts form regular rows"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "soil-texture",
+    "title": "Soil texture triangle",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Readable scientific ternary diagram, appropriate symbolic grains"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "weathering",
+    "title": "Weathering",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Brown stretched rock; updated shared photographic mapping"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "soil-erosion",
+    "title": "Soil erosion",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Regular grass / clast grid; grey surface"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "earthquakes",
+    "title": "Earthquakes",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Transparent rock section appropriate; wave fronts and focus hard to distinguish in light mode."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "volcanoes",
+    "title": "Volcanoes",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Shared rock detail; replace bead-shell plume with expanding density volumes tied to process time."
+    ],
+    "checkedControls": [
+      "Viscosity .25 → .85 changes shield to composite; gas .45 → .9 changes eruption; fissure control toggled; final density plume visually verified"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Shield profile and flowing lava channels present; surface too smooth, inspect composite and fissure modes."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "tsunami",
+    "title": "Tsunami",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Depth profile coherent; chart labels need light-theme contrast."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "tropical-cyclone",
+    "title": "Tropical cyclone",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Continuous eyewall volume, cloud matrices and live slice/time uniforms; opaque sea fixes transparent sorting hiding rainbands.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [
+      "North → south mirrors rainbands; t=.4 → .85 moves clouds; slice=.6 opens a sector; True scale reduces exaggerated height"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Soft rainbands; cloud distribution too clumpy in centre, chart tiny and pale."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "graticule",
+    "title": "Graticule and coordinates",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Detailed globe; coordinate arcs align."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "map-projections",
+    "title": "Map projections",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Africa-facing camera and unlit scientific imagery for legible comparison."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Initial camera faces mostly ocean; globe too dark and target continents offscreen."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "grid-references",
+    "title": "Grid references",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Schematic cartographic tile appropriate; lighten/darken grid contrast."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "mass-movement",
+    "title": "Mass movement",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Regular tree row and grey surface; preserve rigid motion"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "rain-shadow",
+    "title": "Rain shadow",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Rough side terrain with unchanged scientific parcel path."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Trees and cloud motion represented; smooth extruded mountain profile needs rough shoulder detail without changing parcel path."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "groundwater",
+    "title": "Groundwater",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Corrected pressure-surface colour reference in model note."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Transparent scientific volume and pore markers appropriate; detail readouts legible"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "isostasy",
+    "title": "Isostasy",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Solid crust, translucent mantle and ice column readable; preserve quantitative block."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "wilson-cycle",
+    "title": "Wilson cycle",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Formation-stage translation separated from hydraulic stage; rock sections retained."
+    ],
+    "checkedControls": [
+      "Opening, rift, subduction and collision variants rendered; stage readout follows selection"
+    ],
+    "pending": [],
+    "initialFindings": [
+      "Section rendering works; inspect all six stages."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view and listed targeted controls; not every parameter combination."
+  },
+  {
+    "slug": "soil-catena",
+    "title": "Soil catena",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Seeded non-row vegetation / clasts, photographed ground and bank context."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Top appears grey rather than vegetated; regular grass and clasts"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "periglacial",
+    "title": "Periglacial landforms",
+    "sourceReviewed": false,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Cutaway legible; rock-like substrate texture; polygon view pending"
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  },
+  {
+    "slug": "storm-surge",
+    "title": "Storm surge",
+    "sourceReviewed": true,
+    "visualReviewed": true,
+    "changes": [
+      "Chinese labels, teaching copy and theme-aware interface.",
+      "Theme-aware guide-line contrast; scientific scale unchanged."
+    ],
+    "checkedControls": [],
+    "pending": [],
+    "initialFindings": [
+      "Steady ideal shelf section appropriate; arrows need contrast."
+    ],
+    "translationReviewed": true,
+    "validationScope": "Default view visually inspected; alternate/extreme parameter combinations not exhaustively tested."
+  }
+]

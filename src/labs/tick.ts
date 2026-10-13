@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Timer } from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
-import { usePrefersReducedMotion } from "@/hooks/use-media";
 
 /**
  * Advance lab time from a RAF loop so it works both inside and outside a Canvas.
@@ -10,17 +9,17 @@ import { usePrefersReducedMotion } from "@/hooks/use-media";
  */
 export function useLabTick(rate: number) {
   const tick = useLabControls((s) => s.tick);
-  const reduced = usePrefersReducedMotion();
   useEffect(() => {
     const timer = new Timer();
     let id = 0;
     const loop = () => {
       timer.update();
       const dt = Math.min(timer.getDelta(), 0.1);
-      if (!reduced) tick(dt, rate);
+      // Labs start paused. Explicit Play is consent to animate, including with reduced motion.
+      tick(dt, rate);
       id = requestAnimationFrame(loop);
     };
     id = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(id);
-  }, [tick, rate, reduced]);
+  }, [tick, rate]);
 }

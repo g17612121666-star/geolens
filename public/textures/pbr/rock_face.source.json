@@ -1,0 +1,50 @@
+{
+  "source": "https://polyhaven.com/a/rock_face",
+  "licence": "CC0-1.0",
+  "photography": "Greg Zaal",
+  "processing": "Dario Barresi",
+  "retrieved": "2026-09-20",
+  "use": "Photographed rock surface on an illustrative coastal landform, not a field photograph of a named coast",
+  "encoding": "WebP quality 90, original 2048x2048 resolution",
+  "files": [
+    {
+      "file": "rock_face_diff.webp",
+      "width": 2048,
+      "height": 2048,
+      "bytes": 833716,
+      "sha256": "eecf4035f7b26fd8c570e7953790847682087e7696610e2ba52601bee76810de",
+      "original": {
+        "size": 2971109,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_face/rock_face_diff_2k.jpg",
+        "md5": "e3964bcefad9a2a758263b077b47ed64"
+      },
+      "originalMd5Verified": true
+    },
+    {
+      "file": "rock_face_disp.webp",
+      "width": 2048,
+      "height": 2048,
+      "bytes": 130964,
+      "sha256": "2e64394c47c9ab9b8707519a4f57ef8a015558e427d2d11324174aa6058b67c1",
+      "original": {
+        "size": 879369,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_face/rock_face_disp_2k.jpg",
+        "md5": "f14c4adb840d4ff2c13ca5a5bd5f26bb"
+      },
+      "originalMd5Verified": true
+    },
+    {
+      "file": "rock_face_rough.webp",
+      "width": 2048,
+      "height": 2048,
+      "bytes": 40688,
+      "sha256": "617a018a680569142ff29271a929d6d26a509927690ebec24e083d21a2347cfd",
+      "original": {
+        "size": 980027,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_face/rock_face_rough_2k.jpg",
+        "md5": "72bdf484361d84d661a99af4f0b93bea"
+      },
+      "originalMd5Verified": true
+    }
+  ]
+}

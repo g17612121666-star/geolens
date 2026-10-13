@@ -1,0 +1,35 @@
+[
+  {
+    "id": "atlas-ao-1",
+    "title": "File:Angola landscape.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angola_landscape.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Angola_landscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "author": "jlrsousa",
+    "description": "Rocky outcrops create a strange landscape (Huambo-Dondo Road, Angola)",
+    "categories": "Taken with Canon PowerShot G5|Geography of Angola|Granite domes|Flickr images reviewed by File Upload Bot (Magnus Manske)|Hills of Angola|Dondo, Angola|Uploaded by user Botev"
+  },
+  {
+    "id": "atlas-ao-2",
+    "title": "File:Fires in Angola (MODIS 2018-06-23).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fires_in_Angola_(MODIS_2018-06-23).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Fires_in_Angola_%28MODIS_2018-06-23%29.jpg/1280px-Fires_in_Angola_%28MODIS_2018-06-23%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC",
+    "description": "Fires speckled the landscape of Angola in mid-June 2018.\nThe Moderate Resolution Imaging Spectroradiometer (MODIS) aboard NASA’s Aqua satellite acquired a true-color image of the fires (red hot spots) and gray smoke on June 22.\nThe dry season in Angola – and across southern Africa’s tropical savannas – brings widespread fire each year. People set fire for agricultural use during this time, with the aim to clear brush, pasture, to prepare fields for new crops and also to drive game. In Angola, burning often begins sometime in May and becomes more widespread through mid-year before beginning to lighten in September.\n\nAn extremely dry season after years of drought has created tinder-box-like conditions in parts of Angola. Lack of water has brought significant food insecurity in many parts of the country, leaving many people in subsistence conditions. The combination of need to use fire for cropping and dry conditions makes this a very active fire season. According to Global Forest Watch, between June 14 and June 21 there were 63,313 fire alerts reported in Angola – a country slightly less than twice the size of the state of Texas in the United States.",
+    "categories": "PD NASA|Satellite pictures of Angola|Photographs taken on 2018-06-22|Satellite pictures of 2018 wildfires|Files from NASA with known IDs|Photos by the Aqua (satellite) MODIS|MODIS files uploaded by OptimusPrimeBot"
+  },
+  {
+    "id": "atlas-ao-3",
+    "title": "File:Fires Dot the Landscape in Angola's Dry Season (NESDIS 2017-06-12).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fires_Dot_the_Landscape_in_Angola%27s_Dry_Season_(NESDIS_2017-06-12).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Fires_Dot_the_Landscape_in_Angola%27s_Dry_Season_%28NESDIS_2017-06-12%29.jpg/1280px-Fires_Dot_the_Landscape_in_Angola%27s_Dry_Season_%28NESDIS_2017-06-12%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NOAA",
+    "description": "The Visible Infrared Imaging Radiometer Suite (VIIRS) aboard the NOAA/NASA Suomi NPP satellite captured this color-enhanced infrared image of fires burning in northwest Angola on June 11, 2017. This image was created with VIIRS high resolution bands 4, 2, and 1. The thermal sensitivity of band 4 generates the intense red color associated with active fires. Every year, large parts of Africa experience widespread wildfires that are clearly visible by satellite, particularly during the dry season, which in Angola, runs from May to October. In addition to the occurrence of blazes ignited by lightning, many African farmers and herders intentionally set fire to return nutrients to the soil and to clear the ground of unwanted plants. Although these fires help enhance crops and grasses for pasture, they also produce smoke that degrades air quality. VIIRS provides global coverage twice a day with 750 m resolution across its entire scan -- twice the coverage of its predecessors (such as the AVHRR that flew aboard NOAA's earlier polar-orbiting spacecraft). Its daily multi-band imaging capabilities support the acquisition of high-resolution atmospheric imagery and other instrument products, including visible and infrared imaging of hurricanes, atmospheric aerosols and, as shown here, detection of fires and smoke.",
+    "categories": "PD US NOAA|Photos of wildfires by VIIRS|Satellite pictures of 2017 wildfires|NESDIS files uploaded by OptimusPrimeBot"
+  }
+]

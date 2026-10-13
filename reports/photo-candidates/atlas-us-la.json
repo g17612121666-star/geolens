@@ -1,0 +1,35 @@
+[
+  {
+    "id": "atlas-us-la-1",
+    "title": "File:Hyacinth - Audubon Zoo, New Orleans.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hyacinth_-_Audubon_Zoo,_New_Orleans.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Hyacinth_-_Audubon_Zoo%2C_New_Orleans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "author": "Kevin Severud",
+    "description": "Audubon Zoo, New Orleans",
+    "categories": "Flickr images reviewed by FlickreviewR 2|2004 in Audubon Zoo|Birds in Audubon Zoo"
+  },
+  {
+    "id": "atlas-us-la-2",
+    "title": "File:Audubon Zoo New Orleans October 1986 05.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Audubon_Zoo_New_Orleans_October_1986_05.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Audubon_Zoo_New_Orleans_October_1986_05.jpg/1280px-Audubon_Zoo_New_Orleans_October_1986_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Infrogmation of New Orleans",
+    "description": "Audubon Zoo New Orleans October 1986",
+    "categories": "Self-published work|1986 in Audubon Zoo|Structures in Audubon Zoo|Gorilla gorilla gorilla in Audubon Zoo"
+  },
+  {
+    "id": "atlas-us-la-3",
+    "title": "File:Audubon Zoo New Orleans October 1986 - Elephants.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Audubon_Zoo_New_Orleans_October_1986_-_Elephants.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Audubon_Zoo_New_Orleans_October_1986_-_Elephants.jpg/1280px-Audubon_Zoo_New_Orleans_October_1986_-_Elephants.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Infrogmation of New Orleans",
+    "description": "Elephants, Audubon Zoo New Orleans October 1986",
+    "categories": "Self-published work|1986 in Audubon Zoo|Elephas maximus in Audubon Zoo"
+  }
+]

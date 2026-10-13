@@ -1,0 +1,24 @@
+[
+  {
+    "id": "earth-magnetic-1",
+    "title": "File:Magnetic field intensity at Earth’s surface in 2014 and 2025, as measured by ESA's SWARM satellite constellation.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Magnetic_field_intensity_at_Earth%E2%80%99s_surface_in_2014_and_2025,_as_measured_by_ESA%27s_SWARM_satellite_constellation.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Magnetic_field_intensity_at_Earth%E2%80%99s_surface_in_2014_and_2025%2C_as_measured_by_ESA%27s_SWARM_satellite_constellation.jpg/1280px-Magnetic_field_intensity_at_Earth%E2%80%99s_surface_in_2014_and_2025%2C_as_measured_by_ESA%27s_SWARM_satellite_constellation.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "author": "C.C. Finlay, C. Kloss, N. Gillet",
+    "description": "Magnetic field intensity at Earth's surface in 2014 (top) and 2025 (bottom), as measured by ESA's SWARM spacecraft. The SAA has strengthened and expanded since 2014. Presented in Hammer projection. Units are nanoTesla (nT). From the estimated Swarm-based core field model up to spherical harmonic degree 22.",
+    "categories": "Earth's magnetic field|Comparisons|2025 in science|Magnetic field maps of the world|Maps with Hammer projection|World maps showing data at subnational resolution"
+  },
+  {
+    "id": "earth-magnetic-2",
+    "title": "File:June 2014 magnetic field.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:June_2014_magnetic_field.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/June_2014_magnetic_field.jpg/1280px-June_2014_magnetic_field.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "ESA/DTU Space",
+    "description": "‘Snapshot’ of the main magnetic field at Earth’s surface as of June 2014 based on Swarm data. The measurements are dominated by the magnetic contribution from Earth’s core (about 95%) while the contributions from other sources (the mantle, crust, oceans, ionosphere and magnetosphere) make up the rest. Red represents areas where the magnetic field is stronger, while blues show areas where it is weaker.",
+    "categories": "PD-author|Magnetic field maps of the world|South Atlantic Anomaly"
+  }
+]

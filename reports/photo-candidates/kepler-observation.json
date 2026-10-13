@@ -1,0 +1,35 @@
+[
+  {
+    "id": "kepler-observation-1",
+    "title": "File:Saturn during Equinox.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saturn_during_Equinox.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/1280px-Saturn_during_Equinox.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA / JPL / Space Science Institute",
+    "description": "This natural color view of the planet Saturn was created from images collected shortly after Cassini began its extended Equinox Mission in July 2008. (Saturn actually reached equinox on August 11, 2009.)",
+    "categories": "Saturn (planet)|PD NASA|Space Science Institute|Featured pictures from NASA|Featured pictures on Wikipedia, English|Images with extracted images|Featured pictures on Wikipedia, Japanese|Featured pictures on Wikipedia, Turkish|Featured pictures of Saturn|Featured photographs in the public domain|Files from NASA with known IDs|Featured pictures on Wikipedia, Arabic|Files with Assessments template missing SDC Commons valued image assessment|Photos of Saturn by Cassini (spacecraft)"
+  },
+  {
+    "id": "kepler-observation-2",
+    "title": "File:Saturn's Rings at Equinox - August 12 2009 (46457773145).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saturn%27s_Rings_at_Equinox_-_August_12_2009_(46457773145).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Saturn%27s_Rings_at_Equinox_-_August_12_2009_%2846457773145%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Kevin M. Gill",
+    "description": "Processed using calibrated red, green, and blue filtered images of Saturn taken by Cassini on August 12 2009.\nNASA/JPL-Caltech/SSI/CICLOPS/Kevin M. Gill",
+    "categories": "Photographs by Kevin M. Gill|Flickr images reviewed by FlickreviewR 2|Photographs taken on 2019-03-13|Spacemedia Individuals Flickr files uploaded by OptimusPrimeBot|Photos of Saturn's rings by Cassini (spacecraft)"
+  },
+  {
+    "id": "kepler-observation-3",
+    "title": "File:Saturn global view from Cassini, rings open.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saturn_global_view_from_Cassini,_rings_open.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Saturn_global_view_from_Cassini%2C_rings_open.jpg/1280px-Saturn_global_view_from_Cassini%2C_rings_open.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA / JPL-Caltech / SSI / color composite by Gordan Ugarkovic",
+    "description": "Cassini captured the 30 frames required to construct this mosaic on 23 July 2008, from a distance of about a million kilometers. About a year before Saturn's equinox, the ring shadows have shifted from where they were early in Cassini's mission to a fat arc a little above the equator.",
+    "categories": "Saturn (planet)|PD NASA|PD-USGov missing SDC copyright status|Photos of Saturn by Cassini (spacecraft)|Photos of Saturn system by Cassini"
+  }
+]

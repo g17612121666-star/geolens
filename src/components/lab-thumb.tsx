@@ -1,10 +1,40 @@
+import { useEffect, useRef, useState } from "react";
+import { LoadingProgress } from "./loading-progress";
 import { labFigure } from "@/lib/figures";
 
 /** Explore cards use the lab’s field photograph, not a schematic SVG. */
 export function LabThumb({ slug }: { slug: string }) {
+  const ref = useRef<HTMLImageElement>(null),
+    [loaded, setLoaded] = useState(false),
+    [failed, setFailed] = useState(false);
+  useEffect(() => {
+    setLoaded(Boolean(ref.current?.complete && ref.current.naturalWidth));
+    setFailed(false);
+  }, [slug]);
   const fig = labFigure(slug);
   if (fig) {
-    return <img src={fig.src} alt={fig.alt} className="size-full object-cover" />;
+    return (
+      <div className="relative size-full">
+        <img
+          ref={ref}
+          src={fig.src}
+          alt={fig.alt}
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+          className="size-full object-cover"
+        />
+        {!loaded && !failed && (
+          <div className="absolute inset-x-4 bottom-4 rounded-lg bg-basalt/95 p-3">
+            <LoadingProgress compact label={"Loading photograph"} />
+          </div>
+        )}
+        {failed && (
+          <p role="alert" className="absolute inset-x-3 bottom-3 bg-basalt/95 p-3 text-sm">
+            {"Photograph unavailable. The lesson can still open."}
+          </p>
+        )}
+      </div>
+    );
   }
   return <GenericThumb slug={slug} />;
 }

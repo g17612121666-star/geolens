@@ -1,0 +1,255 @@
+{
+  "description": "Lossless 4K rasterisation of reconstructed modern coastlines. Same longitude unwrapping, polygon holes and colour key as the previous in-browser renderer. EarthByte / Müller 2019; see sources.json.",
+  "snapshots": [
+    {
+      "ageMa": 10,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-10.json",
+      "sourceSha256": "a8a60fd19bedc2d2f0ae85c2f1d9abbe592d7959a9bf5515e2390efd8e746906",
+      "sourceBytes": 1538178,
+      "texture": "coastlines-10-4k.webp",
+      "textureBytes": 505372
+    },
+    {
+      "ageMa": 20,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-20.json",
+      "sourceSha256": "e42561ccb82747e9f7dcfab384617b905c6d475ea2cc9d0d2f305eb044d26a5b",
+      "sourceBytes": 1510892,
+      "texture": "coastlines-20-4k.webp",
+      "textureBytes": 498922
+    },
+    {
+      "ageMa": 30,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-30.json",
+      "sourceSha256": "fca159379b230b8ef2137989485712e47155646849b1ed7d4d060e76b58a9bd3",
+      "sourceBytes": 1489599,
+      "texture": "coastlines-30-4k.webp",
+      "textureBytes": 497306
+    },
+    {
+      "ageMa": 40,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-40.json",
+      "sourceSha256": "b1f41e16417da6dfcf8361c4b8b8cf4aae83c8babbb458afc4e6431c16ef12f6",
+      "sourceBytes": 1468413,
+      "texture": "coastlines-40-4k.webp",
+      "textureBytes": 499718
+    },
+    {
+      "ageMa": 50,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-50.json",
+      "sourceSha256": "75a997f31d5fa7bf81e519c4b2f7dba4541ba79f228c4f927e11e4bd582b42b7",
+      "sourceBytes": 1439536,
+      "texture": "coastlines-50-4k.webp",
+      "textureBytes": 494482
+    },
+    {
+      "ageMa": 60,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-60.json",
+      "sourceSha256": "12fc4fba6b74094b23808ff4067787f856f35b52645adf5efefdf286ba7a8110",
+      "sourceBytes": 1374202,
+      "texture": "coastlines-60-4k.webp",
+      "textureBytes": 478600
+    },
+    {
+      "ageMa": 70,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-70.json",
+      "sourceSha256": "004605f6b1f63dde2c9e5c288da205655ed404885449470d0b88dc2f1bd2ff5b",
+      "sourceBytes": 1359555,
+      "texture": "coastlines-70-4k.webp",
+      "textureBytes": 477862
+    },
+    {
+      "ageMa": 80,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-80.json",
+      "sourceSha256": "0acfd8fa61da16c0f3b47fac1a9df1008123fb2f2b7efb71742dc419f1cc3861",
+      "sourceBytes": 1351932,
+      "texture": "coastlines-80-4k.webp",
+      "textureBytes": 473500
+    },
+    {
+      "ageMa": 90,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-90.json",
+      "sourceSha256": "1f95d82bbdff02191dbc16979db5849e310877d163a37ca2b3f78cbda0d456b0",
+      "sourceBytes": 1338122,
+      "texture": "coastlines-90-4k.webp",
+      "textureBytes": 465822
+    },
+    {
+      "ageMa": 100,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-100.json",
+      "sourceSha256": "7289633510c70cc63b9f0c2cdb523f40668c444e8690ce666d5cdcab60ca0135",
+      "sourceBytes": 1331548,
+      "texture": "coastlines-100-4k.webp",
+      "textureBytes": 458680
+    },
+    {
+      "ageMa": 110,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-110.json",
+      "sourceSha256": "9af672641f7d8eb665f90c50ebad78718da20c39705ef5a06cb1d511838d94bc",
+      "sourceBytes": 1321080,
+      "texture": "coastlines-110-4k.webp",
+      "textureBytes": 460268
+    },
+    {
+      "ageMa": 120,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-120.json",
+      "sourceSha256": "c780bdaa4bf0a7e002269bdf96d506aade22f65053dc9370593ada3879c91fe6",
+      "sourceBytes": 1319352,
+      "texture": "coastlines-120-4k.webp",
+      "textureBytes": 472356
+    },
+    {
+      "ageMa": 130,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-130.json",
+      "sourceSha256": "ccf335e0608bbe0cab1d27c865b155a6f3260565cf164b70573de7498bc776a4",
+      "sourceBytes": 1297985,
+      "texture": "coastlines-130-4k.webp",
+      "textureBytes": 464674
+    },
+    {
+      "ageMa": 140,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-140.json",
+      "sourceSha256": "4f28a2b84acdbbaf20a5f8bc6e644f6869b901c17fea18ca4ce3046d2f5ad22b",
+      "sourceBytes": 1281971,
+      "texture": "coastlines-140-4k.webp",
+      "textureBytes": 455848
+    },
+    {
+      "ageMa": 150,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-150.json",
+      "sourceSha256": "4491eeaf4442becfdd6af540c688034ff8d9e722a02f196351ae43d3cfcc4e56",
+      "sourceBytes": 1248456,
+      "texture": "coastlines-150-4k.webp",
+      "textureBytes": 450806
+    },
+    {
+      "ageMa": 160,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-160.json",
+      "sourceSha256": "165173f7ccadd6288687710effe6f542eae2eb3174a51ec27cec1af69e82239e",
+      "sourceBytes": 1228725,
+      "texture": "coastlines-160-4k.webp",
+      "textureBytes": 440290
+    },
+    {
+      "ageMa": 170,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-170.json",
+      "sourceSha256": "9e1d7d6786468cb8d0e23f319ccef2936d04874bc7c3cadb70e2d4dbabf22ee7",
+      "sourceBytes": 1218972,
+      "texture": "coastlines-170-4k.webp",
+      "textureBytes": 431474
+    },
+    {
+      "ageMa": 180,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-180.json",
+      "sourceSha256": "f944e7b3b8da5ea02f34476c8f6dee2a58f3ab2d4cc6b5821bf40971459a1077",
+      "sourceBytes": 1217875,
+      "texture": "coastlines-180-4k.webp",
+      "textureBytes": 430908
+    },
+    {
+      "ageMa": 190,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-190.json",
+      "sourceSha256": "10319a79275d7f52bb8adf5a59e92c4bccabc867aa9dd36a83e168b55327ad8e",
+      "sourceBytes": 1217323,
+      "texture": "coastlines-190-4k.webp",
+      "textureBytes": 428762
+    },
+    {
+      "ageMa": 200,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-200.json",
+      "sourceSha256": "907475971db881898be0c74eeaaa2e4d50b69b84e09e1f5d9aa53753b1862f25",
+      "sourceBytes": 1217425,
+      "texture": "coastlines-200-4k.webp",
+      "textureBytes": 427556
+    },
+    {
+      "ageMa": 210,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-210.json",
+      "sourceSha256": "a707f51021a1c7470db3798d5ece71ed814d489d00b4308069bc0a51c1d6aedc",
+      "sourceBytes": 1200924,
+      "texture": "coastlines-210-4k.webp",
+      "textureBytes": 413808
+    },
+    {
+      "ageMa": 220,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-220.json",
+      "sourceSha256": "e21d983cce566e0614230bbccb022d881cdb6fcf16df82488b474af5effda542",
+      "sourceBytes": 1199988,
+      "texture": "coastlines-220-4k.webp",
+      "textureBytes": 406814
+    },
+    {
+      "ageMa": 230,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-230.json",
+      "sourceSha256": "9cc6199f228af3afed582803d97903d169892b9be1a2d8ed20b3fe34d50bf254",
+      "sourceBytes": 1202164,
+      "texture": "coastlines-230-4k.webp",
+      "textureBytes": 403642
+    },
+    {
+      "ageMa": 240,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-240.json",
+      "sourceSha256": "4d30641c54b59e5c668d0def3e88075b7d4d20467609012070a17ac065d90e19",
+      "sourceBytes": 1202136,
+      "texture": "coastlines-240-4k.webp",
+      "textureBytes": 409704
+    },
+    {
+      "ageMa": 250,
+      "width": 4096,
+      "height": 2048,
+      "source": "coastlines-250.json",
+      "sourceSha256": "00d559e5444d9724edcc8dbf98dbf79280fd2769ccd646752f82173b437c8388",
+      "sourceBytes": 1200211,
+      "texture": "coastlines-250-4k.webp",
+      "textureBytes": 413174
+    }
+  ]
+}

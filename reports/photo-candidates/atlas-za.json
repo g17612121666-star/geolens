@@ -1,0 +1,35 @@
+[
+  {
+    "id": "atlas-za-1",
+    "title": "File:South Africa Landscape HDR.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:South_Africa_Landscape_HDR.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/South_Africa_Landscape_HDR.jpg/1280px-South_Africa_Landscape_HDR.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Prosthetic Head",
+    "description": "HDR image of South African landscape, near Pretoria.",
+    "categories": "Self-published work|Landscapes of South Africa"
+  },
+  {
+    "id": "atlas-za-2",
+    "title": "File:Landscape in the Western Cape (South-Africa).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_in_the_Western_Cape_(South-Africa).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Landscape_in_the_Western_Cape_%28South-Africa%29.jpg/1280px-Landscape_in_the_Western_Cape_%28South-Africa%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Photo memories",
+    "description": "A picturesque landscape image of the beautiful Western Cape (South-Africa)",
+    "categories": "Nature of South Africa|Self-published work|Poaceae in South Africa|South Africa photographs taken on 2018-11-19|Photographs of Western Cape"
+  },
+  {
+    "id": "atlas-za-3",
+    "title": "File:Landscape, Vioolsdrift, Richtersveld, Northern Cape, South Africa (20548503141).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape,_Vioolsdrift,_Richtersveld,_Northern_Cape,_South_Africa_(20548503141).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Landscape%2C_Vioolsdrift%2C_Richtersveld%2C_Northern_Cape%2C_South_Africa_%2820548503141%29.jpg/1280px-Landscape%2C_Vioolsdrift%2C_Richtersveld%2C_Northern_Cape%2C_South_Africa_%2820548503141%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "South African Tourism from South Africa",
+    "description": "Vue de Northern Cape en Afrique du Sud.",
+    "categories": "Flickr images reviewed by FlickreviewR 2|Landscapes of the Northern Cape|Files from South African Tourism Flickr stream"
+  }
+]

@@ -9,9 +9,9 @@ export function StepRail({ lab }: { lab: LabMeta }) {
   const current = lab.steps[step] ?? lab.steps[0];
 
   return (
-    <aside className="pointer-events-auto flex max-h-[min(58vh,32rem)] w-full flex-col gap-3 overflow-y-auto rounded-[20px] border border-white/10 bg-basalt/75 p-4 backdrop-blur-xl lg:w-[min(100%,18rem)]">
-      <p className="section-label">Steps</p>
-      <ol className="flex flex-col gap-1">
+    <aside className="pointer-events-auto flex w-full shrink-0 flex-col gap-3 rounded-2xl border border-white/10 bg-basalt/95 p-4">
+      <p className="section-label">{"Try the experiment"}</p>
+      <ol className="grid grid-cols-2 gap-1">
         {lab.steps.map((s, i) => (
           <li key={s.id}>
             <button
@@ -21,13 +21,16 @@ export function StepRail({ lab }: { lab: LabMeta }) {
                 if (s.id === "check") setPanelTab("check");
               }}
               className={cn(
-                "flex w-full items-center gap-3 rounded-[10px] px-2 py-2 text-left text-sm",
-                i === step ? "bg-white/10 text-chalk" : "text-mist hover:bg-white/6 hover:text-chalk",
+                "flex min-h-11 w-full items-center gap-2 rounded-lg px-2 py-2 text-left text-sm",
+                i === step
+                  ? "bg-white/10 text-chalk"
+                  : "text-mist hover:bg-white/6 hover:text-chalk",
               )}
+              aria-current={i === step ? "step" : undefined}
             >
               <span
                 className={cn(
-                  "inline-flex size-6 shrink-0 items-center justify-center rounded-full font-mono text-[11px]",
+                  "inline-flex size-6 shrink-0 items-center justify-center rounded-full font-mono text-[13px]",
                   i === step ? "bg-glacier text-basalt" : "bg-white/8 text-mist",
                 )}
               >
@@ -38,7 +41,7 @@ export function StepRail({ lab }: { lab: LabMeta }) {
           </li>
         ))}
       </ol>
-      <p className="text-[13px] leading-5 text-chalk/90">{current.body}</p>
+      <p className="text-sm leading-6 text-chalk/90">{current.body}</p>
     </aside>
   );
 }

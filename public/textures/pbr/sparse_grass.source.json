@@ -1,0 +1,11 @@
+{
+  "title": "Sparse Grass",
+  "author": "Amal Kumar",
+  "source": "https://polyhaven.com/a/sparse_grass",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://polyhaven.com/license",
+  "originalResolution": "2K",
+  "files": ["sparse_grass_diff.webp", "sparse_grass_nor.webp", "sparse_grass_rough.webp"],
+  "processing": "Original diffuse, OpenGL normal and roughness maps converted to WebP quality 85. No generated photographic content.",
+  "use": "Sparse vegetated ground only; soil and bare geological surfaces retain separate materials. Material detail is illustrative and is not a field survey."
+}

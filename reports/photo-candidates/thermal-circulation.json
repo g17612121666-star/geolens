@@ -1,0 +1,35 @@
+[
+  {
+    "id": "thermal-circulation-1",
+    "title": "File:Cloud streets 2.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cloud_streets_2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Cloud_streets_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA",
+    "description": "Cloud streets over Great Britain 23 April 2008",
+    "categories": "PD NASA|Cumulus humilis clouds|Horizontal convective rolls"
+  },
+  {
+    "id": "thermal-circulation-2",
+    "title": "File:CloudStreets BeringSea 20060120.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CloudStreets_BeringSea_20060120.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/CloudStreets_BeringSea_20060120.jpg/1280px-CloudStreets_BeringSea_20060120.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Jesse Allen, NASA Earth Observatory, using data obtained from the Goddard Earth Sciences DAAC.",
+    "description": "Satellite image of w:cloud streets in the Bering Sea. w:St. Matthew Island is visible in the upper portion, its mountains casting shadows to the southwest.",
+    "categories": "Islands of Alaska|PD NASA|Photos by MODIS|Cumulus mediocris clouds|Radiatus clouds variety|Horizontal convective rolls|Satellite pictures of the Bering Sea|Satellite pictures of islands"
+  },
+  {
+    "id": "thermal-circulation-3",
+    "title": "File:Cloud Streets between Russia and Japan (MODIS 2024-12-24).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cloud_Streets_between_Russia_and_Japan_(MODIS_2024-12-24).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Cloud_Streets_between_Russia_and_Japan_%28MODIS_2024-12-24%29.jpg/1280px-Cloud_Streets_between_Russia_and_Japan_%28MODIS_2024-12-24%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "MODIS Land Rapid Response Team, NASA GSFC",
+    "description": "A cold snap in Eastern Russia sent daily high temperatures plummeting to 14 to 16°F (-10 to -8.9°C) in Primorsky Krai on December 18, 2024. Overnight lows on December 17-18 reached a frigid -4°F (-8.9°C), turning morning breezes blowing from mainland Russia over the Sea of Japan (East Sea) into cloud-making machines.\nOn December 18, the Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Terra satellite captured this true-color image of linear rows of cumulus clouds stretching over the sea between Russia and Japan. The rows line up with the direction of the wind and begin to form off the coast of Russia.\n\nCloud streets form when cold air blows over warmer waters and a warmer air layer (temperature inversion) rests over the top of both. The comparatively warm water gives up heat and moisture to the cold air above, and columns of heated air (thermals) naturally rise through the atmosphere. The temperature inversion acts like a lid. When the rising thermals hit it, they roll over and loop back on themselves, creating parallel cylinders of rotating air. As this happens, the moisture cools and condenses into flat-bottomed, fluffy-topped cumulus clouds that line up parallel to the direction of the prevailing winds. Such cloud streets are common in this area in the winter.",
+    "categories": "PD NASA|Horizontal convective rolls|Photos of Japan by the Terra (satellite) MODIS|Photos of Russia by the Terra (satellite) MODIS|Photographs taken on 2024-12-18|2024 MODIS images|Files from NASA with known IDs|MODIS files uploaded by OptimusPrimeBot"
+  }
+]

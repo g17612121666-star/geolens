@@ -6,13 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { LabThumb } from "@/components/lab-thumb";
 import { cn } from "@/lib/utils";
 
-export function LabCard({
-  lab,
-  className,
-}: {
-  lab: LabMeta;
-  className?: string;
-}) {
+export function LabCard({ lab, className }: { lab: LabMeta; className?: string }) {
   const realm = REALMS.find((r) => r.slug === lab.realm);
   return (
     <Link
@@ -36,14 +30,7 @@ export function LabCard({
           </h3>
           <ArrowUpRight className="mt-1 size-4 shrink-0 text-mist transition-transform duration-180 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-glacier" />
         </div>
-        <p className="line-clamp-3 text-sm leading-6 text-mist">{lab.hook}</p>
-        <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
-          {lab.ages.slice(0, 3).map((a) => (
-            <Badge key={a} tone="mist">
-              {a}
-            </Badge>
-          ))}
-        </div>
+        <p className="text-sm leading-6 text-mist">{lab.hook}</p>
       </div>
     </Link>
   );

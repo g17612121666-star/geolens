@@ -1,0 +1,35 @@
+[
+  {
+    "id": "atlas-lv-1",
+    "title": "File:Winter landscape. National botanical garden Latvia , Salaspils.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_landscape._National_botanical_garden_Latvia_,_Salaspils.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Winter_landscape._National_botanical_garden_Latvia_%2C_Salaspils.jpg/1280px-Winter_landscape._National_botanical_garden_Latvia_%2C_Salaspils.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Kasparoviča",
+    "description": "Winter landscape. National botanical garden Latvia, Salaspils",
+    "categories": "CC-Zero|National Botanic Garden of Latvia|Self-published work|Latvia photographs taken on 2023-11-24"
+  },
+  {
+    "id": "atlas-lv-2",
+    "title": "File:Landscape in Latvia.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_in_Latvia.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Landscape_in_Latvia.jpg/1280px-Landscape_in_Latvia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Inga Vitola",
+    "description": "Spring in Latvia",
+    "categories": "Landscapes of Latvia|Flickr images reviewed by FlickreviewR"
+  },
+  {
+    "id": "atlas-lv-3",
+    "title": "File:Landscape in Latgale, Latvia.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_in_Latgale,_Latvia.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Landscape_in_Latgale%2C_Latvia.jpg/1280px-Landscape_in_Latgale%2C_Latvia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "author": "Artis Pupins",
+    "description": "Autumn landscape in Latgale, Latvia",
+    "categories": "Latgale|Landscapes of Latvia|Flickr images reviewed by FlickreviewR|Latvia photographs taken on 2014-09-20"
+  }
+]

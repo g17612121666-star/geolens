@@ -1,0 +1,145 @@
+[
+  {
+    "source": "naze-london-clay",
+    "terms": [
+      "Aquitard"
+    ],
+    "caption": null
+  },
+  {
+    "source": "aitrach-valley",
+    "terms": [
+      "Beheaded stream"
+    ],
+    "caption": null
+  },
+  {
+    "source": "place-us-la",
+    "terms": [
+      "Barrier island"
+    ],
+    "caption": "Landsat observations of the Chandeleur barrier islands, Louisiana. Narrow sandy islands separate the Gulf of Mexico from shallow coastal waters; storm erosion can fragment and reshape them."
+  },
+  {
+    "source": "denali-glacial-basin",
+    "terms": [
+      "Basin"
+    ],
+    "caption": "A mountain basin occupied by glacier ice in the Muldrow Glacier area, Denali. A basin is a low area bounded by higher ground; drainage basins are defined by the area contributing water to an outlet."
+  },
+  {
+    "source": "smithsonian-magnetite",
+    "terms": [
+      "Curie point"
+    ],
+    "caption": null
+  },
+  {
+    "source": "kamoamoa-fissure-2011",
+    "terms": [
+      "Fissure eruption"
+    ],
+    "caption": null
+  },
+  {
+    "source": "diomede-landsat",
+    "terms": [
+      "International Date Line"
+    ],
+    "caption": null
+  },
+  {
+    "source": "sawtooth-snowmelt",
+    "terms": [
+      "Nival"
+    ],
+    "caption": "Seasonal snowmelt feeds a stream near Fourth of July Lake, Idaho. A nival river regime is strongly influenced by snow accumulation and melt; this photograph shows a snowmelt source, not a measured annual hydrograph."
+  },
+  {
+    "source": "first-quarter-moon-2019",
+    "terms": [
+      "Quadrature"
+    ],
+    "caption": null
+  },
+  {
+    "source": "first-quarter-moon-2019",
+    "terms": [
+      "Neap tide"
+    ],
+    "caption": "The first-quarter Moon is near quadrature. Solar and lunar tidal effects then partly oppose, favouring neap tides; the local minimum tidal range can lag the quarter phase and depends on the coastline and basin."
+  },
+  {
+    "source": "hondius-globe-gores-1615",
+    "terms": [
+      "Gores"
+    ],
+    "caption": null
+  },
+  {
+    "source": "aletsch-glacier",
+    "terms": [
+      "Eustatic"
+    ],
+    "caption": "The Aletsch Glacier stores water on land. Melting land ice adds water to the ocean and contributes to eustatic sea-level rise; this photograph alone does not quantify a global sea-level change."
+  },
+  {
+    "source": "mantle-xenolith",
+    "terms": [
+      "ka"
+    ],
+    "caption": "The volcanic host of this Peridot Mesa xenolith is described by its source as about 580 ka old: roughly 580,000 years. This dates the host eruption, not the formation of the older mantle fragment."
+  },
+  {
+    "source": "cassini-saturn",
+    "terms": [
+      "True scale"
+    ],
+    "caption": "Cassini photographed Saturn and its rings together. Their apparent proportions belong to one perspective view; a true-scale model must use the same length multiplier for every dimension, with foreshortening treated separately."
+  },
+  {
+    "source": "ucayali-meanders",
+    "terms": [
+      "Long profile"
+    ],
+    "caption": "The broad, low-gradient lower Ucayali River seen from the ISS. A river long profile follows bed elevation from source to mouth; this photograph shows the lowland reach, while constructing its profile requires elevation measurements."
+  },
+  {
+    "source": "ceres-reflected-2000-2015",
+    "terms": [
+      "Albedo"
+    ],
+    "caption": "CERES measures reflected shortwave energy in W m⁻². Albedo is the fraction of incoming sunlight reflected, so obtaining it requires dividing reflected flux by the corresponding incoming flux; the colour scale here is not albedo."
+  },
+  {
+    "source": "ceres-reflected-2000-2015",
+    "terms": [
+      "Shortwave",
+      "Flux",
+      "Top of atmosphere"
+    ],
+    "caption": null
+  },
+  {
+    "source": "ceres-net-2000-2015",
+    "terms": [
+      "Energy budget"
+    ],
+    "caption": null
+  },
+  {
+    "source": "ceres-reflected-2000-2015",
+    "terms": [
+      "Absorption"
+    ],
+    "caption": "This CERES observation maps reflected sunlight. Solar absorption by the Earth system is the incoming shortwave energy minus this reflected component; the image measures reflection rather than absorption directly."
+  },
+  {
+    "source": "sdo-visible-sunspots",
+    "terms": [
+      "Solar constant",
+      "Insolation"
+    ],
+    "caption": "NASA SDO observes the solar photosphere and sunspots. The Sun supplies incoming solar radiation (insolation). The solar constant is irradiance near 1 AU on a plane perpendicular to the rays, about 1,361 W m⁻²; it is not measured by this visible-light photograph."
+  }
+]

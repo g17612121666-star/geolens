@@ -1,0 +1,35 @@
+[
+  {
+    "id": "planet-mercury-1",
+    "title": "File:Mercury Globe-MESSENGER mosaic centered at 0degN-0degE.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mercury_Globe-MESSENGER_mosaic_centered_at_0degN-0degE.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Mercury_Globe-MESSENGER_mosaic_centered_at_0degN-0degE.jpg/1280px-Mercury_Globe-MESSENGER_mosaic_centered_at_0degN-0degE.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA/JHUAPL",
+    "description": "This image shows an orthographic projection of this global mosaic centered at 0°N, 0°E. The rayed crater Debussy can be seen towards the bottom of the globe and the peak-ring basin Rachmaninoff can be seen towards the eastern edge.\nRelease Date: November 29, 2011",
+    "categories": "PD NASA|Images with annotations|Files with derivative versions|Images with 10+ annotations|Photos of Mercury by MESSENGER"
+  },
+  {
+    "id": "planet-mercury-2",
+    "title": "File:Mercury map by MESSENGER global mosaic enhancedcolor over completebasemap.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mercury_map_by_MESSENGER_global_mosaic_enhancedcolor_over_completebasemap.png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Mercury_map_by_MESSENGER_global_mosaic_enhancedcolor_over_completebasemap.png/1280px-Mercury_map_by_MESSENGER_global_mosaic_enhancedcolor_over_completebasemap.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington",
+    "description": "This colorful view of Mercury is similar to that used to generate this movie [23MB, 6.5MB] of Mercury as a spinning globe, and these two individual views (centered at 140°E and 320°E) of the innermost planet. The enhanced color view is overlaid on the global monochrome base map, which is available for download here.\nThe enhanced color was produced by using images from the color base map imaging campaign during MESSENGER's primary mission. These colors are not what Mercury would look like to the human eye, but rather the colors enhance the chemical, mineralogical, and physical differences between the rocks that make up Mercury's surface. This specific color combination places the second principal component in the red channel, the first principal component in the green channel, and the ratio of the 430 nm/1000 nm filters in the blue channel.\nInstrument: Wide Angle Camera (WAC) of the Mercury Dual Imaging System (MDIS)\nCenter Latitude: 0°\nCenter Longitude: 180° E\nMap Projection: Simple cylindrical projection\nResolution: 3.74 km/pixel\n\nScale: Mercury's diameter is 4880 kilometers (3030 miles)",
+    "categories": "PD NASA|Photos of Mercury by MESSENGER|Maps of Mercury"
+  },
+  {
+    "id": "planet-mercury-3",
+    "title": "File:Mercury, Earth size comparison.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mercury,_Earth_size_comparison.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Mercury%2C_Earth_size_comparison.jpg/1280px-Mercury%2C_Earth_size_comparison.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASAMercury image: NASA / APL (from MESSENGER)",
+    "description": "Size comparison of Mercury and Earth.Approximate scale is 29 km/px.",
+    "categories": "PD NASA|Self-published work|PD-self|Earth size comparisons using The Blue Marble|Photos of Mercury by MESSENGER|Mercury size comparisons"
+  }
+]

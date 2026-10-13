@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mauritania-upwelling-modis",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/146000/146684/mauritania_amo_2020126_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=3584&w=4903",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/perma-blooms-off-mauritania-146684/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Lauren Dauphin / NASA Earth Observatory · Aqua MODIS / EOSDIS · public domain · resized",
+    "kind": "photo",
+    "alt": "Green phytoplankton and sediment-rich water off Mauritania's desert coast, observed by Aqua MODIS.",
+    "caption": "Aqua MODIS, 5 May 2020. Upwelling in the Canary Current system supplies nutrients off Mauritania. The visible green water contains phytoplankton and sediment; it is not a temperature map."
+  },
+  {
+    "id": "sri-lanka-sea-breeze-modis",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/81000/81833/SriLanka_amo_2013099_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=2504&w=1592",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/fair-weather-clouds-sri-lanka-81833/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Robert Simmon / NASA Earth Observatory · Aqua MODIS / EOSDIS · public domain · resized",
+    "kind": "photo",
+    "alt": "Afternoon cumulus clouds over Sri Lanka, observed by Aqua MODIS on 9 April 2013.",
+    "caption": "Aqua MODIS, 9 April 2013. Sea-breeze air moves inland and helps cumulus clouds develop over the warmer island. Silvery water is sunglint. This daytime image shows sea-breeze effects, not a night-time land breeze."
+  },
+  {
+    "id": "amsre-warm-pool-anomaly",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/4000/4927/amsre_ssta_2004293_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=720&w=1440",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/sea-surface-temperature-in-western-pacific-4927/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Jesse Allen / NASA Earth Observatory · AMSR-E / Remote Sensing Systems · public domain · resized",
+    "kind": "scientific-image",
+    "alt": "AMSR-E sea-surface temperature anomalies around northern Australia in the Indo-Pacific warm pool.",
+    "caption": "AMSR-E, 19 October 2004. This warm-pool region was cooler than its long-term average. Colours show temperature anomalies, not absolute water temperature; a negative anomaly does not mean the water is cold in absolute terms."
+  }
+]

@@ -1,0 +1,7 @@
+import fs from 'node:fs';
+import ts from 'typescript';
+const files=['seasons/scene','solar-system/orbits','shared/lunar-model','shared/planet-scenes','universe-scale/distances','solar-altitude/scene','tides/tidal-globe','atmosphere-layers/scene','energy-budget/scene','wind/scene','three-cell/scene','fronts/section','carbon-cycle/scene','enso/scene','earthquakes/scene','geologic-time/timeline','shared/skills-scenes','thermohaline/scene','shared/ocean-section','sun-earth/insolation','tropical-cyclone/scene','tsunami/scene','storm-surge/scene'];
+for(const rel of files){const path=`src/labs/${rel}.tsx`;if(!fs.existsSync(path))continue;const text=fs.readFileSync(path,'utf8');const source=ts.createSourceFile(path,text,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);let out=text,changed=false;
+ for(const node of source.statements){if(!ts.isImportDeclaration(node)||node.moduleSpecifier.text!=='@react-three/drei')continue;const bindings=node.importClause?.namedBindings;if(!bindings||!ts.isNamedImports(bindings)||!bindings.elements.some(e=>e.name.text==='Line'))continue;const rest=bindings.elements.filter(e=>e.name.text!=='Line').map(e=>e.getText(source));const replacement=(rest.length?`import {${rest.join(',')}} from '@react-three/drei';\n`:'')+"import {GuideLine as Line} from '@/labs/shared/guide-line';";out=out.slice(0,node.getStart(source))+replacement+out.slice(node.getEnd());changed=true;break;}
+ if(changed)fs.writeFileSync(path,out);
+}

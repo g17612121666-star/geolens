@@ -16,7 +16,10 @@ export function GenericFallback({
           <LabThumb slug={slug} />
         </div>
       </div>
-      <p className="mt-4 font-mono text-sm text-mist">2D fallback · {title} · WebGL unavailable</p>
+      <p className="mt-4 font-mono text-sm text-mist">
+        {"2D fallback · "}
+        {title} {"· WebGL unavailable"}
+      </p>
       {caption && <p className="mt-2 max-w-md text-center text-sm text-chalk/80">{caption}</p>}
     </div>
   );

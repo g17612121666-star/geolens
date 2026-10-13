@@ -1,3 +1,1 @@
-import { makeGlbScene } from "@/labs/shared/make-glb-scene";
-
-export default makeGlbScene("river-erosion");
+export {default} from './erosion';

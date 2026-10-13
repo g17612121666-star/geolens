@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ozone-hole-1",
+    "title": "File:2023 Ozone Hole Update (SVS14449 - ozone geos5 2023264 print).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Ozone_Hole_Update_(SVS14449_-_ozone_geos5_2023264_print).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/2023_Ozone_Hole_Update_%28SVS14449_-_ozone_geos5_2023264_print%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA's Scientific Visualization Studio - Amy Moran, Lauren Dauphin, Paul Newman, Katie Jepson, Aaron E. Lepsch",
+    "description": "NASA Earth Observatory image by Lauren Dauphin, using data courtesy of NASA Ozone Watch and GEOS-5 data from the Global Modeling and Assimilation Office at NASA GSFC.This map shows the size and shape of the ozone hole over the South Pole on September 21, 2023, the day of its maximum extent as calculated by the NASA Ozone Watch team. Moderate ozone losses (orange) are visible amid widespread areas of more potent ozone losses (red).",
+    "categories": "PD NASA|Ozone depletion|NASA SVS files uploaded by OptimusPrimeBot"
+  },
+  {
+    "id": "ozone-hole-2",
+    "title": "File:Ozone geos5 2023264 1080p black.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ozone_geos5_2023264_1080p_black.png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Ozone_geos5_2023264_1080p_black.png/1280px-Ozone_geos5_2023264_1080p_black.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA Earth Observatory image by Lauren Dauphin, using data courtesy of NASA Ozone Watch and GEOS-5 data from the Global Modeling and Assimilation Office at NASA GSFC.",
+    "description": "The 2023 Antarctic ozone hole reached its maximum size on September 21\nNASA Earth Observatory Image of the Day for November 2, 2023",
+    "categories": "PD NASA|Ozone depletion|Files uploaded by Lupe|2023-09-21|NASA Earth Observatory in 2023"
+  },
+  {
+    "id": "ozone-hole-3",
+    "title": "File:Ozone Minimum Concentrations, 1979-2023 (SVS31253 - annual ozone min colorbar horiz).png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ozone_Minimum_Concentrations,_1979-2023_(SVS31253_-_annual_ozone_min_colorbar_horiz).png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Ozone_Minimum_Concentrations%2C_1979-2023_%28SVS31253_-_annual_ozone_min_colorbar_horiz%29.png/1280px-Ozone_Minimum_Concentrations%2C_1979-2023_%28SVS31253_-_annual_ozone_min_colorbar_horiz%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA's Scientific Visualization Studio - Amy Moran",
+    "description": "False-color color table for total ozone over the Antarctic pole. The purple and blue colors are where there is the least ozone, and the yellows and reds are where there is more ozone.",
+    "categories": "PD NASA|Files with broken file links|Color bars|NASA SVS files uploaded by OptimusPrimeBot"
+  }
+]

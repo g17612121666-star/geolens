@@ -1,0 +1,35 @@
+[
+  {
+    "id": "map-projections-1",
+    "title": "File:USGS world oil endowment.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:USGS_world_oil_endowment.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/USGS_world_oil_endowment.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "USGS",
+    "description": "Oil endowment (cumulative production plus remaining reserves and undiscovered resources) for provinces assessed.  Darker green indicates more resources.\nUnited States areas are not included.\nOriginal Caption:\n\n Figure 1. Oil endowment (cumulative production plus remaining reserves and undiscovered resources) for provinces assessed. Darker green indicates more resources.\nAreas:\n\n1: Former Soviet Union\n2: Middle East and North Africa\n3: Asia Pacific\n4: Europe\n5: North America\n6: Central and South America\n7: Sub-Saharan Africa and Antarctica\n8: South Asia",
+    "categories": "Maps with Robinson projection|PD USGS|Language-neutral maps|Petroleum region maps|Global maps centered Greenwich|2006 maps of the world|United States Geological Survey maps|Maps of sedimentary basins|Energy maps of the world"
+  },
+  {
+    "id": "map-projections-2",
+    "title": "File:5244 Williston Basin, Canada locator.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:5244_Williston_Basin,_Canada_locator.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/5244_Williston_Basin%2C_Canada_locator.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Ciaurlec",
+    "description": "Derivative work from File:USGS world oil endowment.png. This is an apporximate locator map of the suject indicated on title.",
+    "categories": "Maps with Robinson projection|Williston Basin|Self-published work|Language-neutral maps|Petroleum region maps|Global maps centered Greenwich|United States Geological Survey maps|Maps of sedimentary basins"
+  },
+  {
+    "id": "map-projections-3",
+    "title": "File:6096 Llanos Basin locator.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:6096_Llanos_Basin_locator.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/6096_Llanos_Basin_locator.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Ciaurlec",
+    "description": "Derivative work from File:USGS world oil endowment.png. This is an apporximate locator map of the suject indicated on title.",
+    "categories": "Maps with Robinson projection|Self-published work|Language-neutral maps|Petroleum region maps|Global maps centered Greenwich|United States Geological Survey maps|Maps of sedimentary basins|Llanos Basin"
+  }
+]

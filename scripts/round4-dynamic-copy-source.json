@@ -1,0 +1,750 @@
+[
+  {
+    "text": "Reference tropopause 12 km; typically about 8 km at the poles to 16–18 km in the tropics. Most weather occurs here.",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Ozone absorbs ultraviolet radiation; temperature generally rises with height.",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Temperature generally falls with height; many meteors become luminous here.",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Shown only to 500 km. Its upper boundary varies with solar activity; the atmosphere continues beyond this view. Very high kinetic temperature does not mean dense hot air.",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Nuuk",
+    "files": [
+      "src\\labs\\climate-types\\climate-globe.tsx"
+    ]
+  },
+  {
+    "text": "The beginning of this channel. Real headwaters can be springs, wet ground, snow or glacier melt.",
+    "files": [
+      "src\\labs\\drainage-basin\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "A stream that joins another river.",
+    "files": [
+      "src\\labs\\drainage-basin\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "The place where two channels join.",
+    "files": [
+      "src\\labs\\drainage-basin\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Water leaves this catchment at its outlet. A river mouth is where it enters a lake, sea or another receiving water body.",
+    "files": [
+      "src\\labs\\drainage-basin\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Solid rock. Oceanic crust is commonly 5–10 km thick; continental crust commonly 30–50 km. This reference section uses 35 km.",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Mantle · solid",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Mostly solid silicate rock. It deforms and convects over geological time; it is not a global magma ocean. Base: about 2,890 km depth.",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Outer core · liquid",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Liquid iron-rich alloy, from about 2,890 to 5,150 km depth. Transmits P waves; it does not sustain ordinary shear (S) waves. Smooth metallic highlights are a material cue, not a map of flow.",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Inner core · solid",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Solid iron-rich alloy, radius about 1,221 km. High pressure allows it to remain solid at very high temperature. Fine grain and metallic highlights are illustrative material cues, not observed crystal sizes.",
+    "files": [
+      "src\\labs\\earth-interior\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Fold amplitude {0} m; shortening {1}%, with bed volume preserved.",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Relative slip {0} m{1}.",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "; vertical throw {0} m",
+    "files": [
+      "src\\labs\\folds-faults\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Cold-type occlusion: the warm layer is lifted at least {0} km above the meeting point.",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "Surface warm sector {0} km wide.",
+    "files": [
+      "src\\labs\\fronts\\section.tsx"
+    ]
+  },
+  {
+    "text": "Evidence of life ≥3.5 Ga",
+    "files": [
+      "src\\labs\\geologic-time\\timeline.tsx"
+    ]
+  },
+  {
+    "text": "Pangaea ≈250 Ma",
+    "files": [
+      "src\\labs\\geologic-time\\timeline.tsx"
+    ]
+  },
+  {
+    "text": "K–Pg boundary 66 Ma",
+    "files": [
+      "src\\labs\\geologic-time\\timeline.tsx"
+    ]
+  },
+  {
+    "text": "Storm hydrograph: peak {0} cubic metres per second, lag {1} hours",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx"
+    ]
+  },
+  {
+    "text": "Snapshot {0} Ma · Müller 2019 model, EarthByte CC BY 3.0. Modern coastlines rotated back in time, not a reconstruction of ancient shorelines. {1}",
+    "files": [
+      "src\\labs\\plate-boundaries\\scene.tsx"
+    ]
+  },
+  {
+    "text": "{0} · natural levees border a lower floodplain. Toggle Overbank water to reveal the relation.",
+    "files": [
+      "src\\labs\\river-deposition\\deposition.tsx"
+    ]
+  },
+  {
+    "text": "Water flows downstream; the waterfall retreats upstream by {0} m in this chosen sequence. Change Retreat to expose a longer gorge.",
+    "files": [
+      "src\\labs\\river-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "Weathering / erosion of igneous rock",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Weathering / erosion of sedimentary rock",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Weathering / erosion of metamorphic rock",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Solid-state change of igneous rock",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Solid-state change of sedimentary rock",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Melting of igneous rock",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Melting of sedimentary rock",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "Melting of metamorphic rock",
+    "files": [
+      "src\\labs\\rock-cycle\\cycle.tsx"
+    ]
+  },
+  {
+    "text": "{0} · {1} h from {2} Moon. Play follows an 8.5-hour window. Change Node direction to compare a miss with an eclipse.",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "{0} · {1}% illuminated as seen from Earth · {2} days in an idealised synodic cycle.",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Orbit tilt {0}°. This is a geometry experiment, not a dated prediction.",
+    "files": [
+      "src\\labs\\shared\\lunar-model.tsx"
+    ]
+  },
+  {
+    "text": "Sand · grains",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Silt · grains",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Clay · plates",
+    "files": [
+      "src\\labs\\soil-texture\\scene.tsx"
+    ]
+  },
+  {
+    "text": " Model year {0}; distance {1} AU. All bodies start at perihelion, not an observed alignment.",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": " Model year {0}; surface rotation follows the same clock. Body textures are scientific visualisations; cloud colours for Venus and the ice giants are modelled.",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "{0} °C · Absolute Salinity {1} g/kg · density difference {2}{3} kg/m³: {4}.",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Hadley",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Polar",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "One cell",
+    "files": [
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Source stage: prescribed uplift {0} m displaces the water column. Gold arrow enlarges its direction of motion.",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Propagation stage: {0} min · front {1} m/s at {2} m depth. Central crest reaches 100 m water at {3} min.",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "{0} years",
+    "files": [
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "Liquid becomes invisible water vapour. Solar energy powers evaporation; clouds contain droplets or ice.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Wind carries water vapour and cloud droplets. This arrow is not a measured wind field.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Rain or snow falls from clouds. Vegetation intercepts some precipitation.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Overland flow and rivers carry water downhill towards the outlet. Divides separate surface catchments.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Water enters soil. Percolation transfers it through the unsaturated zone towards the water table.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Groundwater flows down a hydraulic-head gradient through pores and fractures, not a vast cavern.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Roots take up soil water; leaves release water vapour. Interception stores precipitation briefly on vegetation.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Snow and ice store water. Melting changes it to liquid, which can infiltrate or run off.",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "Actual joint {0} mm · liquid {1} L + ice {2} L, from 7.00 kg water.",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Solid calcite {0} kg · dissolved calcite equivalent {1} kg.",
+    "files": [
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "{0} h after release from rest.",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Sydney",
+    "files": [
+      "src\\components\\globe\\hero-earth.tsx",
+      "src\\routes\\tools.live-weather.tsx",
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "Note {0}",
+    "files": [
+      "src\\components\\lab\\why-panel.tsx"
+    ]
+  },
+  {
+    "text": "{0} lab mark",
+    "files": [
+      "src\\components\\lab-thumb.tsx"
+    ]
+  },
+  {
+    "text": "Locator map for {0}",
+    "files": [
+      "src\\components\\map\\mini-map.tsx"
+    ]
+  },
+  {
+    "text": "description",
+    "files": [
+      "src\\routes\\$.tsx",
+      "src\\routes\\__root.tsx"
+    ]
+  },
+  {
+    "text": "A free Earth studio for secondary and high-school students worldwide.",
+    "files": [
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "TerraLens",
+    "files": [
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "Explore real landscapes, reference-point climate and tectonic contexts. Compare countries, UK places and US states.",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "World",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "US states",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "atlas:{0}",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\search.tsx"
+    ]
+  },
+  {
+    "text": "Capital · {0}",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "Reference · {0}",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "{0} reference point",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "Coastal pixel: nearest classified land {0} km away.",
+    "files": [
+      "src\\routes\\atlas.tsx"
+    ]
+  },
+  {
+    "text": "Find a 3D Earth science lab by name, topic or curriculum.",
+    "files": [
+      "src\\routes\\explore.tsx"
+    ]
+  },
+  {
+    "text": "Labs · {0}",
+    "files": [
+      "src\\routes\\explore.tsx"
+    ]
+  },
+  {
+    "text": "Case studies · {0}",
+    "files": [
+      "src\\routes\\explore.tsx"
+    ]
+  },
+  {
+    "text": " matching “{0}”",
+    "files": [
+      "src\\routes\\explore.tsx"
+    ]
+  },
+  {
+    "text": "{0} labs",
+    "files": [
+      "src\\routes\\index.tsx"
+    ]
+  },
+  {
+    "text": "Not on the bench",
+    "files": [
+      "src\\routes\\lab.$slug.tsx"
+    ]
+  },
+  {
+    "text": "This slug is not a shipped lab.",
+    "files": [
+      "src\\routes\\lab.$slug.tsx"
+    ]
+  },
+  {
+    "text": "Curriculum sequences through TerraLens labs. GCSE, A-level, NGSS, APES, and one-question walks.",
+    "files": [
+      "src\\routes\\paths.index.tsx"
+    ]
+  },
+  {
+    "text": "TerraLens does not run accounts, ads, or student tracking.",
+    "files": [
+      "src\\routes\\privacy.tsx"
+    ]
+  },
+  {
+    "text": "Find a TerraLens lab, glossary term, atlas place, tool, or teacher note.",
+    "files": [
+      "src\\routes\\search.tsx"
+    ]
+  },
+  {
+    "text": "seasons",
+    "files": [
+      "src\\routes\\search.tsx"
+    ]
+  },
+  {
+    "text": "Capital {0}. ",
+    "files": [
+      "src\\routes\\search.tsx"
+    ]
+  },
+  {
+    "text": "Contours, graticule, projections, and grid references.",
+    "files": [
+      "src\\routes\\skills.tsx"
+    ]
+  },
+  {
+    "text": "{0} interactive rehearsal",
+    "files": [
+      "src\\routes\\teachers.$slug.tsx"
+    ]
+  },
+  {
+    "text": "Fifteen-minute projector scripts for TerraLens labs. No login.",
+    "files": [
+      "src\\routes\\teachers.index.tsx"
+    ]
+  },
+  {
+    "text": "Explore daylight, solar altitude and the terminator with reproducible UTC calculations and a 3D Earth.",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "Dropped point",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "Polar {0}: no sunrise or sunset on this modelled day.",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "Annual daylight curve for {0}{1}; selected day {2}",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": " and {0}",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "Earth-motion calculator, live weather, world map studio, and atlas.",
+    "files": [
+      "src\\routes\\tools.index.tsx"
+    ]
+  },
+  {
+    "text": "Educational weather model output on a map. Compare two places in SI units and UTC. Not a warning service.",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Temperature",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Air temperature at 2 m above the model surface.",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Water equivalent accumulated in the preceding hour.",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Wind barbs",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Wind at 10 m. The staff points towards the direction the wind comes from.",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Fraction of the model sky covered by cloud, from 0 to 100%.",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Map point",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "{0} UTC",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Place {0} weather",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Retry in {0}s",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Rain / snow · previous {0} min",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "{0} UTC · same model time",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Wind from {0} degrees, {1} metres per second",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "From {0} · {1}°",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Place {0}, {1} UTC",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "{0} hourly temperatures and precipitation, UTC. A data table follows.",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "Classroom world map: relief, bathymetry, plates, volcanoes, earthquakes, Köppen, currents, measure, split view. No Google.",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "Classroom measure. Great-circle km.",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": " · path {0} km",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": " · area ~{0} km²",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": " · last {0}",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "viewport",
+    "files": [
+      "src\\routes\\__root.tsx"
+    ]
+  },
+  {
+    "text": "theme-color",
+    "files": [
+      "src\\routes\\__root.tsx"
+    ]
+  },
+  {
+    "text": "apple-mobile-web-app-title",
+    "files": [
+      "src\\routes\\__root.tsx"
+    ]
+  },
+  {
+    "text": "application-name",
+    "files": [
+      "src\\routes\\__root.tsx"
+    ]
+  }
+]

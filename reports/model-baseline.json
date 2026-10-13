@@ -1,0 +1,6489 @@
+[
+  {
+    "slug": "seasons",
+    "controls": {
+      "time": "year",
+      "extra": [
+        {
+          "key": "tilt",
+          "label": "Axial tilt",
+          "min": 0,
+          "max": 45,
+          "step": 0.1,
+          "unit": "°",
+          "default": 23.44
+        },
+        {
+          "key": "ecc",
+          "label": "Orbit stretch",
+          "min": 0,
+          "max": 0.4,
+          "step": 0.01,
+          "default": 0
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Season_Sun",
+        "extras": {
+          "tl_note": "The lamp. Distance is not the season."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104
+        ]
+      },
+      {
+        "name": "Season_Earth",
+        "extras": {
+          "tl_note": "Tilted 23.44°. June: NH leans toward the Sun. Perihelion is early January — NH winter.",
+          "tl_rig": "spin"
+        },
+        "mesh": 1,
+        "translation": [
+          3.4000000953674316,
+          0,
+          7.450580596923828e-09
+        ],
+        "rotation": null,
+        "scale": [
+          0.2199999988079071,
+          0.2199999988079071,
+          0.2199999988079071
+        ]
+      },
+      {
+        "name": "Season_Orbit",
+        "extras": {
+          "tl_note": "Near-circular orbit. Radius is shrunk so Earth is readable. Tilt is true."
+        },
+        "mesh": 2,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          3.4119999408721924,
+          3.4119999408721924,
+          3.4119999408721924
+        ]
+      },
+      {
+        "name": "Season_Axis",
+        "extras": {
+          "tl_note": "Axial tilt 23.44°. This is the season machine.",
+          "tl_rig": "tilt_axis"
+        },
+        "mesh": 3,
+        "translation": [
+          3.4000000953674316,
+          0,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.325890451669693,
+          0.325890451669693,
+          0.325890451669693
+        ]
+      },
+      {
+        "name": "Season_Perihelion",
+        "extras": {
+          "tl_note": "Perihelion — nearest the Sun — early January, northern winter."
+        },
+        "mesh": 4,
+        "translation": [
+          3.2980000972747803,
+          0,
+          -0.4000000059604645
+        ],
+        "rotation": null,
+        "scale": [
+          0.05000000074505806,
+          0.05000000074505806,
+          0.05000000074505806
+        ]
+      }
+    ],
+    "materials": [
+      "sun",
+      "earth",
+      "gold",
+      "iron"
+    ]
+  },
+  {
+    "slug": "rotation",
+    "controls": {
+      "time": "day",
+      "toggles": [
+        {
+          "key": "zones",
+          "label": "Time zones"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Rotation_Earth",
+        "extras": {
+          "tl_note": "West to east, 15° per hour. The terminator is geometry, not a painted line.",
+          "tl_rig": "spin"
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.149999976158142,
+          1.149999976158142,
+          1.149999976158142
+        ]
+      },
+      {
+        "name": "Rotation_Terminator",
+        "extras": {
+          "tl_note": "The terminator walks with tilt through the year."
+        },
+        "mesh": 1,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.1720000505447388,
+          1.1720000505447388,
+          1.1720000505447388
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "gold"
+    ]
+  },
+  {
+    "slug": "moon-phases",
+    "controls": {
+      "time": "month",
+      "toggles": [
+        {
+          "key": "align",
+          "label": "Eclipse alignment"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Moon_Sun",
+        "extras": {
+          "tl_note": "The lamp. Phase is the viewing angle, not a texture swap."
+        },
+        "mesh": 0,
+        "translation": [
+          -3.600000023841858,
+          0,
+          -1.043081283569336e-07
+        ],
+        "rotation": null,
+        "scale": [
+          0.3500003069639206,
+          0.3500003069639206,
+          0.3500003069639206
+        ]
+      },
+      {
+        "name": "Moon_Earth",
+        "extras": {
+          "tl_note": "We stand here. Half the Moon is always lit."
+        },
+        "mesh": 1,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "name": "Moon_Moon",
+        "extras": {
+          "tl_note": "Cratered Moon, half-lit by the Sun. New Moon plus a node is a solar eclipse.",
+          "tl_rig": "spin"
+        },
+        "mesh": 2,
+        "translation": [
+          1.600000023841858,
+          0,
+          7.450580596923828e-09
+        ],
+        "rotation": null,
+        "scale": [
+          0.18000002205371857,
+          0.18000002205371857,
+          0.18000002205371857
+        ]
+      }
+    ],
+    "materials": [
+      "sun",
+      "earth",
+      "moon"
+    ]
+  },
+  {
+    "slug": "earth-interior",
+    "controls": {
+      "time": "none",
+      "explode": true,
+      "slice": true,
+      "toggles": [
+        {
+          "key": "waves",
+          "label": "P/S waves"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Interior_Crust",
+        "extras": {
+          "tl_note": "0–35 km continental crust. A film on a 6371 km radius. T collapses the ×4 teaching shell.",
+          "tl_rig": "exag_crust",
+          "tl_exag": 4
+        },
+        "mesh": 0,
+        "translation": [
+          -0.12952381372451782,
+          0,
+          -3.8743019104003906e-07
+        ],
+        "rotation": null,
+        "scale": null
+      },
+      {
+        "name": "Interior_Mantle",
+        "extras": {
+          "tl_note": "Solid rock that creeps. Not a magma ocean.",
+          "tl_rig": "true_fill",
+          "tl_inner": 0.978,
+          "tl_true": 0.9945
+        },
+        "mesh": 1,
+        "translation": [
+          -0.12667471170425415,
+          0,
+          -1.7881393432617188e-07
+        ],
+        "rotation": null,
+        "scale": [
+          0.9779999852180481,
+          0.9779999852180481,
+          0.9779999852180481
+        ]
+      },
+      {
+        "name": "Interior_OuterCore",
+        "extras": {
+          "tl_note": "Liquid Fe–Ni. S-waves die. The magnetic field lives here.",
+          "tl_rig": "explode"
+        },
+        "mesh": 2,
+        "translation": [
+          -0.07084980607032776,
+          0,
+          -2.9802322387695312e-08
+        ],
+        "rotation": null,
+        "scale": [
+          0.546999990940094,
+          0.546999990940094,
+          0.546999990940094
+        ]
+      },
+      {
+        "name": "Interior_InnerCore",
+        "extras": {
+          "tl_note": "Solid Fe–Ni under immense pressure.",
+          "tl_rig": "explode"
+        },
+        "mesh": 3,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.19099999964237213,
+          0.19099999964237213,
+          0.19099999964237213
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "mantle",
+      "outer",
+      "inner"
+    ]
+  },
+  {
+    "slug": "plate-boundaries",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "ageMa",
+          "label": "Time before present",
+          "min": 0,
+          "max": 200,
+          "step": 1,
+          "unit": " Ma",
+          "default": 0
+        }
+      ],
+      "toggles": [
+        {
+          "key": "hotspot",
+          "label": "Hawaii hotspot"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Plate_Ridge",
+        "extras": {
+          "tl_note": "Divergent: new crust at a ridge. Iceland sits on this split.",
+          "tl_rig": "site_band:0:0.4"
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.3220871597295627,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.75,
+          2.75,
+          2.75
+        ]
+      },
+      {
+        "name": "Plate_Trench",
+        "extras": {
+          "tl_note": "Convergent: a trench is a subduction slot; the arc stacks volcanoes behind it.",
+          "tl_rig": "site_band:0.4:0.7"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          -0.06406840682029724,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.75,
+          2.75,
+          2.75
+        ]
+      },
+      {
+        "name": "Plate_Arc",
+        "extras": {
+          "tl_note": "Island arc. Sticky magma on the overriding plate.",
+          "tl_rig": "site_band:0.4:0.7"
+        },
+        "mesh": 2,
+        "translation": [
+          -1.2999999523162842,
+          0.48041334142908454,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.9686249494552612,
+          0.9686249494552612,
+          0.9686249494552612
+        ]
+      },
+      {
+        "name": "Plate_Transform",
+        "extras": {
+          "tl_note": "Transform: plates slide past. San Andreas is this, not a volcanic arc.",
+          "tl_rig": "site_band:0.7:1"
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.12000000104308128,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.5,
+          2.5,
+          2.5
+        ]
+      }
+    ],
+    "materials": [
+      "basalt.001",
+      "ash",
+      "sandstone.001"
+    ]
+  },
+  {
+    "slug": "contours",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "interval",
+          "label": "Contour interval",
+          "min": 5,
+          "max": 20,
+          "step": 5,
+          "unit": " m",
+          "default": 10
+        }
+      ],
+      "toggles": [
+        {
+          "key": "mode3d",
+          "label": "3D hill",
+          "defaultOn": true
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Contour_Hill",
+        "extras": {
+          "tl_note": "The same hill as the contour map. V upslope is a valley."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.5869534155353904,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.5999999046325684,
+          2.5999999046325684,
+          2.5999999046325684
+        ]
+      },
+      {
+        "name": "Contour_0",
+        "extras": {
+          "tl_note": "Contour 50 m. Interval is a slider."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.30000001192092896,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.41200000047683716,
+          0.41200000047683716,
+          0.41200000047683716
+        ]
+      },
+      {
+        "name": "Contour_1",
+        "extras": {
+          "tl_note": "Contour 100 m. Interval is a slider."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.5,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.8619999885559082,
+          0.8619999885559082,
+          0.8619999885559082
+        ]
+      },
+      {
+        "name": "Contour_2",
+        "extras": {
+          "tl_note": "Contour 150 m. Interval is a slider."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.699999988079071,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.312000036239624,
+          1.312000036239624,
+          1.312000036239624
+        ]
+      },
+      {
+        "name": "Contour_3",
+        "extras": {
+          "tl_note": "Contour 200 m. Interval is a slider."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          0.8999999761581421,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.7619999647140503,
+          1.7619999647140503,
+          1.7619999647140503
+        ]
+      }
+    ],
+    "materials": [
+      "grass",
+      "gold"
+    ]
+  },
+  {
+    "slug": "rivers",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "discharge",
+          "label": "Discharge",
+          "min": 0.2,
+          "max": 1.6,
+          "step": 0.05,
+          "unit": "×",
+          "default": 0.7
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "River_CutBank",
+        "extras": {
+          "tl_note": "Outer bend erodes. The cut bank."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.01035114680416882,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.2750000059604645,
+          0.2750000059604645,
+          0.2750000059604645
+        ]
+      },
+      {
+        "name": "River_Delta",
+        "extras": {
+          "tl_note": "Load dumped where the river meets stiller water."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.04968096874654293,
+          5.960464477539063e-08
+        ],
+        "rotation": null,
+        "scale": [
+          1.100000023841858,
+          1.100000023841858,
+          1.100000023841858
+        ]
+      },
+      {
+        "name": "River_Knickpoint",
+        "extras": {
+          "tl_note": "The knickpoint. Play walks it upstream."
+        },
+        "mesh": 2,
+        "translation": [
+          -3.1500000953674316,
+          0.5500000044703484,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.22499999403953552,
+          0.22499999403953552,
+          0.22499999403953552
+        ]
+      },
+      {
+        "name": "River_PointBar",
+        "extras": {
+          "tl_note": "Inner bend deposits. The slip-off slope."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.03057609172537923,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.42500001192092896,
+          0.42500001192092896,
+          0.42500001192092896
+        ]
+      },
+      {
+        "name": "River_Valley",
+        "extras": {
+          "tl_note": "Long profile: steep V, then meander belt, then floodplain. Schematic, not a traced catchment."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          0.6538907159119844,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          4.300000190734863,
+          4.300000190734863,
+          4.300000190734863
+        ]
+      },
+      {
+        "name": "River_Water",
+        "extras": {
+          "tl_note": "A river is a channel with a bed, not a painted line. Discharge widens and deepens it.",
+          "tl_rig": "discharge"
+        },
+        "mesh": 5,
+        "translation": [
+          0.0056421756744384766,
+          0.5449999943375587,
+          -0.08279000222682953
+        ],
+        "rotation": null,
+        "scale": [
+          4.114715337753296,
+          4.114715337753296,
+          4.114715337753296
+        ]
+      },
+      {
+        "name": "River_Waterfall",
+        "extras": {
+          "tl_note": "A nick in the long profile. Hard rock holds a lip."
+        },
+        "mesh": 6,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.30000001192092896,
+          0.30000001192092896,
+          0.30000001192092896
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Vertical exaggeration ×12 on the long profile. T flattens to a true gradient.",
+          "tl_rig": "exag",
+          "tl_exag": 12
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "soilA",
+      "sand.001",
+      "granite.001",
+      "grass",
+      "water"
+    ]
+  },
+  {
+    "slug": "water-cycle",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "abstraction",
+          "label": "Abstraction",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "default": 0
+        }
+      ],
+      "toggles": [
+        {
+          "key": "basin",
+          "label": "Drainage basin"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Cycle_Ocean",
+        "extras": {
+          "tl_note": "Ocean store. The big reservoir."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.07505039498209953,
+          0.800000011920929
+        ],
+        "rotation": null,
+        "scale": [
+          3.25,
+          3.25,
+          3.25
+        ]
+      },
+      {
+        "name": "Cycle_Glacier",
+        "extras": {
+          "tl_note": "Ice store. Slow."
+        },
+        "mesh": 1,
+        "translation": [
+          -2.200000047683716,
+          0.7013150751590729,
+          -1.399999976158142
+        ],
+        "rotation": null,
+        "scale": null
+      },
+      {
+        "name": "Cycle_Groundwater",
+        "extras": {
+          "tl_note": "Groundwater in rock, not an underground lake."
+        },
+        "mesh": 2,
+        "translation": [
+          1.7999999523162842,
+          0.09999999403953552,
+          -1
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "Cycle_Atmosphere",
+        "extras": {
+          "tl_note": "A thin atmospheric store. Abstraction is a tap on the basin."
+        },
+        "mesh": 3,
+        "translation": [
+          -1.1920928955078125e-07,
+          1.600000023841858,
+          -0.40000011026859283
+        ],
+        "rotation": null,
+        "scale": [
+          0.3500003069639206,
+          0.3500003069639206,
+          0.3500003069639206
+        ]
+      }
+    ],
+    "materials": [
+      "water",
+      "ice",
+      "limestone.001",
+      "cloud"
+    ]
+  },
+  {
+    "slug": "solar-system",
+    "controls": {
+      "time": "year",
+      "toggles": [
+        {
+          "key": "trueScale",
+          "label": "True distance"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "SS_Sun",
+        "extras": {
+          "tl_note": "The Sun. Planets would be dust at true scale."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.3500003069639206,
+          0.3500003069639206,
+          0.3500003069639206
+        ]
+      },
+      {
+        "name": "SS_Mercury",
+        "extras": {
+          "tl_note": "Mercury.",
+          "tl_rig": "spin"
+        },
+        "mesh": 1,
+        "translation": [
+          0.6999999936670065,
+          0,
+          5.587935447692871e-09
+        ],
+        "rotation": null,
+        "scale": [
+          0.03999999910593033,
+          0.03999999910593033,
+          0.03999999910593033
+        ]
+      },
+      {
+        "name": "SS_Mercury_Orbit",
+        "extras": {
+          "tl_note": "Orbit. True scale would empty this room."
+        },
+        "mesh": 2,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.7059999704360962,
+          0.7059999704360962,
+          0.7059999704360962
+        ]
+      },
+      {
+        "name": "SS_Venus",
+        "extras": {
+          "tl_note": "Venus.",
+          "tl_rig": "spin"
+        },
+        "mesh": 3,
+        "translation": [
+          1.0000000074505806,
+          0,
+          3.725290298461914e-09
+        ],
+        "rotation": null,
+        "scale": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07000000029802322
+        ]
+      },
+      {
+        "name": "SS_Venus_Orbit",
+        "extras": {
+          "tl_note": "Orbit. True scale would empty this room."
+        },
+        "mesh": 4,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.00600004196167,
+          1.00600004196167,
+          1.00600004196167
+        ]
+      },
+      {
+        "name": "SS_Earth",
+        "extras": {
+          "tl_note": "Earth. T swaps vis distances for compressed AU.",
+          "tl_rig": "spin"
+        },
+        "mesh": 5,
+        "translation": [
+          1.3500000461935997,
+          0,
+          -2.2351741790771484e-08
+        ],
+        "rotation": null,
+        "scale": [
+          0.07999999821186066,
+          0.07999999821186066,
+          0.07999999821186066
+        ]
+      },
+      {
+        "name": "SS_Earth_Orbit",
+        "extras": {
+          "tl_note": "Orbit. True scale would empty this room."
+        },
+        "mesh": 6,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.3559999465942383,
+          1.3559999465942383,
+          1.3559999465942383
+        ]
+      },
+      {
+        "name": "SS_Mars",
+        "extras": {
+          "tl_note": "Mars.",
+          "tl_rig": "spin"
+        },
+        "mesh": 7,
+        "translation": [
+          1.7500000055879354,
+          0,
+          -5.587935447692871e-09
+        ],
+        "rotation": null,
+        "scale": [
+          0.05000000074505806,
+          0.05000000074505806,
+          0.05000000074505806
+        ]
+      },
+      {
+        "name": "SS_Mars_Orbit",
+        "extras": {
+          "tl_note": "Orbit. True scale would empty this room."
+        },
+        "mesh": 8,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.75600004196167,
+          1.75600004196167,
+          1.75600004196167
+        ]
+      },
+      {
+        "name": "SS_Jupiter",
+        "extras": {
+          "tl_note": "Jupiter. Size here is still a classroom lie.",
+          "tl_rig": "spin"
+        },
+        "mesh": 9,
+        "translation": [
+          2.5,
+          0,
+          7.450580596923828e-09
+        ],
+        "rotation": null,
+        "scale": [
+          0.18000002205371857,
+          0.18000002205371857,
+          0.18000002205371857
+        ]
+      },
+      {
+        "name": "SS_Jupiter_Orbit",
+        "extras": {
+          "tl_note": "Orbit. True scale would empty this room."
+        },
+        "mesh": 10,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          2.50600004196167,
+          2.50600004196167,
+          2.50600004196167
+        ]
+      }
+    ],
+    "materials": [
+      "sun",
+      "iron",
+      "gold",
+      "sandstone.001",
+      "earth",
+      "oxisol"
+    ]
+  },
+  {
+    "slug": "sun-earth",
+    "controls": {
+      "time": "none",
+      "toggles": [
+        {
+          "key": "spots",
+          "label": "Sunspots"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "SE_Sun",
+        "extras": {
+          "tl_note": "Photosphere. Spots are a labelled extra, not weather."
+        },
+        "mesh": 0,
+        "translation": [
+          -2.7999997287988663,
+          0,
+          -1.9371509552001953e-07
+        ],
+        "rotation": null,
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "name": "SE_Earth",
+        "extras": {
+          "tl_note": "Noon-face flux. Incidence is a cosine, not a lamp on a stick.",
+          "tl_rig": "spin"
+        },
+        "mesh": 1,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.7000006139278412,
+          0.7000006139278412,
+          0.7000006139278412
+        ]
+      },
+      {
+        "name": "SE_Flux",
+        "extras": {
+          "tl_note": "A beam of insolation. Area on the ground grows as the angle falls."
+        },
+        "mesh": 2,
+        "translation": [
+          -1.100000023841858,
+          0,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ]
+      }
+    ],
+    "materials": [
+      "sun",
+      "earth",
+      "gold"
+    ]
+  },
+  {
+    "slug": "universe-scale",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "zoom",
+          "label": "Scale jump",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "default": 0
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Uni_Earth",
+        "extras": {
+          "tl_note": "12 742 km across. Units here are kilometres, not AU.",
+          "tl_rig": "zoom_band:0:0.7"
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.4000000059604645,
+          0.4000000059604645,
+          0.4000000059604645
+        ]
+      },
+      {
+        "name": "Uni_Moon",
+        "extras": {
+          "tl_note": "About 30 Earth-diameters away. Drawn close so both fit — a labelled lie of scale.",
+          "tl_rig": "zoom_band:0:0.7"
+        },
+        "mesh": 1,
+        "translation": [
+          1.3999999947845936,
+          0,
+          -1.4901161193847656e-08
+        ],
+        "rotation": null,
+        "scale": [
+          0.10999999940395355,
+          0.10999999940395355,
+          0.10999999940395355
+        ]
+      },
+      {
+        "name": "Uni_Sun",
+        "extras": {
+          "tl_note": "1 AU is 150 million km. Planets would be dust at true scale.",
+          "tl_rig": "zoom_band:0.7:1.4"
+        },
+        "mesh": 2,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "name": "Uni_AU",
+        "extras": {
+          "tl_note": "Earth's path. If this ring is honest, Earth is a speck you cannot click.",
+          "tl_rig": "zoom_band:0.7:1.4"
+        },
+        "mesh": 3,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          2.2100000381469727,
+          2.2100000381469727,
+          2.2100000381469727
+        ]
+      },
+      {
+        "name": "Uni_LocalStars",
+        "extras": {
+          "tl_note": "Units are light years. Planets have no right to remain as named dots.",
+          "tl_rig": "zoom_band:1.4:3"
+        },
+        "mesh": 4,
+        "translation": [
+          1.2000000476837158,
+          0.4000000059604645,
+          -0.800000011920929
+        ],
+        "rotation": null,
+        "scale": [
+          0.07999999821186066,
+          0.07999999821186066,
+          0.07999999821186066
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "moon",
+      "sun",
+      "gold"
+    ]
+  },
+  {
+    "slug": "geologic-time",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "ageMa",
+          "label": "Time before present",
+          "min": 0,
+          "max": 4500,
+          "step": 10,
+          "unit": " Ma",
+          "default": 0
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Time_Precambrian",
+        "extras": {
+          "tl_note": "Deep time. Most of Earth is this stack.",
+          "tl_rig": "age_peel"
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.7000000476837158,
+          1.7000000476837158,
+          1.7000000476837158
+        ]
+      },
+      {
+        "name": "Time_Paleozoic",
+        "extras": {
+          "tl_note": "Paleozoic beds.",
+          "tl_rig": "age_peel"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.4000000134110451,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.7000000476837158,
+          1.7000000476837158,
+          1.7000000476837158
+        ]
+      },
+      {
+        "name": "Time_Mesozoic",
+        "extras": {
+          "tl_note": "Mesozoic. The canyon starts to cut late.",
+          "tl_rig": "age_peel"
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.8000000193715096,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.7000000476837158,
+          1.7000000476837158,
+          1.7000000476837158
+        ]
+      },
+      {
+        "name": "Time_Cenozoic",
+        "extras": {
+          "tl_note": "Cenozoic. The last few Ma of incision.",
+          "tl_rig": "age_peel"
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          1.2000000551342964,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.7000000476837158,
+          1.7000000476837158,
+          1.7000000476837158
+        ]
+      },
+      {
+        "name": "Time_Canyon",
+        "extras": {
+          "tl_note": "A young V cut in older strata. Linear Ma would crush the Phanerozoic."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          1.1128636710345745,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ]
+      }
+    ],
+    "materials": [
+      "soilR",
+      "sandstone.001",
+      "limestone.001",
+      "schist.001"
+    ]
+  },
+  {
+    "slug": "eclipses",
+    "controls": {
+      "time": "month",
+      "toggles": [
+        {
+          "key": "align",
+          "label": "Eclipse alignment"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Ecl_Sun",
+        "extras": {
+          "tl_note": "The lamp. A solar eclipse needs new Moon plus a node."
+        },
+        "mesh": 0,
+        "translation": [
+          -3.399999976158142,
+          0,
+          8.940696716308594e-08
+        ],
+        "rotation": null,
+        "scale": [
+          0.6200000047683716,
+          0.6200000047683716,
+          0.6200000047683716
+        ]
+      },
+      {
+        "name": "Ecl_Earth",
+        "extras": {
+          "tl_note": "Umbra is the dark cone. A total eclipse is a line on the ground, not a planet-wide night."
+        },
+        "mesh": 1,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104
+        ]
+      },
+      {
+        "name": "Ecl_Moon",
+        "extras": {
+          "tl_note": "Tilted about 5° unless alignment is on."
+        },
+        "mesh": 2,
+        "translation": [
+          1.5000000447034836,
+          0,
+          -0.12000004202127457
+        ],
+        "rotation": null,
+        "scale": [
+          0.1599999964237213,
+          0.1599999964237213,
+          0.1599999964237213
+        ]
+      },
+      {
+        "name": "Ecl_Umbra",
+        "extras": {
+          "tl_note": "The dark core of the shadow."
+        },
+        "mesh": 3,
+        "translation": [
+          0.699999988079071,
+          4.470348358154297e-08,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.8999999761581421,
+          0.8999999761581421,
+          0.8999999761581421
+        ]
+      },
+      {
+        "name": "Ecl_Penumbra",
+        "extras": {
+          "tl_note": "The pale outer shadow. A graze, not the tunnel."
+        },
+        "mesh": 4,
+        "translation": [
+          0.699999988079071,
+          2.9802322387695312e-08,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.8999999761581421,
+          0.8999999761581421,
+          0.8999999761581421
+        ]
+      }
+    ],
+    "materials": [
+      "sun",
+      "earth",
+      "moon",
+      "basalt.001",
+      "cloud"
+    ]
+  },
+  {
+    "slug": "tides",
+    "controls": {
+      "time": "month"
+    },
+    "parts": [
+      {
+        "name": "Tide_Earth",
+        "extras": {
+          "tl_note": "Two bulges: one toward the Moon, one opposite. Continents then reshape the range."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.8500000238418579,
+          0.8500000238418579,
+          0.8500000238418579
+        ]
+      },
+      {
+        "name": "Tide_Moon",
+        "extras": {
+          "tl_note": "The nearer body. Two bulges, not one under the Moon.",
+          "tl_rig": "spin"
+        },
+        "mesh": 1,
+        "translation": [
+          2.4000000953674316,
+          0,
+          7.450580596923828e-09
+        ],
+        "rotation": null,
+        "scale": [
+          0.18000002205371857,
+          0.18000002205371857,
+          0.18000002205371857
+        ]
+      },
+      {
+        "name": "Tide_Sun",
+        "extras": {
+          "tl_note": "The Sun also raises tides, weaker than the Moon. Spring tides when they align."
+        },
+        "mesh": 2,
+        "translation": [
+          -3.1999999433755875,
+          0,
+          8.940696716308594e-08
+        ],
+        "rotation": null,
+        "scale": [
+          0.2800000011920929,
+          0.2800000011920929,
+          0.2800000011920929
+        ]
+      },
+      {
+        "name": "Tide_Bulge",
+        "extras": {
+          "tl_note": "Two bulges from the Moon's gravity plus the orbiting system's inertia — a school model, flagged as such."
+        },
+        "mesh": 3,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.030399739742279,
+          1.030399739742279,
+          1.030399739742279
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "moon",
+      "sun",
+      "water"
+    ]
+  },
+  {
+    "slug": "solar-altitude",
+    "controls": {
+      "time": "year",
+      "extra": [
+        {
+          "key": "latitude",
+          "label": "Latitude",
+          "min": -60,
+          "max": 65,
+          "step": 0.5,
+          "unit": "°",
+          "default": 51.5
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Alt_Land",
+        "extras": {
+          "tl_note": "A local horizon. Latitude writes the path."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.01675773353781551,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.0999999046325684,
+          2.0999999046325684,
+          2.0999999046325684
+        ]
+      },
+      {
+        "name": "Alt_SkyDome",
+        "extras": {
+          "tl_note": "A stand-in for the celestial hemisphere. The path is today's arc."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.05000000074505806,
+          -1.1920928955078125e-07
+        ],
+        "rotation": null,
+        "scale": [
+          2.1999999284744263,
+          2.1999999284744263,
+          2.1999999284744263
+        ]
+      },
+      {
+        "name": "Alt_Sun",
+        "extras": {
+          "tl_note": "Noon altitude = 90° − |φ − δ|. The Sun is not overhead everywhere.",
+          "tl_rig": "sun_path"
+        },
+        "mesh": 2,
+        "translation": [
+          0.8000000268220901,
+          1.5,
+          1.3999999947845936
+        ],
+        "rotation": null,
+        "scale": [
+          0.11999999731779099,
+          0.11999999731779099,
+          0.11999999731779099
+        ]
+      },
+      {
+        "name": "Alt_Gnomon",
+        "extras": {
+          "tl_note": "School geometry. Shadow length is 1 / tan(altitude)."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.2800000011920929,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.2750000059604645,
+          0.2750000059604645,
+          0.2750000059604645
+        ]
+      },
+      {
+        "name": "Alt_Shadow",
+        "extras": {
+          "tl_note": "The gnomon writes solar altitude on the ground."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          0.019999999552965164,
+          -0.44999998807907104
+        ],
+        "rotation": null,
+        "scale": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104
+        ]
+      }
+    ],
+    "materials": [
+      "sand.001",
+      "cloud",
+      "sun",
+      "wood",
+      "basalt.001"
+    ]
+  },
+  {
+    "slug": "continental-drift",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "ageMa",
+          "label": "Ma before present",
+          "min": 0,
+          "max": 250,
+          "step": 1,
+          "unit": " Ma",
+          "default": 200
+        }
+      ],
+      "toggles": [
+        {
+          "key": "fossils",
+          "label": "Fossil / fit overlay"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Drift_Earth",
+        "extras": {
+          "tl_note": "A sphere. Continents are passengers, not a fit on a table."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.0499999523162842,
+          1.0499999523162842,
+          1.0499999523162842
+        ]
+      },
+      {
+        "name": "Drift_Africa",
+        "extras": {
+          "tl_note": "Africa. The shape that still fits South America.",
+          "tl_rig": "age_drift"
+        },
+        "mesh": 1,
+        "translation": [
+          0.15000000596046448,
+          0.949999988079071,
+          -0.05000000074505806
+        ],
+        "rotation": null,
+        "scale": [
+          0.2449999898672104,
+          0.2449999898672104,
+          0.2449999898672104
+        ]
+      },
+      {
+        "name": "Drift_SAmerica",
+        "extras": {
+          "tl_note": "South America. The Atlantic is a wound that is still opening.",
+          "tl_rig": "age_drift"
+        },
+        "mesh": 2,
+        "translation": [
+          -0.44999998807907104,
+          0.8500000238418579,
+          0.15000000596046448
+        ],
+        "rotation": null,
+        "scale": [
+          0.2449999898672104,
+          0.2449999898672104,
+          0.2449999898672104
+        ]
+      },
+      {
+        "name": "Drift_India",
+        "extras": {
+          "tl_note": "India walked north. The Himalaya are the crumple.",
+          "tl_rig": "age_drift"
+        },
+        "mesh": 3,
+        "translation": [
+          0.550000011920929,
+          0.75,
+          -0.15000000596046448
+        ],
+        "rotation": null,
+        "scale": [
+          0.09799999743700027,
+          0.09799999743700027,
+          0.09799999743700027
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "crust"
+    ]
+  },
+  {
+    "slug": "hotspots",
+    "controls": {
+      "time": "none",
+      "toggles": [
+        {
+          "key": "hawaii",
+          "label": "Hawaii",
+          "defaultOn": true
+        },
+        {
+          "key": "yellowstone",
+          "label": "Yellowstone"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Hotspot_Plume",
+        "extras": {
+          "tl_note": "A fixed upwelling. The plate writes the age trail over it. Not a climbable pipe."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          -0.4000000059604645,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "Hotspot_Shield_0",
+        "extras": {
+          "tl_note": "Shield ages and shrinks away from the active island. Hawaii is this.",
+          "tl_rig": "hotspot_i"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.48101635184139013,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.874500036239624,
+          3.874500036239624,
+          3.874500036239624
+        ]
+      },
+      {
+        "name": "Hotspot_Shield_1",
+        "extras": {
+          "tl_note": "Shield ages and shrinks away from the active island. Hawaii is this.",
+          "tl_rig": "hotspot_i"
+        },
+        "mesh": 2,
+        "translation": [
+          -1.350000023841858,
+          0.4232943789102137,
+          -0.10000000149011612
+        ],
+        "rotation": null,
+        "scale": [
+          3.409559965133667,
+          3.409559965133667,
+          3.409559965133667
+        ]
+      },
+      {
+        "name": "Hotspot_Shield_2",
+        "extras": {
+          "tl_note": "Shield ages and shrinks away from the active island. Hawaii is this.",
+          "tl_rig": "hotspot_i"
+        },
+        "mesh": 3,
+        "translation": [
+          -2.700000047683716,
+          0.3655724357813597,
+          -0.20000000298023224
+        ],
+        "rotation": null,
+        "scale": [
+          2.94461989402771,
+          2.94461989402771,
+          2.94461989402771
+        ]
+      },
+      {
+        "name": "Hotspot_Shield_3",
+        "extras": {
+          "tl_note": "Shield ages and shrinks away from the active island. Hawaii is this.",
+          "tl_rig": "hotspot_i"
+        },
+        "mesh": 4,
+        "translation": [
+          -4.050000190734863,
+          0.30785046285018325,
+          -0.30000001192092896
+        ],
+        "rotation": null,
+        "scale": [
+          2.479680061340332,
+          2.479680061340332,
+          2.479680061340332
+        ]
+      },
+      {
+        "name": "Hotspot_Shield_4",
+        "extras": {
+          "tl_note": "Shield ages and shrinks away from the active island. Hawaii is this.",
+          "tl_rig": "hotspot_i"
+        },
+        "mesh": 5,
+        "translation": [
+          -5.400000095367432,
+          0.2501284899190068,
+          -0.4000000059604645
+        ],
+        "rotation": null,
+        "scale": [
+          2.014739990234375,
+          2.014739990234375,
+          2.014739990234375
+        ]
+      }
+    ],
+    "materials": [
+      "lava",
+      "basalt.001"
+    ]
+  },
+  {
+    "slug": "seafloor-spreading",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "Spread_Ridge",
+        "extras": {
+          "tl_note": "New crust at the axis. Age increases with distance."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.16846227832138538,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.700000047683716,
+          3.700000047683716,
+          3.700000047683716
+        ]
+      },
+      {
+        "name": "Spread_Axis",
+        "extras": {
+          "tl_note": "Ridge axis. Basalt rises here."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.3799999952316284,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.200000047683716,
+          2.200000047683716,
+          2.200000047683716
+        ]
+      },
+      {
+        "name": "Spread_Stripe",
+        "extras": {
+          "tl_note": "A magnetic stripe. Polarity flips are a mirror across the axis. Play spreads new bands.",
+          "tl_rig": "scale_t:x"
+        },
+        "mesh": 2,
+        "translation": [
+          1.100000023841858,
+          0.21999999787658453,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.0999999046325684,
+          2.0999999046325684,
+          2.0999999046325684
+        ]
+      }
+    ],
+    "materials": [
+      "basalt.001",
+      "lava",
+      "iron"
+    ]
+  },
+  {
+    "slug": "atmosphere-layers",
+    "controls": {
+      "time": "none",
+      "explode": true,
+      "extra": [
+        {
+          "key": "lapse",
+          "label": "Lapse rate",
+          "min": 4,
+          "max": 10,
+          "step": 0.1,
+          "unit": " °C/km",
+          "default": 6.5
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Atmo_Earth",
+        "extras": {
+          "tl_note": "The solid planet. The air is a film on this."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      },
+      {
+        "name": "Atmo_Troposphere",
+        "extras": {
+          "tl_note": "Troposphere. Weather lives here. T collapses it to a film.",
+          "tl_rig": "shell_true",
+          "tl_true": 0.9663461538461537,
+          "tl_exag": 8
+        },
+        "mesh": 1,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.0399999618530273,
+          1.0399999618530273,
+          1.0399999618530273
+        ]
+      },
+      {
+        "name": "Atmo_Stratosphere",
+        "extras": {
+          "tl_note": "Stratosphere. The anvil is the lid.",
+          "tl_rig": "shell_true",
+          "tl_true": 0.9107142857142857
+        },
+        "mesh": 2,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.1200000047683716,
+          1.1200000047683716,
+          1.1200000047683716
+        ]
+      },
+      {
+        "name": "Atmo_Mesosphere",
+        "extras": {
+          "tl_note": "Mesosphere.",
+          "tl_rig": "shell_true",
+          "tl_true": 0.8666666666666667
+        },
+        "mesh": 3,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "Atmo_Thermosphere",
+        "extras": {
+          "tl_note": "Thermosphere. Aurora lives high. Not weather.",
+          "tl_rig": "shell_true",
+          "tl_true": 0.8181818181818182
+        },
+        "mesh": 4,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.3200000524520874,
+          1.3200000524520874,
+          1.3200000524520874
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "cloud",
+      "ice",
+      "outer",
+      "gold"
+    ]
+  },
+  {
+    "slug": "energy-budget",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "albedo",
+          "label": "Albedo",
+          "min": 0.1,
+          "max": 0.9,
+          "step": 0.05,
+          "default": 0.3
+        }
+      ],
+      "toggles": [
+        {
+          "key": "greenhouse",
+          "label": "Greenhouse return",
+          "defaultOn": true
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Budget_Earth",
+        "extras": {
+          "tl_note": "Albedo skin. Ice, cloud, desert, forest — different returns."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.0499999523162842,
+          1.0499999523162842,
+          1.0499999523162842
+        ]
+      },
+      {
+        "name": "Budget_Shortwave",
+        "extras": {
+          "tl_note": "Shortwave in. Arrow width = flux."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.4000000059604645,
+          1.7999999523162842
+        ],
+        "rotation": null,
+        "scale": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ]
+      },
+      {
+        "name": "Budget_Albedo",
+        "extras": {
+          "tl_note": "Albedo. Ice returns more than forest."
+        },
+        "mesh": 2,
+        "translation": [
+          0.6000000238418579,
+          0.6000000238418579,
+          1.5
+        ],
+        "rotation": null,
+        "scale": [
+          0.48442110419273376,
+          0.48442110419273376,
+          0.48442110419273376
+        ]
+      },
+      {
+        "name": "Budget_Longwave",
+        "extras": {
+          "tl_note": "Longwave out."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.30000001192092896,
+          -1.7000000476837158
+        ],
+        "rotation": null,
+        "scale": [
+          0.6499999761581421,
+          0.6499999761581421,
+          0.6499999761581421
+        ]
+      },
+      {
+        "name": "Budget_Greenhouse",
+        "extras": {
+          "tl_note": "Greenhouse. The film that keeps the longwave honest."
+        },
+        "mesh": 4,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.2100000381469727,
+          1.2100000381469727,
+          1.2100000381469727
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "gold",
+      "cloud",
+      "lava"
+    ]
+  },
+  {
+    "slug": "thermal-circulation",
+    "controls": {
+      "time": "none",
+      "toggles": [
+        {
+          "key": "landsea",
+          "label": "Land–sea",
+          "defaultOn": true
+        },
+        {
+          "key": "urban",
+          "label": "Urban heat"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Thermal_Land",
+        "extras": {
+          "tl_note": "Land heats and cools fast. Day-sea breeze toward the land."
+        },
+        "mesh": 0,
+        "translation": [
+          -1.399999976158142,
+          0.20118046551942825,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.75,
+          2.75,
+          2.75
+        ]
+      },
+      {
+        "name": "Thermal_Sea",
+        "extras": {
+          "tl_note": "Sea. High heat capacity. Night-land breeze toward the water."
+        },
+        "mesh": 1,
+        "translation": [
+          1.7999999523162842,
+          0.0688312016427517,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.0999999046325684,
+          2.0999999046325684,
+          2.0999999046325684
+        ]
+      },
+      {
+        "name": "Thermal_Urban",
+        "extras": {
+          "tl_note": "Urban fabric. Extra heat, extra roughness."
+        },
+        "mesh": 2,
+        "translation": [
+          -1.5,
+          0.2799999974668026,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      }
+    ],
+    "materials": [
+      "sand.001",
+      "water",
+      "basalt.001"
+    ]
+  },
+  {
+    "slug": "wind",
+    "controls": {
+      "time": "none",
+      "toggles": [
+        {
+          "key": "coriolis",
+          "label": "Coriolis",
+          "defaultOn": true
+        },
+        {
+          "key": "friction",
+          "label": "Friction"
+        },
+        {
+          "key": "sh",
+          "label": "Southern hemisphere"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Wind_Pressure",
+        "extras": {
+          "tl_note": "A pressure surface. The PGF points toward the low."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.32483817636966705,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "Wind_Low",
+        "extras": {
+          "tl_note": "Low. PGF is inward. Coriolis then turns the wind."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.550000011920929,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.11999999731779099,
+          0.11999999731779099,
+          0.11999999731779099
+        ]
+      },
+      {
+        "name": "Wind_PGF",
+        "extras": {
+          "tl_note": "Pressure-gradient force. Always toward low, not along the isobar."
+        },
+        "mesh": 2,
+        "translation": [
+          0.800000011920929,
+          0.4000000059604645,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      }
+    ],
+    "materials": [
+      "cloud",
+      "lava",
+      "gold"
+    ]
+  },
+  {
+    "slug": "three-cell",
+    "controls": {
+      "time": "year",
+      "toggles": [
+        {
+          "key": "three",
+          "label": "Three cells",
+          "defaultOn": true
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Cell_Earth",
+        "extras": {
+          "tl_note": "Three cells because Earth rotates. A one-cell planet is a textbook that does not spin."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.100000023841858,
+          1.100000023841858,
+          1.100000023841858
+        ]
+      },
+      {
+        "name": "Cell_Hadley",
+        "extras": {
+          "tl_note": "Hadley. Rises at the ITCZ, sinks at 30°. The UK is not here."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.550000011920929,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.7799999713897705,
+          0.7799999713897705,
+          0.7799999713897705
+        ]
+      },
+      {
+        "name": "Cell_Ferrel",
+        "extras": {
+          "tl_note": "Ferrel. The midlatitude cell. Surface westerlies. The UK sits here."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.20000000298023224,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.0199999809265137,
+          1.0199999809265137,
+          1.0199999809265137
+        ]
+      },
+      {
+        "name": "Cell_Polar",
+        "extras": {
+          "tl_note": "Polar. Rises at 60°, sinks at the pole."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.949999988079071,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.5099999904632568,
+          0.5099999904632568,
+          0.5099999904632568
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "gold",
+      "iron",
+      "ice"
+    ]
+  },
+  {
+    "slug": "fronts",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "Front_Cold",
+        "extras": {
+          "tl_note": "Cold front: a dense 3D undercutting wedge, not a cloud sticker."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.4346874989569187,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.4000000953674316,
+          2.4000000953674316,
+          2.4000000953674316
+        ]
+      },
+      {
+        "name": "Front_Warm",
+        "extras": {
+          "tl_note": "Warm front: a gentle ramp. The cloud band is the slope of the wedge."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.25999999791383743,
+          -1.7000000476837158
+        ],
+        "rotation": null,
+        "scale": [
+          2.4000000953674316,
+          2.4000000953674316,
+          2.4000000953674316
+        ]
+      },
+      {
+        "name": "Front_Occlusion",
+        "extras": {
+          "tl_note": "Occlusion. The cold wedge has caught the warm ramp."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.40253289975225925,
+          1.600000023841858
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      }
+    ],
+    "materials": [
+      "ice",
+      "sand.001",
+      "cloud"
+    ]
+  },
+  {
+    "slug": "cyclone-anticyclone",
+    "controls": {
+      "time": "none",
+      "toggles": [
+        {
+          "key": "anti",
+          "label": "Anticyclone"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Cyc_Depression",
+        "extras": {
+          "tl_note": "A midlatitude depression. Frontal comma, not an eyewall. UK-honest."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.5800000429153442,
+          1.5800000429153442,
+          1.5800000429153442
+        ]
+      },
+      {
+        "name": "Cyc_Anticyclone",
+        "extras": {
+          "tl_note": "Anticyclone. Opposite spin, sinking air, quieter weather."
+        },
+        "mesh": 1,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.899999976158142,
+          1.899999976158142,
+          1.899999976158142
+        ]
+      },
+      {
+        "name": "Cyc_Earth",
+        "extras": {
+          "tl_note": "Hemisphere flip reverses the spin."
+        },
+        "mesh": 2,
+        "translation": [
+          -1.1920928955078125e-07,
+          -0.20000000298023224,
+          -1.043081283569336e-07
+        ],
+        "rotation": null,
+        "scale": [
+          0.3500003069639206,
+          0.3500003069639206,
+          0.3500003069639206
+        ]
+      }
+    ],
+    "materials": [
+      "cloud",
+      "gold",
+      "earth"
+    ]
+  },
+  {
+    "slug": "climate-types",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "biome",
+          "label": "Biome",
+          "min": 0,
+          "max": 4,
+          "step": 1,
+          "default": 2
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Climate_Earth",
+        "extras": {
+          "tl_note": "Köppen is vegetation and water, not a flag colour."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.149999976158142,
+          1.149999976158142,
+          1.149999976158142
+        ]
+      },
+      {
+        "name": "Climate_A",
+        "extras": {
+          "tl_note": "A tropical — no real winter."
+        },
+        "mesh": 1,
+        "translation": [
+          0.20000000298023224,
+          0.550000011920929,
+          -0.8999999761581421
+        ],
+        "rotation": null,
+        "scale": [
+          0.11999999731779099,
+          0.11999999731779099,
+          0.11999999731779099
+        ]
+      },
+      {
+        "name": "Climate_B",
+        "extras": {
+          "tl_note": "B dry — evaporation beats rain."
+        },
+        "mesh": 2,
+        "translation": [
+          0.699999988079071,
+          0.8500000238418579,
+          -0.30000001192092896
+        ],
+        "rotation": null,
+        "scale": [
+          0.11999999731779099,
+          0.11999999731779099,
+          0.11999999731779099
+        ]
+      },
+      {
+        "name": "Climate_C",
+        "extras": {
+          "tl_note": "C temperate — mild winter. The UK lives here."
+        },
+        "mesh": 3,
+        "translation": [
+          0.5,
+          0.699999988079071,
+          -0.699999988079071
+        ],
+        "rotation": null,
+        "scale": [
+          0.11999999731779099,
+          0.11999999731779099,
+          0.11999999731779099
+        ]
+      },
+      {
+        "name": "Climate_D",
+        "extras": {
+          "tl_note": "D continental — real winter."
+        },
+        "mesh": 4,
+        "translation": [
+          0.30000001192092896,
+          0.949999988079071,
+          -0.5
+        ],
+        "rotation": null,
+        "scale": [
+          0.11999999731779099,
+          0.11999999731779099,
+          0.11999999731779099
+        ]
+      },
+      {
+        "name": "Climate_E",
+        "extras": {
+          "tl_note": "E polar — no true summer."
+        },
+        "mesh": 5,
+        "translation": [
+          0.05000000074505806,
+          1.1200000047683716,
+          -0.15000000596046448
+        ],
+        "rotation": null,
+        "scale": [
+          0.11999999731779099,
+          0.11999999731779099,
+          0.11999999731779099
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "grass",
+      "sand.001",
+      "soilA",
+      "granite.001",
+      "ice"
+    ]
+  },
+  {
+    "slug": "drainage-basin",
+    "controls": {
+      "time": "none",
+      "toggles": [
+        {
+          "key": "overlay",
+          "label": "Basin overlay",
+          "defaultOn": true
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Basin_Divide",
+        "extras": {
+          "tl_note": "The watershed is a ridge. Water inside falls to this trunk."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.5861281603574753,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.5,
+          3.5,
+          3.5
+        ]
+      },
+      {
+        "name": "Basin_Channel",
+        "extras": {
+          "tl_note": "The trunk. A basin is a tree of channels inside a divide."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.3699999898672104,
+          -0.13999998569488525
+        ],
+        "rotation": null,
+        "scale": [
+          2.3481799364089966,
+          2.3481799364089966,
+          2.3481799364089966
+        ]
+      },
+      {
+        "name": "Basin_Tributary",
+        "extras": {
+          "tl_note": "A tributary. Dendritic on uniform rock."
+        },
+        "mesh": 2,
+        "translation": [
+          -0.7973906574770808,
+          0.26488901674747467,
+          -0.10121448338031769
+        ],
+        "rotation": null,
+        "scale": [
+          0.8145738067105412,
+          0.8145738067105412,
+          0.8145738067105412
+        ]
+      }
+    ],
+    "materials": [
+      "grass",
+      "water"
+    ]
+  },
+  {
+    "slug": "hydrograph",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "urban",
+          "label": "Urban cover",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "default": 0.2
+        },
+        {
+          "key": "rain",
+          "label": "Rain",
+          "min": 0.2,
+          "max": 1.6,
+          "step": 0.05,
+          "default": 1
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Hydro_Catchment",
+        "extras": {
+          "tl_note": "The catchment. Urbanisation steepens the rising limb."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.4157054051756859,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.25,
+          2.25,
+          2.25
+        ]
+      },
+      {
+        "name": "Hydro_Channel",
+        "extras": {
+          "tl_note": "Channel. Rain first. Peak later. Lag is the catchment’s delay."
+        },
+        "mesh": 1,
+        "translation": [
+          0.04969143867492676,
+          0.15998773649334908,
+          -0.05006419122219086
+        ],
+        "rotation": null,
+        "scale": [
+          1.5545852184295654,
+          1.5545852184295654,
+          1.5545852184295654
+        ]
+      },
+      {
+        "name": "Hydro_Bar_0",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 2,
+        "translation": [
+          -1.2000000476837158,
+          0.05537792854011059,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.09000000357627869,
+          0.09000000357627869,
+          0.09000000357627869
+        ]
+      },
+      {
+        "name": "Hydro_Bar_1",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 3,
+        "translation": [
+          -0.9200000166893005,
+          0.08736735209822655,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.09000000357627869,
+          0.09000000357627869,
+          0.09000000357627869
+        ]
+      },
+      {
+        "name": "Hydro_Bar_2",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 4,
+        "translation": [
+          -0.6399999856948853,
+          0.15362835675477982,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.15362835675477982,
+          0.15362835675477982,
+          0.15362835675477982
+        ]
+      },
+      {
+        "name": "Hydro_Bar_3",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 5,
+        "translation": [
+          -0.36000001430511475,
+          0.2522857189178467,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.2522857189178467,
+          0.2522857189178467,
+          0.2522857189178467
+        ]
+      },
+      {
+        "name": "Hydro_Bar_4",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 6,
+        "translation": [
+          -0.07999999821186066,
+          0.34887391328811646,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.34887391328811646,
+          0.34887391328811646,
+          0.34887391328811646
+        ]
+      },
+      {
+        "name": "Hydro_Bar_5",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 7,
+        "translation": [
+          0.20000000298023224,
+          0.38999998569488525,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.38999998569488525,
+          0.38999998569488525,
+          0.38999998569488525
+        ]
+      },
+      {
+        "name": "Hydro_Bar_6",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 8,
+        "translation": [
+          0.47999998927116394,
+          0.34887391328811646,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.34887391328811646,
+          0.34887391328811646,
+          0.34887391328811646
+        ]
+      },
+      {
+        "name": "Hydro_Bar_7",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 9,
+        "translation": [
+          0.7599999904632568,
+          0.2522857189178467,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.2522857189178467,
+          0.2522857189178467,
+          0.2522857189178467
+        ]
+      },
+      {
+        "name": "Hydro_Bar_8",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 10,
+        "translation": [
+          1.0399999618530273,
+          0.15362835675477982,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.15362835675477982,
+          0.15362835675477982,
+          0.15362835675477982
+        ]
+      },
+      {
+        "name": "Hydro_Bar_9",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 11,
+        "translation": [
+          1.3200000524520874,
+          0.08736735209822655,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.09000000357627869,
+          0.09000000357627869,
+          0.09000000357627869
+        ]
+      },
+      {
+        "name": "Hydro_Bar_10",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 12,
+        "translation": [
+          1.600000023841858,
+          0.05537792854011059,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.09000000357627869,
+          0.09000000357627869,
+          0.09000000357627869
+        ]
+      },
+      {
+        "name": "Hydro_Bar_11",
+        "extras": {
+          "tl_note": "Storm hydrograph bar. SI units. Rising limb, peak, falling limb."
+        },
+        "mesh": 13,
+        "translation": [
+          1.8799999952316284,
+          0.04388814978301525,
+          2.200000047683716
+        ],
+        "rotation": null,
+        "scale": [
+          0.09000000357627869,
+          0.09000000357627869,
+          0.09000000357627869
+        ]
+      }
+    ],
+    "materials": [
+      "grass",
+      "water"
+    ]
+  },
+  {
+    "slug": "river-hydrology",
+    "controls": {
+      "time": "year"
+    },
+    "parts": [
+      {
+        "name": "Hydro_Nival",
+        "extras": {
+          "tl_note": "Nival valley. Spring melt lifts the peak. Rain-fed rivers lack this spike."
+        },
+        "mesh": 0,
+        "translation": [
+          -2.200000047683716,
+          0.5480905473232269,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.799999952316284,
+          2.799999952316284,
+          2.799999952316284
+        ]
+      },
+      {
+        "name": "Hydro_Pluvial",
+        "extras": {
+          "tl_note": "Pluvial valley. The year is the regime. A storm hydrograph is hours, not months."
+        },
+        "mesh": 1,
+        "translation": [
+          2.200000047683716,
+          0.3760065585374832,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.799999952316284,
+          2.799999952316284,
+          2.799999952316284
+        ]
+      }
+    ],
+    "materials": [
+      "snow",
+      "grass"
+    ]
+  },
+  {
+    "slug": "ocean-currents",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "Current_Earth",
+        "extras": {
+          "tl_note": "Gyres as wide-shallow ribbons. Western boundary is narrow and fast."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.0499999523162842,
+          1.0499999523162842,
+          1.0499999523162842
+        ]
+      },
+      {
+        "name": "Current_GulfStream",
+        "extras": {
+          "tl_note": "Gulf Stream. Narrow, fast western boundary. Not a fat pipe."
+        },
+        "mesh": 1,
+        "translation": [
+          0.44999998807907104,
+          0.3499999940395355,
+          -0.3499999940395355
+        ],
+        "rotation": null,
+        "scale": [
+          0.8140000104904175,
+          0.8140000104904175,
+          0.8140000104904175
+        ]
+      },
+      {
+        "name": "Current_Canary",
+        "extras": {
+          "tl_note": "Canary. Broad, slow eastern boundary."
+        },
+        "mesh": 2,
+        "translation": [
+          0.20000000298023224,
+          0.15000000596046448,
+          -0.550000011920929
+        ],
+        "rotation": null,
+        "scale": [
+          0.809999942779541,
+          0.809999942779541,
+          0.809999942779541
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "lava",
+      "ice"
+    ]
+  },
+  {
+    "slug": "thermohaline",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "TH_Earth",
+        "extras": {
+          "tl_note": "The conveyor is schematic. Density, not a painted arrow."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      },
+      {
+        "name": "TH_Ice",
+        "extras": {
+          "tl_note": "High-latitude ice. Brine rejection and cooling help make the surface dense enough to sink."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.7010984867811203,
+          -0.8999999761581421
+        ],
+        "rotation": null,
+        "scale": [
+          0.42000001668930054,
+          0.42000001668930054,
+          0.42000001668930054
+        ]
+      },
+      {
+        "name": "TH_NADW",
+        "extras": {
+          "tl_note": "Cold salty NADW sinks in the North Atlantic as a descending water volume. Centuries, not a day."
+        },
+        "mesh": 2,
+        "translation": [
+          0.20000000298023224,
+          0.10000000149011612,
+          -0.550000011920929
+        ],
+        "rotation": null,
+        "scale": [
+          0.550000011920929,
+          0.550000011920929,
+          0.550000011920929
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "ice"
+    ]
+  },
+  {
+    "slug": "carbon-cycle",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "fossil",
+          "label": "Fossil-fuel tap",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "default": 0.2
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Carbon_Forest",
+        "extras": {
+          "tl_note": "A living carbon store."
+        },
+        "mesh": 0,
+        "translation": [
+          -2,
+          0.17816945910453796,
+          5.960464477539063e-08
+        ],
+        "rotation": null,
+        "scale": [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ]
+      },
+      {
+        "name": "Carbon_Soil",
+        "extras": {
+          "tl_note": "Soil carbon. Slow."
+        },
+        "mesh": 1,
+        "translation": [
+          -2,
+          -0.10000000894069672,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "Carbon_Ocean",
+        "extras": {
+          "tl_note": "Ocean store."
+        },
+        "mesh": 2,
+        "translation": [
+          1.7999998331069946,
+          0.06623747572302818,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.5999999046325684,
+          1.5999999046325684,
+          1.5999999046325684
+        ]
+      },
+      {
+        "name": "Carbon_Fossil",
+        "extras": {
+          "tl_note": "Coal/oil seam. Fossil fuel is an extra flux, not another water cycle."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.09999999403953552,
+          1.7999999523162842
+        ],
+        "rotation": null,
+        "scale": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ]
+      }
+    ],
+    "materials": [
+      "grass",
+      "soilA",
+      "water",
+      "basalt.001"
+    ]
+  },
+  {
+    "slug": "enso",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "enso",
+          "label": "ENSO",
+          "min": -1,
+          "max": 1,
+          "step": 0.05,
+          "default": 0
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "ENSO_Pacific",
+        "extras": {
+          "tl_note": "Equatorial Pacific. Rain follows the warm pool."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.025123797357082367,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "name": "ENSO_Walker",
+        "extras": {
+          "tl_note": "Walker cell. El Niño slides the warm pool east; La Niña piles it west.",
+          "tl_rig": "loc_t:x:1.6"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.800000011920929,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.75,
+          1.75,
+          1.75
+        ]
+      }
+    ],
+    "materials": [
+      "water",
+      "gold"
+    ]
+  },
+  {
+    "slug": "landform-types",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "Land_Basin",
+        "extras": {
+          "tl_note": "Basin: a bowl. Water and sediment collect."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.1890074796974659,
+          5.960464477539063e-08
+        ],
+        "rotation": null,
+        "scale": [
+          1.100000023841858,
+          1.100000023841858,
+          1.100000023841858
+        ]
+      },
+      {
+        "name": "Land_Hill",
+        "extras": {
+          "tl_note": "Hill: lower, rounded. Same process family, smaller relief."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.23181804083287716,
+          5.960464477539063e-08
+        ],
+        "rotation": null,
+        "scale": [
+          1.100000023841858,
+          1.100000023841858,
+          1.100000023841858
+        ]
+      },
+      {
+        "name": "Land_Mountain",
+        "extras": {
+          "tl_note": "Mountain: high relief, steep slopes."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.6697008088231087,
+          1.1920928955078125e-07
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "Land_Plain",
+        "extras": {
+          "tl_note": "Plain: low relief. Rivers write the texture."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.06700598448514938,
+          1.1920928955078125e-07
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "Land_Plateau",
+        "extras": {
+          "tl_note": "Plateau: high and flat. Cliffs at the edge, not a cone."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          0.532800018787384,
+          1.1920928955078125e-07
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Teaching vertical exaggeration. T collapses it.",
+          "tl_rig": "exag",
+          "tl_exag": 8
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "sand.001",
+      "grass",
+      "granite.001",
+      "sandstone.001"
+    ]
+  },
+  {
+    "slug": "river-erosion",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "River_Channel",
+        "extras": {
+          "tl_note": "Bedload and hydraulic action work the bed. Potholes live here."
+        },
+        "mesh": 0,
+        "translation": [
+          0.07984113693237305,
+          0.5000005327165127,
+          -3.423169255256653e-05
+        ],
+        "rotation": null,
+        "scale": [
+          3.087610960006714,
+          3.087610960006714,
+          3.087610960006714
+        ]
+      },
+      {
+        "name": "River_Knickpoint",
+        "extras": {
+          "tl_note": "Knickpoint. Play walks it upstream."
+        },
+        "mesh": 1,
+        "translation": [
+          -1.350000023841858,
+          0.41999998688697815,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ]
+      },
+      {
+        "name": "River_VValley",
+        "extras": {
+          "tl_note": "A V-valley. Vertical erosion dominates while the river is steep."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.5845513939857483,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.25,
+          3.25,
+          3.25
+        ]
+      },
+      {
+        "name": "River_Waterfall",
+        "extras": {
+          "tl_note": "Fall: a lip of harder rock. The plunge pool undercuts."
+        },
+        "mesh": 3,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          0.3499999940395355,
+          0.3499999940395355,
+          0.3499999940395355
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Teaching vertical exaggeration. T collapses it.",
+          "tl_rig": "exag",
+          "tl_exag": 12
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "water",
+      "granite.001"
+    ]
+  },
+  {
+    "slug": "river-deposition",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "River_CutBank",
+        "extras": {
+          "tl_note": "Cut bank. Outer bend."
+        },
+        "mesh": 0,
+        "translation": [
+          0.44999998807907104,
+          0.2200000062584877,
+          0.550000011920929
+        ],
+        "rotation": null,
+        "scale": [
+          0.3499999940395355,
+          0.3499999940395355,
+          0.3499999940395355
+        ]
+      },
+      {
+        "name": "River_Delta",
+        "extras": {
+          "tl_note": "Delta fan. Distributaries."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.04098687751684338,
+          5.960464477539063e-08
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "River_Floodplain",
+        "extras": {
+          "tl_note": "Floodplain: the river’s dump when it spills."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.11999999731779099,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.5,
+          3.5,
+          3.5
+        ]
+      },
+      {
+        "name": "River_Levee",
+        "extras": {
+          "tl_note": "Natural levée. Coarser load dumps first at the bank."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.1078142486512661,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.25,
+          2.25,
+          2.25
+        ]
+      },
+      {
+        "name": "River_PointBar",
+        "extras": {
+          "tl_note": "Point bar. Inner bend."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          0.03579126251861453,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Teaching vertical exaggeration. T collapses it.",
+          "tl_rig": "exag",
+          "tl_exag": 8
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "soilA",
+      "sand.001",
+      "grass"
+    ]
+  },
+  {
+    "slug": "river-capture",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "Capture_Beheaded",
+        "extras": {
+          "tl_note": "Beheaded misfit. Too small for its valley."
+        },
+        "mesh": 0,
+        "translation": [
+          1.374595358967781,
+          0.38000302016735077,
+          -0.2500188872218132
+        ],
+        "rotation": null,
+        "scale": [
+          1.0273771733045578,
+          1.0273771733045578,
+          1.0273771733045578
+        ]
+      },
+      {
+        "name": "Capture_Elbow",
+        "extras": {
+          "tl_note": "Elbow of capture. The turn is the scar of the steal."
+        },
+        "mesh": 1,
+        "translation": [
+          0.10000000149011612,
+          0.23999999463558197,
+          -0.550000011920929
+        ],
+        "rotation": null,
+        "scale": [
+          0.07999999821186066,
+          0.07999999821186066,
+          0.07999999821186066
+        ]
+      },
+      {
+        "name": "Capture_Land",
+        "extras": {
+          "tl_note": "Two catchments, one divide. The pirate is steeper."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.5676324665546417,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.5,
+          3.5,
+          3.5
+        ]
+      },
+      {
+        "name": "Capture_Pirate",
+        "extras": {
+          "tl_note": "The pirate stream. Steeper, lower outlet, it wins.",
+          "tl_rig": "show_if_param_gt:t:0.52"
+        },
+        "mesh": 3,
+        "translation": [
+          -0.9887957274913788,
+          0.16002903878688812,
+          -0.17565709352493286
+        ],
+        "rotation": null,
+        "scale": [
+          2.0301098227500916,
+          2.0301098227500916,
+          2.0301098227500916
+        ]
+      },
+      {
+        "name": "Capture_WindGap",
+        "extras": {
+          "tl_note": "Wind gap: a dry col the beheaded river used to cross."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          0.05000000074505806,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.3499999940395355,
+          0.3499999940395355,
+          0.3499999940395355
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Teaching vertical exaggeration. T collapses it.",
+          "tl_rig": "exag",
+          "tl_exag": 10
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "water",
+      "sand.001",
+      "grass"
+    ]
+  },
+  {
+    "slug": "coasts",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "stage",
+          "label": "Headland stage",
+          "min": 0,
+          "max": 3,
+          "step": 1,
+          "default": 1
+        }
+      ],
+      "toggles": [
+        {
+          "key": "constructive",
+          "label": "Constructive waves",
+          "defaultOn": true
+        },
+        {
+          "key": "drift",
+          "label": "Longshore particles",
+          "defaultOn": true
+        },
+        {
+          "key": "groyne",
+          "label": "Groyne",
+          "defaultOn": false
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Coast_Arch",
+        "extras": {
+          "tl_note": "Two caves meet. The roof is still the headland — same rock.",
+          "tl_rig": "show_stage:1"
+        },
+        "mesh": 0,
+        "translation": [
+          -1.3501048684120178,
+          0.6997023820877075,
+          0.29916393756866455
+        ],
+        "rotation": null,
+        "scale": [
+          0.7613301873207092,
+          0.7613301873207092,
+          0.7613301873207092
+        ]
+      },
+      {
+        "name": "Coast_Berm",
+        "extras": {
+          "tl_note": "Low steepness: swash stronger than backwash. Beach builds."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.08210874255746603,
+          1.4901161193847656e-08
+        ],
+        "rotation": null,
+        "scale": [
+          4.25,
+          4.25,
+          4.25
+        ]
+      },
+      {
+        "name": "Coast_Cave",
+        "extras": {
+          "tl_note": "Waves excavate a weakness. Same chalk as the arch, stack and stump.",
+          "tl_rig": "show_stage:0"
+        },
+        "mesh": 2,
+        "translation": [
+          -4.200471639633179,
+          0.7190811634063721,
+          0.35064515471458435
+        ],
+        "rotation": null,
+        "scale": [
+          0.7856488227844238,
+          0.7856488227844238,
+          0.7856488227844238
+        ]
+      },
+      {
+        "name": "Coast_Cliff",
+        "extras": {
+          "tl_note": "One chalk, one budget. Waves cut the cliff; longshore walks the sand. Holderness is till, not this chalk."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.9446278139948845,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          6,
+          6,
+          6
+        ]
+      },
+      {
+        "name": "Coast_GroynePost_0",
+        "extras": {},
+        "mesh": 4,
+        "translation": [
+          1.2000000476837158,
+          0.20000000298023224,
+          0.4000000059604645
+        ],
+        "rotation": null,
+        "scale": [
+          0.20999999344348907,
+          0.20999999344348907,
+          0.20999999344348907
+        ]
+      },
+      {
+        "name": "Coast_GroynePost_1",
+        "extras": {},
+        "mesh": 4,
+        "translation": [
+          1.2000000476837158,
+          0.20000000298023224,
+          0.25999999046325684
+        ],
+        "rotation": null,
+        "scale": [
+          0.20999999344348907,
+          0.20999999344348907,
+          0.20999999344348907
+        ]
+      },
+      {
+        "name": "Coast_GroynePost_2",
+        "extras": {},
+        "mesh": 4,
+        "translation": [
+          1.2000000476837158,
+          0.20000000298023224,
+          0.11999999731779099
+        ],
+        "rotation": null,
+        "scale": [
+          0.20999999344348907,
+          0.20999999344348907,
+          0.20999999344348907
+        ]
+      },
+      {
+        "name": "Coast_GroynePost_3",
+        "extras": {},
+        "mesh": 4,
+        "translation": [
+          1.2000000476837158,
+          0.20000000298023224,
+          -0.019999999552965164
+        ],
+        "rotation": null,
+        "scale": [
+          0.20999999344348907,
+          0.20999999344348907,
+          0.20999999344348907
+        ]
+      },
+      {
+        "name": "Coast_GroynePost_4",
+        "extras": {},
+        "mesh": 4,
+        "translation": [
+          1.2000000476837158,
+          0.20000000298023224,
+          -0.1599999964237213
+        ],
+        "rotation": null,
+        "scale": [
+          0.20999999344348907,
+          0.20999999344348907,
+          0.20999999344348907
+        ]
+      },
+      {
+        "name": "Coast_GroynePost_5",
+        "extras": {},
+        "mesh": 4,
+        "translation": [
+          1.2000000476837158,
+          0.20000000298023224,
+          -0.30000001192092896
+        ],
+        "rotation": null,
+        "scale": [
+          0.20999999344348907,
+          0.20999999344348907,
+          0.20999999344348907
+        ]
+      },
+      {
+        "name": "Coast_GroynePost_6",
+        "extras": {},
+        "mesh": 4,
+        "translation": [
+          1.2000000476837158,
+          0.20000000298023224,
+          -0.4399999976158142
+        ],
+        "rotation": null,
+        "scale": [
+          0.20999999344348907,
+          0.20999999344348907,
+          0.20999999344348907
+        ]
+      },
+      {
+        "name": "Coast_GroynePost_7",
+        "extras": {},
+        "mesh": 4,
+        "translation": [
+          1.2000000476837158,
+          0.20000000298023224,
+          -0.5799999833106995
+        ],
+        "rotation": null,
+        "scale": [
+          0.20999999344348907,
+          0.20999999344348907,
+          0.20999999344348907
+        ]
+      },
+      {
+        "name": "Coast_Groyne",
+        "extras": {
+          "tl_note": "Traps sand up-drift and can starve down-drift. Mappleton is this bargain."
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      },
+      {
+        "name": "Coast_Spit",
+        "extras": {
+          "tl_note": "Longshore drift with a free end. Grows where the coast turns. Spurn Head is this.",
+          "tl_rig": "scale_t:x"
+        },
+        "mesh": 5,
+        "translation": [
+          0,
+          0.07343568280339241,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.399999976158142,
+          1.399999976158142,
+          1.399999976158142
+        ]
+      },
+      {
+        "name": "Coast_Stack",
+        "extras": {
+          "tl_note": "The roof collapsed. A pillar of the same chalk stands off the cliff.",
+          "tl_rig": "show_stage:2"
+        },
+        "mesh": 6,
+        "translation": [
+          1.3981754034757614,
+          0.7795379161834717,
+          0.4520689845085144
+        ],
+        "rotation": null,
+        "scale": [
+          0.7827101349830627,
+          0.7827101349830627,
+          0.7827101349830627
+        ]
+      },
+      {
+        "name": "Coast_Stump",
+        "extras": {
+          "tl_note": "The stack has fallen. A stump is the last of the headland.",
+          "tl_rig": "show_stage:3"
+        },
+        "mesh": 7,
+        "translation": [
+          4.150130122900009,
+          0.20078599452972412,
+          0.39959341287612915
+        ],
+        "rotation": null,
+        "scale": [
+          0.5536904633045197,
+          0.5536904633045197,
+          0.5536904633045197
+        ]
+      },
+      {
+        "name": "Coast_Water",
+        "extras": {
+          "tl_note": "Water has volume and a free surface. Constructive berm vs destructive cut."
+        },
+        "mesh": 8,
+        "translation": [
+          0,
+          0.1570211425423622,
+          1.7000000476837158
+        ],
+        "rotation": null,
+        "scale": [
+          6,
+          6,
+          6
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Vertical exaggeration ×6. T is true beach slope.",
+          "tl_rig": "exag",
+          "tl_exag": 6
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "chalk.001",
+      "sand.001",
+      "wood",
+      "water"
+    ]
+  },
+  {
+    "slug": "glaciers",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "Glacier_Arete",
+        "extras": {
+          "tl_note": "Two cirques back-to-back leave a knife ridge."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.24941279366612434,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.949999988079071,
+          0.949999988079071,
+          0.949999988079071
+        ]
+      },
+      {
+        "name": "Glacier_Cirque",
+        "extras": {
+          "tl_note": "The armchair the ice sat in. A steep-walled bowl, often with a tarn."
+        },
+        "mesh": 1,
+        "translation": [
+          -1.850000023841858,
+          0.9844396375119686,
+          1.5000000596046448
+        ],
+        "rotation": null,
+        "scale": [
+          1.1050000190734863,
+          1.1050000190734863,
+          1.1050000190734863
+        ]
+      },
+      {
+        "name": "Glacier_Drumlin",
+        "extras": {
+          "tl_note": "A streamlined hill of till. The blunt end faces up-ice."
+        },
+        "mesh": 2,
+        "translation": [
+          1.7000000476837158,
+          0.2199999988079071,
+          -1.600000023841858
+        ],
+        "rotation": null,
+        "scale": [
+          0.2800000011920929,
+          0.2800000011920929,
+          0.2800000011920929
+        ]
+      },
+      {
+        "name": "Glacier_Horn",
+        "extras": {
+          "tl_note": "Three cirques back-to-back leave a pyramidal peak."
+        },
+        "mesh": 3,
+        "translation": [
+          -0.050105590373277664,
+          2.1524189859628677,
+          2.0985892862081528
+        ],
+        "rotation": null,
+        "scale": [
+          0.4838353544473648,
+          0.4838353544473648,
+          0.4838353544473648
+        ]
+      },
+      {
+        "name": "Glacier_Ice",
+        "extras": {
+          "tl_note": "Ice has thickness, crevasses and a dirty medial moraine. Advance scrapes; retreat dumps the load.",
+          "tl_rig": "scale_t:y"
+        },
+        "mesh": 4,
+        "translation": [
+          -0.10000000149011612,
+          0.554073378443718,
+          -0.20000000298023224
+        ],
+        "rotation": null,
+        "scale": [
+          2.200000047683716,
+          2.200000047683716,
+          2.200000047683716
+        ]
+      },
+      {
+        "name": "Glacier_Moraine",
+        "extras": {
+          "tl_note": "Advance scrapes. Retreat dumps the load as a ridge of till."
+        },
+        "mesh": 5,
+        "translation": [
+          0,
+          0.15983571112155914,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.100000023841858,
+          1.100000023841858,
+          1.100000023841858
+        ]
+      },
+      {
+        "name": "Glacier_UTrough",
+        "extras": {
+          "tl_note": "Ice cut a wide floor and steep walls. Yosemite is this, not a river canyon."
+        },
+        "mesh": 6,
+        "translation": [
+          0,
+          1.1740025524049997,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          4.199999809265137,
+          4.199999809265137,
+          4.199999809265137
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Teaching vertical exaggeration. T collapses it.",
+          "tl_rig": "exag",
+          "tl_exag": 6
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "granite.001",
+      "limestone.001",
+      "till",
+      "snow",
+      "ice"
+    ]
+  },
+  {
+    "slug": "karst",
+    "controls": {
+      "time": "none",
+      "toggles": [
+        {
+          "key": "cutaway",
+          "label": "Cave cutaway"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Karst_Doline",
+        "extras": {
+          "tl_note": "A doline: solution widening a joint until the roof cannot hold."
+        },
+        "mesh": 0,
+        "translation": [
+          0.20000000298023224,
+          -0.18435975210741162,
+          0.15000006556510925
+        ],
+        "rotation": null,
+        "scale": [
+          1.2350000143051147,
+          1.2350000143051147,
+          1.2350000143051147
+        ]
+      },
+      {
+        "name": "Karst_Gryke",
+        "extras": {
+          "tl_note": "A gryke: the enlarged joint. A clint is the block between grykes."
+        },
+        "mesh": 1,
+        "translation": [
+          0.8999999761581421,
+          -0.05000000074505806,
+          -0.4000000059604645
+        ],
+        "rotation": null,
+        "scale": [
+          1.100000023841858,
+          1.100000023841858,
+          1.100000023841858
+        ]
+      },
+      {
+        "name": "Karst_Pavement",
+        "extras": {
+          "tl_note": "Limestone pavement: clints split by grykes. Carbonation along joints, not a granite slab."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.08542954362928867,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.200000047683716,
+          2.200000047683716,
+          2.200000047683716
+        ]
+      },
+      {
+        "name": "Karst_Stalactite",
+        "extras": {
+          "tl_note": "Stalactite. Water films down a joint and leaves calcite."
+        },
+        "mesh": 3,
+        "translation": [
+          0.149066049605608,
+          0.05074195936322212,
+          0.0989973247051239
+        ],
+        "rotation": null,
+        "scale": [
+          0.3528570532798767,
+          0.3528570532798767,
+          0.3528570532798767
+        ]
+      },
+      {
+        "name": "Karst_Stalagmite",
+        "extras": {
+          "tl_note": "Stalagmite. The drip hits the floor. Same water, opposite direction."
+        },
+        "mesh": 4,
+        "translation": [
+          0.17979276552796364,
+          -0.5504792928695679,
+          0.07942217588424683
+        ],
+        "rotation": null,
+        "scale": [
+          0.21202491223812103,
+          0.21202491223812103,
+          0.21202491223812103
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Teaching vertical exaggeration. T collapses it.",
+          "tl_rig": "exag",
+          "tl_exag": 6
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "limestone.001"
+    ]
+  },
+  {
+    "slug": "folds-faults",
+    "controls": {
+      "time": "none",
+      "explode": true
+    },
+    "parts": [
+      {
+        "name": "Fold_Anticline",
+        "extras": {
+          "tl_note": "Anticline. Oldest beds in the core."
+        },
+        "mesh": 0,
+        "translation": [
+          -0.007658839225769043,
+          0.004187062382698059,
+          7.450580596923828e-06
+        ],
+        "rotation": null,
+        "scale": [
+          2.4252513647079468,
+          2.4252513647079468,
+          2.4252513647079468
+        ]
+      },
+      {
+        "name": "Fold_Syncline",
+        "extras": {
+          "tl_note": "Syncline. Youngest beds in the core."
+        },
+        "mesh": 1,
+        "translation": [
+          -0.0019968748092651367,
+          3.146398186683655,
+          2.1219253540039062e-05
+        ],
+        "rotation": null,
+        "scale": [
+          2.4291495084762573,
+          2.4291495084762573,
+          2.4291495084762573
+        ]
+      },
+      {
+        "name": "Fold_HangingWall",
+        "extras": {
+          "tl_note": "Hanging wall. Explode to see down / up / sideways slip.",
+          "tl_rig": "slip_hang"
+        },
+        "mesh": 2,
+        "translation": [
+          -1.7999999523162842,
+          0.6000000238418579,
+          2.4000000953674316
+        ],
+        "rotation": null,
+        "scale": [
+          0.8999999761581421,
+          0.8999999761581421,
+          0.8999999761581421
+        ]
+      },
+      {
+        "name": "Fold_Footwall",
+        "extras": {
+          "tl_note": "Footwall."
+        },
+        "mesh": 3,
+        "translation": [
+          -0.20000000298023224,
+          0.6000000238418579,
+          2.4000000953674316
+        ],
+        "rotation": null,
+        "scale": [
+          0.8999999761581421,
+          0.8999999761581421,
+          0.8999999761581421
+        ]
+      }
+    ],
+    "materials": [
+      "sandstone.001",
+      "limestone.001"
+    ]
+  },
+  {
+    "slug": "aeolian",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "Aeolian_Barchan",
+        "extras": {
+          "tl_note": "A barchan’s horns point downwind. Steep lee, gentle windward.",
+          "tl_rig": "loc_t:y:1.4"
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.21260106074623764,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.840000033378601,
+          1.840000033378601,
+          1.840000033378601
+        ]
+      },
+      {
+        "name": "Aeolian_Yardang",
+        "extras": {
+          "tl_note": "Yardang: wind-carved ridge, streamlined."
+        },
+        "mesh": 1,
+        "translation": [
+          -2.201118476688862,
+          0.19807176291942596,
+          -0.0005505979061126709
+        ],
+        "rotation": null,
+        "scale": [
+          0.9071966707706451,
+          0.9071966707706451,
+          0.9071966707706451
+        ]
+      },
+      {
+        "name": "Aeolian_Floor",
+        "extras": {
+          "tl_note": "Sand supply plus a unimodal wind writes the dune field."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.008556319633498788,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          4,
+          4,
+          4
+        ]
+      }
+    ],
+    "materials": [
+      "sand.001",
+      "sandstone.001"
+    ]
+  },
+  {
+    "slug": "rock-cycle",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "temp",
+          "label": "Temperature",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "default": 0.3
+        },
+        {
+          "key": "pressure",
+          "label": "Pressure",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "default": 0.3
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Rock_Granite",
+        "extras": {
+          "tl_note": "Igneous granite. Slow cooling underground. Weathering feeds the sedimentary path."
+        },
+        "mesh": 0,
+        "translation": [
+          -2.0999999046325684,
+          0.6999999582767487,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.6999999582767487,
+          0.6999999582767487,
+          0.6999999582767487
+        ]
+      },
+      {
+        "name": "Rock_Sandstone",
+        "extras": {
+          "tl_note": "Sedimentary beds. Burial and cement, not a melt."
+        },
+        "mesh": 1,
+        "translation": [
+          0.20000000298023224,
+          0.5048437640070915,
+          2.9802322387695312e-08
+        ],
+        "rotation": null,
+        "scale": [
+          2.4055488109588623,
+          2.4055488109588623,
+          2.4055488109588623
+        ]
+      },
+      {
+        "name": "Rock_Schist",
+        "extras": {
+          "tl_note": "Metamorphic foliation. Heat and directed pressure align minerals."
+        },
+        "mesh": 2,
+        "translation": [
+          2.299999952316284,
+          0.5000000298023224,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      },
+      {
+        "name": "Rock_Magma",
+        "extras": {
+          "tl_note": "Melt. Cool it slowly and you get granite; erupt it and you get lava."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.3499999940395355,
+          1.600000023841858
+        ],
+        "rotation": null,
+        "scale": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104
+        ]
+      }
+    ],
+    "materials": [
+      "granite.001",
+      "sandstone.001",
+      "schist.001",
+      "lava"
+    ]
+  },
+  {
+    "slug": "soil-profile",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "profile",
+          "label": "Profile",
+          "min": 0,
+          "max": 2,
+          "step": 1,
+          "default": 0
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Hillside",
+        "extras": {
+          "tl_note": "A soil pit cut into a slope. The face is the profile; grass sits on the uncut top."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          1.8385069370269775,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.200000047683716,
+          3.200000047683716,
+          3.200000047683716
+        ]
+      },
+      {
+        "name": "Horizon_O",
+        "extras": {
+          "tl_note": "Organic litter. Thin on grassland, thicker in woodland."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          1.566229522228241,
+          -0.07999999821186066
+        ],
+        "rotation": null,
+        "scale": [
+          1.4249999523162842,
+          1.4249999523162842,
+          1.4249999523162842
+        ]
+      },
+      {
+        "name": "Horizon_A",
+        "extras": {
+          "tl_note": "Mixed mineral-organic topsoil."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          1.338360607624054,
+          -0.07999999821186066
+        ],
+        "rotation": null,
+        "scale": [
+          1.4249999523162842,
+          1.4249999523162842,
+          1.4249999523162842
+        ]
+      },
+      {
+        "name": "Horizon_E",
+        "extras": {
+          "tl_note": "Eluviated: pale because clay and iron have washed down. Can be missing.",
+          "tl_rig": "profile_hide_e"
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          1.132459044456482,
+          -0.07999999821186066
+        ],
+        "rotation": null,
+        "scale": [
+          1.4249999523162842,
+          1.4249999523162842,
+          1.4249999523162842
+        ]
+      },
+      {
+        "name": "Horizon_B",
+        "extras": {
+          "tl_note": "Illuviated: clay and iron accumulate."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          0.7304918169975281,
+          -0.07999999821186066
+        ],
+        "rotation": null,
+        "scale": [
+          1.4249999523162842,
+          1.4249999523162842,
+          1.4249999523162842
+        ]
+      },
+      {
+        "name": "Horizon_C",
+        "extras": {
+          "tl_note": "Weathered parent. Not yet soil. Stones sit here."
+        },
+        "mesh": 5,
+        "translation": [
+          0,
+          0.2777049094438553,
+          -0.07999999821186066
+        ],
+        "rotation": null,
+        "scale": [
+          1.4249999523162842,
+          1.4249999523162842,
+          1.4249999523162842
+        ]
+      },
+      {
+        "name": "Horizon_R",
+        "extras": {
+          "tl_note": "Bedrock. The R in O–A–E–B–C–R."
+        },
+        "mesh": 6,
+        "translation": [
+          0,
+          -0.4985245633870363,
+          -0.07999999821186066
+        ],
+        "rotation": null,
+        "scale": [
+          1.4249999523162842,
+          1.4249999523162842,
+          1.4249999523162842
+        ]
+      }
+    ],
+    "materials": [
+      "grass",
+      "soilO",
+      "soilA",
+      "soilE",
+      "soilB",
+      "soilC",
+      "soilR"
+    ]
+  },
+  {
+    "slug": "soil-texture",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "sand",
+          "label": "Sand %",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 40
+        },
+        {
+          "key": "clay",
+          "label": "Clay %",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 20
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Texture_Ground",
+        "extras": {
+          "tl_note": "USDA texture triangle as a face you can put a point on. Sand, silt, clay — not a colour."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.03844388481229544,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.700000047683716,
+          2.700000047683716,
+          2.700000047683716
+        ]
+      },
+      {
+        "name": "Texture_Prism",
+        "extras": {
+          "tl_note": "The texture classes live inside this triangle. Sand % and clay % sliders; silt is the remainder."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.07999999821186066,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.350000023841858,
+          1.350000023841858,
+          1.350000023841858
+        ]
+      },
+      {
+        "name": "Texture_Sand",
+        "extras": {
+          "tl_note": "Sand corner. Coarse, little surface, drains."
+        },
+        "mesh": 2,
+        "translation": [
+          -0.949999988079071,
+          0.1599999964237213,
+          0.550000011920929
+        ],
+        "rotation": null,
+        "scale": [
+          0.14000000059604645,
+          0.14000000059604645,
+          0.14000000059604645
+        ]
+      },
+      {
+        "name": "Texture_Silt",
+        "extras": {
+          "tl_note": "Silt corner. Smooth, holds some water."
+        },
+        "mesh": 3,
+        "translation": [
+          0.949999988079071,
+          0.1599999964237213,
+          0.550000011920929
+        ],
+        "rotation": null,
+        "scale": [
+          0.14000000059604645,
+          0.14000000059604645,
+          0.14000000059604645
+        ]
+      },
+      {
+        "name": "Texture_Clay",
+        "extras": {
+          "tl_note": "Clay corner. Tiny particles, holds water and nutrients, can lock."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          0.1599999964237213,
+          -1.0499999523162842
+        ],
+        "rotation": null,
+        "scale": [
+          0.14000000059604645,
+          0.14000000059604645,
+          0.14000000059604645
+        ]
+      },
+      {
+        "name": "Texture_Marker",
+        "extras": {
+          "tl_note": "The class sits here. Sand % and clay % sliders; silt is the remainder.",
+          "tl_rig": "texture_marker"
+        },
+        "mesh": 5,
+        "translation": [
+          0.10000000149011612,
+          0.20000000298023224,
+          -0.10000000149011612
+        ],
+        "rotation": null,
+        "scale": [
+          0.07999999821186066,
+          0.07999999821186066,
+          0.07999999821186066
+        ]
+      }
+    ],
+    "materials": [
+      "sand.001",
+      "soilB",
+      "soilC",
+      "oxisol",
+      "gold"
+    ]
+  },
+  {
+    "slug": "weathering",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "Weathering_Tor",
+        "extras": {
+          "tl_note": "Jointed granite. Freeze–thaw pries the joints. Weathering is breakdown in place.",
+          "tl_rig": "scale_t:z"
+        },
+        "mesh": 0,
+        "translation": [
+          -0.0004272758960723877,
+          0.8996829688549042,
+          -0.0009706616401672363
+        ],
+        "rotation": null,
+        "scale": [
+          0.9129479229450226,
+          0.9129479229450226,
+          0.9129479229450226
+        ]
+      },
+      {
+        "name": "Weathering_Pavement",
+        "extras": {
+          "tl_note": "Carbonation along joints. A pavement, not a granite slab.",
+          "tl_rig": "scale_t:x"
+        },
+        "mesh": 1,
+        "translation": [
+          2.4000000953674316,
+          0.10702326521277428,
+          5.960464477539063e-08
+        ],
+        "rotation": null,
+        "scale": [
+          1.2999999523162842,
+          1.2999999523162842,
+          1.2999999523162842
+        ]
+      }
+    ],
+    "materials": [
+      "granite.001",
+      "limestone.001"
+    ]
+  },
+  {
+    "slug": "soil-erosion",
+    "controls": {
+      "time": "none",
+      "toggles": [
+        {
+          "key": "veg",
+          "label": "Vegetation",
+          "defaultOn": true
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Erosion_Cover",
+        "extras": {
+          "tl_note": "Vegetation intercepts rain and binds the A horizon.",
+          "tl_rig": "show_if_param_gt:veg:0.4"
+        },
+        "mesh": 0,
+        "translation": [
+          -1.399999976158142,
+          0.550000011920929,
+          -0.800000011920929
+        ],
+        "rotation": null,
+        "scale": [
+          0.05000000074505806,
+          0.05000000074505806,
+          0.05000000074505806
+        ]
+      },
+      {
+        "name": "Erosion_Gully",
+        "extras": {
+          "tl_note": "A gully: too deep to plough out. Erosion removes soil. Weathering only prepares it."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          -0.13822210766375065,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.600000023841858,
+          1.600000023841858,
+          1.600000023841858
+        ]
+      },
+      {
+        "name": "Erosion_Slope",
+        "extras": {
+          "tl_note": "One hillslope. Rain cuts rills; they join a gully. Cover is the brake."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.4346874952316284,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Teaching vertical exaggeration. T collapses it.",
+          "tl_rig": "exag",
+          "tl_exag": 8
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "grass",
+      "soilB",
+      "soilA"
+    ]
+  },
+  {
+    "slug": "earthquakes",
+    "controls": {
+      "extra": [
+        {
+          "key": "depth",
+          "label": "Focus depth",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "default": 0.45
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Quake_HangingWall",
+        "extras": {
+          "tl_note": "The block above the fault. Bedding is offset. Play to see the slip grow.",
+          "tl_rig": "slip_hang"
+        },
+        "mesh": 0,
+        "translation": [
+          -0.5499861538410187,
+          0.8993561863899231,
+          0.0008922219276428223
+        ],
+        "rotation": null,
+        "scale": [
+          1.03082937002182,
+          1.03082937002182,
+          1.03082937002182
+        ]
+      },
+      {
+        "name": "Quake_Footwall",
+        "extras": {
+          "tl_note": "The block below the fault. It does not hang — it is the floor."
+        },
+        "mesh": 1,
+        "translation": [
+          0.699999988079071,
+          0.8999999165534973,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.024999976158142,
+          1.024999976158142,
+          1.024999976158142
+        ]
+      },
+      {
+        "name": "Quake_Fault",
+        "extras": {
+          "tl_note": "A break in the rock. Slip starts at the focus on this plane. San Andreas is a transform slide, not a volcanic arc."
+        },
+        "mesh": 2,
+        "translation": [
+          0.05405085161328316,
+          0.9566070735454559,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.9026466608047485,
+          0.9026466608047485,
+          0.9026466608047485
+        ]
+      },
+      {
+        "name": "Quake_Focus",
+        "extras": {
+          "tl_note": "The point on the fault where slip starts. Depth is a slider.",
+          "tl_rig": "param_z:depth:1.52:0.58"
+        },
+        "mesh": 3,
+        "translation": [
+          0.019999999552965164,
+          0.699999988079071,
+          -0.03999999910593033
+        ],
+        "rotation": null,
+        "scale": [
+          0.07000000029802322,
+          0.07000000029802322,
+          0.07000000029802322
+        ]
+      },
+      {
+        "name": "Quake_Epicentre",
+        "extras": {
+          "tl_note": "The point on the ground above the focus. Not a volcano."
+        },
+        "mesh": 4,
+        "translation": [
+          0.05000000074505806,
+          1.7799999713897705,
+          -0.05000000074505806
+        ],
+        "rotation": null,
+        "scale": [
+          0.05999999865889549,
+          0.05999999865889549,
+          0.05999999865889549
+        ]
+      }
+    ],
+    "materials": [
+      "sandstone.001",
+      "limestone.001",
+      "basalt.001",
+      "lava",
+      "gold"
+    ]
+  },
+  {
+    "slug": "volcanoes",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "visc",
+          "label": "Viscosity",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "default": 0.25
+        }
+      ],
+      "slice": true
+    },
+    "parts": [
+      {
+        "name": "Volcano_Rift",
+        "extras": {
+          "tl_note": "Rift: the cone barely stands. Magma finds a crack. Iceland, not Fuji.",
+          "tl_rig": "visc_band:0:0.22"
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.31016026623547077,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          4.4156999588012695,
+          4.4156999588012695,
+          4.4156999588012695
+        ]
+      },
+      {
+        "name": "Volcano_Shield",
+        "extras": {
+          "tl_note": "Shield: runny basalt travels far. Mauna Loa is a warrior’s shield, not a party hat.",
+          "tl_rig": "visc_band:0.22:0.5"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.4951963876374066,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.8252999782562256,
+          3.8252999782562256,
+          3.8252999782562256
+        ]
+      },
+      {
+        "name": "Volcano_Strato",
+        "extras": {
+          "tl_note": "Stratovolcano: sticky magma stacks lava and ash. Steep because it cannot flow.",
+          "tl_rig": "visc_band:0.5:1"
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.8252202132716775,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.693700075149536,
+          2.693700075149536,
+          2.693700075149536
+        ]
+      },
+      {
+        "name": "Volcano_Conduit",
+        "extras": {
+          "tl_note": "The pipe. Slice (X) to see magma rise. Not a hollow mountain."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          1.2000000476837158,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "Volcano_Lava",
+        "extras": {
+          "tl_note": "Runny basalt travels far and thin. Sticky magma makes short thick lobes.",
+          "tl_rig": "visc_band:0:0.55"
+        },
+        "mesh": 4,
+        "translation": [
+          0.800000011920929,
+          0.0761320220772177,
+          -1.399999976158142
+        ],
+        "rotation": null,
+        "scale": [
+          2.75,
+          2.75,
+          2.75
+        ]
+      },
+      {
+        "name": "Volcano_Ash",
+        "extras": {
+          "tl_note": "Gas cannot escape sticky magma, so a column. Runny basalt has none.",
+          "tl_rig": "visc_band:0.55:1"
+        },
+        "mesh": 5,
+        "translation": [
+          -0.0030576586723327637,
+          3.1027027368545532,
+          -0.0016151666641235352
+        ],
+        "rotation": null,
+        "scale": [
+          1.1186570525169373,
+          1.1186570525169373,
+          1.1186570525169373
+        ]
+      },
+      {
+        "name": "Volcano_Apron",
+        "extras": {
+          "tl_note": "The surrounding lava field. Shield basalt travels; strato ash falls closer."
+        },
+        "mesh": 6,
+        "translation": [
+          0,
+          0.02486536419019103,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          6,
+          6,
+          6
+        ]
+      }
+    ],
+    "materials": [
+      "basalt.001",
+      "ash",
+      "lava"
+    ]
+  },
+  {
+    "slug": "tsunami",
+    "controls": {
+      "time": "none"
+    },
+    "parts": [
+      {
+        "name": "Tsunami_Wave",
+        "extras": {
+          "tl_note": "A tsunami is a long wave. Deep-ocean amplitude is small; it stands up at the coast.",
+          "tl_rig": "scale_t:z"
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.17443469911813736,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "name": "Tsunami_Coast",
+        "extras": {
+          "tl_note": "The coast where the long wave shoals. Not a hurricane."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.39452068507671356,
+          -1.9999999403953552
+        ],
+        "rotation": null,
+        "scale": [
+          2.25,
+          2.25,
+          2.25
+        ]
+      }
+    ],
+    "materials": [
+      "water",
+      "sand.001"
+    ]
+  },
+  {
+    "slug": "tropical-cyclone",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "intensity",
+          "label": "Intensity",
+          "min": 0.3,
+          "max": 1,
+          "step": 0.05,
+          "default": 0.7
+        }
+      ],
+      "slice": true
+    },
+    "parts": [
+      {
+        "name": "Cyclone_Sea",
+        "extras": {
+          "tl_note": "Warm sea. The engine is latent heat, not a UK winter front."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          -0.01885223016142845,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "name": "Cyclone_Eye",
+        "extras": {
+          "tl_note": "The eye. Calm, warm, dry-ish. Not the whole storm."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.8999999761581421,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.44999998807907104
+        ]
+      },
+      {
+        "name": "Cyclone_Eyewall",
+        "extras": {
+          "tl_note": "Eyewall. The strongest winds. Warm-core."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          1.1000000834465027,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.8500000238418579,
+          0.8500000238418579,
+          0.8500000238418579
+        ]
+      },
+      {
+        "name": "Cyclone_Rainband",
+        "extras": {
+          "tl_note": "Rainband. Spiral inflow.",
+          "tl_rig": "spin"
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.699999988079071,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.4200000762939453,
+          2.4200000762939453,
+          2.4200000762939453
+        ]
+      }
+    ],
+    "materials": [
+      "water",
+      "cloud"
+    ]
+  },
+  {
+    "slug": "graticule",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "lat",
+          "label": "Latitude",
+          "min": -80,
+          "max": 80,
+          "step": 0.5,
+          "unit": "°",
+          "default": 51.5
+        },
+        {
+          "key": "lon",
+          "label": "Longitude",
+          "min": -180,
+          "max": 180,
+          "step": 0.5,
+          "unit": "°",
+          "default": -0.1
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Grat_Earth",
+        "extras": {
+          "tl_note": "A sphere. Latitude and longitude are angles, not a grid on a table."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.149999976158142,
+          1.149999976158142,
+          1.149999976158142
+        ]
+      },
+      {
+        "name": "Grat_Equator",
+        "extras": {
+          "tl_note": "Equator. 0°."
+        },
+        "mesh": 1,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.1720000505447388,
+          1.1720000505447388,
+          1.1720000505447388
+        ]
+      },
+      {
+        "name": "Grat_Tropic",
+        "extras": {
+          "tl_note": "Tropic of Cancer. 23.44° N."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          0.46143466234207153,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.0742734670639038,
+          1.0742734670639038,
+          1.0742734670639038
+        ]
+      },
+      {
+        "name": "Grat_Greenwich",
+        "extras": {
+          "tl_note": "Greenwich meridian. 0° longitude. A convention, not a force."
+        },
+        "mesh": 3,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.149999976158142,
+          1.149999976158142,
+          1.149999976158142
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "gold",
+      "lava",
+      "iron"
+    ]
+  },
+  {
+    "slug": "map-projections",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "morph",
+          "label": "Flatten",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "default": 0
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Proj_Globe",
+        "extras": {
+          "tl_note": "On a globe Africa is huge. Mercator is the disguise."
+        },
+        "mesh": 0,
+        "translation": null,
+        "rotation": null,
+        "scale": [
+          1.0499999523162842,
+          1.0499999523162842,
+          1.0499999523162842
+        ]
+      },
+      {
+        "name": "Proj_Mercator",
+        "extras": {
+          "tl_note": "Mercator. Greenland swells. Area is the lie."
+        },
+        "mesh": 1,
+        "translation": [
+          3.200000047683716,
+          0.019999999552965164,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.7999999523162842,
+          1.7999999523162842,
+          1.7999999523162842
+        ]
+      },
+      {
+        "name": "Proj_EqualArea",
+        "extras": {
+          "tl_note": "Equal-area. Shapes bend; areas hold."
+        },
+        "mesh": 2,
+        "translation": [
+          3.200000047683716,
+          -1.5800000242888927,
+          5.960464477539063e-08
+        ],
+        "rotation": null,
+        "scale": [
+          1.7999999523162842,
+          1.7999999523162842,
+          1.7999999523162842
+        ]
+      }
+    ],
+    "materials": [
+      "earth",
+      "crust",
+      "grass"
+    ]
+  },
+  {
+    "slug": "grid-references",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "easting",
+          "label": "Easting",
+          "min": 0,
+          "max": 999,
+          "step": 1,
+          "default": 246
+        },
+        {
+          "key": "northing",
+          "label": "Northing",
+          "min": 0,
+          "max": 999,
+          "step": 1,
+          "default": 513
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Grid_Terrain",
+        "extras": {
+          "tl_note": "A 1 km tile. Easting first, then northing. 100 m square."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.3748435750603676,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "name": "Grid_Km_0",
+        "extras": {
+          "tl_note": "1 km easting line."
+        },
+        "mesh": 1,
+        "translation": [
+          -2,
+          0.019999999552965164,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "name": "Grid_Km_1",
+        "extras": {
+          "tl_note": "1 km easting line."
+        },
+        "mesh": 2,
+        "translation": [
+          -1,
+          0.019999999552965164,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "name": "Grid_Km_2",
+        "extras": {
+          "tl_note": "1 km easting line."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.019999999552965164,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "name": "Grid_Km_3",
+        "extras": {
+          "tl_note": "1 km easting line."
+        },
+        "mesh": 4,
+        "translation": [
+          1,
+          0.019999999552965164,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "name": "Grid_Km_4",
+        "extras": {
+          "tl_note": "1 km easting line."
+        },
+        "mesh": 5,
+        "translation": [
+          2,
+          0.019999999552965164,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "name": "Grid_100m",
+        "extras": {
+          "tl_note": "The 100 m square. Easting then northing."
+        },
+        "mesh": 6,
+        "translation": [
+          -0.6000000238418579,
+          0.18000000761821866,
+          -0.4000000059604645
+        ],
+        "rotation": null,
+        "scale": [
+          0.20000000298023224,
+          0.20000000298023224,
+          0.20000000298023224
+        ]
+      }
+    ],
+    "materials": [
+      "grass",
+      "iron",
+      "gold"
+    ]
+  },
+  {
+    "slug": "mass-movement",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "rain",
+          "label": "Pore pressure",
+          "min": 0,
+          "max": 1,
+          "step": 0.02,
+          "default": 0.15
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Mass_Slope",
+        "extras": {
+          "tl_note": "A hillslope waiting. Pore pressure is the switch."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.7500000186264515,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.299999952316284,
+          3.299999952316284,
+          3.299999952316284
+        ]
+      },
+      {
+        "name": "Mass_Block",
+        "extras": {
+          "tl_note": "The sliding mass. Rain (pore pressure) rotates it on the shear.",
+          "tl_rig": "slip_hang"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          1.149999961256981,
+          -0.20000000298023224
+        ],
+        "rotation": null,
+        "scale": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929
+        ]
+      },
+      {
+        "name": "Mass_Crown",
+        "extras": {
+          "tl_note": "Crown crack. The first scar."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          1.5300000458955765,
+          -1.100000023841858
+        ],
+        "rotation": null,
+        "scale": [
+          0.8999999761581421,
+          0.8999999761581421,
+          0.8999999761581421
+        ]
+      },
+      {
+        "name": "Mass_Toe",
+        "extras": {
+          "tl_note": "Hummocky toe. The debris that arrived."
+        },
+        "mesh": 3,
+        "translation": [
+          0,
+          0.3441641959361732,
+          1.2000000476837158
+        ],
+        "rotation": null,
+        "scale": null
+      },
+      {
+        "name": "Mass_Shear",
+        "extras": {
+          "tl_note": "Shear surface. Rotational slump, not a beach spit."
+        },
+        "mesh": 4,
+        "translation": [
+          0,
+          0.8500000238418579,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.8999999761581421,
+          0.8999999761581421,
+          0.8999999761581421
+        ]
+      }
+    ],
+    "materials": [
+      "soilA",
+      "limestone.001",
+      "soilB",
+      "till",
+      "basalt.001"
+    ]
+  },
+  {
+    "slug": "rain-shadow",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "ridge",
+          "label": "Ridge height",
+          "min": 0.3,
+          "max": 1,
+          "step": 0.02,
+          "default": 0.7
+        },
+        {
+          "key": "wind",
+          "label": "Moist wind",
+          "min": 0.2,
+          "max": 1,
+          "step": 0.05,
+          "default": 0.7
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Shadow_Lee",
+        "extras": {
+          "tl_note": "The lee is the rain shadow. Penrith / Death Valley. Air already dumped its water."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.08736871555447578,
+          1.1920928955078125e-07
+        ],
+        "rotation": null,
+        "scale": [
+          1.5999999046325684,
+          1.5999999046325684,
+          1.5999999046325684
+        ]
+      },
+      {
+        "name": "Shadow_Ridge",
+        "extras": {
+          "tl_note": "One ridge, one wind. Air cools as it rises."
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.7288047755137086,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.5,
+          2.5,
+          2.5
+        ]
+      },
+      {
+        "name": "Shadow_WindwardCloud",
+        "extras": {
+          "tl_note": "Windward cloud and rain. Keswick / Sierra."
+        },
+        "mesh": 2,
+        "translation": [
+          -1.100000023841858,
+          1.2999999523162842,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.1200000047683716,
+          1.1200000047683716,
+          1.1200000047683716
+        ]
+      },
+      {
+        "name": "Exag",
+        "extras": {
+          "tl_note": "Teaching exaggeration. T collapses it.",
+          "tl_rig": "exag",
+          "tl_exag": 6
+        },
+        "mesh": null,
+        "translation": null,
+        "rotation": null,
+        "scale": null
+      }
+    ],
+    "materials": [
+      "sand.001",
+      "granite.001",
+      "cloud"
+    ]
+  },
+  {
+    "slug": "groundwater",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "table",
+          "label": "Water table",
+          "min": 0.15,
+          "max": 0.85,
+          "step": 0.02,
+          "default": 0.55
+        },
+        {
+          "key": "pump",
+          "label": "Pump",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "default": 0
+        }
+      ],
+      "toggles": [
+        {
+          "key": "confined",
+          "label": "Confined lid"
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "GW_Aquifer",
+        "extras": {
+          "tl_note": "Limestone/chalk aquifer. Water lives in fractures plus matrix, not an underground lake."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.19999997317790985,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.7999999523162842,
+          1.7999999523162842,
+          1.7999999523162842
+        ]
+      },
+      {
+        "name": "GW_WaterTable",
+        "extras": {
+          "tl_note": "The water table is a free surface inside the rock.",
+          "tl_rig": "param_z:table:0.05:0.55"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.25,
+          5.960464477539063e-08
+        ],
+        "rotation": null,
+        "scale": [
+          1.7000000476837158,
+          1.7000000476837158,
+          1.7000000476837158
+        ]
+      },
+      {
+        "name": "GW_Spring",
+        "extras": {
+          "tl_note": "A resurgence. The water was in rock."
+        },
+        "mesh": 2,
+        "translation": [
+          1.7000000476837158,
+          0.15000000596046448,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.10000000894069672,
+          0.10000000894069672,
+          0.10000000894069672
+        ]
+      }
+    ],
+    "materials": [
+      "limestone.001",
+      "water"
+    ]
+  },
+  {
+    "slug": "isostasy",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "ice",
+          "label": "Ice load",
+          "min": 0,
+          "max": 1,
+          "step": 0.02,
+          "default": 0.55
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Isostasy_Ice",
+        "extras": {
+          "tl_note": "Ice load. Unload it and the crust rises.",
+          "tl_rig": "param_z:ice:0.4:1.1"
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.9030979871749878,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.6169999837875366,
+          1.6169999837875366,
+          1.6169999837875366
+        ]
+      },
+      {
+        "name": "Isostasy_Crust",
+        "extras": {
+          "tl_note": "The crustal raft. It sinks under ice and rebounds when the ice goes.",
+          "tl_rig": "exag",
+          "tl_exag": 4
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.14999999850988388,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.7999999523162842,
+          1.7999999523162842,
+          1.7999999523162842
+        ]
+      },
+      {
+        "name": "Isostasy_Mantle",
+        "extras": {
+          "tl_note": "Mantle is solid rock that creeps. Not a magma ocean."
+        },
+        "mesh": 2,
+        "translation": [
+          0,
+          -0.7000000476837158,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.0999999046325684,
+          2.0999999046325684,
+          2.0999999046325684
+        ]
+      }
+    ],
+    "materials": [
+      "ice",
+      "crust",
+      "mantle"
+    ]
+  },
+  {
+    "slug": "wilson-cycle",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "stage",
+          "label": "Stage",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 2
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Wilson_Basin",
+        "extras": {
+          "tl_note": "Opening ocean. New crust, a widening basin.",
+          "tl_rig": "stage_band:0:2"
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.052339546382427216,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "Wilson_Orogen",
+        "extras": {
+          "tl_note": "Collision orogen. The basin has closed. Himalaya-class crumple.",
+          "tl_rig": "stage_band:3:6"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.7376414528116584,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3,
+          3,
+          3
+        ]
+      }
+    ],
+    "materials": [
+      "basalt.001",
+      "granite.001"
+    ]
+  },
+  {
+    "slug": "soil-catena",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "slope",
+          "label": "Slope",
+          "min": 0.2,
+          "max": 1,
+          "step": 0.05,
+          "default": 0.55
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Catena_Slope",
+        "extras": {
+          "tl_note": "One parent, one climate, four pits. Thickness and wetness change downslope."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.8645312413573265,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.5999999046325684,
+          3.5999999046325684,
+          3.5999999046325684
+        ]
+      },
+      {
+        "name": "Catena_Crest",
+        "extras": {
+          "tl_note": "Thin, well drained. More R, less A."
+        },
+        "mesh": 1,
+        "translation": [
+          -2.799999952316284,
+          1.350000023841858,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.3499999940395355,
+          0.3499999940395355,
+          0.3499999940395355
+        ]
+      },
+      {
+        "name": "Catena_Shoulder",
+        "extras": {
+          "tl_note": "Shedding. Colluvium starts."
+        },
+        "mesh": 2,
+        "translation": [
+          -1,
+          0.949999988079071,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.3499999940395355,
+          0.3499999940395355,
+          0.3499999940395355
+        ]
+      },
+      {
+        "name": "Catena_Backslope",
+        "extras": {
+          "tl_note": "Transport. Moderate A and B."
+        },
+        "mesh": 3,
+        "translation": [
+          0.800000011920929,
+          0.550000011920929,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.3499999940395355,
+          0.3499999940395355,
+          0.3499999940395355
+        ]
+      },
+      {
+        "name": "Catena_Toe",
+        "extras": {
+          "tl_note": "Receiving. Thick, gleyed, wet."
+        },
+        "mesh": 4,
+        "translation": [
+          2.5999999046325684,
+          0.2199999988079071,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          0.3499999940395355,
+          0.3499999940395355,
+          0.3499999940395355
+        ]
+      }
+    ],
+    "materials": [
+      "grass",
+      "soilA"
+    ]
+  },
+  {
+    "slug": "periglacial",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "cycles",
+          "label": "Freeze–thaw",
+          "min": 0,
+          "max": 1,
+          "step": 0.02,
+          "default": 0.45
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Periglacial_Patterned",
+        "extras": {
+          "tl_note": "Patterned ground. Freeze–thaw without a glacier."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.05999999912455678,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          2.5,
+          2.5,
+          2.5
+        ]
+      },
+      {
+        "name": "Periglacial_IceWedge",
+        "extras": {
+          "tl_note": "Ice wedge. Ground ice, not a valley glacier.",
+          "tl_rig": "scale_t:z"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          -0.10000000149011612,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          1.2000000476837158,
+          1.2000000476837158,
+          1.2000000476837158
+        ]
+      },
+      {
+        "name": "Periglacial_Pingo",
+        "extras": {
+          "tl_note": "A pingo: a hill of injected ice. Permafrost country."
+        },
+        "mesh": 2,
+        "translation": [
+          1.600000023841858,
+          0.20000000298023224,
+          -1.2000000476837158
+        ],
+        "rotation": null,
+        "scale": [
+          0.3499999940395355,
+          0.3499999940395355,
+          0.3499999940395355
+        ]
+      }
+    ],
+    "materials": [
+      "till",
+      "ice"
+    ]
+  },
+  {
+    "slug": "storm-surge",
+    "controls": {
+      "time": "none",
+      "extra": [
+        {
+          "key": "wind",
+          "label": "Onshore wind",
+          "min": 0,
+          "max": 1,
+          "step": 0.02,
+          "default": 0.4
+        }
+      ]
+    },
+    "parts": [
+      {
+        "name": "Surge_Coast",
+        "extras": {
+          "tl_note": "A low coast. Surge is a pile of water, not a tsunami."
+        },
+        "mesh": 0,
+        "translation": [
+          0,
+          0.2667604200541973,
+          0
+        ],
+        "rotation": null,
+        "scale": [
+          3.5,
+          3.5,
+          3.5
+        ]
+      },
+      {
+        "name": "Surge_Water",
+        "extras": {
+          "tl_note": "Onshore wind piles water. The 1953 North Sea and Katrina numbers live in the Why panel.",
+          "tl_rig": "param_z:wind:0.0:0.45"
+        },
+        "mesh": 1,
+        "translation": [
+          0,
+          0.08124534413218498,
+          0.4000000059604645
+        ],
+        "rotation": null,
+        "scale": [
+          3.5,
+          3.5,
+          3.5
+        ]
+      }
+    ],
+    "materials": [
+      "sand.001",
+      "water"
+    ]
+  }
+]

@@ -1,4 +1,4 @@
-/** Basemaps: OpenFreeMap vector first, OSM raster if vector is silent, Carto, then Natural Earth. */
+/** Keyless basemaps: OpenFreeMap vector, OSM raster, then bundled Natural Earth. */
 
 export const FIORD = "https://tiles.openfreemap.org/styles/fiord";
 export const LIBERTY = "https://tiles.openfreemap.org/styles/liberty";
@@ -33,23 +33,10 @@ function rasterStyle(
 export const OSM_RASTER_STYLE = rasterStyle(
   "osm",
   [
-    "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
   ],
   "© OpenStreetMap contributors",
   19,
-);
-
-export const CARTO_VOYAGER_STYLE = rasterStyle(
-  "carto",
-  [
-    "https://a.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
-    "https://b.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
-    "https://c.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png",
-  ],
-  "© OpenStreetMap contributors · CARTO",
-  20,
 );
 
 export const OSM_RELIEF_STYLE = rasterStyle(
@@ -107,16 +94,29 @@ export const NATURAL_EARTH_STYLE = {
   ],
 };
 
-export type MapBasemap = "openfreemap" | "osm" | "carto" | "natural-earth" | "relief" | "bathymetry";
+export type MapBasemap = "openfreemap" | "osm" | "natural-earth" | "relief" | "bathymetry";
 
-type MapLike = {
-  on: (ev: string, fn: (e?: { error?: { status?: number; message?: string }; sourceDataType?: string }) => void) => void;
-  off?: (ev: string, fn: (e?: unknown) => void) => void;
-  setStyle: (s: unknown) => unknown;
-  loaded: () => boolean;
-  isStyleLoaded?: () => boolean;
-  resize?: () => void;
+type MapEvent = {
+  error?: { status?: number; message?: string };
+  sourceId?: string;
+  sourceDataType?: string;
+  isSourceLoaded?: boolean;
+  tile?: { state?: string };
 };
+type MapLike = {
+  on: (ev: string, fn: (e?: MapEvent) => void) => void;
+  off: (ev: string, fn: (e?: MapEvent) => void) => void;
+  setStyle: (s: unknown) => unknown;
+  getStyle: () => { sources?: Record<string, { type?: string }> } | undefined;
+};
+
+export type MapPhase = "loading" | "ready" | "offline" | "error";
+export function basemapStyle(basemap: MapBasemap) {
+  return {
+    openfreemap: FIORD, osm: OSM_RASTER_STYLE,
+    relief: OSM_RELIEF_STYLE, bathymetry: ESRI_OCEAN_STYLE, "natural-earth": NATURAL_EARTH_STYLE,
+  }[basemap];
+}
 
 export function preferredRaster(relief?: boolean) {
   return relief ? OSM_RELIEF_STYLE : OSM_RASTER_STYLE;
@@ -125,88 +125,81 @@ export function preferredRaster(relief?: boolean) {
 export function attachStyleFallback(
   map: MapLike,
   opts: {
-    relief?: boolean;
     start?: MapBasemap;
     onBasemap?: (b: MapBasemap) => void;
+    onPhase?: (phase: MapPhase) => void;
+    timeoutMs?: number;
   } = {},
-): () => void {
-  let usedOsm = false;
-  let usedCarto = false;
-  let usedNe = false;
-  let sawTile = false;
-  const onBasemap = opts.onBasemap;
-  const start = opts.start ?? "openfreemap";
-
-  const toNe = () => {
-    if (usedNe) return;
-    usedNe = true;
-    try {
-      map.setStyle(NATURAL_EARTH_STYLE);
-      onBasemap?.("natural-earth");
-    } catch {
-      /* tearing down */
-    }
+): (() => void) & { select: (b: MapBasemap) => void } {
+  let current = opts.start ?? "openfreemap";
+  let chain: MapBasemap[] = [];
+  let sourceIds = new Set<string>();
+  let disposed = false;
+  let healthy = false;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  let pending: ReturnType<typeof setTimeout> | undefined;
+  const clear = () => { clearTimeout(timer); clearTimeout(pending); pending = undefined; };
+  const identifySources = () => {
+    const sources = Object.entries(map.getStyle()?.sources ?? {});
+    // Ignore teaching overlays and the optional low-zoom relief underlay.
+    const vectors = sources.filter(([, s]) => s.type === "vector");
+    sourceIds = new Set((vectors.length ? vectors : sources.filter(([id, s]) =>
+      s.type === "raster" || (current === "natural-earth" && id === "land"),
+    )).map(([id]) => id));
   };
-
-  const toCarto = () => {
-    if (usedCarto || usedNe) return;
-    usedCarto = true;
-    try {
-      map.setStyle(CARTO_VOYAGER_STYLE);
-      onBasemap?.("carto");
-    } catch {
-      toNe();
-    }
+  const advance = () => {
+    if (disposed) return;
+    const next = chain.shift();
+    if (next) start(next, true);
+    else { clear(); opts.onPhase?.("error"); }
   };
-
-  const toOsm = () => {
-    if (usedOsm || usedNe) return;
-    usedOsm = true;
+  const start = (basemap: MapBasemap, replace: boolean) => {
+    clear(); healthy = false; sourceIds.clear(); current = basemap;
+    opts.onBasemap?.(current); opts.onPhase?.("loading");
+    timer = setTimeout(advance, opts.timeoutMs ?? 8000);
     try {
-      map.setStyle(OSM_RASTER_STYLE);
-      onBasemap?.("osm");
-    } catch {
-      toCarto();
-    }
+      if (replace) map.setStyle(basemapStyle(current));
+      else identifySources();
+    } catch { advance(); }
   };
-
-  const onErr = (e?: { error?: { status?: number; message?: string } }) => {
-    const msg = (e?.error?.message ?? "").toLowerCase();
+  const onData = (e?: MapEvent) => {
+    if (disposed || !e?.sourceId || !sourceIds.has(e.sourceId)) return;
+    // MapLibre uses content/idle, never sourceDataType="tile". Metadata alone
+    // and a failed tile's idle event must not make a blank map look healthy.
+    const loaded = current === "natural-earth"
+      ? e.tile?.state === "loaded" || (e.sourceDataType === "content" && e.isSourceLoaded)
+      : e.tile?.state === "loaded";
+    if (!loaded) return;
+    healthy = true; clear();
+    opts.onPhase?.(current === "natural-earth" ? "offline" : "ready");
+  };
+  const onError = (e?: MapEvent) => {
+    if (disposed || pending || current === "natural-earth") return;
+    if (e?.sourceId && !sourceIds.has(e.sourceId)) return;
+    const message = e?.error?.message ?? "";
+    if (/glyph|font|sprite|image.*could not/i.test(message)) return;
     const status = e?.error?.status ?? 0;
-    const fatal =
-      status >= 400 ||
-      /failed to fetch|load.*error|networkerror|webgl|source|403|429/i.test(msg);
-    if (!fatal) return;
-    if (start === "openfreemap" && !usedOsm) toOsm();
-    else if (!usedCarto) toCarto();
-    else toNe();
+    if (status < 400 && !/failed to fetch|network|load.*error|403|429/i.test(message)) return;
+    // A single edge tile failure should not discard a working map. Auth and
+    // rate-limit failures do require fallback, even after earlier success.
+    if (healthy && status !== 401 && status !== 403 && status !== 429) return;
+    pending = setTimeout(advance, 250);
   };
-
-  map.on("error", onErr);
-  // Only a *tile* counts. Style JSON sourcedata used to mark the map "ready"
-  // while OpenFreeMap vector tiles stayed silent — a blank or green canvas.
-  map.on("sourcedata", (e?: { sourceDataType?: string }) => {
-    if (e?.sourceDataType === "tile") sawTile = true;
-  });
-  map.on("load", () => {
-    if (start === "openfreemap" && sawTile && !usedOsm) onBasemap?.("openfreemap");
-    else if (usedOsm && !usedCarto) onBasemap?.("osm");
-  });
-
-  const t1 = window.setTimeout(() => {
-    if (start === "openfreemap" && !sawTile) toOsm();
-    else if (!map.loaded()) toCarto();
-  }, 3000);
-  const t2 = window.setTimeout(() => {
-    if (!sawTile && !usedCarto) toCarto();
-  }, 7000);
-  const t3 = window.setTimeout(() => {
-    if (!map.loaded() && !sawTile) toNe();
-  }, 11000);
-
-  return () => {
-    window.clearTimeout(t1);
-    window.clearTimeout(t2);
-    window.clearTimeout(t3);
+  const select = (basemap: MapBasemap, replace = true) => {
+    // CARTO now serves watermarked tiles with HTTP 200 unless a key is supplied.
+    // It must not be part of the keyless chain, even if network checks pass.
+    chain = ([basemap, "osm", "natural-earth"] as MapBasemap[])
+      .filter((b, i, all) => all.indexOf(b) === i).slice(1);
+    start(basemap, replace);
   };
+  map.on("style.load", identifySources);
+  map.on("sourcedata", onData);
+  map.on("error", onError);
+  select(current, false);
+  return Object.assign(() => {
+    disposed = true; clear();
+    map.off("style.load", identifySources);
+    map.off("sourcedata", onData);
+    map.off("error", onError);
+  }, { select });
 }

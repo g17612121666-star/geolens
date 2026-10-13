@@ -1,0 +1,35 @@
+[
+  {
+    "id": "clay-mineral-1",
+    "title": "File:Kaolinite.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaolinite.png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Kaolinite.png/1280px-Kaolinite.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Lesuperfétatoire",
+    "description": "Kaolinite",
+    "categories": "CC-Zero|Kaolinite|Self-published work"
+  },
+  {
+    "id": "clay-mineral-2",
+    "title": "File:Kaolinite Ixtassou MNHN Géologie.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaolinite_Ixtassou_MNHN_G%C3%A9ologie.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Kaolinite_Ixtassou_MNHN_G%C3%A9ologie.jpg/1280px-Kaolinite_Ixtassou_MNHN_G%C3%A9ologie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "author": "Marie-Lan Taÿ Pamart",
+    "description": "Kaolinite from Ixtassou, Pyrénées-Atlantique, France. Gallery of Mineralogy and Geology of the French National Museum of Natural History in Paris.",
+    "categories": "Kaolinite|Self-published work|Collections of galerie de Minéralogie et de Géologie"
+  },
+  {
+    "id": "clay-mineral-3",
+    "title": "File:Disused kaolinite quarry near Măcin.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Disused_kaolinite_quarry_near_M%C4%83cin.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Disused_kaolinite_quarry_near_M%C4%83cin.jpg/1280px-Disused_kaolinite_quarry_near_M%C4%83cin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "SqueekRO",
+    "description": "Disused kaolinite quarry near Măcin",
+    "categories": "Kaolinite|Quarries|Self-published work|Uploaded with Mobile/Android|Files with coordinates missing SDC location of creation|Photographs taken on 2023-08-13"
+  }
+]

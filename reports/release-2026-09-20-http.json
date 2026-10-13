@@ -1,0 +1,98 @@
+[
+  {
+    "Path": "/",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/",
+    "Bytes": 100058
+  },
+  {
+    "Path": "/atlas",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/atlas",
+    "Bytes": 46463
+  },
+  {
+    "Path": "/explore",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/explore",
+    "Bytes": 88630
+  },
+  {
+    "Path": "/glossary",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/glossary",
+    "Bytes": 54016
+  },
+  {
+    "Path": "/lab/rivers",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/lab/rivers",
+    "Bytes": 35836
+  },
+  {
+    "Path": "/robots.txt",
+    "Status": 200,
+    "ContentType": "text/plain; charset=utf-8",
+    "Robots": "",
+    "Canonical": "",
+    "Bytes": 237
+  },
+  {
+    "Path": "/sitemap.xml",
+    "Status": 200,
+    "ContentType": "application/xml",
+    "Robots": "",
+    "Canonical": "",
+    "Bytes": 14570
+  },
+  {
+    "Path": "/teachers",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/teachers",
+    "Bytes": 88925
+  },
+  {
+    "Path": "/teachers/rivers",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/teachers/rivers",
+    "Bytes": 24661
+  },
+  {
+    "Path": "/tools/earth-motion",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/tools/earth-motion",
+    "Bytes": 40020
+  },
+  {
+    "Path": "/tools/live-weather",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/tools/live-weather",
+    "Bytes": 18150
+  },
+  {
+    "Path": "/tools/map",
+    "Status": 200,
+    "ContentType": "text/html; charset=utf-8",
+    "Robots": "",
+    "Canonical": "https://terralens-kohl.vercel.app/tools/map",
+    "Bytes": 24002
+  }
+]

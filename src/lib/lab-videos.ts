@@ -1,131 +1,61 @@
-/** One in-site English video per lab. YouTube nocookie iframe, autoplay off. */
-
+/** Topic-specific videos checked against the publishers' descriptions in September 2026.
+ * An absent entry is deliberate: a loosely related film should not fill an empty slot.
+ * Review evidence and removed mappings are recorded in reports/geolens-media-review.md.
+ */
 export type LabVideo = {
   youtubeId: string;
   title: string;
   source: string;
-  license: string;
-  minutes: number;
+  sourceUrl: string;
 };
-
-const CC = "Crash Course / Complexly on YouTube. Standard YouTube licence. Educational embed, autoplay off.";
-const KHAN = "Khan Academy on YouTube. CC BY-NC-SA. Educational embed, autoplay off.";
-const NASA = "NASA / NASA Goddard on YouTube. Public domain US government work. Educational embed, autoplay off.";
-const GEO = "Crash Course Geology / Complexly on YouTube. Standard YouTube licence. Educational embed, autoplay off.";
-const TED = "TED-Ed on YouTube. Standard YouTube licence. Educational embed, autoplay off.";
-
-function cc(id: string, title: string, minutes: number): LabVideo {
-  return { youtubeId: id, title, source: "Crash Course Geography", license: CC, minutes };
-}
-function geo(id: string, title: string, minutes: number): LabVideo {
-  return { youtubeId: id, title, source: "Crash Course Geology", license: GEO, minutes };
-}
-function khan(id: string, title: string, minutes: number): LabVideo {
-  return { youtubeId: id, title, source: "Khan Academy", license: KHAN, minutes };
-}
-function nasa(id: string, title: string, minutes: number): LabVideo {
-  return { youtubeId: id, title, source: "NASA", license: NASA, minutes };
-}
-function ted(id: string, title: string, minutes: number): LabVideo {
-  return { youtubeId: id, title, source: "TED-Ed", license: TED, minutes };
-}
-
-const earthMove = cc("ljjLV-5Sa98", "How Does the Earth Move? Crash Course Geography #5", 11);
-const atmosphere = cc("11ZI9aqurfA", "What Does the Atmosphere Do? Crash Course Geography #6", 11);
-const wind = cc("ao_-OjDQwfk", "Where Does Wind Come From? Crash Course Geography #8", 11);
-const oceans = cc("xa6SdvFA3w0", "How Do Oceans Circulate? Crash Course Geography #9", 11);
-const rain = cc("68G1ikYRNxg", "How Can Rain Create Conflict? Crash Course Geography #11", 11);
-const cyclones = cc("06ke7hr1m_Q", "What Are the Different Types of Cyclones? Crash Course Geography #12", 11);
-const climates = cc("xiGhLGFkJjo", "How do we Classify Climates? Crash Course Geography #13", 11);
-const climateChange = cc("tMwFNMfjFuU", "What is Climate Change? Crash Course Geography #14", 11);
-const soil = cc("udseIcrUxvA", "What is Soil (and Why is it Important)? Crash Course Geography #16", 10);
-const rocks = cc("7Bxw4kkeHJ8", "What Are Rocks and How Do They Form? Crash Course Geography #17", 11);
-const plates = cc("7CPv0NSIG2M", "The Plate Tectonics Revolution: Crash Course Geography #18", 11);
-const landforms = cc("1gMU7zfDqfg", "How Does the Earth Create Different Landforms? Crash Course Geography #19", 13);
-const volcanoes = cc("cnKoTlUaqAs", "What Are Volcanoes? Crash Course Geography #20", 13);
-const weathering = cc("pmF41T52nJs", "What is Weathering? Crash Course Geography #21", 11);
-const rivers = cc("CDEj62HGNkk", "How Rivers Shape the Landscape: Crash Course Geography #22", 11);
-const glaciers = cc("mkt-0ZuTKXU", "What Are Glaciers? Crash Course Geography #23", 11);
-const hazards = cc("-FBq5lE1Kz0", "Natural Hazards: Crash Course Geography #24", 11);
-const maps = cc("iHEMOdRo5u8", "What is a Map? Crash Course Geography #2", 11);
-const airTemp = cc("OrhQmxK7s5A", "How Does Air Temperature Shape a Place? Crash Course Geography #7", 11);
-const waterLand = geo("xDll-p5g2EQ", "How Water Shapes the Land: Crash Course Geology #9", 10);
-const plateGeo = geo("krXXSCb_P9Y", "What is Plate Tectonics: Crash Course Geology #10", 10);
-const mountains = geo("r8uQVRVNV14", "How Do Mountains Form?: Crash Course Geology #11", 9);
-const trench = geo("mLQYGG3SjyQ", "The Deepest Point in the World: Crash Course Geology #12", 11);
-const layers = khan("hHteUIS0OFY", "Compositional and mechanical layers of the Earth", 12);
-const core = khan("KL0i1RSnpfI", "How we know about the Earth's core", 6);
-const pangaea = khan("axB6uhEx628", "Pangaea", 6);
-const divergent = khan("FK1s1-OJ5BE", "Geological features of divergent plate boundaries", 12);
-const seasonsKhan = khan("2lSnnH12tJ4", "Why we have seasons", 8);
-const tsunamiTed = ted("Wx9vPv-T51I", "How tsunamis work — Alex Gendler", 4);
-const seasonsNasa = nasa("M4BbW8AwJ0o", "NASA Now: Reasons for the Seasons", 8);
-
+const atmosphere: LabVideo = {
+  youtubeId: '11ZI9aqurfA',
+  title: 'What Does the Atmosphere Do? Crash Course Geography #6',
+  source: 'Crash Course',
+  sourceUrl: 'https://thecrashcourse.com/courses/what-does-the-atmosphere-do-crash-course-geography-6/',
+};
+const oceans: LabVideo = {
+  youtubeId: 'xa6SdvFA3w0',
+  title: 'How Do Oceans Circulate? Crash Course Geography #9',
+  source: 'Crash Course',
+  sourceUrl: 'https://thecrashcourse.com/courses/how-do-oceans-circulate-crash-course-geography-9/',
+};
 export const LAB_VIDEOS: Record<string, LabVideo> = {
-  seasons: seasonsKhan,
-  rotation: earthMove,
-  "moon-phases": seasonsNasa,
-  "sun-earth": earthMove,
-  "solar-altitude": seasonsKhan,
-  "solar-system": earthMove,
-  eclipses: seasonsNasa,
-  tides: oceans,
-  "universe-scale": earthMove,
-  "earth-interior": layers,
-  "plate-boundaries": plates,
-  "continental-drift": pangaea,
-  hotspots: volcanoes,
-  "seafloor-spreading": divergent,
-  "wilson-cycle": plateGeo,
-  earthquakes: core,
-  volcanoes,
-  tsunami: tsunamiTed,
-  "tropical-cyclone": cyclones,
-  "storm-surge": cyclones,
-  "atmosphere-layers": atmosphere,
-  "energy-budget": atmosphere,
-  "thermal-circulation": airTemp,
-  wind,
-  "three-cell": wind,
-  fronts: cyclones,
-  "cyclone-anticyclone": hazards,
-  "climate-types": climates,
-  "rain-shadow": rain,
-  enso: climateChange,
-  "carbon-cycle": climateChange,
-  "water-cycle": rain,
-  "drainage-basin": rivers,
-  hydrograph: waterLand,
-  "river-hydrology": rivers,
-  groundwater: rain,
-  "ocean-currents": oceans,
+  seasons: {
+    youtubeId: '2lSnnH12tJ4',
+    title: 'Why we have seasons',
+    source: 'Khan Academy',
+    sourceUrl: 'https://www.youtube.com/watch?v=2lSnnH12tJ4',
+  },
+  'atmosphere-layers': atmosphere,
+  'energy-budget': atmosphere,
+  'ocean-currents': oceans,
   thermohaline: oceans,
-  rivers,
-  "river-erosion": waterLand,
-  "river-deposition": rivers,
-  "river-capture": waterLand,
-  coasts: waterLand,
-  glaciers,
-  karst: weathering,
-  "folds-faults": mountains,
-  aeolian: landforms,
-  "rock-cycle": rocks,
-  "soil-profile": soil,
-  "soil-texture": soil,
-  weathering,
-  "soil-erosion": soil,
-  "soil-catena": soil,
-  contours: landforms,
-  "landform-types": landforms,
-  "mass-movement": landforms,
-  "geologic-time": rocks,
-  graticule: maps,
-  "map-projections": maps,
-  "grid-references": maps,
-  periglacial: glaciers,
-  isostasy: trench,
+  'plate-boundaries': {
+    youtubeId: '7CPv0NSIG2M',
+    title: 'The Plate Tectonics Revolution: Crash Course Geography #19',
+    source: 'Crash Course',
+    sourceUrl: 'https://thecrashcourse.com/courses/the-plate-tectonics-revolution-crash-course-geography-19/',
+  },
+  'rock-cycle': {
+    youtubeId: '7Bxw4kkeHJ8',
+    title: 'What Are Rocks and How Do They Form? Crash Course Geography #18',
+    source: 'Crash Course',
+    sourceUrl: 'https://thecrashcourse.com/courses/what-are-rocks-and-how-do-they-form-crash-course-geography-18/',
+  },
+  rivers: {
+    youtubeId: 'CDEj62HGNkk',
+    title: 'How Rivers Shape the Landscape: Crash Course Geography #23',
+    source: 'Crash Course',
+    sourceUrl: 'https://thecrashcourse.com/courses/how-rivers-shape-the-landscape-crash-course-geography-23/',
+  },
+  glaciers: {
+    youtubeId: 'mkt-0ZuTKXU',
+    title: 'What Are Glaciers? Crash Course Geography #26',
+    source: 'Crash Course',
+    sourceUrl: 'https://thecrashcourse.com/courses/what-are-glaciers-crash-course-geography-26/',
+  },
 };
-
 export function labVideo(slug: string): LabVideo | undefined {
   return LAB_VIDEOS[slug];
 }

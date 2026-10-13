@@ -1,0 +1,450 @@
+[
+  {
+    "text": "km",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx",
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "°C",
+    "files": [
+      "src\\labs\\atmosphere-layers\\scene.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "s · ",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "P: ",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "S: ",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "s.",
+    "files": [
+      "src\\labs\\earthquakes\\scene.tsx"
+    ]
+  },
+  {
+    "text": "W/m².",
+    "files": [
+      "src\\labs\\energy-budget\\scene.tsx"
+    ]
+  },
+  {
+    "text": "Q = ",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx"
+    ]
+  },
+  {
+    "text": "m.",
+    "files": [
+      "src\\labs\\groundwater\\aquifer.tsx",
+      "src\\labs\\rain-shadow\\parcel.tsx",
+      "src\\labs\\storm-surge\\scene.tsx"
+    ]
+  },
+  {
+    "text": "h",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx",
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "m³/s",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx",
+      "src\\labs\\river-hydrology\\scene.tsx"
+    ]
+  },
+  {
+    "text": "mm/h · Q ",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx"
+    ]
+  },
+  {
+    "text": "h.",
+    "files": [
+      "src\\labs\\hydrograph\\storm.tsx"
+    ]
+  },
+  {
+    "text": "CaCO₃ + CO₂ + H₂O → Ca²⁺ + 2HCO₃⁻.",
+    "files": [
+      "src\\labs\\karst\\karst.tsx",
+      "src\\labs\\weathering\\scene.tsx"
+    ]
+  },
+  {
+    "text": "kPa. ",
+    "files": [
+      "src\\labs\\mass-movement\\scene.tsx"
+    ]
+  },
+  {
+    "text": "m · ",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "°C, ",
+    "files": [
+      "src\\labs\\rain-shadow\\parcel.tsx"
+    ]
+  },
+  {
+    "text": "AU. ",
+    "files": [
+      "src\\labs\\seasons\\scene.tsx"
+    ]
+  },
+  {
+    "text": "S",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx",
+      "src\\labs\\sun-earth\\insolation.tsx",
+      "src\\labs\\three-cell\\scene.tsx"
+    ]
+  },
+  {
+    "text": "N",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx",
+      "src\\labs\\sun-earth\\insolation.tsx",
+      "src\\labs\\three-cell\\scene.tsx",
+      "src\\routes\\tools.earth-motion.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "W",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx"
+    ]
+  },
+  {
+    "text": "E",
+    "files": [
+      "src\\labs\\shared\\planet-scenes.tsx",
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "mm.",
+    "files": [
+      "src\\labs\\soil-erosion\\erosion.tsx"
+    ]
+  },
+  {
+    "text": "en-GB",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx",
+      "src\\labs\\universe-scale\\distances.tsx"
+    ]
+  },
+  {
+    "text": "km · a = ",
+    "files": [
+      "src\\labs\\solar-system\\orbits.tsx"
+    ]
+  },
+  {
+    "text": "Pa (",
+    "files": [
+      "src\\labs\\storm-surge\\scene.tsx"
+    ]
+  },
+  {
+    "text": "°C. ",
+    "files": [
+      "src\\labs\\thermal-circulation\\scene.tsx"
+    ]
+  },
+  {
+    "text": "ρ = 1027 [1 − 0.0002(T − 10) + 0.00076(SA − 35)]",
+    "files": [
+      "src\\labs\\thermohaline\\scene.tsx"
+    ]
+  },
+  {
+    "text": "80 m/s",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "0 km",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx",
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "30 km",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "150 km",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "hPa. ",
+    "files": [
+      "src\\labs\\tropical-cyclone\\scene.tsx"
+    ]
+  },
+  {
+    "text": "m",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "500 km",
+    "files": [
+      "src\\labs\\tsunami\\scene.tsx"
+    ]
+  },
+  {
+    "text": "= 10,000 m³",
+    "files": [
+      "src\\labs\\water-cycle\\catchment.tsx"
+    ]
+  },
+  {
+    "text": "m/s. ",
+    "files": [
+      "src\\labs\\wind\\scene.tsx"
+    ]
+  },
+  {
+    "text": "TerraLens",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\components\\layout\\header.tsx"
+    ]
+  },
+  {
+    "text": "Instagram ",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx",
+      "src\\routes\\privacy.tsx"
+    ]
+  },
+  {
+    "text": "X ",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "NASA",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "Blue Marble / SVS",
+    "files": [
+      "src\\components\\layout\\footer.tsx"
+    ]
+  },
+  {
+    "text": "USGS",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "BGS",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "NOAA",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "Met Office",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "· Natural Earth",
+    "files": [
+      "src\\components\\layout\\footer.tsx"
+    ]
+  },
+  {
+    "text": "CC BY-NC 4.0",
+    "files": [
+      "src\\components\\layout\\footer.tsx",
+      "src\\routes\\about.tsx"
+    ]
+  },
+  {
+    "text": "A · ",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "B · ",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "A",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\tools.earth-motion.tsx",
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "B",
+    "files": [
+      "src\\routes\\atlas.tsx",
+      "src\\routes\\tools.earth-motion.tsx",
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "A–Z",
+    "files": [
+      "src\\routes\\explore.tsx"
+    ]
+  },
+  {
+    "text": "__cf_bm",
+    "files": [
+      "src\\routes\\privacy.tsx"
+    ]
+  },
+  {
+    "text": "UTC · ",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "UTC",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx",
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "undefined",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "lat",
+    "files": [
+      "src\\routes\\tools.earth-motion.tsx"
+    ]
+  },
+  {
+    "text": "T",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "UTC.",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "mm",
+    "files": [
+      "src\\routes\\tools.live-weather.tsx"
+    ]
+  },
+  {
+    "text": "C",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "D",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "s",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "Bird PB2002 (2003), Nordpil conversion · ODC-BY 1.0",
+    "files": [
+      "src\\routes\\tools.map.tsx"
+    ]
+  },
+  {
+    "text": "ET",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "AU",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "TOA",
+    "files": [
+      "term-alias"
+    ]
+  },
+  {
+    "text": "Q",
+    "files": [
+      "term-alias"
+    ]
+  }
+]

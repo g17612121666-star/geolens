@@ -1,4 +1,6 @@
-const SITE = (typeof process !== "undefined" && process.env.VITE_PUBLIC_SITE_URL) || "https://terralens.grok.me";
+import { PUBLIC_SITE_HOST, PUBLIC_SITE_URL } from './public-site';
+
+const SITE = import.meta.env.VITE_PUBLIC_SITE_URL || PUBLIC_SITE_URL;
 
 function envIndexOn(): boolean {
   if (typeof process === "undefined") return false;
@@ -7,8 +9,8 @@ function envIndexOn(): boolean {
 }
 
 function envPublicHost(): string {
-  if (typeof process === "undefined") return "";
-  return process.env.VITE_PUBLIC_HOSTNAME || "";
+  if (typeof window !== 'undefined') return window.location.hostname;
+  return (typeof process !== 'undefined' && process.env.VITE_PUBLIC_HOSTNAME) || PUBLIC_SITE_HOST;
 }
 
 /** Preview / loopback hosts stay noindex even if the build flag is on. */
@@ -18,19 +20,20 @@ export function isPreviewHost(host = ""): boolean {
   if (h.includes("localhost") || h.includes("127.0.0.1") || h.includes("0.0.0.0")) return true;
   if (h.includes("grok-sandbox")) return true;
   if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(h)) return true;
+  if (h === PUBLIC_SITE_HOST) return false;
   if (h.endsWith(".vercel.app")) return true;
   return false;
 }
 
 /**
  * Public-release switch: VITE_INDEXABLE=true plus a non-preview host.
- * terralens.grok.me is always indexable. Unknown/empty host stays noindex
+ * The published alias is indexable. Unknown/empty host stays noindex
  * so sandbox preview cannot leak into the index.
  */
 export function shouldIndex(host?: string): boolean {
   const hostname = (host || envPublicHost()).split(",")[0]?.trim().split(":")[0] || "";
   if (isPreviewHost(hostname)) return false;
-  if (/terralens\.grok\.me/i.test(hostname)) return true;
+  if (hostname.toLowerCase() === PUBLIC_SITE_HOST || hostname.toLowerCase() === 'terralens.grok.me') return true;
   return envIndexOn();
 }
 
@@ -43,7 +46,7 @@ export function siteOrigin(): string {
 }
 
 export function pageTitle(name: string): string {
-  return `${name} · TerraLens`;
+  return `${name} · Geolens`;
 }
 
 export function robotsMeta(): { name: string; content: string } {
@@ -92,7 +95,7 @@ export function learningResourceJsonLd(opts: {
     learningResourceType: "Interactive resource",
     educationalLevel: opts.educationalLevel ?? [],
     about: opts.about ?? "Earth science",
-    provider: { "@type": "Organization", name: "TerraLens" },
+    provider: { "@type": "Organization", name: "Geolens" },
   };
 }
 
@@ -113,7 +116,7 @@ export function headFor(opts: {
       { title },
       { name: "description", content: opts.description },
       robotsMeta(),
-      { property: "og:site_name", content: "TerraLens" },
+      { property: "og:site_name", content: "Geolens" },
       { property: "og:title", content: title },
       { property: "og:description", content: opts.description },
       { property: "og:url", content: url },

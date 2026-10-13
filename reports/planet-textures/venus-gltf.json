@@ -1,0 +1,130 @@
+{
+  "asset": {
+    "generator": "Khronos Blender glTF 2.0 I/O",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "cylindrically_mapped_sphere:Mesh"
+    }
+  ],
+  "materials": [
+    {
+      "name": "Default OBJ",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8999999761581421
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "cylindrically_mapped_sphere:Mesh.001",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "source": 0
+    }
+  ],
+  "images": [
+    {
+      "bufferView": 4,
+      "mimeType": "image/png",
+      "name": "color_2016_04_26.jpg"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 3062,
+      "max": [
+        500.0039978027344,
+        500,
+        499.9994812011719
+      ],
+      "min": [
+        -499.9959716796875,
+        -500,
+        -500.00054931640625
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 3062,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 3062,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 18144,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 36744,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 36744,
+      "byteOffset": 36744
+    },
+    {
+      "buffer": 0,
+      "byteLength": 24496,
+      "byteOffset": 73488
+    },
+    {
+      "buffer": 0,
+      "byteLength": 36288,
+      "byteOffset": 97984
+    },
+    {
+      "buffer": 0,
+      "byteLength": 163160,
+      "byteOffset": 134272
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 297432
+    }
+  ]
+}

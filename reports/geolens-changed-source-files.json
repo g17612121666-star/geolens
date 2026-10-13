@@ -1,0 +1,614 @@
+[
+  {
+    "status": "Added",
+    "path": "src/components/atlas-weather.css"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/figure.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/globe/client-canvas.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/globe/hero-earth.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/globe/home-hero.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/lab-card.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/lab-filmstrip.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/lab-thumb.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/lab/control-bar.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/lab/lab-player.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/lab/load-gate.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/lab/step-rail.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/lab/why-panel.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/layout/footer.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/layout/header.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/layout/site-shell.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/loading-progress.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/map/libre-map.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/map/mini-map.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/not-found.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/preferences-menu.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/progress-media.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/scientific-text.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/components/zoomable-image.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/fonts.css"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/aeolian/wind-landforms.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/atmosphere-layers/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/carbon-cycle/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/climate-types/climate-globe.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/coasts/coast.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/continental-drift/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/contours/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/cyclone-anticyclone/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/drainage-basin/catchment.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/earth-interior/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/earthquakes/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/energy-budget/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/enso/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/folds-faults/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/fronts/section.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/geologic-time/timeline.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/glaciers/glacier.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/groundwater/aquifer.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/hotspots/tracks.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/hydrograph/storm.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/isostasy/column.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/karst/karst.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/landform-types/terrain.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/mass-movement/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/ocean-currents/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/periglacial/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/plate-boundaries/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/rain-shadow/parcel.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/river-capture/capture.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/river-deposition/deposition.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/river-erosion/erosion.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/river-hydrology/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/rivers/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/rock-cycle/cycle.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/seafloor-spreading/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/seasons/fallback.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/seasons/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/fallback.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/fit-science-view.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/geo-globe.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/glb.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/guide-line.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/kit.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/lunar-model.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/make-glb-scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/parts.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/planet-scenes.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/science-kit.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/skills-scenes.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/shared/studio.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/soil-catena/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/soil-erosion/erosion.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/soil-profile/profile.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/soil-texture/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/solar-system/orbits.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/storm-surge/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/sun-earth/insolation.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/thermal-circulation/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/thermohaline/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/three-cell/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/tides/tidal-globe.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/tropical-cyclone/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/tsunami/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/universe-scale/distances.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/volcanoes/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/water-cycle/catchment.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/weathering/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/wilson-cycle/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/labs/wind/scene.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/atlas-data.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/cases.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/contact.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/glossary-data.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/i18n/index.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/i18n/zh.json"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/lab-videos.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/astronomy-revisions.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/labs/catalog.ts"
+  },
+  {
+    "status": "Added",
+    "path": "src/lib/labs/content.json"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/geomorph-revisions.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/labs-atmosphere.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/labs-hazards.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/labs-interior.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/labs-landforms.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/labs-planet.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/labs-skills.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/labs-soils.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/labs-water.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/labs-wave6.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/make.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/material-revisions.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/round4-copy-revisions.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/science-revisions.ts"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/labs/ten-questions.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/labs/types.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/map-overlays.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/og/site.json"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/lib/paths.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/photo-assign.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/preferences.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/search-aliases.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/seo.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/teachers/article.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/lib/teachers/workflow.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/__root.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/about.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/atlas.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/case.$slug.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/explore.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/glossary.tsx"
+  },
+  {
+    "status": "Added",
+    "path": "src/routes/image-credits.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/index.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/lab.$slug.tsx"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/routes/paths.$slug.tsx"
+  },
+  {
+    "status": "Deleted",
+    "path": "src/routes/paths.index.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/privacy.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/realms.$realm.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/search.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/skills.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/teachers.$slug.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/teachers.index.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/tools.earth-motion.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/tools.index.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/tools.live-weather.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/tools.map.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routes/topic.$slug.tsx"
+  },
+  {
+    "status": "Modified",
+    "path": "src/routeTree.gen.ts"
+  },
+  {
+    "status": "Modified",
+    "path": "src/styles.css"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "radiosonde-1",
+    "title": "File:December 16th, 2019 Lake Charles Radiosonde Launch.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:December_16th,_2019_Lake_Charles_Radiosonde_Launch.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/December_16th%2C_2019_Lake_Charles_Radiosonde_Launch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Storm Prediction Center",
+    "description": "Lake Charles Sounding at 1800z on Dec 16th, 2019. Sounding took place while the Alexandria EF-3 tornado with winds of up to 160 mph was occurring.",
+    "categories": "Skew-T|Hodographs|Tornado outbreak of December 16–17, 2019|PD US NOAA NWS"
+  },
+  {
+    "id": "radiosonde-2",
+    "title": "File:Two modern Graw radiosondes with desktop SDR receiver.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_modern_Graw_radiosondes_with_desktop_SDR_receiver.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Two_modern_Graw_radiosondes_with_desktop_SDR_receiver.jpg/1280px-Two_modern_Graw_radiosondes_with_desktop_SDR_receiver.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Paul Wynter",
+    "description": "Examples of two modern radiosondes showing how companies are making their sondes smaller and improving facilities and sensor accuracy. The Graw DFM 17 (left) has a heated humidity sensor and contactless initialisation, while the earlier model DFM 09 (right) has a connector bay and unheated sensor. For both sondes, a radio using SDR (software defined radio) techniques      is employed (top) allowing rapid updates to firmware, encryption and other tasks and transmission of data over tcpip/ethernet. Radiosondes such as these are used in the Global Climate Observation and Monitoring Systems GCOS/GRUAN, The NOAA Caribbean Hurricane Network, CONUS USA-NOAA and Canada Met Services",
+    "categories": "Self-published work|GRAW Radiosondes"
+  }
+]

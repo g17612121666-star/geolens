@@ -1,0 +1,55 @@
+[
+  {
+    "id": "meteosat-december-solstice",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/52000/52248/seasons_msg_20101221_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=3712&w=3712",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/seeing-equinoxes-and-solstices-from-space-52248/",
+    "licenseUrl": "https://user.eumetsat.int/resources/user-guides/data-registration-and-licensing",
+    "credit": "Robert Simmon / NASA Earth Observatory · contains modified EUMETSAT Meteosat data (2011 publication) · resized",
+    "kind": "scientific-image",
+    "alt": "Meteosat view of Earth's day–night boundary on the December solstice, with more of the Southern Hemisphere in daylight.",
+    "caption": "Meteosat-9 SEVIRI, 21 December 2010. The tilted day–night boundary gives the Southern Hemisphere longer days. Axial tilt, rather than a change in Earth–Sun distance, controls this seasonal illumination.",
+    "labs": [
+      "seasons"
+    ]
+  },
+  {
+    "id": "meteosat-march-equinox",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/52000/52248/seasons_msg_20110320_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=3712&w=3712",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/seeing-equinoxes-and-solstices-from-space-52248/",
+    "licenseUrl": "https://user.eumetsat.int/resources/user-guides/data-registration-and-licensing",
+    "credit": "Robert Simmon / NASA Earth Observatory · contains modified EUMETSAT Meteosat data (2011 publication) · resized",
+    "kind": "scientific-image",
+    "alt": "Meteosat view of Earth's nearly north–south day–night boundary at the March equinox.",
+    "caption": "Meteosat-9 SEVIRI, 20 March 2011. The terminator passes close to both poles around the equinox; refraction and the Sun's finite disc mean observed daylight is not exactly twelve hours everywhere."
+  },
+  {
+    "id": "ecostress-london-night",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia25/pia25423/PIA25423.jpg?crop=faces%2Cfocalpoint&fit=clip&h=2480&w=3507",
+    "sourceUrl": "https://science.nasa.gov/photojournal/nasas-ecostress-shows-overnight-heat-in-london/",
+    "licenseUrl": "https://www.jpl.nasa.gov/jpl-image-use-policy/",
+    "credit": "NASA/JPL-Caltech · ECOSTRESS, PIA25423 · underlying map attribution retained in image · resized",
+    "kind": "scientific-image",
+    "alt": "ECOSTRESS thermal map shows warm urban surfaces in London late at night on 15 July 2022.",
+    "caption": "ECOSTRESS measured London's land-surface temperatures near midnight on 15 July 2022. Built surfaces remained warmer than many vegetated areas. These are surface temperatures, not standard air-temperature readings."
+  },
+  {
+    "id": "usgs-haiti-intensity",
+    "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/Haiti_7.2_814.png",
+    "sourceUrl": "https://www.usgs.gov/media/images/usgs-map-august-14-2021-earthquake-haiti",
+    "licenseUrl": "https://www.usgs.gov/media/images/usgs-map-august-14-2021-earthquake-haiti",
+    "credit": "USGS · public domain · 14 August 2021 ShakeMap · resized",
+    "kind": "scientific-image",
+    "alt": "USGS ShakeMap of the 14 August 2021 Haiti earthquake with coloured zones of shaking intensity.",
+    "caption": "USGS ShakeMap for the 14 August 2021 Haiti earthquake. Intensity varies from place to place and describes shaking effects; magnitude describes the earthquake's overall size. This is the published event-time map, not live hazard information."
+  },
+  {
+    "id": "noaa-emag2-anomalies",
+    "url": "https://www.ngdc.noaa.gov/geomag/data/EMAG2/EMAG2_V3_sealevelposter.png",
+    "sourceUrl": "https://www.ncei.noaa.gov/products/earth-magnetic-model-anomaly-grid-2",
+    "licenseUrl": "https://www.ncei.noaa.gov/products/earth-magnetic-model-anomaly-grid-2",
+    "credit": "NOAA NCEI / CIRES · EMAG2 v3 · public domain · resized",
+    "kind": "scientific-image",
+    "alt": "EMAG2 global magnetic-anomaly map with alternating anomalies across the ocean floor.",
+    "caption": "NOAA EMAG2 v3 combines satellite, ship and airborne magnetic measurements. Oceanic magnetic stripes record spreading and changing polarity. Colours represent anomalies in nanoTesla, not directly the ages of rocks."
+  }
+]

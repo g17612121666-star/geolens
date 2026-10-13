@@ -1,0 +1,1665 @@
+{
+  "sourceUrl": "https://www.gloh2o.org/koppen/",
+  "doi": "https://doi.org/10.1038/s41597-023-02549-6",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "credit": "Beck et al. (2023), V3 · 1991–2020 · 1 km",
+  "sha256": "2130f0071dfb2904947d8ec3a0d807fac71004df76e769262004f1602e4d6a13",
+  "places": {
+    "uk": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 51.51,
+      "lon": -0.13,
+      "sampleLat": 51.5125,
+      "sampleLon": -0.12916666666666288,
+      "coastalOffsetKm": 0
+    },
+    "ie": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 53.35,
+      "lon": -6.26,
+      "sampleLat": 53.34583333333333,
+      "sampleLon": -6.262499999999989,
+      "coastalOffsetKm": 0
+    },
+    "is": {
+      "code": "Cfc",
+      "family": "C",
+      "lat": 64.15,
+      "lon": -21.94,
+      "sampleLat": 64.15416666666667,
+      "sampleLon": -21.945833333333326,
+      "coastalOffsetKm": 0.4
+    },
+    "fr": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 48.86,
+      "lon": 2.35,
+      "sampleLat": 48.8625,
+      "sampleLon": 2.354166666666657,
+      "coastalOffsetKm": 0
+    },
+    "es": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 40.42,
+      "lon": -3.7,
+      "sampleLat": 40.420833333333334,
+      "sampleLon": -3.6958333333333258,
+      "coastalOffsetKm": 0
+    },
+    "pt": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 38.72,
+      "lon": -9.14,
+      "sampleLat": 38.72083333333333,
+      "sampleLon": -9.137499999999989,
+      "coastalOffsetKm": 0
+    },
+    "de": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 52.52,
+      "lon": 13.41,
+      "sampleLat": 52.520833333333336,
+      "sampleLon": 13.412499999999994,
+      "coastalOffsetKm": 0
+    },
+    "it": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 41.9,
+      "lon": 12.5,
+      "sampleLat": 41.895833333333336,
+      "sampleLon": 12.504166666666663,
+      "coastalOffsetKm": 0
+    },
+    "gr": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 37.98,
+      "lon": 23.73,
+      "sampleLat": 37.979166666666664,
+      "sampleLon": 23.729166666666657,
+      "coastalOffsetKm": 0
+    },
+    "no": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 59.91,
+      "lon": 10.75,
+      "sampleLat": 59.9125,
+      "sampleLon": 10.754166666666663,
+      "coastalOffsetKm": 0
+    },
+    "se": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 59.33,
+      "lon": 18.07,
+      "sampleLat": 59.329166666666666,
+      "sampleLon": 18.070833333333326,
+      "coastalOffsetKm": 0
+    },
+    "fi": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 60.17,
+      "lon": 24.94,
+      "sampleLat": 60.170833333333334,
+      "sampleLon": 24.9375,
+      "coastalOffsetKm": 0
+    },
+    "pl": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 52.23,
+      "lon": 21.01,
+      "sampleLat": 52.229166666666664,
+      "sampleLon": 21.01249999999999,
+      "coastalOffsetKm": 0
+    },
+    "nl": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 52.37,
+      "lon": 4.9,
+      "sampleLat": 52.37083333333333,
+      "sampleLon": 4.904166666666669,
+      "coastalOffsetKm": 0
+    },
+    "be": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 50.85,
+      "lon": 4.35,
+      "sampleLat": 50.84583333333333,
+      "sampleLon": 4.354166666666657,
+      "coastalOffsetKm": 0
+    },
+    "ch": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 46.95,
+      "lon": 7.44,
+      "sampleLat": 46.94583333333333,
+      "sampleLon": 7.4375,
+      "coastalOffsetKm": 0
+    },
+    "at": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 48.21,
+      "lon": 16.37,
+      "sampleLat": 48.2125,
+      "sampleLon": 16.370833333333337,
+      "coastalOffsetKm": 0
+    },
+    "tr": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 39.93,
+      "lon": 32.86,
+      "sampleLat": 39.92916666666667,
+      "sampleLon": 32.86250000000001,
+      "coastalOffsetKm": 0
+    },
+    "eg": {
+      "code": "BWh",
+      "family": "B",
+      "lat": 30.04,
+      "lon": 31.24,
+      "sampleLat": 30.0375,
+      "sampleLon": 31.23750000000001,
+      "coastalOffsetKm": 0
+    },
+    "ke": {
+      "code": "Aw",
+      "family": "A",
+      "lat": -1.29,
+      "lon": 36.82,
+      "sampleLat": -1.2874999999999943,
+      "sampleLon": 36.820833333333326,
+      "coastalOffsetKm": 0
+    },
+    "za": {
+      "code": "Cwa",
+      "family": "C",
+      "lat": -25.75,
+      "lon": 28.19,
+      "sampleLat": -25.754166666666663,
+      "sampleLon": 28.1875,
+      "coastalOffsetKm": 0
+    },
+    "ng": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 9.08,
+      "lon": 7.4,
+      "sampleLat": 9.079166666666666,
+      "sampleLon": 7.404166666666669,
+      "coastalOffsetKm": 0
+    },
+    "ma": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 34.02,
+      "lon": -6.84,
+      "sampleLat": 34.020833333333336,
+      "sampleLon": -6.837500000000006,
+      "coastalOffsetKm": 0
+    },
+    "us": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 38.91,
+      "lon": -77.04,
+      "sampleLat": 38.9125,
+      "sampleLon": -77.0375,
+      "coastalOffsetKm": 0
+    },
+    "ca": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 45.42,
+      "lon": -75.7,
+      "sampleLat": 45.420833333333334,
+      "sampleLon": -75.69583333333334,
+      "coastalOffsetKm": 0
+    },
+    "mx": {
+      "code": "Cwb",
+      "family": "C",
+      "lat": 19.43,
+      "lon": -99.13,
+      "sampleLat": 19.42916666666666,
+      "sampleLon": -99.12916666666666,
+      "coastalOffsetKm": 0
+    },
+    "br": {
+      "code": "Aw",
+      "family": "A",
+      "lat": -15.79,
+      "lon": -47.88,
+      "sampleLat": -15.787499999999994,
+      "sampleLon": -47.87916666666666,
+      "coastalOffsetKm": 0
+    },
+    "ar": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": -34.6,
+      "lon": -58.38,
+      "sampleLat": -34.60416666666667,
+      "sampleLon": -58.37916666666666,
+      "coastalOffsetKm": 0
+    },
+    "cl": {
+      "code": "BSk",
+      "family": "B",
+      "lat": -33.45,
+      "lon": -70.67,
+      "sampleLat": -33.454166666666666,
+      "sampleLon": -70.67083333333333,
+      "coastalOffsetKm": 0
+    },
+    "pe": {
+      "code": "BWh",
+      "family": "B",
+      "lat": -12.05,
+      "lon": -77.04,
+      "sampleLat": -12.05416666666666,
+      "sampleLon": -77.0375,
+      "coastalOffsetKm": 0
+    },
+    "co": {
+      "code": "Csb",
+      "family": "C",
+      "lat": 4.71,
+      "lon": -74.07,
+      "sampleLat": 4.712500000000006,
+      "sampleLon": -74.07083333333334,
+      "coastalOffsetKm": 0
+    },
+    "au": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": -35.28,
+      "lon": 149.13,
+      "sampleLat": -35.27916666666667,
+      "sampleLon": 149.12916666666666,
+      "coastalOffsetKm": 0
+    },
+    "nz": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": -41.29,
+      "lon": 174.78,
+      "sampleLat": -41.287499999999994,
+      "sampleLon": 174.77916666666664,
+      "coastalOffsetKm": 0
+    },
+    "jp": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 35.68,
+      "lon": 139.65,
+      "sampleLat": 35.67916666666667,
+      "sampleLon": 139.65416666666664,
+      "coastalOffsetKm": 0
+    },
+    "cn": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 39.9,
+      "lon": 116.41,
+      "sampleLat": 39.895833333333336,
+      "sampleLon": 116.41250000000002,
+      "coastalOffsetKm": 0
+    },
+    "hk": {
+      "code": "Cwa",
+      "family": "C",
+      "lat": 22.3,
+      "lon": 114.17,
+      "sampleLat": 22.295833333333334,
+      "sampleLon": 114.17083333333335,
+      "coastalOffsetKm": 0
+    },
+    "shanghai": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 31.23,
+      "lon": 121.47,
+      "sampleLat": 31.229166666666664,
+      "sampleLon": 121.47083333333336,
+      "coastalOffsetKm": 0
+    },
+    "tw": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 25.03,
+      "lon": 121.57,
+      "sampleLat": 25.02916666666667,
+      "sampleLon": 121.57083333333333,
+      "coastalOffsetKm": 0
+    },
+    "mo": {
+      "code": "Cwa",
+      "family": "C",
+      "lat": 22.2,
+      "lon": 113.54,
+      "sampleLat": 22.19583333333334,
+      "sampleLon": 113.53750000000002,
+      "coastalOffsetKm": 0
+    },
+    "in": {
+      "code": "BSh",
+      "family": "B",
+      "lat": 28.61,
+      "lon": 77.21,
+      "sampleLat": 28.612499999999997,
+      "sampleLon": 77.21249999999998,
+      "coastalOffsetKm": 0
+    },
+    "id": {
+      "code": "Af",
+      "family": "A",
+      "lat": -6.21,
+      "lon": 106.85,
+      "sampleLat": -6.212500000000006,
+      "sampleLon": 106.85416666666669,
+      "coastalOffsetKm": 0
+    },
+    "ph": {
+      "code": "Am",
+      "family": "A",
+      "lat": 14.6,
+      "lon": 120.98,
+      "sampleLat": 14.595833333333331,
+      "sampleLon": 120.97916666666669,
+      "coastalOffsetKm": 0
+    },
+    "kr": {
+      "code": "Dwa",
+      "family": "D",
+      "lat": 37.57,
+      "lon": 126.98,
+      "sampleLat": 37.57083333333333,
+      "sampleLon": 126.97916666666669,
+      "coastalOffsetKm": 0
+    },
+    "ru": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 55.76,
+      "lon": 37.62,
+      "sampleLat": 55.7625,
+      "sampleLon": 37.62083333333334,
+      "coastalOffsetKm": 0
+    },
+    "ua": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 50.45,
+      "lon": 30.52,
+      "sampleLat": 50.44583333333333,
+      "sampleLon": 30.520833333333343,
+      "coastalOffsetKm": 0
+    },
+    "sa": {
+      "code": "BWh",
+      "family": "B",
+      "lat": 24.71,
+      "lon": 46.68,
+      "sampleLat": 24.712500000000006,
+      "sampleLon": 46.679166666666674,
+      "coastalOffsetKm": 0
+    },
+    "ir": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 35.69,
+      "lon": 51.39,
+      "sampleLat": 35.6875,
+      "sampleLon": 51.38749999999999,
+      "coastalOffsetKm": 0
+    },
+    "pk": {
+      "code": "Cwa",
+      "family": "C",
+      "lat": 33.68,
+      "lon": 73.05,
+      "sampleLat": 33.67916666666667,
+      "sampleLon": 73.05416666666667,
+      "coastalOffsetKm": 0
+    },
+    "bd": {
+      "code": "Cwa",
+      "family": "C",
+      "lat": 23.81,
+      "lon": 90.41,
+      "sampleLat": 23.8125,
+      "sampleLon": 90.41250000000002,
+      "coastalOffsetKm": 0
+    },
+    "vn": {
+      "code": "Cwa",
+      "family": "C",
+      "lat": 21.03,
+      "lon": 105.85,
+      "sampleLat": 21.02916666666667,
+      "sampleLon": 105.85416666666669,
+      "coastalOffsetKm": 0
+    },
+    "th": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 13.76,
+      "lon": 100.5,
+      "sampleLat": 13.762500000000003,
+      "sampleLon": 100.50416666666666,
+      "coastalOffsetKm": 0
+    },
+    "my": {
+      "code": "Af",
+      "family": "A",
+      "lat": 3.14,
+      "lon": 101.69,
+      "sampleLat": 3.137500000000003,
+      "sampleLon": 101.6875,
+      "coastalOffsetKm": 0
+    },
+    "sg": {
+      "code": "Af",
+      "family": "A",
+      "lat": 1.35,
+      "lon": 103.82,
+      "sampleLat": 1.3458333333333314,
+      "sampleLon": 103.82083333333333,
+      "coastalOffsetKm": 0
+    },
+    "ae": {
+      "code": "BWh",
+      "family": "B",
+      "lat": 24.45,
+      "lon": 54.38,
+      "sampleLat": 24.44583333333334,
+      "sampleLon": 54.37916666666666,
+      "coastalOffsetKm": 0
+    },
+    "qa": {
+      "code": "BWh",
+      "family": "B",
+      "lat": 25.29,
+      "lon": 51.53,
+      "sampleLat": 25.287499999999994,
+      "sampleLon": 51.52916666666667,
+      "coastalOffsetKm": 0
+    },
+    "il": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 31.77,
+      "lon": 35.22,
+      "sampleLat": 31.770833333333336,
+      "sampleLon": 35.22083333333333,
+      "coastalOffsetKm": 0
+    },
+    "et": {
+      "code": "Cwb",
+      "family": "C",
+      "lat": 9.03,
+      "lon": 38.74,
+      "sampleLat": 9.029166666666669,
+      "sampleLon": 38.73750000000001,
+      "coastalOffsetKm": 0
+    },
+    "tz": {
+      "code": "BSh",
+      "family": "B",
+      "lat": -6.16,
+      "lon": 35.75,
+      "sampleLat": -6.162499999999994,
+      "sampleLon": 35.75416666666666,
+      "coastalOffsetKm": 0
+    },
+    "gh": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 5.6,
+      "lon": -0.19,
+      "sampleLat": 5.595833333333331,
+      "sampleLon": -0.1875,
+      "coastalOffsetKm": 0
+    },
+    "sn": {
+      "code": "BSh",
+      "family": "B",
+      "lat": 14.69,
+      "lon": -17.45,
+      "sampleLat": 14.6875,
+      "sampleLon": -17.445833333333326,
+      "coastalOffsetKm": 0
+    },
+    "dz": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 36.75,
+      "lon": 3.06,
+      "sampleLat": 36.74583333333333,
+      "sampleLon": 3.0625,
+      "coastalOffsetKm": 0
+    },
+    "ly": {
+      "code": "BSh",
+      "family": "B",
+      "lat": 32.89,
+      "lon": 13.19,
+      "sampleLat": 32.8875,
+      "sampleLon": 13.1875,
+      "coastalOffsetKm": 0
+    },
+    "sd": {
+      "code": "BWh",
+      "family": "B",
+      "lat": 15.5,
+      "lon": 32.56,
+      "sampleLat": 15.495833333333337,
+      "sampleLon": 32.5625,
+      "coastalOffsetKm": 0
+    },
+    "cd": {
+      "code": "Aw",
+      "family": "A",
+      "lat": -4.33,
+      "lon": 15.31,
+      "sampleLat": -4.329166666666666,
+      "sampleLon": 15.3125,
+      "coastalOffsetKm": 0
+    },
+    "ao": {
+      "code": "BSh",
+      "family": "B",
+      "lat": -8.84,
+      "lon": 13.23,
+      "sampleLat": -8.837500000000006,
+      "sampleLon": 13.229166666666657,
+      "coastalOffsetKm": 0
+    },
+    "mz": {
+      "code": "Aw",
+      "family": "A",
+      "lat": -25.97,
+      "lon": 32.57,
+      "sampleLat": -25.97083333333333,
+      "sampleLon": 32.570833333333326,
+      "coastalOffsetKm": 0
+    },
+    "mg": {
+      "code": "Cwb",
+      "family": "C",
+      "lat": -18.88,
+      "lon": 47.51,
+      "sampleLat": -18.879166666666663,
+      "sampleLon": 47.51249999999999,
+      "coastalOffsetKm": 0
+    },
+    "cu": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 23.11,
+      "lon": -82.37,
+      "sampleLat": 23.112499999999997,
+      "sampleLon": -82.37083333333334,
+      "coastalOffsetKm": 0
+    },
+    "ht": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 18.59,
+      "lon": -72.31,
+      "sampleLat": 18.587500000000006,
+      "sampleLon": -72.3125,
+      "coastalOffsetKm": 0
+    },
+    "jm": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 18.02,
+      "lon": -76.81,
+      "sampleLat": 18.02083333333333,
+      "sampleLon": -76.8125,
+      "coastalOffsetKm": 0
+    },
+    "cr": {
+      "code": "Am",
+      "family": "A",
+      "lat": 9.93,
+      "lon": -84.09,
+      "sampleLat": 9.92916666666666,
+      "sampleLon": -84.0875,
+      "coastalOffsetKm": 0
+    },
+    "pa": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 8.98,
+      "lon": -79.52,
+      "sampleLat": 8.979166666666671,
+      "sampleLon": -79.52083333333333,
+      "coastalOffsetKm": 0
+    },
+    "ec": {
+      "code": "Csb",
+      "family": "C",
+      "lat": -0.18,
+      "lon": -78.47,
+      "sampleLat": -0.17916666666666003,
+      "sampleLon": -78.47083333333333,
+      "coastalOffsetKm": 0
+    },
+    "bo": {
+      "code": "Cwb",
+      "family": "C",
+      "lat": -19.02,
+      "lon": -65.26,
+      "sampleLat": -19.02083333333333,
+      "sampleLon": -65.2625,
+      "coastalOffsetKm": 0
+    },
+    "uy": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": -34.9,
+      "lon": -56.16,
+      "sampleLat": -34.90416666666667,
+      "sampleLon": -56.162499999999994,
+      "coastalOffsetKm": 0
+    },
+    "py": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": -25.26,
+      "lon": -57.58,
+      "sampleLat": -25.262500000000003,
+      "sampleLon": -57.579166666666666,
+      "coastalOffsetKm": 0
+    },
+    "ve": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 10.48,
+      "lon": -66.9,
+      "sampleLat": 10.479166666666671,
+      "sampleLon": -66.89583333333333,
+      "coastalOffsetKm": 0
+    },
+    "gy": {
+      "code": "Af",
+      "family": "A",
+      "lat": 6.8,
+      "lon": -58.16,
+      "sampleLat": 6.795833333333334,
+      "sampleLon": -58.162499999999994,
+      "coastalOffsetKm": 0
+    },
+    "pg": {
+      "code": "Am",
+      "family": "A",
+      "lat": -9.44,
+      "lon": 147.18,
+      "sampleLat": -9.4375,
+      "sampleLon": 147.17916666666667,
+      "coastalOffsetKm": 0
+    },
+    "fj": {
+      "code": "Af",
+      "family": "A",
+      "lat": -18.14,
+      "lon": 178.44,
+      "sampleLat": -18.137500000000003,
+      "sampleLon": 178.4375,
+      "coastalOffsetKm": 0
+    },
+    "to": {
+      "code": "Af",
+      "family": "A",
+      "lat": -21.14,
+      "lon": -175.2,
+      "sampleLat": -21.137500000000003,
+      "sampleLon": -175.19583333333333,
+      "coastalOffsetKm": 0
+    },
+    "ws": {
+      "code": "Af",
+      "family": "A",
+      "lat": -13.83,
+      "lon": -171.77,
+      "sampleLat": -13.829166666666666,
+      "sampleLon": -171.77083333333334,
+      "coastalOffsetKm": 0
+    },
+    "np": {
+      "code": "Cwa",
+      "family": "C",
+      "lat": 27.72,
+      "lon": 85.32,
+      "sampleLat": 27.72083333333333,
+      "sampleLon": 85.32083333333333,
+      "coastalOffsetKm": 0
+    },
+    "bt": {
+      "code": "Cwb",
+      "family": "C",
+      "lat": 27.47,
+      "lon": 89.64,
+      "sampleLat": 27.47083333333333,
+      "sampleLon": 89.63749999999999,
+      "coastalOffsetKm": 0
+    },
+    "lk": {
+      "code": "Af",
+      "family": "A",
+      "lat": 6.89,
+      "lon": 79.9,
+      "sampleLat": 6.887500000000003,
+      "sampleLon": 79.89583333333331,
+      "coastalOffsetKm": 0
+    },
+    "mm": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 19.76,
+      "lon": 96.12,
+      "sampleLat": 19.762500000000003,
+      "sampleLon": 96.12083333333334,
+      "coastalOffsetKm": 0
+    },
+    "kh": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 11.56,
+      "lon": 104.93,
+      "sampleLat": 11.5625,
+      "sampleLon": 104.92916666666667,
+      "coastalOffsetKm": 0
+    },
+    "la": {
+      "code": "Aw",
+      "family": "A",
+      "lat": 17.98,
+      "lon": 102.63,
+      "sampleLat": 17.97916666666667,
+      "sampleLon": 102.62916666666666,
+      "coastalOffsetKm": 0
+    },
+    "mn": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 47.91,
+      "lon": 106.91,
+      "sampleLat": 47.9125,
+      "sampleLon": 106.91250000000002,
+      "coastalOffsetKm": 0
+    },
+    "kz": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 51.17,
+      "lon": 71.45,
+      "sampleLat": 51.170833333333334,
+      "sampleLon": 71.45416666666668,
+      "coastalOffsetKm": 0
+    },
+    "uz": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 41.3,
+      "lon": 69.24,
+      "sampleLat": 41.295833333333334,
+      "sampleLon": 69.23750000000001,
+      "coastalOffsetKm": 0
+    },
+    "af": {
+      "code": "Dsa",
+      "family": "D",
+      "lat": 34.53,
+      "lon": 69.17,
+      "sampleLat": 34.52916666666667,
+      "sampleLon": 69.17083333333332,
+      "coastalOffsetKm": 0
+    },
+    "iq": {
+      "code": "BWh",
+      "family": "B",
+      "lat": 33.32,
+      "lon": 44.37,
+      "sampleLat": 33.32083333333333,
+      "sampleLon": 44.37083333333334,
+      "coastalOffsetKm": 0
+    },
+    "sy": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 33.51,
+      "lon": 36.29,
+      "sampleLat": 33.5125,
+      "sampleLon": 36.287499999999994,
+      "coastalOffsetKm": 0
+    },
+    "jo": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 31.95,
+      "lon": 35.93,
+      "sampleLat": 31.945833333333333,
+      "sampleLon": 35.929166666666674,
+      "coastalOffsetKm": 0
+    },
+    "lb": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 33.89,
+      "lon": 35.5,
+      "sampleLat": 33.8875,
+      "sampleLon": 35.50416666666666,
+      "coastalOffsetKm": 0
+    },
+    "cy": {
+      "code": "BSh",
+      "family": "B",
+      "lat": 35.17,
+      "lon": 33.36,
+      "sampleLat": 35.170833333333334,
+      "sampleLon": 33.36250000000001,
+      "coastalOffsetKm": 0
+    },
+    "mt": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 35.9,
+      "lon": 14.51,
+      "sampleLat": 35.895833333333336,
+      "sampleLon": 14.512499999999989,
+      "coastalOffsetKm": 0
+    },
+    "hr": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 45.81,
+      "lon": 15.98,
+      "sampleLat": 45.8125,
+      "sampleLon": 15.979166666666657,
+      "coastalOffsetKm": 0
+    },
+    "ba": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 43.86,
+      "lon": 18.41,
+      "sampleLat": 43.8625,
+      "sampleLon": 18.412499999999994,
+      "coastalOffsetKm": 0
+    },
+    "rs": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 44.79,
+      "lon": 20.45,
+      "sampleLat": 44.7875,
+      "sampleLon": 20.45416666666668,
+      "coastalOffsetKm": 0
+    },
+    "ro": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 44.43,
+      "lon": 26.1,
+      "sampleLat": 44.42916666666667,
+      "sampleLon": 26.104166666666657,
+      "coastalOffsetKm": 0
+    },
+    "bg": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 42.7,
+      "lon": 23.32,
+      "sampleLat": 42.69583333333333,
+      "sampleLon": 23.320833333333326,
+      "coastalOffsetKm": 0
+    },
+    "hu": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 47.5,
+      "lon": 19.04,
+      "sampleLat": 47.49583333333333,
+      "sampleLon": 19.037499999999994,
+      "coastalOffsetKm": 0
+    },
+    "cz": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 50.08,
+      "lon": 14.44,
+      "sampleLat": 50.079166666666666,
+      "sampleLon": 14.4375,
+      "coastalOffsetKm": 0
+    },
+    "sk": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 48.15,
+      "lon": 17.11,
+      "sampleLat": 48.145833333333336,
+      "sampleLon": 17.11250000000001,
+      "coastalOffsetKm": 0
+    },
+    "dk": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 55.68,
+      "lon": 12.57,
+      "sampleLat": 55.67916666666667,
+      "sampleLon": 12.570833333333326,
+      "coastalOffsetKm": 0
+    },
+    "ee": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 59.44,
+      "lon": 24.75,
+      "sampleLat": 59.4375,
+      "sampleLon": 24.754166666666663,
+      "coastalOffsetKm": 0
+    },
+    "lv": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 56.95,
+      "lon": 24.11,
+      "sampleLat": 56.954166666666666,
+      "sampleLon": 24.11250000000001,
+      "coastalOffsetKm": 0
+    },
+    "lt": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 54.69,
+      "lon": 25.28,
+      "sampleLat": 54.6875,
+      "sampleLon": 25.27916666666667,
+      "coastalOffsetKm": 0
+    },
+    "by": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 53.9,
+      "lon": 27.57,
+      "sampleLat": 53.895833333333336,
+      "sampleLon": 27.570833333333326,
+      "coastalOffsetKm": 0
+    },
+    "md": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 47.01,
+      "lon": 28.86,
+      "sampleLat": 47.0125,
+      "sampleLon": 28.86250000000001,
+      "coastalOffsetKm": 0
+    },
+    "ge": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 41.72,
+      "lon": 44.79,
+      "sampleLat": 41.72083333333333,
+      "sampleLon": 44.787499999999994,
+      "coastalOffsetKm": 0
+    },
+    "am": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 40.18,
+      "lon": 44.51,
+      "sampleLat": 40.17916666666667,
+      "sampleLon": 44.51249999999999,
+      "coastalOffsetKm": 0
+    },
+    "az": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 40.41,
+      "lon": 49.87,
+      "sampleLat": 40.4125,
+      "sampleLon": 49.87083333333334,
+      "coastalOffsetKm": 0
+    },
+    "uk-eng": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 51.51,
+      "lon": -0.13,
+      "sampleLat": 51.5125,
+      "sampleLon": -0.12916666666666288,
+      "coastalOffsetKm": 0
+    },
+    "uk-sct": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 55.95,
+      "lon": -3.19,
+      "sampleLat": 55.954166666666666,
+      "sampleLon": -3.1875,
+      "coastalOffsetKm": 0
+    },
+    "uk-wls": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 51.48,
+      "lon": -3.18,
+      "sampleLat": 51.479166666666664,
+      "sampleLon": -3.1791666666666742,
+      "coastalOffsetKm": 0
+    },
+    "uk-nir": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 54.6,
+      "lon": -5.93,
+      "sampleLat": 54.59583333333333,
+      "sampleLon": -5.929166666666674,
+      "coastalOffsetKm": 0
+    },
+    "uk-nyk": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 54.34,
+      "lon": -1.43,
+      "sampleLat": 54.3375,
+      "sampleLon": -1.4291666666666742,
+      "coastalOffsetKm": 0
+    },
+    "uk-cma": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 54.89,
+      "lon": -2.94,
+      "sampleLat": 54.8875,
+      "sampleLon": -2.9375,
+      "coastalOffsetKm": 0
+    },
+    "uk-dwn": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 50.72,
+      "lon": -3.53,
+      "sampleLat": 50.72083333333333,
+      "sampleLon": -3.5291666666666686,
+      "coastalOffsetKm": 0
+    },
+    "uk-dor": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 50.72,
+      "lon": -2.44,
+      "sampleLat": 50.72083333333333,
+      "sampleLon": -2.4375,
+      "coastalOffsetKm": 0
+    },
+    "uk-gwn": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 53.14,
+      "lon": -4.27,
+      "sampleLat": 53.1375,
+      "sampleLon": -4.270833333333343,
+      "coastalOffsetKm": 0
+    },
+    "uk-som": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 51.02,
+      "lon": -3.1,
+      "sampleLat": 51.020833333333336,
+      "sampleLon": -3.0958333333333314,
+      "coastalOffsetKm": 0
+    },
+    "uk-kent": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 51.27,
+      "lon": 0.52,
+      "sampleLat": 51.270833333333336,
+      "sampleLon": 0.5208333333333428,
+      "coastalOffsetKm": 0
+    },
+    "uk-nbl": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 55.17,
+      "lon": -1.69,
+      "sampleLat": 55.170833333333334,
+      "sampleLon": -1.6875,
+      "coastalOffsetKm": 0
+    },
+    "uk-hld": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 57.48,
+      "lon": -4.23,
+      "sampleLat": 57.479166666666664,
+      "sampleLon": -4.229166666666657,
+      "coastalOffsetKm": 0
+    },
+    "uk-ery": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 53.84,
+      "lon": -0.43,
+      "sampleLat": 53.8375,
+      "sampleLon": -0.42916666666667425,
+      "coastalOffsetKm": 0
+    },
+    "uk-holderness": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 53.73,
+      "lon": -0.05,
+      "sampleLat": 53.729166666666664,
+      "sampleLon": -0.04583333333332007,
+      "coastalOffsetKm": 0
+    },
+    "uk-lakes": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 54.45,
+      "lon": -3.08,
+      "sampleLat": 54.44583333333333,
+      "sampleLon": -3.07916666666668,
+      "coastalOffsetKm": 0
+    },
+    "uk-snowdonia": {
+      "code": "Cfc",
+      "family": "C",
+      "lat": 53.07,
+      "lon": -4.08,
+      "sampleLat": 53.07083333333333,
+      "sampleLon": -4.07916666666668,
+      "coastalOffsetKm": 0
+    },
+    "uk-jurassic": {
+      "code": "Cfb",
+      "family": "C",
+      "lat": 50.62,
+      "lon": -2.25,
+      "sampleLat": 50.62083333333333,
+      "sampleLon": -2.245833333333337,
+      "coastalOffsetKm": 0
+    },
+    "us-al": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 32.38,
+      "lon": -86.3,
+      "sampleLat": 32.37916666666667,
+      "sampleLon": -86.29583333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-ak": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 58.3,
+      "lon": -134.42,
+      "sampleLat": 58.30416666666667,
+      "sampleLon": -134.42083333333335,
+      "coastalOffsetKm": 0.93
+    },
+    "us-az": {
+      "code": "BWh",
+      "family": "B",
+      "lat": 33.45,
+      "lon": -112.07,
+      "sampleLat": 33.44583333333333,
+      "sampleLon": -112.07083333333334,
+      "coastalOffsetKm": 0
+    },
+    "us-ar": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 34.75,
+      "lon": -92.29,
+      "sampleLat": 34.74583333333333,
+      "sampleLon": -92.2875,
+      "coastalOffsetKm": 0
+    },
+    "us-ca": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 38.58,
+      "lon": -121.49,
+      "sampleLat": 38.579166666666666,
+      "sampleLon": -121.4875,
+      "coastalOffsetKm": 0
+    },
+    "us-co": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 39.74,
+      "lon": -104.99,
+      "sampleLat": 39.7375,
+      "sampleLon": -104.9875,
+      "coastalOffsetKm": 0
+    },
+    "us-ct": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 41.76,
+      "lon": -72.67,
+      "sampleLat": 41.7625,
+      "sampleLon": -72.67083333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-de": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 39.16,
+      "lon": -75.52,
+      "sampleLat": 39.1625,
+      "sampleLon": -75.52083333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-dc": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 38.91,
+      "lon": -77.04,
+      "sampleLat": 38.9125,
+      "sampleLon": -77.0375,
+      "coastalOffsetKm": 0
+    },
+    "us-fl": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 30.44,
+      "lon": -84.28,
+      "sampleLat": 30.4375,
+      "sampleLon": -84.27916666666667,
+      "coastalOffsetKm": 0
+    },
+    "us-ga": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 33.75,
+      "lon": -84.39,
+      "sampleLat": 33.74583333333333,
+      "sampleLon": -84.3875,
+      "coastalOffsetKm": 0
+    },
+    "us-hi": {
+      "code": "Am",
+      "family": "A",
+      "lat": 21.31,
+      "lon": -157.86,
+      "sampleLat": 21.3125,
+      "sampleLon": -157.8625,
+      "coastalOffsetKm": 0
+    },
+    "us-id": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 43.62,
+      "lon": -116.2,
+      "sampleLat": 43.62083333333333,
+      "sampleLon": -116.19583333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-il": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 39.78,
+      "lon": -89.65,
+      "sampleLat": 39.77916666666667,
+      "sampleLon": -89.64583333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-in": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 39.77,
+      "lon": -86.16,
+      "sampleLat": 39.770833333333336,
+      "sampleLon": -86.1625,
+      "coastalOffsetKm": 0
+    },
+    "us-ia": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 41.59,
+      "lon": -93.62,
+      "sampleLat": 41.5875,
+      "sampleLon": -93.62083333333334,
+      "coastalOffsetKm": 0
+    },
+    "us-ks": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 39.05,
+      "lon": -95.68,
+      "sampleLat": 39.045833333333334,
+      "sampleLon": -95.67916666666666,
+      "coastalOffsetKm": 0
+    },
+    "us-ky": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 38.2,
+      "lon": -84.87,
+      "sampleLat": 38.19583333333333,
+      "sampleLon": -84.87083333333334,
+      "coastalOffsetKm": 0
+    },
+    "us-la": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 30.45,
+      "lon": -91.19,
+      "sampleLat": 30.445833333333333,
+      "sampleLon": -91.1875,
+      "coastalOffsetKm": 0
+    },
+    "us-me": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 44.31,
+      "lon": -69.78,
+      "sampleLat": 44.3125,
+      "sampleLon": -69.77916666666667,
+      "coastalOffsetKm": 0
+    },
+    "us-md": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 38.98,
+      "lon": -76.49,
+      "sampleLat": 38.979166666666664,
+      "sampleLon": -76.4875,
+      "coastalOffsetKm": 0
+    },
+    "us-ma": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 42.36,
+      "lon": -71.06,
+      "sampleLat": 42.3625,
+      "sampleLon": -71.0625,
+      "coastalOffsetKm": 0
+    },
+    "us-mi": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 42.73,
+      "lon": -84.56,
+      "sampleLat": 42.729166666666664,
+      "sampleLon": -84.5625,
+      "coastalOffsetKm": 0
+    },
+    "us-mn": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 44.95,
+      "lon": -93.09,
+      "sampleLat": 44.94583333333333,
+      "sampleLon": -93.0875,
+      "coastalOffsetKm": 0
+    },
+    "us-ms": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 32.3,
+      "lon": -90.18,
+      "sampleLat": 32.295833333333334,
+      "sampleLon": -90.17916666666666,
+      "coastalOffsetKm": 0
+    },
+    "us-mo": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 38.58,
+      "lon": -92.17,
+      "sampleLat": 38.579166666666666,
+      "sampleLon": -92.17083333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-mt": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 46.59,
+      "lon": -112.02,
+      "sampleLat": 46.5875,
+      "sampleLon": -112.02083333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-ne": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 40.81,
+      "lon": -96.7,
+      "sampleLat": 40.8125,
+      "sampleLon": -96.69583333333334,
+      "coastalOffsetKm": 0
+    },
+    "us-nv": {
+      "code": "Csa",
+      "family": "C",
+      "lat": 39.16,
+      "lon": -119.77,
+      "sampleLat": 39.1625,
+      "sampleLon": -119.77083333333334,
+      "coastalOffsetKm": 0
+    },
+    "us-nh": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 43.21,
+      "lon": -71.54,
+      "sampleLat": 43.2125,
+      "sampleLon": -71.5375,
+      "coastalOffsetKm": 0
+    },
+    "us-nj": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 40.22,
+      "lon": -74.76,
+      "sampleLat": 40.22083333333333,
+      "sampleLon": -74.7625,
+      "coastalOffsetKm": 0
+    },
+    "us-nm": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 35.69,
+      "lon": -105.94,
+      "sampleLat": 35.6875,
+      "sampleLon": -105.9375,
+      "coastalOffsetKm": 0
+    },
+    "us-ny": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 42.65,
+      "lon": -73.76,
+      "sampleLat": 42.645833333333336,
+      "sampleLon": -73.7625,
+      "coastalOffsetKm": 0
+    },
+    "us-nc": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 35.78,
+      "lon": -78.64,
+      "sampleLat": 35.77916666666667,
+      "sampleLon": -78.6375,
+      "coastalOffsetKm": 0
+    },
+    "us-nd": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 46.81,
+      "lon": -100.78,
+      "sampleLat": 46.8125,
+      "sampleLon": -100.77916666666667,
+      "coastalOffsetKm": 0
+    },
+    "us-oh": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 39.96,
+      "lon": -83.0,
+      "sampleLat": 39.9625,
+      "sampleLon": -82.99583333333334,
+      "coastalOffsetKm": 0
+    },
+    "us-ok": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 35.47,
+      "lon": -97.52,
+      "sampleLat": 35.47083333333333,
+      "sampleLon": -97.52083333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-or": {
+      "code": "Csb",
+      "family": "C",
+      "lat": 44.94,
+      "lon": -123.03,
+      "sampleLat": 44.9375,
+      "sampleLon": -123.02916666666667,
+      "coastalOffsetKm": 0
+    },
+    "us-pa": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 40.27,
+      "lon": -76.88,
+      "sampleLat": 40.270833333333336,
+      "sampleLon": -76.87916666666666,
+      "coastalOffsetKm": 0
+    },
+    "us-ri": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 41.82,
+      "lon": -71.41,
+      "sampleLat": 41.82083333333333,
+      "sampleLon": -71.4125,
+      "coastalOffsetKm": 0
+    },
+    "us-sc": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 34.0,
+      "lon": -81.03,
+      "sampleLat": 33.99583333333333,
+      "sampleLon": -81.02916666666667,
+      "coastalOffsetKm": 0
+    },
+    "us-sd": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 44.37,
+      "lon": -100.35,
+      "sampleLat": 44.37083333333333,
+      "sampleLon": -100.34583333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-tn": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 36.16,
+      "lon": -86.78,
+      "sampleLat": 36.1625,
+      "sampleLon": -86.77916666666667,
+      "coastalOffsetKm": 0
+    },
+    "us-tx": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 30.27,
+      "lon": -97.74,
+      "sampleLat": 30.270833333333336,
+      "sampleLon": -97.7375,
+      "coastalOffsetKm": 0
+    },
+    "us-ut": {
+      "code": "Dsa",
+      "family": "D",
+      "lat": 40.76,
+      "lon": -111.89,
+      "sampleLat": 40.7625,
+      "sampleLon": -111.8875,
+      "coastalOffsetKm": 0
+    },
+    "us-vt": {
+      "code": "Dfb",
+      "family": "D",
+      "lat": 44.26,
+      "lon": -72.58,
+      "sampleLat": 44.2625,
+      "sampleLon": -72.57916666666667,
+      "coastalOffsetKm": 0
+    },
+    "us-va": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 37.54,
+      "lon": -77.44,
+      "sampleLat": 37.5375,
+      "sampleLon": -77.4375,
+      "coastalOffsetKm": 0
+    },
+    "us-wa": {
+      "code": "Csb",
+      "family": "C",
+      "lat": 47.04,
+      "lon": -122.9,
+      "sampleLat": 47.0375,
+      "sampleLon": -122.90416666666667,
+      "coastalOffsetKm": 0
+    },
+    "us-wv": {
+      "code": "Cfa",
+      "family": "C",
+      "lat": 38.35,
+      "lon": -81.63,
+      "sampleLat": 38.34583333333333,
+      "sampleLon": -81.62916666666666,
+      "coastalOffsetKm": 0
+    },
+    "us-wi": {
+      "code": "Dfa",
+      "family": "D",
+      "lat": 43.07,
+      "lon": -89.4,
+      "sampleLat": 43.07083333333333,
+      "sampleLon": -89.39583333333333,
+      "coastalOffsetKm": 0
+    },
+    "us-wy": {
+      "code": "BSk",
+      "family": "B",
+      "lat": 41.14,
+      "lon": -104.82,
+      "sampleLat": 41.1375,
+      "sampleLon": -104.82083333333334,
+      "coastalOffsetKm": 0
+    }
+  }
+}

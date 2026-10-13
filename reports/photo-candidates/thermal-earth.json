@@ -1,0 +1,35 @@
+[
+  {
+    "id": "thermal-earth-1",
+    "title": "File:CERES Radiation Fluxes (SVS30604 - ceres lw all 201504).png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CERES_Radiation_Fluxes_(SVS30604_-_ceres_lw_all_201504).png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/CERES_Radiation_Fluxes_%28SVS30604_-_ceres_lw_all_201504%29.png/1280px-CERES_Radiation_Fluxes_%28SVS30604_-_ceres_lw_all_201504%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA's Scientific Visualization Studio - Marit Jentoft-Nilsen, Global Science and Technology, Inc./Amy Moran, Global Science and Technology, Inc./Heather Hanson",
+    "description": "Aniation of monthly longwave radiation. The colors in this animation show the amount of outgoing longwave radiation leaving Earth's atmosphere (in Watts per square meter). Bright yellow and orange indicate greater heat emission, purple and blue indicate intermediate emissions, and white shows little or no heat emission.",
+    "categories": "PD NASA|Clouds and the Earth's Radiant Energy System (CERES)|NASA SVS files uploaded by OptimusPrimeBot"
+  },
+  {
+    "id": "thermal-earth-2",
+    "title": "File:CERES Radiation Fluxes (SVS30604 - ceres lw all average 2000-2015).png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CERES_Radiation_Fluxes_(SVS30604_-_ceres_lw_all_average_2000-2015).png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/CERES_Radiation_Fluxes_%28SVS30604_-_ceres_lw_all_average_2000-2015%29.png/1280px-CERES_Radiation_Fluxes_%28SVS30604_-_ceres_lw_all_average_2000-2015%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA's Scientific Visualization Studio - Marit Jentoft-Nilsen, Global Science and Technology, Inc./Amy Moran, Global Science and Technology, Inc./Heather Hanson",
+    "description": "Total emitted longwave radiation averaged over the years 2000-2015. The colors in this image show the amount of outgoing longwave radiation leaving Earth's atmosphere (in Watts per square meter). Bright yellow and orange indicate greater heat emission, purple and blue indicate intermediate emissions, and white shows little or no heat emission.",
+    "categories": "PD NASA|Clouds and the Earth's Radiant Energy System (CERES)|NASA SVS files uploaded by OptimusPrimeBot"
+  },
+  {
+    "id": "thermal-earth-3",
+    "title": "File:CERES Radiation Fluxes (SVS30604 - ceres net all 201504).png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CERES_Radiation_Fluxes_(SVS30604_-_ceres_net_all_201504).png",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/CERES_Radiation_Fluxes_%28SVS30604_-_ceres_net_all_201504%29.png/1280px-CERES_Radiation_Fluxes_%28SVS30604_-_ceres_net_all_201504%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA's Scientific Visualization Studio - Marit Jentoft-Nilsen, Global Science and Technology, Inc./Amy Moran, Global Science and Technology, Inc./Heather Hanson",
+    "description": "Animation of monthly net radiation. The colors in this animation show the net radiation (in Watts per square meter) that was contained in the Earth system. The maps illustrate the fundamental imbalance between net radiation surpluses in the areas receiving more incoming sunlight (red areas), and net radiation deficits (green areas), where direct sunlight is seasonal.",
+    "categories": "PD NASA|Clouds and the Earth's Radiant Energy System (CERES)|NASA SVS files uploaded by OptimusPrimeBot"
+  }
+]

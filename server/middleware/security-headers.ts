@@ -1,7 +1,9 @@
+import { PUBLIC_SITE_HOST } from '../../src/lib/public-site';
+
 /**
  * Security headers for HTML and static responses.
  * CSP must allow https://grok.com (PWA injector) and map/weather origins.
- * Indexing is host-aware: terralens.grok.me may index; preview hosts stay noindex
+ * Indexing is host-aware: the published alias may index; preview hosts stay noindex
  * even when VITE_INDEXABLE=true.
  */
 const CSP = [
@@ -63,14 +65,16 @@ function isPreviewHost(host: string): boolean {
   if (h.includes("localhost") || h.includes("127.0.0.1") || h.includes("0.0.0.0")) return true;
   if (h.includes("grok-sandbox")) return true;
   if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(h)) return true;
+  if (h === PUBLIC_SITE_HOST) return false;
   if (h.endsWith(".vercel.app")) return true;
   return false;
 }
 
-/** Preview stays gated. Official terralens.grok.me is open. Other hosts follow VITE_INDEXABLE. */
+/** Unique deployment URLs remain noindex; the published alias is open. */
 function allowIndex(host: string): boolean {
   if (isPreviewHost(host)) return false;
-  if (/terralens\.grok\.me/i.test(host)) return true;
+  const hostname = host.split(':')[0].toLowerCase();
+  if (hostname === PUBLIC_SITE_HOST || hostname === 'terralens.grok.me') return true;
   return INDEXABLE;
 }
 

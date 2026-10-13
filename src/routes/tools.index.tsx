@@ -16,36 +16,37 @@ const TOOLS = [
     to: "/tools/earth-motion",
     title: "Earth-motion calculator",
     blurb:
-      "3D Earth, terminator, date and latitude to noon altitude, day length, declination, and season. Dual-place compare. Tilt 23.44° or 0°. Presets from Reykjavík to Ushuaia.",
+      "Choose a place and date to calculate daylight and the Sun’s height. Compare two locations on a 3D Earth, or change its tilt to investigate the seasons.",
   },
   {
     to: "/tools/live-weather",
     title: "Live weather",
     blurb:
-      "Click or drag a pin; compare a second place. Open-Meteo temperature, wind, gusts, rain, humidity, cloud, pressure, visibility. 72-hour chart. Educational and delayed.",
+      "Compare current modelled weather in two places, then follow both forecasts along the same 72-hour timeline. Investigate differences in temperature, rain, wind and cloud cover.",
   },
   {
     to: "/tools/map",
     title: "World map studio",
     blurb:
-      "Readable world map. Relief, rivers, settlements, three colours of plate boundary, Köppen samples, measure in km, overlay opacity. OpenFreeMap, then OSM, then Natural Earth.",
+      "Explore relief, rivers and plate boundaries on an interactive map. Add teaching layers, compare two views or measure distances between places.",
   },
   {
     to: "/atlas",
     title: "Atlas",
     blurb:
-      "World countries, UK nations, US states. Landscape photograph, capital, coordinates, two or three physical sentences, related labs, climate and tectonic filters, compare two places.",
+      "Explore real landscapes and their climate and tectonic settings. Compare places side by side, then follow the evidence into a related 3D lab.",
   },
 ] as const;
 
 function ToolsIndex() {
   return (
     <main id="main" className="mx-auto max-w-[900px] px-5 pb-24 pt-24">
-      <p className="section-label">Tools</p>
-      <h1 className="mt-3 font-display text-4xl">Calculators and maps, not gizmos.</h1>
+      <p className="section-label">{"Tools"}</p>
+      <h1 className="mt-3 font-display text-4xl">{"Explore places with maps and data."}</h1>
       <p className="mt-4 max-w-2xl text-mist">
-        SI first. Educational disclaimers where the data is live. No third-party weather branding. Search lives
-        in the header — it is not a fifth product card.
+        {
+          "Use these free tools to investigate a question about a place. Compare observations, adjust a calculation or add a map layer to see what changes."
+        }
       </p>
       <div className="mt-12 grid gap-4">
         {TOOLS.map((t) => (

@@ -1,72 +1,53 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import {
+  ArrowRight,
+  ArrowLeftRight,
+  Cloud,
+  Download,
+  MapPin,
+  Thermometer,
+  Wind,
+} from "lucide-react";
+import {
+  Bar,
+  CartesianGrid,
+  ComposedChart,
+  Line,
+  ReferenceLine,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { LoadingProgress } from "@/components/loading-progress";
 import { LibreMap } from "@/components/map/libre-map";
 import { fmtLatLon } from "@/lib/geo";
-import { nearestAtlasPlace } from "@/lib/atlas-data";
 import { headFor } from "@/lib/seo";
+import {
+  compass,
+  fetchWeather,
+  WeatherError,
+  weatherCsv,
+  weatherDescription,
+  weatherNumber as number,
+  type WeatherHour,
+  type WeatherPoint,
+  type WeatherResult,
+} from "@/lib/weather";
+import "@/components/atlas-weather.css";
 
 export const Route = createFileRoute("/tools/live-weather")({
   component: LiveWeather,
   head: () =>
     headFor({
       title: "Live weather",
-      description: "Educational Open-Meteo weather on a map. Delayed. Not an operational forecast.",
+      description:
+        "Compare weather in two places and follow the next 72 hours together. A free classroom tool connecting weather forecasts with Earth science.",
       path: "/tools/live-weather",
     }),
 });
-
-type Wx = {
-  temperature: number;
-  apparent: number;
-  wind: number;
-  windDir: number;
-  gust?: number;
-  pressure?: number;
-  precip: number;
-  cloud: number;
-  humidity: number;
-  visibility?: number;
-  code: number;
-  time: string;
-  sample?: boolean;
-};
-
-type Hour = { t: string; temp: number; precip: number };
-
-const WMO: Record<number, string> = {
-  0: "Clear sky",
-  1: "Mainly clear",
-  2: "Partly cloudy",
-  3: "Overcast",
-  45: "Fog",
-  48: "Depositing rime fog",
-  51: "Light drizzle",
-  53: "Drizzle",
-  55: "Dense drizzle",
-  61: "Light rain",
-  63: "Rain",
-  65: "Heavy rain",
-  71: "Light snow",
-  73: "Snow",
-  75: "Heavy snow",
-  80: "Rain showers",
-  81: "Rain showers",
-  82: "Violent rain showers",
-  95: "Thunderstorm",
-  96: "Thunderstorm with hail",
-  99: "Thunderstorm with hail",
-};
-
-function compass(deg: number) {
-  const dirs = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
-  return dirs[Math.round(((deg % 360) + 360) % 360 / 22.5) % 16];
-}
-
-function wmo(code: number) {
-  return WMO[code] ?? `Weather code ${code}`;
-}
-
-const PRESETS = [
+const PRESETS: WeatherPoint[] = [
   { name: "London", lat: 51.51, lon: -0.13 },
   { name: "New York", lat: 40.71, lon: -74.01 },
   { name: "Nairobi", lat: -1.29, lon: 36.82 },
@@ -79,376 +60,772 @@ const PRESETS = [
   { name: "Taipei", lat: 25.03, lon: 121.57 },
   { name: "Macau", lat: 22.2, lon: 113.54 },
   { name: "Singapore", lat: 1.35, lon: 103.82 },
-] as const;
-
-/** Used only when Open-Meteo 429s. Round, labelled, not a forecast. */
-const SAMPLE: Record<string, Wx> = {
-  London: { temperature: 14, apparent: 12, wind: 3.5, windDir: 240, gust: 7.2, pressure: 1012, precip: 0.2, cloud: 70, humidity: 78, code: 3, time: "classroom sample", sample: true },
-  "New York": { temperature: 18, apparent: 17, wind: 4.0, windDir: 210, gust: 8.1, pressure: 1016, precip: 0, cloud: 40, humidity: 62, code: 2, time: "classroom sample", sample: true },
-  Nairobi: { temperature: 22, apparent: 21, wind: 2.5, windDir: 90, gust: 5.4, pressure: 1014, precip: 0, cloud: 25, humidity: 55, code: 1, time: "classroom sample", sample: true },
-  Sydney: { temperature: 17, apparent: 16, wind: 5.0, windDir: 180, gust: 9.0, pressure: 1018, precip: 0.4, cloud: 55, humidity: 68, code: 61, time: "classroom sample", sample: true },
-  Tokyo: { temperature: 21, apparent: 20, wind: 3.0, windDir: 80, gust: 6.5, pressure: 1011, precip: 0, cloud: 30, humidity: 60, code: 1, time: "classroom sample", sample: true },
-  Reykjavík: { temperature: 8, apparent: 5, wind: 7.0, windDir: 270, gust: 14.0, pressure: 998, precip: 0.6, cloud: 85, humidity: 82, code: 63, time: "classroom sample", sample: true },
-  Cairo: { temperature: 28, apparent: 27, wind: 3.2, windDir: 10, gust: 6.0, pressure: 1013, precip: 0, cloud: 10, humidity: 35, code: 0, time: "classroom sample", sample: true },
-  Shanghai: { temperature: 24, apparent: 25, wind: 3.1, windDir: 120, gust: 6.4, pressure: 1014, precip: 0, cloud: 45, humidity: 70, code: 2, time: "classroom sample", sample: true },
-  "Hong Kong": { temperature: 27, apparent: 30, wind: 4.2, windDir: 90, gust: 8.0, pressure: 1010, precip: 0.8, cloud: 65, humidity: 78, code: 61, time: "classroom sample", sample: true },
-  Taipei: { temperature: 26, apparent: 28, wind: 3.6, windDir: 70, gust: 7.1, pressure: 1011, precip: 0.3, cloud: 55, humidity: 74, code: 2, time: "classroom sample", sample: true },
-  Macau: { temperature: 27, apparent: 30, wind: 4.0, windDir: 100, gust: 7.8, pressure: 1010, precip: 0.5, cloud: 60, humidity: 80, code: 3, time: "classroom sample", sample: true },
-  Singapore: { temperature: 29, apparent: 34, wind: 2.2, windDir: 180, gust: 5.0, pressure: 1010, precip: 1.8, cloud: 80, humidity: 84, code: 80, time: "classroom sample", sample: true },
+];
+type Layer = "temperature" | "precipitation" | "wind" | "cloud";
+const LAYERS: { id: Layer; label: string; unit: string; note: string }[] = [
+  {
+    id: "temperature",
+    label: "Temperature",
+    unit: "°C",
+    note: "Air temperature is measured in the model at 2 m above the surface.",
+  },
+  {
+    id: "precipitation",
+    label: "Precipitation",
+    unit: "mm",
+    note: "Precipitation is the water equivalent of rain or snow accumulated in the preceding hour.",
+  },
+  {
+    id: "wind",
+    label: "Wind",
+    unit: "m s⁻¹",
+    note: "Wind speed is measured in the model at 10 m; the direction tells you where it comes from.",
+  },
+  {
+    id: "cloud",
+    label: "Cloud cover",
+    unit: "%",
+    note: "Cloud cover ranges from a clear sky at 0% to complete cover at 100%.",
+  },
+];
+type ReadingState = {
+  data: WeatherResult | null;
+  busy: boolean;
+  error: WeatherError | null;
+  key?: string;
 };
-
-function LiveWeather() {
-  const [point, setPoint] = useState({ lat: 51.51, lon: -0.13, name: "London" });
-  const [b, setB] = useState<{ lat: number; lon: number; name: string } | null>(null);
-  const [wx, setWx] = useState<Wx | null>(null);
-  const [wxB, setWxB] = useState<Wx | null>(null);
-  const [hours, setHours] = useState<Hour[]>([]);
-  const [err, setErr] = useState<string | null>(null);
-  const [busy, setBusy] = useState(false);
-  const [dropB, setDropB] = useState(false);
-  const [layer, setLayer] = useState<"temp" | "precip" | "wind" | "cloud">("temp");
-
+function useWeather(point: WeatherPoint) {
+  const [state, setState] = useState<ReadingState>({ data: null, busy: true, error: null });
+  const [version, reload] = useState(0);
+  const key = `${point.lat},${point.lon}`;
   useEffect(() => {
-    void load(51.51, -0.13, "London");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const controller = new AbortController();
+    setState({ data: null, busy: true, error: null, key });
+    const timer = setTimeout(() => {
+      void fetchWeather(point, controller.signal)
+        .then((data) => {
+          if (!controller.signal.aborted) setState({ data, busy: false, error: null, key });
+        })
+        .catch((error) => {
+          if (!controller.signal.aborted)
+            setState({
+              data: null,
+              busy: false,
+              error:
+                error instanceof WeatherError
+                  ? error
+                  : new WeatherError("Weather unavailable. Please try again."),
+              key,
+            });
+        });
+    }, 250);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [point.lat, point.lon, version]);
+  return {
+    ...(state.key === key ? state : { data: null, busy: true, error: null }),
+    retry: () => reload((v) => v + 1),
+  };
+}
+const utc = (time: string) => `${time.replace("T", " ")} UTC`;
+const samePoint = (a: WeatherPoint, b: WeatherPoint) =>
+  Math.abs(a.lat - b.lat) < 0.005 && Math.abs(a.lon - b.lon) < 0.005;
+function LiveWeather() {
+  const [a, setA] = useState<WeatherPoint>(PRESETS[0]),
+    [b, setB] = useState<WeatherPoint>(PRESETS[11]);
+  const [target, setTarget] = useState<"A" | "B">("A"),
+    [layer, setLayer] = useState<Layer>("temperature");
+  const [hour, setHour] = useState(0),
+    [projector, setProjector] = useState(false),
+    [share, setShare] = useState("");
+  const [shareUrl, setShareUrl] = useState("");
+  const wa = useWeather(a),
+    wb = useWeather(b);
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const parse = (key: string): WeatherPoint | null => {
+      const raw = params.get(key);
+      if (!raw) return null;
+      const pieces = raw.split(",");
+      if (pieces.length !== 2 || pieces.some((piece) => !piece.trim())) return null;
+      const coordinates = pieces.map(Number);
+      const [lat, lon] = coordinates;
+      if (
+        !Number.isFinite(lat) ||
+        !Number.isFinite(lon) ||
+        Math.abs(lat) > 90 ||
+        Math.abs(lon) > 180
+      )
+        return null;
+      return {
+        ...(PRESETS.find((p) => Math.abs(p.lat - lat) < 0.005 && Math.abs(p.lon - lon) < 0.005) ?? {
+          name: "Map point",
+        }),
+        lat,
+        lon,
+      };
+    };
+    const pa = parse("a"),
+      pb = parse("b");
+    if (pa) setA(pa);
+    if (pb) setB(pb);
+    const view = params.get("layer");
+    if (LAYERS.some((l) => l.id === view)) setLayer(view as Layer);
   }, []);
-
-  async function fetchWx(lat: number, lon: number, name: string): Promise<{ wx: Wx; hours: Hour[] } | null> {
-    const near = name === "Dropped point" ? nearestAtlasPlace(lat, lon, 8) : null;
-    const label = name === "Dropped point" && near ? near.name : name;
+  function choose(point: WeatherPoint, id = target) {
+    const p = { ...point, lon: ((((point.lon + 180) % 360) + 360) % 360) - 180 };
+    if (id === "B") setB(p);
+    else setA(p);
+    setHour(0);
+  }
+  const selected = LAYERS.find((l) => l.id === layer)!;
+  const timeline = wa.data?.hours ?? wb.data?.hours ?? [];
+  const selectedIndex = Math.min(hour, Math.max(0, timeline.length - 1));
+  const selectedTime = timeline[selectedIndex]?.time;
+  const ha = wa.data?.hours.find((h) => h.time === selectedTime),
+    hb = wb.data?.hours.find((h) => h.time === selectedTime);
+  const forecast = useMemo(
+    () =>
+      timeline.map((h) => ({
+        time: h.time,
+        a: wa.data?.hours.find((x) => x.time === h.time)?.[layer] ?? null,
+        b: wb.data?.hours.find((x) => x.time === h.time)?.[layer] ?? null,
+      })),
+    [wa.data, wb.data, layer],
+  );
+  const defaultPair = samePoint(a, PRESETS[0]) && samePoint(b, PRESETS[11]);
+  async function copyView() {
+    const url = new URL(location.href);
+    url.search = "";
+    url.searchParams.set("a", `${a.lat.toFixed(3)},${a.lon.toFixed(3)}`);
+    url.searchParams.set("b", `${b.lat.toFixed(3)},${b.lon.toFixed(3)}`);
+    url.searchParams.set("layer", layer);
     try {
-      const url = new URL("https://api.open-meteo.com/v1/forecast");
-      url.searchParams.set("latitude", lat.toFixed(3));
-      url.searchParams.set("longitude", lon.toFixed(3));
-      url.searchParams.set(
-        "current",
-        "temperature_2m,apparent_temperature,wind_speed_10m,wind_direction_10m,wind_gusts_10m,pressure_msl,precipitation,cloud_cover,relative_humidity_2m,weather_code,visibility",
-      );
-      url.searchParams.set("hourly", "temperature_2m,precipitation,cloud_cover,wind_speed_10m");
-      url.searchParams.set("forecast_days", "3");
-      url.searchParams.set("wind_speed_unit", "ms");
-      const res = await fetch(url.toString());
-      if (!res.ok) throw new Error("Open-Meteo did not answer.");
-      const json = (await res.json()) as {
-        current: {
-          time: string;
-          temperature_2m: number;
-          apparent_temperature: number;
-          wind_speed_10m: number;
-          wind_direction_10m: number;
-          wind_gusts_10m?: number;
-          pressure_msl?: number;
-          precipitation: number;
-          cloud_cover: number;
-          relative_humidity_2m: number;
-          weather_code: number;
-          visibility?: number;
-        };
-        hourly: { time: string[]; temperature_2m: number[]; precipitation: number[] };
-      };
-      const now = json.current.time;
-      const idx = json.hourly.time.findIndex((t) => t >= now);
-      const start = Math.max(0, idx);
-      return {
-        wx: {
-          temperature: json.current.temperature_2m,
-          apparent: json.current.apparent_temperature,
-          wind: json.current.wind_speed_10m,
-          windDir: json.current.wind_direction_10m,
-          gust: json.current.wind_gusts_10m,
-          pressure: json.current.pressure_msl,
-          precip: json.current.precipitation,
-          cloud: json.current.cloud_cover,
-          humidity: json.current.relative_humidity_2m,
-          visibility: json.current.visibility,
-          code: json.current.weather_code,
-          time: json.current.time,
-        },
-        hours: json.hourly.time.slice(start, start + 72).map((t, i) => ({
-          t,
-          temp: json.hourly.temperature_2m[start + i]!,
-          precip: json.hourly.precipitation[start + i]!,
-        })),
-      };
+      await navigator.clipboard.writeText(url.toString());
+      setShare("Comparison link copied. Weather values refresh when it is opened.");
     } catch {
-      const sample = SAMPLE[label] ?? SAMPLE[name];
-      if (!sample) return null;
-      return {
-        wx: sample,
-        hours: Array.from({ length: 48 }, (_, i) => ({
-          t: `+${i}h`,
-          temp: sample.temperature + Math.sin(i / 4) * 2,
-          precip: i % 8 === 3 ? sample.precip : 0,
-        })),
-      };
+      setShare("Your browser could not copy the link. Select and copy it below.");
     }
+    setShareUrl(url.toString());
   }
-
-  async function load(lat: number, lon: number, name = "Dropped point") {
-    setBusy(true);
-    setErr(null);
-    const near = name === "Dropped point" ? nearestAtlasPlace(lat, lon, 8) : null;
-    const label = name === "Dropped point" && near ? near.name : name;
-    if (dropB) {
-      setB({ lat, lon, name: label });
-      const got = await fetchWx(lat, lon, label);
-      setWxB(got?.wx ?? null);
-      setBusy(false);
-      setDropB(false);
-      if (!got) setErr("Could not reach Open-Meteo for place B. The map still works.");
-      return;
-    }
-    setPoint({ lat, lon, name: label });
-    const got = await fetchWx(lat, lon, label);
-    if (got) {
-      setWx(got.wx);
-      setHours(got.hours);
-      if (got.wx.sample) {
-        setErr(
-          "Open-Meteo did not answer (rate limit or network). Showing a labelled classroom sample so the desk is not empty. Not a forecast.",
-        );
-      }
-    } else {
-      setWx(null);
-      setHours([]);
-      setErr("Could not reach Open-Meteo. The map still works; the numbers will wait.");
-    }
-    setBusy(false);
-  }
-
-  const f = wx ? (wx.temperature * 9) / 5 + 32 : 0;
-
   return (
-    <main id="main" className="mx-auto max-w-[1100px] px-5 pb-24 pt-24">
-      <p className="section-label">Tools</p>
-      <h1 className="mt-3 font-display text-4xl">Live weather</h1>
-      <p className="mt-4 max-w-2xl text-mist">
-        Click the map or drag the pin. Open-Meteo returns temperature, wind, precipitation, humidity, and
-        cloud. Educational, often delayed, not operational forecasting. Not a cockpit. No third-party weather
-        branding.
-      </p>
-      <p className="mt-2 text-sm text-mist">
-        Also:{" "}
-        <Link to="/tools/map" className="text-ice hover:underline">
-          World map studio
-        </Link>
-        {" · "}
-        <Link to="/atlas" className="text-ice hover:underline">
-          Atlas
-        </Link>
-      </p>
-
-      <div className="mt-6 flex flex-wrap gap-2">
-        {PRESETS.map((p) => (
-          <button
-            key={p.name}
-            type="button"
-            onClick={() => void load(p.lat, p.lon, p.name)}
-            className="h-9 rounded-full border border-white/10 bg-white/6 px-3.5 text-sm text-chalk hover:bg-white/10"
-          >
-            {p.name}
+    <main
+      id="main"
+      className={`field-page weather-page ${projector ? "field-page--projector" : ""}`}
+    >
+      <header className="field-page-heading">
+        <div>
+          <p className="section-label">Observe the atmosphere</p>
+          <h1>Live weather</h1>
+          <p className="field-intro">
+            Compare the weather in two places, then follow the next three days together. Start with
+            London’s temperate setting and Singapore’s position near the equator.
+          </p>
+        </div>
+        <div className="field-actions">
+          <button className="field-button" onClick={() => void copyView()}>
+            Share comparison
           </button>
-        ))}
+          <button
+            className="field-button"
+            aria-pressed={projector}
+            onClick={() => setProjector((v) => !v)}
+          >
+            Projector {projector ? "on" : "off"}
+          </button>
+        </div>
+      </header>
+      {share && (
+        <div className="field-notice" role="status">
+          <p>{share}</p>
+          {shareUrl && (
+            <input
+              className="weather-share-link"
+              aria-label="Comparison link"
+              value={shareUrl}
+              readOnly
+              onFocus={(e) => e.currentTarget.select()}
+            />
+          )}
+        </div>
+      )}
+      <section className="weather-places" aria-label="Choose two places">
+        <PlacePicker id="A" point={a} onChoose={(p) => choose(p, "A")} />
         <button
-          type="button"
-          onClick={() => setDropB((v) => !v)}
-          className={`h-9 rounded-full border px-3.5 text-sm ${dropB ? "border-magma/50 bg-magma/20 text-chalk" : "border-white/10 bg-white/6 text-chalk hover:bg-white/10"}`}
+          className="field-button weather-swap"
+          aria-label="Swap the two places"
+          onClick={() => {
+            setA(b);
+            setB(a);
+            setHour(0);
+          }}
         >
-          {dropB ? "Click map for place B" : "Set place B"}
+          <ArrowLeftRight size={18} aria-hidden="true" />
         </button>
+        <PlacePicker id="B" point={b} onChoose={(p) => choose(p, "B")} />
+      </section>
+      <div className="weather-current-heading">
+        <h2>Current model conditions</h2>
+        <p>Open-Meteo supplies model estimates rather than readings from a weather station.</p>
       </div>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        {(
-          [
-            ["temp", "Temperature"],
-            ["precip", "Precipitation"],
-            ["wind", "Wind barbs"],
-            ["cloud", "Cloud cover"],
-          ] as const
-        ).map(([id, label]) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => setLayer(id)}
-            className={`h-9 rounded-full border px-3.5 text-sm ${layer === id ? "border-glacier/40 bg-glacier text-basalt" : "border-white/10 bg-white/6 text-chalk hover:bg-white/10"}`}
-          >
-            {label}
-          </button>
-        ))}
+      <div className="weather-current-grid">
+        <WeatherCard id="A" point={a} state={wa} />
+        <WeatherCard id="B" point={b} state={wb} />
       </div>
-      <p className="mt-2 font-mono text-[11px] text-mist">
-        Layer is a classroom readout of the pin, not a branded weather tile. Open-Meteo numbers only. Default
-        pin is London — a temperate cyclone desk, not a hurricane.
-      </p>
-
-      <div className="mt-6">
-        <LibreMap
-          center={[point.lon, point.lat]}
-          zoom={5}
-          marker={[point.lon, point.lat]}
-          markerB={b ? [b.lon, b.lat] : null}
-          draggableMarker
-          onClick={(c) => void load(c.lat, c.lon)}
-          className="h-[min(60vh,36rem)] w-full overflow-hidden rounded-2xl border border-white/10 bg-trench"
-          label="Live weather map"
-        />
-      </div>
-
-      <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-glacier">{point.name}</p>
-        <p className="mt-1 font-mono text-sm text-ice">{fmtLatLon(point.lat, point.lon, 2)}</p>
-        {busy && <p className="mt-3 text-mist">Asking Open-Meteo…</p>}
-        {err && <p className="mt-3 text-sandstone">{err}</p>}
-        {wx && (
+      <Comparison
+        a={wa.data}
+        b={wb.data}
+        names={[a.name, b.name]}
+        defaultPair={defaultPair}
+        sameLocation={samePoint(a, b)}
+      />
+      <section className="weather-forecast" aria-label="Compare the hourly forecast">
+        <div className="weather-section-heading">
+          <div>
+            <p className="section-label">Follow the next 72 hours</p>
+            <h2>One timeline, two places.</h2>
+          </div>
+          <div className="weather-layer-buttons" role="group" aria-label="Weather variable">
+            {LAYERS.map((l) => (
+              <button
+                key={l.id}
+                className="field-button"
+                aria-pressed={layer === l.id}
+                onClick={() => setLayer(l.id)}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="weather-forecast-legend">
+          <span>
+            <i className="weather-key-a" />
+            A: {a.name}
+          </span>
+          <span>
+            <i className="weather-key-b" />
+            B: {b.name}
+          </span>
+          <span>{selected.unit}</span>
+        </div>
+        {forecast.length ? (
           <>
-            <p className="mt-4 font-display text-3xl text-chalk">{wmo(wx.code)}</p>
-            <dl className="mt-4 grid gap-3 sm:grid-cols-2">
-              <Row k="Air temperature" v={`${wx.temperature.toFixed(1)} °C`} sub={`(${f.toFixed(0)} °F)`} />
-              <Row k="Apparent temperature" v={`${wx.apparent.toFixed(1)} °C`} />
-              <Row k="Wind (10 m)" v={`${wx.wind.toFixed(1)} m s⁻¹ · ${wx.windDir.toFixed(0)}° ${compass(wx.windDir)}`} />
-              <Row k="Gusts (10 m)" v={`${(wx.gust ?? wx.wind * 1.6).toFixed(1)} m s⁻¹`} />
-              <Row k="Mean sea-level pressure" v={`${(wx.pressure ?? 1013).toFixed(0)} hPa`} />
-              <Row k="Precipitation" v={`${wx.precip.toFixed(1)} mm`} />
-              <Row k="Cloud cover" v={`${wx.cloud.toFixed(0)} %`} />
-              <Row k="Relative humidity" v={`${wx.humidity.toFixed(0)} %`} />
-              <Row
-                k="Visibility"
-                v={wx.visibility != null ? `${(wx.visibility / 1000).toFixed(1)} km` : "—"}
+            <Forecast
+              rows={forecast}
+              layer={layer}
+              names={[a.name, b.name]}
+              selectedTime={selectedTime}
+              unit={selected.unit}
+            />
+            <div className="weather-timeline">
+              <label htmlFor="weather-hour">
+                Compare at <strong>{selectedTime ? utc(selectedTime) : "the selected hour"}</strong>
+              </label>
+              <input
+                id="weather-hour"
+                aria-label="Forecast hour"
+                type="range"
+                min={0}
+                max={timeline.length - 1}
+                value={selectedIndex}
+                onChange={(e) => setHour(Number(e.target.value))}
               />
-              <Row
-                k="Observation time"
-                v={wx.sample ? "classroom sample" : wx.time.replace("T", " ") + " (model)"}
+              <div className="weather-hour-values" aria-live="polite">
+                <span>
+                  <span className="field-letter">A</span>
+                  {a.name}
+                  <strong>{number(ha?.[layer], selected.unit)}</strong>
+                </span>
+                <span>
+                  <span className="field-letter field-letter--b">B</span>
+                  {b.name}
+                  <strong>{number(hb?.[layer], selected.unit)}</strong>
+                </span>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="weather-forecast-empty">
+            {wa.busy || wb.busy ? (
+              <LoadingProgress
+                label="Loading the shared forecast"
+                detail="Both places will use the same UTC timeline."
               />
-            </dl>
-            <WindRose deg={wx.windDir} speed={wx.wind} />
-            {layer === "temp" && (
-              <p className="mt-3 text-sm text-mist">Temperature layer: {wx.temperature.toFixed(1)} °C at the pin.</p>
-            )}
-            {layer === "precip" && (
-              <p className="mt-3 text-sm text-mist">Precipitation layer: {wx.precip.toFixed(1)} mm at the pin.</p>
-            )}
-            {layer === "wind" && (
-              <p className="mt-3 text-sm text-mist">
-                Wind layer: {wx.wind.toFixed(1)} m s⁻¹ from {compass(wx.windDir)}. Gusts{" "}
-                {(wx.gust ?? wx.wind * 1.6).toFixed(1)} m s⁻¹.
+            ) : (
+              <p>
+                The forecast is unavailable. Retry either place above; the map and related labs are
+                still available.
               </p>
             )}
-            {layer === "cloud" && (
-              <p className="mt-3 text-sm text-mist">Cloud cover layer: {wx.cloud.toFixed(0)} %.</p>
-            )}
-          </>
+          </div>
         )}
-      </div>
-
-      {wxB && b && (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-glacier">Place B · {b.name}</p>
-          <p className="mt-1 font-mono text-sm text-ice">{fmtLatLon(b.lat, b.lon, 2)}</p>
-          <p className="mt-3 font-display text-2xl text-chalk">{wmo(wxB.code)}</p>
-          <p className="mt-2 text-mist">
-            {wxB.temperature.toFixed(1)} °C · {wxB.wind.toFixed(1)} m s⁻¹ {compass(wxB.windDir)} · {wxB.precip.toFixed(1)} mm ·{" "}
-            {wxB.cloud.toFixed(0)} % cloud
-            {wx && ` · ΔT ${(wxB.temperature - wx.temperature).toFixed(1)} °C vs ${point.name}`}
+        <p className="weather-chart-note">
+          {selected.note} Both series use UTC, so the same hour can fall at different times of day
+          locally.
+        </p>
+        {forecast.length > 0 && (
+          <details className="weather-table">
+            <summary>Read or download the hourly values</summary>
+            <div className="field-actions">
+              {wa.data && (
+                <button className="field-button" onClick={() => downloadCsv(wa.data!, a)}>
+                  <Download size={15} aria-hidden="true" />
+                  {a.name} CSV
+                </button>
+              )}
+              {wb.data && (
+                <button className="field-button" onClick={() => downloadCsv(wb.data!, b)}>
+                  <Download size={15} aria-hidden="true" />
+                  {b.name} CSV
+                </button>
+              )}
+            </div>
+            <div className="weather-table-scroll">
+              <table>
+                <caption>
+                  {selected.label} in {selected.unit}; a dash means the provider supplied no value.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Time (UTC)</th>
+                    <th scope="col">A: {a.name}</th>
+                    <th scope="col">B: {b.name}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {forecast.map((r) => (
+                    <tr key={r.time}>
+                      <th scope="row">{r.time.replace("T", " ")}</th>
+                      <td>{r.a?.toFixed(1) ?? "—"}</td>
+                      <td>{r.b?.toFixed(1) ?? "—"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </details>
+        )}
+      </section>
+      <section className="weather-map-section" aria-label="Locate the comparison">
+        <div className="weather-section-heading">
+          <div>
+            <p className="section-label">Put the readings on the map</p>
+            <h2>Where does the weather change?</h2>
+          </div>
+          <div className="field-actions" role="group" aria-label="Choose the place to move">
+            {(["A", "B"] as const).map((id) => (
+              <button
+                key={id}
+                className="field-button"
+                aria-pressed={target === id}
+                onClick={() => setTarget(id)}
+              >
+                Move place {id}
+              </button>
+            ))}
+          </div>
+        </div>
+        <p className="weather-chart-note">
+          Choose which place to move, then click the map. Pin readings follow the selected forecast
+          hour above.
+        </p>
+        <LibreMap
+          center={[a.lon, a.lat]}
+          zoom={3}
+          marker={[a.lon, a.lat]}
+          markerB={[b.lon, b.lat]}
+          markerContent={<WeatherMapPin id="A" hour={ha} layer={layer} />}
+          markerBContent={<WeatherMapPin id="B" hour={hb} layer={layer} />}
+          draggableMarker
+          fitMarkers
+          onClick={(p) => choose({ ...p, name: "Map point" })}
+          onMarkerDrag={(p) => choose({ ...p, name: "Map point" }, "A")}
+          label="Live weather comparison map"
+          className="weather-comparison-map"
+        />
+      </section>
+      <section className="weather-learning" aria-label="Connect the observations">
+        <div>
+          <p className="section-label">From observation to explanation</p>
+          <h2>What would you investigate next?</h2>
+          <p>
+            Choose a difference in the forecast and suggest a cause. Use a model to test your
+            explanation, then decide what other evidence you would need.
           </p>
         </div>
-      )}
-
-      {hours.length > 0 && (
-        <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-glacier">
-            Next 48–72 hours · educational / delayed
-          </p>
-          <Spark hours={hours} />
+        <div className="weather-learning-links">
+          <Link to="/lab/$slug" params={{ slug: "wind" }}>
+            <Wind size={21} aria-hidden="true" />
+            <span>
+              <strong>Why does the wind move?</strong>
+              <small>Explore pressure gradients and Earth’s rotation.</small>
+            </span>
+            <ArrowRight size={17} aria-hidden="true" />
+          </Link>
+          <Link to="/lab/$slug" params={{ slug: "fronts" }}>
+            <Cloud size={21} aria-hidden="true" />
+            <span>
+              <strong>What brings changing weather?</strong>
+              <small>Follow warm and cold air at a front.</small>
+            </span>
+            <ArrowRight size={17} aria-hidden="true" />
+          </Link>
+          <Link to="/lab/$slug" params={{ slug: "climate-types" }}>
+            <Thermometer size={21} aria-hidden="true" />
+            <span>
+              <strong>How is this different from climate?</strong>
+              <small>Compare long-term temperature and rainfall patterns.</small>
+            </span>
+            <ArrowRight size={17} aria-hidden="true" />
+          </Link>
         </div>
-      )}
-
-      <p className="mt-4 text-sm text-mist">
-        Educational, often delayed, not operational forecasting. Not a cockpit. No third-party weather
-        branding.
-      </p>
-      <p className="mt-2 text-sm text-mist">
-        Disclaimer: delayed model output for class, not a warning service.
-      </p>
-      <p className="mt-4 text-sm text-mist">
-        Machinery behind a chart:{" "}
-        <Link to="/lab/$slug" params={{ slug: "wind" }} className="text-ice hover:underline">
-          Wind, PGF and Coriolis
-        </Link>
-        {" · "}
-        <Link to="/lab/$slug" params={{ slug: "cyclone-anticyclone" }} className="text-ice hover:underline">
-          Midlatitude cyclone
-        </Link>
-        {" · "}
-        <Link to="/lab/$slug" params={{ slug: "fronts" }} className="text-ice hover:underline">
-          Fronts as wedges
-        </Link>
-      </p>
+      </section>
+      <details className="field-methods">
+        <summary>About the forecast data</summary>
+        <p>
+          Open-Meteo combines numerical weather models and chooses a suitable model grid cell near
+          each pin. The terrain height and location of that cell can differ from your selected
+          coordinates. A dash means no value was supplied. Requests are cached for ten minutes in
+          this tab.
+        </p>
+        <p>
+          Use these forecasts to investigate patterns in class. For decisions about severe weather,
+          consult the relevant local weather service.
+        </p>
+        <p>
+          <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">
+            Weather data by Open-Meteo
+          </a>
+          . <Link to="/atlas">Explore the Atlas</Link> to connect today’s weather with longer-term
+          climate and landscapes.
+        </p>
+      </details>
     </main>
   );
 }
-
-function Spark({ hours }: { hours: Hour[] }) {
-  const temps = hours.map((h) => h.temp);
-  const min = Math.min(...temps);
-  const max = Math.max(...temps);
-  const span = Math.max(1, max - min);
-  const w = 640;
-  const h = 88;
-  const pts = hours
-    .map((hr, i) => {
-      const x = (i / Math.max(1, hours.length - 1)) * w;
-      const y = 8 + (1 - (hr.temp - min) / span) * 56;
-      return `${x},${y}`;
-    })
-    .join(" ");
+function PlacePicker({
+  id,
+  point,
+  onChoose,
+}: {
+  id: "A" | "B";
+  point: WeatherPoint;
+  onChoose: (p: WeatherPoint) => void;
+}) {
+  const selected = PRESETS.find((p) => samePoint(p, point));
   return (
-    <div className="mt-3">
-      <svg viewBox={`0 0 ${w} ${h}`} className="h-24 w-full text-glacier" role="img" aria-label="24-hour temperature and rain">
-        {hours.map((hr, i) => {
-          const x = (i / Math.max(1, hours.length - 1)) * w;
-          const bh = Math.min(28, hr.precip * 8);
-          return <rect key={hr.t} x={x - 4} y={h - 4 - bh} width={8} height={bh} fill="#7FD4FF" opacity={0.55} />;
-        })}
-        <polyline fill="none" stroke="currentColor" strokeWidth="2.4" points={pts} />
-      </svg>
-      <p className="mt-1 font-mono text-[11px] text-mist">
-        Line: air temperature °C. Bars: precipitation mm. {min.toFixed(0)}–{max.toFixed(0)} °C over {hours.length} h.
+    <label className="field-label weather-place-picker">
+      <span>
+        <span className={`field-letter ${id === "B" ? "field-letter--b" : ""}`}>{id}</span>Place{" "}
+        {id}
+      </span>
+      <select
+        aria-label={`Place ${id}`}
+        value={selected?.name ?? "custom"}
+        onChange={(e) => {
+          const p = PRESETS.find((item) => item.name === e.target.value);
+          if (p) onChoose(p);
+        }}
+      >
+        {!selected && (
+          <option value="custom">Map point ({fmtLatLon(point.lat, point.lon, 2)})</option>
+        )}
+        {PRESETS.map((p) => (
+          <option key={p.name} value={p.name}>
+            {p.name}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+function WeatherCard({
+  id,
+  point,
+  state,
+}: {
+  id: "A" | "B";
+  point: WeatherPoint;
+  state: ReadingState & { retry: () => void };
+}) {
+  const [clock, setClock] = useState(Date.now());
+  useEffect(() => {
+    if (!state.error?.retryAt) return;
+    const timer = setInterval(() => setClock(Date.now()), 1000);
+    return () => clearInterval(timer);
+  }, [state.error?.retryAt]);
+  const wait = Math.max(0, Math.ceil(((state.error?.retryAt ?? 0) - clock) / 1000));
+  const data = state.data,
+    c = data?.current;
+  return (
+    <section
+      aria-label={`Place ${id} weather`}
+      aria-busy={state.busy}
+      className={`weather-current-card ${id === "B" ? "weather-current-card--b" : ""}`}
+    >
+      <div className="weather-card-title">
+        <h3>{point.name}</h3>
+        <span className={`field-letter ${id === "B" ? "field-letter--b" : ""}`}>{id}</span>
+      </div>
+      <p className="weather-coordinates">
+        <MapPin size={13} aria-hidden="true" />
+        {fmtLatLon(point.lat, point.lon, 2)}
       </p>
+      <div role="status">
+        {state.busy && (
+          <div className="weather-card-loading">
+            <LoadingProgress
+              label={`Loading weather for ${point.name}`}
+              detail="Contacting Open-Meteo…"
+            />
+          </div>
+        )}
+        {state.error && (
+          <div className="weather-card-error">
+            <p>{state.error.message}</p>
+            <button disabled={wait > 0} className="field-button" onClick={state.retry}>
+              {wait > 0 ? `Retry in ${wait} seconds` : "Retry weather"}
+            </button>
+          </div>
+        )}
+      </div>
+      {c && data && (
+        <>
+          <div className="weather-primary-reading">
+            <p>
+              {c.temperature === null ? "—" : c.temperature.toFixed(1)}
+              <span>°C</span>
+            </p>
+            <div>
+              <span>{weatherDescription(c.code)}</span>
+              <small>Feels like {number(c.apparent, "°C")}</small>
+            </div>
+          </div>
+          <p className="weather-model-time">Model time: {utc(c.time)}</p>
+          <dl className="weather-main-metrics">
+            <Metric label="Wind at 10 m" value={number(c.wind, "m s⁻¹")} />
+            <Metric label="Cloud cover" value={number(c.cloud, "%", 0)} />
+            <Metric
+              label={`Rain / snow in ${c.interval / 60} min`}
+              value={number(c.precip, "mm")}
+            />
+          </dl>
+          <details className="weather-more-readings">
+            <summary>More readings and data source</summary>
+            <dl className="weather-extra-metrics">
+              <Metric label="Relative humidity" value={number(c.humidity, "%", 0)} />
+              <Metric label="Mean sea-level pressure" value={number(c.pressure, "hPa", 0)} />
+              <Metric label="Wind gust at 10 m" value={number(c.gust, "m s⁻¹")} />
+              <Metric
+                label="Visibility"
+                value={number(c.visibility === null ? null : c.visibility / 1000, "km")}
+              />
+            </dl>
+            {c.wind !== null && c.windDir !== null && (
+              <p className="weather-chart-note">
+                {c.wind < 0.3
+                  ? "The wind is calm."
+                  : `The wind comes from ${compass(c.windDir)} (${c.windDir.toFixed(0)}°).`}
+              </p>
+            )}
+            <p className="weather-chart-note">
+              The model grid cell is at {fmtLatLon(data.grid.lat, data.grid.lon, 3)}, with an
+              elevation of {number(data.grid.elevation, "m", 0)}. Retrieved at{" "}
+              {new Date(data.fetchedAt).toISOString().replace("T", " ").slice(0, 19)} UTC.
+            </p>
+            <div className="field-actions">
+              <a className="field-text-button" href={data.url} target="_blank" rel="noreferrer">
+                Open the data request <ArrowRight size={15} aria-hidden="true" />
+              </a>
+              <button className="field-text-button" onClick={() => downloadCsv(data, point)}>
+                Download CSV
+              </button>
+            </div>
+          </details>
+        </>
+      )}
+    </section>
+  );
+}
+function Metric({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt>{label}</dt>
+      <dd>{value}</dd>
     </div>
   );
 }
-
-function WindRose({ deg, speed }: { deg: number; speed: number }) {
-  const rot = deg - 90;
+function Comparison({
+  a,
+  b,
+  names,
+  defaultPair,
+  sameLocation,
+}: {
+  a: WeatherResult | null;
+  b: WeatherResult | null;
+  names: string[];
+  defaultPair: boolean;
+  sameLocation: boolean;
+}) {
+  const same = a && b && a.current.time === b.current.time;
+  const delta =
+    same && a.current.temperature !== null && b.current.temperature !== null
+      ? b.current.temperature - a.current.temperature
+      : null;
+  const sentence =
+    delta === null
+      ? "Compare the temperature, cloud cover and wind, then look for changes along the forecast."
+      : Math.abs(delta) < 0.05
+        ? `${names[0]} and ${names[1]} have the same modelled temperature at this time.`
+        : `${names[1]} is ${Math.abs(delta).toFixed(1)} °C ${delta > 0 ? "warmer" : "cooler"} than ${names[0]} at the same model time.`;
   return (
-    <div className="mt-4 flex items-center gap-4">
-      <svg viewBox="0 0 80 80" className="size-20 text-glacier" aria-hidden>
-        <circle cx="40" cy="40" r="28" fill="none" stroke="currentColor" strokeOpacity="0.3" />
-        <text x="40" y="12" textAnchor="middle" fill="currentColor" fontSize="8">
-          N
-        </text>
-        <g transform={`translate(40 40) rotate(${rot})`}>
-          <polygon points="0,-18 5,10 -5,10" fill="currentColor" />
-        </g>
-      </svg>
-      <p className="text-sm text-mist">
-        Wind barb: from {deg.toFixed(0)}° at {speed.toFixed(1)} m s⁻¹. Point reading, not a synoptic chart.
-        Temperature / precipitation / wind / cloud are Open-Meteo values at the pin, not a tile layer from a
-        weather brand.
+    <aside className="weather-comparison-note" aria-label="Read the comparison">
+      <p className="section-label">Notice and explain</p>
+      <p>
+        {sameLocation
+          ? "Both pins are at the same location. Choose a different second place to investigate a contrast."
+          : sentence}
       </p>
+      <p>
+        {a && b && !same
+          ? "The current model times differ; use the shared forecast timeline for a comparison at the same UTC hour."
+          : defaultPair
+            ? "London and Singapore differ in latitude and local time. Follow their daily temperature cycles before deciding how much a single reading can tell you about climate."
+            : "Consider latitude, elevation, distance from the sea and local time when proposing an explanation. One forecast does not establish a place’s climate."}
+      </p>
+    </aside>
+  );
+}
+function WeatherMapPin({
+  id,
+  hour,
+  layer,
+}: {
+  id: "A" | "B";
+  hour: WeatherHour | undefined;
+  layer: Layer;
+}) {
+  const unit = LAYERS.find((l) => l.id === layer)!.unit;
+  return (
+    <div
+      data-weather-pin={id}
+      className={`weather-map-pin ${id === "B" ? "weather-map-pin--b" : ""}`}
+    >
+      <strong>{id}</strong>
+      <span>{number(hour?.[layer], unit)}</span>
+      {layer === "wind" && hour?.windDir != null && <small>From {compass(hour.windDir)}</small>}
     </div>
   );
 }
-
-function Row({ k, v, sub }: { k: string; v: string; sub?: string }) {
+function Forecast({
+  rows,
+  layer,
+  names,
+  selectedTime,
+  unit,
+}: {
+  rows: { time: string; a: number | null; b: number | null }[];
+  layer: Layer;
+  names: string[];
+  selectedTime: string | undefined;
+  unit: string;
+}) {
   return (
-    <div className="rounded-[16px] border border-white/10 bg-white/[0.03] px-4 py-3">
-      <dt className="font-mono text-[11px] uppercase tracking-[0.12em] text-mist">{k}</dt>
-      <dd className="mt-1 font-display text-2xl text-chalk">
-        {v}
-        {sub && <span className="ml-2 font-mono text-sm text-mist">{sub}</span>}
-      </dd>
+    <div
+      className="weather-chart"
+      role="img"
+      aria-label={`${LAYERS.find((l) => l.id === layer)!.label} forecast for ${names[0]} and ${names[1]}. Both use the same UTC timeline. An accessible data table follows.`}
+    >
+      <ResponsiveContainer width="100%" height="100%">
+        <ComposedChart data={rows} margin={{ top: 16, right: 12, bottom: 8, left: 0 }}>
+          <CartesianGrid vertical={false} stroke="var(--color-glass-border)" />
+          <XAxis
+            dataKey="time"
+            minTickGap={60}
+            tickFormatter={(value) => String(value).slice(5).replace("T", " ")}
+            stroke="var(--color-mist)"
+            tick={{ fontSize: 11 }}
+          />
+          <YAxis
+            width={42}
+            stroke="var(--color-mist)"
+            tick={{ fontSize: 11 }}
+            domain={
+              layer === "cloud"
+                ? [0, 100]
+                : layer === "temperature"
+                  ? ["auto", "auto"]
+                  : [0, "auto"]
+            }
+          />
+          <Tooltip
+            contentStyle={{
+              background: "var(--color-basalt)",
+              color: "var(--color-chalk)",
+              border: "1px solid var(--color-glass-border)",
+              borderRadius: 10,
+              fontSize: 12,
+            }}
+            labelFormatter={(value) => utc(String(value))}
+            formatter={(value: number, name: string) => [`${value.toFixed(1)} ${unit}`, name]}
+          />
+          {layer === "precipitation" ? (
+            <>
+              <Bar
+                dataKey="a"
+                name={`A: ${names[0]}`}
+                fill="var(--color-glacier)"
+                isAnimationActive={false}
+              />
+              <Bar
+                dataKey="b"
+                name={`B: ${names[1]}`}
+                fill="var(--color-sandstone)"
+                isAnimationActive={false}
+              />
+            </>
+          ) : (
+            <>
+              <Line
+                dataKey="a"
+                name={`A: ${names[0]}`}
+                stroke="var(--color-glacier)"
+                strokeWidth={2.5}
+                dot={false}
+                connectNulls={false}
+                isAnimationActive={false}
+              />
+              <Line
+                dataKey="b"
+                name={`B: ${names[1]}`}
+                stroke="var(--color-sandstone)"
+                strokeWidth={2.5}
+                strokeDasharray="6 3"
+                dot={false}
+                connectNulls={false}
+                isAnimationActive={false}
+              />
+            </>
+          )}
+          {selectedTime && (
+            <ReferenceLine x={selectedTime} stroke="var(--color-chalk)" strokeDasharray="3 4" />
+          )}
+        </ComposedChart>
+      </ResponsiveContainer>
     </div>
   );
+}
+function downloadCsv(data: WeatherResult, point: WeatherPoint) {
+  const url = URL.createObjectURL(
+    new Blob([weatherCsv(data, point)], { type: "text/csv;charset=utf-8" }),
+  );
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = `geolens-weather-${point.lat.toFixed(2)}-${point.lon.toFixed(2)}.csv`;
+  anchor.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }

@@ -1,0 +1,165 @@
+{
+  "model": "MULLER2019",
+  "credit": "EarthByte / GPlates \u00b7 M\u00fcller et al. (2019), Young et al. (2019), Cao et al. (2020)",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://www.earthbyte.org/gplates-2-4-software-and-data-sets/",
+  "method": "Present-day coastline polygons reconstructed in a mantle reference frame; not ancient shorelines. Discrete 10 Ma snapshots; no invented interpolation.",
+  "files": [
+    {
+      "ageMa": 0,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=0&model=MULLER2019",
+      "file": "coastlines-0.json",
+      "sha256": "b8ea9c1739f1e139242d9dea20353f459a6374a748502ab4e091da1e555c17f8"
+    },
+    {
+      "ageMa": 10,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=10&model=MULLER2019",
+      "file": "coastlines-10.json",
+      "sha256": "a8a60fd19bedc2d2f0ae85c2f1d9abbe592d7959a9bf5515e2390efd8e746906"
+    },
+    {
+      "ageMa": 20,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=20&model=MULLER2019",
+      "file": "coastlines-20.json",
+      "sha256": "e42561ccb82747e9f7dcfab384617b905c6d475ea2cc9d0d2f305eb044d26a5b"
+    },
+    {
+      "ageMa": 30,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=30&model=MULLER2019",
+      "file": "coastlines-30.json",
+      "sha256": "fca159379b230b8ef2137989485712e47155646849b1ed7d4d060e76b58a9bd3"
+    },
+    {
+      "ageMa": 40,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=40&model=MULLER2019",
+      "file": "coastlines-40.json",
+      "sha256": "b1f41e16417da6dfcf8361c4b8b8cf4aae83c8babbb458afc4e6431c16ef12f6"
+    },
+    {
+      "ageMa": 50,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=50&model=MULLER2019",
+      "file": "coastlines-50.json",
+      "sha256": "75a997f31d5fa7bf81e519c4b2f7dba4541ba79f228c4f927e11e4bd582b42b7"
+    },
+    {
+      "ageMa": 60,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=60&model=MULLER2019",
+      "file": "coastlines-60.json",
+      "sha256": "12fc4fba6b74094b23808ff4067787f856f35b52645adf5efefdf286ba7a8110"
+    },
+    {
+      "ageMa": 70,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=70&model=MULLER2019",
+      "file": "coastlines-70.json",
+      "sha256": "004605f6b1f63dde2c9e5c288da205655ed404885449470d0b88dc2f1bd2ff5b"
+    },
+    {
+      "ageMa": 80,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=80&model=MULLER2019",
+      "file": "coastlines-80.json",
+      "sha256": "0acfd8fa61da16c0f3b47fac1a9df1008123fb2f2b7efb71742dc419f1cc3861"
+    },
+    {
+      "ageMa": 90,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=90&model=MULLER2019",
+      "file": "coastlines-90.json",
+      "sha256": "1f95d82bbdff02191dbc16979db5849e310877d163a37ca2b3f78cbda0d456b0"
+    },
+    {
+      "ageMa": 100,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=100&model=MULLER2019",
+      "file": "coastlines-100.json",
+      "sha256": "7289633510c70cc63b9f0c2cdb523f40668c444e8690ce666d5cdcab60ca0135"
+    },
+    {
+      "ageMa": 110,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=110&model=MULLER2019",
+      "file": "coastlines-110.json",
+      "sha256": "9af672641f7d8eb665f90c50ebad78718da20c39705ef5a06cb1d511838d94bc"
+    },
+    {
+      "ageMa": 120,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=120&model=MULLER2019",
+      "file": "coastlines-120.json",
+      "sha256": "c780bdaa4bf0a7e002269bdf96d506aade22f65053dc9370593ada3879c91fe6"
+    },
+    {
+      "ageMa": 130,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=130&model=MULLER2019",
+      "file": "coastlines-130.json",
+      "sha256": "ccf335e0608bbe0cab1d27c865b155a6f3260565cf164b70573de7498bc776a4"
+    },
+    {
+      "ageMa": 140,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=140&model=MULLER2019",
+      "file": "coastlines-140.json",
+      "sha256": "4f28a2b84acdbbaf20a5f8bc6e644f6869b901c17fea18ca4ce3046d2f5ad22b"
+    },
+    {
+      "ageMa": 150,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=150&model=MULLER2019",
+      "file": "coastlines-150.json",
+      "sha256": "4491eeaf4442becfdd6af540c688034ff8d9e722a02f196351ae43d3cfcc4e56"
+    },
+    {
+      "ageMa": 160,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=160&model=MULLER2019",
+      "file": "coastlines-160.json",
+      "sha256": "165173f7ccadd6288687710effe6f542eae2eb3174a51ec27cec1af69e82239e"
+    },
+    {
+      "ageMa": 170,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=170&model=MULLER2019",
+      "file": "coastlines-170.json",
+      "sha256": "9e1d7d6786468cb8d0e23f319ccef2936d04874bc7c3cadb70e2d4dbabf22ee7"
+    },
+    {
+      "ageMa": 180,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=180&model=MULLER2019",
+      "file": "coastlines-180.json",
+      "sha256": "f944e7b3b8da5ea02f34476c8f6dee2a58f3ab2d4cc6b5821bf40971459a1077"
+    },
+    {
+      "ageMa": 190,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=190&model=MULLER2019",
+      "file": "coastlines-190.json",
+      "sha256": "10319a79275d7f52bb8adf5a59e92c4bccabc867aa9dd36a83e168b55327ad8e"
+    },
+    {
+      "ageMa": 200,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=200&model=MULLER2019",
+      "file": "coastlines-200.json",
+      "sha256": "907475971db881898be0c74eeaaa2e4d50b69b84e09e1f5d9aa53753b1862f25"
+    },
+    {
+      "ageMa": 210,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=210&model=MULLER2019",
+      "file": "coastlines-210.json",
+      "sha256": "a707f51021a1c7470db3798d5ece71ed814d489d00b4308069bc0a51c1d6aedc"
+    },
+    {
+      "ageMa": 220,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=220&model=MULLER2019",
+      "file": "coastlines-220.json",
+      "sha256": "e21d983cce566e0614230bbccb022d881cdb6fcf16df82488b474af5effda542"
+    },
+    {
+      "ageMa": 230,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=230&model=MULLER2019",
+      "file": "coastlines-230.json",
+      "sha256": "9cc6199f228af3afed582803d97903d169892b9be1a2d8ed20b3fe34d50bf254"
+    },
+    {
+      "ageMa": 240,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=240&model=MULLER2019",
+      "file": "coastlines-240.json",
+      "sha256": "4d30641c54b59e5c668d0def3e88075b7d4d20467609012070a17ac065d90e19"
+    },
+    {
+      "ageMa": 250,
+      "url": "https://gws.gplates.org/reconstruct/coastlines/?time=250&model=MULLER2019",
+      "file": "coastlines-250.json",
+      "sha256": "00d559e5444d9724edcc8dbf98dbf79280fd2769ccd646752f82173b437c8388"
+    }
+  ]
+}

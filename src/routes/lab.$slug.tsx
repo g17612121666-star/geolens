@@ -4,7 +4,7 @@ import { LAB_BY_SLUG } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { LAB_ALIASES } from "@/lib/redirects";
 import { LabPlayer } from "@/components/lab/lab-player";
-import { LabLoadFallback } from "@/components/lab/load-gate";
+import { LabLoadFallback, LabEntry } from "@/components/lab/load-gate";
 import { headFor, learningResourceJsonLd, siteOrigin } from "@/lib/seo";
 import { LAB_FIGURE } from "@/lib/figures";
 
@@ -53,10 +53,15 @@ function LabPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Suspense fallback={<LabLoadFallback slug={lab.slug} title={lab.title} />}>
-        <LabPlayer lab={lab} scene={<Scene />} />
-      </Suspense>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <LabEntry key={slug} slug={slug} title={lab.title}>
+        <Suspense fallback={<LabLoadFallback slug={lab.slug} title={lab.title} />}>
+          <LabPlayer lab={lab} scene={<Scene />} />
+        </Suspense>
+      </LabEntry>
     </>
   );
 }

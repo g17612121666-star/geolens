@@ -1,0 +1,371 @@
+{
+  "seasons": [
+    "With zero axial tilt, solar declination would stay at the equator, so each latitude would have nearly constant day length and noon solar altitude. Earth's varying orbital distance would still cause a smaller annual change in incoming sunlight.",
+    "In December the Southern Hemisphere leans towards the Sun, giving Sydney longer days and a higher noon Sun. The Northern Hemisphere experiences the opposite geometry.",
+    "A change in Earth–Sun distance affects both hemispheres at the same time, whereas their seasons are opposite. Axial tilt therefore explains northern winter despite Earth being near perihelion.",
+    "Near the equator, the day–night boundary divides each daily path into almost equal halves throughout the year. London's higher latitude produces much larger seasonal changes in day length and noon solar altitude."
+  ],
+  "rotation": [
+    "Earth turns from west to east, which appears anticlockwise when viewed from above the North Pole. This rotation makes the Sun appear to cross the sky from east to west.",
+    "A mean solar day corresponds to 360° of rotation relative to the Sun, so 360° divided by 24 hours gives 15° per hour. Civil time-zone boundaries also reflect political and practical choices.",
+    "Rotation carries a location into and out of sunlight, producing day and night. Time zones assign clock readings to locations; they do not cause the illumination to change.",
+    "A location 30° east reaches solar noon about two hours earlier because Earth turns through 15° each hour. Its local solar time is therefore about 14:00 when London's is noon."
+  ],
+  "moon-phases": [
+    "At first quarter, the Moon appears about 90° from the Sun in Earth's sky. We see half of its illuminated hemisphere and half of its night side.",
+    "An ordinary crescent shows only a small part of the Moon's sunlit hemisphere; the rest of the visible disc is its own night side. Earth's shadow darkens the Moon only during a lunar eclipse.",
+    "The Moon's orbital plane is tilted to Earth's orbital plane, so most new and full Moons do not form a close alignment. An eclipse requires the Moon to be near a node, where those planes intersect.",
+    "A synodic month measures the return to the same Sun–Earth–Moon phase geometry. It exceeds the Moon's orbital period relative to the stars because Earth also moves around the Sun."
+  ],
+  "earth-interior": [
+    "The outer core is predominantly liquid iron alloy, while the inner core is solid. The much greater pressure at the centre raises the temperature needed to melt the inner-core material.",
+    "S-waves deform material by shear, and a liquid cannot sustain the shear stress needed to carry them. The liquid outer core therefore blocks direct S-waves from reaching the far side through the core.",
+    "Convection in the electrically conducting liquid outer core generates and maintains electric currents. Those currents sustain much of Earth's magnetic field through the geodynamo.",
+    "A typical continental crust thickness of about 35 km is well under 1% of Earth's 6371 km radius. Crustal thickness varies considerably, particularly beneath mountain belts."
+  ],
+  "plate-boundaries": [
+    "At the Mid-Atlantic Ridge, plates separate and mantle material rises beneath the spreading centre. Partial melting supplies magma that forms new oceanic crust.",
+    "India's collision with Eurasia shortened and thickened continental crust. This crustal thickening and continuing convergence helped raise the Himalaya.",
+    "The San Andreas accommodates mainly horizontal motion between the Pacific and North American plates. Fault slip produces earthquakes without the magma generation characteristic of many spreading and subduction boundaries.",
+    "As a plate moves relative to a persistent melting region, new volcanoes form while older ones move away from the active source. An age progression therefore records relative plate motion, although hotspots need not remain perfectly fixed."
+  ],
+  "contours": [
+    "A contour crosses a valley farther uphill near the stream than on the adjacent slopes, making its V point upstream. Water flows downhill in the opposite direction.",
+    "A spur projects outward from higher ground into lower terrain. Contours curve around that projection, with their V or U pointing downslope.",
+    "The height difference equals the number of elevation intervals multiplied by the contour interval. Five intervals of 10 m give 50 m.",
+    "Widely spaced contours show that a given rise in elevation occurs over a long horizontal distance. That smaller rise-to-distance ratio means a gentler slope."
+  ],
+  "rivers": [
+    "In the upper course, steep gradients commonly favour channel incision into the bed. Weathering and slope movement then help shape the sides of a V-shaped valley.",
+    "Erosion can narrow the land between neighbouring meander bends until floodwater cuts a shorter channel through it. Deposition can then seal the abandoned loop, leaving an oxbow lake.",
+    "Increasing discharge often increases flow depth and bed shear stress, allowing larger particles to move. The response also depends on channel shape, slope and roughness.",
+    "A delta grows when sediment supplied at a river mouth accumulates faster than waves, tides and currents remove it. Slower flow on entering a lake or sea encourages deposition."
+  ],
+  "water-cycle": [
+    "Ice sheets and glaciers hold the largest share of Earth's fresh water. Groundwater is another major fresh-water store, while rivers contain a much smaller fraction.",
+    "Infiltration is the entry of water through the ground surface into soil. When rainfall exceeds the soil's infiltration capacity, or the soil is saturated, more water can become surface runoff.",
+    "A local reservoir loses storage when withdrawals and other outflows exceed precipitation and inflow. Global water conservation does not prevent a particular lake, reservoir or aquifer from being depleted.",
+    "A drainage divide separates land whose surface runoff reaches different river systems. The basin includes all the land contributing water to the selected river and its tributaries."
+  ],
+  "solar-system": [
+    "In a two-body orbit, angular momentum is conserved and the planet sweeps out equal areas in equal times. It must therefore travel faster near perihelion, where its distance from the Sun is smaller.",
+    "Physical scale applies the same distance conversion to planetary radii and orbital separations. Because radii are tiny compared with those separations, most planets become difficult to see in a whole-system view.",
+    "The comparison preserves the ratios between planetary radii but places the bodies at convenient display positions. Their spacing in this view does not represent orbital distance.",
+    "Saturn's rings consist of many separate orbiting particles, mostly water ice with some rocky material. A continuous rendered disc represents particles too small to resolve individually."
+  ],
+  "sun-earth": [
+    "The solar irradiance reference measures incoming power per unit area on a surface perpendicular to the beam at 1 AU. A tilted surface receives less per unit area, and Earth's atmosphere further alters surface sunlight.",
+    "At zero solar declination, noon sunlight strikes a horizontal surface at 60° latitude with an incidence factor of cos 60°, or 0.5. Its top-of-atmosphere input is therefore half the equatorial noon value.",
+    "A daily mean adds up energy received over the full day, including the duration of daylight. Continuous summer daylight can partly compensate for the low solar elevation at a pole.",
+    "The photograph is an observation selected for comparison, while this calculation keeps its reference solar irradiance fixed. Selecting another image therefore does not change the calculated energy input."
+  ],
+  "universe-scale": [
+    "A light-year is the distance light travels in vacuum during one Julian year. The word year describes the travel time used to define the distance, not the type of quantity measured.",
+    "The distances between stars greatly exceed their radii. A diagram that fits interstellar separations at one scale may therefore render the stellar discs smaller than a screen pixel.",
+    "The astronomical unit is a defined length of exactly 149597870.7 km. Earth's actual distance from the Sun changes around its elliptical orbit, so it is not always exactly 1 AU."
+  ],
+  "geologic-time": [
+    "Ma is the geological abbreviation for a million years. An age of 100 Ma therefore refers to about 100 million years before the present.",
+    "Pangaea assembled during the late Palaeozoic and began breaking apart during the Mesozoic. These events occurred billions of years after Earth formed.",
+    "Recorded human history spans only a few thousand years compared with Earth's roughly 4.54 billion years. On a uniformly scaled geological timeline it occupies an extremely small interval near the present.",
+    "The 4540 Ma window approximates Earth's age, based on radiometric evidence. Pangaea assembled much later, within the last few hundred million years."
+  ],
+  "eclipses": [
+    "Inside the umbra, the eclipsing body blocks the entire solar disc. In the surrounding penumbra, only part of the Sun is obscured.",
+    "The Moon's orbit is tilted by about 5° to Earth's orbital plane, so the bodies usually fail to align closely enough at new or full Moon. Eclipses occur when that phase happens near an orbital node.",
+    "At full Moon, Earth lies between the Sun and Moon. A lunar eclipse also requires the Moon to pass near a node so that it enters Earth's shadow.",
+    "Away from an orbital node, the Moon's tilted orbit carries it above or below Earth's shadow at full Moon. The full phase alone is therefore insufficient to produce a lunar eclipse."
+  ],
+  "tides": [
+    "The Moon's gravitational pull varies across Earth, producing tidal accelerations directed away from Earth's centre on both the near and far sides. The two bulges describe an ideal equilibrium response; real ocean tides also depend on basin shape and motion.",
+    "Near new and full Moon, the solar and lunar tidal effects reinforce one another along the same axis. This generally produces the larger high-to-low tidal range called a spring tide.",
+    "Near first and third quarter, the Sun and Moon lie in roughly perpendicular directions from Earth. Their tidal effects partly offset, producing a smaller range called a neap tide.",
+    "At this right-angle arrangement, the solar contribution partly reduces the lunar tidal range. The resulting neap range is smaller rather than zero, and the term does not refer to a season."
+  ],
+  "solar-altitude": [
+    "Near the December solstice, the Sun's declination is farthest south. This gives London its lowest noon solar altitude and shortest daylight period of the year.",
+    "At the equator, the day–night boundary divides the daily rotation into nearly equal illuminated and dark portions. Day length therefore stays close to 12 hours through the year.",
+    "Moving poleward in the hemisphere's winter increases the angular distance from the Sun's declination. The Sun follows a lower, shorter path above the horizon, eventually producing polar night at sufficiently high latitude.",
+    "Moving from London towards the equator reduces the seasonal variation in daylight and raises the noon Sun in winter. Equatorial day length remains near 12 hours, while the noon Sun still changes with solar declination."
+  ],
+  "continental-drift": [
+    "Pangaea was assembled by plate convergence long after Earth formed, and other supercontinents existed before it. Its later breakup produced the arrangement from which today's continents developed.",
+    "Modern shorelines shift with sea level, erosion and sediment deposition. The submerged continental margins therefore provide a better guide to matching former continental edges.",
+    "Continents are embedded in lithospheric plates that can also include oceanic crust. Their movement is part of plate motion rather than continents independently pushing through stationary ocean floor.",
+    "India moved north as part of its plate and eventually collided with Eurasia. Continued convergence shortened and thickened the crust, building the Himalayan mountain belt."
+  ],
+  "hotspots": [
+    "The Pacific Plate carries older Hawaiian volcanoes northwest relative to the active melting region. Newer volcanic centres form near the southeastern end of the chain.",
+    "Volcanic centres become progressively older southwest of Yellowstone along the Snake River Plain. This pattern records motion of the North American Plate relative to the underlying magmatic system.",
+    "Mantle rock can rise slowly while remaining mostly solid. As pressure falls during ascent, some of that hot rock may cross its melting threshold and generate magma."
+  ],
+  "seafloor-spreading": [
+    "Magma rises and solidifies at a spreading ridge, forming new oceanic crust. Continued spreading moves that crust away from the axis, so it generally becomes older with distance.",
+    "New crust forms on both sides of the ridge and records the same sequence of magnetic polarity changes. Spreading carries those records outward into broadly matching bands, although their widths can differ if spreading is asymmetric.",
+    "As basalt cools, magnetic minerals lock in a record of the prevailing geomagnetic field. Successive reversals and continued spreading create bands of normal and reversed polarity.",
+    "At a subduction trench, oceanic lithosphere bends and descends into the mantle. Transform boundaries mainly accommodate sideways motion and do not perform that recycling process."
+  ],
+  "atmosphere-layers": [
+    "The troposphere contains most atmospheric water vapour and supports strong vertical mixing. These conditions concentrate clouds, precipitation and most familiar weather in the lowest atmospheric layer.",
+    "A lapse rate of 6.5 °C/km means the reference temperature decreases by about 6.5 °C for each kilometre of height. Actual atmospheric profiles vary with weather, location and season.",
+    "Ozone absorbs ultraviolet radiation and converts part of that energy into heat. This absorption produces the characteristic temperature increase with height through much of the stratosphere.",
+    "Denver's elevation of about 1.6 km is still far below the local tropopause under typical conditions. Its weather therefore occurs within the troposphere despite the city's high elevation."
+  ],
+  "energy-budget": [
+    "The Sun's high temperature produces radiation mainly at shorter wavelengths than Earth's thermal emission. After absorbing energy, the much cooler surface emits mainly longwave infrared radiation.",
+    "Albedo compares reflected shortwave energy with incoming shortwave energy. A high-albedo surface reflects a larger fraction and absorbs less of the incident sunlight.",
+    "Snow usually reflects a larger fraction of incoming sunlight than dark peat, leaving less energy available for surface heating. Melting and evaporation can further change how absorbed energy is partitioned.",
+    "Greenhouse gases and clouds absorb and emit infrared radiation, including radiation directed downwards. This downward thermal flux adds to the surface energy budget while the surface also emits energy upwards."
+  ],
+  "thermal-circulation": [
+    "During the day, land commonly warms faster than the adjacent sea, helping air rise over the land. The resulting pressure differences can draw cooler surface air inland as a sea breeze.",
+    "If land cools below the sea's temperature at night, the local pressure pattern can reverse and drive surface air offshore. Background winds and cloud cover can weaken or prevent this land breeze.",
+    "Urban materials store and release heat, while reduced vegetation often limits evaporative cooling. These changes can keep a city warmer than its surroundings, especially at night.",
+    "Removing Coriolis allows this experiment to isolate circulation driven by local heating contrasts. Real breezes also respond to Earth's rotation, background winds and the surrounding terrain."
+  ],
+  "wind": [
+    "A pressure difference exerts a net force from higher towards lower pressure. A steeper pressure gradient produces a stronger force per unit mass of air.",
+    "In the rotating Earth frame, Coriolis deflects horizontal motion to its right in the Northern Hemisphere. The deflection is relative to the direction of travel, not always towards a fixed compass direction.",
+    "Surface friction slows the wind and weakens its Coriolis deflection. The pressure-gradient force then gives the flow a component across the isobars towards lower pressure.",
+    "For horizontal motion, the Coriolis parameter is proportional to the sine of latitude. It is zero at the equator and changes sign between the two hemispheres."
+  ],
+  "three-cell": [
+    "Strong tropical heating and surface convergence support rising air near the ITCZ. This ascent forms the rising branch of the idealised Hadley circulation.",
+    "Seasonal changes in heating and differences between land and ocean shift the zone where tropical surface winds converge. Its position varies with longitude and does not simply follow the latitude directly beneath the Sun.",
+    "Midlatitude weather systems transport heat and momentum and help maintain the mean Ferrel circulation. Its mean rising and sinking branches oppose the pattern expected from direct local heating alone.",
+    "Earth's rotation constrains large-scale motion, while weather systems redistribute heat and momentum. Their combined effects produce a circulation more complex than a single direct equator-to-pole loop."
+  ],
+  "fronts": [
+    "Advancing cold air is denser than the warmer air ahead and pushes beneath it. The forced ascent can produce cloud and precipitation along a relatively steep frontal boundary.",
+    "At a warm front, advancing warm air gradually rises over a retreating colder air mass. Its gentler slope often spreads cloud and precipitation over a broader area ahead of the surface front.",
+    "An occlusion develops when a cold front catches a warm front and lifts the warm sector away from the ground. The resulting structure depends on the temperatures of the two colder air masses.",
+    "A weather-map front marks where the sloping boundary between air masses meets Earth's surface. Cloud and precipitation can extend well away from that line because air is lifted along the boundary above it."
+  ],
+  "cyclone-anticyclone": [
+    "The pressure-gradient force draws air towards the low, while Northern Hemisphere Coriolis deflection acts to the right of its motion. The resulting circulation is anticlockwise, with surface friction adding inward flow.",
+    "Air commonly descends within an anticyclone and warms as it is compressed, reducing relative humidity. Clearer skies are common, although low cloud or fog can persist beneath an inversion.",
+    "Most UK winter depressions develop in midlatitudes along strong horizontal temperature contrasts and have fronts. Tropical cyclones draw much of their energy from warm-ocean heat and moisture and have a different structure.",
+    "In the Northern Hemisphere, the pressure-gradient force points away from a high and Coriolis deflects the moving air to its right. The resulting anticyclonic circulation is clockwise, with outward flow near the surface."
+  ],
+  "climate-types": [
+    "Köppen–Geiger classes use thresholds based on long-term monthly temperature and precipitation, including their seasonal distribution. Vegetation is related to those conditions but is not itself the measured input defining each class.",
+    "The B family is identified by an aridity threshold that depends on temperature and precipitation seasonality. A separate distinction identifies hot and cold dry climates.",
+    "A climate label describes the data at the sampled location over the selected reference period. Other places in the same country can fall into different classes because of elevation, coastal influence or regional rainfall patterns.",
+    "Both tundra and ice-cap climates have a warmest-month mean below 10 °C. Tundra reaches at least 0 °C in its warmest month, while an ice-cap climate remains below 0 °C."
+  ],
+  "drainage-basin": [
+    "The drainage divide follows higher ground separating surface runoff that reaches different river systems. It forms the outer boundary of the selected basin.",
+    "A confluence is the meeting point of two or more river channels. Their flows combine and continue downstream in a shared channel.",
+    "The mouth is the downstream end where a river enters another body of water. Whether a delta develops there depends on sediment supply and how rapidly waves, tides or currents redistribute it.",
+    "Rain falling on basin slopes can reach the river by surface runoff, soil flow or groundwater flow. The drainage basin therefore includes the contributing land as well as the visible channels."
+  ],
+  "hydrograph": [
+    "In this lab, lag time is the interval between peak rainfall intensity and peak discharge. Water takes time to move through the catchment and reach the measurement point.",
+    "Paved surfaces reduce infiltration, while drains can carry runoff rapidly to channels. Under comparable rainfall, these changes commonly raise the flood peak and shorten its lag.",
+    "On the falling limb, discharge decreases after its peak as readily available runoff is exhausted. Slower drainage from soil and groundwater can sustain the remaining flow.",
+    "Stage measures water-surface height relative to a reference level, whereas discharge measures volume passing a section per unit time. The relationship depends on the channel and cannot be transferred unchanged between different sites."
+  ],
+  "river-hydrology": [
+    "A nival regime reflects water stored as seasonal snow and released when temperatures rise. This commonly produces a spring or early-summer increase in discharge rather than an immediate response to winter precipitation.",
+    "A pluvial regime is governed mainly by the seasonal distribution of rainfall. Evaporation, soil storage and groundwater can modify when that rainfall appears as river flow.",
+    "The Mississippi integrates runoff from a very large basin with contrasting rainfall and snowmelt patterns. Reservoirs, water use and river engineering also modify its seasonal flow.",
+    "A storm hydrograph follows discharge during and after an individual rainfall event, often over hours or days. A regime graph summarises the recurring seasonal pattern, usually using monthly values."
+  ],
+  "ocean-currents": [
+    "A gyre is a broad system of linked ocean currents shaped by wind forcing, Earth's rotation and basin boundaries. Subtropical gyres form large circulating patterns rather than isolated straight streams.",
+    "The Gulf Stream carries warm water northwards along the western side of the North Atlantic basin. It is a fast, concentrated boundary current within the wider Atlantic circulation.",
+    "Prevailing westerlies bring maritime air towards the UK, and the ocean stores and redistributes heat. Ocean currents contribute to this setting, but UK winter temperatures also depend on atmospheric circulation and latitude.",
+    "The variation of Coriolis with latitude concentrates the return flow of a subtropical gyre along its western boundary. This produces relatively narrow, fast currents such as the Gulf Stream and Kuroshio."
+  ],
+  "thermohaline": [
+    "Cooling generally increases seawater density, while adding salt also makes seawater denser. These temperature and salinity effects help determine whether surface water can sink beneath surrounding water.",
+    "Strong cooling at high latitudes can make surface seawater dense enough to sink, especially where salinity is high. Sea-ice formation can further increase the salinity of nearby seawater by rejecting salt.",
+    "The conveyor image links regions of sinking, deep transport and return towards the surface. Actual overturning follows many pathways and also depends on winds and mixing, rather than a single continuous belt.",
+    "Freshwater lowers surface salinity and usually lowers density, which can strengthen stratification and inhibit deep mixing. The overall circulation response also depends on temperature, winds and where the freshwater enters."
+  ],
+  "carbon-cycle": [
+    "Fossil fuels contain carbon stored in geological deposits over long timescales. Extraction and burning transfer that carbon rapidly into the atmosphere and other active stores.",
+    "Carbon dioxide can dissolve into seawater and can also leave it for the atmosphere. The direction and rate of exchange depend on the conditions on both sides of the sea surface.",
+    "Chemical weathering transfers dissolved material from rocks towards rivers and the ocean. Silicate weathering and subsequent carbonate burial participate in carbon transfers over geological timescales.",
+    "Combustion combines carbon in the fuel with oxygen, releasing carbon dioxide. The carbon atoms are transferred from the fuel store into the atmosphere rather than being newly created."
+  ],
+  "enso": [
+    "Under typical neutral conditions, air rises over the warmer western tropical Pacific and descends farther east. Surface trade winds and an upper-level return flow form the broad east–west Walker circulation.",
+    "During El Niño, weakened trade winds reduce the normal westward accumulation of warm surface water. The central and eastern equatorial Pacific warm, and the pattern of convection shifts eastwards.",
+    "ENSO can alter large-scale atmospheric circulation and change the probabilities of some seasonal weather patterns. Local UK weather also depends on other influences, so an ENSO phase cannot determine a particular month's conditions.",
+    "La Niña is associated with cooler-than-average central and eastern equatorial Pacific surface water and often stronger trade winds. These changes strengthen aspects of the usual east–west tropical Pacific contrast."
+  ],
+  "landform-types": [
+    "A plateau is elevated relative to surrounding terrain but retains a broad, comparatively level surface. Rivers may dissect it into valleys and canyons without removing its overall plateau setting.",
+    "A basin is a lower area relative to the land around it. Water may converge towards its floor, although not every basin is completely enclosed or internally drained.",
+    "Mountains and hills differ in relative height, slope and relief, but those properties vary continuously. No single height threshold is used consistently in every country and context.",
+    "The Colorado River and its tributaries incised the elevated Colorado Plateau. The canyon is therefore a deeply cut valley within a plateau, rather than a glacial trough or an isolated mountain."
+  ],
+  "river-erosion": [
+    "Erosion and collapse can make a waterfall retreat upstream. The narrow, steep-sided valley left between its former and current positions forms a gorge.",
+    "Eddying water can trap stones and sand in a bedrock hollow and repeatedly move them against its sides. This abrasion deepens and widens a river pothole.",
+    "A river cutting down into its bed creates a narrow valley floor while weathering and slope processes lower the sides. Together these processes commonly produce a V-shaped cross-section in upland valleys.",
+    "The Colorado River cut down through rock layers as the regional landscape evolved and the plateau rose. The exposed rocks are much older than the canyon carved through them."
+  ],
+  "river-deposition": [
+    "Flow around a meander transports sediment towards the inner bend, where near-bank velocities and transport capacity are often lower. Deposition there builds a point bar and its gently sloping surface.",
+    "When floodwater leaves the channel, it slows and deposits much of its coarser suspended sediment near the banks. Repeated floods can build raised natural levées alongside the river.",
+    "Strong tidal exchange can redistribute river sediment, while rising relative sea level can drown a river valley. These conditions favour an estuary where sediment supply is insufficient to build a delta outward.",
+    "Faster flow and greater shear stress commonly occur near a meander's outer bank. Undercutting and bank collapse then help the bend migrate outward."
+  ],
+  "river-capture": [
+    "When a stream is diverted into a neighbouring drainage system, it may turn sharply at the capture point. That abrupt change in course can form an elbow of capture.",
+    "A beheaded stream loses part of its upstream drainage area and therefore often loses discharge. The remaining stream may be too small to account for the size of its inherited valley.",
+    "A stream with a greater erosive advantage can extend its headwaters back towards a neighbouring basin. If it breaches the divide, it may divert the neighbouring headwaters into its own channel.",
+    "The Old River Control Structure regulates how Mississippi flow divides towards the Atchafalaya. This is an example of managing potential river diversion, which differs from the headward erosion shown in the capture model."
+  ],
+  "coasts": [
+    "Waves approaching at an angle carry sediment diagonally up the beach in the swash. Backwash returns more directly downslope, producing a net movement along the coast over repeated waves.",
+    "Wave erosion can enlarge a cave into an arch through a headland. When the arch roof collapses, an isolated pillar remains as a stack.",
+    "Groynes interrupt sediment transported along the beach and encourage accumulation on their up-drift side. Unless sediment is supplied from elsewhere, less may reach the coast down-drift.",
+    "A sea wall protects a particular frontage but can alter wave reflection, local scour and sediment exchanges. Its effects should therefore be assessed within the connected coastal sediment system."
+  ],
+  "glaciers": [
+    "Glaciers eroding neighbouring cirques can steepen the valley walls on both sides of an intervening ridge. The narrow ridge left between them is an arête.",
+    "When several cirques erode back towards the same summit, they steepen its sides from different directions. The remaining sharply pointed summit is a horn or pyramidal peak.",
+    "A valley glacier abrades and plucks both the floor and sides of a pre-existing valley, widening and deepening it. A river more commonly concentrates erosion within a narrower channel, helping produce a V-shaped profile.",
+    "Glaciers repeatedly enlarged an earlier river valley in Yosemite's granitic bedrock. Their erosion produced the broad floor and steep walls characteristic of its glacial trough."
+  ],
+  "karst": [
+    "Weakly acidic water dissolves limestone along joints, widening them into grykes. The remaining blocks between those fissures are called clints.",
+    "A swallow hole is an opening where surface water enters an underground drainage route. Enlarged joints and solution passages in limestone commonly provide that route.",
+    "Rainwater containing dissolved carbon dioxide forms weak carbonic acid, which reacts with calcium carbonate. Flow through joints gradually enlarges openings in carbonate rocks and develops karst drainage.",
+    "These caves form as flowing water dissolves carbonate rock along fractures and other openings. Their origin is chemically distinct from a lava tube left by flowing molten rock."
+  ],
+  "folds-faults": [
+    "An anticline has older strata towards its core, even if later deformation overturns the fold. In the upright example, this age arrangement coincides with an upward arch.",
+    "Extension pulls the crust apart, allowing the hanging-wall block to move down relative to the footwall along a normal fault. The movement lengthens the crust across the fault system.",
+    "The San Andreas mainly accommodates horizontal movement between adjacent plate blocks. This sideways displacement makes it a strike-slip fault and a transform plate boundary.",
+    "The hanging wall is the rock block above an inclined fault plane, while the footwall lies below it. These names identify geometry and do not depend on which block moved upwards."
+  ],
+  "aeolian": [
+    "A barchan forms under a dominant wind direction with a limited sand supply. Its thinner margins move faster than the thicker centre, extending the horns downwind.",
+    "Wind-driven abrasion and the removal of loose material can carve elongated ridges from susceptible ground. These streamlined erosional landforms are called yardangs.",
+    "Wind can entrain and transport sediment when exposed particles are loose and the wind is strong enough. Vegetation and soil moisture usually make that removal more difficult.",
+    "Drought and cultivation left extensive areas of soil exposed during the Dust Bowl. Strong winds removed and transported the vulnerable topsoil, rather than simply building desert dune fields."
+  ],
+  "rock-cycle": [
+    "Metamorphism changes minerals or rock texture in response to conditions such as heat, pressure and fluids while the rock remains largely solid. Melting produces magma and begins a different transformation pathway.",
+    "As melt loses heat, minerals can crystallise and form an igneous rock. Very rapid cooling can instead preserve some or all of the material as volcanic glass.",
+    "A rock can follow many paths depending on burial, uplift, weathering, heating and melting. The rock cycle describes possible transformations rather than a fixed sequence that every rock must complete.",
+    "Temperature and pressure help constrain the possible changes, but the starting composition, fluids and duration also matter. Two rocks at the same temperature and pressure need not develop identical minerals or textures."
+  ],
+  "soil-profile": [
+    "The R horizon is coherent bedrock beneath the soil and weathered parent material. Roots and water may enter its fractures, but it is not a loose soil horizon.",
+    "Grassland roots supply organic matter through a substantial surface layer, and soil organisms mix it with mineral material. This helps form the thick, dark surface horizon characteristic of many Mollisols.",
+    "Oxisols develop under prolonged intense weathering and contain abundant iron and aluminium oxides. Many occur in tropical regions where warm, moist conditions promote deep chemical weathering.",
+    "Eluviation removes materials such as clay, iron compounds or organic matter from the E horizon, often leaving it paler. An E horizon is not present in every soil profile."
+  ],
+  "soil-texture": [
+    "Clay is the smallest mineral particle-size fraction used in the soil texture triangle. Its large surface area and mineral properties help explain why many clay-rich soils are sticky when wet.",
+    "Loam occupies a texture class containing appreciable sand, silt and clay rather than being dominated by one extreme. Its mix can balance drainage and water retention, although soil productivity also depends on structure, nutrients and management.",
+    "With 90% sand, only 10% remains for silt and clay, placing the composition near the sand corner of the triangle. The precise sandy class depends on how that remaining fraction is divided.",
+    "Sand, silt and clay represent the complete mineral fine-earth sample classified by the triangle. Their percentages must total 100%, so increasing one fraction requires reducing one or both of the others."
+  ],
+  "weathering": [
+    "Water freezing within cracks, including the growth of ice as more water is drawn in, can exert stress on the surrounding rock. This breaks the rock physically without requiring a chemical change in its minerals.",
+    "Carbon dioxide dissolved in water forms weak carbonic acid, which reacts with carbonate minerals. This dissolution helps enlarge fractures and form karst features in limestone.",
+    "Organisms can disrupt rock physically, for example through root growth, or chemically through acids and other compounds. Biological weathering therefore includes more than one breakdown mechanism.",
+    "Weathering alters or breaks down material where it is exposed. Erosion removes material from its original position through agents such as water, wind, ice or gravity."
+  ],
+  "soil-erosion": [
+    "Detachment releases sediment from the soil, but that sediment may remain in motion or settle within the plot. Export counts only the material that crosses the plot boundary.",
+    "The 85% reduction is a chosen model coefficient that isolates the effect of cover in this comparison. A measured reduction would depend on soil, vegetation, rainfall, slope and management.",
+    "The scale control changes how strongly the vertical surface lowering is exaggerated on screen. It leaves the calculated sediment transfers and their total unchanged."
+  ],
+  "earthquakes": [
+    "The focus is the location inside Earth where earthquake rupture begins. The epicentre is the point on the surface directly above it.",
+    "P-waves transmit alternating compression and expansion, which both solids and liquids can support. They are the fastest major seismic wave type and usually arrive first.",
+    "Love and Rayleigh waves travel along Earth's surface and can produce large, sustained ground motion. They arrive after the faster body waves and can contribute substantially to damage.",
+    "Magnitude measures the size of the earthquake source, while intensity describes shaking and effects at a particular location. One earthquake can therefore produce different intensities at different sites."
+  ],
+  "volcanoes": [
+    "Low-viscosity basaltic lava can travel far from a vent before solidifying. Repeated spreading flows build the broad, gently sloping form of a shield volcano.",
+    "More viscous lava tends to travel shorter distances, while explosive eruptions add layers of fragmented material. Repeated eruptions can therefore build a relatively steep composite cone.",
+    "Extension at a divergent boundary opens fractures and allows magma to rise. Basalt may then erupt along an elongated fissure rather than from a single central vent.",
+    "Viscous magma can impede gas escape as pressure falls during ascent. Expanding trapped gas can then fragment the magma and drive an explosive eruption, although viscosity is only one control."
+  ],
+  "tsunami": [
+    "A tsunami begins when a large volume of water is displaced rapidly, often by vertical movement of the seafloor during an earthquake. Landslides and other disturbances can also generate tsunamis.",
+    "A tsunami's long wavelength allows it to travel rapidly through deep water while its offshore height may remain small. A ship can therefore experience little noticeable change even as the wave passes.",
+    "As a tsunami enters shallower water, it slows and its wavelength shortens. Its height can increase through shoaling, with the final coastal response also shaped by refraction, seabed geometry and energy loss.",
+    "Katrina and Sandy raised coastal water levels through storm winds and atmospheric pressure, combined with tides and waves. That storm-surge mechanism differs from the rapid water-column displacement that generates a tsunami."
+  ],
+  "tropical-cyclone": [
+    "The eyewall surrounds the relatively calm eye and contains vigorous rising air and deep convection. The strongest near-surface winds commonly occur in or close to this ring.",
+    "Warm ocean water can supply heat and moisture, while low vertical wind shear helps organised convection remain aligned with the circulation. These favourable conditions do not by themselves guarantee that a cyclone will develop.",
+    "UK winter storms are usually extratropical cyclones associated with contrasts between air masses and with fronts. Their structure and energy sources differ from those of a tropical cyclone over warm water.",
+    "The Saffir–Simpson scale assigns hurricane categories using maximum sustained wind speed. It does not classify ordinary UK extratropical gales or represent a storm's rainfall and surge hazards."
+  ],
+  "graticule": [
+    "Latitude locates a point north or south of the equator using an angle up to 90°. Lines of equal latitude are parallels, with the North Pole at 90° N.",
+    "The prime meridian is the agreed zero reference from which longitude is measured east or west. Choosing that reference is a mapping convention rather than a physical boundary on Earth.",
+    "Earth turns through 360° relative to the Sun during a mean solar day of 24 hours. Dividing gives about 15° of longitude for each hour of local solar-time difference.",
+    "Zero latitude identifies the equator and zero longitude identifies the prime meridian. Their intersection lies in the Gulf of Guinea in the Atlantic Ocean, south of Ghana."
+  ],
+  "map-projections": [
+    "Mercator's scale increases strongly towards the poles, enlarging high-latitude areas on the map. Greenland therefore appears far larger relative to Africa than its actual area warrants.",
+    "An equal-area projection preserves area ratios between mapped regions. Flattening the curved surface still requires distortion of other properties, including local shapes or distances.",
+    "A rhumb line maintains a constant compass bearing, and Mercator represents it as a straight line. This property made the projection useful for plotting sailing directions even though it distorts area.",
+    "A globe represents positions on a curved surface without first flattening them onto a plane. Comparing it with a flat map reveals the distortions introduced by the projection."
+  ],
+  "grid-references": [
+    "Eastings identify the position across the grid and northings identify the position up it. Giving them in that order ensures that both coordinates refer to the intended square or location.",
+    "A six-figure grid reference uses three digits for each direction, identifying a 100 m square within the kilometre grid. It indicates a smaller area than a four-figure reference rather than an exact point.",
+    "The first pair of digits identifies the western grid line and the second identifies the southern grid line. Together they locate the 1 km square extending northeast from that southwest corner.",
+    "The British National Grid projects positions onto a flat coordinate system expressed in metres. It supports grid distances and references, while latitude and longitude describe angular position on Earth."
+  ],
+  "mass-movement": [
+    "A rotational slump moves along a curved slip surface, so the displaced block rotates as it descends. The head drops and may tilt backwards while material moves outward near the toe.",
+    "Higher pore-water pressure reduces the effective stress pressing soil particles together. This weakens frictional resistance and can make a slope more likely to fail.",
+    "A factor of safety below one means the selected driving forces exceed the model's resisting forces. The displayed rotation illustrates that unstable condition but does not predict the real rate or displacement of a slide.",
+    "Material strength, pore pressure and the geometry of the failure surface determine whether a rotational mechanism is plausible. Two coastal slopes can fail differently despite sharing a similar setting."
+  ],
+  "rain-shadow": [
+    "Rising air encounters lower pressure, expands and cools. If it cools to saturation, water vapour can condense into cloud droplets.",
+    "Air crossing a mountain can lose moisture on the windward side and then warm as it descends downwind. The resulting lower relative humidity helps create a drier leeward region.",
+    "Once the parcel rises above its condensation level, latent heat release reduces its cooling rate during further ascent. Subsequent descent can bring it to the same elevation warmer and less humid, although this model does not calculate rainfall totals.",
+    "Both examples involve moist air rising over a barrier and descending on its sheltered side. Their rainfall contrasts also depend on prevailing winds, moisture supply and the wider regional climate."
+  ],
+  "groundwater": [
+    "The water table is the upper surface of the saturated zone in an unconfined aquifer. Beneath it, connected pores and fractures are filled with water rather than air.",
+    "An aquifer must both store groundwater and transmit it readily enough to supply useful quantities. High water content alone is insufficient if pore connections or fractures do not allow water to flow.",
+    "Pumping lowers hydraulic head near the well, creating a gradient that draws groundwater towards it. This steady model balances that inflow against pumping and does not track long-term exhaustion of a finite store.",
+    "Both the Chalk and Ogallala aquifers store and supply groundwater, but water moves through different geological structures. The comparison helps separate the shared storage-and-flow principles from differences in rock properties."
+  ],
+  "isostasy": [
+    "Isostasy describes the tendency towards gravitational balance between lithospheric loads and the material beneath them. The mantle is mostly solid but can deform and flow over geological timescales.",
+    "Removing an ice sheet reduces the load on the lithosphere, allowing uplift as the underlying mantle readjusts. This response can continue for thousands of years after the ice has melted.",
+    "Adding ice increases the weight supported by the underlying material. In this local balance model, the crustal block sinks farther to displace enough denser mantle to support the added load.",
+    "Both regions carried thick ice sheets whose removal initiated ongoing crustal uplift. Raised shorelines record the resulting change in land level relative to the sea, together with any sea-level changes."
+  ],
+  "wilson-cycle": [
+    "Continental rifting can open an ocean basin, while later subduction can consume its oceanic lithosphere and bring continents together again. The Wilson cycle summarises these possible stages over geological time.",
+    "Parts of the Caledonian and Appalachian mountain belts preserve evidence of convergence and collisions associated with closure of the Iapetus Ocean. Later Atlantic opening separated sections of that older mountain system.",
+    "As subduction consumes oceanic lithosphere, the basin narrows and the bordering continents approach one another. Continental collision then shortens and thickens crust, producing a mountain belt.",
+    "Iceland lies on the active Mid-Atlantic spreading ridge, where plates separate and new oceanic crust forms. It therefore represents ongoing ocean-basin opening rather than closure by continental collision."
+  ],
+  "soil-catena": [
+    "A catena links soils along a slope where drainage and the transfer of material vary with topographic position. These differences can produce distinct profiles even where the parent material is similar.",
+    "Erosion can remove material from upper slopes while deposition adds it near the foot of a slope. The resulting thickness pattern also depends on soil formation, drainage and local conditions.",
+    "This comparison assigns a thinner backslope soil as the selected slope increases. It illustrates a possible relationship but does not calculate a measured erosion rate from gradient alone.",
+    "Both examples compare soils at different positions along a slope rather than assuming a whole region has one profile. Keeping parent material similar helps reveal the effects of drainage and downslope transport."
+  ],
+  "periglacial": [
+    "Periglacial environments are dominated by cold-ground processes such as seasonal freezing and, in some settings, permafrost. They do not require a glacier to occupy the site.",
+    "Strong winter cooling can crack frozen ground, and meltwater entering the cracks can freeze. Repeated cracking and ice addition over many years can build a wedge of ground ice.",
+    "Wedge development changes a prescribed geometry so that different accumulated widths can be compared. The seasonal animation is separate and does not assign an observed growth rate to that change.",
+    "Blockfields and ice-wedge polygons illustrate different processes associated with cold ground. Neither requires the local landscape to have been carved by an actively flowing valley glacier."
+  ],
+  "storm-surge": [
+    "Onshore winds can push seawater towards a coast, and low atmospheric pressure can also raise sea level. Shallow shelves and coastal geometry can amplify the resulting storm surge.",
+    "Rapid displacement of a large volume of water generates a tsunami, often following vertical seafloor motion. Storm surge instead develops through atmospheric forcing by winds and pressure.",
+    "Stronger onshore wind applies greater stress to the water surface and drives more water towards the coast. In the model, the resulting setup also depends on shelf depth.",
+    "Both events involved storm winds and low pressure raising coastal water levels over shallow margins. Their different storm types and coastlines affected the timing, extent and severity of the flooding."
+  ]
+}

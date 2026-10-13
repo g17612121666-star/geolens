@@ -1,3 +1,1 @@
-import { makeGlbScene } from "@/labs/shared/make-glb-scene";
-
-export default makeGlbScene("grid-references");
+export { GridReferenceScene as default } from '../shared/skills-scenes';

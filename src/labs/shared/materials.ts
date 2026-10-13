@@ -1,5 +1,16 @@
 import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
+import { useEffect, useMemo } from 'react';
+
+/** Existing Poly Haven rock textures; clone sampling settings for each model. */
+export function useRockPbr(repeat = 2) {
+  const originals = useTexture(['/textures/pbr/rock_diff.jpg','/textures/pbr/rock_nor.jpg','/textures/pbr/rock_rough.jpg']);
+  const maps = useMemo(() => originals.map((original,i) => {
+    const t=original.clone();t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(repeat,repeat);t.anisotropy=8;t.colorSpace=i===0?THREE.SRGBColorSpace:THREE.NoColorSpace;return t;
+  }),[originals[0],originals[1],originals[2],repeat]);
+  useEffect(()=>()=>maps.forEach(t=>t.dispose()),[maps]);
+  return {map:maps[0],normalMap:maps[1],roughnessMap:maps[2],normalScale:new THREE.Vector2(.35,.35)};
+}
 
 /** PBR presets. Colours encode mechanism, not decoration. */
 export const PBR = {
@@ -52,32 +63,7 @@ export function useMoonMap() {
   return t;
 }
 
-/** USDA 12-class texture from sand/silt/clay percents (0–100). */
-export function usdaClass(sand: number, clay: number): string {
-  const silt = Math.max(0, 100 - sand - clay);
-  if (clay >= 40 && sand <= 45 && silt < 40) return "Clay";
-  if (clay >= 40 && silt >= 40) return "Silty clay";
-  if (clay >= 35 && sand >= 45) return "Sandy clay";
-  if (clay >= 27 && clay < 40 && sand <= 20) return "Silty clay loam";
-  if (clay >= 27 && clay < 40 && sand > 45 && silt < 28) return "Sandy clay loam";
-  if (clay >= 27 && clay < 40) return "Clay loam";
-  if (silt >= 80 && clay < 12) return "Silt";
-  if (silt >= 50 && clay < 27 && sand <= 20) return "Silt loam";
-  if (clay >= 7 && clay < 27 && silt >= 28 && silt < 50 && sand < 52) return "Loam";
-  if (clay < 20 && sand >= 43 && sand < 85 && (silt + 1.5 * clay) >= 15) {
-    if (clay >= 7 && sand < 52) return "Sandy loam";
-    return "Sandy loam";
-  }
-  if (sand >= 70 && clay <= 15 && (silt + 2 * clay) < 30) {
-    if (sand >= 85 && clay < 10) return "Sand";
-    return "Loamy sand";
-  }
-  if (sand >= 85 && clay < 10) return "Sand";
-  if (sand >= 70) return "Loamy sand";
-  if (silt >= 50) return "Silt loam";
-  if (clay >= 20) return "Clay loam";
-  return "Loam";
-}
+export { soilTexture as usdaClass } from "@/lib/soil-science";
 
 export const WATER_PHYSICAL = {
   roughness: 0.06,

@@ -1,0 +1,1017 @@
+{
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "startedAt": "2026-09-21T04:16:29.097Z",
+  "finishedAt": "2026-09-21T04:34:46.667Z",
+  "results": [
+    {
+      "slug": "atmosphere-layers",
+      "canvas": {
+        "bottom": 388.6666717529297,
+        "height": 156.6666717529297,
+        "left": 24,
+        "right": 880,
+        "top": 232,
+        "width": 856,
+        "x": 24,
+        "y": 232
+      },
+      "error": false,
+      "heading": "Atmosphere as a thin film",
+      "ready": "ready"
+    },
+    {
+      "slug": "carbon-cycle",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Carbon cycle",
+      "ready": "ready"
+    },
+    {
+      "slug": "climate-types",
+      "canvas": {
+        "bottom": 412,
+        "height": 204,
+        "left": 24,
+        "right": 880,
+        "top": 208,
+        "width": 856,
+        "x": 24,
+        "y": 208
+      },
+      "error": false,
+      "heading": "Climate types",
+      "ready": "ready"
+    },
+    {
+      "slug": "coasts",
+      "canvas": {
+        "bottom": 404.6666717529297,
+        "height": 172.6666717529297,
+        "left": 24,
+        "right": 880,
+        "top": 232,
+        "width": 856,
+        "x": 24,
+        "y": 232
+      },
+      "error": false,
+      "heading": "Coasts",
+      "ready": "ready"
+    },
+    {
+      "slug": "continental-drift",
+      "canvas": {
+        "bottom": 456.6666717529297,
+        "height": 248.6666717529297,
+        "left": 24,
+        "right": 880,
+        "top": 208,
+        "width": 856,
+        "x": 24,
+        "y": 208
+      },
+      "error": false,
+      "heading": "Continental drift",
+      "ready": "ready"
+    },
+    {
+      "slug": "contours",
+      "canvas": {
+        "bottom": 501.3333435058594,
+        "height": 293.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 208,
+        "width": 856,
+        "x": 24,
+        "y": 208
+      },
+      "error": false,
+      "heading": "Contours ↔ 3D terrain",
+      "ready": "ready"
+    },
+    {
+      "slug": "cyclone-anticyclone",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Cyclone and anticyclone",
+      "ready": "ready"
+    },
+    {
+      "slug": "drainage-basin",
+      "canvas": {
+        "bottom": 497.3333435058594,
+        "height": 353.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Drainage basin",
+      "ready": "ready"
+    },
+    {
+      "slug": "rotation",
+      "canvas": {
+        "bottom": 497.3333435058594,
+        "height": 353.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Earth rotation and the terminator",
+      "ready": "ready"
+    },
+    {
+      "slug": "energy-budget",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Earth’s energy budget",
+      "ready": "ready"
+    },
+    {
+      "slug": "earth-interior",
+      "canvas": {
+        "bottom": 501.3333435058594,
+        "height": 357.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Earth’s interior",
+      "ready": "ready"
+    },
+    {
+      "slug": "earthquakes",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Earthquakes",
+      "ready": "ready"
+    },
+    {
+      "slug": "eclipses",
+      "canvas": {
+        "bottom": 404.6666870117187,
+        "height": 260.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Eclipses",
+      "ready": "ready"
+    },
+    {
+      "slug": "enso",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "ENSO and the Walker cell",
+      "ready": "ready"
+    },
+    {
+      "slug": "folds-faults",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Folds and faults",
+      "ready": "ready"
+    },
+    {
+      "slug": "fronts",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Fronts as wedges",
+      "ready": "ready"
+    },
+    {
+      "slug": "geologic-time",
+      "canvas": {
+        "bottom": 458.6666870117187,
+        "height": 314.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Geologic time",
+      "ready": "ready"
+    },
+    {
+      "slug": "glaciers",
+      "canvas": {
+        "bottom": 477.3333435058594,
+        "height": 333.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Glacial landforms",
+      "ready": "ready"
+    },
+    {
+      "slug": "graticule",
+      "canvas": {
+        "bottom": 501.3333435058594,
+        "height": 357.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Graticule and coordinates",
+      "ready": "ready"
+    },
+    {
+      "slug": "grid-references",
+      "canvas": {
+        "bottom": 501.3333435058594,
+        "height": 357.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Grid references",
+      "ready": "ready"
+    },
+    {
+      "slug": "groundwater",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Groundwater",
+      "ready": "ready"
+    },
+    {
+      "slug": "hotspots",
+      "canvas": {
+        "bottom": 460.6666870117187,
+        "height": 316.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Hotspots",
+      "ready": "ready"
+    },
+    {
+      "slug": "isostasy",
+      "canvas": {
+        "bottom": 484.6666870117187,
+        "height": 340.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Isostasy",
+      "ready": "ready"
+    },
+    {
+      "slug": "karst",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Karst",
+      "ready": "ready"
+    },
+    {
+      "slug": "landform-types",
+      "canvas": {
+        "bottom": 484.6666870117187,
+        "height": 340.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Landform types",
+      "ready": "ready"
+    },
+    {
+      "slug": "map-projections",
+      "canvas": {
+        "bottom": 501.3333435058594,
+        "height": 357.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Map projections",
+      "ready": "ready"
+    },
+    {
+      "slug": "mass-movement",
+      "canvas": {
+        "bottom": 460.6666870117187,
+        "height": 316.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Mass movement",
+      "ready": "ready"
+    },
+    {
+      "slug": "moon-phases",
+      "canvas": {
+        "bottom": 408.6666717529297,
+        "height": 224.6666717529297,
+        "left": 24,
+        "right": 880,
+        "top": 184,
+        "width": 856,
+        "x": 24,
+        "y": 184
+      },
+      "error": false,
+      "heading": "Moon phases and Sun–Earth–Moon geometry",
+      "ready": "ready"
+    },
+    {
+      "slug": "ocean-currents",
+      "canvas": {
+        "bottom": 460.6666870117187,
+        "height": 316.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Ocean currents",
+      "ready": "ready"
+    },
+    {
+      "slug": "periglacial",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Periglacial landforms",
+      "ready": "ready"
+    },
+    {
+      "slug": "plate-boundaries",
+      "canvas": {
+        "bottom": 439.3333435058594,
+        "height": 295.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Plate boundaries",
+      "ready": "ready"
+    },
+    {
+      "slug": "rain-shadow",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Rain shadow",
+      "ready": "ready"
+    },
+    {
+      "slug": "river-capture",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "River capture",
+      "ready": "ready"
+    },
+    {
+      "slug": "river-deposition",
+      "canvas": {
+        "bottom": 424.6666870117187,
+        "height": 280.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "River deposition",
+      "ready": "ready"
+    },
+    {
+      "slug": "river-erosion",
+      "canvas": {
+        "bottom": 460.6666870117187,
+        "height": 316.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "River erosion",
+      "ready": "ready"
+    },
+    {
+      "slug": "rivers",
+      "canvas": {
+        "bottom": 497.3333435058594,
+        "height": 353.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "River long profile",
+      "ready": "ready"
+    },
+    {
+      "slug": "river-hydrology",
+      "canvas": {
+        "bottom": 368.6666717529297,
+        "height": 224.6666717529297,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "River regime",
+      "ready": "ready"
+    },
+    {
+      "slug": "rock-cycle",
+      "canvas": {
+        "bottom": 447.5416870117187,
+        "height": 303.54168701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Rock cycle",
+      "ready": "ready"
+    },
+    {
+      "slug": "seafloor-spreading",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Seafloor spreading",
+      "ready": "ready"
+    },
+    {
+      "slug": "soil-catena",
+      "canvas": {
+        "bottom": 484.6666870117187,
+        "height": 340.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Soil catena",
+      "ready": "ready"
+    },
+    {
+      "slug": "soil-erosion",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Soil erosion",
+      "ready": "ready"
+    },
+    {
+      "slug": "soil-profile",
+      "canvas": {
+        "bottom": 484.6666870117187,
+        "height": 340.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Soil profile",
+      "ready": "ready"
+    },
+    {
+      "slug": "soil-texture",
+      "canvas": {
+        "bottom": 501.3333435058594,
+        "height": 357.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Soil texture triangle",
+      "ready": "ready"
+    },
+    {
+      "slug": "solar-altitude",
+      "canvas": {
+        "bottom": 497.3333435058594,
+        "height": 353.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Solar altitude and sun path",
+      "ready": "ready"
+    },
+    {
+      "slug": "solar-system",
+      "canvas": {
+        "bottom": 356.6666717529297,
+        "height": 212.6666717529297,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Solar system",
+      "ready": "ready"
+    },
+    {
+      "slug": "hydrograph",
+      "canvas": {
+        "bottom": 348.6666717529297,
+        "height": 204.6666717529297,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Storm hydrograph",
+      "ready": "ready"
+    },
+    {
+      "slug": "storm-surge",
+      "canvas": {
+        "bottom": 484.6666870117187,
+        "height": 340.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Storm surge",
+      "ready": "ready"
+    },
+    {
+      "slug": "sun-earth",
+      "canvas": {
+        "bottom": 423.2395935058594,
+        "height": 279.2395935058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Sun and Earth",
+      "ready": "ready"
+    },
+    {
+      "slug": "thermal-circulation",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Thermal circulation",
+      "ready": "ready"
+    },
+    {
+      "slug": "thermohaline",
+      "canvas": {
+        "bottom": 447.5416870117187,
+        "height": 303.54168701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Thermohaline conveyor",
+      "ready": "ready"
+    },
+    {
+      "slug": "three-cell",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Three-cell circulation",
+      "ready": "ready"
+    },
+    {
+      "slug": "tides",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Tides",
+      "ready": "ready"
+    },
+    {
+      "slug": "tropical-cyclone",
+      "canvas": {
+        "bottom": 384.6666717529297,
+        "height": 240.6666717529297,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Tropical cyclone",
+      "ready": "ready"
+    },
+    {
+      "slug": "tsunami",
+      "canvas": {
+        "bottom": 384.6666717529297,
+        "height": 240.6666717529297,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Tsunami",
+      "ready": "ready"
+    },
+    {
+      "slug": "universe-scale",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Universe scale",
+      "ready": "ready"
+    },
+    {
+      "slug": "volcanoes",
+      "canvas": {
+        "bottom": 441.3333435058594,
+        "height": 297.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Volcanoes",
+      "ready": "ready"
+    },
+    {
+      "slug": "water-cycle",
+      "canvas": {
+        "bottom": 424.6666870117187,
+        "height": 280.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Water cycle stores and flows",
+      "ready": "ready"
+    },
+    {
+      "slug": "weathering",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Weathering",
+      "ready": "ready"
+    },
+    {
+      "slug": "seasons",
+      "canvas": {
+        "bottom": 449.3333435058594,
+        "height": 305.3333435058594,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Why seasons happen",
+      "ready": "ready"
+    },
+    {
+      "slug": "wilson-cycle",
+      "canvas": {
+        "bottom": 484.6666870117187,
+        "height": 340.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Wilson cycle",
+      "ready": "ready"
+    },
+    {
+      "slug": "aeolian",
+      "canvas": {
+        "bottom": 460.6666870117187,
+        "height": 316.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Wind landforms",
+      "ready": "ready"
+    },
+    {
+      "slug": "wind",
+      "canvas": {
+        "bottom": 480.6666870117187,
+        "height": 336.66668701171875,
+        "left": 24,
+        "right": 880,
+        "top": 144,
+        "width": 856,
+        "x": 24,
+        "y": 144
+      },
+      "error": false,
+      "heading": "Wind, PGF and Coriolis",
+      "ready": "ready"
+    }
+  ],
+  "consoleErrors": [],
+  "rootAgentFinalRecheck": {
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "canvasHeights": {
+      "atmosphere-layers": 317,
+      "climate-types": 268,
+      "coasts": 261,
+      "eclipses": 261
+    },
+    "eclipseDefault": "Lunar shadow close-up visually confirmed",
+    "notes": "Atmosphere line and transparent-face contrast strengthened; geometry retained. 245 Check explanations applied and eclipse question 4 prompt corrected."
+  }
+}

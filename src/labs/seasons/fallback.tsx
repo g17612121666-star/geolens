@@ -11,10 +11,18 @@ export function SeasonsFallback() {
   return (
     <div className="flex size-full items-center justify-center bg-void p-8">
       <div className="max-w-lg">
-        <p className="section-label mb-3">2D fallback</p>
+        <p className="section-label mb-3">{"2D fallback"}</p>
         <svg viewBox="0 0 400 220" className="w-full">
           <rect width="400" height="220" fill="#07090C" />
-          <ellipse cx="200" cy="110" rx="120" ry="48" fill="none" stroke="#8B9A97" strokeDasharray="3 4" />
+          <ellipse
+            cx="200"
+            cy="110"
+            rx="120"
+            ry="48"
+            fill="none"
+            stroke="#8B9A97"
+            strokeDasharray="3 4"
+          />
           <circle cx="200" cy="110" r="14" fill="#E8B86D" />
           <g transform={`translate(${cx} ${cy}) rotate(${-tilt})`}>
             <circle r="16" fill="#1a4a6e" stroke="#3EE0C6" />
@@ -38,7 +46,9 @@ export function SeasonsFallback() {
           })}
         </svg>
         <p className="mt-3 font-mono text-sm text-mist">
-          {formatDay(day)} · tilt {tilt.toFixed(1)}° · WebGL unavailable
+          {formatDay(day)} {"· tilt "}
+          {tilt.toFixed(1)}
+          {"° · WebGL unavailable"}
         </p>
       </div>
     </div>

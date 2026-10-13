@@ -1,0 +1,7 @@
+[
+ {"source":"usgs-haiti-intensity","terms":["Intensity"]},
+ {"source":"ecostress-london-night","terms":["Urban heat island"]},
+ {"source":"meteosat-december-solstice","terms":["Axial tilt","Day length","Declination","Solstice"],"caption":"Meteosat-9 observed this day–night boundary on 21 December 2010. Earth's tilted axis puts the subsolar point south of the equator and gives southern latitudes longer days. Declination is the Sun's angle north or south of the equatorial plane; the tilt of the boundary is observational evidence, not an angle scale."},
+ {"source":"meteosat-march-equinox","terms":["Equinox","Terminator","Terminator (day–night)"]},
+ {"source":"noaa-emag2-anomalies","terms":["Magnetic reversal","Magnetic stripe","Vine–Matthews","Spreading rate"],"caption":"NOAA EMAG2 v3 maps measured magnetic anomalies. Ocean-floor bands record crust formed under changing magnetic polarity. Matching the pattern to dated reversals supports seafloor spreading and allows a rate to be calculated from distance divided by age; colour alone does not give rock age."}
+]

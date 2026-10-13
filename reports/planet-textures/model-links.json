@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "mercury",
+    "sourceUrl": "https://science.nasa.gov/resource/mercury-3d-model/",
+    "links": [
+      "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/m/Mercury_1_4878.glb?emrc=6aaedd1984996"
+    ]
+  },
+  {
+    "slug": "planet-mars",
+    "sourceUrl": "https://science.nasa.gov/resource/planet-mars-3d-model/",
+    "links": [
+      "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/gltf_files/24881_Mars_1_6792.glb?emrc=6aaedd1959e14"
+    ]
+  },
+  {
+    "slug": "saturn",
+    "sourceUrl": "https://science.nasa.gov/resource/saturn-3d-model/",
+    "links": [
+      "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/s/Saturn_1_120536.glb?emrc=6aaedd1994271"
+    ]
+  },
+  {
+    "slug": "neptune",
+    "sourceUrl": "https://science.nasa.gov/resource/neptune-3d-model/",
+    "links": [
+      "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/n/Neptune_1_49528.glb?emrc=6aaedd1abefea"
+    ]
+  },
+  {
+    "slug": "uranus",
+    "sourceUrl": "https://science.nasa.gov/resource/uranus-3d-model/",
+    "links": [
+      "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/u/Uranus_1_51118.glb?emrc=6aaedd1adec61"
+    ]
+  },
+  {
+    "slug": "venus",
+    "sourceUrl": "https://science.nasa.gov/resource/venus-3d-model/",
+    "links": [
+      "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/v/Venus_1_12103.glb?emrc=6aaedd1af1ef9"
+    ]
+  }
+]

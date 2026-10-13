@@ -1,0 +1,2257 @@
+[
+  {
+    "candidate": "aeolian-1",
+    "id": "brazil-barchan-dunes",
+    "kind": "photo",
+    "alt": "Crescent-shaped dunes around Lagoa dos Barros on Brazil's Atlantic coast, seen from the ISS.",
+    "caption": "Wind shapes barchan dunes beside Lagoa dos Barros, Brazil. The crescent tips point downwind.",
+    "labs": [
+      "aeolian"
+    ]
+  },
+  {
+    "candidate": "carbon-cycle-2",
+    "id": "cameroon-forest-canopy",
+    "kind": "photo",
+    "alt": "Dense green tropical forest canopy at Bodiman, Cameroon.",
+    "caption": "Tropical forest at Bodiman, Cameroon: living vegetation is a carbon store, exchanging carbon with the air and soil.",
+    "labs": [
+      "carbon-cycle"
+    ]
+  },
+  {
+    "candidate": "climate-types-2",
+    "id": "serengeti-savanna",
+    "kind": "photo",
+    "alt": "Grassland with scattered acacia trees in Serengeti National Park, Tanzania.",
+    "caption": "Serengeti savanna: seasonal rainfall helps explain the balance between grasses and scattered trees.",
+    "labs": [
+      "climate-types"
+    ]
+  },
+  {
+    "candidate": "coasts-1",
+    "id": "spurn-spit",
+    "kind": "photo",
+    "alt": "Aerial photograph of Spurn Point curving across the Humber estuary entrance.",
+    "caption": "Spurn Point, England, photographed in 2024. Longshore transport supplies a spit at the Humber estuary.",
+    "labs": [
+      "coasts"
+    ]
+  },
+  {
+    "candidate": "continental-drift-2",
+    "id": "himalaya-iss",
+    "kind": "photo",
+    "alt": "Snow-covered Himalayan peaks and valleys photographed from the International Space Station.",
+    "caption": "The Himalaya from the ISS: crust shortened and thickened as India collided with Eurasia.",
+    "labs": [
+      "continental-drift"
+    ]
+  },
+  {
+    "candidate": "contours-1",
+    "id": "rainier-topography",
+    "kind": "scientific-image",
+    "alt": "USGS topographic map of Mount Rainier with contours, glaciers and named summits.",
+    "caption": "USGS Mount Rainier topographic sheet, published in 1971. Contours connect equal elevations; close spacing marks steep slopes.",
+    "labs": [
+      "contours"
+    ]
+  },
+  {
+    "candidate": "cyclone-anticyclone-2",
+    "id": "japan-extratropical-cyclone",
+    "kind": "photo",
+    "alt": "A broad spiral of white clouds over the Pacific northeast of Japan.",
+    "caption": "MODIS observed this extratropical cyclone northeast of Japan on 22 February 2012. Cloud bands trace the low-pressure circulation.",
+    "labs": [
+      "cyclone-anticyclone"
+    ]
+  },
+  {
+    "candidate": "drainage-basin-3",
+    "id": "canyonlands-drainage",
+    "kind": "scientific-image",
+    "alt": "ASTER satellite image of branching tributary valleys near the Colorado River in Canyonlands, Utah.",
+    "caption": "ASTER, 24 September 2005: tributaries dissect sandstone in Canyonlands, Utah. A drainage network collects flow towards a main river.",
+    "labs": [
+      "drainage-basin"
+    ]
+  },
+  {
+    "candidate": "earthquakes-1",
+    "id": "kamchatka-displacement",
+    "kind": "scientific-image",
+    "alt": "NASA ARIA map showing measured ground displacement along the Kamchatka Peninsula after the 2025 earthquake.",
+    "caption": "NASA ARIA displacement mapping after the 2025 Kamchatka earthquake. Colours encode surface movement, rather than the colour of the ground.",
+    "labs": [
+      "earthquakes"
+    ]
+  },
+  {
+    "candidate": "eclipses-1",
+    "id": "solar-eclipse-2017",
+    "kind": "photo",
+    "alt": "The dark lunar disc surrounded by the Sun's pale corona during the 2017 total solar eclipse.",
+    "caption": "NASA's airborne view of the 21 August 2017 total solar eclipse. The Moon blocks the bright photosphere, revealing the corona.",
+    "labs": [
+      "eclipses"
+    ]
+  },
+  {
+    "candidate": "enso-2",
+    "id": "noaa-el-nino-2015",
+    "kind": "scientific-image",
+    "alt": "NOAA sea-surface temperature anomaly map with warmer-than-average water across the equatorial Pacific in late 2015.",
+    "caption": "NOAA, 11 October–7 November 2015: positive sea-surface temperature anomalies extend across the central and eastern equatorial Pacific during El Niño.",
+    "labs": [
+      "enso"
+    ]
+  },
+  {
+    "candidate": "folds-faults-1",
+    "id": "settlands-folds",
+    "kind": "photo",
+    "alt": "Tilted and folded sedimentary beds exposed at The Settlands coast.",
+    "caption": "Folded strata at The Settlands, Wales. Trace a bed through the exposure to see deformation recorded in solid rock.",
+    "labs": [
+      "folds-faults"
+    ]
+  },
+  {
+    "candidate": "fronts-2",
+    "id": "ontario-cold-front",
+    "kind": "photo",
+    "alt": "A low shelf cloud sweeps over buildings at Brock University in Ontario.",
+    "caption": "A cold front passes Brock University, St. Catharines, Canada. The cloud edge makes uplift visible; the front itself is a zone of contrasting air.",
+    "labs": [
+      "fronts"
+    ]
+  },
+  {
+    "candidate": "geologic-time-1",
+    "id": "siccar-unconformity",
+    "kind": "photo",
+    "alt": "Younger gently dipping red sandstone overlies steep grey beds at Siccar Point, Scotland.",
+    "caption": "Siccar Point: Devonian sandstone overlies much older, tilted Silurian beds. The unconformity records deformation, erosion and missing time.",
+    "labs": [
+      "geologic-time"
+    ]
+  },
+  {
+    "candidate": "glaciers-1",
+    "id": "aletsch-glacier",
+    "kind": "photo",
+    "alt": "The Aletsch Glacier curves through a steep Alpine valley, with dark medial moraines running along its surface.",
+    "caption": "Aletsch Glacier, Switzerland. Flowing ice carries debris; its dark medial moraines record where tributary glaciers join.",
+    "labs": [
+      "glaciers"
+    ]
+  },
+  {
+    "candidate": "graticule-3",
+    "id": "greenwich-meridian",
+    "kind": "photo",
+    "alt": "A physical marker of the historic Greenwich Meridian at the Royal Observatory.",
+    "caption": "The historic Greenwich Meridian makes a reference longitude tangible. Modern WGS84 zero longitude lies about 102 metres east of this line.",
+    "labs": [
+      "graticule"
+    ]
+  },
+  {
+    "candidate": "grid-references-1",
+    "id": "yosemite-topographic-sheet",
+    "kind": "scientific-image",
+    "alt": "USGS topographic map extract showing Yosemite Creek, a campground, contours and coordinate markings.",
+    "caption": "A real USGS topographic sheet of Yosemite Creek. Read the sheet's coordinate system and scale before giving a position; it is not an OS National Grid map.",
+    "labs": [
+      "grid-references"
+    ]
+  },
+  {
+    "candidate": "hotspots-1",
+    "id": "hawaiian-chain-iss",
+    "kind": "photo",
+    "alt": "The Hawaiian volcanic islands stretch across the Pacific beneath scattered white clouds in an ISS photograph.",
+    "caption": "Hawaii from the ISS. The volcanic chain records Pacific plate motion relative to a long-lived hotspot; the youngest main island is at the southeast end.",
+    "labs": [
+      "hotspots"
+    ]
+  },
+  {
+    "candidate": "hydrograph-2",
+    "id": "huey-creek-gauge",
+    "kind": "photo",
+    "alt": "A streamflow-gauging station beside Huey Creek in Antarctica's rocky McMurdo Dry Valleys.",
+    "caption": "USGS gauging station at Huey Creek, Antarctica, 12 December 2001. Repeated measurements of stage and discharge produce a river's hydrograph.",
+    "labs": [
+      "hydrograph"
+    ]
+  },
+  {
+    "candidate": "karst-2",
+    "id": "malham-limestone-pavement",
+    "kind": "photo",
+    "alt": "People cross pale limestone blocks separated by deep joints above Malham Cove, England.",
+    "caption": "Malham Cove limestone pavement. Rainwater containing dissolved carbon dioxide widens joints into grykes, leaving blocks called clints.",
+    "labs": [
+      "karst"
+    ]
+  },
+  {
+    "candidate": "landform-types-3",
+    "id": "grand-canyon-hopi-point",
+    "kind": "photo",
+    "alt": "Layered cliffs, mesas and deeply incised valleys of the Grand Canyon in evening light.",
+    "caption": "Grand Canyon from Hopi Point, Arizona. Resistant beds form steps and cliffs above valleys cut by running water.",
+    "labs": [
+      "landform-types"
+    ]
+  },
+  {
+    "candidate": "mass-movement-1",
+    "id": "oso-landslide",
+    "kind": "photo",
+    "alt": "An aerial view of the Oso landslide's bare source scar, debris path and deposits across the valley.",
+    "caption": "Oso, Washington, 2014: an aerial photograph of the landslide source, travel path and deposit. The displaced material crossed the valley floor.",
+    "labs": [
+      "mass-movement"
+    ]
+  },
+  {
+    "candidate": "moon-phases-3",
+    "id": "artemis-crescent-moon",
+    "kind": "photo",
+    "alt": "A thin sunlit lunar crescent with crater shadows along the terminator against black space.",
+    "caption": "The Artemis II crew photographed this lunar crescent on 7 April 2026. Phase is the visible fraction of the sunlit hemisphere, not Earth's shadow.",
+    "labs": [
+      "moon-phases"
+    ]
+  },
+  {
+    "candidate": "ocean-currents-3",
+    "id": "gulf-stream-modis",
+    "kind": "scientific-image",
+    "alt": "False-colour MODIS brightness-temperature image showing the Gulf Stream and warm eddies in the North Atlantic.",
+    "caption": "MODIS, 2 May 2001: thermal contrast traces the Gulf Stream and eddies. Brightness temperature includes the sea surface and overlying moist atmosphere.",
+    "labs": [
+      "ocean-currents"
+    ]
+  },
+  {
+    "candidate": "periglacial-1",
+    "id": "noatak-patterned-ground",
+    "kind": "photo",
+    "alt": "Polygonal ground and ponds on the tundra in Noatak National Preserve, Alaska, photographed from the air.",
+    "caption": "Ice-wedge polygons in Alaska's Noatak tundra. Repeated thermal contraction cracking and ice growth organise the permafrost landscape.",
+    "labs": [
+      "periglacial"
+    ]
+  },
+  {
+    "candidate": "plate-boundaries-1",
+    "id": "thingvellir-rift",
+    "kind": "photo",
+    "alt": "Steep dark rock walls border the Almannagjá rift at Þingvellir, Iceland.",
+    "caption": "Almannagjá, Þingvellir: faults accommodate extension within Iceland's broad North American–Eurasian plate boundary zone.",
+    "labs": [
+      "plate-boundaries"
+    ]
+  },
+  {
+    "candidate": "river-deposition-1",
+    "id": "lena-delta-landsat",
+    "kind": "scientific-image",
+    "alt": "False-colour Landsat image of the Lena Delta with many branching distributaries and islands.",
+    "caption": "Landsat's view of the Lena Delta, 2000. Distributaries spread sediment into the Arctic Ocean. The image combines infrared and red bands.",
+    "labs": [
+      "river-deposition"
+    ]
+  },
+  {
+    "candidate": "river-erosion-2",
+    "id": "presque-isle-potholes",
+    "kind": "photo",
+    "alt": "Rounded potholes cut into dark bedrock beside flowing water in the Presque Isle River, Michigan.",
+    "caption": "Presque Isle River, Michigan. Sediment circulating in eddies abrades the bedrock, enlarging these potholes.",
+    "labs": [
+      "river-erosion"
+    ]
+  },
+  {
+    "candidate": "river-hydrology-2",
+    "id": "stillaguamish-flood",
+    "kind": "photo",
+    "alt": "Floodwater from the Stillaguamish River surrounds a picnic table and trees.",
+    "caption": "The South Fork Stillaguamish River in flood. Water spreads beyond the usual channel when discharge exceeds channel capacity.",
+    "labs": [
+      "river-hydrology"
+    ]
+  },
+  {
+    "candidate": "rivers-1",
+    "id": "ucayali-meanders",
+    "kind": "photo",
+    "alt": "The muddy Ucayali River winds through forest in Peru, with abandoned bends beside the active channel.",
+    "caption": "Ucayali River, Peru, photographed from the ISS. Meander migration leaves cut-offs and abandoned channels across the floodplain.",
+    "labs": [
+      "rivers"
+    ]
+  },
+  {
+    "candidate": "rotation-3",
+    "id": "south-africa-night",
+    "kind": "photo",
+    "alt": "South African city lights beneath a curved glowing atmospheric horizon and stars, viewed from the ISS.",
+    "caption": "South Africa on Earth's night side, seen from the ISS. Rotation carries locations through sunlight and darkness; this is a photograph of the night hemisphere.",
+    "labs": [
+      "rotation"
+    ]
+  },
+  {
+    "candidate": "seafloor-spreading-3",
+    "id": "galapagos-pillow-lava",
+    "kind": "photo",
+    "alt": "Rounded pillow lava on a fissured seafloor at the Galápagos Rift, photographed by a NOAA expedition.",
+    "caption": "NOAA, Galápagos Rift, 21 July 2011. Lava quenched in seawater forms pillows close to a spreading centre, where new oceanic crust is built.",
+    "labs": [
+      "seafloor-spreading"
+    ]
+  },
+  {
+    "candidate": "seasons-1",
+    "id": "apollo17-earth",
+    "kind": "photo",
+    "alt": "The fully sunlit Earth showing Africa, Arabia, Antarctica and swirling clouds in the Apollo 17 photograph.",
+    "caption": "Apollo 17's Blue Marble, 7 December 1972. Earth's axial tilt changes the angle and duration of sunlight over the year.",
+    "labs": [
+      "seasons"
+    ]
+  },
+  {
+    "candidate": "soil-erosion-2",
+    "id": "queensland-soil-erosion",
+    "kind": "photo",
+    "alt": "Bare eroded soil with small gullies on a hillslope near Charters Towers, Queensland.",
+    "caption": "Hillslope gully and sheet erosion near Charters Towers, Queensland, documented by CSIRO. Loss of cover exposes soil to runoff.",
+    "labs": [
+      "soil-erosion"
+    ]
+  },
+  {
+    "candidate": "soil-texture-1",
+    "id": "nps-soil-texture",
+    "kind": "photo",
+    "alt": "National Park Service soil scientists examine a freshly sampled soil profile and record its texture.",
+    "caption": "NPS fieldwork at Chesapeake and Ohio Canal National Historical Park. Texture describes the proportions of sand, silt and clay in the mineral soil.",
+    "labs": [
+      "soil-texture"
+    ]
+  },
+  {
+    "candidate": "solar-altitude-1",
+    "id": "greens-mill-sundial",
+    "kind": "photo",
+    "alt": "A spherical sundial with hour markings and a movable gnomon at Green's Windmill, Nottingham.",
+    "caption": "A working sundial at Green's Windmill, Nottingham. A gnomon's shadow connects the Sun's apparent direction with local solar time.",
+    "labs": [
+      "solar-altitude"
+    ]
+  },
+  {
+    "candidate": "solar-system-2",
+    "id": "cassini-saturn",
+    "kind": "photo",
+    "alt": "Saturn and its broad rings in a natural-colour mosaic photographed by the Cassini spacecraft.",
+    "caption": "Cassini, 6 October 2004: a natural-colour mosaic of Saturn and its rings. The rings are a thin disc of orbiting particles.",
+    "labs": [
+      "solar-system"
+    ]
+  },
+  {
+    "candidate": "storm-surge-1",
+    "id": "ike-bolivar-surge",
+    "kind": "photo",
+    "alt": "An aerial view of damaged buildings and washed-over land on the Bolivar Peninsula after Hurricane Ike.",
+    "caption": "Bolivar Peninsula, Texas, September 2008. NOAA documented coastal damage from Hurricane Ike's storm surge.",
+    "labs": [
+      "storm-surge"
+    ]
+  },
+  {
+    "candidate": "sun-earth-1",
+    "id": "sdo-solar-disc",
+    "kind": "scientific-image",
+    "alt": "Extreme-ultraviolet observation of the full Sun showing bright active regions, displayed in yellow.",
+    "caption": "SDO's Atmospheric Imaging Assembly, 18 December 2015. This false-colour ultraviolet observation reveals the hot solar atmosphere, not the Sun's visible colour.",
+    "labs": [
+      "sun-earth"
+    ]
+  },
+  {
+    "candidate": "thermal-circulation-2",
+    "id": "bering-cloud-streets",
+    "kind": "photo",
+    "alt": "Parallel rows of clouds extend from sea ice across open water in the Bering Sea.",
+    "caption": "Cloud streets over the Bering Sea, 20 January 2006. Cold air over warmer water supports convection organised into rolls by the wind.",
+    "labs": [
+      "thermal-circulation"
+    ]
+  },
+  {
+    "candidate": "three-cell-2",
+    "id": "goes-earth-cloud-belts",
+    "kind": "scientific-image",
+    "alt": "GOES-East satellite view of the Americas with tropical cloud bands and midlatitude weather systems.",
+    "caption": "GOES-East, 22 April 2014 at 11:45 UTC. Cloud belts reveal aspects of global circulation; a single image does not outline every atmospheric cell.",
+    "labs": [
+      "three-cell"
+    ]
+  },
+  {
+    "candidate": "tides-2",
+    "id": "fundy-low-tide",
+    "kind": "photo",
+    "alt": "A fishing boat rests on exposed mud beside a wharf at low tide in Nova Scotia.",
+    "caption": "Low tide at Waterford on St Mary's Bay, Nova Scotia. The exposed harbour floor makes tidal range visible.",
+    "labs": [
+      "tides"
+    ]
+  },
+  {
+    "candidate": "tropical-cyclone-1",
+    "id": "isabel-hurricane-eye",
+    "kind": "photo",
+    "alt": "The clear eye and tall spiral cloud walls of Hurricane Isabel, photographed from the ISS.",
+    "caption": "Astronaut Ed Lu photographed Hurricane Isabel on 13 September 2003. The eye is surrounded by the eyewall's deep convective clouds.",
+    "labs": [
+      "tropical-cyclone"
+    ]
+  },
+  {
+    "candidate": "tsunami-3",
+    "id": "tohoku-tsunami-aftermath",
+    "kind": "photo",
+    "alt": "Debris, damaged buildings and inundated land at a fishing port near Kesennuma after the 2011 tsunami.",
+    "caption": "Kesennuma, Japan, after the 2011 Tōhoku tsunami. This aerial photograph records inundation damage; it does not show a breaking tsunami wave.",
+    "labs": [
+      "tsunami"
+    ]
+  },
+  {
+    "candidate": "universe-scale-2",
+    "id": "hubble-andromeda",
+    "kind": "scientific-image",
+    "alt": "A Hubble mosaic of Andromeda's bright central region, dark dust lanes and densely packed stars.",
+    "caption": "NASA/ESA Hubble mosaic of Andromeda. Resolved stars and dust lanes provide an observed view of a galaxy about 2.5 million light-years away.",
+    "labs": [
+      "universe-scale"
+    ]
+  },
+  {
+    "candidate": "volcanoes-3",
+    "id": "kilauea-lava-fountain",
+    "kind": "photo",
+    "alt": "An arching orange lava fountain erupts from a vent on Kīlauea amid dark cooling lava.",
+    "caption": "Kīlauea, 25 February 1983. USGS photographed a lava fountain approximately 10 metres high; molten rock is at the surface, not throughout the mantle.",
+    "labs": [
+      "volcanoes"
+    ]
+  },
+  {
+    "candidate": "water-cycle-2",
+    "id": "lake-evaporation-fog",
+    "kind": "photo",
+    "alt": "Wisps of low fog rise above a calm lake on a frosty morning, with trees reflected in the water.",
+    "caption": "Evaporation fog over a lake. Water vapour mixes into colder air and condenses into droplets; invisible vapour itself cannot be photographed.",
+    "labs": [
+      "water-cycle"
+    ]
+  },
+  {
+    "candidate": "weathering-1",
+    "id": "weathered-granite",
+    "kind": "photo",
+    "alt": "Rounded remnants of granite emerge from loose weathered material in an exposed rock profile.",
+    "caption": "Weathered granite documented by GeoDIL. Mineral breakdown and disintegration progressively turn intact rock into weathered material.",
+    "labs": [
+      "weathering"
+    ]
+  },
+  {
+    "candidate": "wilson-cycle-1",
+    "id": "east-african-rift",
+    "kind": "photo",
+    "alt": "Long fault-bounded valleys and escarpments in Kenya's East African Rift, viewed from the ISS.",
+    "caption": "The East African Rift in Kenya: continental extension is an opening stage of a possible ocean-basin cycle. A rift does not inevitably become an ocean.",
+    "labs": [
+      "wilson-cycle"
+    ]
+  },
+  {
+    "candidate": "rock-gneiss-2",
+    "id": "augen-gneiss",
+    "kind": "photo",
+    "alt": "A rounded specimen of augen gneiss with pale mineral eyes enclosed in dark, folded bands.",
+    "caption": "Augen gneiss: deformation and metamorphism organise minerals into bands around larger crystals. Rock-cycle pathways need not follow one fixed loop.",
+    "labs": [
+      "rock-cycle"
+    ]
+  },
+  {
+    "candidate": "soil-profile-real-2",
+    "id": "berlin-soil-profile",
+    "kind": "photo",
+    "alt": "An exposed soil profile beneath woodland at Wuhlheide in Berlin, with a measuring tape against the face.",
+    "caption": "A measured field profile in Wuhlheide, Berlin. Colour and texture vary down the soil; horizon boundaries must be identified from field evidence.",
+    "labs": [
+      "soil-profile"
+    ]
+  },
+  {
+    "candidate": "soil-catena-real-1",
+    "id": "addi-selam-catena",
+    "kind": "photo",
+    "alt": "Field photographs of red and black soils at different positions on the Addi Selam hillslope in Ethiopia.",
+    "caption": "Addi Selam, Ethiopia: published field photographs compare red and black soils along a hillslope. Slope position changes drainage and material movement.",
+    "labs": [
+      "soil-catena"
+    ]
+  },
+  {
+    "candidate": "windsock-real-3",
+    "id": "field-windsock",
+    "kind": "photo",
+    "alt": "An orange windsock extends above a field beside the path to Green Lane Farm.",
+    "caption": "A windsock responds to moving air. Its open mouth faces into the wind; meteorological wind direction names where the air comes from.",
+    "labs": [
+      "wind"
+    ]
+  },
+  {
+    "candidate": "raised-beach-2",
+    "id": "northbank-raised-beach",
+    "kind": "photo",
+    "alt": "A low grassy coastal terrace below an older cliff near Northbank.",
+    "caption": "A raised beach near Northbank. Former shorelines record changes in relative sea level, which can include land uplift after unloading of ice.",
+    "labs": [
+      "isostasy"
+    ]
+  },
+  {
+    "candidate": "spring-emergence-3",
+    "id": "alabama-karst-spring",
+    "kind": "photo",
+    "alt": "A karst spring in Alabama flows over rocks from a wooded limestone slope.",
+    "caption": "Groundwater emerges at a karst spring in Alabama. Water stored in connected pores and fractures can return to the surface as spring flow.",
+    "labs": [
+      "groundwater"
+    ]
+  },
+  {
+    "candidate": "wutach-landscape-3",
+    "id": "wutach-gorge",
+    "kind": "photo",
+    "alt": "The Wutach flows through a narrow, wooded gorge below exposed rock walls in the Black Forest.",
+    "caption": "Wutach Gorge, Germany. Capture diverted drainage from the Danube system towards the Rhine; subsequent incision cut this gorge.",
+    "labs": [
+      "river-capture"
+    ]
+  },
+  {
+    "candidate": "pancake-ice-1",
+    "id": "ross-sea-pancake-ice",
+    "kind": "photo",
+    "alt": "Circular plates of new pancake ice cover the surface of the western Ross Sea in Antarctica.",
+    "caption": "New sea ice forming in the Ross Sea. Freezing rejects much of the salt into the surrounding water, increasing its density and helping drive polar overturning.",
+    "labs": [
+      "thermohaline"
+    ]
+  },
+  {
+    "candidate": "aquifer-section-1",
+    "id": "usgs-principal-aquifers",
+    "kind": "scientific-image",
+    "alt": "USGS map showing the distribution of principal aquifers across the United States.",
+    "caption": "USGS principal aquifers of the United States, 2000. Colours identify aquifer systems; the map does not show water-table depth or whether a particular well is confined."
+  },
+  {
+    "candidate": "blockfield-1",
+    "id": "foel-fras-blockfield",
+    "kind": "photo",
+    "alt": "Angular rock blocks cover the summit of Foel Fras in Wales.",
+    "caption": "Blockfield on Foel Fras, Wales. Physical weathering breaks bedrock into angular fragments without changing its minerals."
+  },
+  {
+    "candidate": "breaking-wave-1",
+    "id": "porto-covo-breaking-wave",
+    "kind": "photo",
+    "alt": "A breaking wave curls and foams along the coast at Porto Covo, Portugal.",
+    "caption": "A breaking wave at Porto Covo, Portugal. In shallow water a wave slows and steepens; its crest eventually breaks."
+  },
+  {
+    "candidate": "cambrian-trilobite-1",
+    "id": "mount-stephen-trilobite",
+    "kind": "photo",
+    "alt": "Fossilised Ogyopsis klotzi trilobite preserved in dark shale.",
+    "caption": "Ogyopsis klotzi from the Middle Cambrian Mount Stephen Trilobite Beds, Canada. Fossils help correlate and interpret ancient sedimentary rocks."
+  },
+  {
+    "candidate": "cirque-2",
+    "id": "denali-glacial-basin",
+    "kind": "photo",
+    "alt": "Glacier ice occupies a steep-sided mountain basin in Denali National Park, Alaska.",
+    "caption": "Glacial terrain in the Muldrow Glacier area, Denali. Ice erosion enlarges mountain hollows into cirques and sharpens the ridges between them."
+  },
+  {
+    "candidate": "clay-mineral-2",
+    "id": "ixtassou-kaolinite",
+    "kind": "photo",
+    "alt": "A pale specimen of kaolinite from Ixtassou, France.",
+    "caption": "Kaolinite from Ixtassou, France, is a clay mineral. Clay as a soil texture means particles smaller than 0.002 mm; mineral identity and particle size are different properties."
+  },
+  {
+    "candidate": "confluence-2",
+    "id": "rhine-moselle-confluence",
+    "kind": "photo",
+    "alt": "The Moselle joins the wider Rhine beside the city of Koblenz, Germany.",
+    "caption": "The Rhine–Moselle confluence at Koblenz, photographed in 1988. A tributary joins the main channel here."
+  },
+  {
+    "candidate": "crater-lake-2",
+    "id": "crater-lake-caldera",
+    "kind": "photo",
+    "alt": "Deep blue Crater Lake fills a broad volcanic depression, with Wizard Island near its western shore.",
+    "caption": "USGS aerial photograph of Crater Lake, Oregon. Collapse following the eruption of Mount Mazama formed the caldera; Wizard Island is a younger volcanic cone."
+  },
+  {
+    "candidate": "dam-2",
+    "id": "glen-canyon-dam",
+    "kind": "photo",
+    "alt": "Glen Canyon Dam holds back Lake Powell above a narrow river gorge.",
+    "caption": "Glen Canyon Dam and Lake Powell, Arizona. Reservoir storage and controlled releases alter the timing and size of flows downstream."
+  },
+  {
+    "candidate": "estuary-2",
+    "id": "thames-estuary-landsat",
+    "kind": "photo",
+    "alt": "Landsat view of the Thames estuary, coastal shallows and offshore wind farms.",
+    "caption": "NASA Landsat observation of the Thames estuary. The tidal river widens towards the North Sea; pale water reveals suspended material and shallow coastal water."
+  },
+  {
+    "candidate": "forest-floor-3",
+    "id": "white-beech-litter",
+    "kind": "photo",
+    "alt": "Fallen leaves and organic litter beneath white beech trees in New South Wales, Australia.",
+    "caption": "White beech leaf litter at Carowiry Creek, New South Wales. Organic material on the forest floor stores carbon and provides material for decomposition."
+  },
+  {
+    "candidate": "fossil-fuel-2",
+    "id": "chukurovo-lignite",
+    "kind": "photo",
+    "alt": "Brown coal exposed at Chukurovo in Bulgaria.",
+    "caption": "Lignite at Chukurovo, Bulgaria. This fossil fuel formed from buried plant material; combustion transfers its stored carbon to the atmosphere."
+  },
+  {
+    "candidate": "föhn-1",
+    "id": "reunion-foehn-wall",
+    "kind": "photo",
+    "alt": "A bank of cloud spills over a mountain ridge above Cilaos on Réunion.",
+    "caption": "A föhn cloud wall above Cilaos, Réunion. Moist air rises on the windward side; descending air on the lee side warms as it is compressed."
+  },
+  {
+    "candidate": "glacial-drumlins-1",
+    "id": "horicon-drumlins",
+    "kind": "photo",
+    "alt": "Aerial view of elongated low hills around Horicon Marsh, Wisconsin.",
+    "caption": "Drumlin terrain near Horicon Marsh, Wisconsin. The streamlined hills record former glacier flow; they are landforms left after the ice retreated."
+  },
+  {
+    "candidate": "groyne-2",
+    "id": "tallebudgera-groyne",
+    "kind": "photo",
+    "alt": "A groyne extends across the beach at Tallebudgera Creek on Australia's Gold Coast.",
+    "caption": "Tallebudgera Creek, Gold Coast, in the 1980s. A groyne interrupts sediment movement along a beach and can change sediment supply farther down-drift."
+  },
+  {
+    "candidate": "hanging-valley-3",
+    "id": "crearlagh-hanging-valley",
+    "kind": "photo",
+    "alt": "Crearlagh Burn descends from a higher tributary valley towards a deeper main valley.",
+    "caption": "The hanging valley of Crearlagh Burn, Scotland. Tributary valleys can be left above a main trough when a larger glacier erodes more deeply."
+  },
+  {
+    "candidate": "horn-matterhorn-3",
+    "id": "little-matterhorn-montana",
+    "kind": "photo",
+    "alt": "The sharp summit and steep ridges of Little Matterhorn in Glacier National Park, Montana.",
+    "caption": "Little Matterhorn, Glacier National Park, USA. Glacial erosion on several sides can leave a sharp pyramidal peak; this is not the Matterhorn in the Alps."
+  },
+  {
+    "candidate": "inversion-2",
+    "id": "cruach-ardrain-inversion",
+    "kind": "photo",
+    "alt": "Cloud lies below the summit of Cruach Ardrain in Scotland.",
+    "caption": "Low cloud beneath Cruach Ardrain. A temperature inversion can trap cool, moist air below warmer air; a photograph alone cannot measure the temperature profile."
+  },
+  {
+    "candidate": "isobar-1",
+    "id": "noaa-surface-analysis-2022",
+    "kind": "scientific-image",
+    "alt": "Four NOAA surface analysis charts show pressure contours and weather fronts during a North American storm.",
+    "caption": "NOAA surface analyses during a late-February 2022 storm. Isobars join equal pressure; front symbols identify analysed boundaries between air masses."
+  },
+  {
+    "candidate": "kpg-boundary-1",
+    "id": "scollard-kpg-boundary",
+    "kind": "photo",
+    "alt": "Exposed layers of the Scollard Formation beside the Red Deer River in Alberta.",
+    "caption": "The K–Pg boundary in the Scollard Formation, Alberta, Canada. The rock record preserves evidence of the transition around 66 million years ago."
+  },
+  {
+    "candidate": "levee-2",
+    "id": "hannibal-mississippi-levee",
+    "kind": "photo",
+    "alt": "A raised embankment separates floodwater from farmland beside the Mississippi at Hannibal, Missouri.",
+    "caption": "Mississippi levee at Hannibal, Missouri, 20 June 2008. This engineered embankment limits inundation; natural levees instead build up from repeated overbank deposition."
+  },
+  {
+    "candidate": "nabkha-1",
+    "id": "mojave-mesquite-dune",
+    "kind": "photo",
+    "alt": "A mesquite shrub grows on a mound of trapped sand in the Mojave Desert.",
+    "caption": "Mesquite in Mojave National Preserve, California. Vegetation traps wind-blown sand and can build a small dune called a nabkha."
+  },
+  {
+    "candidate": "planet-mercury-1",
+    "id": "messenger-mercury",
+    "kind": "scientific-image",
+    "alt": "MESSENGER global mosaic of Mercury showing its cratered surface.",
+    "caption": "NASA MESSENGER mosaic of Mercury, 2011. Spacecraft observations reveal the planet's cratered rocky surface; this is a composite, not a single exposure."
+  },
+  {
+    "candidate": "pumping-well-2",
+    "id": "perambalur-handpump",
+    "kind": "photo",
+    "alt": "A hand pump used to draw groundwater at Perambalur, India.",
+    "caption": "Groundwater hand pump at Perambalur, India. Abstraction removes water from an aquifer; pumping may lower the water level around a well, which is measured below ground."
+  },
+  {
+    "candidate": "pyroclastic-1",
+    "id": "pinatubo-pyroclastic-deposits",
+    "kind": "photo",
+    "alt": "Pale pyroclastic deposits fill the Marella River valley below Mount Pinatubo.",
+    "caption": "USGS photograph of Pinatubo's Marella River valley, 1 July 1991. These are deposits left by pyroclastic flows, not a view of a flow in motion."
+  },
+  {
+    "candidate": "radiosonde-2",
+    "id": "graw-radiosondes",
+    "kind": "photo",
+    "alt": "Graw DFM radiosondes and a radio receiver arranged on a table.",
+    "caption": "Balloon-borne radiosondes transmit measurements of the atmosphere. Profiles of temperature, humidity and pressure help locate inversions and estimate lapse rates."
+  },
+  {
+    "candidate": "rock-fault-1",
+    "id": "stillwater-reverse-fault",
+    "kind": "photo",
+    "alt": "A reverse fault offsets contrasting mineral layers in a rock sample from the Stillwater Complex, Montana.",
+    "caption": "Reverse fault in layered igneous rock from Montana's Stillwater Complex. Trace matching layers across the break: the hanging wall moved up relative to the footwall."
+  },
+  {
+    "candidate": "sand-dune-2",
+    "id": "sossusvlei-dunes",
+    "kind": "photo",
+    "alt": "Tall orange sand dunes under a clear sky at Sossusvlei, Namibia.",
+    "caption": "Sossusvlei dunes, Namib Desert. Wind transports loose sand by surface creep and saltation; the dunes record accumulated transport rather than individual grain paths."
+  },
+  {
+    "candidate": "sea-stack-1",
+    "id": "hvitserkur-stack",
+    "kind": "photo",
+    "alt": "The isolated rock stack Hvítserkur rises from shallow coastal water in northwestern Iceland.",
+    "caption": "Hvítserkur, Iceland. This isolated coastal rock illustrates a stack, with openings cut through its base."
+  },
+  {
+    "candidate": "seismometer-1",
+    "id": "puerto-rico-seismometer",
+    "kind": "photo",
+    "alt": "USGS scientists install a field seismometer at Sabana Yeguas, Puerto Rico.",
+    "caption": "USGS seismometer installation at Sabana Yeguas, Puerto Rico, 10 January 2020. Recorded ground motion distinguishes P, S and surface-wave arrivals; the photograph shows the measuring instrument."
+  },
+  {
+    "candidate": "sinkhole-3",
+    "id": "bimmah-sinkhole",
+    "kind": "photo",
+    "alt": "Turquoise water fills the steep-sided Bimmah sinkhole in Oman.",
+    "caption": "Bimmah sinkhole, Oman. Dissolution and collapse in soluble rock can create closed depressions called dolines."
+  },
+  {
+    "candidate": "snowmelt-3",
+    "id": "sawtooth-snowmelt",
+    "kind": "photo",
+    "alt": "Melting snow patches and a stream near Fourth of July Lake in Idaho's Sawtooth Mountains.",
+    "caption": "Snowmelt near Fourth of July Lake, Idaho. Seasonal melting transfers stored snow water into streams, soils and groundwater."
+  },
+  {
+    "candidate": "soil-gley-1",
+    "id": "gley-redox-samples",
+    "kind": "photo",
+    "alt": "Photographs of clay samples comparing grey reduced material and oxidised reddish material.",
+    "caption": "Real clay samples showing contrasting redox conditions. Prolonged saturation restricts oxygen, often producing grey gley colours; oxidation can produce reddish mottles."
+  },
+  {
+    "candidate": "soil-podzol-2",
+    "id": "karelian-podzolic-soil",
+    "kind": "photo",
+    "alt": "A soil profile on the Karelian Isthmus with a dark surface, pale leached layer and browner subsoil.",
+    "caption": "Podzolic soil on the Karelian Isthmus. The pale E horizon has lost material by eluviation; material may accumulate in the B horizon below."
+  },
+  {
+    "candidate": "stalactites-2",
+    "id": "kyllini-stalactites",
+    "kind": "photo",
+    "alt": "Calcite stalactites hang from the roof of a cave on Mount Kyllini, Greece.",
+    "caption": "Stalactites in a cave on Mount Kyllini. Dissolved calcium carbonate is deposited as water drips and loses carbon dioxide."
+  },
+  {
+    "candidate": "stomata-3",
+    "id": "leaf-stomata-micrograph",
+    "kind": "photo",
+    "alt": "Microscope photograph of leaf epidermal cells and stomatal pores under drought conditions.",
+    "caption": "Leaf epidermis viewed through a microscope. Stomata regulate gas exchange and water-vapour loss; transpiration is one part of evapotranspiration."
+  },
+  {
+    "candidate": "stratovolcano-2",
+    "id": "fuji-kawaguchiko",
+    "kind": "photo",
+    "alt": "The broad conical slopes of Mount Fuji rise beyond Lake Kawaguchi in Japan.",
+    "caption": "Mount Fuji from Lake Kawaguchi, Japan. Repeated eruptions built a stratovolcano with layers of lava and fragmental deposits."
+  },
+  {
+    "candidate": "sunspot-3",
+    "id": "sdo-visible-sunspots",
+    "kind": "scientific-image",
+    "alt": "An SDO observation of the solar photosphere showing a large dark sunspot group.",
+    "caption": "NASA SDO observation of active region AR 12192 in 2014. Sunspots are cooler areas of the photosphere; the orange display colour is image processing."
+  },
+  {
+    "candidate": "till-1",
+    "id": "glacial-till-bank",
+    "kind": "photo",
+    "alt": "An exposed bank of poorly sorted glacial sediment containing stones of several sizes.",
+    "caption": "A natural exposure of glacial till. Ice deposits a mixture of grain sizes directly, often without the sorting produced by flowing water."
+  },
+  {
+    "candidate": "tombolo-2",
+    "id": "giens-double-tombolo",
+    "kind": "photo",
+    "alt": "Aerial photograph of the Giens peninsula joined to the coast by two narrow sediment barriers.",
+    "caption": "Giens, near Hyères, France. The double tombolo connects the peninsula to the mainland through two sediment-built barriers."
+  },
+  {
+    "candidate": "water-table-well-2",
+    "id": "okee-fenokee-observation-well",
+    "kind": "photo",
+    "alt": "A USGS groundwater observation station in Stephen C. Foster State Park, Georgia.",
+    "caption": "USGS observation well in Stephen C. Foster State Park, Georgia. Instruments record groundwater levels; the water table itself lies beneath the surface."
+  },
+  {
+    "candidate": "weather-station-3",
+    "id": "charterhall-weather-station",
+    "kind": "photo",
+    "alt": "Weather instruments inside the enclosure at Charterhall in the Scottish Borders.",
+    "caption": "Charterhall weather station, Scotland. Standardised instruments measure local conditions; climate describes their statistics over many years."
+  },
+  {
+    "candidate": "yardang-2",
+    "id": "dunhuang-yardangs",
+    "kind": "photo",
+    "alt": "Long, wind-eroded rock ridges rise above the desert at Dunhuang, China.",
+    "caption": "Yardangs at Dunhuang, China. Persistent wind erosion shapes elongated ridges in relatively soft rock or sediment."
+  },
+  {
+    "candidate": "appalachian-ridges-2",
+    "id": "appalachians-modis",
+    "kind": "photo",
+    "alt": "Satellite image of the parallel folded ridges of the Appalachian Mountains and Chesapeake Bay.",
+    "caption": "NASA Terra MODIS, 15 September 2023. Appalachian ridges and valleys across Virginia, West Virginia, Maryland and Pennsylvania preserve the structure of an ancient mountain belt."
+  },
+  {
+    "candidate": "aurora-space-2",
+    "id": "iss-aurora-indian-ocean",
+    "kind": "photo",
+    "alt": "A green auroral band glows below the International Space Station above the southern Indian Ocean.",
+    "caption": "An ISS photograph of aurora north of Antarctica. Energetic particles excite upper-atmosphere gases; the green light is emitted by the atmosphere, not reflected sunlight."
+  },
+  {
+    "candidate": "continental-margin-2",
+    "id": "noaa-south-atlantic-bathymetry",
+    "kind": "scientific-image",
+    "alt": "NOAA bathymetry map of the South Atlantic showing continental shelves and the mid-ocean ridge.",
+    "caption": "NOAA South Atlantic bathymetry. Colour represents seafloor depth, revealing continental margins, abyssal basins and the Mid-Atlantic Ridge."
+  },
+  {
+    "candidate": "ctd-instrument-3",
+    "id": "noaa-ctd-rosette",
+    "kind": "photo",
+    "alt": "A circular CTD instrument and water-sampling rosette is lowered into the ocean.",
+    "caption": "NOAA CTD rosette. Conductivity, temperature and pressure measurements describe salinity and density through the water column; bottle samples provide independent checks."
+  },
+  {
+    "candidate": "equal-area-map-1",
+    "id": "mollweide-blue-marble",
+    "kind": "scientific-image",
+    "alt": "NASA Blue Marble satellite imagery displayed in a Mollweide projection with a graticule.",
+    "caption": "NASA satellite imagery reprojected by Strebe into Mollweide. This equal-area projection preserves relative areas but distorts shapes; the ocean has been lightened for legibility."
+  },
+  {
+    "candidate": "hill-knoll-1",
+    "id": "edale-lose-hill",
+    "kind": "photo",
+    "alt": "Rounded hills and fields around the Vale of Edale, viewed from Grindslow Knoll.",
+    "caption": "The Vale of Edale and Lose Hill, Peak District, England. A landscape photograph shows local relief, ridges and valley slopes."
+  },
+  {
+    "candidate": "hurricane-spiral-1",
+    "id": "evan-2012-modis",
+    "kind": "photo",
+    "alt": "Cyclone Evan's spiral cloud bands cross the islands of Fiji in a NASA satellite image.",
+    "caption": "Aqua MODIS observed Cyclone Evan near Fiji on 16 December 2012. Its cloud bands spiral around the centre; a mathematical logarithmic spiral is an approximation, not a measured exact fit."
+  },
+  {
+    "candidate": "lowland-plain-1",
+    "id": "ahuriri-river-plain",
+    "kind": "photo",
+    "alt": "A broad flat river plain with autumn vegetation in the Ahuriri valley, New Zealand.",
+    "caption": "Ahuriri River plain near Omarama, New Zealand. River deposition builds a relatively flat valley floor between higher ground."
+  },
+  {
+    "candidate": "lunar-eclipse-nasa-1",
+    "id": "nasa-lunar-eclipse-2000",
+    "kind": "photo",
+    "credit": "NASA Kennedy Space Center, KSC-00PP-0096 · public domain · via Wikimedia Commons · resized",
+    "alt": "The Moon appears copper-red during a lunar eclipse viewed from Merritt Island, Florida.",
+    "caption": "NASA Kennedy Space Center photograph, 20 January 2000. Earth's shadow falls on the Moon; sunlight filtered through Earth's atmosphere gives the eclipsed surface a reddish colour."
+  },
+  {
+    "candidate": "magnetic-swarm-1",
+    "id": "swarm-core-field",
+    "kind": "scientific-image",
+    "alt": "Swarm-derived maps compare Earth's magnetic field intensity in 2014 and 2025, with a nanoTesla scale.",
+    "caption": "Swarm-based core-field models for 2014 and 2025, in nanoTesla. Satellite measurements constrain the field generated mainly by motion of conducting liquid in the outer core; this is not a photograph of the core."
+  },
+  {
+    "candidate": "mercator-map-1",
+    "id": "mercator-blue-marble",
+    "kind": "scientific-image",
+    "alt": "NASA Blue Marble imagery in Mercator projection, with strongly enlarged high-latitude regions.",
+    "caption": "NASA Blue Marble imagery reprojected by Mdf into Mercator. Local angles are preserved, area grows towards the poles, and a constant-bearing route plots as a straight line."
+  },
+  {
+    "candidate": "misfit-river-1",
+    "id": "misfit-stream-valley",
+    "kind": "photo",
+    "alt": "A small stream runs along a valley much larger than its present channel.",
+    "caption": "A photographed misfit stream. Its present flow is small relative to its valley; former glacial meltwater or a change in drainage may explain the mismatch."
+  },
+  {
+    "candidate": "neptune-nasa-2",
+    "id": "voyager-neptune-disc",
+    "kind": "scientific-image",
+    "alt": "Voyager 2 image of Neptune's blue disc showing cloud bands and the Great Dark Spot.",
+    "caption": "NASA/JPL Voyager 2 image assembled from green and orange filter observations in August 1989. Neptune is an ice giant; its displayed deep blue is enhanced relative to its natural appearance."
+  },
+  {
+    "candidate": "oxbow-pool-1",
+    "id": "cwmorthin-plunge-pool",
+    "kind": "photo",
+    "alt": "Water falls through a narrow rocky step into a dark plunge pool at Cwmorthin, Wales.",
+    "caption": "Cwmorthin waterfall and plunge pool, Wales. Falling water and entrained sediment erode the pool below the step in the river bed."
+  },
+  {
+    "candidate": "ozone-hole-1",
+    "id": "nasa-ozone-2023",
+    "kind": "scientific-image",
+    "alt": "NASA map of low ozone concentrations over Antarctica in September 2023.",
+    "caption": "NASA Ozone Watch and GEOS-5, 21 September 2023. The mapped ozone hole is a region of depleted stratospheric ozone; colour represents measured or analysed ozone, not a visible opening."
+  },
+  {
+    "candidate": "pebble-beach-1",
+    "id": "north-sea-pebbles",
+    "kind": "photo",
+    "alt": "Rounded grey stones and pebbles of different sizes on an English North Sea beach.",
+    "caption": "Pebbles on the North Sea coast of England. Repeated collisions can round and reduce fragments through attrition; a still image records the resulting grains."
+  },
+  {
+    "candidate": "robinson-map-1",
+    "id": "robinson-blue-marble",
+    "kind": "scientific-image",
+    "credit": "NASA Blue Marble / Mdf (projection) · public domain · via Wikimedia Commons · resized",
+    "alt": "NASA Blue Marble satellite imagery displayed in the curved-outline Robinson projection.",
+    "caption": "NASA satellite imagery in Robinson projection. This compromise projection balances several distortions; it preserves neither all areas nor all local angles."
+  },
+  {
+    "candidate": "roots-rock-2",
+    "id": "roots-in-bedrock",
+    "kind": "photo",
+    "alt": "Tree roots grow into joints in rock beside a roadside exposure.",
+    "caption": "Roots grow through existing rock joints. Their growth can widen cracks, contributing to biological and physical weathering."
+  },
+  {
+    "candidate": "sea-surface-salinity-2",
+    "id": "aquarius-salinity-2011",
+    "kind": "scientific-image",
+    "alt": "Aquarius satellite map of ocean surface salinity with warm colours in saltier subtropical waters.",
+    "caption": "NASA Aquarius surface-salinity composite, August–September 2011. Colours show salt concentration; black marks missing data. This early product contains calibration artefacts and is not a map of deep-water salinity."
+  },
+  {
+    "candidate": "seafloor-seamount-1",
+    "id": "noaa-arctic-seamount",
+    "kind": "scientific-image",
+    "alt": "Multibeam sonar bathymetry reveals a broad undersea mountain in the Arctic Ocean.",
+    "caption": "NOAA Office of Coast Survey multibeam measurements of an Arctic seamount. The coloured relief is a visualisation of measured seabed shape, not an underwater photograph."
+  },
+  {
+    "candidate": "slump-cliff-2",
+    "id": "redcliff-coastal-slump",
+    "kind": "photo",
+    "alt": "Uneven displaced ground and scarps above the coast at Redcliff Point, Dorset.",
+    "caption": "Slumping above Redcliff Point, Dorset. Rotational movement displaces blocks along a curved shear surface; the surface scars and tilted ground provide evidence."
+  },
+  {
+    "candidate": "stars-orion-1",
+    "id": "eso-orion-stars",
+    "kind": "photo",
+    "alt": "A long-exposure photograph of Orion's stars, red emission nebulae and dark dust clouds.",
+    "caption": "Orion photographed from ESO's La Silla Observatory by Zdeněk Bardon. Stars that appear close in the sky can lie at very different distances; long exposure reveals faint gas and dust."
+  },
+  {
+    "candidate": "thermal-earth-1",
+    "id": "ceres-longwave-2015",
+    "kind": "scientific-image",
+    "alt": "CERES global map of outgoing longwave radiation with a colour scale in watts per square metre.",
+    "caption": "NASA CERES, April 2015. Satellite observations map outgoing thermal radiation at the top of the atmosphere in W m⁻²; colder cloud tops generally emit less than warm clear-sky regions."
+  },
+  {
+    "candidate": "venus-transit-1",
+    "id": "sdo-venus-transit",
+    "kind": "scientific-image",
+    "alt": "A sequence of dark Venus silhouettes crosses the Sun in SDO ultraviolet observations.",
+    "caption": "NASA SDO, 5–6 June 2012. A time sequence of ultraviolet observations shows Venus crossing the solar disc. The repeated silhouettes are different times, not several planets."
+  },
+  {
+    "candidate": "rankosol-granite-1",
+    "id": "berder-ranker",
+    "kind": "photo",
+    "alt": "A thin, dark soil lies directly over jointed granite on Île de Berder, Brittany.",
+    "caption": "Rankosol over granite on Île de Berder, France. A shallow organic-rich surface over non-calcareous bedrock illustrates a ranker; horizons are real field layers, not a template."
+  },
+  {
+    "candidate": "oxisols-1",
+    "id": "nipe-oxisol",
+    "kind": "photo",
+    "credit": "Samuel Rios / USDA NRCS · public domain · via Wikimedia Commons · resized",
+    "alt": "A deep reddish Nipe-series soil profile with a measuring tape in Puerto Rico.",
+    "caption": "USDA NRCS Nipe-series profile at Cerro Las Mesas, Puerto Rico, January 2002. Classified as Typic Acrudox, this Oxisol formed through deep weathering of iron-rich parent material."
+  },
+  {
+    "candidate": "soil-colluvium-1",
+    "id": "ponce-calciustoll",
+    "kind": "photo",
+    "alt": "A Puerto Rican soil profile has a dark surface above pale carbonate-rich subsoil, with a depth scale.",
+    "caption": "Calciustoll near Ponce, Puerto Rico: a Mollisol with a roughly 30 cm mollic surface over a calcic horizon. Its parent material includes colluvium and weathered limestone."
+  },
+  {
+    "candidate": "karst-swallow-1",
+    "id": "gaping-gill-stream-passage",
+    "kind": "photo",
+    "alt": "A rocky opening in grassy limestone terrain at Stream Passage Pot in the Gaping Gill cave system.",
+    "caption": "Stream Passage Pot, Ingleborough, North Yorkshire. This entrance belongs to the Gaping Gill karst drainage system, where surface water enters underground passages."
+  },
+  {
+    "candidate": "north-sea-stump-1",
+    "id": "purbeck-coastal-stumps",
+    "kind": "photo",
+    "alt": "White chalk cliffs, offshore remnants and a wave-cut base near the Pinnacles in Purbeck.",
+    "caption": "The Pinnacles coast, Purbeck, Dorset. Erosion leaves isolated stacks and lower remnants called stumps beside the retreating chalk cliffs."
+  },
+  {
+    "candidate": "bathymetry-trench-1",
+    "id": "noaa-puerto-rico-trench",
+    "kind": "scientific-image",
+    "alt": "NOAA seafloor relief map around Puerto Rico identifies the deep Puerto Rico Trench and nearby plate boundary.",
+    "caption": "NOAA bathymetric visualisation of the Puerto Rico region. A trench is an elongated seafloor depression associated here with a complex convergent plate boundary; vertical relief is exaggerated in this perspective."
+  },
+  {
+    "candidate": "strike-slip-3",
+    "id": "san-andreas-highsmith",
+    "kind": "photo",
+    "credit": "Carol M. Highsmith · The Jon B. Lovelace Collection of California Photographs in Carol M. Highsmith's America Project, Library of Congress, Prints and Photographs Division · public domain · resized",
+    "alt": "Aerial view of the San Andreas Fault cutting across dry hills in California.",
+    "caption": "San Andreas Fault in California's Sierra Madre Mountains. The fault accommodates mainly horizontal motion between the Pacific and North American plates."
+  },
+  {
+    "candidate": "la-nina-1",
+    "id": "sentinel-la-nina-2025",
+    "kind": "scientific-image",
+    "alt": "Sentinel-6 sea-surface height anomaly map shows lower-than-average levels across the central and eastern equatorial Pacific.",
+    "caption": "Sentinel-6, 13 January 2025. Lower sea-surface heights accompanied La Niña's cooler equatorial waters. Colours show height anomalies, not sea-surface temperature; seasonal cycles and long-term trends were removed."
+  },
+  {
+    "id": "place-ae",
+    "candidate": "atlas-ae-1",
+    "alt": "Rocky ridges above Wadi Shahah in Ras Al Khaimah, United Arab Emirates.",
+    "caption": "Wadi Shahah, UAE. Bare mountain slopes drain into channels that carry water after rain.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-af",
+    "candidate": "atlas-af-1",
+    "alt": "Cliffs and cultivated valley floor at Bamiyan, Afghanistan.",
+    "caption": "Bamiyan Valley, Afghanistan. Steep sedimentary cliffs overlook the cultivated valley floor.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-am",
+    "candidate": "atlas-am-2",
+    "alt": "Wooded hills and a road through a valley in Armenia.",
+    "caption": "Armenia. Wooded slopes and valley routes show how relief shapes access and land use.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ao",
+    "candidate": "atlas-ao-1",
+    "alt": "Rounded rock outcrops rise above woodland beside the Huambo–Dondo road in Angola.",
+    "caption": "Angola. Isolated rock outcrops stand above the surrounding wooded landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ar",
+    "candidate": "atlas-ar-3",
+    "alt": "Clear water in the Río Manso among forested banks in Argentine Patagonia.",
+    "caption": "Río Manso, Argentine Patagonia. A mountain river flows through a forested valley.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-at",
+    "candidate": "atlas-at-1",
+    "alt": "The Salzach valley at Werfen, Austria, seen from Hohenwerfen Castle.",
+    "caption": "Werfen, Austria. Settlements and transport follow the floor of an Alpine river valley.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-au",
+    "candidate": "atlas-au-2",
+    "alt": "Green pasture and scattered trees at Nirimba, Western Australia.",
+    "caption": "Nirimba, Western Australia. This coastal farming landscape has cool-season rainfall and a dry summer.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-az",
+    "candidate": "atlas-az-2",
+    "alt": "Mountain slopes near Lahic in Azerbaijan.",
+    "caption": "Lahic, Azerbaijan. Steep relief in the Greater Caucasus concentrates movement and settlement in valleys.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ba",
+    "candidate": "atlas-ba-1",
+    "alt": "Rocky hills and the Trebišnjica valley near Gornji Orahovac, Bosnia and Herzegovina.",
+    "caption": "Trebišnjica valley, Bosnia and Herzegovina. Rocky relief and confined low ground shape drainage and settlement.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-be",
+    "candidate": "atlas-be-3",
+    "alt": "Freÿr limestone cliffs across the Meuse beside the castle gardens in Belgium.",
+    "caption": "Freÿr, Belgium. The Meuse cuts between wooded slopes and exposed limestone cliffs.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-bg",
+    "candidate": "atlas-bg-1",
+    "alt": "Snow-covered Vihren and Kutelo peaks in Bulgaria's Pirin Mountains.",
+    "caption": "Pirin Mountains, Bulgaria. Elevation controls snow cover and contrasts with the warmer lowlands.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-bo",
+    "candidate": "atlas-bo-1",
+    "alt": "Pale salt margins around Laguna Honda beneath barren mountain slopes in Bolivia.",
+    "caption": "Laguna Honda, Bolivia. A high-altitude salt lake occupies a dry Andean basin.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-bt",
+    "candidate": "atlas-bt-1",
+    "alt": "Morning cloud in a valley among forested and cultivated slopes in Bhutan.",
+    "caption": "Bhutan. Valleys channel drainage through steep Himalayan relief.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-by",
+    "candidate": "atlas-by-1",
+    "alt": "Flat green fields and scattered rural buildings in Belarus.",
+    "caption": "Belarus. Low relief supports broad fields and a dispersed rural landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-cd",
+    "candidate": "atlas-cd-3",
+    "alt": "Green hills above Kamanyola in South Kivu, Democratic Republic of the Congo.",
+    "caption": "Kamanyola, DR Congo. Hills rise beside the Ruzizi Plain within the East African Rift region.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-cl",
+    "candidate": "atlas-cl-1",
+    "alt": "Rock formations and the Tara salt flat in northern Chile's Atacama Desert.",
+    "caption": "Salar de Tara, Chile. An arid high basin collects salts while exposed rock frames its margins.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-co",
+    "candidate": "atlas-co-1",
+    "alt": "The Guáitara canyon and farmed slopes surrounding Las Lajas near Ipiales, Colombia.",
+    "caption": "Guáitara canyon, Colombia. A deeply incised river separates steep, cultivated slopes.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-cr",
+    "candidate": "atlas-cr-1",
+    "alt": "Rolling green pasture and wooded hills in Costa Rica.",
+    "caption": "Costa Rica. This hill pasture is one local landscape within a country with strong elevation and rainfall contrasts.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-cy",
+    "candidate": "atlas-cy-1",
+    "alt": "Pedoulas village and wooded slopes in the Troodos Mountains of Cyprus.",
+    "caption": "Troodos Mountains, Cyprus. Higher ground is cooler and generally wetter than the coastal plains.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-cz",
+    "candidate": "atlas-cz-3",
+    "alt": "Weathered rock towers among woodland in Český ráj, Czechia.",
+    "caption": "Český ráj, Czechia. Resistant sandstone forms towers above the surrounding forest.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-dk",
+    "candidate": "atlas-dk-1",
+    "alt": "Low, wet grassland and bare trees beneath clouds in Denmark.",
+    "caption": "Denmark. Low-lying ground and seasonal wetness influence drainage and farming.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-dz",
+    "candidate": "atlas-dz-1",
+    "alt": "Low coastal hills overlooking the sea in Algeria.",
+    "caption": "Coastal Algeria. Mediterranean hills contrast with the much drier interior of the country.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ec",
+    "candidate": "atlas-ec-1",
+    "alt": "Cloud and sunlight across wooded mountain slopes in Ecuador.",
+    "caption": "Ecuador. Mountain relief changes temperature and rainfall over short distances.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ee",
+    "candidate": "atlas-ee-1",
+    "alt": "Still water and pine trees at Viru Bog in Estonia's Lahemaa National Park.",
+    "caption": "Viru Bog, Estonia. Waterlogged peatland stores carbon and drains slowly.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-eg",
+    "candidate": "atlas-eg-3",
+    "alt": "Bare, stony plains and rocky mountains in Egypt's Sinai Desert.",
+    "caption": "Sinai, Egypt. Sparse vegetation exposes an arid landscape shaped by weathering and occasional runoff.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-fi",
+    "candidate": "atlas-fi-2",
+    "alt": "A winter river and snow-covered trees in Finland, photographed in February 1963.",
+    "caption": "Finland, February 1963. A historical field photograph of seasonal snow beside a river.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ge",
+    "candidate": "atlas-ge-1",
+    "alt": "Snow-covered Greater Caucasus peaks above the lowland foreground in Georgia.",
+    "caption": "Greater Caucasus, Georgia. Strong elevation contrasts create different thermal and snow regimes.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-gh",
+    "candidate": "atlas-gh-1",
+    "alt": "Grassy and wooded hills near Boti, Ghana.",
+    "caption": "Boti, Ghana. Vegetation cover varies across hills and cultivated ground.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-gy",
+    "candidate": "atlas-gy-3",
+    "alt": "Historical photograph of the Roraima escarpment in British Guiana, around 1910–1911.",
+    "caption": "Roraima region, historical British Guiana. A steep plateau edge rises above the surrounding upland landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-hk",
+    "candidate": "atlas-hk-1",
+    "alt": "Dense urban development around Hong Kong's harbour, seen from the hills in 2005.",
+    "caption": "Hong Kong, 2005. Steep hills and a deeply indented coast concentrate urban development beside the harbour.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-hr",
+    "candidate": "atlas-hr-2",
+    "alt": "The blue-green Krka River among wooded slopes in Croatia.",
+    "caption": "Krka River, Croatia. Water flows through a limestone landscape with forested valley sides.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ht",
+    "candidate": "atlas-ht-3",
+    "alt": "Cultivated mountain slopes at Palmes near Petit-Goâve, Haiti.",
+    "caption": "Palmes, Haiti. Farming occupies steep slopes where soil cover and runoff management matter.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-hu",
+    "candidate": "atlas-hu-2",
+    "alt": "A broad flowering rapeseed field near Rum, Hungary.",
+    "caption": "Rum, Hungary. Agricultural fields occupy gently rolling lowland terrain.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-id",
+    "candidate": "atlas-id-2",
+    "alt": "Sangeang volcano rises behind coastal islands near Sumbawa, Indonesia.",
+    "caption": "Sangeang, Indonesia. A volcanic island rises sharply from the surrounding sea.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ie",
+    "candidate": "atlas-ie-1",
+    "alt": "Rocky coast and low cliffs at Baltimore, Ireland.",
+    "caption": "Baltimore, Ireland. Atlantic waves act on an exposed rocky shoreline.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-in",
+    "candidate": "atlas-in-1",
+    "alt": "Rounded exposed rock and vegetation at Mahabalipuram in Tamil Nadu, India.",
+    "caption": "Mahabalipuram, India. Weathered crystalline rock is exposed near the Tamil Nadu coast.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-iq",
+    "candidate": "atlas-iq-1",
+    "alt": "Green cultivated ground and tracks near Khabat in northern Iraq.",
+    "caption": "Khabat, northern Iraq. Cultivated ground contrasts with Iraq's drier central and southern landscapes.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ir",
+    "candidate": "atlas-ir-1",
+    "alt": "Bare mountain slopes and stony ground near Abyaneh, Iran.",
+    "caption": "Abyaneh, Iran. Sparse vegetation leaves rock and dry drainage channels exposed.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-it",
+    "candidate": "atlas-it-2",
+    "alt": "Harvested fields and scattered trees in Tuscany, Italy.",
+    "caption": "Tuscany, Italy. Rolling agricultural land reflects a Mediterranean seasonal climate.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-jo",
+    "candidate": "atlas-jo-1",
+    "alt": "Sand and rocky mountains near Wadi Rum in southern Jordan.",
+    "caption": "Southern Jordan. Sparse vegetation exposes desert rock and sediment to wind and occasional runoff.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ke",
+    "candidate": "atlas-ke-1",
+    "alt": "Sunset over open grassland and scattered trees in the Maasai Mara, Kenya.",
+    "caption": "Maasai Mara, Kenya. Seasonal rainfall supports a grassland and woodland mosaic.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-kh",
+    "candidate": "atlas-kh-1",
+    "alt": "Water and tropical trees beside the Angkor Wat complex in Cambodia.",
+    "caption": "Angkor, Cambodia. Water storage and seasonal rainfall shape the surrounding lowland landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-kr",
+    "candidate": "atlas-kr-1",
+    "alt": "Dark rock walls and trees surround the water at Soesokkak on Jeju, South Korea.",
+    "caption": "Soesokkak, Jeju. Water drains through the volcanic island's rocky coastal landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-kz",
+    "candidate": "atlas-kz-3",
+    "alt": "Horses in a poppy-covered valley beneath hills near Almaty, Kazakhstan.",
+    "caption": "Near Almaty, Kazakhstan. Grasslands meet the foothills of the Tian Shan.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-la",
+    "candidate": "atlas-la-1",
+    "alt": "A fisherman in a narrow boat among channels of the Mekong at Don Det, Laos.",
+    "caption": "Don Det, Laos. The Mekong divides around islands in the Si Phan Don river reach.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-lb",
+    "candidate": "atlas-lb-1",
+    "alt": "Historical black-and-white photograph of a hillside town and terraced slopes in Lebanon.",
+    "caption": "Lebanon, historical photograph. Buildings and cultivated terraces follow the slope of the land.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-lk",
+    "candidate": "atlas-lk-3",
+    "alt": "Clouds and green mountain slopes around Ella Gap in Sri Lanka.",
+    "caption": "Ella Gap, Sri Lanka. Upland relief channels winds and changes local rainfall.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-lt",
+    "candidate": "atlas-lt-3",
+    "alt": "Historical view from Rambynas Hill across a broad river in Lithuania in the 1930s.",
+    "caption": "Rambynas Hill, Lithuania, 1930s. The Nemunas valley forms a broad lowland corridor.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-lv",
+    "candidate": "atlas-lv-3",
+    "alt": "Autumn fields, woodland and a rural house in Latgale, Latvia.",
+    "caption": "Latgale, Latvia. Fields and woodland form a mosaic across gently rolling terrain.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ly",
+    "candidate": "atlas-ly-2",
+    "alt": "Wind-blown sand and ripples in Libya's desert.",
+    "caption": "Libya. Wind moves dry sand across dune surfaces.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ma",
+    "candidate": "atlas-ma-1",
+    "alt": "A sharp dune crest and rippled sand at Erg Chebbi, Morocco.",
+    "caption": "Erg Chebbi, Morocco. Wind sorts sand and maintains dune crests and slip faces.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-md",
+    "candidate": "atlas-md-1",
+    "alt": "Fields, woodland and a village in Hîncești District, Moldova.",
+    "caption": "Hîncești, Moldova. Settlements and farmland occupy valleys between low wooded hills.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-mg",
+    "candidate": "atlas-mg-1",
+    "alt": "A river cuts through cultivated, reddish slopes in Madagascar.",
+    "caption": "Madagascar. A river incises cultivated slopes with exposed weathered soil.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-mm",
+    "candidate": "atlas-mm-2",
+    "alt": "Green fields and low hills around Pangetkon in Myanmar's Shan Hills.",
+    "caption": "Pangetkon, Myanmar. Upland fields and scattered trees occupy the Shan Hills.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-mn",
+    "candidate": "atlas-mn-2",
+    "alt": "Open grassland and sparsely vegetated hills near Jargalant, northern Mongolia.",
+    "caption": "Jargalant, Mongolia. A continental interior supports open steppe with strong seasonal temperature contrasts.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-mt",
+    "candidate": "atlas-mt-3",
+    "alt": "Low fields, stone boundaries and buildings on Malta.",
+    "caption": "Malta. Thin soils and seasonal dryness make soil and water conservation important.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-mx",
+    "candidate": "atlas-mx-1",
+    "alt": "Large cumulus clouds above open fields in Mexico.",
+    "caption": "Mexico. Cloud development over farmland illustrates the contrast between clear ground and moist rising air.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-my",
+    "candidate": "atlas-my-3",
+    "alt": "Forested slopes in the Titiwangsa Range of Pahang, Malaysia.",
+    "caption": "Titiwangsa Range, Malaysia. Humid tropical conditions support forest on steep mountain slopes.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-mz",
+    "candidate": "atlas-mz-1",
+    "alt": "Isolated rounded rock hills west of Meluco, Mozambique.",
+    "caption": "Meluco, Mozambique. Resistant inselbergs rise above the lower surrounding terrain.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ng",
+    "candidate": "atlas-ng-1",
+    "alt": "Stone buildings and terraces in the Sukur cultural landscape, Nigeria.",
+    "caption": "Sukur, Nigeria. Stone-built settlements and terraces occupy a rocky upland landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-nl",
+    "candidate": "atlas-nl-1",
+    "alt": "Water channels, reeds and snow across flat winter ground in the Netherlands.",
+    "caption": "The Netherlands. Low relief requires careful drainage and water-level management.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-np",
+    "candidate": "atlas-np-2",
+    "alt": "Cultivated slopes, buildings and low clouds at Angare, Nepal.",
+    "caption": "Angare, Nepal. Steep slopes create short-distance contrasts in access, land use and drainage.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-pg",
+    "candidate": "atlas-pg-1",
+    "alt": "Grass-covered ridges and cloud near Mount Piora in Papua New Guinea.",
+    "caption": "Mount Piora, Papua New Guinea. High mountain ridges stand above cloud-filled valleys.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ph",
+    "candidate": "atlas-ph-3",
+    "alt": "Green fields, palm trees and distant hills in central Palawan, Philippines.",
+    "caption": "Central Palawan, Philippines. Tropical vegetation and farming occupy low ground between hills.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-pk",
+    "candidate": "atlas-pk-2",
+    "alt": "A green mountain valley and bare high slopes in Pakistan.",
+    "caption": "Pakistan. Elevation creates strong contrasts between cultivated valley floors and exposed mountain slopes.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-pl",
+    "candidate": "atlas-pl-1",
+    "alt": "Fields, scattered trees and low hills in Lesser Poland.",
+    "caption": "Lesser Poland. Agricultural land occupies gently rolling ground between wooded patches.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-py",
+    "candidate": "atlas-py-1",
+    "alt": "Sunset above forested hills at Reserva Mbatoví, Paraguay.",
+    "caption": "Mbatoví, Paraguay. Woodland covers hills above the surrounding lowlands.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-qa",
+    "candidate": "atlas-qa-3",
+    "alt": "Stony ground and sparse shrubs on Al Aaliya Island, Qatar.",
+    "caption": "Al Aaliya Island, Qatar. Arid conditions limit vegetation on this low coastal island.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ro",
+    "candidate": "atlas-ro-1",
+    "alt": "Dry grassland and low rolling hills near Iași, Romania.",
+    "caption": "Near Iași, Romania. Low hills and open fields form part of the country's eastern agricultural landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-sa",
+    "candidate": "atlas-sa-1",
+    "alt": "Tall weathered rock formations at AlUla, Saudi Arabia.",
+    "caption": "AlUla, Saudi Arabia. Weathering and erosion shape exposed desert sandstone.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-se",
+    "candidate": "atlas-se-2",
+    "alt": "Green fields and rural buildings near Mjölby, Sweden.",
+    "caption": "Mjölby, Sweden. Southern lowlands support agriculture alongside woodland.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-gr",
+    "candidate": "atlas-gr-1",
+    "alt": "Rocky shoreline and small breaking waves near Lentas on Crete, Greece.",
+    "caption": "Lentas, Crete. Mediterranean waves act on a rocky island coast.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-sg",
+    "candidate": "atlas-sg-2",
+    "alt": "Singapore's illuminated Downtown Core across Marina Bay at night.",
+    "caption": "Singapore. Dense urban development occupies low coastal ground around Marina Bay.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-sk",
+    "candidate": "atlas-sk-3",
+    "alt": "Fields and village buildings at Čelovce near Prešov, Slovakia.",
+    "caption": "Čelovce, Slovakia. Cultivation and settlement occupy low ground between wooded hills.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-sn",
+    "candidate": "atlas-sn-2",
+    "alt": "Dry fields and scattered trees at Refane, Senegal.",
+    "caption": "Refane, Senegal. A long dry season limits vegetation cover between periods of rainfall.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-sy",
+    "candidate": "atlas-sy-1",
+    "alt": "Bare layered cliffs around Maaloula, Syria.",
+    "caption": "Maaloula, Syria. Erosion exposes sedimentary layers above a dry valley.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-th",
+    "candidate": "atlas-th-2",
+    "alt": "Steep limestone hills above green lowlands in peninsular Thailand.",
+    "caption": "Peninsular Thailand. Karst towers rise above low ground in a humid tropical landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-to",
+    "candidate": "atlas-to-1",
+    "alt": "A low wooded island and coastal water in Tonga.",
+    "caption": "Tonga. Low islands and coastal settlements are exposed to waves and changing sea level.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-tr",
+    "candidate": "atlas-tr-1",
+    "alt": "Rocky mountain slopes above pine trees in Türkiye.",
+    "caption": "Türkiye. Mountain relief creates strong local contrasts in drainage and vegetation.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-tw",
+    "candidate": "atlas-tw-1",
+    "alt": "Buildings in Beitun, Taichung, with Taiwan's mountains behind them.",
+    "caption": "Taichung, Taiwan. Urban lowlands lie beside a high mountain belt formed at a plate boundary.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ua",
+    "candidate": "atlas-ua-1",
+    "alt": "The Dnipro valley and bridges seen from Pecherskyi Landscape Park in Kyiv, Ukraine.",
+    "caption": "Kyiv, Ukraine. The broad Dnipro valley separates higher ground and provides a transport corridor.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-uk-cma",
+    "candidate": "atlas-uk-cma-1",
+    "alt": "A winding road descends Honister Pass through steep slopes in Cumbria.",
+    "caption": "Honister Pass, Cumbria. Glacial erosion has shaped the mountain valleys and passes.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-uk-dwn",
+    "candidate": "atlas-uk-dwn-1",
+    "alt": "Green fields and wooded valleys on Exmoor in North Devon.",
+    "caption": "Exmoor, North Devon. Valleys cut through upland moor and enclosed farmland.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-uk-snowdonia",
+    "candidate": "atlas-uk-snowdonia-1",
+    "alt": "Snow on Gallt y Wenallt above mist in Nant Gwynant, Eryri / Snowdonia.",
+    "caption": "Nant Gwynant, Eryri / Snowdonia. A glacial valley lies beneath the steep Snowdon horseshoe.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-ar",
+    "candidate": "atlas-us-ar-3",
+    "alt": "Open pine woodland in the Ozark National Forest, Arkansas.",
+    "caption": "Ozark National Forest, Arkansas. Forest restoration manages vegetation within an upland landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-co",
+    "candidate": "atlas-us-co-3",
+    "alt": "Layered cliffs along Serpents Trail in Colorado National Monument.",
+    "caption": "Colorado National Monument. Erosion exposes thick rock layers at the edge of the Colorado Plateau.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-fl",
+    "candidate": "atlas-us-fl-1",
+    "alt": "Waves and wet sand beneath Naples Pier on Florida's Gulf coast at sunset.",
+    "caption": "Naples, Florida. Waves redistribute sediment along a low sandy coast.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-in",
+    "candidate": "atlas-us-in-1",
+    "alt": "A snow-covered park and bare deciduous trees in Lebanon, Indiana.",
+    "caption": "Lebanon, Indiana. Seasonal snow illustrates winter conditions in the continental interior.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-ks",
+    "candidate": "atlas-us-ks-3",
+    "alt": "Rolling grassland and wind turbines in the Flint Hills of Kansas.",
+    "caption": "Flint Hills, Kansas. Open grasslands extend across rolling upland relief.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-ky",
+    "candidate": "atlas-us-ky-2",
+    "alt": "Houses along a wooded valley at Pathfork, Kentucky.",
+    "caption": "Pathfork, Kentucky. Appalachian relief concentrates settlement along narrow valleys.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-ma",
+    "candidate": "atlas-us-ma-1",
+    "alt": "An open field and trees after an ice storm in Boxborough, Massachusetts, in 2008.",
+    "caption": "Boxborough, Massachusetts, 2008. Freezing precipitation coats trees during an ice storm.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-md",
+    "candidate": "atlas-us-md-3",
+    "alt": "A marsh creek in low-lying Dorchester County, Maryland.",
+    "caption": "Dorchester County, Maryland. Tidal channels drain a low coastal wetland landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-mi",
+    "candidate": "atlas-us-mi-3",
+    "alt": "Snow-covered fields and evergreen trees at Frankenmuth, Michigan.",
+    "caption": "Frankenmuth, Michigan. Winter snow covers a low agricultural landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-mn",
+    "candidate": "atlas-us-mn-1",
+    "alt": "Reeds beside a lake at the Minnesota Landscape Arboretum.",
+    "caption": "Minnesota Landscape Arboretum. Wetland vegetation occupies the margin between open water and woodland.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-il",
+    "candidate": "atlas-us-ms-2",
+    "alt": "A bend of the Mississippi River viewed from Mississippi Palisades State Park in Illinois.",
+    "caption": "Mississippi Palisades, Illinois. A broad river flows beneath a wooded bluff.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-nd",
+    "candidate": "atlas-us-nd-2",
+    "alt": "Open grassland under dark clouds in North Dakota's Dakota Prairie Grasslands.",
+    "caption": "Dakota Prairie Grasslands, North Dakota. Open prairie spans gently rolling terrain.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-ne",
+    "candidate": "atlas-us-ne-1",
+    "alt": "Fields and low exposed bluffs near Sidney, Nebraska.",
+    "caption": "Sidney, Nebraska. Agricultural plains meet low scarps and exposed sedimentary ground.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-nh",
+    "candidate": "atlas-us-nh-1",
+    "alt": "Autumn forest covering mountains in New Hampshire.",
+    "caption": "New Hampshire. Deciduous woodland changes colour across the slopes of the Appalachian uplands.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-no",
+    "candidate": "atlas-no-2",
+    "alt": "A steep-sided Norwegian fjord near Bergen, photographed in August 1974.",
+    "caption": "Near Bergen, Norway, August 1974. A flooded glacial valley has steep rock walls and a narrow waterway.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-rs",
+    "candidate": "atlas-rs-1",
+    "alt": "Fields and the village of Elemir in Serbia.",
+    "caption": "Elemir, Serbia. Settlement and farming occupy the flat lowlands of the Pannonian Basin.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-pa",
+    "candidate": "atlas-pa-3",
+    "alt": "A low palm-covered island in Panama's Guna Yala archipelago.",
+    "caption": "Guna Yala, Panama. Small low islands sit in shallow Caribbean coastal waters.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-nm",
+    "candidate": "atlas-us-nm-2",
+    "alt": "Layered, sparsely vegetated hills beneath storm clouds in northern New Mexico.",
+    "caption": "Northern New Mexico. Dry terrain exposes sedimentary layers shaped by runoff and weathering.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-nv",
+    "candidate": "atlas-us-nv-2",
+    "alt": "Sagebrush on gently rolling ground near Reno, Nevada.",
+    "caption": "Reno, Nevada. Sagebrush vegetation is adapted to a dry interior basin environment.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-ny",
+    "candidate": "atlas-us-ny-1",
+    "alt": "Lower Manhattan and the Battery seen from above beside New York Harbour.",
+    "caption": "New York Harbour. Dense development occupies the meeting point of a river estuary and the Atlantic coast.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-ok",
+    "candidate": "atlas-us-ok-3",
+    "alt": "Shallow water, wetland plants and trees at Salt Plains National Wildlife Refuge, Oklahoma.",
+    "caption": "Salt Plains, Oklahoma. Wetland habitats occur within a saline inland basin.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-sc",
+    "candidate": "atlas-us-sc-2",
+    "alt": "Broad spreading live-oak branches at Boone Hall in Mount Pleasant, South Carolina.",
+    "caption": "Mount Pleasant, South Carolina. Live oaks are characteristic of the warm, humid coastal plain.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-sd",
+    "candidate": "atlas-us-sd-2",
+    "alt": "An aerial view of wetlands and farmland in South Dakota's Prairie Pothole Region.",
+    "caption": "South Dakota. Small wetlands occupy depressions left in a formerly glaciated landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-tn",
+    "candidate": "atlas-us-tn-1",
+    "alt": "Rime ice and snow on trees along the Cherohala Skyway in Tennessee.",
+    "caption": "Cherohala Skyway, Tennessee, November 2014. Cloud droplets freeze onto exposed vegetation at elevation.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-vt",
+    "candidate": "atlas-us-vt-2",
+    "alt": "Lake Champlain and Vermont's distant mountains viewed east from Poke-O-Moonshine Mountain in New York.",
+    "caption": "Vermont lies beyond Lake Champlain in this view from New York. The lake occupies a long valley between mountain ranges.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-wy",
+    "candidate": "atlas-us-wy-1",
+    "alt": "Snow-covered Teton peaks above forest and wet meadow in Wyoming.",
+    "caption": "Grand Teton National Park, Wyoming. Abrupt mountain relief rises above the Jackson Hole valley.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-uz",
+    "candidate": "atlas-uz-3",
+    "alt": "Stony, sparsely vegetated ground beside a road in Uzbekistan.",
+    "caption": "Uzbekistan. Dry interior conditions leave extensive areas with sparse vegetation.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ve",
+    "candidate": "atlas-ve-2",
+    "alt": "Grassy and wooded hills at Caricuao, Venezuela.",
+    "caption": "Caricuao, Venezuela. Hills near Caracas form part of the country's northern mountain landscape.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-vn",
+    "candidate": "atlas-vn-1",
+    "alt": "Steep limestone towers reflected in water at Tràng An, northern Vietnam.",
+    "caption": "Tràng An, Vietnam. Limestone dissolution and valley flooding create a karst landscape of towers and waterways.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-ws",
+    "candidate": "atlas-ws-3",
+    "alt": "Palm trees and rocky shoreline beside blue coastal water in Samoa.",
+    "caption": "Samoa. Volcanic shores meet shallow tropical coastal waters.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-za",
+    "candidate": "atlas-za-2",
+    "alt": "Open vegetation and a broad mountain ridge in South Africa's Western Cape.",
+    "caption": "Western Cape, South Africa. Upland relief and seasonal water availability shape the vegetation.",
+    "kind": "photo"
+  },
+  {
+    "candidate": "os-grid-map-1",
+    "id": "os-northeast-scotland-grid",
+    "kind": "scientific-image",
+    "credit": "Contains Ordnance Survey data © Crown copyright and database right · OS OpenData / Open Government Licence v3.0 · resized",
+    "alt": "Ordnance Survey 1:250,000 map sheet NO of northeast Scotland with the British National Grid.",
+    "caption": "Ordnance Survey sheet NO, northeast Scotland. Eastings and northings locate places in the British National Grid. This reduced 1:250,000 sheet illustrates the grid; use a detailed map for precise six-figure references."
+  },
+  {
+    "id": "place-cu",
+    "candidate": "place-cuba-vinales-2",
+    "alt": "Steep limestone hills rise above red soil and fields at Viñales, Cuba.",
+    "caption": "Viñales, Cuba. Karst erosion leaves steep mogotes above cultivated lowlands.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-dc",
+    "candidate": "place-dc-potomac-2",
+    "alt": "Aerial view of Washington, DC, beside the Potomac River and National Airport.",
+    "caption": "Washington, DC. The city occupies low ground beside the tidal Potomac River.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-de",
+    "candidate": "place-delaware-coast-1",
+    "alt": "Panoramic view of dunes, beach and water at Cape Henlopen, Delaware.",
+    "caption": "Cape Henlopen, Delaware. Sand moves around the entrance to Delaware Bay.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-uk-kent",
+    "candidate": "place-kent-dover-2",
+    "alt": "White chalk cliffs near Dover seen from the English Channel.",
+    "caption": "Dover, Kent. Marine erosion exposes chalk deposited in an ancient sea.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-la",
+    "candidate": "place-louisiana-delta-2",
+    "alt": "Landsat view of the thin Chandeleur barrier islands off Louisiana.",
+    "caption": "Chandeleur Islands, Louisiana. Barrier islands separate the Gulf from shallow coastal waters and are vulnerable to storm erosion. Satellite colours emphasise land and water.",
+    "kind": "scientific-image",
+    "credit": "Jesse Allen / NASA Earth Observatory · Landsat · public domain · resized"
+  },
+  {
+    "id": "place-us-me",
+    "candidate": "place-maine-acadia-3",
+    "alt": "A sandy inlet between rocky granite shores in Acadia National Park, Maine.",
+    "caption": "Acadia, Maine. Waves act on a rugged coast underlain by resistant granite.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-uk-nir",
+    "candidate": "place-nir-causeway-2",
+    "alt": "Closely packed basalt columns on the Antrim coast at Giant's Causeway, Northern Ireland.",
+    "caption": "Giant's Causeway, Northern Ireland. Cooling contraction formed joints in ancient basalt lava.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-nc",
+    "candidate": "place-northcarolina-obx-1",
+    "alt": "Aerial view of Bodie Island, its lighthouse, wetlands and Atlantic beach in North Carolina.",
+    "caption": "Bodie Island, North Carolina. A low barrier island separates Atlantic waves from sheltered wetlands.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-uk-nbl",
+    "candidate": "place-northumberland-coast-1",
+    "alt": "Rock, sandy beach and dunes on the Northumberland coast near Bamburgh.",
+    "caption": "Northumberland coast. Dunes store wind-blown sand above a beach backed by resistant rock.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-oh",
+    "candidate": "place-ohio-hocking-3",
+    "alt": "Water falls over a sandstone ledge into a pool in Old Man's Cave Gorge, Ohio.",
+    "caption": "Hocking Hills, Ohio. Water erodes the Black Hand Sandstone into gorges, ledges and plunge pools.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-ri",
+    "candidate": "place-rhodeisland-coast-1",
+    "alt": "Tilted rocky outcrops and breaking waves at Beavertail State Park, Rhode Island.",
+    "caption": "Beavertail, Rhode Island. Atlantic waves erode an exposed rocky headland.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-shanghai",
+    "candidate": "place-shanghai-river-2",
+    "alt": "The Huangpu River curves around Lujiazui's towers in Shanghai.",
+    "caption": "Shanghai. Dense urban development occupies low delta ground beside the tidal Huangpu River.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-uk-som",
+    "candidate": "place-somerset-levels-3",
+    "alt": "Floodwater surrounds Burrowbridge in the Somerset Levels in February 2014.",
+    "caption": "Burrowbridge, Somerset, February 2014. Low relief slows the drainage of extensive floodwater.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-es",
+    "candidate": "place-spain-teide-1",
+    "alt": "Mount Teide's volcanic slopes on Tenerife in Spain's Canary Islands.",
+    "caption": "Tenerife, Spain. Teide records volcanic construction on an oceanic island; mainland Spain has a different geological setting.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-sd",
+    "candidate": "place-sudan-nile-1",
+    "alt": "Night-time ISS photograph of Khartoum at the meeting of the Blue and White Nile in Sudan.",
+    "caption": "Khartoum, Sudan. Settlement and lighting follow the confluence of the Blue and White Nile.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-wv",
+    "candidate": "place-westvirginia-gorge-2",
+    "alt": "A broad bend of the New River in a steep forested gorge in West Virginia.",
+    "caption": "New River Gorge, West Virginia. River incision exposes the dissected Appalachian Plateau.",
+    "kind": "photo"
+  },
+  {
+    "candidate": "case-cascadia-rainier-2",
+    "id": "cascadia-mount-adams",
+    "kind": "photo",
+    "credit": "Steve Redman / US National Park Service · public domain · resized",
+    "alt": "Snow-covered Mount Adams viewed from the Naches Loop Trail in Washington.",
+    "caption": "Mount Adams, Washington. This Cascade arc volcano is part of the volcanic chain above the Cascadia subduction zone."
+  },
+  {
+    "candidate": "case-denver-mountain-1",
+    "id": "denver-arsenal-view",
+    "kind": "photo",
+    "credit": "Rich Keen / DPRA / USFWS · public domain · resized",
+    "alt": "Denver's skyline and distant mountain slopes seen from Rocky Mountain Arsenal National Wildlife Refuge.",
+    "caption": "Denver, Colorado. The city stands on high plains beside the Rocky Mountains; elevation reduces air pressure compared with sea level."
+  },
+  {
+    "candidate": "case-katrina-flood-1",
+    "id": "katrina-new-orleans-2005",
+    "kind": "photo",
+    "credit": "NOAA Corps aerial survey: Mark Moran, Phil Eastman and Dave Demers · public domain · 2005 · resized",
+    "alt": "Flooded streets and houses in New Orleans after Hurricane Katrina in 2005.",
+    "caption": "New Orleans after Hurricane Katrina, 2005. Floodwater filled low-lying neighbourhoods after storm surge and flood-protection failures."
+  },
+  {
+    "candidate": "case-mammoth-cave-1",
+    "id": "mammoth-cave-broadway",
+    "kind": "photo",
+    "alt": "Visitors and a park ranger stand in the broad limestone Broadway passage of Mammoth Cave, Kentucky.",
+    "caption": "Broadway passage, Mammoth Cave, Kentucky. Groundwater dissolution enlarged fractures in limestone into a large cave system."
+  },
+  {
+    "candidate": "case-mangkhut-satellite-1",
+    "id": "mangkhut-2018-modis",
+    "kind": "photo",
+    "alt": "Satellite view of Typhoon Mangkhut with a compact eye and spiralling cloud bands in September 2018.",
+    "caption": "Typhoon Mangkhut, September 2018, observed by NASA EOSDIS. The western North Pacific storm later affected the Philippines and southern China; this image is a historical observation."
+  },
+  {
+    "candidate": "case-yellowstone-prismatic-2",
+    "id": "yellowstone-grand-prismatic",
+    "kind": "photo",
+    "alt": "Steam and orange microbial mats around Grand Prismatic Spring in Yellowstone National Park.",
+    "caption": "Grand Prismatic Spring, Yellowstone. Hot groundwater and heat-tolerant microorganisms create the pool's striking colour bands."
+  },
+  {
+    "candidate": "glossary-argo-float-3",
+    "id": "noaa-deep-solo-deployment",
+    "kind": "photo",
+    "alt": "A Deep SOLO profiling float is lowered from the research vessel Kaʻimikai-O-Kanaloa in 2018.",
+    "caption": "NOAA Deep SOLO deployment, 2018. Profiling floats measure ocean temperature and salinity at depth, helping scientists study density structure and deep circulation. The ocean conveyor is a simplified description of a complex circulation."
+  },
+  {
+    "candidate": "glossary-moine-thrust-1",
+    "id": "moine-thrust-knockan",
+    "kind": "photo",
+    "alt": "Rock contact exposed along the Moine Thrust at Knockan Crag in northwest Scotland.",
+    "caption": "Moine Thrust, Knockan Crag. Caledonian compression pushed older rocks over younger rocks; the exposed contact is field evidence of that mountain-building episode."
+  },
+  {
+    "candidate": "glossary-pangaea-fossil-3",
+    "id": "antarctic-glossopteris-fossil",
+    "kind": "photo",
+    "alt": "A dark Glossopteris fossil leaf from Permian rocks in Antarctica, with a branching vein network.",
+    "caption": "Permian Glossopteris leaf from Antarctica. Related fossils on separated southern continents are evidence that these lands were once joined within Gondwana, which formed part of Pangaea."
+  },
+  {
+    "candidate": "glossary-windgap-penn-1",
+    "id": "bald-eagle-wind-gap",
+    "kind": "photo",
+    "alt": "Panorama of Bald Eagle Mountain in Pennsylvania with the Route 15 wind gap left of centre and a water gap farther right.",
+    "caption": "Bald Eagle Mountain, Pennsylvania. The wind gap crossed by Route 15 is left of centre; Hagermans Run occupies a separate water gap to the right. A wind gap lacks the through-flowing river found in a water gap."
+  },
+  {
+    "id": "place-us-ia",
+    "candidate": "place-iowa-hills-3",
+    "alt": "Contour-ploughed fields on the Loess Hills of western Iowa.",
+    "caption": "Western Iowa. Wind-deposited silt forms fertile but erosion-prone hills; contour farming follows their slopes.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-jm",
+    "candidate": "place-jamaica-mountains-2",
+    "alt": "Fog covers houses and forested slopes at Section in Jamaica's Blue Mountains.",
+    "caption": "Blue Mountains, Jamaica. Moist air rises over high relief, supporting cloud and rainfall.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-ms",
+    "candidate": "place-mississippi-bluff-1",
+    "alt": "The Mississippi River and Natchez–Vidalia Bridge seen from Natchez, Mississippi.",
+    "caption": "Natchez, Mississippi. A broad river corridor runs below the bluffs along the state's western boundary.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-il",
+    "candidate": "place-negev-crater-2",
+    "alt": "Aerial view across the dry erosional basin of Makhtesh Ramon in Israel's Negev Desert.",
+    "caption": "Makhtesh Ramon, Israel. Differential erosion has excavated a large basin in folded sedimentary rocks; it is not an impact crater.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-us-nj",
+    "candidate": "place-newjersey-mullica-3",
+    "alt": "The Mullica River among trees in Wharton State Forest, New Jersey.",
+    "caption": "New Jersey Pine Barrens. Sandy ground and shallow groundwater support forest and low-gradient streams.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-uy",
+    "candidate": "place-uruguay-cuervos-1",
+    "alt": "Wooded slopes in Quebrada de los Cuervos, Uruguay.",
+    "caption": "Quebrada de los Cuervos, Uruguay. A wooded ravine interrupts the surrounding grassland landscape.",
+    "kind": "photo"
+  },
+  {
+    "candidate": "case-dustbowl-storm-1",
+    "id": "dustbowl-texas-rothstein",
+    "kind": "photo",
+    "alt": "A car on a Texas Panhandle road beneath a wall of airborne dust during the Dust Bowl.",
+    "caption": "Texas Panhandle during the Dust Bowl. Wind removed exposed topsoil during severe drought; this photograph records dust in the air, rather than water-cut gullies."
+  },
+  {
+    "candidate": "case-kola-well-2",
+    "id": "kola-borehole-site-2020",
+    "kind": "photo",
+    "alt": "Aerial view of abandoned buildings at the Kola Superdeep Borehole site in Russia in 2020.",
+    "caption": "Kola Superdeep Borehole site, 2020. The deepest borehole reached 12.262 km within continental crust; it did not enter the mantle."
+  },
+  {
+    "candidate": "case-loess-plateau-1",
+    "id": "shanxi-loess-hills",
+    "kind": "photo",
+    "alt": "Dry, deeply dissected loess slopes near Hunyuan in Shanxi, China.",
+    "caption": "Loess near Hunyuan, Shanxi. Wind deposited the silt; runoff later cut gullies into the exposed ground."
+  },
+  {
+    "candidate": "case-phoenix-city-2",
+    "id": "phoenix-skyline",
+    "kind": "photo",
+    "alt": "Phoenix's skyline, transport surfaces and desert mountains seen from Sky Harbor airport.",
+    "caption": "Phoenix, Arizona. Built surfaces store heat in a desert city. Air or thermal measurements are needed to quantify the urban heat island; this photograph shows the land cover."
+  },
+  {
+    "candidate": "case-yosemite-tunnel-1",
+    "id": "yosemite-tunnel-view",
+    "kind": "photo",
+    "alt": "Yosemite Valley's forested floor between steep granite walls, viewed from Tunnel View.",
+    "caption": "Yosemite Valley, California. Glacial erosion widened and steepened a pre-existing river valley in granite."
+  },
+  {
+    "candidate": "case-thames-barrier-3",
+    "id": "thames-barrier-evans",
+    "kind": "photo",
+    "alt": "The Thames Barrier's silver piers beside the tidal river in London.",
+    "caption": "Thames Barrier, London. Movable gates reduce tidal-surge flood risk upstream; they do not remove every source of river or surface-water flooding."
+  },
+  {
+    "candidate": "case-hongkong-slide-1",
+    "id": "redhill-hongkong-landslide",
+    "kind": "photo",
+    "alt": "Slope failures above the coast at Hong Kong's Redhill Peninsula after extreme rainfall.",
+    "caption": "Redhill Peninsula, Hong Kong. Slope failures following extreme rainfall show how saturated ground can destabilise steep developed slopes."
+  },
+  {
+    "candidate": "glossary-globe-object-2",
+    "id": "shibukawa-terrestrial-globe",
+    "kind": "photo",
+    "alt": "Shibukawa Shunkai's 1695 terrestrial globe above a celestial globe in a Tokyo museum display.",
+    "caption": "A physical terrestrial globe made by Shibukawa Shunkai in 1695, photographed in Japan's National Museum of Nature and Science. Narrow printed gores are one method of covering a sphere; the assembled surface avoids the interruptions of a flattened world map."
+  },
+  {
+    "candidate": "glossary-perihelion-ison-1",
+    "id": "hubble-ison-before-perihelion",
+    "kind": "scientific-image",
+    "alt": "Hubble observations of Comet ISON's bright coma and tail on 2 November 2013, before perihelion.",
+    "caption": "Hubble observed Comet ISON on 2 November 2013, before its closest approach to the Sun. Perihelion names that closest orbital point; the coloured filters show coma and tail structure, not a map of the orbit."
+  },
+  {
+    "candidate": "glossary-splash-nrcs-1",
+    "id": "nrcs-raindrop-soil-splash",
+    "kind": "photo",
+    "credit": "US Navy / USDA NRCS Photo Gallery, NRCSIA99138 · public domain · resized",
+    "alt": "Close-up photograph of a raindrop splashing on soil and throwing droplets and particles outward.",
+    "caption": "USDA NRCS archive photograph of raindrop impact. Splash detaches and redistributes soil particles before surface runoff carries them farther."
+  },
+  {
+    "candidate": "glossary-nivation-hollow2-1",
+    "id": "blorenge-cwm-craf",
+    "kind": "photo",
+    "alt": "Blorenge above Llanfoist, with the shallow Cwm Craf hollow visible on its front slope.",
+    "caption": "Cwm Craf on Blorenge, Wales, has been interpreted as a former nivation hollow. Persistent snow patches can promote weathering and sediment removal without forming a moving glacier. The foreground hollow lies in a glacial moraine."
+  },
+  {
+    "candidate": "case-cairngorm-winter-1",
+    "id": "cairngorms-winter-snow",
+    "kind": "photo",
+    "credit": "SAC Faye Storer / UK Ministry of Defence · Crown copyright / Open Government Licence v1.0 · resized",
+    "alt": "Snow patches and dark exposed ground across the Cairngorm mountains, with an RAF rescue helicopter in the foreground.",
+    "caption": "Winter in the Cairngorms during a rescue-training flight. Bright snow reflects more sunlight than the darker exposed ground; patchy cover changes the landscape's albedo."
+  },
+  {
+    "id": "place-us-ct",
+    "candidate": "place-connecticut-kent-1",
+    "alt": "Water cascades down pale rock steps at Kent Falls State Park, Connecticut.",
+    "caption": "Kent Falls, Connecticut. Flowing water erodes a stepped bedrock channel within the wooded uplands.",
+    "kind": "photo"
+  },
+  {
+    "id": "place-mo",
+    "candidate": "place-macau-tower-3",
+    "alt": "A long bridge over coastal water viewed from Macau Tower.",
+    "caption": "Macau. Bridges connect urban land across the Pearl River estuary, where reclamation has changed the shoreline.",
+    "kind": "photo"
+  },
+  {
+    "candidate": "full-moon-viatour-1",
+    "id": "nearly-full-moon-viatour",
+    "kind": "photo",
+    "credit": "Luc Viatour / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Nearly full Moon photographed from Hamois, Belgium, with dark maria and bright cratered highlands.",
+    "caption": "Nearly full Moon photographed from Hamois, Belgium. The phase is nearly the same for observers in Wales and California at the same instant; local rise times and the disc's orientation differ."
+  },
+  {
+    "candidate": "case-southsea-coast-1",
+    "id": "southsea-beach",
+    "kind": "photo",
+    "alt": "Sunlit shingle beach and coastal buildings at Southsea, Portsmouth.",
+    "caption": "Southsea, Portsmouth. Land and sea warm at different rates in sunshine, creating conditions that can support a sea breeze. A photograph of the coast alone does not measure its wind direction."
+  }
+]

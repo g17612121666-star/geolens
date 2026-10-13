@@ -1,0 +1,88 @@
+{
+  "deployment": "dpl_J8Za4VwgJk3juc8dYZYZ3JhuEaET",
+  "routes": [
+    {
+      "path": "/",
+      "status": 200,
+      "canonical": true,
+      "authWall": false,
+      "progress": true
+    },
+    {
+      "path": "/explore",
+      "status": 200,
+      "canonical": true,
+      "authWall": false,
+      "progress": true
+    },
+    {
+      "path": "/lab/coasts",
+      "status": 200,
+      "canonical": true,
+      "authWall": false,
+      "progress": true
+    },
+    {
+      "path": "/lab/water-cycle",
+      "status": 200,
+      "canonical": true,
+      "authWall": false,
+      "progress": true
+    },
+    {
+      "path": "/lab/tropical-cyclone",
+      "status": 200,
+      "canonical": true,
+      "authWall": false,
+      "progress": true
+    },
+    {
+      "path": "/lab/continental-drift",
+      "status": 200,
+      "canonical": true,
+      "authWall": false,
+      "progress": true
+    },
+    {
+      "path": "/tools/live-weather",
+      "status": 200,
+      "canonical": true,
+      "authWall": false,
+      "progress": true
+    },
+    {
+      "path": "/tools/map",
+      "status": 200,
+      "canonical": true,
+      "authWall": false,
+      "progress": true
+    },
+    {
+      "path": "/atlas",
+      "status": 200,
+      "canonical": true,
+      "authWall": false,
+      "progress": true
+    }
+  ],
+  "assets": [
+    {
+      "path": "/geo/reconstruction/coastlines-200-4k.webp",
+      "status": 200,
+      "bytes": 427556,
+      "match": true
+    },
+    {
+      "path": "/textures/pbr/aerial_beach_01_diff.jpg",
+      "status": 200,
+      "bytes": 457152,
+      "match": true
+    },
+    {
+      "path": "/assets/figure-BI9TYnTv.js",
+      "status": 200,
+      "bytes": 4716,
+      "match": true
+    }
+  ]
+}

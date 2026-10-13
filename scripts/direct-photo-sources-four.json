@@ -1,0 +1,22 @@
+[
+  {
+    "id": "bangladesh-modis-2011",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/77000/77364/bangladesh_tmo_2011313_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=5200&w=6600",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/bangladesh-77364/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Jeff Schmaltz / NASA GSFC · Terra MODIS / LANCE-EOSDIS · public domain · resized",
+    "kind": "photo",
+    "alt": "Terra MODIS natural-colour view of Bangladesh, its delta channels and the Sundarbans beside the Bay of Bengal.",
+    "caption": "Bangladesh, Terra MODIS, 9 November 2011. River-borne sediment builds the broad delta and coastal plain; folded hills lie to the east."
+  },
+  {
+    "id": "goes-land-breeze-michigan",
+    "url": "https://cimss.ssec.wisc.edu/satellite-blog/wp-content/uploads/sites/5/2025/10/goeseast_abi_radf_true_color_night_20251030132020-1024x711.png",
+    "sourceUrl": "https://cimss.ssec.wisc.edu/satellite-blog/archives/67632",
+    "licenseUrl": "https://cimss.ssec.wisc.edu/satellite-blog/about",
+    "credit": "NOAA GOES-19 / CIMSS, University of Wisconsin–Madison · public domain · 30 October 2025 · resized",
+    "kind": "scientific-image",
+    "alt": "GOES-19 satellite view of a cloud-free band beside western Lake Michigan as a land breeze pushes offshore.",
+    "caption": "GOES-19, 30 October 2025 at 13:20 UTC. A land breeze keeps clouds away from part of Lake Michigan’s western shore. The product combines visible and infrared observations across the night-to-day transition; station measurements confirm the offshore flow."
+  }
+]

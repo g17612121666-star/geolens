@@ -1,0 +1,4154 @@
+{
+  "cases": [
+    {
+      "slug": "uk-daylength",
+      "title": "UK seasonal day length",
+      "place": "London to Lerwick",
+      "region": "UK",
+      "labs": [
+        "seasons",
+        "solar-altitude"
+      ],
+      "lat": 51.51,
+      "lon": -0.13,
+      "zoom": 4,
+      "state": "t=0.973&step=2&tilt=23.44",
+      "lede": "On the December solstice London keeps the Sun for about 7 h 50 m. Lerwick, in Shetland, keeps it for under six. Florida, near 28°N, still has a winter — but noon Sun stays high.",
+      "body": [
+        "The difference is latitude on a tilted axis, not distance to the Sun. Earth’s orbit is only slightly elliptical. Perihelion — nearest the Sun — falls in early January, during northern winter. If distance caused seasons, London and Sydney would share summer. They do not.",
+        "At 51.5°N, London’s noon solar altitude on the December solstice is about 15°. On the June solstice it is about 62°. Day length swings from under eight hours to about 16.5. Walk north to Lerwick, near 60°N, and the December day falls below six hours; June barely gets dark. The same geometry, stretched.",
+        "A-level and AP students can treat this as insolation: the solar constant is the same. Incidence angle and duration are not. The energy received on a square metre of playground in December is a sliver of the June figure, even under a clear sky. UK solar farms know this in their yield curves. Field teachers know it in the last period on a winter Friday.",
+        "Compare Miami, near 26°N. December noon altitude stays above 40°. The day shortens by a couple of hours, not eight. Growers in the Central Valley care about hours above a useful incidence angle — the same number UK horticulture cares about under glass. Tilt, not orbital distance, is why a Californian December is not a British one.",
+        "Classroom move: freeze the seasons lab on 21 December. Read London’s day length, then Sydney’s. Ask which hemisphere is leaning toward the Sun before you reveal the tilt callout. Then scrub to June. The terminator walk is the whole argument."
+      ],
+      "exam": {
+        "prompt": "Explain why Lerwick’s December day is shorter than London’s, using axial tilt rather than distance from the Sun.",
+        "hint": "Latitude on a 23.44° axis. December: northern hemisphere leans away. Higher latitude → Sun lower and path shorter."
+      },
+      "sources": [
+        {
+          "label": "Met Office — UK day length"
+        },
+        {
+          "label": "NOAA Solar Calculator",
+          "href": "https://gml.noaa.gov/grad/solcalc/"
+        }
+      ]
+    },
+    {
+      "slug": "florida-insolation",
+      "title": "Florida and California insolation",
+      "place": "Miami · Central Valley",
+      "region": "US",
+      "labs": [
+        "seasons",
+        "energy-budget"
+      ],
+      "lat": 25.76,
+      "lon": -80.19,
+      "zoom": 5,
+      "lede": "Miami in December still sees the Sun more than 40° up at noon. London does not. Same star, different incidence.",
+      "body": [
+        "Insolation is incoming solar radiation at the surface. It depends on the solar constant, the angle of incidence, day length, and what the atmosphere and the ground do with the beam. The seasons lab isolates the first geometry: tilt. The energy-budget lab adds albedo and longwave.",
+        "At the December solstice the Sun is overhead at 23.44°S. Miami, at about 26°N, still has a noon altitude near 40°. Day length is close to 10.5 hours. London’s noon altitude is about 15° and the day is under eight hours. Photosynthesis, heating load, and solar yield follow those numbers, not the calendar month.",
+        "California’s Central Valley sits near 36°N. Winter days are short enough to matter for fog and for solar, long enough that citrus still works with irrigation. Summer days are long and noon Sun is high — a different energy budget from a Lake District valley at the same season.",
+        "Students often say ‘Florida is closer to the Sun.’ It is not, in any sense that matters. Florida is closer to the subsolar latitude in northern winter than London is. That is a tilt-and-latitude sentence, not a distance sentence.",
+        "Use the solar-altitude lab with Miami, London, and Nairobi marked. Scrub the date. Nairobi, on the equator, barely changes day length. Miami swings moderately. London swings hard. The three traces are the curriculum."
+      ],
+      "exam": {
+        "prompt": "Using noon solar altitude, explain why Miami’s December energy receipt exceeds London’s even on a cloudless day.",
+        "hint": "Incidence angle. Same solar constant; Miami’s beam is steeper, the day is longer."
+      },
+      "sources": [
+        {
+          "label": "NOAA / NREL typical meteorological year"
+        },
+        {
+          "label": "NASA Earth Observatory — insolation"
+        }
+      ]
+    },
+    {
+      "slug": "holderness",
+      "title": "Holderness coast",
+      "place": "East Yorkshire",
+      "region": "UK",
+      "labs": [
+        "coasts"
+      ],
+      "lat": 53.73,
+      "lon": -0.05,
+      "zoom": 9,
+      "state": "step=2",
+      "lede": "Soft glacial till, a north-to-south longshore system, and villages that have already gone into the North Sea.",
+      "body": [
+        "Holderness is the standard UK coastal case because the process is fast enough to see in a school lifetime. The cliffs are mostly glacial till — boulder clay dumped by ice, not lithified rock. Wave attack at the foot, sub-aerial weathering above, and a mass movement that is often a slump rather than a clean fall. Average erosion rates of one to two metres a year are widely cited from East Riding monitoring; locally the number is higher after a storm cluster.",
+        "The dominant wave approach is from the north-east. Swash runs up the beach at an angle; backwash returns down the steepest slope. Sediment therefore moves south in a longshore-drift conveyor. Spurn Head is the textbook spit at the southern end: a sand-and-shingle finger built where the coast turns into the Humber, with saltmarsh in the lee. It is not immortal. Storms breach it. The river and the sea then argue about where the mouth sits.",
+        "Mappleton’s rock groynes, placed in 1991, are a choice about whose beach is allowed to keep sand. Up-drift of a groyne, the beach widens. Down-drift, the supply is starved and erosion can accelerate. That is the classic ‘protection here, problem there’ sentence. Withernsea and Hornsea have sea walls and groynes of their own. Skipsea and the sites of lost villages such as Ravenser Odd sit on the other side of that bargain.",
+        "Constructive waves, with a strong swash, build a wider beach when the till supply and the drift allow it. Destructive waves, steeper, drag material back and attack the cliff. The Holderness fetch across the North Sea can throw destructive waves at a soft cliff for hours. Management options — do nothing, hold the line, managed realignment — are political, not just physical. The physics does not care about a caravan park. The budget does.",
+        "Compare a US barrier: the Outer Banks of North Carolina. There the sediment is sand in a barrier-island chain, not till in a cliff. Longshore drift still moves material alongshore. Storms still punch inlets. The landform is different; the budget idea is the same. Students who can say ‘supply, transport, deposition, interruption’ can move between Holderness and the Banks without learning a new subject.",
+        "Classroom move: run the coasts lab, turn on longshore particles, then freeze on the spit. Ask where a groyne would starve the spit. Then open this locator and point at Mappleton and Spurn. The 3D model is the process; this map is the place."
+      ],
+      "exam": {
+        "prompt": "Explain how longshore drift and groynes together change the sediment budget of Holderness, using Mappleton and Spurn Head.",
+        "hint": "NE waves → southward drift. Groynes trap up-drift, starve down-drift. Spurn is the depositional end-member."
+      },
+      "sources": [
+        {
+          "label": "BGS — Holderness coastal erosion"
+        },
+        {
+          "label": "East Riding of Yorkshire coastal monitoring"
+        },
+        {
+          "label": "Environment Agency shoreline management"
+        }
+      ]
+    },
+    {
+      "slug": "jurassic-coast",
+      "title": "Jurassic Coast",
+      "place": "Dorset and East Devon",
+      "region": "UK",
+      "labs": [
+        "coasts",
+        "rock-cycle"
+      ],
+      "lat": 50.62,
+      "lon": -2.25,
+      "zoom": 8,
+      "lede": "A World Heritage rock sequence, and a coastline that writes cave–arch–stack–stump in Lias and chalk.",
+      "body": [
+        "The Jurassic Coast is a teaching gift because lithology changes along the shore. Harder bands stand as headlands; weaker bands cut back as bays. Concordant and discordant patterns both appear. Durdle Door is an arch in limestone. Old Harry Rocks are chalk stacks off the Foreland. Lulworth Cove is a bay cut through a hard band into softer Wealden clays behind.",
+        "The cave–arch–stack–stump sequence needs a headland, joints or bedding the sea can exploit, and enough energy to keep working the same lines. Hydraulic action, abrasion, and attrition do the cutting. Weathering opens the joints from above. When the arch roof fails, a stack stands. When the stack fails, a stump sits in the surf. The lab animates that sequence; this coast is where UK students are taken to see it in rock.",
+        "Landslides at Black Ven and Stonebarrow remind a class that coasts are not only waves. Rain, groundwater, and a clay layer can send a whole undercliff toward the beach. The 2012 landslip near Bridport closed the coast path. Process on a cliff is always two-sided: marine at the toe, sub-aerial on the face.",
+        "Tourism, fossil collecting, and shoreline management sit on top of the geology. Students should not be asked to memorise every cove. They should be able to match a named landform to a process and a rock type, then say what happens if the energy or the lithology changes."
+      ],
+      "exam": {
+        "prompt": "Using a named Jurassic Coast landform, describe the sequence from cave to stump.",
+        "hint": "Joints → cave → arch (Durdle Door) → collapse → stack (Old Harry) → stump."
+      },
+      "sources": [
+        {
+          "label": "Jurassic Coast Trust / UNESCO"
+        },
+        {
+          "label": "BGS — Dorset coast"
+        }
+      ]
+    },
+    {
+      "slug": "lake-district",
+      "title": "A UK upland river",
+      "place": "Lake District",
+      "region": "UK",
+      "labs": [
+        "rivers",
+        "glaciers",
+        "contours"
+      ],
+      "lat": 54.45,
+      "lon": -3.09,
+      "zoom": 9,
+      "lede": "Steep glacially-overdeepened valleys, waterfalls on resistant bands, and a short run to a lake or the Irish Sea.",
+      "body": [
+        "A Lake District beck in spate is the upper course of the rivers lab made walkable. Gradient is steep. The channel is narrow. Vertical erosion cuts a V into a valley that ice had already overdeepened into a U. Waterfalls sit on resistant bands — Borrowdale volcanic rocks, Skiddaw slates, granite — with plunge pools and retreat of the nick point.",
+        "Upper-course landforms sit close together. Students can stand at a waterfall and look downstream to a ribbon lake. The long profile is short. There is often no classic delta, because the load meets a lake or a tide that can take it. Compare the Mississippi: same processes, different scale and a different coast.",
+        "Contour Vs in the valley floors are the same Vs as in the contours lab. A spur between two becks shows Vs pointing downhill. A stream in a trough shows Vs pointing uphill. OS Explorer interval is 10 m. The 3D hill in the contours lab is this skill without the sheep.",
+        "Ice is the older author. Cirques (cwms), arêtes, and a pyramidal peak sit above the fluvial work. Helvellyn’s Red Tarn is a cirque lake. Striding Edge is an arête. The river lab does not invent those; the glaciers lab does. A good path walks ice first, then water."
+      ],
+      "exam": {
+        "prompt": "Explain why a Lake District valley may be U-shaped in cross-profile but still host a V-shaped inner channel.",
+        "hint": "Glacial trough, then post-glacial stream cutting a V into the floor."
+      },
+      "sources": [
+        {
+          "label": "OS / BGS Northern England"
+        },
+        {
+          "label": "National Trust / Lake District National Park"
+        }
+      ]
+    },
+    {
+      "slug": "snowdonia",
+      "title": "Snowdonia / Eryri",
+      "place": "North Wales",
+      "region": "UK",
+      "labs": [
+        "contours",
+        "glaciers"
+      ],
+      "lat": 53.07,
+      "lon": -4.08,
+      "zoom": 11,
+      "lede": "A classroom-perfect contour map: cwms, arêtes, a pyramidal peak, and a railway that cheats the gradient.",
+      "body": [
+        "Closed loops around Yr Wyddfa; V-shapes in the cwms. Interval on OS Explorer is 10 m. The same hill in 3D is the point of the contours lab. Spot heights sit on the summit and on the ridges. Tight contours on the east face are a steep drop; wider contours on some western approaches are a gentler slope — until they are not.",
+        "Glacial landforms do the naming. A cirque is a armchair hollow with a steep backwall. An arête is a knife ridge between two cirques. A pyramidal peak is three or more cirques eating a mountain from different sides. Crib Goch is an arête students remember with their hands. Glaslyn and Llyn Llydaw sit in scooped rock.",
+        "The railway is a sentence about gradient. A contour skill that can explain why a train hairpins is a skill that will survive the map paper. Grid references on this sheet are the grid-references lab’s natural homework.",
+        "Compare Yosemite: a deeper U, granite, hanging valleys, and a rim that reads as coincident contours. Same ice logic, different rock and a different national-park poster."
+      ],
+      "exam": {
+        "prompt": "On an OS-style extract of Yr Wyddfa, how would you distinguish a cirque from a spur using contours alone?",
+        "hint": "Cirque: steep backwall, closed or tight curves around a hollow. Spur: Vs pointing downhill."
+      },
+      "sources": [
+        {
+          "label": "Ordnance Survey"
+        },
+        {
+          "label": "BGS Wales"
+        }
+      ]
+    },
+    {
+      "slug": "yorkshire-dales",
+      "title": "Yorkshire Dales karst",
+      "place": "North Yorkshire",
+      "region": "UK",
+      "labs": [
+        "karst",
+        "weathering"
+      ],
+      "lat": 54.15,
+      "lon": -2.15,
+      "zoom": 9,
+      "lede": "Carboniferous limestone, clints and grykes, swallow holes, and caves that take a whole beck underground.",
+      "body": [
+        "Karst is what happens when carbonation and jointing get ahead of surface drainage. Rainwater picks up carbon dioxide and becomes a weak carbonic acid. It works on calcium carbonate along bedding and joints. The surface becomes a limestone pavement: clints (blocks) and grykes (fissures). A stream that meets a swallow hole leaves the surface. It may return as a resurgence kilometres away.",
+        "The Yorkshire Dales are the UK’s classroom for this. Malham Cove’s pavement is walked by GCSE groups every spring. Gaping Gill takes Fell Beck into a chamber high enough for a cathedral, then the water moves through the cave system toward Ingleborough’s flanks. Gordale Scar is a different argument — a gorge, possibly a collapsed cavern or a glacial meltwater cut, still debated, still useful.",
+        "Soil is thin. Weathering is chemical first, mechanical on the frost days. Farmers talk about limestone in the same breath as drainage. Students should be able to sequence: rainfall → carbonation → widened joints → swallow hole → cave passage → stalactite if the drip has time.",
+        "Mammoth Cave, Kentucky, is the US pair: a longer, lower-gradient carbonate system in the Mississippian limestones of the Chester Upland. Same chemistry, a different map scale. The karst lab’s pavement, sinkhole, and cave passage are both places."
+      ],
+      "exam": {
+        "prompt": "Explain how a swallow hole forms and what it implies for the drainage network on Carboniferous limestone.",
+        "hint": "Carbonation along joints. Surface stream captured underground. Watershed on the surface may not match the cave."
+      },
+      "sources": [
+        {
+          "label": "BGS — Yorkshire Dales karst"
+        },
+        {
+          "label": "Natural England / Malham"
+        }
+      ]
+    },
+    {
+      "slug": "somerset-levels",
+      "title": "Somerset Levels",
+      "place": "Somerset",
+      "region": "UK",
+      "labs": [
+        "hydrograph",
+        "rivers",
+        "drainage-basin"
+      ],
+      "lat": 51.13,
+      "lon": -2.83,
+      "zoom": 9,
+      "lede": "A low floodplain, peat and clay, pumped drainage, and a hydrograph that goes wrong when rain sits on saturated ground.",
+      "body": [
+        "The Somerset Levels are a flood story written on a almost-flat long profile. Rivers such as the Parrett and Tone meander across peat and clay. Gradient is tiny. When rain is heavy and the ground is already wet, there is nowhere for water to go but up and out. The 2013–14 floods sat on villages for weeks. That is a hydrograph with a fat falling limb, not a flashy upland peak.",
+        "Land use matters. Drained pasture, rhynes (ditches), pumps, and a few raised towns. Urban surfaces upstream shorten lag. Saturated peat does not infiltrate. High tide in the Parrett can hold fluvial water back — a reminder that a drainage basin has a mouth with its own schedule.",
+        "Management is a choice among dredging, pumping, wetland restoration, and ‘making space for water’. Each changes a different part of the hydrograph. Dredging argues about channel efficiency. Restoration argues about storage on the floodplain. Students should be able to sketch both and say who wins in a wet January.",
+        "Pair with the Mississippi: levées, cut-offs, and a bird-foot delta. Same machine, continental scale. The Levels are the UK size of that argument."
+      ],
+      "exam": {
+        "prompt": "Using the idea of lag time, explain why the Somerset Levels can stay flooded long after the rain has stopped.",
+        "hint": "Low gradient, saturated peat, tide lock, limited storage exit. Long falling limb."
+      },
+      "sources": [
+        {
+          "label": "Environment Agency — Somerset"
+        },
+        {
+          "label": "UKCEH hydrology"
+        }
+      ]
+    },
+    {
+      "slug": "thames",
+      "title": "Thames and Severn",
+      "place": "Southern Britain",
+      "region": "UK",
+      "labs": [
+        "water-cycle",
+        "drainage-basin",
+        "river-hydrology"
+      ],
+      "lat": 51.5,
+      "lon": -0.12,
+      "zoom": 7,
+      "lede": "Two basins, heavy abstraction, and a tide that still owns the lower Thames.",
+      "body": [
+        "The global water cycle is closed. July in the London basin is a local deficit covered by reservoirs in the upper Thames, the London ring main, and abstraction licences. The ocean store did not notice. The town would, if the taps failed.",
+        "The Thames is a lowland river with a large population on its floodplain. Groundwater in the chalk, soil moisture, and surface reservoirs are the stores that matter to a water company. Transfers are pumping and pipes as well as tributaries. The Severn, longer and wetter in its upland headwaters, is a different regime: more flashy in Wales, then a huge tidal range in the estuary — among the largest in the world.",
+        "A drainage-basin overlay on the water-cycle lab is this case. The watershed is the divide. Rain on one side goes to the Thames, on the other to a neighbour. Abstraction is a tap on a local store. Over-draw it, and the reservoir falls even if the ocean is unchanged.",
+        "Climate change moves the flows: heavier winter bursts, drier summers in the south-east. It does not invent a new cycle. Students who can name stores and transfers can then talk about drought without saying ‘the water ran out of the planet’."
+      ],
+      "exam": {
+        "prompt": "Why can a reservoir in the Thames basin fall in a dry summer even though the global water cycle is closed?",
+        "hint": "Local store, abstraction > recharge. Global mass conserved; location and timing are not."
+      },
+      "sources": [
+        {
+          "label": "UKCEH / Environment Agency"
+        },
+        {
+          "label": "Thames Water / Defra abstraction"
+        }
+      ]
+    },
+    {
+      "slug": "iceland",
+      "title": "Iceland and Eyjafjallajökull",
+      "place": "Mid-Atlantic Ridge",
+      "region": "Shared",
+      "labs": [
+        "plate-boundaries",
+        "volcanoes",
+        "seafloor-spreading"
+      ],
+      "lat": 63.63,
+      "lon": -19.62,
+      "zoom": 6,
+      "lede": "A divergent boundary above water, plus a hotspot. The 2010 ash plume closed northwest European airspace.",
+      "body": [
+        "Iceland sits on the Mid-Atlantic Ridge, a divergent boundary, and on a mantle plume. New oceanic crust is made here. Thingvellir is a rift you can walk. The island is the ridge plus extra magma from the hotspot — which is why it stands above water when most of the ridge does not.",
+        "Eyjafjallajökull in 2010 was a subglacial, explosive eruption of relatively evolved magma. Ice plus silica-rich melt made fine ash. High-level winds carried it over Europe. Aviation avoids ash because it damages turbine blades. UK specifications treat the eruption as a tectonic and atmospheric case. The ridge itself is the plate story; the ash is the hazard story.",
+        "Compare the Himalaya: continent–continent convergence, crust stacked, not made. Compare Hawaii: a hotspot without a plate boundary. Compare Cascadia: subduction, not divergence. Three colours of boundary, plus a plume, cover the exam list.",
+        "Seafloor spreading on either side of Iceland lays down magnetic stripes. The seafloor-spreading lab is that tape recorder. Iceland is where the tape is a country."
+      ],
+      "exam": {
+        "prompt": "Explain why Iceland has both basaltic fissure eruptions and occasional explosive, ash-rich events such as 2010.",
+        "hint": "Ridge + hotspot: usually basalt. Ice, evolved magma, and a central volcano can still go explosive."
+      },
+      "sources": [
+        {
+          "label": "IMO / Icelandic Met Office"
+        },
+        {
+          "label": "BGS — Eyjafjallajökull 2010"
+        },
+        {
+          "label": "NASA Earth Observatory"
+        }
+      ]
+    },
+    {
+      "slug": "san-andreas",
+      "title": "San Andreas Fault",
+      "place": "California",
+      "region": "US",
+      "labs": [
+        "plate-boundaries",
+        "folds-faults",
+        "earthquakes"
+      ],
+      "lat": 35.9,
+      "lon": -120.43,
+      "zoom": 6,
+      "lede": "A transform boundary you can walk. Pacific plate northwest, North American plate southeast.",
+      "body": [
+        "The San Andreas is a right-lateral transform boundary between the Pacific and North American plates. The 1906 San Francisco and 1989 Loma Prieta earthquakes are this boundary in living memory. Offset fences, streams, and roads are the field evidence. Creep along some segments is slow and almost quiet; locked segments store elastic strain and then slip.",
+        "Transform boundaries slide. They do not make a volcano chain. That is the exam contrast with Cascadia to the north, a subduction zone with a volcanic arc (the Cascades) and a different tsunami story. Students who colour both boundaries the same have missed the point of the plates lab.",
+        "Strike-slip is the folds-faults lab’s third fault type. The San Andreas is the named example. Focus and epicentre, P and S waves, and a shake-map are the earthquakes lab. Parkfield has been an instrumented laboratory for decades because a repeating magnitude-6 sequence made it famous.",
+        "UK students need this as the US pair to the Mid-Atlantic Ridge and the Himalaya. Three colours, three landforms, three hazards. The locator puts you on the Carrizo Plain, where the fault is a line in the grass."
+      ],
+      "exam": {
+        "prompt": "Why does the San Andreas system produce large earthquakes but not a volcanic arc, unlike Cascadia?",
+        "hint": "Transform vs subduction. Slab-released water promotes partial melting in the mantle wedge beneath Cascadia; a transform boundary does not have that mechanism."
+      },
+      "sources": [
+        {
+          "label": "USGS Earthquake Hazards Program",
+          "href": "https://www.usgs.gov/programs/earthquake-hazards"
+        },
+        {
+          "label": "USGS San Andreas fact sheets"
+        }
+      ]
+    },
+    {
+      "slug": "cascadia",
+      "title": "Cascadia subduction zone",
+      "place": "Pacific Northwest",
+      "region": "US",
+      "labs": [
+        "plate-boundaries",
+        "earthquakes",
+        "tsunami",
+        "volcanoes"
+      ],
+      "lat": 46.2,
+      "lon": -124,
+      "zoom": 5,
+      "lede": "A locked megathrust, a volcanic arc, and a tsunami story written in drowned forests.",
+      "body": [
+        "The Juan de Fuca plate dives under North America. That is convergence: a trench offshore, earthquakes on the megathrust, and a chain of stratovolcanoes inland — Rainier, St Helens, Hood, Shasta. The 1700 Cascadia earthquake is dated from Japanese tsunami records and from drowned coastal forests in Oregon and Washington. The next one is a regional planning problem, not a myth.",
+        "Subduction makes magma by adding water to the mantle wedge. Viscosity and gas make stratovolcanoes explosive. Shield volcanoes, like Hawaii, are a different chemistry and a different setting. The volcanoes lab’s viscosity slider is this contrast.",
+        "A tsunami here would start with seafloor slip, not with a meteor. The tsunami lab is the physics: a water column lifted, a wave that is fast in deep water and tall in shallow water. Coastal schools in this region drill for that wave.",
+        "Hold this case next to San Andreas. Same coast, different boundary, different volcano story, different tsunami story. That is the whole point of colouring plates."
+      ],
+      "exam": {
+        "prompt": "Explain how the Cascadia subduction system forms a volcanic arc over geological time, and how a megathrust earthquake can generate a tsunami in minutes.",
+        "hint": "Watered mantle → arc over geologic time. Seafloor slip → tsunami in minutes."
+      },
+      "sources": [
+        {
+          "label": "USGS Cascadia"
+        },
+        {
+          "label": "NOAA / NWS tsunami"
+        }
+      ]
+    },
+    {
+      "slug": "yellowstone",
+      "title": "Yellowstone",
+      "place": "Wyoming",
+      "region": "US",
+      "labs": [
+        "earth-interior",
+        "hotspots",
+        "volcanoes"
+      ],
+      "lat": 44.6,
+      "lon": -110.5,
+      "zoom": 7,
+      "lede": "A mantle plume under a continent. Caldera, hydrothermal system, and a track of older calderas toward the southwest.",
+      "body": [
+        "The plume is not a plate boundary. It is a thermal anomaly beneath a moving plate — a continental counterpart to Hawaii, not a hole in the crust. Older calderas in the Snake River Plain get older toward the southwest, which is the track. The present hydrothermal system — geysers, hot springs — is magma heat under a continental crust that is still there.",
+        "Seismic tomography, not a drill hole, is how we argue for the plume. The Kola Superdeep borehole, the deepest hole in rock, did not reach the mantle. We infer layering from P and S waves. Yellowstone’s magma reservoir is imaged the same way: geophysics, not a sample bottle from the core.",
+        "A ‘supervolcano’ headline is not a teaching plan. The teacher script is: hotspot versus boundary, continental crust versus oceanic, rhyolite versus basalt, caldera versus stratovolcano. The interior lab’s liquid outer core is a different liquid from this melt. Students mix those liquids if you let them."
+      ],
+      "exam": {
+        "prompt": "How does the age pattern of calderas in the Snake River Plain support a hotspot under a moving plate?",
+        "hint": "Age increases southwest along the track. Plate moved; plume stayed relatively fixed."
+      },
+      "sources": [
+        {
+          "label": "USGS Yellowstone Volcano Observatory"
+        },
+        {
+          "label": "USGS hotspot track"
+        }
+      ]
+    },
+    {
+      "slug": "hawaii",
+      "title": "Hawaii hotspot track",
+      "place": "Hawaiʻi to Emperor seamounts",
+      "region": "US",
+      "labs": [
+        "hotspots",
+        "volcanoes",
+        "plate-boundaries"
+      ],
+      "lat": 19.4,
+      "lon": -155.3,
+      "zoom": 6,
+      "lede": "A plume under an oceanic plate. Shield volcanoes, a chain that gets older toward the northwest, and a bend into the Emperor seamounts.",
+      "body": [
+        "Loihi and the Island of Hawaiʻi are young. Maui, Oʻahu, Kauaʻi are older. The Emperor seamounts are older still and trend north. The Pacific plate is moving over a relatively fixed mantle plume. That is the track. The bend around 47 million years ago records changing relative motion; both plate-motion changes and hotspot migration need to be considered.",
+        "Shield volcanoes here are basalt, low viscosity, long lava flows, gentle slopes. Mauna Loa and Kīlauea are the type. They are not stratovolcanoes. Viscosity, not ‘bigger explosion’, is the difference. The volcanoes lab’s slider is this.",
+        "A hotspot can sit far from a plate boundary. That is the misconception to kill: not all volcanoes sit on the Ring of Fire. Hawaii is the exhibit. Yellowstone is the continental exhibit. Iceland is the ridge-plus-plume exhibit."
+      ],
+      "exam": {
+        "prompt": "Why are Hawaiian volcanoes shields rather than stratovolcanoes, and how does the island chain record plate motion?",
+        "hint": "Low-viscosity basalt. Age increases away from the active plume as the plate slides."
+      },
+      "sources": [
+        {
+          "label": "USGS Hawaiian Volcano Observatory"
+        },
+        {
+          "label": "NOAA / ocean exploration seamounts"
+        }
+      ]
+    },
+    {
+      "slug": "grand-canyon",
+      "title": "Grand Canyon",
+      "place": "Arizona",
+      "region": "US",
+      "labs": [
+        "rock-cycle",
+        "weathering",
+        "landform-types"
+      ],
+      "lat": 36.05,
+      "lon": -112.14,
+      "zoom": 9,
+      "lede": "A plateau cut by a river, a stack of sedimentary rocks, and a timeline in metres of cliff.",
+      "body": [
+        "The Grand Canyon is not a rift and not a glacial trough. It is incision: the Colorado River cutting down through the Colorado Plateau as the land was high enough and the river persistent enough. Horizontal beds of sandstone, shale, and limestone make cliffs and slopes according to resistance. The Vishnu Schist at the bottom is metamorphic basement.",
+        "The rock-cycle lab’s sedimentary stack is this wall. Weathering opens joints; mass movement delivers; the river exports. The landform is a canyon in a plateau — one of the five types in the landform-types lab, cut rather than built.",
+        "Do not invent a date for ‘the canyon formed in X years’ unless you cite USGS. The rocks are Proterozoic to Palaeozoic; the incision is much younger. Students should separate the age of the rock from the age of the hole."
+      ],
+      "exam": {
+        "prompt": "Distinguish the age of the rocks in the Grand Canyon walls from the age of the canyon as a landform.",
+        "hint": "Rocks: hundreds of millions of years. Incision: much younger uplift and downcutting."
+      },
+      "sources": [
+        {
+          "label": "USGS / NPS Grand Canyon"
+        }
+      ]
+    },
+    {
+      "slug": "mississippi",
+      "title": "Mississippi and delta",
+      "place": "Lower Mississippi",
+      "region": "US",
+      "labs": [
+        "rivers",
+        "river-deposition",
+        "hydrograph"
+      ],
+      "lat": 29.15,
+      "lon": -89.25,
+      "zoom": 6,
+      "lede": "A continental drain with levées, cut-offs, and a bird-foot delta fighting subsidence and a rising Gulf.",
+      "body": [
+        "The long profile ends in stiller water and a huge load. Tides in the Gulf here are modest, so a delta can persist. Distributaries, levées, and a floodplain the size of a country are the lower-course kit. The 1927 flood and the Old River Control Structure are human attempts to keep the river from jumping to the Atchafalaya — a capture story at engineering scale.",
+        "Meander cut-offs, oxbows, and artificial straightening sit on the same helicoidal-flow logic as the rivers lab. Raise discharge and competence rises; the floodplain takes water when the levée is overtopped or fails. Hurricane Katrina’s flooding of New Orleans was a storm-surge and levée-failure story on this coast, not a simple fluvial hydrograph — keep the mechanisms honest.",
+        "Compare a Lake District beck: same processes, no delta, because the load and the coast disagree. Compare the Nile or the Ganges only if you keep the numbers sourced. This case is USGS and USACE territory."
+      ],
+      "exam": {
+        "prompt": "Explain why the Mississippi can maintain a bird-foot delta while many UK rivers end in estuaries.",
+        "hint": "Huge load, modest tides, shallow Gulf. UK: smaller load, larger tidal range, often drowned valleys."
+      },
+      "sources": [
+        {
+          "label": "USGS Mississippi River"
+        },
+        {
+          "label": "USACE Mississippi River & Tributaries"
+        }
+      ]
+    },
+    {
+      "slug": "yosemite",
+      "title": "Yosemite Valley rim",
+      "place": "Sierra Nevada",
+      "region": "US",
+      "labs": [
+        "contours",
+        "glaciers",
+        "moon-phases"
+      ],
+      "lat": 37.74,
+      "lon": -119.57,
+      "zoom": 11,
+      "lede": "A U-shaped valley so deep the rim is a cliff on the map: coincident contours and a spot height at Half Dome.",
+      "body": [
+        "USGS quads make the same spur/valley argument as an OS sheet. The interval is just in feet on older plates. Yosemite Valley is a glacial trough in granite. Hanging valleys dump waterfalls (Yosemite Falls, Bridalveil). El Capitan and Half Dome are the walls. Moraines sit down-valley. Cirques and arêtes sit in the high Sierra above.",
+        "The glaciers lab’s U-trough, hanging valley, and truncated spur are this place. The contours lab’s coincident lines are the cliffs. A full Moon over Half Dome is the moon-phases geometry — the same phase as Snowdonia that night, a different rise time because Earth is still rotating.",
+        "Ice here is mostly gone as glaciers; the landforms remain. Students should not say ‘Yosemite is a canyon like the Grand Canyon.’ One is ice, one is a river in a plateau. Cross-profile tells them apart."
+      ],
+      "exam": {
+        "prompt": "How would a contour map distinguish Yosemite Valley from a V-shaped river gorge of similar depth?",
+        "hint": "U: wide flat floor, steep walls, hanging valleys. V: evenly closing contours to a stream."
+      },
+      "sources": [
+        {
+          "label": "USGS / NPS Yosemite"
+        }
+      ]
+    },
+    {
+      "slug": "katrina-sandy",
+      "title": "Katrina and Sandy",
+      "place": "New Orleans · New York Bight",
+      "region": "US",
+      "labs": [
+        "tropical-cyclone",
+        "coasts"
+      ],
+      "lat": 29.95,
+      "lon": -90.07,
+      "zoom": 5,
+      "lede": "Two North Atlantic cyclones, two different coasts, one shared physics: low pressure, wind, surge, and a shoreline that was already under stress.",
+      "body": [
+        "Hurricane Katrina (2005) hit the Gulf Coast as a large tropical cyclone. The catastrophe in New Orleans was a surge and a levée-and-floodwall failure on a city below some water surfaces, on a sinking delta. The eye and eyewall of a tropical cyclone are the lab; the social and engineering failure is the case. Keep them both in the script, and do not invent fatality numbers — cite NOAA.",
+        "Hurricane Sandy (2012) was a late-season hybrid that struck the New York–New Jersey Bight. Storm surge in a funnel-shaped coast, high tide, and a dense urban shoreline. It was not ‘just rain’. Surge is a water-level story; rainfall is a hydrograph story. Students mix them.",
+        "The tropical-cyclone lab shows the eye, eyewall, and rainbands. It does not claim that every UK windy day is a hurricane. Midlatitude cyclones are a different machine (the fronts lab). Sandy’s hybrid nature is a teacher’s caution, not a KS3 requirement.",
+        "UK pair: North Sea storm surges (1953, and the Thames Barrier’s reason for existing). Same surge idea, extra-tropical storms. Honest language: do not call a UK winter storm a hurricane unless the Met Office does."
+      ],
+      "exam": {
+        "prompt": "Distinguish storm surge from river flooding in the Katrina disaster, and say which lab models the cyclone itself.",
+        "hint": "Surge: sea level driven by wind and pressure. River/levée: inland water. Lab: tropical cyclone eye/eyewall."
+      },
+      "sources": [
+        {
+          "label": "NOAA / NHC Katrina and Sandy reports"
+        },
+        {
+          "label": "USGS surge and high-water marks"
+        }
+      ]
+    },
+    {
+      "slug": "dust-bowl",
+      "title": "Dust Bowl",
+      "place": "Southern Great Plains",
+      "region": "US",
+      "labs": [
+        "soil-erosion",
+        "weathering",
+        "aeolian"
+      ],
+      "lat": 36.68,
+      "lon": -101.48,
+      "zoom": 5,
+      "lede": "A drought, a plough, and a wind that took the A horizon off the plains.",
+      "body": [
+        "The 1930s Dust Bowl is the US soil-erosion case. Deep ploughing of prairie, drought, and strong winds. Rain splash and rill were not the headline; wind was. Without vegetation, the A horizon had no anchor. Black blizzards moved soil across state lines. The soil-erosion lab’s vegetation toggle is this sentence.",
+        "Aeolian landforms — yardangs, barchans — are the world-example kit, not a Great Plains default. On the plains the process was deflation and transport of farmed silt and sand, not a desert textbook dune field. Keep the landform names honest.",
+        "UK pair: peaty upland erosion and blown sand on some coasts, at a smaller scale. The physics of an unsheltered particle is the same. The history is American.",
+        "Do not invent tonnages. USDA and NOAA historical summaries are the sources. The teaching point is land use plus climate plus wind, not a morality play."
+      ],
+      "exam": {
+        "prompt": "Explain how vegetation removal made Great Plains soils vulnerable to wind erosion in the 1930s.",
+        "hint": "Roots and cover trap particles and raise roughness. Bare dry A horizon → deflation."
+      },
+      "sources": [
+        {
+          "label": "NOAA / NCEI drought and Dust Bowl"
+        },
+        {
+          "label": "USDA NRCS soil erosion history"
+        }
+      ]
+    },
+    {
+      "slug": "colorado",
+      "title": "Colorado River reservoirs",
+      "place": "Powell and Mead",
+      "region": "US",
+      "labs": [
+        "water-cycle",
+        "river-hydrology"
+      ],
+      "lat": 36.06,
+      "lon": -114.74,
+      "zoom": 6,
+      "lede": "A bathtub ring is abstraction plus a drier hydroclimate drawn on a canyon wall.",
+      "body": [
+        "The ocean store did not shrink by the volume of Lake Mead. The local store did. Powell and Mead are managed reservoirs on a river whose compact was signed in a wetter early twentieth century. A bathtub ring is the last high shoreline as a stain.",
+        "The water-cycle lab’s abstraction slider is this. A closed global cycle still allows a basin to be in deficit. Snowpack in the Rockies is the headwater store. A drier hydroclimate plus upstream use plus evaporation from open reservoirs is the budget.",
+        "Students should not say ‘the Colorado is running out of water on Earth.’ They should say ‘the allocated flow exceeds the river that is actually there in a dry decade.’"
+      ],
+      "exam": {
+        "prompt": "Using stores and transfers, explain a falling Lake Mead level without claiming the global water cycle is leaking.",
+        "hint": "Local store. Abstraction + evaporation + reduced inflow. Global mass conserved."
+      },
+      "sources": [
+        {
+          "label": "USBR / USGS Colorado River"
+        }
+      ]
+    },
+    {
+      "slug": "greenwich",
+      "title": "Greenwich meridian",
+      "place": "London",
+      "region": "UK",
+      "labs": [
+        "rotation",
+        "graticule"
+      ],
+      "lat": 51.477,
+      "lon": -0.0015,
+      "zoom": 12,
+      "lede": "Longitude zero is a political choice laid on a rotating sphere. The 15°/hour arithmetic is not.",
+      "body": [
+        "The Prime Meridian at the Royal Observatory is the civil fiction. Solar noon is when the Sun crosses your local meridian. Time zones are a human overlay on 360° / 24 h = 15° per hour. The terminator ignores the jogs in the zone boundaries.",
+        "Stand on the meridian line and you have not stopped the planet. You have labelled a longitude. The rotation lab’s 15° callout is the physics. Greenwich is the plaque.",
+        "The graticule lab puts this line on a 3D Earth with the rest of the net. Students who think the equator is ‘a line painted on the sea’ need that lab more than this plaque, but the plaque helps."
+      ],
+      "exam": {
+        "prompt": "Why is 15° of longitude equal to one hour, and why is the Greenwich meridian not required for that arithmetic?",
+        "hint": "360/24 = 15. Zero longitude is a convention; the spin is not."
+      },
+      "sources": [
+        {
+          "label": "Royal Observatory Greenwich"
+        }
+      ]
+    },
+    {
+      "slug": "time-zones-us",
+      "title": "US lower-48 time zones",
+      "place": "Eastern to Pacific",
+      "region": "US",
+      "labs": [
+        "rotation",
+        "graticule"
+      ],
+      "lat": 39.8,
+      "lon": -98.6,
+      "zoom": 3,
+      "lede": "Four civil zones across about 60° of longitude, with jogs for state lines. The terminator ignores the jogs.",
+      "body": [
+        "Noon in Boston is still morning in Seattle because the planet has not finished that 15° × 3 turn. Eastern, Central, Mountain, Pacific are civil bands. They jog around cities and state lines. The Sun does not.",
+        "The rotation lab’s time-zone overlay is this. Toggle it on, then off. The terminator is the machinery. The colours are the timetable."
+      ],
+      "exam": {
+        "prompt": "If solar noon has just reached New York, about how long until solar noon in a place 45° of longitude further west?",
+        "hint": "45/15 = 3 hours."
+      },
+      "sources": [
+        {
+          "label": "NIST / USNO"
+        }
+      ]
+    },
+    {
+      "slug": "kola",
+      "title": "Kola Superdeep borehole",
+      "place": "Kola Peninsula",
+      "region": "Shared",
+      "labs": [
+        "earth-interior"
+      ],
+      "lat": 69.4,
+      "lon": 30.6,
+      "zoom": 5,
+      "lede": "The deepest hole in rock, about 12 km. Continental crust goes on for another 20 km. The mantle was never reached.",
+      "body": [
+        "We know the outer core is liquid because of S-wave shadows, not because someone brought back a sample. Kola is the humility exhibit: the crust is a skin, drilling is hard, temperature and rock strength win.",
+        "The interior lab’s explode and slice, then P and S waves, are how we actually know. Kola is how we do not."
+      ],
+      "exam": {
+        "prompt": "Why is the Kola borehole not evidence for the composition of the outer core?",
+        "hint": "12 km vs ~2900 km to the core-mantle boundary. Seismology, not drilling, is the tool."
+      },
+      "sources": [
+        {
+          "label": "BGS / USGS interior summaries"
+        }
+      ]
+    },
+    {
+      "slug": "snowdonia-moon",
+      "title": "Moonrise, Snowdonia",
+      "place": "Eryri",
+      "region": "UK",
+      "labs": [
+        "moon-phases"
+      ],
+      "lat": 53.07,
+      "lon": -4.08,
+      "zoom": 9,
+      "lede": "A full Moon over Tryfan is the Moon opposite the Sun. The same night, California sees the same phase.",
+      "body": [
+        "Phase is global. Rise time is local, because Earth is still rotating. Full Moon plus a node crossing would be a lunar eclipse. Most months, the Moon misses Earth’s shadow by 5° of orbital tilt.",
+        "The moon-phases lab’s UK/US night-sky inset is this sentence. Photographers wait on geometry, not on a different Moon."
+      ],
+      "exam": {
+        "prompt": "Why can two observers, one in Snowdonia and one in Yosemite, see the same lunar phase on the same date but at different clock times?",
+        "hint": "Phase: Sun–Moon–Earth angle. Clock time: rotation and longitude."
+      },
+      "sources": [
+        {
+          "label": "NASA Moon phases"
+        }
+      ]
+    },
+    {
+      "slug": "yosemite-moon",
+      "title": "Full Moon, Yosemite",
+      "place": "Yosemite Valley",
+      "region": "US",
+      "labs": [
+        "moon-phases"
+      ],
+      "lat": 37.74,
+      "lon": -119.57,
+      "zoom": 11,
+      "lede": "Photographers wait for a full Moon to clear Half Dome. They need the right geometry, a clear line of sight and suitable weather.",
+      "body": [
+        "Full Moon plus a node crossing would be a lunar eclipse. Most months, the Moon misses Earth’s shadow by 5° of orbital tilt. The same phase is up in Snowdonia that night. Weather is local. Phase is not."
+      ],
+      "exam": {
+        "prompt": "Why is a full Moon necessary but not sufficient for a lunar eclipse?",
+        "hint": "Full = opposite the Sun. Eclipse also needs the Moon near a node of its 5° tilt."
+      },
+      "sources": [
+        {
+          "label": "NASA / NPS"
+        }
+      ]
+    },
+    {
+      "slug": "outer-banks",
+      "title": "Outer Banks",
+      "place": "North Carolina",
+      "region": "US",
+      "labs": [
+        "coasts"
+      ],
+      "lat": 35.25,
+      "lon": -75.53,
+      "zoom": 7,
+      "lede": "A barrier-island chain, longshore drift, storm inlets, and a different sediment budget from Holderness till cliffs.",
+      "body": [
+        "The Outer Banks are sand in motion. Barrier islands sit offshore, with a lagoon or sound behind. Longshore drift moves sand along the chain. Storms punch inlets; some inlets stay, some heal. Cape Hatteras is a famous turn in the conveyor.",
+        "Unlike Holderness, there is no till cliff retreating at two metres a year. The landform is a barrier, not a cliff. The budget idea is the same: supply, transport, deposition, interruption. Groynes and beach nourishment are the management cousins of Mappleton’s rocks.",
+        "Constructive waves can build the berm. Destructive storm waves can overwash the island and roll it toward the mainland. Students should be able to say that a barrier is not a permanent wall."
+      ],
+      "exam": {
+        "prompt": "Compare the Holderness cliff and the Outer Banks as sediment systems. What is shared, and what is not?",
+        "hint": "Shared: longshore budget. Different: till cliff vs barrier sand, rates, landforms."
+      },
+      "sources": [
+        {
+          "label": "USGS barrier islands"
+        },
+        {
+          "label": "NOAA / NPS Cape Hatteras"
+        }
+      ]
+    },
+    {
+      "slug": "mammoth-cave",
+      "title": "Mammoth Cave",
+      "place": "Kentucky",
+      "region": "US",
+      "labs": [
+        "karst"
+      ],
+      "lat": 37.19,
+      "lon": -86.1,
+      "zoom": 9,
+      "lede": "A long carbonate cave system: the US pair to the Yorkshire Dales pavement and swallow holes.",
+      "body": [
+        "Mammoth Cave sits in Mississippian limestones. Surface streams sink. Passages follow joints and bedding. Sinkholes pock the Chester Upland. The chemistry is carbonation, the same as Malham, at a different scale.",
+        "The karst lab’s cave passage is this. Do not claim a world-length ranking unless you cite NPS. Claim the process."
+      ],
+      "exam": {
+        "prompt": "Why do sinkholes and caves cluster on carbonate rocks rather than on granite?",
+        "hint": "Carbonation of CaCO₃ along joints. Granite does not dissolve that way."
+      },
+      "sources": [
+        {
+          "label": "NPS / USGS Mammoth Cave"
+        }
+      ]
+    },
+    {
+      "slug": "phoenix-heat",
+      "title": "Phoenix urban heat",
+      "place": "Arizona",
+      "region": "US",
+      "labs": [
+        "thermal-circulation",
+        "energy-budget"
+      ],
+      "lat": 33.45,
+      "lon": -112.07,
+      "zoom": 8,
+      "lede": "A desert city that stores heat in asphalt and roofs. The sea breeze lab’s urban-heat toggle, at city scale.",
+      "body": [
+        "An urban heat island is a surface-energy-budget story. Dark, dry materials absorb shortwave, emit longwave, and lack the evaporative cooling of vegetation. Nights stay warmer than the surrounding desert. Phoenix is a clear US example; a UK school playground is a small one.",
+        "The thermal-circulation lab’s two columns — heat one, watch the loop — is the physics. Land–sea breeze is the coastal cousin. Urban heat is the dry, paved cousin."
+      ],
+      "exam": {
+        "prompt": "Explain why a city can stay warmer than surrounding desert at night, using albedo and latent heat.",
+        "hint": "Low albedo, little evapotranspiration, stored heat released as longwave at night."
+      },
+      "sources": [
+        {
+          "label": "NOAA / NWS urban heat"
+        }
+      ]
+    },
+    {
+      "slug": "uk-sea-breeze",
+      "title": "UK sea breeze",
+      "place": "South coast",
+      "region": "UK",
+      "labs": [
+        "thermal-circulation",
+        "wind"
+      ],
+      "lat": 50.8,
+      "lon": -1.1,
+      "zoom": 7,
+      "lede": "A coastal school feels the sea breeze at last period for a reason: land heats, a loop starts, the cool air comes in from the water.",
+      "body": [
+        "On a sunny day the land surface warms faster than the sea. Air over land rises. Air over the sea replaces it. The return flow aloft closes the loop. By last period the onshore flow can be a forecast the Met Office will name as a sea breeze.",
+        "The thermal-circulation lab is this. Toggle land–sea. Then toggle urban heat and see a different loop. Coriolis barely matters at this scale; it matters on the three-cell lab."
+      ],
+      "exam": {
+        "prompt": "Draw and label a sea-breeze circulation for a calm, sunny afternoon on the south coast.",
+        "hint": "Land warm, sea cool. Onshore at surface, rise over land, return aloft, sink over sea."
+      },
+      "sources": [
+        {
+          "label": "Met Office sea breezes"
+        }
+      ]
+    },
+    {
+      "slug": "cairngorms-albedo",
+      "title": "Cairngorms snow albedo",
+      "place": "Scottish Highlands",
+      "region": "UK",
+      "labs": [
+        "energy-budget"
+      ],
+      "lat": 57.08,
+      "lon": -3.67,
+      "zoom": 8,
+      "lede": "Fresh snow bounces a large share of incoming shortwave. Bare peat does not. The ground’s colour is the first control.",
+      "body": [
+        "Albedo is the fraction of incoming shortwave a surface reflects. Fresh snow can reflect most of the beam. Dark peat and heather absorb. The energy-budget lab’s bounce arrows are this hillside in March versus August.",
+        "Arizona desert is the US pair: high Sun, often high albedo on pale sand, but dry ground that still runs hot because there is little water to evaporate."
+      ],
+      "exam": {
+        "prompt": "Why does a snow-covered Cairngorm plateau heat the air less than a snow-free peat surface under the same incoming solar radiation?",
+        "hint": "Higher albedo → less absorbed shortwave → less longwave and sensible heat from the surface."
+      },
+      "sources": [
+        {
+          "label": "Met Office / CEH snow and peat"
+        }
+      ]
+    },
+    {
+      "slug": "denver-air",
+      "title": "Denver mile-high air",
+      "place": "Colorado",
+      "region": "US",
+      "labs": [
+        "atmosphere-layers"
+      ],
+      "lat": 39.74,
+      "lon": -104.99,
+      "zoom": 7,
+      "lede": "A kilometre and a half up, the troposphere is thinner above you and the air is already the ‘high’ part of the weather layer.",
+      "body": [
+        "Weather lives in the troposphere. Denver sits at about 1,600 m. Air pressure is lower; the same lapse-rate story starts from a higher platform. A UK radiosonde from a Met Office station is the pair: a balloon through troposphere toward tropopause, temperature falling, then the inversion at the tropopause.",
+        "The atmosphere-layers lab’s exploded shells are this. Composition readout (nitrogen, oxygen, argon, CO₂) is the same at Denver as at sea level in proportion; density is not."
+      ],
+      "exam": {
+        "prompt": "Why is Denver’s weather still ‘troposphere’ weather even though the city is a mile above sea level?",
+        "hint": "The tropopause is still many kilometres above the city. Weather’s layer is thick compared with a mile."
+      },
+      "sources": [
+        {
+          "label": "NOAA / NWS Denver"
+        },
+        {
+          "label": "Met Office radiosondes"
+        }
+      ]
+    },
+    {
+      "slug": "hong-kong-landslide",
+      "title": "Hong Kong slopes",
+      "place": "Hong Kong Island · New Territories",
+      "region": "East Asia",
+      "labs": [
+        "mass-movement",
+        "weathering"
+      ],
+      "lat": 22.28,
+      "lon": 114.16,
+      "zoom": 11,
+      "lede": "Weathered granite, steep catchments, a city on the toe. Holderness is till at the sea; Hong Kong is saprolite on a slope.",
+      "body": [
+        "Hong Kong’s hills are granite and volcanic rock, deeply weathered in a subtropical monsoon. The saprolite is thick; joints open; a rain band turns a slope into a debris flow. The 1972 Sau Mau Ping disaster is the classroom sentence: fill and weathered granite, not a chalk cliff.",
+        "Compare Holderness. There the budget is waves versus till. Here the budget is rain versus a weathered slope above a dense city. Same syllabus word — mass movement — different rock, different trigger, different map.",
+        "The weathering lab’s granite close-up is the mineral story. The mass-movement lab is the failure. A groyne will not save a Hong Kong slope. A cut-and-fill wall might, if the drainage is honest.",
+        "Classroom move: open mass-movement, freeze a rotational slide, then jump to the Holderness case. Ask which one the sea wrote and which one the rain wrote before you show the map."
+      ],
+      "exam": {
+        "prompt": "Contrast a Hong Kong hillslope failure with Holderness cliff retreat, using rock type and the triggering process.",
+        "hint": "Hong Kong: weathered granite + intense rain. Holderness: glacial till + waves. Same word (mass movement / erosion), different agents."
+      },
+      "sources": [
+        {
+          "label": "GEO Hong Kong — landslide studies"
+        },
+        {
+          "label": "BGS — Holderness till"
+        }
+      ]
+    },
+    {
+      "slug": "shanghai-huangpu",
+      "title": "Shanghai, Meiyu and the Huangpu",
+      "place": "Huangpu · Yangtze delta",
+      "region": "East Asia",
+      "labs": [
+        "hydrograph",
+        "rivers",
+        "storm-surge"
+      ],
+      "lat": 31.23,
+      "lon": 121.49,
+      "zoom": 10,
+      "lede": "A drowned river on a delta. Meiyu, tide, and a flood wall. The Mississippi is a continental drain; the Huangpu is a tidal megacity creek.",
+      "body": [
+        "Shanghai sits on the Yangtze delta. The Huangpu is a tidal river: the sea comes in, the basin is low, and a plum-rain (Meiyu) hydrograph can sit on a high tide. That is not orographic cloud on a mountain, and it is not a meander textbook on the Mississippi floodplain — though both are floodplain bargains.",
+        "Compare Somerset Levels: a floodplain that sits wet for weeks. Shanghai’s bargain is a wall and a tide gate as well as a channel. The hydrograph lab is the rain-to-peak delay. Storm surge is the sea’s extra.",
+        "Pudong’s skyline is not the physical map. The physical map is silt, a drowned valley, and a monsoon that is not a UK winter front.",
+        "Classroom move: open the hydrograph, then the live-weather pin on Shanghai. Ask whether today’s rain is Meiyu, a typhoon remnant, or a winter front before you read the chart."
+      ],
+      "exam": {
+        "prompt": "Explain why a high tide plus Meiyu rain is a different flood story from a Mississippi overbank flood.",
+        "hint": "Tidal drowned river vs continental floodplain. Sea level is part of Shanghai’s peak; the Mississippi’s peak is catchment rain and snowmelt."
+      },
+      "sources": [
+        {
+          "label": "Shanghai Water Authority — Huangpu tide"
+        },
+        {
+          "label": "CMA — Meiyu"
+        }
+      ]
+    },
+    {
+      "slug": "typhoon-mangkhut",
+      "title": "Typhoon Mangkhut",
+      "place": "Pearl River Delta · Hong Kong · Macau",
+      "region": "East Asia",
+      "labs": [
+        "tropical-cyclone",
+        "storm-surge"
+      ],
+      "lat": 22.2,
+      "lon": 113.55,
+      "zoom": 7,
+      "state": "t=0.4",
+      "lede": "A typhoon is a tropical cyclone. The same warm-core class as Katrina, with a western North Pacific name; Sandy underwent extratropical transition near landfall.",
+      "body": [
+        "Mangkhut (2018) crossed the northern Philippines and then the Pearl River Delta. Hong Kong and Macau felt a wind field and a surge, not a UK winter front. The engine is a warm core over a warm sea. The name changes by basin: hurricane, typhoon, cyclone — one process.",
+        "Compare Katrina and Sandy. Those are Atlantic names for the same class of storm. Outer Banks is a sandy barrier in the same Atlantic budget. The Pearl River Delta is a drowned river and a megacity instead of a barrier island, but the surge physics is the long-wave pile of water the storm-surge lab shows.",
+        "Do not show a chalk cliff when you say typhoon. Do not show a hurricane when you say tsunami. The tropical-cyclone lab is this; the tsunami lab is a different wave.",
+        "Classroom move: freeze the cyclone lab on the eyewall, pin Hong Kong and New Orleans, and ask which coast is the barrier island and which is the drowned delta before you reveal the map."
+      ],
+      "exam": {
+        "prompt": "Using the warm-core engine, explain why Mangkhut and Katrina are the same class of storm despite different names.",
+        "hint": "Basin names (typhoon / hurricane). Same physics: warm sea, low shear, Coriolis, eyewall, surge."
+      },
+      "sources": [
+        {
+          "label": "HKO — Super Typhoon Mangkhut"
+        },
+        {
+          "label": "NOAA — hurricane vs typhoon"
+        }
+      ]
+    },
+    {
+      "slug": "loess-plateau",
+      "title": "Loess Plateau",
+      "place": "Shaanxi · Shanxi · Gansu",
+      "region": "East Asia",
+      "labs": [
+        "soil-erosion",
+        "soil-profile",
+        "aeolian"
+      ],
+      "lat": 36.6,
+      "lon": 109.5,
+      "zoom": 6,
+      "lede": "Wind-laid silt, then water. A soil-erosion classroom the size of a province. The Dust Bowl is the US pair, not a meander.",
+      "body": [
+        "The Loess Plateau is wind-laid silt from Central Asian deserts, metres to hundreds of metres thick. Water then cuts gullies. Terraces and check dams are the human reply. This is aeolian deposition plus fluvial erosion — two labs, one landscape.",
+        "Compare the Dust Bowl: wind lifting a broken A horizon on the US Great Plains. There the silt left. Here the silt arrived, then water dissected it. Same word (erosion), different agent, different time.",
+        "A soil pit on the Plateau shows thickness you can stand in. The soil-profile lab’s horizons still apply; the E may be missing. Colour is not the class.",
+        "Classroom move: open aeolian on a barchan, then soil-erosion on a gully, then this case. Ask which process laid the silt and which process is cutting it now."
+      ],
+      "exam": {
+        "prompt": "Explain how the Loess Plateau records both wind deposition and water erosion, using a US Dust Bowl comparison.",
+        "hint": "Wind laid the silt (aeolian). Water cuts gullies (fluvial). Dust Bowl: wind removing a broken A horizon — the opposite flux."
+      },
+      "sources": [
+        {
+          "label": "CAS / FAO — Loess Plateau restoration"
+        },
+        {
+          "label": "USDA — Dust Bowl"
+        }
+      ]
+    }
+  ],
+  "atlas": [
+    {
+      "id": "uk",
+      "name": "United Kingdom",
+      "kind": "country",
+      "capital": "London",
+      "lat": 51.51,
+      "lon": -0.13,
+      "hook": "Four nations on a drowned shelf; the physical story is ice, till, and a North Atlantic fetch.",
+      "geo": [
+        "Four nations on a drowned continental shelf. Ice, till, and a North Atlantic fetch write the land more than any county line.",
+        "The west is wet and upland; the east is drier and lower. Holderness till cliffs and a chalk south coast are the exam pair.",
+        "London sits on a drowned Thames. The physical map is glacial and marine, not a flag."
+      ],
+      "labs": [
+        {
+          "slug": "coasts",
+          "label": "Coasts"
+        },
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "fronts",
+          "label": "Fronts as wedges"
+        }
+      ]
+    },
+    {
+      "id": "ie",
+      "name": "Ireland",
+      "kind": "country",
+      "capital": "Dublin",
+      "lat": 53.35,
+      "lon": -6.26,
+      "hook": "A limestone and peat island; karst in the Burren, peat in the bogs.",
+      "geo": [
+        "A limestone and peat island on the Atlantic margin.",
+        "The Burren is carbonation along joints — a pavement, not a granite slab.",
+        "Ice left drumlins and a wet west. Dublin is on the drier east."
+      ],
+      "labs": [
+        {
+          "slug": "karst",
+          "label": "Karst"
+        },
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        }
+      ]
+    },
+    {
+      "id": "is",
+      "name": "Iceland",
+      "kind": "country",
+      "capital": "Reykjavík",
+      "lat": 64.15,
+      "lon": -21.94,
+      "hook": "A mid-ocean ridge with a country on it. Basalt, ice, and a hotspot.",
+      "geo": [
+        "Iceland sits on the Mid-Atlantic Ridge: a divergent plate boundary with a country on it.",
+        "A mantle plume (hotspot) thickens the crust so the ridge stands above sea level. New basalt at the axis; ice on the high ground.",
+        "Earthquakes and fissure eruptions are the syllabus, not a volcanic arc. The island is not a subduction story."
+      ],
+      "labs": [
+        {
+          "slug": "hotspots",
+          "label": "Hotspots"
+        },
+        {
+          "slug": "seafloor-spreading",
+          "label": "Seafloor spreading"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        }
+      ]
+    },
+    {
+      "id": "fr",
+      "name": "France",
+      "kind": "country",
+      "capital": "Paris",
+      "lat": 48.86,
+      "lon": 2.35,
+      "hook": "Massif Central to Alpine collision; a temperate west-coast climate inland.",
+      "geo": [
+        "Massif Central of old rock, then Alpine collision in the south-east.",
+        "A temperate west-coast climate that becomes more continental inland.",
+        "Paris sits on a sedimentary basin, not in the mountains."
+      ]
+    },
+    {
+      "id": "es",
+      "name": "Spain",
+      "kind": "country",
+      "capital": "Madrid",
+      "lat": 40.42,
+      "lon": -3.7,
+      "hook": "A high meseta, Mediterranean coasts, and a rain-shadow interior.",
+      "geo": [
+        "A high meseta, Mediterranean coasts, and a rain-shadow interior.",
+        "The west sees Atlantic moisture; the south-east is drier.",
+        "Madrid is an interior capital on the plateau, not a port."
+      ]
+    },
+    {
+      "id": "pt",
+      "name": "Portugal",
+      "kind": "country",
+      "capital": "Lisbon",
+      "lat": 38.72,
+      "lon": -9.14,
+      "hook": "Atlantic margin, Iberian plate, and a long fetch for swell.",
+      "geo": [
+        "Atlantic margin, Iberian plate, and a long fetch for swell."
+      ]
+    },
+    {
+      "id": "de",
+      "name": "Germany",
+      "kind": "country",
+      "capital": "Berlin",
+      "lat": 52.52,
+      "lon": 13.41,
+      "hook": "North European Plain, then the Alpine foreland. Rivers write the map.",
+      "geo": [
+        "North European Plain, then the Alpine foreland. Rivers write the map."
+      ]
+    },
+    {
+      "id": "it",
+      "name": "Italy",
+      "kind": "country",
+      "capital": "Rome",
+      "lat": 41.9,
+      "lon": 12.5,
+      "hook": "A colliding boot: Alps, Apennines, volcanoes on a subduction story.",
+      "geo": [
+        "Alps from collision, Apennines as a fold belt, volcanoes on a subduction hinge.",
+        "Vesuvius and Etna differ in magma composition and tectonic setting; Etna commonly erupts basaltic lava.",
+        "Rome sits in a west-coast lowland, not on the Alpine crest."
+      ],
+      "labs": [
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "earthquakes",
+          "label": "Earthquakes"
+        }
+      ]
+    },
+    {
+      "id": "gr",
+      "name": "Greece",
+      "kind": "country",
+      "capital": "Athens",
+      "lat": 37.98,
+      "lon": 23.73,
+      "hook": "A drowned mountain landscape; earthquakes are the plate conversation.",
+      "labs": [
+        {
+          "slug": "earthquakes",
+          "label": "Earthquakes"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        }
+      ],
+      "geo": [
+        "A drowned mountain landscape; earthquakes are the plate conversation."
+      ]
+    },
+    {
+      "id": "no",
+      "name": "Norway",
+      "kind": "country",
+      "capital": "Oslo",
+      "lat": 59.91,
+      "lon": 10.75,
+      "hook": "Glacial troughs flooded as fjords. Ice did the cutting.",
+      "geo": [
+        "Ice cut U-troughs; the sea flooded them as fjords. Rivers did not invent those walls.",
+        "A wet west on a westerly fetch; Oslo is on a drier east.",
+        "Caledonian rock and a glaciated shield, not a volcanic arc."
+      ],
+      "labs": [
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "coasts",
+          "label": "Coasts"
+        }
+      ]
+    },
+    {
+      "id": "se",
+      "name": "Sweden",
+      "kind": "country",
+      "capital": "Stockholm",
+      "lat": 59.33,
+      "lon": 18.07,
+      "hook": "A shield of old rock, ice-scoured, with a Baltic half-sea.",
+      "geo": [
+        "A shield of old rock, ice-scoured, with a Baltic half-sea."
+      ]
+    },
+    {
+      "id": "fi",
+      "name": "Finland",
+      "kind": "country",
+      "capital": "Helsinki",
+      "lat": 60.17,
+      "lon": 24.94,
+      "hook": "A lake-and-moraine country left by ice sheets.",
+      "geo": [
+        "A lake-and-moraine country left by ice sheets."
+      ]
+    },
+    {
+      "id": "pl",
+      "name": "Poland",
+      "kind": "country",
+      "capital": "Warsaw",
+      "lat": 52.23,
+      "lon": 21.01,
+      "hook": "A plain of glacial deposits between the Baltic and the Carpathians.",
+      "geo": [
+        "A plain of glacial deposits between the Baltic and the Carpathians."
+      ]
+    },
+    {
+      "id": "nl",
+      "name": "Netherlands",
+      "kind": "country",
+      "capital": "Amsterdam",
+      "lat": 52.37,
+      "lon": 4.9,
+      "hook": "A delta and a bargain with the sea. Levées as national policy.",
+      "labs": [
+        {
+          "slug": "rivers",
+          "label": "Rivers"
+        },
+        {
+          "slug": "coasts",
+          "label": "Coasts"
+        },
+        {
+          "slug": "storm-surge",
+          "label": "Storm surge"
+        }
+      ],
+      "geo": [
+        "A delta and a bargain with the sea. Levées as national policy."
+      ]
+    },
+    {
+      "id": "be",
+      "name": "Belgium",
+      "kind": "country",
+      "capital": "Brussels",
+      "lat": 50.85,
+      "lon": 4.35,
+      "hook": "A short slope from North Sea mud to Ardennes rock.",
+      "geo": [
+        "A short slope from North Sea mud to Ardennes rock."
+      ]
+    },
+    {
+      "id": "ch",
+      "name": "Switzerland",
+      "kind": "country",
+      "capital": "Bern",
+      "lat": 46.95,
+      "lon": 7.44,
+      "hook": "Collision mountains, U-troughs, and the hydrology of ice.",
+      "labs": [
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "folds-faults",
+          "label": "Folds and faults"
+        }
+      ],
+      "geo": [
+        "Collision mountains, U-troughs, and the hydrology of ice."
+      ]
+    },
+    {
+      "id": "at",
+      "name": "Austria",
+      "kind": "country",
+      "capital": "Vienna",
+      "lat": 48.21,
+      "lon": 16.37,
+      "hook": "The eastern Alps, then the Danube gate.",
+      "geo": [
+        "The eastern Alps, then the Danube gate."
+      ]
+    },
+    {
+      "id": "tr",
+      "name": "Türkiye",
+      "kind": "country",
+      "capital": "Ankara",
+      "lat": 39.93,
+      "lon": 32.86,
+      "hook": "A plateau between colliding plates; North Anatolian Fault is the exam case.",
+      "labs": [
+        {
+          "slug": "earthquakes",
+          "label": "Earthquakes"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        }
+      ],
+      "geo": [
+        "A plateau between colliding plates; North Anatolian Fault is the exam case."
+      ]
+    },
+    {
+      "id": "eg",
+      "name": "Egypt",
+      "kind": "country",
+      "capital": "Cairo",
+      "lat": 30.04,
+      "lon": 31.24,
+      "hook": "A desert with a river. The Nile is the hydrograph.",
+      "geo": [
+        "A hot desert with one through-flowing river. The Nile is the hydrograph.",
+        "Almost no rain on the plateau. Flood pulse and irrigation are the water story.",
+        "Cairo sits on alluvium, not on a glacier or a plate boundary."
+      ],
+      "labs": [
+        {
+          "slug": "hydrograph",
+          "label": "Storm hydrograph"
+        },
+        {
+          "slug": "rivers",
+          "label": "Rivers"
+        },
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        }
+      ]
+    },
+    {
+      "id": "ke",
+      "name": "Kenya",
+      "kind": "country",
+      "capital": "Nairobi",
+      "lat": -1.29,
+      "lon": 36.82,
+      "hook": "Equatorial highlands and the East African Rift; seasonal rain and drier lowlands.",
+      "geo": [
+        "Kenya sits on the East African Rift. Equator on a diverging plate.",
+        "Rainfall seasons reflect the migration of tropical circulation, ocean conditions and relief; axial tilt still drives the seasonal solar cycle.",
+        "Nairobi is high enough to be cool. Height writes the air here, not latitude alone."
+      ],
+      "labs": [
+        {
+          "slug": "seasons",
+          "label": "Why seasons happen"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        }
+      ]
+    },
+    {
+      "id": "za",
+      "name": "South Africa",
+      "kind": "country",
+      "capital": "Pretoria",
+      "lat": -25.75,
+      "lon": 28.19,
+      "hook": "A high plateau, a cold current, and a winter-rain Cape.",
+      "geo": [
+        "A high plateau, a cold current, and a winter-rain Cape."
+      ]
+    },
+    {
+      "id": "ng",
+      "name": "Nigeria",
+      "kind": "country",
+      "capital": "Abuja",
+      "lat": 9.08,
+      "lon": 7.4,
+      "hook": "ITCZ walk writes a wet south and a drier north.",
+      "geo": [
+        "ITCZ walk writes a wet south and a drier north."
+      ]
+    },
+    {
+      "id": "ma",
+      "name": "Morocco",
+      "kind": "country",
+      "capital": "Rabat",
+      "lat": 34.02,
+      "lon": -6.84,
+      "hook": "Atlas ranges, a cold Canary current, and a Sahara edge.",
+      "geo": [
+        "Atlas ranges, a cold Canary current, and a Sahara edge."
+      ]
+    },
+    {
+      "id": "us",
+      "name": "United States",
+      "kind": "country",
+      "capital": "Washington, D.C.",
+      "lat": 38.91,
+      "lon": -77.04,
+      "hook": "Cordillera, shield, plains, and two oceans. One country, several planets.",
+      "geo": [
+        "Cordillera, shield, plains, and two oceans. One country, several physical planets.",
+        "The west is plates and rain-shadow. The east is a drowned glacial and river story.",
+        "Washington, D.C. sits on a fall-line hinge, not in a glacial trough."
+      ],
+      "labs": [
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        },
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        }
+      ]
+    },
+    {
+      "id": "ca",
+      "name": "Canada",
+      "kind": "country",
+      "capital": "Ottawa",
+      "lat": 45.42,
+      "lon": -75.7,
+      "hook": "A shield of ancient rock, ice, and a long polar night in the north.",
+      "labs": [
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "periglacial",
+          "label": "Periglacial"
+        }
+      ],
+      "geo": [
+        "A shield of ancient rock, ice, and a long polar night in the north."
+      ]
+    },
+    {
+      "id": "mx",
+      "name": "Mexico",
+      "kind": "country",
+      "capital": "Mexico City",
+      "lat": 19.43,
+      "lon": -99.13,
+      "hook": "A volcanic high, a subduction trench, and a dry north.",
+      "labs": [
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        }
+      ],
+      "geo": [
+        "A volcanic high, a subduction trench, and a dry north."
+      ]
+    },
+    {
+      "id": "br",
+      "name": "Brazil",
+      "kind": "country",
+      "capital": "Brasília",
+      "lat": -15.79,
+      "lon": -47.88,
+      "hook": "Amazon basin, Brazilian plateau, and an ITCZ that is not a UK weather map.",
+      "labs": [
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        },
+        {
+          "slug": "carbon-cycle",
+          "label": "Carbon cycle"
+        },
+        {
+          "slug": "rivers",
+          "label": "Rivers"
+        }
+      ],
+      "geo": [
+        "Amazon basin, Brazilian plateau, and an ITCZ that is not a UK weather map."
+      ]
+    },
+    {
+      "id": "ar",
+      "name": "Argentina",
+      "kind": "country",
+      "capital": "Buenos Aires",
+      "lat": -34.6,
+      "lon": -58.38,
+      "hook": "Andes rain-shadow, then a humid Pampas, then Patagonian ice.",
+      "geo": [
+        "Andes rain-shadow, then a humid Pampas, then Patagonian ice."
+      ]
+    },
+    {
+      "id": "cl",
+      "name": "Chile",
+      "kind": "country",
+      "capital": "Santiago",
+      "lat": -33.45,
+      "lon": -70.67,
+      "hook": "A trench, a range, and a desert beside a cold current.",
+      "geo": [
+        "A trench, a range, and the Atacama beside a cold Humboldt current.",
+        "Subduction writes the Andes and the volcanoes. Rain-shadow writes the desert.",
+        "Santiago sits in a central valley, not on the trench axis."
+      ],
+      "labs": [
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        },
+        {
+          "slug": "rain-shadow",
+          "label": "Rain shadow"
+        }
+      ]
+    },
+    {
+      "id": "pe",
+      "name": "Peru",
+      "kind": "country",
+      "capital": "Lima",
+      "lat": -12.05,
+      "lon": -77.04,
+      "hook": "Humboldt current, Andes, Amazon — three climates in one transect.",
+      "labs": [
+        {
+          "slug": "rain-shadow",
+          "label": "Rain shadow"
+        },
+        {
+          "slug": "ocean-currents",
+          "label": "Ocean currents"
+        },
+        {
+          "slug": "enso",
+          "label": "ENSO"
+        }
+      ],
+      "geo": [
+        "Humboldt current, Andes, Amazon — three climates in one transect."
+      ]
+    },
+    {
+      "id": "co",
+      "name": "Colombia",
+      "kind": "country",
+      "capital": "Bogotá",
+      "lat": 4.71,
+      "lon": -74.07,
+      "hook": "Equatorial Andes. Height writes the climate, not latitude.",
+      "geo": [
+        "Equatorial Andes. Height writes the climate, not latitude."
+      ]
+    },
+    {
+      "id": "au",
+      "name": "Australia",
+      "kind": "country",
+      "capital": "Canberra",
+      "lat": -35.28,
+      "lon": 149.13,
+      "hook": "An old, dry shield. Monsoon north, Mediterranean south-west, desert core.",
+      "labs": [
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        },
+        {
+          "slug": "aeolian",
+          "label": "Wind landforms"
+        }
+      ],
+      "geo": [
+        "An old, dry shield. Monsoon north, Mediterranean south-west, desert core."
+      ]
+    },
+    {
+      "id": "nz",
+      "name": "New Zealand",
+      "kind": "country",
+      "capital": "Wellington",
+      "lat": -41.29,
+      "lon": 174.78,
+      "hook": "A plate boundary with alps and a westerly fetch.",
+      "geo": [
+        "A plate boundary with Southern Alps and a long westerly fetch.",
+        "The Alpine Fault is a transform with a compressional component — not a Hawaiian hotspot.",
+        "Wellington sits on the colliding edge. Ice cut the south-west fjords."
+      ],
+      "labs": [
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "earthquakes",
+          "label": "Earthquakes"
+        }
+      ]
+    },
+    {
+      "id": "jp",
+      "name": "Japan",
+      "kind": "country",
+      "capital": "Tokyo",
+      "lat": 35.68,
+      "lon": 139.65,
+      "hook": "Arc volcanoes on a subduction hinge. Earthquakes are the syllabus.",
+      "geo": [
+        "Japan lies along several plate margins, where the Pacific and Philippine Sea plates subduct beneath parts of the island arc.",
+        "Volcanoes form above subduction zones. Offshore earthquakes can generate tsunami when they displace the seafloor.",
+        "Tokyo sits on a Kanto plain of sediment, not on a mid-ocean ridge. This is not Iceland and not Hawaii."
+      ],
+      "labs": [
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "earthquakes",
+          "label": "Earthquakes"
+        }
+      ]
+    },
+    {
+      "id": "cn",
+      "name": "China",
+      "kind": "country",
+      "capital": "Beijing",
+      "lat": 39.9,
+      "lon": 116.41,
+      "hook": "A monsoon east, a dry west, a colliding south.",
+      "geo": [
+        "A monsoon east, a dry interior west, and a colliding Himalayan south.",
+        "The Tibetan Plateau is continent–continent convergence, not a volcanic arc.",
+        "Beijing sits on a north China plain. The high ice is a thousand kilometres southwest. Shanghai, Hong Kong, and the Loess Plateau are other physical planets inside the same country."
+      ],
+      "labs": [
+        {
+          "slug": "folds-faults",
+          "label": "Folds and faults"
+        },
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        },
+        {
+          "slug": "rain-shadow",
+          "label": "Rain shadow"
+        }
+      ],
+      "alias": [
+        "中国",
+        "Beijing",
+        "北京",
+        "Shanghai",
+        "上海",
+        "Hong Kong",
+        "香港",
+        "Taiwan",
+        "台湾",
+        "Macau",
+        "澳门"
+      ]
+    },
+    {
+      "id": "hk",
+      "name": "Hong Kong",
+      "kind": "city",
+      "capital": "—",
+      "lat": 22.3,
+      "lon": 114.17,
+      "hook": "Weathered granite, steep catchments, a drowned harbour. Mass movement is the syllabus.",
+      "geo": [
+        "A granite and volcanic terrain, deeply weathered in a subtropical monsoon.",
+        "Steep catchments above a dense city. Debris flows after rain, not till cliffs at a North Sea fetch.",
+        "Victoria Harbour is a drowned valley. The physical map is slope and saprolite, not a skyline."
+      ],
+      "labs": [
+        {
+          "slug": "mass-movement",
+          "label": "Mass movement"
+        },
+        {
+          "slug": "weathering",
+          "label": "Weathering"
+        },
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        }
+      ],
+      "alias": [
+        "香港",
+        "Xianggang",
+        "HK",
+        "Kowloon",
+        "New Territories"
+      ]
+    },
+    {
+      "id": "shanghai",
+      "name": "Shanghai",
+      "kind": "city",
+      "capital": "—",
+      "lat": 31.23,
+      "lon": 121.47,
+      "hook": "A tidal Huangpu on the Yangtze delta. Meiyu, tide, and a flood wall.",
+      "geo": [
+        "A drowned river on a silt delta. The Huangpu is tidal; the sea is part of the hydrograph.",
+        "Meiyu (plum rain) and typhoon remnants write summer peaks. This is not a UK winter front.",
+        "Pudong is a skyline on alluvium. The physical map is the delta, not the tower."
+      ],
+      "labs": [
+        {
+          "slug": "hydrograph",
+          "label": "Storm hydrograph"
+        },
+        {
+          "slug": "rivers",
+          "label": "Rivers"
+        },
+        {
+          "slug": "storm-surge",
+          "label": "Storm surge"
+        }
+      ],
+      "alias": [
+        "上海",
+        "Huangpu",
+        "黄浦",
+        "Pudong",
+        "Yangtze delta"
+      ]
+    },
+    {
+      "id": "tw",
+      "name": "Taiwan",
+      "kind": "country",
+      "capital": "Taipei",
+      "lat": 25.03,
+      "lon": 121.57,
+      "hook": "A colliding island: high Central Range, a typhoon east, a strait to the west.",
+      "geo": [
+        "Taiwan is an orogen on a converging edge. The Central Range is high because plates shorten.",
+        "The east is a typhoon fetch. Yushan is a collision peak, not a volcanic arc like Fuji.",
+        "Taipei sits in a northern basin. The physical map is the range and the strait."
+      ],
+      "labs": [
+        {
+          "slug": "folds-faults",
+          "label": "Folds and faults"
+        },
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        }
+      ],
+      "alias": [
+        "台湾",
+        "臺灣",
+        "Taipei",
+        "台北",
+        "Formosa",
+        "Yushan"
+      ]
+    },
+    {
+      "id": "mo",
+      "name": "Macau",
+      "kind": "city",
+      "capital": "—",
+      "lat": 22.2,
+      "lon": 113.54,
+      "hook": "A drowned Pearl River edge. Typhoon surge on reclaimed ground.",
+      "geo": [
+        "Macau sits on the west of the Pearl River estuary. Reclamation is the new shoreline.",
+        "A typhoon surge is the syllabus, not a chalk cliff. The same warm-core engine as a hurricane, a western North Pacific name.",
+        "The tower is a landmark. The physical map is an estuary and a monsoon."
+      ],
+      "labs": [
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        },
+        {
+          "slug": "storm-surge",
+          "label": "Storm surge"
+        },
+        {
+          "slug": "coasts",
+          "label": "Coasts"
+        }
+      ],
+      "alias": [
+        "澳门",
+        "澳門",
+        "Macao",
+        "Pearl River"
+      ]
+    },
+    {
+      "id": "in",
+      "name": "India",
+      "kind": "country",
+      "capital": "New Delhi",
+      "lat": 28.61,
+      "lon": 77.21,
+      "hook": "A continent that walked north; the Himalaya are the crumple.",
+      "geo": [
+        "India walked north into Eurasia. The Himalaya are the crumple zone.",
+        "A monsoon climate on a colliding edge. The Ganges–Brahmaputra is the hydrograph.",
+        "New Delhi sits on the Indo-Gangetic plain, not on the high ice."
+      ],
+      "labs": [
+        {
+          "slug": "continental-drift",
+          "label": "Continental drift"
+        },
+        {
+          "slug": "folds-faults",
+          "label": "Folds and faults"
+        },
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        }
+      ]
+    },
+    {
+      "id": "id",
+      "name": "Indonesia",
+      "kind": "country",
+      "capital": "Jakarta",
+      "lat": -6.21,
+      "lon": 106.85,
+      "hook": "An island arc on the Pacific Ring. Volcanoes and a warm pool.",
+      "labs": [
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        }
+      ],
+      "geo": [
+        "An island arc on the Pacific Ring. Volcanoes and a warm pool."
+      ]
+    },
+    {
+      "id": "ph",
+      "name": "Philippines",
+      "kind": "country",
+      "capital": "Manila",
+      "lat": 14.6,
+      "lon": 120.98,
+      "hook": "A typhoon alley on a colliding arc.",
+      "labs": [
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        },
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        }
+      ],
+      "geo": [
+        "A typhoon alley on a colliding arc."
+      ]
+    },
+    {
+      "id": "kr",
+      "name": "South Korea",
+      "kind": "country",
+      "capital": "Seoul",
+      "lat": 37.57,
+      "lon": 126.98,
+      "hook": "A peninsula between a cold sea and a monsoon.",
+      "geo": [
+        "A peninsula between a cold sea and a monsoon."
+      ]
+    },
+    {
+      "id": "ru",
+      "name": "Russia",
+      "kind": "country",
+      "capital": "Moscow",
+      "lat": 55.76,
+      "lon": 37.62,
+      "hook": "A continental interior. Size on a Mercator map is a projection lie.",
+      "labs": [
+        {
+          "slug": "map-projections",
+          "label": "Map projections"
+        },
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        }
+      ],
+      "geo": [
+        "A continental interior. Size on a Mercator map is a projection lie."
+      ]
+    },
+    {
+      "id": "ua",
+      "name": "Ukraine",
+      "kind": "country",
+      "capital": "Kyiv",
+      "lat": 50.45,
+      "lon": 30.52,
+      "hook": "A chernozem plain — mollisol country — drained by the Dnipro.",
+      "geo": [
+        "A chernozem plain — mollisol country — drained by the Dnipro."
+      ]
+    },
+    {
+      "id": "sa",
+      "name": "Saudi Arabia",
+      "kind": "country",
+      "capital": "Riyadh",
+      "lat": 24.71,
+      "lon": 46.68,
+      "hook": "A hot desert on a shield, with a Red Sea rift on one edge.",
+      "geo": [
+        "A hot desert on a shield, with a Red Sea rift on one edge."
+      ]
+    },
+    {
+      "id": "ir",
+      "name": "Iran",
+      "kind": "country",
+      "capital": "Tehran",
+      "lat": 35.69,
+      "lon": 51.39,
+      "hook": "Fold mountains from collision; a dry interior plateau.",
+      "geo": [
+        "Fold mountains from collision; a dry interior plateau."
+      ]
+    },
+    {
+      "id": "pk",
+      "name": "Pakistan",
+      "kind": "country",
+      "capital": "Islamabad",
+      "lat": 33.68,
+      "lon": 73.05,
+      "hook": "Indus basin in the rain-shadow of the collision belt.",
+      "geo": [
+        "Indus basin in the rain-shadow of the collision belt."
+      ]
+    },
+    {
+      "id": "bd",
+      "name": "Bangladesh",
+      "kind": "country",
+      "capital": "Dhaka",
+      "lat": 23.81,
+      "lon": 90.41,
+      "hook": "A delta the size of a country. Monsoon plus Ganges–Brahmaputra load.",
+      "labs": [
+        {
+          "slug": "rivers",
+          "label": "Rivers"
+        },
+        {
+          "slug": "hydrograph",
+          "label": "Storm hydrograph"
+        },
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        }
+      ],
+      "geo": [
+        "A delta the size of a country. Monsoon plus Ganges–Brahmaputra load."
+      ]
+    },
+    {
+      "id": "vn",
+      "name": "Vietnam",
+      "kind": "country",
+      "capital": "Hanoi",
+      "lat": 21.03,
+      "lon": 105.85,
+      "hook": "A monsoon coast with a Red River and Mekong pair of deltas.",
+      "geo": [
+        "A monsoon coast with a Red River and Mekong pair of deltas."
+      ]
+    },
+    {
+      "id": "th",
+      "name": "Thailand",
+      "kind": "country",
+      "capital": "Bangkok",
+      "lat": 13.76,
+      "lon": 100.5,
+      "hook": "A tropical wet-and-dry year on a peninsula.",
+      "geo": [
+        "A tropical wet-and-dry year on a peninsula."
+      ]
+    },
+    {
+      "id": "my",
+      "name": "Malaysia",
+      "kind": "country",
+      "capital": "Kuala Lumpur",
+      "lat": 3.14,
+      "lon": 101.69,
+      "hook": "Equatorial rainforest on a peninsula and on Borneo.",
+      "geo": [
+        "Equatorial rainforest on a peninsula and on Borneo."
+      ]
+    },
+    {
+      "id": "sg",
+      "name": "Singapore",
+      "kind": "country",
+      "capital": "Singapore",
+      "lat": 1.35,
+      "lon": 103.82,
+      "hook": "Almost on the equator. Day length barely moves.",
+      "labs": [
+        {
+          "slug": "seasons",
+          "label": "Why seasons happen"
+        }
+      ],
+      "geo": [
+        "Almost on the equator. Day length barely moves."
+      ]
+    },
+    {
+      "id": "ae",
+      "name": "United Arab Emirates",
+      "kind": "country",
+      "capital": "Abu Dhabi",
+      "lat": 24.45,
+      "lon": 54.38,
+      "hook": "Hot desert coast on a shallow sea. Albedo and air-con are the budget.",
+      "geo": [
+        "Hot desert coast on a shallow sea. Albedo and air-con are the budget."
+      ]
+    },
+    {
+      "id": "qa",
+      "name": "Qatar",
+      "kind": "country",
+      "capital": "Doha",
+      "lat": 25.29,
+      "lon": 51.53,
+      "hook": "A limestone peninsula, a shallow gulf, extreme summer heat.",
+      "geo": [
+        "A limestone peninsula, a shallow gulf, extreme summer heat."
+      ]
+    },
+    {
+      "id": "il",
+      "name": "Israel",
+      "kind": "country",
+      "capital": "Jerusalem",
+      "lat": 31.77,
+      "lon": 35.22,
+      "hook": "A climate transect from Mediterranean to rain-shadow desert in a few hours.",
+      "geo": [
+        "A climate transect from Mediterranean to rain-shadow desert in a few hours."
+      ]
+    },
+    {
+      "id": "et",
+      "name": "Ethiopia",
+      "kind": "country",
+      "capital": "Addis Ababa",
+      "lat": 9.03,
+      "lon": 38.74,
+      "hook": "A high plateau on the East African Rift. Height, not latitude, writes the air.",
+      "labs": [
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        }
+      ],
+      "geo": [
+        "A high plateau on the East African Rift. Height, not latitude, writes the air."
+      ]
+    },
+    {
+      "id": "tz",
+      "name": "Tanzania",
+      "kind": "country",
+      "capital": "Dodoma",
+      "lat": -6.16,
+      "lon": 35.75,
+      "hook": "Rift, crater highlands, and an Indian Ocean monsoon.",
+      "geo": [
+        "Rift, crater highlands, and an Indian Ocean monsoon."
+      ]
+    },
+    {
+      "id": "gh",
+      "name": "Ghana",
+      "kind": "country",
+      "capital": "Accra",
+      "lat": 5.6,
+      "lon": -0.19,
+      "hook": "ITCZ rains on a Gulf of Guinea coast. Greenwich’s sea crossing is offshore.",
+      "geo": [
+        "ITCZ rains on a Gulf of Guinea coast. Greenwich’s sea crossing is offshore."
+      ]
+    },
+    {
+      "id": "sn",
+      "name": "Senegal",
+      "kind": "country",
+      "capital": "Dakar",
+      "lat": 14.69,
+      "lon": -17.45,
+      "hook": "Sahel on the west. The ITCZ’s walk is the wet season.",
+      "geo": [
+        "Sahel on the west. The ITCZ’s walk is the wet season."
+      ]
+    },
+    {
+      "id": "dz",
+      "name": "Algeria",
+      "kind": "country",
+      "capital": "Algiers",
+      "lat": 36.75,
+      "lon": 3.06,
+      "hook": "A Mediterranean strip, then Sahara. Albedo jumps at the sand.",
+      "geo": [
+        "A Mediterranean strip, then Sahara. Albedo jumps at the sand."
+      ]
+    },
+    {
+      "id": "ly",
+      "name": "Libya",
+      "kind": "country",
+      "capital": "Tripoli",
+      "lat": 32.89,
+      "lon": 13.19,
+      "hook": "Sahara to a short Mediterranean coast.",
+      "geo": [
+        "Sahara to a short Mediterranean coast."
+      ]
+    },
+    {
+      "id": "sd",
+      "name": "Sudan",
+      "kind": "country",
+      "capital": "Khartoum",
+      "lat": 15.5,
+      "lon": 32.56,
+      "hook": "Nile confluence in a seasonal ITCZ climate.",
+      "geo": [
+        "Nile confluence in a seasonal ITCZ climate."
+      ]
+    },
+    {
+      "id": "cd",
+      "name": "DR Congo",
+      "kind": "country",
+      "capital": "Kinshasa",
+      "lat": -4.33,
+      "lon": 15.31,
+      "hook": "Congo basin rainforest. The air is a store of water.",
+      "geo": [
+        "Congo basin rainforest. The air is a store of water."
+      ]
+    },
+    {
+      "id": "ao",
+      "name": "Angola",
+      "kind": "country",
+      "capital": "Luanda",
+      "lat": -8.84,
+      "lon": 13.23,
+      "hook": "A Benguela-current coast and an inland plateau.",
+      "geo": [
+        "A Benguela-current coast and an inland plateau."
+      ]
+    },
+    {
+      "id": "mz",
+      "name": "Mozambique",
+      "kind": "country",
+      "capital": "Maputo",
+      "lat": -25.97,
+      "lon": 32.57,
+      "hook": "An Indian Ocean cyclone coast on a rifted margin.",
+      "geo": [
+        "An Indian Ocean cyclone coast on a rifted margin."
+      ]
+    },
+    {
+      "id": "mg",
+      "name": "Madagascar",
+      "kind": "country",
+      "capital": "Antananarivo",
+      "lat": -18.88,
+      "lon": 47.51,
+      "hook": "A wet east, a dry west, a rain-shadow island.",
+      "geo": [
+        "A wet east, a dry west, a rain-shadow island."
+      ]
+    },
+    {
+      "id": "cu",
+      "name": "Cuba",
+      "kind": "country",
+      "capital": "Havana",
+      "lat": 23.11,
+      "lon": -82.37,
+      "hook": "A tropical island in the hurricane belt, on a carbonate platform.",
+      "labs": [
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        },
+        {
+          "slug": "karst",
+          "label": "Karst"
+        }
+      ],
+      "geo": [
+        "A tropical island in the hurricane belt, on a carbonate platform."
+      ]
+    },
+    {
+      "id": "ht",
+      "name": "Haiti",
+      "kind": "country",
+      "capital": "Port-au-Prince",
+      "lat": 18.59,
+      "lon": -72.31,
+      "hook": "A transform and collision edge. Earthquakes and steep catchments.",
+      "labs": [
+        {
+          "slug": "earthquakes",
+          "label": "Earthquakes"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        }
+      ],
+      "geo": [
+        "A transform and collision edge. Earthquakes and steep catchments."
+      ]
+    },
+    {
+      "id": "jm",
+      "name": "Jamaica",
+      "kind": "country",
+      "capital": "Kingston",
+      "lat": 18.02,
+      "lon": -76.81,
+      "hook": "A limestone island with hurricane fetch from the Atlantic.",
+      "geo": [
+        "A limestone island with hurricane fetch from the Atlantic."
+      ]
+    },
+    {
+      "id": "cr",
+      "name": "Costa Rica",
+      "kind": "country",
+      "capital": "San José",
+      "lat": 9.93,
+      "lon": -84.09,
+      "hook": "A volcanic isthmus between two oceans.",
+      "geo": [
+        "A volcanic isthmus between two oceans."
+      ]
+    },
+    {
+      "id": "pa",
+      "name": "Panama",
+      "kind": "country",
+      "capital": "Panama City",
+      "lat": 8.98,
+      "lon": -79.52,
+      "hook": "The divide a canal cut. Two oceans, one ITCZ.",
+      "geo": [
+        "The divide a canal cut. Two oceans, one ITCZ."
+      ]
+    },
+    {
+      "id": "ec",
+      "name": "Ecuador",
+      "kind": "country",
+      "capital": "Quito",
+      "lat": -0.18,
+      "lon": -78.47,
+      "hook": "Equator plus Andes. Galápagos is the hotspot footnote.",
+      "labs": [
+        {
+          "slug": "hotspots",
+          "label": "Hotspots"
+        },
+        {
+          "slug": "seasons",
+          "label": "Why seasons happen"
+        }
+      ],
+      "geo": [
+        "Equator plus Andes. Galápagos is the hotspot footnote."
+      ]
+    },
+    {
+      "id": "bo",
+      "name": "Bolivia",
+      "kind": "country",
+      "capital": "Sucre",
+      "lat": -19.02,
+      "lon": -65.26,
+      "hook": "Altiplano, a high dry basin between ranges.",
+      "geo": [
+        "Altiplano, a high dry basin between ranges."
+      ]
+    },
+    {
+      "id": "uy",
+      "name": "Uruguay",
+      "kind": "country",
+      "capital": "Montevideo",
+      "lat": -34.9,
+      "lon": -56.16,
+      "hook": "A temperate grassland on the Río de la Plata.",
+      "geo": [
+        "A temperate grassland on the Río de la Plata."
+      ]
+    },
+    {
+      "id": "py",
+      "name": "Paraguay",
+      "kind": "country",
+      "capital": "Asunción",
+      "lat": -25.26,
+      "lon": -57.58,
+      "hook": "A continental interior river basin, no coast.",
+      "geo": [
+        "A continental interior river basin, no coast."
+      ]
+    },
+    {
+      "id": "ve",
+      "name": "Venezuela",
+      "kind": "country",
+      "capital": "Caracas",
+      "lat": 10.48,
+      "lon": -66.9,
+      "hook": "Caribbean coast, Andes spur, Orinoco plains.",
+      "geo": [
+        "Caribbean coast, Andes spur, Orinoco plains."
+      ]
+    },
+    {
+      "id": "gy",
+      "name": "Guyana",
+      "kind": "country",
+      "capital": "Georgetown",
+      "lat": 6.8,
+      "lon": -58.16,
+      "hook": "A Guiana Shield edge and a muddy Atlantic coast.",
+      "geo": [
+        "A Guiana Shield edge and a muddy Atlantic coast."
+      ]
+    },
+    {
+      "id": "pg",
+      "name": "Papua New Guinea",
+      "kind": "country",
+      "capital": "Port Moresby",
+      "lat": -9.44,
+      "lon": 147.18,
+      "hook": "A colliding island of high relief and wet tropics.",
+      "geo": [
+        "A colliding island of high relief and wet tropics."
+      ]
+    },
+    {
+      "id": "fj",
+      "name": "Fiji",
+      "kind": "country",
+      "capital": "Suva",
+      "lat": -18.14,
+      "lon": 178.44,
+      "hook": "A tropical cyclone island on a complex plate hinge.",
+      "geo": [
+        "A tropical cyclone island on a complex plate hinge."
+      ]
+    },
+    {
+      "id": "to",
+      "name": "Tonga",
+      "kind": "country",
+      "capital": "Nukuʻalofa",
+      "lat": -21.14,
+      "lon": -175.2,
+      "hook": "A volcanic arc above a deep trench.",
+      "geo": [
+        "A volcanic arc above a deep trench."
+      ]
+    },
+    {
+      "id": "ws",
+      "name": "Samoa",
+      "kind": "country",
+      "capital": "Apia",
+      "lat": -13.83,
+      "lon": -171.77,
+      "hook": "Hotspot islands in the South Pacific trades.",
+      "geo": [
+        "Hotspot islands in the South Pacific trades."
+      ]
+    },
+    {
+      "id": "np",
+      "name": "Nepal",
+      "kind": "country",
+      "capital": "Kathmandu",
+      "lat": 27.72,
+      "lon": 85.32,
+      "hook": "The Himalaya wedge. Continent–continent convergence, in section.",
+      "labs": [
+        {
+          "slug": "folds-faults",
+          "label": "Folds and faults"
+        },
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        }
+      ],
+      "geo": [
+        "The Himalaya wedge. Continent–continent convergence, in section."
+      ]
+    },
+    {
+      "id": "bt",
+      "name": "Bhutan",
+      "kind": "country",
+      "capital": "Thimphu",
+      "lat": 27.47,
+      "lon": 89.64,
+      "hook": "A monsoon mountain wall on the same collision.",
+      "geo": [
+        "A monsoon mountain wall on the same collision."
+      ]
+    },
+    {
+      "id": "lk",
+      "name": "Sri Lanka",
+      "kind": "country",
+      "capital": "Sri Jayawardenepura Kotte",
+      "lat": 6.89,
+      "lon": 79.9,
+      "hook": "A tropical island with two monsoons and a highland core.",
+      "geo": [
+        "A tropical island with two monsoons and a highland core."
+      ]
+    },
+    {
+      "id": "mm",
+      "name": "Myanmar",
+      "kind": "country",
+      "capital": "Naypyidaw",
+      "lat": 19.76,
+      "lon": 96.12,
+      "hook": "A monsoon trough and an arc of hills around the Irrawaddy.",
+      "geo": [
+        "A monsoon trough and an arc of hills around the Irrawaddy."
+      ]
+    },
+    {
+      "id": "kh",
+      "name": "Cambodia",
+      "kind": "country",
+      "capital": "Phnom Penh",
+      "lat": 11.56,
+      "lon": 104.93,
+      "hook": "A Mekong flood pulse and a Tonlé Sap reverse-flow lake.",
+      "geo": [
+        "A Mekong flood pulse and a Tonlé Sap reverse-flow lake."
+      ]
+    },
+    {
+      "id": "la",
+      "name": "Laos",
+      "kind": "country",
+      "capital": "Vientiane",
+      "lat": 17.98,
+      "lon": 102.63,
+      "hook": "An interior monsoon catchment of the Mekong.",
+      "geo": [
+        "An interior monsoon catchment of the Mekong."
+      ]
+    },
+    {
+      "id": "mn",
+      "name": "Mongolia",
+      "kind": "country",
+      "capital": "Ulaanbaatar",
+      "lat": 47.91,
+      "lon": 106.91,
+      "hook": "A continental interior. Cold, dry, and far from any sea breeze.",
+      "geo": [
+        "A continental interior. Cold, dry, and far from any sea breeze."
+      ]
+    },
+    {
+      "id": "kz",
+      "name": "Kazakhstan",
+      "kind": "country",
+      "capital": "Astana",
+      "lat": 51.17,
+      "lon": 71.45,
+      "hook": "Steppe and a closed basin. Continentality in one word.",
+      "geo": [
+        "Steppe and a closed basin. Continentality in one word."
+      ]
+    },
+    {
+      "id": "uz",
+      "name": "Uzbekistan",
+      "kind": "country",
+      "capital": "Tashkent",
+      "lat": 41.3,
+      "lon": 69.24,
+      "hook": "An irrigated dryland in a rain-shadow of high Asia.",
+      "geo": [
+        "An irrigated dryland in a rain-shadow of high Asia."
+      ]
+    },
+    {
+      "id": "af",
+      "name": "Afghanistan",
+      "kind": "country",
+      "capital": "Kabul",
+      "lat": 34.53,
+      "lon": 69.17,
+      "hook": "A high dry collision landscape. Rain is a mountain story.",
+      "geo": [
+        "A high dry collision landscape. Rain is a mountain story."
+      ]
+    },
+    {
+      "id": "iq",
+      "name": "Iraq",
+      "kind": "country",
+      "capital": "Baghdad",
+      "lat": 33.32,
+      "lon": 44.37,
+      "hook": "Tigris–Euphrates alluvium between deserts.",
+      "geo": [
+        "Tigris–Euphrates alluvium between deserts."
+      ]
+    },
+    {
+      "id": "sy",
+      "name": "Syria",
+      "kind": "country",
+      "capital": "Damascus",
+      "lat": 33.51,
+      "lon": 36.29,
+      "hook": "A Fertile Crescent edge: rain-fed west, dry east.",
+      "geo": [
+        "A Fertile Crescent edge: rain-fed west, dry east."
+      ]
+    },
+    {
+      "id": "jo",
+      "name": "Jordan",
+      "kind": "country",
+      "capital": "Amman",
+      "lat": 31.95,
+      "lon": 35.93,
+      "hook": "A rift valley (Dead Sea) beside a rain-shadow desert.",
+      "geo": [
+        "A rift valley (Dead Sea) beside a rain-shadow desert."
+      ]
+    },
+    {
+      "id": "lb",
+      "name": "Lebanon",
+      "kind": "country",
+      "capital": "Beirut",
+      "lat": 33.89,
+      "lon": 35.5,
+      "hook": "A short mountain that wrings Mediterranean westerlies.",
+      "geo": [
+        "A short mountain that wrings Mediterranean westerlies."
+      ]
+    },
+    {
+      "id": "cy",
+      "name": "Cyprus",
+      "kind": "country",
+      "capital": "Nicosia",
+      "lat": 35.17,
+      "lon": 33.36,
+      "hook": "A Mediterranean island on an African–Anatolian hinge.",
+      "geo": [
+        "A Mediterranean island on an African–Anatolian hinge."
+      ]
+    },
+    {
+      "id": "mt",
+      "name": "Malta",
+      "kind": "country",
+      "capital": "Valletta",
+      "lat": 35.9,
+      "lon": 14.51,
+      "hook": "A limestone slab in a small sea. Karst at island scale.",
+      "geo": [
+        "A limestone slab in a small sea. Karst at island scale."
+      ]
+    },
+    {
+      "id": "hr",
+      "name": "Croatia",
+      "kind": "country",
+      "capital": "Zagreb",
+      "lat": 45.81,
+      "lon": 15.98,
+      "hook": "A karst coast of drowned valleys — a Dalmatian shoreline.",
+      "geo": [
+        "A karst coast of drowned valleys — a Dalmatian shoreline."
+      ]
+    },
+    {
+      "id": "ba",
+      "name": "Bosnia and Herzegovina",
+      "kind": "country",
+      "capital": "Sarajevo",
+      "lat": 43.86,
+      "lon": 18.41,
+      "hook": "Dinaric limestone, a karst interior.",
+      "geo": [
+        "Dinaric limestone, a karst interior."
+      ]
+    },
+    {
+      "id": "rs",
+      "name": "Serbia",
+      "kind": "country",
+      "capital": "Belgrade",
+      "lat": 44.79,
+      "lon": 20.45,
+      "hook": "A Danube gate through older hills.",
+      "geo": [
+        "A Danube gate through older hills."
+      ]
+    },
+    {
+      "id": "ro",
+      "name": "Romania",
+      "kind": "country",
+      "capital": "Bucharest",
+      "lat": 44.43,
+      "lon": 26.1,
+      "hook": "Carpathian arc around a basin, then the Danube delta.",
+      "geo": [
+        "Carpathian arc around a basin, then the Danube delta."
+      ]
+    },
+    {
+      "id": "bg",
+      "name": "Bulgaria",
+      "kind": "country",
+      "capital": "Sofia",
+      "lat": 42.7,
+      "lon": 23.32,
+      "hook": "A Balkan mountain and a Black Sea shelf.",
+      "geo": [
+        "A Balkan mountain and a Black Sea shelf."
+      ]
+    },
+    {
+      "id": "hu",
+      "name": "Hungary",
+      "kind": "country",
+      "capital": "Budapest",
+      "lat": 47.5,
+      "lon": 19.04,
+      "hook": "A basin inside the Carpathians. Continental summers.",
+      "geo": [
+        "A basin inside the Carpathians. Continental summers."
+      ]
+    },
+    {
+      "id": "cz",
+      "name": "Czechia",
+      "kind": "country",
+      "capital": "Prague",
+      "lat": 50.08,
+      "lon": 14.44,
+      "hook": "A Hercynian upland, a Bohemian basin.",
+      "geo": [
+        "A Hercynian upland, a Bohemian basin."
+      ]
+    },
+    {
+      "id": "sk",
+      "name": "Slovakia",
+      "kind": "country",
+      "capital": "Bratislava",
+      "lat": 48.15,
+      "lon": 17.11,
+      "hook": "Western Carpathians and a Danube edge.",
+      "geo": [
+        "Western Carpathians and a Danube edge."
+      ]
+    },
+    {
+      "id": "dk",
+      "name": "Denmark",
+      "kind": "country",
+      "capital": "Copenhagen",
+      "lat": 55.68,
+      "lon": 12.57,
+      "hook": "A moraine country. Ice wrote the hills.",
+      "geo": [
+        "A moraine country. Ice wrote the hills."
+      ]
+    },
+    {
+      "id": "ee",
+      "name": "Estonia",
+      "kind": "country",
+      "capital": "Tallinn",
+      "lat": 59.44,
+      "lon": 24.75,
+      "hook": "A low glacial shield coast on the Baltic.",
+      "geo": [
+        "A low glacial shield coast on the Baltic."
+      ]
+    },
+    {
+      "id": "lv",
+      "name": "Latvia",
+      "kind": "country",
+      "capital": "Riga",
+      "lat": 56.95,
+      "lon": 24.11,
+      "hook": "Moraine and a drowned glacial coast.",
+      "geo": [
+        "Moraine and a drowned glacial coast."
+      ]
+    },
+    {
+      "id": "lt",
+      "name": "Lithuania",
+      "kind": "country",
+      "capital": "Vilnius",
+      "lat": 54.69,
+      "lon": 25.28,
+      "hook": "A glacial plain between two seas of influence.",
+      "geo": [
+        "A glacial plain between two seas of influence."
+      ]
+    },
+    {
+      "id": "by",
+      "name": "Belarus",
+      "kind": "country",
+      "capital": "Minsk",
+      "lat": 53.9,
+      "lon": 27.57,
+      "hook": "A moraine and peat interior.",
+      "geo": [
+        "A moraine and peat interior."
+      ]
+    },
+    {
+      "id": "md",
+      "name": "Moldova",
+      "kind": "country",
+      "capital": "Chișinău",
+      "lat": 47.01,
+      "lon": 28.86,
+      "hook": "A loess and steppe slice of the Black Sea hinterland.",
+      "geo": [
+        "A loess and steppe slice of the Black Sea hinterland."
+      ]
+    },
+    {
+      "id": "ge",
+      "name": "Georgia",
+      "kind": "country",
+      "capital": "Tbilisi",
+      "lat": 41.72,
+      "lon": 44.79,
+      "hook": "Greater Caucasus collision wall, a humid west.",
+      "geo": [
+        "Greater Caucasus collision wall, a humid west."
+      ]
+    },
+    {
+      "id": "am",
+      "name": "Armenia",
+      "kind": "country",
+      "capital": "Yerevan",
+      "lat": 40.18,
+      "lon": 44.51,
+      "hook": "A volcanic high in a closed basin.",
+      "geo": [
+        "A volcanic high in a closed basin."
+      ]
+    },
+    {
+      "id": "az",
+      "name": "Azerbaijan",
+      "kind": "country",
+      "capital": "Baku",
+      "lat": 40.41,
+      "lon": 49.87,
+      "hook": "Caspian shore, a dry east, a colliding west.",
+      "geo": [
+        "Caspian shore, a dry east, a colliding west."
+      ]
+    },
+    {
+      "id": "uk-eng",
+      "name": "England",
+      "kind": "uk-nation",
+      "capital": "London",
+      "lat": 51.51,
+      "lon": -0.13,
+      "hook": "Chalk downs, a drowned North Sea, and a till coast at Holderness.",
+      "geo": [
+        "Chalk downs in the south, a drowned North Sea to the east, and a till coast at Holderness.",
+        "Ice left till that the sea now cuts. Spurn Head is the longshore spit of that story.",
+        "London is on a drowned Thames, not a highland capital."
+      ],
+      "labs": [
+        {
+          "slug": "coasts",
+          "label": "Coasts"
+        },
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        }
+      ],
+      "alias": [
+        "Holderness"
+      ]
+    },
+    {
+      "id": "uk-sct",
+      "name": "Scotland",
+      "kind": "uk-nation",
+      "capital": "Edinburgh",
+      "lat": 55.95,
+      "lon": -3.19,
+      "hook": "Caledonian mountains, glens as U-troughs, a wet west.",
+      "geo": [
+        "Caledonian mountains, glens as glacial U-troughs, a wet Atlantic west.",
+        "Ice, not rivers, cut the troughs. Rift of Glen More is a different story.",
+        "Edinburgh sits on a drier east, on old volcanic rock."
+      ],
+      "labs": [
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "contours",
+          "label": "Contours"
+        }
+      ]
+    },
+    {
+      "id": "uk-wls",
+      "name": "Wales",
+      "kind": "uk-nation",
+      "capital": "Cardiff",
+      "lat": 51.48,
+      "lon": -3.18,
+      "hook": "Uplands of old rock, a wet west, and a coalfield coast.",
+      "geo": [
+        "Uplands of old rock, a wet west, Snowdonia as the ice classroom.",
+        "Cardiff is on a coalfield coast, not in the mountains.",
+        "Contours and U-troughs are the physical map."
+      ],
+      "labs": [
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "contours",
+          "label": "Contours"
+        }
+      ]
+    },
+    {
+      "id": "uk-nir",
+      "name": "Northern Ireland",
+      "kind": "uk-nation",
+      "capital": "Belfast",
+      "lat": 54.6,
+      "lon": -5.93,
+      "hook": "Basalt steps of the Giant’s Causeway; a glacial drumlin belt.",
+      "labs": [
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        },
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        }
+      ],
+      "geo": [
+        "Basalt steps of the Giant’s Causeway; a glacial drumlin belt."
+      ]
+    },
+    {
+      "id": "uk-nyk",
+      "name": "North Yorkshire",
+      "kind": "uk-county",
+      "capital": "Northallerton",
+      "lat": 54.34,
+      "lon": -1.43,
+      "hook": "Moors, a limestone edge, and a till coast that becomes Holderness.",
+      "geo": [
+        "Moors, a limestone edge, and a till coast that becomes Holderness."
+      ]
+    },
+    {
+      "id": "uk-cma",
+      "name": "Cumbria",
+      "kind": "uk-county",
+      "capital": "Carlisle",
+      "lat": 54.89,
+      "lon": -2.94,
+      "hook": "The Lake District: cirques, arêtes, radial drainage.",
+      "alias": [
+        "Lake District"
+      ],
+      "geo": [
+        "The Lake District: cirques, arêtes, radial drainage."
+      ]
+    },
+    {
+      "id": "uk-dwn",
+      "name": "Devon",
+      "kind": "uk-county",
+      "capital": "Exeter",
+      "lat": 50.72,
+      "lon": -3.53,
+      "hook": "Jurassic Coast begins here: a tilted textbook of rock time.",
+      "alias": [
+        "Jurassic Coast"
+      ],
+      "geo": [
+        "Jurassic Coast begins here: a tilted textbook of rock time."
+      ]
+    },
+    {
+      "id": "uk-dor",
+      "name": "Dorset",
+      "kind": "uk-county",
+      "capital": "Dorchester",
+      "lat": 50.72,
+      "lon": -2.44,
+      "hook": "Lulworth folds, Chesil Beach, a stack-and-arch coast.",
+      "alias": [
+        "Jurassic Coast",
+        "Lulworth"
+      ],
+      "geo": [
+        "Lulworth folds, Chesil Beach, a stack-and-arch coast."
+      ]
+    },
+    {
+      "id": "uk-gwn",
+      "name": "Gwynedd",
+      "kind": "uk-county",
+      "capital": "Caernarfon",
+      "lat": 53.14,
+      "lon": -4.27,
+      "hook": "Eryri / Snowdonia: a classroom of contours and ice.",
+      "alias": [
+        "Snowdonia",
+        "Eryri"
+      ],
+      "geo": [
+        "Eryri / Snowdonia: a classroom of contours and ice."
+      ]
+    },
+    {
+      "id": "uk-som",
+      "name": "Somerset",
+      "kind": "uk-county",
+      "capital": "Taunton",
+      "lat": 51.02,
+      "lon": -3.1,
+      "hook": "Levels as a floodplain bargain; hydrographs that sit for weeks.",
+      "geo": [
+        "Levels as a floodplain bargain; hydrographs that sit for weeks."
+      ]
+    },
+    {
+      "id": "uk-kent",
+      "name": "Kent",
+      "kind": "uk-county",
+      "capital": "Maidstone",
+      "lat": 51.27,
+      "lon": 0.52,
+      "hook": "Chalk cliffs, a drowned Thames mouth, a narrow sea.",
+      "geo": [
+        "Chalk cliffs, a drowned Thames mouth, a narrow sea."
+      ]
+    },
+    {
+      "id": "uk-nbl",
+      "name": "Northumberland",
+      "kind": "uk-county",
+      "capital": "Morpeth",
+      "lat": 55.17,
+      "lon": -1.69,
+      "hook": "A till and Whin Sill coast; a Cheviot upland.",
+      "geo": [
+        "A till and Whin Sill coast; a Cheviot upland."
+      ]
+    },
+    {
+      "id": "uk-hld",
+      "name": "Highland",
+      "kind": "uk-county",
+      "capital": "Inverness",
+      "lat": 57.48,
+      "lon": -4.23,
+      "hook": "Rift of Glen More, ice-cut lochs, a wet Atlantic wall.",
+      "geo": [
+        "Rift of Glen More, ice-cut lochs, a wet Atlantic wall."
+      ]
+    },
+    {
+      "id": "uk-ery",
+      "name": "East Riding of Yorkshire",
+      "kind": "uk-county",
+      "capital": "Beverley",
+      "lat": 53.84,
+      "lon": -0.43,
+      "hook": "Holderness till cliffs and the Spurn spit.",
+      "alias": [
+        "Holderness",
+        "Spurn"
+      ],
+      "geo": [
+        "Holderness till cliffs and the Spurn spit."
+      ]
+    },
+    {
+      "id": "uk-holderness",
+      "name": "Holderness",
+      "kind": "uk-place",
+      "capital": "—",
+      "lat": 53.73,
+      "lon": -0.05,
+      "hook": "Glacial till cliffs, southward longshore drift, Spurn Head spit.",
+      "geo": [
+        "Holderness is a coast of glacial till — boulder clay — not chalk. Waves undercut a soft cliff.",
+        "Longshore drift carries sediment south. Spurn Head is the free-end spit of that conveyor.",
+        "This is the GCSE coasts case, not a fjord and not a coral island."
+      ],
+      "labs": [
+        {
+          "slug": "coasts",
+          "label": "Coasts"
+        },
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        }
+      ],
+      "alias": [
+        "Spurn",
+        "Spurn Head",
+        "East Riding"
+      ]
+    },
+    {
+      "id": "uk-lakes",
+      "name": "Lake District",
+      "kind": "uk-place",
+      "capital": "Keswick",
+      "lat": 54.45,
+      "lon": -3.08,
+      "hook": "Cirques, arêtes, radial drainage from a glaciated dome.",
+      "geo": [
+        "A glaciated dome: cirques, arêtes, and radial drainage from a central high.",
+        "Ice cut U-troughs now holding lakes. Rivers did not invent those walls.",
+        "Keswick sits in a trough, not on a horn."
+      ],
+      "labs": [
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "contours",
+          "label": "Contours"
+        }
+      ],
+      "alias": [
+        "Cumbria",
+        "Helvellyn"
+      ]
+    },
+    {
+      "id": "uk-snowdonia",
+      "name": "Snowdonia",
+      "kind": "uk-place",
+      "capital": "—",
+      "lat": 53.07,
+      "lon": -4.08,
+      "hook": "Eryri: contours, ice, and a classroom mountain.",
+      "geo": [
+        "Eryri / Snowdonia is a classroom of contours and ice. Cirques bite a ridge; a U-trough is the valley.",
+        "Yr Wyddfa is not a volcano. Old rock, then ice.",
+        "OS grid on these slopes is a skills lab, not a flag."
+      ],
+      "labs": [
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "contours",
+          "label": "Contours"
+        },
+        {
+          "slug": "grid-references",
+          "label": "Grid references"
+        }
+      ],
+      "alias": [
+        "Eryri",
+        "Yr Wyddfa",
+        "Snowdon"
+      ]
+    },
+    {
+      "id": "uk-jurassic",
+      "name": "Jurassic Coast",
+      "kind": "uk-place",
+      "capital": "—",
+      "lat": 50.62,
+      "lon": -2.25,
+      "hook": "A tilted textbook of rock time: Lulworth folds, stacks, Chesil.",
+      "geo": [
+        "A tilted sequence of sedimentary rock from east Devon through Dorset. Time you can walk.",
+        "Lulworth Cove is differential erosion of a fold. Durdle Door is an arch in the same limestone.",
+        "Chesil is a tombolo-like barrier of graded pebbles, not a spit of till."
+      ],
+      "labs": [
+        {
+          "slug": "coasts",
+          "label": "Coasts"
+        },
+        {
+          "slug": "folds-faults",
+          "label": "Folds and faults"
+        },
+        {
+          "slug": "geologic-time",
+          "label": "Geologic time"
+        }
+      ],
+      "alias": [
+        "Lulworth",
+        "Durdle Door",
+        "Chesil"
+      ]
+    },
+    {
+      "id": "us-al",
+      "name": "Alabama",
+      "kind": "us-state",
+      "capital": "Montgomery",
+      "lat": 32.38,
+      "lon": -86.3,
+      "hook": "A coastal plain rising to Appalachian remnants.",
+      "geo": [
+        "A coastal plain rising to Appalachian remnants."
+      ]
+    },
+    {
+      "id": "us-ak",
+      "name": "Alaska",
+      "kind": "us-state",
+      "capital": "Juneau",
+      "lat": 58.3,
+      "lon": -134.42,
+      "hook": "Subduction, ice, and a Pacific plate edge.",
+      "geo": [
+        "Alaska is a subduction and collision edge with ice on the high ground.",
+        "The Aleutian arc is a volcanic chain above a trench. Interior ice fields are glaciers, not a Florida story.",
+        "Juneau sits on a drowned glacial coast. Earthquakes and volcanoes are the plate conversation."
+      ],
+      "labs": [
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "glaciers",
+          "label": "Glacial landforms"
+        },
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        }
+      ]
+    },
+    {
+      "id": "us-az",
+      "name": "Arizona",
+      "kind": "us-state",
+      "capital": "Phoenix",
+      "lat": 33.45,
+      "lon": -112.07,
+      "hook": "A desert basin, an urban heat island, a plateau canyon to the north.",
+      "labs": [
+        {
+          "slug": "river-erosion",
+          "label": "River erosion"
+        },
+        {
+          "slug": "climate-types",
+          "label": "Climate types"
+        }
+      ],
+      "geo": [
+        "A desert basin, an urban heat island, a plateau canyon to the north."
+      ]
+    },
+    {
+      "id": "us-ar",
+      "name": "Arkansas",
+      "kind": "us-state",
+      "capital": "Little Rock",
+      "lat": 34.75,
+      "lon": -92.29,
+      "hook": "Interior highlands to a Mississippi alluvial plain.",
+      "geo": [
+        "Interior highlands to a Mississippi alluvial plain."
+      ]
+    },
+    {
+      "id": "us-ca",
+      "name": "California",
+      "kind": "us-state",
+      "capital": "Sacramento",
+      "lat": 38.58,
+      "lon": -121.49,
+      "hook": "Transform plus subduction plus a rain-shadow desert. San Andreas is a right-lateral transform, not a volcanic arc.",
+      "geo": [
+        "California is transform plus a leftover of subduction plus a rain-shadow desert.",
+        "The San Andreas Fault is a right-lateral transform: plates slide past. It is not a volcanic arc and not a hotspot.",
+        "Cascadia-style subduction is to the north. The Sierra wrings the west wind; Death Valley is the lee."
+      ],
+      "labs": [
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "earthquakes",
+          "label": "Earthquakes"
+        },
+        {
+          "slug": "folds-faults",
+          "label": "Folds and faults"
+        }
+      ],
+      "alias": [
+        "San Andreas",
+        "San Francisco"
+      ]
+    },
+    {
+      "id": "us-co",
+      "name": "Colorado",
+      "kind": "us-state",
+      "capital": "Denver",
+      "lat": 39.74,
+      "lon": -104.99,
+      "hook": "A mile-high step onto the Great Plains from the Rockies.",
+      "geo": [
+        "A mile-high step onto the Great Plains from the Rockies."
+      ]
+    },
+    {
+      "id": "us-ct",
+      "name": "Connecticut",
+      "kind": "us-state",
+      "capital": "Hartford",
+      "lat": 41.76,
+      "lon": -72.67,
+      "hook": "A glaciated New England upland to a drowned coast.",
+      "geo": [
+        "A glaciated New England upland to a drowned coast."
+      ]
+    },
+    {
+      "id": "us-de",
+      "name": "Delaware",
+      "kind": "us-state",
+      "capital": "Dover",
+      "lat": 39.16,
+      "lon": -75.52,
+      "hook": "A coastal-plain sliver on the Mid-Atlantic bight.",
+      "geo": [
+        "A coastal-plain sliver on the Mid-Atlantic bight."
+      ]
+    },
+    {
+      "id": "us-dc",
+      "name": "District of Columbia",
+      "kind": "us-state",
+      "capital": "Washington, D.C.",
+      "lat": 38.91,
+      "lon": -77.04,
+      "hook": "A fall-line city on the Potomac. Coastal-plain / piedmont hinge, not a glacial trough.",
+      "geo": [
+        "Washington, D.C. sits on a fall-line hinge between piedmont rock and coastal-plain sediment.",
+        "The Potomac is a drowned river approaching Chesapeake. This is not a glacial trough.",
+        "A capital on a river terrace, not a mountain or a hotspot."
+      ],
+      "labs": [
+        {
+          "slug": "rivers",
+          "label": "Rivers"
+        },
+        {
+          "slug": "coasts",
+          "label": "Coasts"
+        }
+      ],
+      "alias": [
+        "Washington",
+        "Washington DC",
+        "D.C.",
+        "DC"
+      ]
+    },
+    {
+      "id": "us-fl",
+      "name": "Florida",
+      "kind": "us-state",
+      "capital": "Tallahassee",
+      "lat": 30.44,
+      "lon": -84.28,
+      "hook": "A carbonate platform and a hurricane fetch. Not a glacial trough — ice never carved this peninsula.",
+      "geo": [
+        "Florida is a carbonate platform — limestone and sand — with a hurricane fetch from the Atlantic and Gulf.",
+        "It is not a glacial trough. Ice sheets did not cut Yosemite-style walls here. Karst and sinkholes are the inland story.",
+        "Tallahassee is on the north of the peninsula. Storm surge, not ice, is the coastal hazard."
+      ],
+      "labs": [
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        },
+        {
+          "slug": "karst",
+          "label": "Karst"
+        },
+        {
+          "slug": "storm-surge",
+          "label": "Storm surge"
+        }
+      ]
+    },
+    {
+      "id": "us-ga",
+      "name": "Georgia",
+      "kind": "us-state",
+      "capital": "Atlanta",
+      "lat": 33.75,
+      "lon": -84.39,
+      "hook": "Piedmont to coastal plain; a classic fall-line city.",
+      "geo": [
+        "Piedmont to coastal plain; a classic fall-line city."
+      ]
+    },
+    {
+      "id": "us-hi",
+      "name": "Hawaii",
+      "kind": "us-state",
+      "capital": "Honolulu",
+      "lat": 21.31,
+      "lon": -157.86,
+      "hook": "A hotspot track. Islands age northwest. Not a subduction arc.",
+      "geo": [
+        "Hawaiʻi is a hotspot track through the Pacific plate. The plume stays; the plate moves northwest.",
+        "Islands age away from the active volcanoes. Kauaʻi is older than the Big Island. This is not a subduction arc and not a mid-ocean ridge.",
+        "Shield volcanoes of runny basalt, not steep stratovolcanoes. Honolulu sits on Oʻahu, a mid-chain island."
+      ],
+      "labs": [
+        {
+          "slug": "hotspots",
+          "label": "Hotspots"
+        },
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        }
+      ],
+      "alias": [
+        "Hawaiʻi",
+        "Big Island"
+      ]
+    },
+    {
+      "id": "us-id",
+      "name": "Idaho",
+      "kind": "us-state",
+      "capital": "Boise",
+      "lat": 43.62,
+      "lon": -116.2,
+      "hook": "Snake River Plain is a hotspot track on land.",
+      "labs": [
+        {
+          "slug": "hotspots",
+          "label": "Hotspots"
+        }
+      ],
+      "geo": [
+        "Snake River Plain is a hotspot track on land."
+      ]
+    },
+    {
+      "id": "us-il",
+      "name": "Illinois",
+      "kind": "us-state",
+      "capital": "Springfield",
+      "lat": 39.78,
+      "lon": -89.65,
+      "hook": "A glaciated prairie. Mollisol country.",
+      "geo": [
+        "A glaciated prairie. Mollisol country."
+      ]
+    },
+    {
+      "id": "us-in",
+      "name": "Indiana",
+      "kind": "us-state",
+      "capital": "Indianapolis",
+      "lat": 39.77,
+      "lon": -86.16,
+      "hook": "Till plain, a glacial story under farms.",
+      "geo": [
+        "Till plain, a glacial story under farms."
+      ]
+    },
+    {
+      "id": "us-ia",
+      "name": "Iowa",
+      "kind": "us-state",
+      "capital": "Des Moines",
+      "lat": 41.59,
+      "lon": -93.62,
+      "hook": "Loess and mollisol. The Dust Bowl’s wetter neighbour.",
+      "geo": [
+        "Loess and mollisol. The Dust Bowl’s wetter neighbour."
+      ]
+    },
+    {
+      "id": "us-ks",
+      "name": "Kansas",
+      "kind": "us-state",
+      "capital": "Topeka",
+      "lat": 39.05,
+      "lon": -95.68,
+      "hook": "Great Plains. Wind, wheat, and a rain gradient west to dry.",
+      "geo": [
+        "Great Plains. Wind, wheat, and a rain gradient west to dry."
+      ]
+    },
+    {
+      "id": "us-ky",
+      "name": "Kentucky",
+      "kind": "us-state",
+      "capital": "Frankfort",
+      "lat": 38.2,
+      "lon": -84.87,
+      "hook": "Karst plateaus and a Mammoth Cave cousin.",
+      "labs": [
+        {
+          "slug": "karst",
+          "label": "Karst"
+        }
+      ],
+      "geo": [
+        "Karst plateaus and a Mammoth Cave cousin."
+      ]
+    },
+    {
+      "id": "us-la",
+      "name": "Louisiana",
+      "kind": "us-state",
+      "capital": "Baton Rouge",
+      "lat": 30.45,
+      "lon": -91.19,
+      "hook": "Mississippi delta and a hurricane coast. Land-building vs subsidence.",
+      "labs": [
+        {
+          "slug": "rivers",
+          "label": "Rivers"
+        },
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        },
+        {
+          "slug": "storm-surge",
+          "label": "Storm surge"
+        }
+      ],
+      "geo": [
+        "Mississippi delta and a hurricane coast. Land-building vs subsidence."
+      ]
+    },
+    {
+      "id": "us-me",
+      "name": "Maine",
+      "kind": "us-state",
+      "capital": "Augusta",
+      "lat": 44.31,
+      "lon": -69.78,
+      "hook": "A drowned glacial coast of granite and spruce.",
+      "geo": [
+        "A drowned glacial coast of granite and spruce."
+      ]
+    },
+    {
+      "id": "us-md",
+      "name": "Maryland",
+      "kind": "us-state",
+      "capital": "Annapolis",
+      "lat": 38.98,
+      "lon": -76.49,
+      "hook": "A ria coast — Chesapeake as a drowned river.",
+      "geo": [
+        "A ria coast — Chesapeake as a drowned river."
+      ]
+    },
+    {
+      "id": "us-ma",
+      "name": "Massachusetts",
+      "kind": "us-state",
+      "capital": "Boston",
+      "lat": 42.36,
+      "lon": -71.06,
+      "hook": "Glacial till, a cape of sand, a drowned New England shore.",
+      "geo": [
+        "Glacial till, a cape of sand, a drowned New England shore."
+      ]
+    },
+    {
+      "id": "us-mi",
+      "name": "Michigan",
+      "kind": "us-state",
+      "capital": "Lansing",
+      "lat": 42.73,
+      "lon": -84.56,
+      "hook": "A glacial lake state. Moraines as the backbone.",
+      "geo": [
+        "A glacial lake state. Moraines as the backbone."
+      ]
+    },
+    {
+      "id": "us-mn",
+      "name": "Minnesota",
+      "kind": "us-state",
+      "capital": "Saint Paul",
+      "lat": 44.95,
+      "lon": -93.09,
+      "hook": "Ice-scoured lakes on a shield edge.",
+      "geo": [
+        "Ice-scoured lakes on a shield edge."
+      ]
+    },
+    {
+      "id": "us-ms",
+      "name": "Mississippi",
+      "kind": "us-state",
+      "capital": "Jackson",
+      "lat": 32.3,
+      "lon": -90.18,
+      "hook": "Alluvial plain of the big river. Loess bluffs on the edge.",
+      "geo": [
+        "Alluvial plain of the big river. Loess bluffs on the edge."
+      ]
+    },
+    {
+      "id": "us-mo",
+      "name": "Missouri",
+      "kind": "us-state",
+      "capital": "Jefferson City",
+      "lat": 38.58,
+      "lon": -92.17,
+      "hook": "Ozark plateau, a Mississippi confluence, a tornado alley edge.",
+      "geo": [
+        "Ozark plateau, a Mississippi confluence, a tornado alley edge."
+      ]
+    },
+    {
+      "id": "us-mt",
+      "name": "Montana",
+      "kind": "us-state",
+      "capital": "Helena",
+      "lat": 46.59,
+      "lon": -112.02,
+      "hook": "Northern Rockies to a high plains rain-shadow.",
+      "geo": [
+        "Northern Rockies to a high plains rain-shadow."
+      ]
+    },
+    {
+      "id": "us-ne",
+      "name": "Nebraska",
+      "kind": "us-state",
+      "capital": "Lincoln",
+      "lat": 40.81,
+      "lon": -96.7,
+      "hook": "Loess and sandhills. A Great Plains hydrograph.",
+      "geo": [
+        "Loess and sandhills. A Great Plains hydrograph."
+      ]
+    },
+    {
+      "id": "us-nv",
+      "name": "Nevada",
+      "kind": "us-state",
+      "capital": "Carson City",
+      "lat": 39.16,
+      "lon": -119.77,
+      "hook": "Basin and Range. Interior drainage, a rain-shadow desert.",
+      "geo": [
+        "Basin and Range. Interior drainage, a rain-shadow desert."
+      ]
+    },
+    {
+      "id": "us-nh",
+      "name": "New Hampshire",
+      "kind": "us-state",
+      "capital": "Concord",
+      "lat": 43.21,
+      "lon": -71.54,
+      "hook": "Glaciated granite upland. A White Mountain horn-and-trough story.",
+      "geo": [
+        "Glaciated granite upland. A White Mountain horn-and-trough story."
+      ]
+    },
+    {
+      "id": "us-nj",
+      "name": "New Jersey",
+      "kind": "us-state",
+      "capital": "Trenton",
+      "lat": 40.22,
+      "lon": -74.76,
+      "hook": "A barrier coast and a piedmont. Sandy is the exam storm.",
+      "geo": [
+        "A barrier coast and a piedmont. Sandy is the exam storm."
+      ]
+    },
+    {
+      "id": "us-nm",
+      "name": "New Mexico",
+      "kind": "us-state",
+      "capital": "Santa Fe",
+      "lat": 35.69,
+      "lon": -105.94,
+      "hook": "A high dry plateau, a rift, a desert river.",
+      "geo": [
+        "A high dry plateau, a rift, a desert river."
+      ]
+    },
+    {
+      "id": "us-ny",
+      "name": "New York",
+      "kind": "us-state",
+      "capital": "Albany",
+      "lat": 42.65,
+      "lon": -73.76,
+      "hook": "A glaciated through-valley to a drowned harbour.",
+      "geo": [
+        "A glaciated through-valley to a drowned harbour."
+      ]
+    },
+    {
+      "id": "us-nc",
+      "name": "North Carolina",
+      "kind": "us-state",
+      "capital": "Raleigh",
+      "lat": 35.78,
+      "lon": -78.64,
+      "hook": "Outer Banks barriers; longshore drift as a state fact.",
+      "labs": [
+        {
+          "slug": "coasts",
+          "label": "Coasts"
+        },
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        }
+      ],
+      "geo": [
+        "Outer Banks barriers; longshore drift as a state fact."
+      ]
+    },
+    {
+      "id": "us-nd",
+      "name": "North Dakota",
+      "kind": "us-state",
+      "capital": "Bismarck",
+      "lat": 46.81,
+      "lon": -100.78,
+      "hook": "Prairie potholes, a glacial lake plain.",
+      "geo": [
+        "Prairie potholes, a glacial lake plain."
+      ]
+    },
+    {
+      "id": "us-oh",
+      "name": "Ohio",
+      "kind": "us-state",
+      "capital": "Columbus",
+      "lat": 39.96,
+      "lon": -83,
+      "hook": "Till plains to a lake-effect shore.",
+      "geo": [
+        "Till plains to a lake-effect shore."
+      ]
+    },
+    {
+      "id": "us-ok",
+      "name": "Oklahoma",
+      "kind": "us-state",
+      "capital": "Oklahoma City",
+      "lat": 35.47,
+      "lon": -97.52,
+      "hook": "Dust Bowl ground zero. Wind plus drought plus a broken A horizon.",
+      "labs": [
+        {
+          "slug": "soil-erosion",
+          "label": "Soil erosion"
+        },
+        {
+          "slug": "aeolian",
+          "label": "Wind landforms"
+        }
+      ],
+      "geo": [
+        "Dust Bowl ground zero. Wind plus drought plus a broken A horizon."
+      ]
+    },
+    {
+      "id": "us-or",
+      "name": "Oregon",
+      "kind": "us-state",
+      "capital": "Salem",
+      "lat": 44.94,
+      "lon": -123.03,
+      "hook": "Cascadia subduction, a wet west, a dry east.",
+      "labs": [
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        },
+        {
+          "slug": "rain-shadow",
+          "label": "Rain shadow"
+        }
+      ],
+      "geo": [
+        "Cascadia subduction, a wet west, a dry east."
+      ]
+    },
+    {
+      "id": "us-pa",
+      "name": "Pennsylvania",
+      "kind": "us-state",
+      "capital": "Harrisburg",
+      "lat": 40.27,
+      "lon": -76.88,
+      "hook": "Folded Appalachian strata form parallel ridges and valleys; rock resistance and erosion control the relief.",
+      "labs": [
+        {
+          "slug": "folds-faults",
+          "label": "Folds and faults"
+        }
+      ],
+      "geo": [
+        "Folded Appalachian strata form parallel ridges and valleys; rock resistance and erosion control the relief."
+      ]
+    },
+    {
+      "id": "us-ri",
+      "name": "Rhode Island",
+      "kind": "us-state",
+      "capital": "Providence",
+      "lat": 41.82,
+      "lon": -71.41,
+      "hook": "A drowned glacial coast in miniature.",
+      "geo": [
+        "A drowned glacial coast in miniature."
+      ]
+    },
+    {
+      "id": "us-sc",
+      "name": "South Carolina",
+      "kind": "us-state",
+      "capital": "Columbia",
+      "lat": 34,
+      "lon": -81.03,
+      "hook": "A coastal plain and a hurricane fetch.",
+      "geo": [
+        "A coastal plain and a hurricane fetch."
+      ]
+    },
+    {
+      "id": "us-sd",
+      "name": "South Dakota",
+      "kind": "us-state",
+      "capital": "Pierre",
+      "lat": 44.37,
+      "lon": -100.35,
+      "hook": "Badlands, a glaciated east, a dry west.",
+      "geo": [
+        "Badlands, a glaciated east, a dry west."
+      ]
+    },
+    {
+      "id": "us-tn",
+      "name": "Tennessee",
+      "kind": "us-state",
+      "capital": "Nashville",
+      "lat": 36.16,
+      "lon": -86.78,
+      "hook": "A folded valley-and-ridge, then a plateau, then a plain.",
+      "geo": [
+        "A folded valley-and-ridge, then a plateau, then a plain."
+      ]
+    },
+    {
+      "id": "us-tx",
+      "name": "Texas",
+      "kind": "us-state",
+      "capital": "Austin",
+      "lat": 30.27,
+      "lon": -97.74,
+      "hook": "A Gulf coast, an Edwards karst, a High Plains dry line.",
+      "labs": [
+        {
+          "slug": "karst",
+          "label": "Karst"
+        },
+        {
+          "slug": "tropical-cyclone",
+          "label": "Tropical cyclone"
+        }
+      ],
+      "geo": [
+        "A Gulf coast, an Edwards karst, a High Plains dry line."
+      ]
+    },
+    {
+      "id": "us-ut",
+      "name": "Utah",
+      "kind": "us-state",
+      "capital": "Salt Lake City",
+      "lat": 40.76,
+      "lon": -111.89,
+      "hook": "A closed basin, a salt lake, basin-and-range.",
+      "geo": [
+        "A closed basin, a salt lake, basin-and-range."
+      ]
+    },
+    {
+      "id": "us-vt",
+      "name": "Vermont",
+      "kind": "us-state",
+      "capital": "Montpelier",
+      "lat": 44.26,
+      "lon": -72.58,
+      "hook": "A glaciated green ridge. U-troughs in miniature.",
+      "geo": [
+        "A glaciated green ridge. U-troughs in miniature."
+      ]
+    },
+    {
+      "id": "us-va",
+      "name": "Virginia",
+      "kind": "us-state",
+      "capital": "Richmond",
+      "lat": 37.54,
+      "lon": -77.44,
+      "hook": "A fall line city; Blue Ridge to a drowned Chesapeake.",
+      "geo": [
+        "A fall line city; Blue Ridge to a drowned Chesapeake."
+      ]
+    },
+    {
+      "id": "us-wa",
+      "name": "Washington",
+      "kind": "us-state",
+      "capital": "Olympia",
+      "lat": 47.04,
+      "lon": -122.9,
+      "hook": "Cascadia subduction, a wet Olympic rainforest, a dry interior. Not the San Andreas.",
+      "geo": [
+        "Washington State is Cascadia: the Juan de Fuca plate dives under North America. That is subduction, not the San Andreas transform.",
+        "A wet Olympic west, a volcanic Cascade arc, a dry Columbia interior in rain-shadow.",
+        "Olympia sits on a drowned glacial sound. Ice cut the troughs; the plate writes the volcanoes."
+      ],
+      "labs": [
+        {
+          "slug": "plate-boundaries",
+          "label": "Plate boundaries"
+        },
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        },
+        {
+          "slug": "rain-shadow",
+          "label": "Rain shadow"
+        }
+      ]
+    },
+    {
+      "id": "us-wv",
+      "name": "West Virginia",
+      "kind": "us-state",
+      "capital": "Charleston",
+      "lat": 38.35,
+      "lon": -81.63,
+      "hook": "Dissected plateau. Deep V-valleys in old rock.",
+      "geo": [
+        "Dissected plateau. Deep V-valleys in old rock."
+      ]
+    },
+    {
+      "id": "us-wi",
+      "name": "Wisconsin",
+      "kind": "us-state",
+      "capital": "Madison",
+      "lat": 43.07,
+      "lon": -89.4,
+      "hook": "A drumlin and moraine state. Ice as the cartographer.",
+      "geo": [
+        "A drumlin and moraine state. Ice as the cartographer."
+      ]
+    },
+    {
+      "id": "us-wy",
+      "name": "Wyoming",
+      "kind": "us-state",
+      "capital": "Cheyenne",
+      "lat": 41.14,
+      "lon": -104.82,
+      "hook": "A high dry plateau. Yellowstone is a continental hotspot, not a plate boundary.",
+      "geo": [
+        "A high dry plateau and ranges. Yellowstone is a continental hotspot: the plume stays, the plate moves.",
+        "It is not a mid-ocean ridge and not the San Andreas. Caldera plus a track of older volcanic centres to the south-west.",
+        "Cheyenne sits on the high plains, not in the caldera."
+      ],
+      "labs": [
+        {
+          "slug": "hotspots",
+          "label": "Hotspots"
+        },
+        {
+          "slug": "volcanoes",
+          "label": "Volcanoes"
+        }
+      ]
+    }
+  ]
+}

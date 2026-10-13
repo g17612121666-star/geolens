@@ -1,3 +1,1 @@
-import { makeGlbScene } from "@/labs/shared/make-glb-scene";
-
-export default makeGlbScene("graticule");
+export { GraticuleScene as default } from "../shared/planet-scenes";

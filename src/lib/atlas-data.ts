@@ -1,3 +1,7 @@
+import CLIMATE_DATA from "../../scripts/atlas-climate-data.json";
+import ATLAS_PHOTOS from "../../scripts/atlas-photo-assignments.json";
+import { VERIFIED_PHOTOS } from "./verified-photos";
+
 export type AtlasKind = "country" | "uk-nation" | "uk-county" | "uk-place" | "us-state" | "city";
 
 export type AtlasLabLink = { slug: string; label: string };
@@ -23,7 +27,7 @@ export const ATLAS: AtlasPlace[] = [
   { id: "es", name: "Spain", kind: "country", capital: "Madrid", lat: 40.42, lon: -3.7, hook: "A high meseta, Mediterranean coasts, and a rain-shadow interior.", geo: ["A high meseta, Mediterranean coasts, and a rain-shadow interior.", "The west sees Atlantic moisture; the south-east is drier.", "Madrid is an interior capital on the plateau, not a port."] },
   { id: "pt", name: "Portugal", kind: "country", capital: "Lisbon", lat: 38.72, lon: -9.14, hook: "Atlantic margin, Iberian plate, and a long fetch for swell." },
   { id: "de", name: "Germany", kind: "country", capital: "Berlin", lat: 52.52, lon: 13.41, hook: "North European Plain, then the Alpine foreland. Rivers write the map." },
-  { id: "it", name: "Italy", kind: "country", capital: "Rome", lat: 41.9, lon: 12.5, hook: "A colliding boot: Alps, Apennines, volcanoes on a subduction story.", geo: ["Alps from collision, Apennines as a fold belt, volcanoes on a subduction hinge.", "Vesuvius and Etna are sticky-magma arcs, not a mid-ocean ridge.", "Rome sits in a west-coast lowland, not on the Alpine crest."], labs: [{ slug: "volcanoes", label: "Volcanoes" }, { slug: "plate-boundaries", label: "Plate boundaries" }, { slug: "earthquakes", label: "Earthquakes" }] },
+  { id: "it", name: "Italy", kind: "country", capital: "Rome", lat: 41.9, lon: 12.5, hook: "A colliding boot: Alps, Apennines, volcanoes on a subduction story.", geo: ["Alps from collision, Apennines as a fold belt, volcanoes on a subduction hinge.", "Vesuvius and Etna differ in magma composition and tectonic setting; Etna commonly erupts basaltic lava.", "Rome sits in a west-coast lowland, not on the Alpine crest."], labs: [{ slug: "volcanoes", label: "Volcanoes" }, { slug: "plate-boundaries", label: "Plate boundaries" }, { slug: "earthquakes", label: "Earthquakes" }] },
   { id: "gr", name: "Greece", kind: "country", capital: "Athens", lat: 37.98, lon: 23.73, hook: "A drowned mountain landscape; earthquakes are the plate conversation.", labs: [{ slug: "earthquakes", label: "Earthquakes" }, { slug: "plate-boundaries", label: "Plate boundaries" }] },
   { id: "no", name: "Norway", kind: "country", capital: "Oslo", lat: 59.91, lon: 10.75, hook: "Glacial troughs flooded as fjords. Ice did the cutting.", geo: ["Ice cut U-troughs; the sea flooded them as fjords. Rivers did not invent those walls.", "A wet west on a westerly fetch; Oslo is on a drier east.", "Caledonian rock and a glaciated shield, not a volcanic arc."], labs: [{ slug: "glaciers", label: "Glacial landforms" }, { slug: "coasts", label: "Coasts" }] },
   { id: "se", name: "Sweden", kind: "country", capital: "Stockholm", lat: 59.33, lon: 18.07, hook: "A shield of old rock, ice-scoured, with a Baltic half-sea." },
@@ -35,7 +39,7 @@ export const ATLAS: AtlasPlace[] = [
   { id: "at", name: "Austria", kind: "country", capital: "Vienna", lat: 48.21, lon: 16.37, hook: "The eastern Alps, then the Danube gate." },
   { id: "tr", name: "Türkiye", kind: "country", capital: "Ankara", lat: 39.93, lon: 32.86, hook: "A plateau between colliding plates; North Anatolian Fault is the exam case.", labs: [{ slug: "earthquakes", label: "Earthquakes" }, { slug: "plate-boundaries", label: "Plate boundaries" }] },
   { id: "eg", name: "Egypt", kind: "country", capital: "Cairo", lat: 30.04, lon: 31.24, hook: "A desert with a river. The Nile is the hydrograph.", geo: ["A hot desert with one through-flowing river. The Nile is the hydrograph.", "Almost no rain on the plateau. Flood pulse and irrigation are the water story.", "Cairo sits on alluvium, not on a glacier or a plate boundary."], labs: [{ slug: "hydrograph", label: "Storm hydrograph" }, { slug: "rivers", label: "Rivers" }, { slug: "climate-types", label: "Climate types" }] },
-  { id: "ke", name: "Kenya", kind: "country", capital: "Nairobi", lat: -1.29, lon: 36.82, hook: "Equator on a rift. ITCZ rains, not seasons of tilt.", geo: ["Kenya sits on the East African Rift. Equator on a diverging plate.", "Rains follow the ITCZ, not a 23.44° seasonal walk like London.", "Nairobi is high enough to be cool. Height writes the air here, not latitude alone."], labs: [{ slug: "seasons", label: "Why seasons happen" }, { slug: "plate-boundaries", label: "Plate boundaries" }, { slug: "climate-types", label: "Climate types" }] },
+  { id: "ke", name: "Kenya", kind: "country", capital: "Nairobi", lat: -1.29, lon: 36.82, hook: "Equatorial highlands and the East African Rift; seasonal rain and drier lowlands.", geo: ["Kenya sits on the East African Rift. Equator on a diverging plate.", "Rainfall seasons reflect the migration of tropical circulation, ocean conditions and relief; axial tilt still drives the seasonal solar cycle.", "Nairobi is high enough to be cool. Height writes the air here, not latitude alone."], labs: [{ slug: "seasons", label: "Why seasons happen" }, { slug: "plate-boundaries", label: "Plate boundaries" }, { slug: "climate-types", label: "Climate types" }] },
   { id: "za", name: "South Africa", kind: "country", capital: "Pretoria", lat: -25.75, lon: 28.19, hook: "A high plateau, a cold current, and a winter-rain Cape." },
   { id: "ng", name: "Nigeria", kind: "country", capital: "Abuja", lat: 9.08, lon: 7.4, hook: "ITCZ walk writes a wet south and a drier north." },
   { id: "ma", name: "Morocco", kind: "country", capital: "Rabat", lat: 34.02, lon: -6.84, hook: "Atlas ranges, a cold Canary current, and a Sahara edge." },
@@ -49,12 +53,12 @@ export const ATLAS: AtlasPlace[] = [
   { id: "co", name: "Colombia", kind: "country", capital: "Bogotá", lat: 4.71, lon: -74.07, hook: "Equatorial Andes. Height writes the climate, not latitude." },
   { id: "au", name: "Australia", kind: "country", capital: "Canberra", lat: -35.28, lon: 149.13, hook: "An old, dry shield. Monsoon north, Mediterranean south-west, desert core.", labs: [{ slug: "climate-types", label: "Climate types" }, { slug: "aeolian", label: "Wind landforms" }] },
   { id: "nz", name: "New Zealand", kind: "country", capital: "Wellington", lat: -41.29, lon: 174.78, hook: "A plate boundary with alps and a westerly fetch.", geo: ["A plate boundary with Southern Alps and a long westerly fetch.", "The Alpine Fault is a transform with a compressional component — not a Hawaiian hotspot.", "Wellington sits on the colliding edge. Ice cut the south-west fjords."], labs: [{ slug: "plate-boundaries", label: "Plate boundaries" }, { slug: "glaciers", label: "Glacial landforms" }, { slug: "earthquakes", label: "Earthquakes" }] },
-  { id: "jp", name: "Japan", kind: "country", capital: "Tokyo", lat: 35.68, lon: 139.65, hook: "Arc volcanoes on a subduction hinge. Earthquakes are the syllabus.", geo: ["Japan is an island arc on a subduction hinge: Pacific and Philippine Sea plates dive under Eurasia.", "Sticky magma stacks stratovolcanoes. Earthquakes and tsunami are the same plate conversation.", "Tokyo sits on a Kanto plain of sediment, not on a mid-ocean ridge. This is not Iceland and not Hawaii."], labs: [{ slug: "volcanoes", label: "Volcanoes" }, { slug: "plate-boundaries", label: "Plate boundaries" }, { slug: "earthquakes", label: "Earthquakes" }] },
-  { id: "cn", name: "China", kind: "country", capital: "Beijing", lat: 39.9, lon: 116.41, hook: "A monsoon east, a dry west, a colliding south.", geo: ["A monsoon east, a dry interior west, and a colliding Himalayan south.", "The Tibetan Plateau is continent–continent convergence, not a volcanic arc.", "Beijing sits on a north China plain. The high ice is a thousand kilometres southwest. Shanghai, Hong Kong, and the Loess Plateau are other physical planets inside the same country."], labs: [{ slug: "folds-faults", label: "Folds and faults" }, { slug: "climate-types", label: "Climate types" }, { slug: "rain-shadow", label: "Rain shadow" }], alias: ["中国", "Beijing", "北京", "Shanghai", "上海", "Hong Kong", "香港", "Taiwan", "台湾", "Macau", "澳门"] },
-  { id: "hk", name: "Hong Kong", kind: "city", capital: "—", lat: 22.3, lon: 114.17, hook: "Weathered granite, steep catchments, a drowned harbour. Mass movement is the syllabus.", geo: ["A granite and volcanic terrain, deeply weathered in a subtropical monsoon.", "Steep catchments above a dense city. Debris flows after rain, not till cliffs at a North Sea fetch.", "Victoria Harbour is a drowned valley. The physical map is slope and saprolite, not a skyline."], labs: [{ slug: "mass-movement", label: "Mass movement" }, { slug: "weathering", label: "Weathering" }, { slug: "tropical-cyclone", label: "Tropical cyclone" }], alias: ["香港", "Xianggang", "HK", "Kowloon", "New Territories"] },
-  { id: "shanghai", name: "Shanghai", kind: "city", capital: "—", lat: 31.23, lon: 121.47, hook: "A tidal Huangpu on the Yangtze delta. Meiyu, tide, and a flood wall.", geo: ["A drowned river on a silt delta. The Huangpu is tidal; the sea is part of the hydrograph.", "Meiyu (plum rain) and typhoon remnants write summer peaks. This is not a UK winter front.", "Pudong is a skyline on alluvium. The physical map is the delta, not the tower."], labs: [{ slug: "hydrograph", label: "Storm hydrograph" }, { slug: "rivers", label: "Rivers" }, { slug: "storm-surge", label: "Storm surge" }], alias: ["上海", "Huangpu", "黄浦", "Pudong", "Yangtze delta"] },
-  { id: "tw", name: "Taiwan", kind: "country", capital: "Taipei", lat: 25.03, lon: 121.57, hook: "A colliding island: high Central Range, a typhoon east, a strait to the west.", geo: ["Taiwan is an orogen on a converging edge. The Central Range is high because plates shorten.", "The east is a typhoon fetch. Yushan is a collision peak, not a volcanic arc like Fuji.", "Taipei sits in a northern basin. The physical map is the range and the strait."], labs: [{ slug: "folds-faults", label: "Folds and faults" }, { slug: "tropical-cyclone", label: "Tropical cyclone" }, { slug: "plate-boundaries", label: "Plate boundaries" }], alias: ["台湾", "臺灣", "Taipei", "台北", "Formosa", "Yushan"] },
-  { id: "mo", name: "Macau", kind: "city", capital: "—", lat: 22.2, lon: 113.54, hook: "A drowned Pearl River edge. Typhoon surge on reclaimed ground.", geo: ["Macau sits on the west of the Pearl River estuary. Reclamation is the new shoreline.", "A typhoon surge is the syllabus, not a chalk cliff. The same warm-core engine as a hurricane, a western North Pacific name.", "The tower is a landmark. The physical map is an estuary and a monsoon."], labs: [{ slug: "tropical-cyclone", label: "Tropical cyclone" }, { slug: "storm-surge", label: "Storm surge" }, { slug: "coasts", label: "Coasts" }], alias: ["澳门", "澳門", "Macao", "Pearl River"] },
+  { id: "jp", name: "Japan", kind: "country", capital: "Tokyo", lat: 35.68, lon: 139.65, hook: "Arc volcanoes on a subduction hinge. Earthquakes are the syllabus.", geo: ["Japan lies along several plate margins, where the Pacific and Philippine Sea plates subduct beneath parts of the island arc.", "Volcanoes form above subduction zones. Offshore earthquakes can generate tsunami when they displace the seafloor.", "Tokyo sits on a Kanto plain of sediment, not on a mid-ocean ridge. This is not Iceland and not Hawaii."], labs: [{ slug: "volcanoes", label: "Volcanoes" }, { slug: "plate-boundaries", label: "Plate boundaries" }, { slug: "earthquakes", label: "Earthquakes" }] },
+  { id: "cn", name: "China", kind: "country", capital: "Beijing", lat: 39.9, lon: 116.41, hook: "A monsoon east, a dry west, a colliding south.", geo: ["A monsoon east, a dry interior west, and a colliding Himalayan south.", "The Tibetan Plateau is continent–continent convergence, not a volcanic arc.", "Beijing sits on a north China plain. The high ice is a thousand kilometres southwest. Shanghai, Hong Kong, and the Loess Plateau are other physical planets inside the same country."], labs: [{ slug: "folds-faults", label: "Folds and faults" }, { slug: "climate-types", label: "Climate types" }, { slug: "rain-shadow", label: "Rain shadow" }], alias: ["Beijing", "Shanghai", "Hong Kong", "Taiwan", "Macau"] },
+  { id: "hk", name: "Hong Kong", kind: "city", capital: "—", lat: 22.3, lon: 114.17, hook: "Weathered granite, steep catchments, a drowned harbour. Mass movement is the syllabus.", geo: ["A granite and volcanic terrain, deeply weathered in a subtropical monsoon.", "Steep catchments above a dense city. Debris flows after rain, not till cliffs at a North Sea fetch.", "Victoria Harbour is a drowned valley. The physical map is slope and saprolite, not a skyline."], labs: [{ slug: "mass-movement", label: "Mass movement" }, { slug: "weathering", label: "Weathering" }, { slug: "tropical-cyclone", label: "Tropical cyclone" }], alias: ["Xianggang", "HK", "Kowloon", "New Territories"] },
+  { id: "shanghai", name: "Shanghai", kind: "city", capital: "—", lat: 31.23, lon: 121.47, hook: "A tidal Huangpu on the Yangtze delta. Meiyu, tide, and a flood wall.", geo: ["A drowned river on a silt delta. The Huangpu is tidal; the sea is part of the hydrograph.", "Meiyu (plum rain) and typhoon remnants write summer peaks. This is not a UK winter front.", "Pudong is a skyline on alluvium. The physical map is the delta, not the tower."], labs: [{ slug: "hydrograph", label: "Storm hydrograph" }, { slug: "rivers", label: "Rivers" }, { slug: "storm-surge", label: "Storm surge" }], alias: ["Huangpu", "Pudong", "Yangtze delta"] },
+  { id: "tw", name: "Taiwan", kind: "country", capital: "Taipei", lat: 25.03, lon: 121.57, hook: "A colliding island: high Central Range, a typhoon east, a strait to the west.", geo: ["Taiwan is an orogen on a converging edge. The Central Range is high because plates shorten.", "The east is a typhoon fetch. Yushan is a collision peak, not a volcanic arc like Fuji.", "Taipei sits in a northern basin. The physical map is the range and the strait."], labs: [{ slug: "folds-faults", label: "Folds and faults" }, { slug: "tropical-cyclone", label: "Tropical cyclone" }, { slug: "plate-boundaries", label: "Plate boundaries" }], alias: ["Taipei", "Formosa", "Yushan"] },
+  { id: "mo", name: "Macau", kind: "city", capital: "—", lat: 22.2, lon: 113.54, hook: "A drowned Pearl River edge. Typhoon surge on reclaimed ground.", geo: ["Macau sits on the west of the Pearl River estuary. Reclamation is the new shoreline.", "A typhoon surge is the syllabus, not a chalk cliff. The same warm-core engine as a hurricane, a western North Pacific name.", "The tower is a landmark. The physical map is an estuary and a monsoon."], labs: [{ slug: "tropical-cyclone", label: "Tropical cyclone" }, { slug: "storm-surge", label: "Storm surge" }, { slug: "coasts", label: "Coasts" }], alias: ["Macao", "Pearl River"] },
   { id: "in", name: "India", kind: "country", capital: "New Delhi", lat: 28.61, lon: 77.21, hook: "A continent that walked north; the Himalaya are the crumple.", geo: ["India walked north into Eurasia. The Himalaya are the crumple zone.", "A monsoon climate on a colliding edge. The Ganges–Brahmaputra is the hydrograph.", "New Delhi sits on the Indo-Gangetic plain, not on the high ice."], labs: [{ slug: "continental-drift", label: "Continental drift" }, { slug: "folds-faults", label: "Folds and faults" }, { slug: "climate-types", label: "Climate types" }] },
   { id: "id", name: "Indonesia", kind: "country", capital: "Jakarta", lat: -6.21, lon: 106.85, hook: "An island arc on the Pacific Ring. Volcanoes and a warm pool.", labs: [{ slug: "volcanoes", label: "Volcanoes" }, { slug: "plate-boundaries", label: "Plate boundaries" }, { slug: "tropical-cyclone", label: "Tropical cyclone" }] },
   { id: "ph", name: "Philippines", kind: "country", capital: "Manila", lat: 14.6, lon: 120.98, hook: "A typhoon alley on a colliding arc.", labs: [{ slug: "tropical-cyclone", label: "Tropical cyclone" }, { slug: "volcanoes", label: "Volcanoes" }, { slug: "plate-boundaries", label: "Plate boundaries" }] },
@@ -189,7 +193,7 @@ export const ATLAS: AtlasPlace[] = [
   { id: "us-oh", name: "Ohio", kind: "us-state", capital: "Columbus", lat: 39.96, lon: -83.0, hook: "Till plains to a lake-effect shore." },
   { id: "us-ok", name: "Oklahoma", kind: "us-state", capital: "Oklahoma City", lat: 35.47, lon: -97.52, hook: "Dust Bowl ground zero. Wind plus drought plus a broken A horizon.", labs: [{ slug: "soil-erosion", label: "Soil erosion" }, { slug: "aeolian", label: "Wind landforms" }] },
   { id: "us-or", name: "Oregon", kind: "us-state", capital: "Salem", lat: 44.94, lon: -123.03, hook: "Cascadia subduction, a wet west, a dry east.", labs: [{ slug: "plate-boundaries", label: "Plate boundaries" }, { slug: "volcanoes", label: "Volcanoes" }, { slug: "rain-shadow", label: "Rain shadow" }] },
-  { id: "us-pa", name: "Pennsylvania", kind: "us-state", capital: "Harrisburg", lat: 40.27, lon: -76.88, hook: "Folded Appalachians. Anticlines as ridges.", labs: [{ slug: "folds-faults", label: "Folds and faults" }] },
+  { id: "us-pa", name: "Pennsylvania", kind: "us-state", capital: "Harrisburg", lat: 40.27, lon: -76.88, hook: "Folded Appalachian strata form parallel ridges and valleys; rock resistance and erosion control the relief.", labs: [{ slug: "folds-faults", label: "Folds and faults" }] },
   { id: "us-ri", name: "Rhode Island", kind: "us-state", capital: "Providence", lat: 41.82, lon: -71.41, hook: "A drowned glacial coast in miniature." },
   { id: "us-sc", name: "South Carolina", kind: "us-state", capital: "Columbia", lat: 34.0, lon: -81.03, hook: "A coastal plain and a hurricane fetch." },
   { id: "us-sd", name: "South Dakota", kind: "us-state", capital: "Pierre", lat: 44.37, lon: -100.35, hook: "Badlands, a glaciated east, a dry west." },
@@ -224,18 +228,8 @@ export function atlasSearchText(p: AtlasPlace): string {
 }
 
 export function atlasGeo(p: AtlasPlace): string[] {
-  if (p.geo && p.geo.length >= 2) return p.geo.slice(0, 3);
-  const second =
-    p.kind === "us-state"
-      ? "Read relief, climate, and the plate or ice story before the state outline."
-      : p.kind.startsWith("uk")
-        ? "Ice, rock type, and a North Atlantic fetch write this map more than any administrative line."
-        : "Relief, climate, and plate setting outlast the flag.";
-  const third =
-    p.capital && p.capital !== "—"
-      ? `${p.capital} is a point on that physical map, not the whole country.`
-      : "Coordinates mark a teaching point, not a border.";
-  return [p.hook, second, third];
+  if (p.geo?.length) return p.geo.slice(0, 3);
+  return [p.hook];
 }
 
 export function atlasLabs(p: AtlasPlace): AtlasLabLink[] {
@@ -265,7 +259,7 @@ export function nearestAtlasPlace(lat: number, lon: number, maxDeg = 12): AtlasP
   let d0 = maxDeg * maxDeg;
   const cos = Math.cos((lat * Math.PI) / 180) ** 2;
   for (const p of ATLAS) {
-    const d = (p.lat - lat) ** 2 + (p.lon - lon) ** 2 * cos;
+    const d = (p.lat - lat) ** 2 + (((p.lon - lon + 540) % 360) - 180) ** 2 * cos;
     if (d < d0) {
       d0 = d;
       best = p;
@@ -277,105 +271,34 @@ export function nearestAtlasPlace(lat: number, lon: number, maxDeg = 12): AtlasP
 export type ClimateFamily = "A" | "B" | "C" | "D" | "E";
 export type TectonicSetting = "divergent" | "convergent" | "transform" | "hotspot" | "intraplate";
 
-export function atlasClimate(p: AtlasPlace): ClimateFamily {
-  const blob = `${p.name} ${p.hook} ${(p.geo ?? []).join(" ")}`.toLowerCase();
-  if (/equator|itcz|monsoon|rainforest|tropical|amazon|congo/.test(blob)) return "A";
-  if (/desert|sahara|arid|rain-shadow|rain shadow|sahel|hot desert/.test(blob)) return "B";
-  if (/mediterranean|temperate west|west-coast|oceanic|mild winter/.test(blob)) return "C";
-  if (/continental|steppe|prairie|siber|interior|cold winter/.test(blob)) return "D";
-  if (/polar|ice |glacial|tundra|greenland|antarctica/.test(blob) && /ice|polar|tundra|glaci/.test(blob)) return "E";
-  if (p.kind.startsWith("uk") || p.id === "uk" || p.id === "ie") return "C";
-  if (Math.abs(p.lat) > 60) return "E";
-  if (Math.abs(p.lat) < 15) return "A";
-  if (Math.abs(p.lat) > 45) return "D";
-  return "C";
+/** Climate at the named locator, not a uniform classification of its country. */
+export function atlasClimateDetail(p:AtlasPlace) {
+  return (CLIMATE_DATA.places as Record<string,{code:string|null;family:string|null;coastalOffsetKm:number;sampleLat:number;sampleLon:number}>)[p.id];
 }
-
-export function atlasTectonic(p: AtlasPlace): TectonicSetting {
-  const blob = `${p.name} ${p.hook} ${(p.geo ?? []).join(" ")} ${(p.labs ?? []).map((l) => l.slug).join(" ")}`.toLowerCase();
-  if (/hotspot|hawaii|yellowstone|iceland|galápagos|galapagos/.test(blob) && /hotspot/.test(blob)) return "hotspot";
-  if (p.id === "us-hi" || p.id === "us-wy" || p.id === "is") return "hotspot";
-  if (/transform|san andreas|north anatolian|alpine fault/.test(blob)) return "transform";
-  if (p.id === "us-ca") return "transform";
-  if (/divergent|rift|mid-ocean|mid-atlantic|spreading/.test(blob)) return "divergent";
-  if (/subduct|arc |trench|convergent|collision|himalaya|andes|cascadia/.test(blob)) return "convergent";
-  if ((p.labs ?? []).some((l) => l.slug === "plate-boundaries" || l.slug === "volcanoes")) return "convergent";
-  return "intraplate";
+export function atlasClimate(p:AtlasPlace):ClimateFamily | 'unknown' {
+  return atlasClimateDetail(p)?.family as ClimateFamily ?? 'unknown';
 }
-
-const PHOTO: Record<string, string> = {
-  jp: "/photos/stratovolcano.jpg",
-  is: "/photos/iceland.jpg",
-  "us-ca": "/photos/san-andreas.jpg",
-  "us-hi": "/photos/shield-volcano.jpg",
-  "uk-holderness": "/photos/spit.jpg",
-  "uk-lakes": "/photos/cirque.jpg",
-  "uk-snowdonia": "/photos/horn.jpg",
-  "uk-jurassic": "/photos/wave-cut.jpg",
-  uk: "/photos/chalk-cliff.jpg",
-  "us-fl": "/photos/eye-hurricane.jpg",
-  "us-ak": "/photos/glacier.jpg",
-  "us-wa": "/photos/stratovolcano.jpg",
-  "us-or": "/photos/orographic.jpg",
-  "us-wy": "/photos/fissure.jpg",
-  no: "/photos/glacier.jpg",
-  cl: "/photos/trench.jpg",
-  nz: "/photos/glacier.jpg",
-  ke: "/photos/itcz.jpg",
-  eg: "/photos/nile-delta.jpg",
-  in: "/photos/himalaya.jpg",
-  cn: "/photos/himalaya.jpg",
-  hk: "/photos/hong-kong.jpg",
-  shanghai: "/photos/shanghai.jpg",
-  tw: "/photos/taiwan.jpg",
-  mo: "/photos/macau.jpg",
-  np: "/photos/himalaya.jpg",
-  us: "/photos/grand-canyon.jpg",
-  "us-az": "/photos/grand-canyon.jpg",
-  "us-nv": "/photos/death-valley.jpg",
-  br: "/photos/carbon-store.jpg",
-  id: "/photos/stratovolcano.jpg",
-  it: "/photos/stratovolcano.jpg",
-  mx: "/photos/stratovolcano.jpg",
-  "uk-eng": "/photos/chalk-cliff.jpg",
-  "uk-sct": "/photos/arete.jpg",
-  "uk-wls": "/photos/horn.jpg",
-  "uk-nir": "/photos/fissure.jpg",
-  au: "/photos/barchan.jpg",
-  pe: "/photos/ocean-currents.jpg",
-  bd: "/photos/nile-delta.jpg",
-  nl: "/photos/flood.jpg",
-  "us-la": "/photos/mississippi.jpg",
-  "us-ky": "/photos/limestone-pavement.jpg",
-  ie: "/photos/limestone-pavement.jpg",
+const CONTEXTS:Partial<Record<TectonicSetting,string[]>>={
+  divergent:'is ke et tz us-nm us-nv us-ut'.split(' '),
+  convergent:'it gr tr fr ch at hr ba ro ge am az ir pk in np bt cn tw jp id ph nz pg to ws mx cl pe co ec ve pa cr ca us us-ak us-or us-wa'.split(' '),
+  transform:'tr nz ht cu jm us us-ca mx'.split(' '),
+  hotspot:'is us us-hi us-wy ec'.split(' '),
 };
+/** Named regional teaching contexts; several can coexist in one country. */
+export function atlasTectonics(p:AtlasPlace):TectonicSetting[] {
+  const settings=(Object.entries(CONTEXTS) as [TectonicSetting,string[]][]).filter(([,ids])=>ids.includes(p.id)).map(([kind])=>kind);
+  return settings.length?settings:['intraplate'];
+}
+export function atlasTectonic(p:AtlasPlace):TectonicSetting {return atlasTectonics(p)[0];}
 
-export function atlasPhoto(p: AtlasPlace): { src: string; alt: string; credit: string } {
-  const src =
-    PHOTO[p.id] ??
-    (atlasTectonic(p) === "hotspot"
-      ? "/photos/shield-volcano.jpg"
-      : atlasTectonic(p) === "convergent"
-        ? "/photos/stratovolcano.jpg"
-        : atlasTectonic(p) === "transform"
-          ? "/photos/san-andreas.jpg"
-          : atlasClimate(p) === "A"
-            ? "/photos/carbon-store.jpg"
-            : atlasClimate(p) === "B"
-              ? "/photos/barchan.jpg"
-              : atlasClimate(p) === "E"
-                ? "/photos/greenland-ice.jpg"
-                : p.kind.startsWith("uk")
-                  ? "/photos/chalk-cliff.jpg"
-                  : "/photos/climate-biome.jpg");
-  return {
-    src,
-    alt: `Landscape for ${p.name}`,
-    credit: "NASA / USGS / NOAA / Wikimedia Commons — see figure credit on the photograph",
-  };
+/** Explicit place-to-observation mapping; never substitute another country's landscape. */
+export function atlasPhoto(p: AtlasPlace) {
+  const id = (ATLAS_PHOTOS as Record<string, string>)[p.id];
+  return id ? VERIFIED_PHOTOS[id] : undefined;
 }
 
-export const CLIMATE_LABEL: Record<ClimateFamily, string> = {
+export const CLIMATE_LABEL: Record<ClimateFamily | "unknown", string> = {
+  unknown: "Unclassified",
   A: "A tropical",
   B: "B dry",
   C: "C temperate",

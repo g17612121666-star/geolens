@@ -1,0 +1,35 @@
+[
+  {
+    "id": "weathering-1",
+    "title": "File:Weathered granite (GeoDIL number - 1789).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Weathered_granite_(GeoDIL_number_-_1789).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Weathered_granite_%28GeoDIL_number_-_1789%29.jpg/1280px-Weathered_granite_%28GeoDIL_number_-_1789%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Dexter Perkins",
+    "description": "Most of what is seen here was once solid Precambrian granitic rock, but weathering has broken it down. Granite frequently weathers to produce spheroidal shapes, even below the surface, as seen in this photo.",
+    "categories": "CC-Zero|Files from external sources with reviewed licenses|Uploaded with OpenRefine|Outcrops in Colorado|Granite in Colorado|Weathering in Colorado|Geology of Gunnison County, Colorado|Weathered granite|GeoDIL images|Photographs by Dexter Perkins"
+  },
+  {
+    "id": "weathering-2",
+    "title": "File:Weathered granite outcrop (GeoDIL number - 1786).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Weathered_granite_outcrop_(GeoDIL_number_-_1786).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Weathered_granite_outcrop_%28GeoDIL_number_-_1786%29.jpg/1280px-Weathered_granite_outcrop_%28GeoDIL_number_-_1786%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Dexter Perkins",
+    "description": "These outcrops of Precambrian granite have weathered to form typical rounded knobs. Cracks and gullies in the granite are associated with joints which allowed water to enter the rock, thus enhancing mineral decomposition. Granite typically undergoes spheroidal weathering (forms rounded outcrops) because outcrop corners and edges weatger and erode relatively quickly.",
+    "categories": "CC-Zero|Files from external sources with reviewed licenses|Uploaded with OpenRefine|Outcrops in Colorado|Granite in Colorado|Weathering in Colorado|Precambrian intrusions (geology) in Colorado|Geology of Gunnison County, Colorado|Weathered granite|GeoDIL images|Photographs by Dexter Perkins"
+  },
+  {
+    "id": "weathering-3",
+    "title": "File:Weathered granite outcrop (GeoDIL number - 1784).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Weathered_granite_outcrop_(GeoDIL_number_-_1784).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Weathered_granite_outcrop_%28GeoDIL_number_-_1784%29.jpg/1280px-Weathered_granite_outcrop_%28GeoDIL_number_-_1784%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Dexter Perkins",
+    "description": "These outcrops of Precambrian granite have weathered to form typical rounded knobs. Cracks and gullies in the granite are associated with joints which allowed water to enter the rock, enhancing mineral decomposition. Granite typically weathers and erodes to form rounded outcrops (spheroidal weathering) because outcrop corners and edges weather and erode relatively quickly.",
+    "categories": "CC-Zero|Files from external sources with reviewed licenses|Uploaded with OpenRefine|Outcrops in Colorado|Granite in Colorado|Weathering in Colorado|Precambrian intrusions (geology) in Colorado|Geology of Gunnison County, Colorado|Weathered granite|GeoDIL images|Photographs by Dexter Perkins"
+  }
+]

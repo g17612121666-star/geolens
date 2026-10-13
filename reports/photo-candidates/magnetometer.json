@@ -1,0 +1,35 @@
+[
+  {
+    "id": "magnetometer-1",
+    "title": "File:Helicopter with magnetometer.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helicopter_with_magnetometer.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Helicopter_with_magnetometer.jpg/1280px-Helicopter_with_magnetometer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Photographer: Tien Grauch, U.S. Geological Survey",
+    "description": "Helicopter with magnetometer mounted in stinger. Salida, Colorado, USA.",
+    "categories": "Taken with Olympus C-5050Z|PD USGS|Bell 206L|Aeromagnetic survey aircraft"
+  },
+  {
+    "id": "magnetometer-2",
+    "title": "File:SPINNER MAGNETOMETER ALONG NORTH WALL OF ROOM 40. - U.S. Geological Survey, Rock Magnetics Laboratory, 345 Middlefield Road, Menlo Park, San Mateo County, CA HAER CAL,41-MENPA,5-22.tif",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SPINNER_MAGNETOMETER_ALONG_NORTH_WALL_OF_ROOM_40._-_U.S._Geological_Survey,_Rock_Magnetics_Laboratory,_345_Middlefield_Road,_Menlo_Park,_San_Mateo_County,_CA_HAER_CAL,41-MENPA,5-22.tif",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/SPINNER_MAGNETOMETER_ALONG_NORTH_WALL_OF_ROOM_40._-_U.S._Geological_Survey%2C_Rock_Magnetics_Laboratory%2C_345_Middlefield_Road%2C_Menlo_Park%2C_San_Mateo_County%2C_CA_HAER_CAL%2C41-MENPA%2C5-22.tif/lossy-page1-1280px-thumbnail.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "De Vries, David G.",
+    "description": "",
+    "categories": "Images uploaded by Fæ|PD US NPS|Files from the Historic American Buildings Survey|GWToolset Batch Upload|Files with coordinates missing SDC location of creation|USGS Rock Magnetics Laboratory, Menlo Park, California"
+  },
+  {
+    "id": "magnetometer-3",
+    "title": "File:ROOM 40, LOOKING WEST FROM THE RUBENS COIL. SPINNER MAGNETOMETER IS VISIBLE AT FAR LEFT, AND THE RUBENS COIL CONTROL UNIT AT FAR RIGHT. - U.S. Geological Survey, Rock Magnetics HAER CAL,41-MENPA,5-13.tif",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:ROOM_40,_LOOKING_WEST_FROM_THE_RUBENS_COIL._SPINNER_MAGNETOMETER_IS_VISIBLE_AT_FAR_LEFT,_AND_THE_RUBENS_COIL_CONTROL_UNIT_AT_FAR_RIGHT._-_U.S._Geological_Survey,_Rock_Magnetics_HAER_CAL,41-MENPA,5-13.tif",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/ROOM_40%2C_LOOKING_WEST_FROM_THE_RUBENS_COIL._SPINNER_MAGNETOMETER_IS_VISIBLE_AT_FAR_LEFT%2C_AND_THE_RUBENS_COIL_CONTROL_UNIT_AT_FAR_RIGHT._-_U.S._Geological_Survey%2C_Rock_Magnetics_HAER_CAL%2C41-MENPA%2C5-13.tif/lossy-page1-1280px-thumbnail.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "De Vries, David G.",
+    "description": "",
+    "categories": "Images uploaded by Fæ|PD US NPS|Files from the Historic American Buildings Survey|GWToolset Batch Upload|Files with coordinates missing SDC location of creation|USGS Rock Magnetics Laboratory, Menlo Park, California"
+  }
+]

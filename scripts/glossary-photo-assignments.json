@@ -1,0 +1,1448 @@
+[
+  {
+    "source": "brazil-barchan-dunes",
+    "terms": [
+      "Barchan",
+      "Erg"
+    ]
+  },
+  {
+    "source": "cameroon-forest-canopy",
+    "terms": [
+      "Photosynthesis",
+      "Interception",
+      "Cover"
+    ],
+    "caption": "Forest canopy at Bodiman, Cameroon. Leaves intercept rain and absorb light for photosynthesis; the photograph shows the living store, not the invisible molecular reactions."
+  },
+  {
+    "source": "serengeti-savanna",
+    "terms": [
+      "Biome"
+    ]
+  },
+  {
+    "source": "spurn-spit",
+    "terms": [
+      "Spit",
+      "Longshore drift",
+      "Sediment budget"
+    ]
+  },
+  {
+    "source": "himalaya-iss",
+    "terms": [
+      "Orogeny",
+      "Mountain",
+      "Continental drift",
+      "Convergent"
+    ]
+  },
+  {
+    "source": "rainier-topography",
+    "terms": [
+      "Contour",
+      "Contour interval",
+      "Spot height",
+      "Relief"
+    ]
+  },
+  {
+    "source": "japan-extratropical-cyclone",
+    "terms": [
+      "Cyclone",
+      "Depression",
+      "Extra-tropical",
+      "Midlatitude cyclone",
+      "Comma cloud"
+    ]
+  },
+  {
+    "source": "canyonlands-drainage",
+    "terms": [
+      "Drainage basin",
+      "Tributary",
+      "Watershed",
+      "Interfluve"
+    ]
+  },
+  {
+    "source": "kamchatka-displacement",
+    "terms": [
+      "Megathrust",
+      "Subduction"
+    ],
+    "caption": "NASA ARIA observations of surface displacement following the 2025 Kamchatka megathrust earthquake. The coloured displacement field is measured evidence of movement, not a photograph of the buried fault."
+  },
+  {
+    "source": "solar-eclipse-2017",
+    "terms": [
+      "Solar eclipse",
+      "Umbra",
+      "Syzygy"
+    ]
+  },
+  {
+    "source": "noaa-el-nino-2015",
+    "terms": [
+      "El Niño",
+      "ENSO"
+    ]
+  },
+  {
+    "source": "settlands-folds",
+    "terms": [
+      "Anticline",
+      "Syncline"
+    ]
+  },
+  {
+    "source": "ontario-cold-front",
+    "terms": [
+      "Cold front",
+      "Squall line"
+    ]
+  },
+  {
+    "source": "siccar-unconformity",
+    "terms": [
+      "Deep time",
+      "Ma"
+    ],
+    "caption": "The unconformity at Siccar Point records a gap of many millions of years. Ma means million years ago and ka means thousand years ago; those intervals are inferred from geological evidence, not from the photograph alone."
+  },
+  {
+    "source": "aletsch-glacier",
+    "terms": [
+      "Moraine",
+      "U-trough"
+    ]
+  },
+  {
+    "source": "greenwich-meridian",
+    "terms": [
+      "Prime meridian",
+      "Meridian",
+      "Longitude",
+      "WGS84"
+    ]
+  },
+  {
+    "source": "yosemite-topographic-sheet",
+    "terms": [
+      "Easting",
+      "Northing",
+      "Grid square"
+    ]
+  },
+  {
+    "source": "hawaiian-chain-iss",
+    "terms": [
+      "Age-progressive chain",
+      "Hotspot",
+      "Intraplate volcanism",
+      "Mantle plume"
+    ]
+  },
+  {
+    "source": "huey-creek-gauge",
+    "terms": [
+      "Hydrograph",
+      "Discharge",
+      "Stage",
+      "Regime"
+    ]
+  },
+  {
+    "source": "malham-limestone-pavement",
+    "terms": [
+      "Limestone pavement",
+      "Clint",
+      "Gryke",
+      "Carbonation",
+      "Chemical weathering"
+    ]
+  },
+  {
+    "source": "grand-canyon-hopi-point",
+    "terms": [
+      "Canyon",
+      "Plateau",
+      "Sedimentary"
+    ]
+  },
+  {
+    "source": "oso-landslide",
+    "terms": [
+      "Mass movement",
+      "Crown",
+      "Toe",
+      "Shear surface"
+    ]
+  },
+  {
+    "source": "artemis-crescent-moon",
+    "terms": [
+      "Phase",
+      "Near side"
+    ]
+  },
+  {
+    "source": "gulf-stream-modis",
+    "terms": [
+      "Gulf Stream",
+      "Western boundary current",
+      "Surface current"
+    ]
+  },
+  {
+    "source": "noatak-patterned-ground",
+    "terms": [
+      "Periglacial",
+      "Patterned ground",
+      "Permafrost",
+      "Ice wedge"
+    ]
+  },
+  {
+    "source": "thingvellir-rift",
+    "terms": [
+      "Divergent",
+      "Rift",
+      "Normal fault"
+    ]
+  },
+  {
+    "source": "lena-delta-landsat",
+    "terms": [
+      "Delta",
+      "Mouth"
+    ]
+  },
+  {
+    "source": "presque-isle-potholes",
+    "terms": [
+      "Pothole",
+      "Abrasion",
+      "Erosion"
+    ]
+  },
+  {
+    "source": "stillaguamish-flood",
+    "terms": [
+      "Floodplain",
+      "Still-water flood"
+    ]
+  },
+  {
+    "source": "ucayali-meanders",
+    "terms": [
+      "Meander",
+      "Oxbow",
+      "Cut bank",
+      "Slip-off slope"
+    ]
+  },
+  {
+    "source": "south-africa-night",
+    "terms": [
+      "Rotation",
+      "Solar day",
+      "Sidereal day"
+    ],
+    "caption": "South Africa at night, photographed from the ISS. Earth's rotation relative to the Sun defines the solar day; rotation relative to distant stars defines the slightly shorter sidereal day."
+  },
+  {
+    "source": "galapagos-pillow-lava",
+    "terms": [
+      "Oceanic crust",
+      "Seafloor spreading",
+      "Mid-ocean ridge",
+      "Basalt",
+      "Igneous"
+    ]
+  },
+  {
+    "source": "apollo17-earth",
+    "terms": [
+      "Terrestrial planet"
+    ]
+  },
+  {
+    "source": "queensland-soil-erosion",
+    "terms": [
+      "Gully",
+      "Rill"
+    ]
+  },
+  {
+    "source": "nps-soil-texture",
+    "terms": [
+      "Texture",
+      "USDA texture triangle",
+      "Ternary plot"
+    ],
+    "caption": "NPS scientists examine soil texture in the field. Sand, silt and clay proportions can be plotted on a ternary texture triangle; the photograph shows the sampled material and fieldwork."
+  },
+  {
+    "source": "greens-mill-sundial",
+    "terms": [
+      "Gnomon",
+      "Solar altitude",
+      "Sun path",
+      "Noon altitude"
+    ]
+  },
+  {
+    "source": "cassini-saturn",
+    "terms": [
+      "Gas giant",
+      "Planetary ring"
+    ]
+  },
+  {
+    "source": "ike-bolivar-surge",
+    "terms": [
+      "Storm surge",
+      "Wind setup"
+    ]
+  },
+  {
+    "source": "bering-cloud-streets",
+    "terms": [
+      "Thermal circulation",
+      "Adiabatic cooling"
+    ]
+  },
+  {
+    "source": "fundy-low-tide",
+    "terms": [
+      "Tidal range",
+      "Semi-diurnal tide"
+    ]
+  },
+  {
+    "source": "isabel-hurricane-eye",
+    "terms": [
+      "Tropical cyclone",
+      "Eye",
+      "Eyewall",
+      "Rainband",
+      "Saffir–Simpson"
+    ]
+  },
+  {
+    "source": "hubble-andromeda",
+    "terms": [
+      "Light year",
+      "Order of magnitude",
+      "Scale jump",
+      "Power of ten"
+    ]
+  },
+  {
+    "source": "kilauea-lava-fountain",
+    "terms": [
+      "Magma",
+      "Viscosity"
+    ]
+  },
+  {
+    "source": "lake-evaporation-fog",
+    "terms": [
+      "Evaporative cooling"
+    ]
+  },
+  {
+    "source": "weathered-granite",
+    "terms": [
+      "Weathering",
+      "Weathering (to sediment)"
+    ]
+  },
+  {
+    "source": "east-african-rift",
+    "terms": [
+      "Wilson cycle"
+    ]
+  },
+  {
+    "source": "mantle-xenolith",
+    "terms": [
+      "Mantle",
+      "Asthenosphere",
+      "Partial melt"
+    ],
+    "caption": "Mantle peridotite enclosed in volcanic host rock at Peridot Mesa, Arizona. It is physical evidence of rock from the upper mantle. The mantle is predominantly solid; local partial melting is not a global magma ocean."
+  },
+  {
+    "source": "atmospheric-limb",
+    "terms": [
+      "Troposphere",
+      "Stratosphere",
+      "Tropopause",
+      "Mesosphere",
+      "Horizon"
+    ],
+    "caption": "Earth's thin atmosphere above the limb, photographed from the ISS on 6 December 2021. Scattered sunlight reveals lower atmospheric layers; coloured bands are not precise altitude boundaries."
+  },
+  {
+    "source": "usgs-principal-aquifers",
+    "terms": [
+      "Aquifer"
+    ]
+  },
+  {
+    "source": "foel-fras-blockfield",
+    "terms": [
+      "Blockfield",
+      "Frost shattering",
+      "Mechanical weathering"
+    ]
+  },
+  {
+    "source": "porto-covo-breaking-wave",
+    "terms": [
+      "Crest",
+      "Shoaling",
+      "Destructive wave",
+      "Hydraulic action",
+      "Wavelength"
+    ]
+  },
+  {
+    "source": "mount-stephen-trilobite",
+    "terms": [
+      "Cambrian"
+    ]
+  },
+  {
+    "source": "denali-glacial-basin",
+    "terms": [
+      "Cirque",
+      "Arête"
+    ]
+  },
+  {
+    "source": "ixtassou-kaolinite",
+    "terms": [
+      "Clay"
+    ]
+  },
+  {
+    "source": "rhine-moselle-confluence",
+    "terms": [
+      "Confluence"
+    ]
+  },
+  {
+    "source": "crater-lake-caldera",
+    "terms": [
+      "Caldera"
+    ]
+  },
+  {
+    "source": "glen-canyon-dam",
+    "terms": [
+      "Dam regulation",
+      "Residence time"
+    ]
+  },
+  {
+    "source": "thames-estuary-landsat",
+    "terms": [
+      "Estuary",
+      "Suspension",
+      "Silt"
+    ]
+  },
+  {
+    "source": "white-beech-litter",
+    "terms": [
+      "O horizon",
+      "Fast cycle",
+      "Respiration"
+    ]
+  },
+  {
+    "source": "chukurovo-lignite",
+    "terms": [
+      "Fossil fuel"
+    ]
+  },
+  {
+    "source": "reunion-foehn-wall",
+    "terms": [
+      "Föhn / chinook",
+      "Orographic rainfall"
+    ]
+  },
+  {
+    "source": "horicon-drumlins",
+    "terms": [
+      "Drumlin"
+    ]
+  },
+  {
+    "source": "tallebudgera-groyne",
+    "terms": [
+      "Groyne"
+    ]
+  },
+  {
+    "source": "crearlagh-hanging-valley",
+    "terms": [
+      "Hanging valley"
+    ]
+  },
+  {
+    "source": "little-matterhorn-montana",
+    "terms": [
+      "Horn"
+    ]
+  },
+  {
+    "source": "cruach-ardrain-inversion",
+    "terms": [
+      "Inversion"
+    ]
+  },
+  {
+    "source": "noaa-surface-analysis-2022",
+    "terms": [
+      "Air mass",
+      "Anticyclone",
+      "Buys Ballot’s law",
+      "Isobar",
+      "PGF",
+      "Pressure gradient",
+      "Pressure difference",
+      "Warm front",
+      "Warm sector",
+      "Occlusion",
+      "Geostrophic wind"
+    ]
+  },
+  {
+    "source": "scollard-kpg-boundary",
+    "terms": [
+      "K–Pg"
+    ]
+  },
+  {
+    "source": "hannibal-mississippi-levee",
+    "terms": [
+      "Levee",
+      "Levée"
+    ]
+  },
+  {
+    "source": "mojave-mesquite-dune",
+    "terms": [
+      "Nabkha"
+    ]
+  },
+  {
+    "source": "perambalur-handpump",
+    "terms": [
+      "Abstraction",
+      "Cone of depression",
+      "Drawdown"
+    ]
+  },
+  {
+    "source": "pinatubo-pyroclastic-deposits",
+    "terms": [
+      "Pyroclastic"
+    ]
+  },
+  {
+    "source": "graw-radiosondes",
+    "terms": [
+      "Radiosonde",
+      "Lapse rate"
+    ]
+  },
+  {
+    "source": "stillwater-reverse-fault",
+    "terms": [
+      "Reverse fault",
+      "Footwall",
+      "Hanging wall"
+    ]
+  },
+  {
+    "source": "sossusvlei-dunes",
+    "terms": [
+      "BWh",
+      "Sand",
+      "Saltation",
+      "Deflation"
+    ]
+  },
+  {
+    "source": "hvitserkur-stack",
+    "terms": [
+      "Stack"
+    ]
+  },
+  {
+    "source": "puerto-rico-seismometer",
+    "terms": [
+      "P-wave",
+      "S-wave",
+      "Surface wave",
+      "Magnitude",
+      "Epicentre",
+      "Focus"
+    ],
+    "caption": "USGS seismometer installation in Puerto Rico. Wave arrival times and recorded ground motion are used to estimate an earthquake's focus, epicentre and magnitude; none of those buried locations is visible in this photograph."
+  },
+  {
+    "source": "bimmah-sinkhole",
+    "terms": [
+      "Doline"
+    ]
+  },
+  {
+    "source": "sawtooth-snowmelt",
+    "terms": [
+      "Snowmelt",
+      "Source",
+      "Transfer"
+    ]
+  },
+  {
+    "source": "gley-redox-samples",
+    "terms": [
+      "Gley"
+    ]
+  },
+  {
+    "source": "karelian-podzolic-soil",
+    "terms": [
+      "E horizon",
+      "B horizon"
+    ]
+  },
+  {
+    "source": "kyllini-stalactites",
+    "terms": [
+      "Stalactite"
+    ]
+  },
+  {
+    "source": "leaf-stomata-micrograph",
+    "terms": [
+      "Evapotranspiration"
+    ]
+  },
+  {
+    "source": "fuji-kawaguchiko",
+    "terms": [
+      "Stratovolcano"
+    ]
+  },
+  {
+    "source": "sdo-visible-sunspots",
+    "terms": [
+      "Photosphere",
+      "Sunspot"
+    ]
+  },
+  {
+    "source": "glacial-till-bank",
+    "terms": [
+      "Till"
+    ]
+  },
+  {
+    "source": "giens-double-tombolo",
+    "terms": [
+      "Tombolo",
+      "Barrier"
+    ]
+  },
+  {
+    "source": "okee-fenokee-observation-well",
+    "terms": [
+      "Water table"
+    ]
+  },
+  {
+    "source": "charterhall-weather-station",
+    "terms": [
+      "Climate"
+    ]
+  },
+  {
+    "source": "dunhuang-yardangs",
+    "terms": [
+      "Yardang"
+    ]
+  },
+  {
+    "source": "hawaii-windward-leeward",
+    "terms": [
+      "Rain shadow",
+      "Leeward",
+      "Windward",
+      "Trade winds"
+    ]
+  },
+  {
+    "source": "northbank-raised-beach",
+    "terms": [
+      "Raised beach"
+    ]
+  },
+  {
+    "source": "augen-gneiss",
+    "terms": [
+      "Foliation",
+      "Metamorphic"
+    ]
+  },
+  {
+    "source": "addi-selam-catena",
+    "terms": [
+      "Catena",
+      "Backslope"
+    ]
+  },
+  {
+    "source": "wutach-gorge",
+    "terms": [
+      "Gorge",
+      "Elbow of capture",
+      "Headward erosion",
+      "Pirate stream"
+    ]
+  },
+  {
+    "source": "alabama-karst-spring",
+    "terms": [
+      "Resurgence",
+      "Spring line",
+      "Baseflow"
+    ]
+  },
+  {
+    "source": "hawaiian-chain-iss",
+    "terms": [
+      "Shield volcano"
+    ]
+  },
+  {
+    "source": "appalachians-modis",
+    "terms": [
+      "Appalachians"
+    ]
+  },
+  {
+    "source": "iss-aurora-indian-ocean",
+    "terms": [
+      "Thermosphere"
+    ]
+  },
+  {
+    "source": "noaa-south-atlantic-bathymetry",
+    "terms": [
+      "Continental shelf",
+      "Shelf",
+      "Passive margin",
+      "Fracture zone",
+      "Shelf fit"
+    ]
+  },
+  {
+    "source": "noaa-ctd-rosette",
+    "terms": [
+      "Density",
+      "Thermohaline",
+      "NADW",
+      "Deep water formation"
+    ],
+    "caption": "NOAA CTD water sampling. Temperature and salinity observations constrain water density and help identify deep-water masses such as North Atlantic Deep Water. The instrument photo does not show the global circulation itself."
+  },
+  {
+    "source": "mollweide-blue-marble",
+    "terms": [
+      "Equal-area"
+    ]
+  },
+  {
+    "source": "edale-lose-hill",
+    "terms": [
+      "Hill",
+      "Knoll",
+      "Valley"
+    ]
+  },
+  {
+    "source": "evan-2012-modis",
+    "terms": [
+      "Log spiral",
+      "Convergence",
+      "Coriolis"
+    ]
+  },
+  {
+    "source": "ahuriri-river-plain",
+    "terms": [
+      "Plain"
+    ]
+  },
+  {
+    "source": "nasa-lunar-eclipse-2000",
+    "terms": [
+      "Lunar eclipse",
+      "Penumbra"
+    ]
+  },
+  {
+    "source": "swarm-core-field",
+    "terms": [
+      "Geodynamo",
+      "Outer core",
+      "Inner core"
+    ],
+    "caption": "Swarm satellite observations constrain Earth's magnetic field. Its main source is the moving, conducting liquid outer core, not a permanent bar magnet; the solid inner core and the core's temperature are inferred from other evidence too."
+  },
+  {
+    "source": "mercator-blue-marble",
+    "terms": [
+      "Mercator",
+      "Conformal",
+      "Rhumb line",
+      "Distortion"
+    ]
+  },
+  {
+    "source": "misfit-stream-valley",
+    "terms": [
+      "Misfit stream"
+    ]
+  },
+  {
+    "source": "voyager-neptune-disc",
+    "terms": [
+      "Ice giant"
+    ]
+  },
+  {
+    "source": "cwmorthin-plunge-pool",
+    "terms": [
+      "Plunge pool",
+      "Nick point"
+    ]
+  },
+  {
+    "source": "nasa-ozone-2023",
+    "terms": [
+      "Ozone layer"
+    ]
+  },
+  {
+    "source": "north-sea-pebbles",
+    "terms": [
+      "Attrition"
+    ]
+  },
+  {
+    "source": "robinson-blue-marble",
+    "terms": [
+      "Compromise projection"
+    ]
+  },
+  {
+    "source": "roots-in-bedrock",
+    "terms": [
+      "Root",
+      "Biological weathering"
+    ]
+  },
+  {
+    "source": "aquarius-salinity-2011",
+    "terms": [
+      "Salinity"
+    ]
+  },
+  {
+    "source": "noaa-arctic-seamount",
+    "terms": [
+      "Seamount",
+      "Guyot"
+    ],
+    "caption": "NOAA multibeam survey of an Arctic seamount. A seamount is a submarine mountain; a guyot is the flat-topped subtype. Surveyed topography, rather than colour alone, is needed to distinguish them."
+  },
+  {
+    "source": "redcliff-coastal-slump",
+    "terms": [
+      "Rotational slump",
+      "Pore pressure"
+    ]
+  },
+  {
+    "source": "eso-orion-stars",
+    "terms": [
+      "Local stars",
+      "Parsec"
+    ]
+  },
+  {
+    "source": "ceres-longwave-2015",
+    "terms": [
+      "Longwave",
+      "Emission",
+      "Greenhouse effect"
+    ]
+  },
+  {
+    "source": "sdo-venus-transit",
+    "terms": [
+      "Node",
+      "Orbital inclination",
+      "Ecliptic",
+      "Astronomical unit"
+    ],
+    "caption": "SDO's time sequence of the 2012 Venus transit. Such alignments require the planet to be near an orbital node. Historical transit timing helped determine the Earth–Sun distance, now represented by the precisely defined astronomical unit."
+  },
+  {
+    "source": "nasa-blue-marble-july",
+    "terms": [
+      "Projection",
+      "Latitude",
+      "Equator",
+      "Parallel",
+      "Graticule",
+      "Tropics"
+    ],
+    "caption": "NASA Blue Marble monthly composite in an equirectangular latitude–longitude grid. Latitude measures angular distance north or south of the equator; parallels run east–west. The geographic reference lines are mathematical, not marks on the land."
+  },
+  {
+    "source": "berder-ranker",
+    "terms": [
+      "Ranker",
+      "R horizon"
+    ]
+  },
+  {
+    "source": "nipe-oxisol",
+    "terms": [
+      "Oxisol"
+    ]
+  },
+  {
+    "source": "ponce-calciustoll",
+    "terms": [
+      "Mollisol",
+      "Colluvium",
+      "A horizon"
+    ]
+  },
+  {
+    "source": "gaping-gill-stream-passage",
+    "terms": [
+      "Swallow hole",
+      "Recharge"
+    ]
+  },
+  {
+    "source": "purbeck-coastal-stumps",
+    "terms": [
+      "Stump"
+    ]
+  },
+  {
+    "source": "noaa-puerto-rico-trench",
+    "terms": [
+      "Trench"
+    ]
+  },
+  {
+    "source": "san-andreas-highsmith",
+    "terms": [
+      "Strike-slip",
+      "Transform"
+    ]
+  },
+  {
+    "source": "sentinel-la-nina-2025",
+    "terms": [
+      "La Niña",
+      "Walker cell",
+      "Teleconnection"
+    ],
+    "caption": "Sentinel-6 mapped sea-surface height anomalies during La Niña in January 2025. Ocean–atmosphere coupling changes the Walker circulation and can influence distant weather through teleconnections; these atmospheric links are not directly pictured."
+  },
+  {
+    "source": "noatak-patterned-ground",
+    "terms": [
+      "Active layer"
+    ],
+    "caption": "Patterned ground in Alaska's Noatak region. The active layer above permafrost thaws and refreezes seasonally; surface patterns show freezing processes, but active-layer depth needs field measurements."
+  },
+  {
+    "source": "cameroon-forest-canopy",
+    "terms": [
+      "Af"
+    ],
+    "caption": "Tropical forest at Bodiman, Cameroon. This is a landscape example for tropical rainforest climate; an Af classification is determined from long-term monthly temperature and rainfall, not from vegetation alone."
+  },
+  {
+    "source": "usgs-principal-aquifers",
+    "terms": [
+      "Confined aquifer"
+    ],
+    "caption": "USGS principal-aquifer map. Aquifers transmit groundwater; low-permeability aquitards can confine them. Confinement and pressure require a geological section and well measurements, and cannot be read from this surface map alone."
+  },
+  {
+    "source": "ike-bolivar-surge",
+    "terms": [
+      "Inverse barometer"
+    ],
+    "caption": "NOAA photograph of Hurricane Ike damage on the Bolivar Peninsula barrier coast, Texas. Wind stress and low atmospheric pressure contribute to storm surge; the inverse-barometer response is only part of the observed flooding."
+  },
+  {
+    "source": "kilauea-lava-fountain",
+    "terms": [
+      "Conduit"
+    ],
+    "caption": "Lava fountains at Kīlauea show magma reaching the surface through a volcanic vent. Its subsurface conduit is inferred from geophysical observations and eruptive behaviour, not visible through the rock."
+  },
+  {
+    "source": "porto-covo-breaking-wave",
+    "terms": [
+      "Constructive wave"
+    ],
+    "caption": "Wave breaking at Porto Covo, Portugal. Whether waves build or erode this beach depends on the balance of swash, backwash and sediment transport over time; a single breaking crest cannot establish that balance."
+  },
+  {
+    "source": "huey-creek-gauge",
+    "terms": [
+      "Rising limb",
+      "Falling limb",
+      "Peak discharge",
+      "Lag time"
+    ],
+    "caption": "USGS stream-gauging station at Huey Creek, Antarctica. A time series from a gauge reveals a hydrograph's rising limb, peak and falling limb. Lag time compares rainfall timing with the discharge peak; it is not a distance along the river."
+  },
+  {
+    "source": "northbank-raised-beach",
+    "terms": [
+      "Isostasy",
+      "Glacial rebound"
+    ],
+    "caption": "A raised beach at Northbank records former relative sea level. Relative sea level can change through land motion, including glacial rebound, and through eustatic change in global ocean level; the photograph alone cannot separate their contributions."
+  },
+  {
+    "source": "goes-earth-cloud-belts",
+    "terms": [
+      "Hadley cell",
+      "Ferrel cell",
+      "Polar cell",
+      "ITCZ",
+      "Thermal equator",
+      "Subtropical high",
+      "Westerlies",
+      "Divergence"
+    ],
+    "caption": "GOES-East cloud observations over the Americas, 22 April 2014. Tropical cloud bands and midlatitude systems provide evidence of atmospheric circulation. The three-cell pattern is a long-term zonal average, not three fixed cloud rings in this single image."
+  },
+  {
+    "source": "ucayali-meanders",
+    "terms": [
+      "Helicoidal flow"
+    ],
+    "caption": "Meanders on Peru's Ucayali River from the ISS. Bend circulation helps redistribute sediment across the channel. A long profile instead plots bed elevation downstream and requires measured heights; this plan view is not that profile."
+  },
+  {
+    "source": "cassini-saturn",
+    "terms": [
+      "Kepler’s third law",
+      "Orbital period"
+    ],
+    "caption": "Cassini's natural-colour mosaic of Saturn and its rings. Orbital period depends on orbital size and the central mass. This image shows one system; it does not preserve the scale of distances across the whole Solar System."
+  },
+  {
+    "source": "grand-canyon-hopi-point",
+    "terms": [
+      "Lithification",
+      "Slow cycle",
+      "Precambrian"
+    ],
+    "caption": "Layered rocks at Grand Canyon record the geological carbon cycle and deep time. Lithification converts sediment into rock; the canyon also exposes much older basement in its inner gorge. A landscape photograph alone does not date individual beds."
+  },
+  {
+    "source": "mantle-xenolith",
+    "terms": [
+      "Lithosphere",
+      "Crust"
+    ],
+    "caption": "Mantle peridotite carried to the surface as a xenolith within volcanic rock. It provides a sample of solid upper mantle. The lithosphere includes crust and rigid upper mantle; the green xenolith is not a piece of crust."
+  },
+  {
+    "source": "nps-soil-texture",
+    "terms": [
+      "Loam"
+    ]
+  },
+  {
+    "source": "artemis-crescent-moon",
+    "terms": [
+      "Synodic month"
+    ],
+    "caption": "The Moon's sunlit crescent photographed from Artemis II. A synodic month is the interval between matching lunar phases, about 29.5 days; one photograph records only one moment in that cycle."
+  },
+  {
+    "source": "fundy-low-tide",
+    "terms": [
+      "Spring tide",
+      "Tidal bulge"
+    ],
+    "caption": "Low water at St Mary's Bay, Nova Scotia. Tidal range changes through the spring–neap cycle as lunar and solar tidal effects combine. This single low-tide photograph does not establish whether it was a spring or neap tide."
+  },
+  {
+    "source": "stillaguamish-flood",
+    "terms": [
+      "Pluvial",
+      "Competence"
+    ],
+    "caption": "Floodwater on the Stillaguamish River, Washington. Rain-fed regimes respond to precipitation; a flow's competence is the largest sediment it can move, which cannot be inferred from water colour alone."
+  },
+  {
+    "source": "rainier-topography",
+    "terms": [
+      "Spur",
+      "V-valley"
+    ]
+  },
+  {
+    "source": "cameroon-forest-canopy",
+    "terms": [
+      "Store"
+    ]
+  },
+  {
+    "source": "tohoku-tsunami-aftermath",
+    "terms": [
+      "Tsunami",
+      "Run-up"
+    ],
+    "caption": "Coastal damage after the 2011 Tōhoku tsunami. Run-up is the maximum vertical elevation reached by the water above a reference sea level; survey evidence is needed to attach a number to this photograph."
+  },
+  {
+    "source": "south-africa-night",
+    "terms": [
+      "Time zone"
+    ],
+    "caption": "South African cities at night from the ISS. Earth's rotation underlies the daily cycle; civil time zones and the International Date Line are agreed conventions, not visible lines on Earth's surface."
+  },
+  {
+    "source": "atmospheric-limb",
+    "terms": [
+      "Incidence"
+    ],
+    "caption": "Sunlight passing through Earth's atmospheric limb in an ISS photograph. At low solar angles, light crosses a longer atmospheric path and spreads across a larger surface area."
+  },
+  {
+    "source": "field-windsock",
+    "terms": [
+      "Friction"
+    ],
+    "caption": "A field windsock shows near-surface wind direction. Drag from terrain and vegetation slows flow and can turn it across isobars; the pressure gradient itself is not measured by a windsock."
+  },
+  {
+    "source": "usgs-haiti-intensity",
+    "terms": [
+      "Intensity"
+    ]
+  },
+  {
+    "source": "ecostress-london-night",
+    "terms": [
+      "Urban heat island"
+    ]
+  },
+  {
+    "source": "meteosat-december-solstice",
+    "terms": [
+      "Axial tilt",
+      "Day length",
+      "Declination",
+      "Solstice"
+    ],
+    "caption": "Meteosat-9 observed this day–night boundary on 21 December 2010. Earth's tilted axis puts the subsolar point south of the equator and gives southern latitudes longer days. Declination is the Sun's angle north or south of the equatorial plane; the tilt of the boundary is observational evidence, not an angle scale."
+  },
+  {
+    "source": "meteosat-march-equinox",
+    "terms": [
+      "Equinox",
+      "Terminator",
+      "Terminator (day–night)"
+    ]
+  },
+  {
+    "source": "noaa-emag2-anomalies",
+    "terms": [
+      "Magnetic reversal",
+      "Magnetic stripe",
+      "Vine–Matthews",
+      "Spreading rate"
+    ],
+    "caption": "NOAA EMAG2 v3 maps measured magnetic anomalies. Ocean-floor bands record crust formed under changing magnetic polarity. Matching the pattern to dated reversals supports seafloor spreading and allows a rate to be calculated from distance divided by age; colour alone does not give rock age."
+  },
+  {
+    "source": "mauritania-upwelling-modis",
+    "terms": [
+      "Canary Current",
+      "Eastern boundary current",
+      "Upwelling"
+    ]
+  },
+  {
+    "source": "sri-lanka-sea-breeze-modis",
+    "terms": [
+      "Sea breeze",
+      "Onshore flow"
+    ]
+  },
+  {
+    "source": "amsre-warm-pool-anomaly",
+    "terms": [
+      "Warm pool"
+    ]
+  },
+  {
+    "source": "os-northeast-scotland-grid",
+    "terms": [
+      "OSGB",
+      "False origin",
+      "Four-figure grid reference",
+      "Six-figure grid reference"
+    ],
+    "caption": "Ordnance Survey sheet NO, northeast Scotland. British National Grid eastings and northings are measured from a false origin southwest of Great Britain. Four figures identify a 1 km square; six identify a 100 m square. This reduced 1:250,000 sheet illustrates the system; use a detailed map for precise references."
+  },
+  {
+    "source": "place-uk-dwn",
+    "terms": [
+      "Cfb",
+      "Köppen"
+    ],
+    "caption": "Exmoor, North Devon: a landscape within the Cfb oceanic climate region. Köppen classes use long-term monthly temperature and precipitation, not the weather on the day of the photograph."
+  },
+  {
+    "source": "place-mn",
+    "terms": [
+      "Continentality"
+    ],
+    "caption": "Steppe near Jargalant, Mongolia, far from a moderating ocean. Continental interiors often have larger annual temperature ranges; a weather station's long-term record is needed to measure that range."
+  },
+  {
+    "source": "san-andreas-highsmith",
+    "terms": [
+      "Surface trace"
+    ],
+    "caption": "The San Andreas Fault cuts through the Carrizo Plain, California. Its surface trace is where the fault intersects the ground; it is only the exposed line of a fault extending through the crust."
+  },
+  {
+    "source": "sdo-venus-transit",
+    "terms": [
+      "Revolution"
+    ],
+    "caption": "SDO recorded Venus crossing the Sun's disc in June 2012. A transit is an observable alignment of orbiting bodies. Revolution means motion around another body; this time sequence is not a scale drawing of the orbits."
+  },
+  {
+    "source": "gulf-stream-modis",
+    "terms": [
+      "Gyre"
+    ],
+    "caption": "MODIS observations trace warm Gulf Stream water in the western North Atlantic. The Gulf Stream is one part of the basin-scale subtropical gyre; a single current image does not show the whole circulation."
+  },
+  {
+    "source": "moine-thrust-knockan",
+    "terms": [
+      "Caledonides",
+      "Terrane"
+    ],
+    "caption": "The Moine Thrust at Knockan Crag juxtaposes rocks with different geological histories. Such field contacts help reconstruct the Caledonian mountain belt and its crustal terranes; boundaries between terranes need regional evidence as well as one outcrop."
+  },
+  {
+    "source": "antarctic-glossopteris-fossil",
+    "terms": [
+      "Pangaea",
+      "Supercontinent"
+    ]
+  },
+  {
+    "source": "noaa-deep-solo-deployment",
+    "terms": [
+      "Conveyor"
+    ]
+  },
+  {
+    "source": "bald-eagle-wind-gap",
+    "terms": [
+      "Wind gap"
+    ]
+  },
+  {
+    "source": "nrcs-raindrop-soil-splash",
+    "terms": [
+      "Rain splash"
+    ]
+  },
+  {
+    "source": "hubble-ison-before-perihelion",
+    "terms": [
+      "Perihelion"
+    ]
+  },
+  {
+    "source": "goes-land-breeze-michigan",
+    "terms": [
+      "Land breeze"
+    ]
+  },
+  {
+    "source": "blorenge-cwm-craf",
+    "terms": [
+      "Nivation"
+    ]
+  },
+  {
+    "source": "naze-london-clay",
+    "terms": [
+      "Aquitard"
+    ]
+  },
+  {
+    "source": "aitrach-valley",
+    "terms": [
+      "Beheaded stream"
+    ]
+  },
+  {
+    "source": "place-us-la",
+    "terms": [
+      "Barrier island"
+    ],
+    "caption": "Landsat observations of the Chandeleur barrier islands, Louisiana. Narrow sandy islands separate the Gulf of Mexico from shallow coastal waters; storm erosion can fragment and reshape them."
+  },
+  {
+    "source": "denali-glacial-basin",
+    "terms": [
+      "Basin"
+    ],
+    "caption": "A mountain basin occupied by glacier ice in the Muldrow Glacier area, Denali. A basin is a low area bounded by higher ground; drainage basins are defined by the area contributing water to an outlet."
+  },
+  {
+    "source": "smithsonian-magnetite",
+    "terms": [
+      "Curie point"
+    ]
+  },
+  {
+    "source": "kamoamoa-fissure-2011",
+    "terms": [
+      "Fissure eruption"
+    ]
+  },
+  {
+    "source": "diomede-landsat",
+    "terms": [
+      "International Date Line"
+    ]
+  },
+  {
+    "source": "sawtooth-snowmelt",
+    "terms": [
+      "Nival"
+    ],
+    "caption": "Seasonal snowmelt feeds a stream near Fourth of July Lake, Idaho. A nival river regime is strongly influenced by snow accumulation and melt; this photograph shows a snowmelt source, not a measured annual hydrograph."
+  },
+  {
+    "source": "first-quarter-moon-2019",
+    "terms": [
+      "Quadrature"
+    ]
+  },
+  {
+    "source": "first-quarter-moon-2019",
+    "terms": [
+      "Neap tide"
+    ],
+    "caption": "The first-quarter Moon is near quadrature. Solar and lunar tidal effects then partly oppose, favouring neap tides; the local minimum tidal range can lag the quarter phase and depends on the coastline and basin."
+  },
+  {
+    "source": "hondius-globe-gores-1615",
+    "terms": [
+      "Gores"
+    ]
+  },
+  {
+    "source": "aletsch-glacier",
+    "terms": [
+      "Eustatic"
+    ],
+    "caption": "The Aletsch Glacier stores water on land. Melting land ice adds water to the ocean and contributes to eustatic sea-level rise; this photograph alone does not quantify a global sea-level change."
+  },
+  {
+    "source": "mantle-xenolith",
+    "terms": [
+      "ka"
+    ],
+    "caption": "The volcanic host of this Peridot Mesa xenolith is described by its source as about 580 ka old: roughly 580,000 years. This dates the host eruption, not the formation of the older mantle fragment."
+  },
+  {
+    "source": "cassini-saturn",
+    "terms": [
+      "True scale"
+    ],
+    "caption": "Cassini photographed Saturn and its rings together. Their apparent proportions belong to one perspective view; a true-scale model must use the same length multiplier for every dimension, with foreshortening treated separately."
+  },
+  {
+    "source": "ucayali-meanders",
+    "terms": [
+      "Long profile"
+    ],
+    "caption": "The broad, low-gradient lower Ucayali River seen from the ISS. A river long profile follows bed elevation from source to mouth; this photograph shows the lowland reach, while constructing its profile requires elevation measurements."
+  },
+  {
+    "source": "ceres-reflected-2000-2015",
+    "terms": [
+      "Albedo"
+    ],
+    "caption": "CERES measures reflected shortwave energy in W m⁻². Albedo is the fraction of incoming sunlight reflected, so obtaining it requires dividing reflected flux by the corresponding incoming flux; the colour scale here is not albedo."
+  },
+  {
+    "source": "ceres-reflected-2000-2015",
+    "terms": [
+      "Shortwave",
+      "Flux",
+      "Top of atmosphere"
+    ]
+  },
+  {
+    "source": "ceres-net-2000-2015",
+    "terms": [
+      "Energy budget"
+    ]
+  },
+  {
+    "source": "ceres-reflected-2000-2015",
+    "terms": [
+      "Absorption"
+    ],
+    "caption": "This CERES observation maps reflected sunlight. Solar absorption by the Earth system is the incoming shortwave energy minus this reflected component; the image measures reflection rather than absorption directly."
+  },
+  {
+    "source": "sdo-visible-sunspots",
+    "terms": [
+      "Solar constant",
+      "Insolation"
+    ],
+    "caption": "NASA SDO observes the solar photosphere and sunspots. The Sun supplies incoming solar radiation (insolation). The solar constant is irradiance near 1 AU on a plane perpendicular to the rays, about 1,361 W m⁻²; it is not measured by this visible-light photograph."
+  }
+]

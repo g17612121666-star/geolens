@@ -5,8 +5,9 @@ import { SiteShell } from "@/components/layout/site-shell";
 import { NotFoundPage } from "@/components/not-found";
 import { robotsMeta } from "@/lib/seo";
 import appCss from "../styles.css?url";
+import {preferenceBootScript} from '@/lib/preferences';
 
-const APP_NAME = "TerraLens";
+const APP_NAME = "Geolens";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -26,7 +27,7 @@ export const Route = createRootRoute({
     links: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      { rel: "apple-touch-icon", href: "/icons/terralens-180.png" },
+      { rel: "apple-touch-icon", href: "/icons/geolens-180.png" },
       { rel: "manifest", href: "/manifest.webmanifest" },
       /* Platform injector looks for these hrefs; keep them so it does not double-inject. First manifest/icon win. */
       { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
@@ -42,13 +43,14 @@ function Root() {
   return (
     <html lang="en" className="antialiased" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{__html:preferenceBootScript}}/>
         <HeadContent />
       </head>
       <body className="bg-void text-chalk">
         <PreviewHostBridge />
         <noscript>
           <p style={{ padding: 24, color: "#f4efe6", fontFamily: "Georgia, serif" }}>
-            TerraLens is a free geoscience studio. Enable JavaScript for the 3D labs, or read the
+            Geolens is a free geoscience studio. Enable JavaScript for the 3D labs, or read the
             lab titles and objectives as static pages.
           </p>
         </noscript>

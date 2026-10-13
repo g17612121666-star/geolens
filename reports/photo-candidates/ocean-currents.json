@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ocean-currents-1",
+    "title": "File:Gulf Stream Sea Surface Currents and Temperatures NASA SVS.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gulf_Stream_Sea_Surface_Currents_and_Temperatures_NASA_SVS.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Gulf_Stream_Sea_Surface_Currents_and_Temperatures_NASA_SVS.jpg/1280px-Gulf_Stream_Sea_Surface_Currents_and_Temperatures_NASA_SVS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "Greg Shirah (lead animator)",
+    "description": "Visualisation of the Gulf Stream stretching from the Gulf of Mexico to Western Europe.",
+    "categories": "PD NASA|Ocean currents of the Atlantic Ocean|Maps of ocean currents|2025 United States government online resource removals (NASA)|Oceanographical maps of the Atlantic Ocean"
+  },
+  {
+    "id": "ocean-currents-2",
+    "title": "File:SST Gulf stream.jpeg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SST_Gulf_stream.jpeg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/SST_Gulf_stream.jpeg/1280px-SST_Gulf_stream.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA (data collected by the Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Aqua satellite=",
+    "description": "Transport of warm water revealed by the sea surface temperature distribution around the Gulf Stream in 2005. The darkest areas are measured at -1°C, while the warmest areas reach 23°C.",
+    "categories": "PD NASA|Flow visualization|Sea surface temperature maps|Maps of the Gulf Stream"
+  },
+  {
+    "id": "ocean-currents-3",
+    "title": "File:Modis brighttemp glfstr lrg.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Modis_brighttemp_glfstr_lrg.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Modis_brighttemp_glfstr_lrg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "license": "Public domain",
+    "licenseUrl": "",
+    "author": "NASA",
+    "description": "On May 2, 2001, the  Moderate-resolution Imaging Spectroradiometer (MODIS) obtained this spectacular image of the Atlantic Ocean's Gulf Stream. The false colors in the image represent \"brightness temperature\" observed at the top of the atmosphere. The brightness temperature values represent heat radiation from a combination of the sea surface and overlying moist atmosphere.",
+    "categories": "PD NASA|Sea surface temperature maps"
+  }
+]

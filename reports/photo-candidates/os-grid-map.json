@@ -1,0 +1,35 @@
+[
+  {
+    "id": "os-grid-map-1",
+    "title": "File:Ordnance Survey 1-250000 - NO.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ordnance_Survey_1-250000_-_NO.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Ordnance_Survey_1-250000_-_NO.jpg/1280px-Ordnance_Survey_1-250000_-_NO.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "OS OpenData",
+    "licenseUrl": "https://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html",
+    "author": "Ordnance Survey",
+    "description": "A map from the Ordnance Survey of grid reference NO at a scale of 1:250.000.",
+    "categories": "OGL v3.0|Ordnance Survey 1:250 000 Scale Colour Raster maps|OS OpenData|Ordnance Survey 1:25000 maps of Scotland (JPG)"
+  },
+  {
+    "id": "os-grid-map-2",
+    "title": "File:Ordnance Survey 1-250000 - NO.tif",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ordnance_Survey_1-250000_-_NO.tif",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Ordnance_Survey_1-250000_-_NO.tif/lossy-page1-1280px-Ordnance_Survey_1-250000_-_NO.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "OS OpenData",
+    "licenseUrl": "https://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html",
+    "author": "Ordnance Survey",
+    "description": "A map from the Ordnance Survey of grid reference NO at a scale of 1:250.000.",
+    "categories": "OGL v3.0|Ordnance Survey 1:250 000 Scale Colour Raster maps|OS OpenData|Ordnance Survey 1:25000 maps of Scotland (TIF)"
+  },
+  {
+    "id": "os-grid-map-3",
+    "title": "File:Ordnance Survey 1-250000 - NR.tif",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ordnance_Survey_1-250000_-_NR.tif",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Ordnance_Survey_1-250000_-_NR.tif/lossy-page1-1280px-Ordnance_Survey_1-250000_-_NR.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "OS OpenData",
+    "licenseUrl": "https://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html",
+    "author": "Ordnance Survey",
+    "description": "A map from the Ordnance Survey of grid reference NR at a scale of 1:250.000.",
+    "categories": "OGL v3.0|Ordnance Survey 1:250 000 Scale Colour Raster maps|OS OpenData|Ordnance Survey 1:25000 maps of Scotland (TIF)"
+  }
+]

@@ -8,11 +8,11 @@ import {
   TERM_THUMB,
 } from "@/lib/photo-assign";
 
-type Fig = Pick<FigureProps, "src" | "alt" | "caption" | "credit">;
+type Fig = Pick<FigureProps, "src" | "alt" | "caption" | "credit" | "sourceUrl" | "licenseUrl" | "kind">;
 
-function slot(s: { src: string; alt: string; caption: string; credit: string } | undefined): Fig | undefined {
+function slot(s: Fig | undefined): Fig | undefined {
   if (!s) return undefined;
-  return { src: s.src, alt: s.alt, caption: s.caption, credit: s.credit };
+  return { ...s };
 }
 
 function fold(s: string): string {
@@ -30,23 +30,9 @@ export const LAB_FIGURE: Record<string, Fig> = Object.fromEntries(
     .filter((e): e is [string, Fig] => Boolean(e[1])),
 );
 
-const FALLBACK_REALM: Fig = {
-  src: "/photos/covers/landform-types.jpg",
-  alt: "A collision range: process written as relief.",
-  caption: "A sphere with a tilt — realm fallback, not the Apollo 17 still.",
-  credit: "NASA, public domain",
-};
-
-export const REALM_FIGURE: Record<RealmSlug, Fig> = {
-  planet: slot(REALM_COVER.planet) ?? FALLBACK_REALM,
-  interior: slot(REALM_COVER.interior) ?? FALLBACK_REALM,
-  atmosphere: slot(REALM_COVER.atmosphere) ?? FALLBACK_REALM,
-  water: slot(REALM_COVER.water) ?? FALLBACK_REALM,
-  landforms: slot(REALM_COVER.landforms) ?? FALLBACK_REALM,
-  soils: slot(REALM_COVER.soils) ?? FALLBACK_REALM,
-  hazards: slot(REALM_COVER.hazards) ?? FALLBACK_REALM,
-  skills: slot(REALM_COVER.skills) ?? FALLBACK_REALM,
-};
+export const REALM_FIGURE = Object.fromEntries(
+  Object.entries(REALM_COVER).map(([realm, figure]) => [realm, {...figure}]),
+) as Record<RealmSlug, Fig>;
 
 export function labFigure(slug: string): Fig | undefined {
   return LAB_FIGURE[slug];
@@ -80,7 +66,7 @@ function termKey(lab: string, term: string): string {
   return `${lab}--${slug}`;
 }
 
-/** Lab TERMS thumbnail. Must not share a content-hash with that lab's cover, teacher hero, or glossary main. */
+/** The same verified observation follows a term across the glossary and labs. */
 export function termThumb(lab: string, term: string): Fig | undefined {
   const thumbs = TERM_THUMB ?? {};
   const direct = thumbs[termKey(lab, term)];

@@ -1,0 +1,1059 @@
+.field-page {
+  max-width: 1380px;
+  margin-inline: auto;
+  padding: 7rem 1.5rem 4rem;
+}
+.field-page--projector {
+  max-width: 1600px;
+  font-size: 1.125rem;
+}
+.field-page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.field-page-heading h1 {
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.5vw, 4.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+.field-intro {
+  max-width: 42rem;
+  margin-top: 1rem;
+  color: var(--color-mist);
+  line-height: 1.7;
+}
+.field-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.field-button {
+  min-height: 44px;
+  padding: 0.6rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-chalk);
+  background: var(--color-basalt);
+  transition:
+    border-color 180ms,
+    background 180ms;
+}
+.field-button:hover {
+  border-color: var(--color-glacier);
+}
+.field-button[aria-pressed="true"] {
+  color: var(--color-glacier);
+  border-color: var(--color-glacier);
+  background: color-mix(in oklab, var(--color-glacier) 9%, var(--color-basalt));
+}
+.field-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.field-text-button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-glacier);
+  font-size: 0.8125rem;
+  text-underline-offset: 4px;
+}
+.field-text-button:hover {
+  text-decoration: underline;
+}
+.field-label {
+  display: grid;
+  gap: 0.5rem;
+  color: var(--color-mist);
+  font-size: 0.8125rem;
+}
+.field-label :is(input, select),
+.field-inline-label select {
+  min-height: 44px;
+  width: 100%;
+  min-width: 0;
+  background: var(--color-basalt);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.75rem;
+  color: var(--color-chalk);
+  font-size: 0.875rem;
+}
+.field-search-input {
+  position: relative;
+}
+.field-search-input svg {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.85rem;
+}
+.field-search-input input {
+  padding-left: 2.5rem;
+}
+.field-inline-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-mist);
+}
+.field-inline-label select {
+  width: auto;
+  font-size: 0.75rem;
+}
+.field-notice {
+  padding-block: 0.5rem;
+  color: var(--color-glacier);
+  font-size: 0.875rem;
+}
+.field-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-right: 0.65rem;
+  color: var(--color-glacier);
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+}
+.field-letter--b {
+  color: var(--color-sandstone);
+}
+.field-methods {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-glass-border);
+  color: var(--color-mist);
+  font-size: 0.8125rem;
+}
+.field-methods summary {
+  min-height: 44px;
+  cursor: pointer;
+  color: var(--color-chalk);
+}
+.field-methods p {
+  max-width: 55rem;
+  margin-top: 0.75rem;
+}
+.field-methods a {
+  color: var(--color-ice);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.atlas-searchbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+  background: var(--color-basalt);
+}
+.atlas-filter-details {
+  position: relative;
+}
+.atlas-filter-details summary {
+  list-style: none;
+}
+.atlas-filter-panel {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  z-index: 20;
+  width: 20rem;
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+  background: var(--color-basalt);
+  box-shadow: 0 16px 48px color-mix(in oklab, var(--color-void) 35%, transparent);
+}
+.atlas-workspace {
+  display: grid;
+  grid-template-columns: 205px minmax(0, 1fr);
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.atlas-workspace--wide {
+  grid-template-columns: minmax(0, 1fr);
+}
+.atlas-directory,
+.atlas-observations {
+  min-width: 0;
+}
+.atlas-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-glass-border);
+}
+.atlas-tabs button {
+  min-height: 44px;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-mist);
+}
+.atlas-tabs button[aria-pressed="true"] {
+  background: var(--color-glass);
+  color: var(--color-chalk);
+}
+.atlas-result-count {
+  margin-block: 0.8rem;
+  font-size: 0.75rem;
+  color: var(--color-mist);
+}
+.atlas-place-list {
+  max-height: 660px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-slate) transparent;
+}
+.atlas-place-list button {
+  position: relative;
+  min-height: 60px;
+  width: 100%;
+  padding: 0.65rem 1.8rem 0.65rem 0.75rem;
+  text-align: left;
+  border-left: 2px solid transparent;
+}
+.atlas-place-list button span {
+  display: block;
+  font-size: 0.875rem;
+}
+.atlas-place-list button small {
+  color: var(--color-mist);
+  font-size: 0.6875rem;
+}
+.atlas-place-list button svg {
+  position: absolute;
+  right: 0.5rem;
+  top: 1.25rem;
+  color: var(--color-glacier);
+}
+.atlas-place-list button:hover {
+  background: var(--color-glass);
+}
+.atlas-place-list button[aria-current="true"] {
+  border-color: var(--color-glacier);
+  background: color-mix(in oklab, var(--color-glacier) 8%, transparent);
+}
+.atlas-empty {
+  padding: 1rem;
+  color: var(--color-mist);
+  font-size: 0.875rem;
+}
+.atlas-directory-link {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-glass-border);
+  color: var(--color-ice);
+  font-size: 0.8125rem;
+}
+.atlas-comparison-suggestion,
+.atlas-comparison-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.8125rem;
+  color: var(--color-mist);
+}
+.atlas-comparison-heading p + p {
+  margin-top: 0.5rem;
+}
+.atlas-map-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-bottom: 1rem;
+  color: var(--color-mist);
+  font-size: 0.75rem;
+}
+.atlas-map-controls > span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.atlas-place-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+}
+.atlas-place-panels--compare {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.atlas-place-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+  background: var(--color-basalt);
+}
+.atlas-place-heading {
+  padding: 1.5rem;
+}
+.atlas-place-heading h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.15;
+  margin-top: 0.6rem;
+}
+.atlas-reference {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin-top: 0.85rem;
+  color: var(--color-mist);
+  font-size: 0.75rem;
+}
+.atlas-reference span {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+}
+.atlas-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.atlas-badges span {
+  padding: 0.35rem 0.6rem;
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.6875rem;
+  color: var(--color-chalk);
+}
+.atlas-landscape {
+  margin: 0;
+}
+.atlas-landscape-image {
+  display: block;
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+}
+.atlas-landscape figcaption {
+  padding: 0.8rem 1.5rem;
+  font-size: 0.75rem;
+  color: var(--color-mist);
+  line-height: 1.6;
+}
+.atlas-map-frame {
+  border-top: 1px solid var(--color-glass-border);
+  border-bottom: 1px solid var(--color-glass-border);
+}
+.atlas-place-map {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: var(--color-trench);
+}
+.atlas-map-frame--hero .atlas-place-map {
+  height: 400px;
+}
+.atlas-place-panels--compare .atlas-landscape-image {
+  height: 240px;
+}
+.atlas-place-panels--compare .atlas-landscape figcaption {
+  min-height: 6rem;
+}
+.atlas-evidence-heading {
+  padding: 1.5rem 1.5rem 1rem;
+}
+.atlas-evidence-heading > p + p {
+  margin-top: 0.35rem;
+  color: var(--color-mist);
+  font-size: 0.8125rem;
+}
+.atlas-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0 1.5rem 1.5rem;
+}
+.atlas-evidence-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 180ms;
+}
+.atlas-evidence-card:hover {
+  border-color: var(--color-glacier);
+}
+.atlas-evidence-number {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-glacier);
+}
+.atlas-evidence-card h3 {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+.atlas-evidence-card p {
+  margin-block: 0.65rem 1rem;
+  font-size: 0.8125rem;
+  color: var(--color-mist);
+  line-height: 1.65;
+}
+.atlas-evidence-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  color: var(--color-ice);
+  font-size: 0.75rem;
+}
+.atlas-weather-link {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 1.5rem;
+  border-top: 1px solid var(--color-glass-border);
+  color: var(--color-ice);
+  font-size: 0.8125rem;
+}
+.atlas-reading-question {
+  padding: 1.5rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--color-glass-border);
+}
+.atlas-reading-question h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+.atlas-reading-question p {
+  margin-top: 0.5rem;
+  color: var(--color-mist);
+  font-size: 0.875rem;
+}
+@media (min-width: 980px) {
+  .atlas-place-panels--compare .atlas-evidence-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 979px) {
+  .atlas-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .atlas-place-list {
+    display: flex;
+    gap: 0.25rem;
+    max-height: none;
+    overflow-x: auto;
+  }
+  .atlas-place-list li {
+    flex: 0 0 160px;
+  }
+  .atlas-place-list button {
+    height: 100%;
+    border-left: 0;
+    border-bottom: 2px solid transparent;
+  }
+  .atlas-place-list button svg {
+    display: none;
+  }
+  .atlas-result-count {
+    margin-block: 0.5rem;
+  }
+  .atlas-directory-link {
+    display: none;
+  }
+  .atlas-place-panels--compare .atlas-evidence-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 639px) {
+  .field-page {
+    padding: 6rem 1rem 3rem;
+  }
+  .field-page-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .field-page-heading h1 {
+    font-size: 2.7rem;
+  }
+  .atlas-searchbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 1rem;
+  }
+  .atlas-search {
+    grid-column: 1 / -1;
+  }
+  .atlas-filter-panel {
+    width: min(20rem, calc(100vw - 4rem));
+  }
+  .atlas-place-panels--compare {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .atlas-landscape-image {
+    height: 260px;
+  }
+  .atlas-place-panels--compare .atlas-landscape figcaption {
+    min-height: 0;
+  }
+  .atlas-evidence-grid {
+    grid-template-columns: minmax(0, 1fr);
+    padding-inline: 1.25rem;
+  }
+  .atlas-place-heading,
+  .atlas-evidence-heading {
+    padding-inline: 1.25rem;
+  }
+  .atlas-reference span {
+    width: 100%;
+    margin-left: 0;
+  }
+  .atlas-map-controls {
+    align-items: start;
+  }
+}
+.weather-page {
+  max-width: 1220px;
+}
+.weather-page.field-page--projector {
+  max-width: 1540px;
+}
+.weather-places {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: end;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+  background: var(--color-basalt);
+}
+.weather-place-picker > span {
+  display: flex;
+  align-items: center;
+}
+.weather-place-picker select {
+  font-size: 1rem;
+}
+.weather-swap {
+  margin-bottom: 1px;
+}
+.weather-current-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-block: 1.5rem 0.75rem;
+}
+.weather-current-heading h2 {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+.weather-current-heading p {
+  color: var(--color-mist);
+  font-size: 0.75rem;
+}
+.weather-current-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.weather-current-card {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--color-glass-border);
+  border-top: 2px solid var(--color-glacier);
+  border-radius: var(--radius-md);
+  background: var(--color-basalt);
+}
+.weather-current-card--b {
+  border-top-color: var(--color-sandstone);
+}
+.weather-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.weather-card-title h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+.weather-card-title .field-letter {
+  margin-right: 0;
+}
+.weather-coordinates {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  color: var(--color-mist);
+  font-size: 0.6875rem;
+}
+.weather-card-loading {
+  display: flex;
+  align-items: center;
+  min-height: 205px;
+}
+.weather-card-error {
+  display: flex;
+  min-height: 205px;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--color-sandstone);
+  font-size: 0.875rem;
+}
+.weather-primary-reading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-block: 1.5rem 0.75rem;
+}
+.weather-primary-reading > p {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.weather-primary-reading > p > span {
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  letter-spacing: 0;
+  margin-left: 0.5rem;
+  color: var(--color-mist);
+}
+.weather-primary-reading > div {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+}
+.weather-primary-reading small {
+  color: var(--color-mist);
+  font-size: 0.75rem;
+}
+.weather-model-time {
+  color: var(--color-mist);
+  font-size: 0.6875rem;
+}
+.weather-main-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-glass-border);
+}
+.weather-main-metrics dt,
+.weather-extra-metrics dt {
+  color: var(--color-mist);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+}
+.weather-main-metrics dd,
+.weather-extra-metrics dd {
+  margin-top: 0.45rem;
+  font-size: 0.9375rem;
+  font-family: var(--font-mono);
+}
+.weather-more-readings {
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+}
+.weather-more-readings summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--color-ice);
+  cursor: pointer;
+}
+.weather-extra-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding-block: 0.5rem 1rem;
+}
+.weather-comparison-note {
+  margin-block: 1.25rem 2.5rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 2px solid var(--color-glacier);
+  background: color-mix(in oklab, var(--color-glacier) 4%, var(--color-basalt));
+}
+.weather-comparison-note > p:nth-child(2) {
+  margin-top: 0.5rem;
+  font-size: 1.05rem;
+}
+.weather-comparison-note > p:nth-child(3) {
+  max-width: 60rem;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--color-mist);
+}
+.weather-forecast {
+  padding: 1.5rem;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+  background: var(--color-basalt);
+}
+.weather-section-heading {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.weather-section-heading h2 {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin-top: 0.65rem;
+}
+.weather-layer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.weather-layer-buttons .field-button {
+  font-size: 0.75rem;
+  padding-inline: 0.8rem;
+}
+.weather-forecast-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.5rem;
+  color: var(--color-mist);
+  font-size: 0.75rem;
+}
+.weather-forecast-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.weather-forecast-legend i {
+  display: inline-block;
+  width: 18px;
+  border-top: 3px solid var(--color-glacier);
+}
+.weather-forecast-legend i.weather-key-b {
+  border-color: var(--color-sandstone);
+  border-top-style: dashed;
+}
+.weather-chart {
+  height: 270px;
+  min-width: 0;
+  margin-block: 0.5rem 1rem;
+}
+.weather-forecast-empty {
+  min-height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--color-mist);
+  font-size: 0.875rem;
+}
+.weather-timeline {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-sm);
+}
+.weather-timeline > label {
+  display: block;
+  color: var(--color-mist);
+  font-size: 0.75rem;
+}
+.weather-timeline strong {
+  color: var(--color-chalk);
+  font-weight: 500;
+}
+.weather-timeline input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--color-glacier);
+}
+.weather-hour-values {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.weather-hour-values > span {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: var(--color-mist);
+  font-size: 0.75rem;
+}
+.weather-hour-values strong {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+.weather-chart-note {
+  margin-top: 0.9rem;
+  max-width: 62rem;
+  color: var(--color-mist);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+.weather-table {
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+}
+.weather-table summary {
+  min-height: 44px;
+  color: var(--color-ice);
+  cursor: pointer;
+}
+.weather-table-scroll {
+  max-height: 20rem;
+  overflow: auto;
+  margin-top: 1rem;
+}
+.weather-table table {
+  width: 100%;
+  text-align: left;
+}
+.weather-table :is(th, td) {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--color-glass-border);
+  white-space: nowrap;
+}
+.weather-table tbody th {
+  font-weight: 400;
+}
+.weather-table caption {
+  text-align: left;
+  padding-bottom: 1rem;
+  color: var(--color-mist);
+}
+.weather-map-section {
+  margin-top: 2.5rem;
+}
+.weather-comparison-map {
+  width: 100%;
+  height: 430px;
+  margin-top: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-md);
+  background: var(--color-trench);
+}
+.weather-map-pin {
+  min-width: 85px;
+  max-width: 125px;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--color-glacier);
+  border-radius: var(--radius-sm);
+  background: var(--color-basalt);
+  color: var(--color-chalk);
+  text-align: center;
+  box-shadow: 0 4px 20px color-mix(in oklab, var(--color-void) 35%, transparent);
+}
+.weather-map-pin strong {
+  display: block;
+  color: var(--color-glacier);
+  font-size: 0.75rem;
+}
+.weather-map-pin span {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+.weather-map-pin small {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--color-mist);
+  font-size: 0.6875rem;
+}
+.weather-map-pin--b {
+  border-color: var(--color-sandstone);
+}
+.weather-map-pin--b strong {
+  color: var(--color-sandstone);
+}
+.weather-learning {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 3rem;
+  padding-block: 2.5rem 0.5rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--color-glass-border);
+}
+.weather-learning h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-top: 0.75rem;
+}
+.weather-learning p:not(.section-label) {
+  color: var(--color-mist);
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+.weather-learning-links a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-glass-border);
+}
+.weather-learning-links a:first-child {
+  padding-top: 0;
+}
+.weather-learning-links a > svg {
+  color: var(--color-glacier);
+  flex-shrink: 0;
+}
+.weather-learning-links a > svg:last-child {
+  margin-left: auto;
+}
+.weather-learning-links strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.weather-learning-links small {
+  display: block;
+  color: var(--color-mist);
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+}
+.weather-share-link {
+  width: 100%;
+  max-width: 50rem;
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  background: var(--color-basalt);
+  color: var(--color-chalk);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+}
+@media (max-width: 760px) {
+  .weather-primary-reading > p {
+    font-size: 3.5rem;
+  }
+  .weather-main-metrics {
+    gap: 0.6rem;
+  }
+  .weather-main-metrics dd {
+    font-size: 0.8125rem;
+  }
+  .weather-learning {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
+@media (max-width: 639px) {
+  .weather-places {
+    gap: 0.65rem;
+    padding: 1rem;
+    grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+  }
+  .weather-swap {
+    padding: 0.5rem;
+  }
+  .weather-place-picker > span {
+    font-size: 0.75rem;
+  }
+  .weather-place-picker select {
+    padding-inline: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .weather-current-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .weather-primary-reading > p {
+    font-size: 4rem;
+  }
+  .weather-current-card {
+    padding: 1.25rem;
+  }
+  .weather-card-loading,
+  .weather-card-error {
+    min-height: 130px;
+  }
+  .weather-comparison-note {
+    padding: 1rem 1.25rem;
+  }
+  .weather-forecast {
+    padding: 1.25rem 0.85rem;
+  }
+  .weather-section-heading h2 {
+    font-size: 1.7rem;
+  }
+  .weather-chart {
+    height: 235px;
+  }
+  .weather-timeline {
+    padding: 1rem 0.75rem;
+  }
+  .weather-hour-values {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+  .weather-timeline label strong {
+    display: block;
+    margin-top: 0.25rem;
+  }
+  .weather-comparison-map {
+    height: 360px;
+  }
+  .weather-learning h2 {
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 640px) {
+  .atlas-place-panels--compare .atlas-place-heading {
+    min-height: 230px;
+  }
+}

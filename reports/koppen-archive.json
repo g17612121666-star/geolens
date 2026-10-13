@@ -1,0 +1,367 @@
+[
+  {
+    "name": "2071_2099/ssp126/koppen_geiger_0p00833333.tif",
+    "bytes": 11984881,
+    "compressed": 6877485
+  },
+  {
+    "name": "2071_2099/ssp126/koppen_geiger_0p5.tif",
+    "bytes": 21367,
+    "compressed": 19564
+  },
+  {
+    "name": "2071_2099/ssp126/koppen_geiger_1p0.tif",
+    "bytes": 9556,
+    "compressed": 7972
+  },
+  {
+    "name": "2071_2099/ssp126/koppen_geiger_0p1.tif",
+    "bytes": 211970,
+    "compressed": 180809
+  },
+  {
+    "name": "2071_2099/ssp245/koppen_geiger_0p00833333.tif",
+    "bytes": 12028543,
+    "compressed": 6927782
+  },
+  {
+    "name": "2071_2099/ssp245/koppen_geiger_0p5.tif",
+    "bytes": 21324,
+    "compressed": 19526
+  },
+  {
+    "name": "2071_2099/ssp245/koppen_geiger_1p0.tif",
+    "bytes": 9534,
+    "compressed": 7947
+  },
+  {
+    "name": "2071_2099/ssp245/koppen_geiger_0p1.tif",
+    "bytes": 211415,
+    "compressed": 180574
+  },
+  {
+    "name": "2071_2099/ssp119/koppen_geiger_0p00833333.tif",
+    "bytes": 11994814,
+    "compressed": 6886272
+  },
+  {
+    "name": "2071_2099/ssp119/koppen_geiger_0p5.tif",
+    "bytes": 21304,
+    "compressed": 19496
+  },
+  {
+    "name": "2071_2099/ssp119/koppen_geiger_1p0.tif",
+    "bytes": 9548,
+    "compressed": 7965
+  },
+  {
+    "name": "2071_2099/ssp119/koppen_geiger_0p1.tif",
+    "bytes": 212126,
+    "compressed": 180929
+  },
+  {
+    "name": "2071_2099/ssp585/koppen_geiger_0p00833333.tif",
+    "bytes": 12014288,
+    "compressed": 6911398
+  },
+  {
+    "name": "2071_2099/ssp585/koppen_geiger_0p5.tif",
+    "bytes": 21333,
+    "compressed": 19540
+  },
+  {
+    "name": "2071_2099/ssp585/koppen_geiger_1p0.tif",
+    "bytes": 9589,
+    "compressed": 8010
+  },
+  {
+    "name": "2071_2099/ssp585/koppen_geiger_0p1.tif",
+    "bytes": 209722,
+    "compressed": 179290
+  },
+  {
+    "name": "2071_2099/ssp434/koppen_geiger_0p00833333.tif",
+    "bytes": 12026056,
+    "compressed": 6917289
+  },
+  {
+    "name": "2071_2099/ssp434/koppen_geiger_0p5.tif",
+    "bytes": 21198,
+    "compressed": 19403
+  },
+  {
+    "name": "2071_2099/ssp434/koppen_geiger_1p0.tif",
+    "bytes": 9548,
+    "compressed": 7956
+  },
+  {
+    "name": "2071_2099/ssp434/koppen_geiger_0p1.tif",
+    "bytes": 211266,
+    "compressed": 180245
+  },
+  {
+    "name": "2071_2099/ssp460/koppen_geiger_0p00833333.tif",
+    "bytes": 12159730,
+    "compressed": 7073505
+  },
+  {
+    "name": "2071_2099/ssp460/koppen_geiger_0p5.tif",
+    "bytes": 21397,
+    "compressed": 19608
+  },
+  {
+    "name": "2071_2099/ssp460/koppen_geiger_1p0.tif",
+    "bytes": 9599,
+    "compressed": 8007
+  },
+  {
+    "name": "2071_2099/ssp460/koppen_geiger_0p1.tif",
+    "bytes": 211945,
+    "compressed": 181671
+  },
+  {
+    "name": "2071_2099/ssp370/koppen_geiger_0p00833333.tif",
+    "bytes": 12098329,
+    "compressed": 7008824
+  },
+  {
+    "name": "2071_2099/ssp370/koppen_geiger_0p5.tif",
+    "bytes": 21386,
+    "compressed": 19418
+  },
+  {
+    "name": "2071_2099/ssp370/koppen_geiger_1p0.tif",
+    "bytes": 9644,
+    "compressed": 8058
+  },
+  {
+    "name": "2071_2099/ssp370/koppen_geiger_0p1.tif",
+    "bytes": 211501,
+    "compressed": 180656
+  },
+  {
+    "name": "1901_1930/koppen_geiger_0p00833333.tif",
+    "bytes": 12549418,
+    "compressed": 7483492
+  },
+  {
+    "name": "1901_1930/koppen_geiger_0p5.tif",
+    "bytes": 21615,
+    "compressed": 19823
+  },
+  {
+    "name": "1901_1930/koppen_geiger_1p0.tif",
+    "bytes": 9634,
+    "compressed": 8050
+  },
+  {
+    "name": "1901_1930/koppen_geiger_0p1.tif",
+    "bytes": 218718,
+    "compressed": 187498
+  },
+  {
+    "name": "1961_1990/koppen_geiger_0p00833333.tif",
+    "bytes": 12513474,
+    "compressed": 7442508
+  },
+  {
+    "name": "1961_1990/koppen_geiger_0p5.tif",
+    "bytes": 21618,
+    "compressed": 19826
+  },
+  {
+    "name": "1961_1990/koppen_geiger_1p0.tif",
+    "bytes": 9609,
+    "compressed": 8027
+  },
+  {
+    "name": "1961_1990/koppen_geiger_0p1.tif",
+    "bytes": 217868,
+    "compressed": 186489
+  },
+  {
+    "name": "2041_2070/ssp126/koppen_geiger_0p00833333.tif",
+    "bytes": 11967253,
+    "compressed": 6855178
+  },
+  {
+    "name": "2041_2070/ssp126/koppen_geiger_0p5.tif",
+    "bytes": 21334,
+    "compressed": 19541
+  },
+  {
+    "name": "2041_2070/ssp126/koppen_geiger_1p0.tif",
+    "bytes": 9524,
+    "compressed": 7942
+  },
+  {
+    "name": "2041_2070/ssp126/koppen_geiger_0p1.tif",
+    "bytes": 211610,
+    "compressed": 180190
+  },
+  {
+    "name": "2041_2070/ssp245/koppen_geiger_0p00833333.tif",
+    "bytes": 11977700,
+    "compressed": 6868921
+  },
+  {
+    "name": "2041_2070/ssp245/koppen_geiger_0p5.tif",
+    "bytes": 21360,
+    "compressed": 19560
+  },
+  {
+    "name": "2041_2070/ssp245/koppen_geiger_1p0.tif",
+    "bytes": 9512,
+    "compressed": 7919
+  },
+  {
+    "name": "2041_2070/ssp245/koppen_geiger_0p1.tif",
+    "bytes": 211964,
+    "compressed": 180845
+  },
+  {
+    "name": "2041_2070/ssp119/koppen_geiger_0p00833333.tif",
+    "bytes": 12001598,
+    "compressed": 6893679
+  },
+  {
+    "name": "2041_2070/ssp119/koppen_geiger_0p5.tif",
+    "bytes": 21307,
+    "compressed": 19517
+  },
+  {
+    "name": "2041_2070/ssp119/koppen_geiger_1p0.tif",
+    "bytes": 9529,
+    "compressed": 7942
+  },
+  {
+    "name": "2041_2070/ssp119/koppen_geiger_0p1.tif",
+    "bytes": 212524,
+    "compressed": 180825
+  },
+  {
+    "name": "2041_2070/ssp585/koppen_geiger_0p00833333.tif",
+    "bytes": 12039634,
+    "compressed": 6941697
+  },
+  {
+    "name": "2041_2070/ssp585/koppen_geiger_0p5.tif",
+    "bytes": 21324,
+    "compressed": 19507
+  },
+  {
+    "name": "2041_2070/ssp585/koppen_geiger_1p0.tif",
+    "bytes": 9565,
+    "compressed": 7973
+  },
+  {
+    "name": "2041_2070/ssp585/koppen_geiger_0p1.tif",
+    "bytes": 211486,
+    "compressed": 180744
+  },
+  {
+    "name": "2041_2070/ssp434/koppen_geiger_0p00833333.tif",
+    "bytes": 12045935,
+    "compressed": 6944710
+  },
+  {
+    "name": "2041_2070/ssp434/koppen_geiger_0p5.tif",
+    "bytes": 21349,
+    "compressed": 19524
+  },
+  {
+    "name": "2041_2070/ssp434/koppen_geiger_1p0.tif",
+    "bytes": 9552,
+    "compressed": 7966
+  },
+  {
+    "name": "2041_2070/ssp434/koppen_geiger_0p1.tif",
+    "bytes": 212455,
+    "compressed": 180972
+  },
+  {
+    "name": "2041_2070/ssp460/koppen_geiger_0p00833333.tif",
+    "bytes": 12012440,
+    "compressed": 6907619
+  },
+  {
+    "name": "2041_2070/ssp460/koppen_geiger_0p5.tif",
+    "bytes": 21375,
+    "compressed": 19590
+  },
+  {
+    "name": "2041_2070/ssp460/koppen_geiger_1p0.tif",
+    "bytes": 9562,
+    "compressed": 7965
+  },
+  {
+    "name": "2041_2070/ssp460/koppen_geiger_0p1.tif",
+    "bytes": 211644,
+    "compressed": 180190
+  },
+  {
+    "name": "2041_2070/ssp370/koppen_geiger_0p00833333.tif",
+    "bytes": 11995788,
+    "compressed": 6891271
+  },
+  {
+    "name": "2041_2070/ssp370/koppen_geiger_0p5.tif",
+    "bytes": 21305,
+    "compressed": 19503
+  },
+  {
+    "name": "2041_2070/ssp370/koppen_geiger_1p0.tif",
+    "bytes": 9551,
+    "compressed": 7966
+  },
+  {
+    "name": "2041_2070/ssp370/koppen_geiger_0p1.tif",
+    "bytes": 211755,
+    "compressed": 180535
+  },
+  {
+    "name": "1991_2020/koppen_geiger_0p00833333.tif",
+    "bytes": 12494241,
+    "compressed": 7419523
+  },
+  {
+    "name": "1991_2020/koppen_geiger_0p5.tif",
+    "bytes": 21538,
+    "compressed": 19734
+  },
+  {
+    "name": "1991_2020/koppen_geiger_1p0.tif",
+    "bytes": 9570,
+    "compressed": 7978
+  },
+  {
+    "name": "1991_2020/koppen_geiger_0p1.tif",
+    "bytes": 216858,
+    "compressed": 185807
+  },
+  {
+    "name": "1931_1960/koppen_geiger_0p00833333.tif",
+    "bytes": 12634493,
+    "compressed": 7581811
+  },
+  {
+    "name": "1931_1960/koppen_geiger_0p5.tif",
+    "bytes": 21782,
+    "compressed": 19985
+  },
+  {
+    "name": "1931_1960/koppen_geiger_1p0.tif",
+    "bytes": 9713,
+    "compressed": 8127
+  },
+  {
+    "name": "1931_1960/koppen_geiger_0p1.tif",
+    "bytes": 219882,
+    "compressed": 188783
+  },
+  {
+    "name": "legend.txt",
+    "bytes": 2410,
+    "compressed": 870
+  }
+]

@@ -1,6 +1,0 @@
-# TerraLens. Allow crawling of the public catalogue.
-# Preview hosts still send X-Robots-Tag: noindex unless VITE_INDEXABLE=1.
-User-agent: *
-Allow: /
-
-Sitemap: https://terralens.grok.me/sitemap.xml

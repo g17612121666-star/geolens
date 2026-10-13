@@ -1,0 +1,35 @@
+[
+  {
+    "id": "case-loess-plateau-1",
+    "title": "File:Loess landscape china.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loess_landscape_china.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Loess_landscape_china.jpg/1280px-Loess_landscape_china.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "author": "Till Niermann (User:Till.niermann)",
+    "description": "Loess landscape near Hunyuan, Datong, Shanxi Province, China",
+    "categories": "Landscapes of China|Loess Plateau|GFDL|Datong|License migration redundant|Self-published work|Loess in China"
+  },
+  {
+    "id": "case-loess-plateau-2",
+    "title": "File:Telečka loess plateau, Senta.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tele%C4%8Dka_loess_plateau,_Senta.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Tele%C4%8Dka_loess_plateau%2C_Senta.jpg/1280px-Tele%C4%8Dka_loess_plateau%2C_Senta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Jozefsu",
+    "description": "Istočni obod lesnog platoa Telečke, kod Sente (Veliki rit). Na ovom obodu koji predstavlja obalu pra-Tise se nalazi nekoliko humki (kurgana) Potisja",
+    "categories": "Loess Plateau|Self-published work|Kurgans in Bačka"
+  },
+  {
+    "id": "case-loess-plateau-3",
+    "title": "File:Loess plateau Telečka, eastern side.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loess_plateau_Tele%C4%8Dka,_eastern_side.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Loess_plateau_Tele%C4%8Dka%2C_eastern_side.jpg/1280px-Loess_plateau_Tele%C4%8Dka%2C_eastern_side.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "Jozefsu",
+    "description": "Loess plateau known as Telečka, its eastern side, near river Tisza, in Serbian Bačka",
+    "categories": "Loess Plateau|Self-published work|Landscapes of Vojvodina|Kurgans in Bačka"
+  }
+]

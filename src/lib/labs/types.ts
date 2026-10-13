@@ -33,6 +33,7 @@ export type LabStep = {
 };
 
 export type LabExtra = {
+  options?: {value:number;label:string}[];
   key: string;
   label: string;
   min: number;
@@ -59,6 +60,8 @@ export type LabMeta = {
   steps: LabStep[];
   questions: LabQuestion[];
   why: string[];
+  /** Scientific assumptions and calculation details, available on demand. */
+  modelNotes?: string[];
   glossary: { term: string; def: string; exam?: string }[];
   misconception: { claim: string; truth: string };
   /** Three pupil-said wrong sentences. Falls back to `misconception` if omitted. */
@@ -67,6 +70,8 @@ export type LabMeta = {
   teacher: { script: string; pitfalls: string[] };
   sources: { label: string; href?: string }[];
   controls: {
+    /** False for parameter-driven static experiments; do not offer an inert Play button. */
+    playback?: boolean;
     time?: "year" | "day" | "month" | "none";
     explode?: boolean;
     slice?: boolean;

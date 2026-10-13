@@ -1,0 +1,224 @@
+[
+  {
+    "id": "hawaii-windward-leeward",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/3000/3510/image05292003_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=2800&w=3600",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/hawaiian-islands/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Jacques Descloitres, MODIS Land Rapid Response Team / NASA GSFC · public domain · resized",
+    "kind": "photo",
+    "alt": "Hawaiian islands with greener windward slopes, drier leeward slopes and silvery sunglint on the Pacific.",
+    "caption": "Terra MODIS, 27 May 2003. Northeasterly trade winds favour wetter, greener windward slopes; leeward slopes are drier. The bright ocean is sunglint.",
+    "labs": [
+      "rain-shadow"
+    ]
+  },
+  {
+    "id": "nasa-blue-marble-july",
+    "url": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x5400x2700.jpg",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Reto Stöckli / NASA Earth Observatory · public domain · resized",
+    "kind": "scientific-image",
+    "alt": "NASA Blue Marble satellite composite of Earth in an equirectangular global map.",
+    "caption": "NASA Blue Marble Next Generation, July 2004. A cloud-free satellite composite in a latitude–longitude grid: the map stretches high latitudes and is not equal-area.",
+    "labs": [
+      "map-projections"
+    ]
+  },
+  {
+    "id": "meteosat-december-solstice",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/52000/52248/seasons_msg_20101221_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=3712&w=3712",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/seeing-equinoxes-and-solstices-from-space-52248/",
+    "licenseUrl": "https://user.eumetsat.int/resources/user-guides/data-registration-and-licensing",
+    "credit": "Robert Simmon / NASA Earth Observatory · contains modified EUMETSAT Meteosat data (2011 publication) · resized",
+    "kind": "scientific-image",
+    "alt": "Meteosat view of Earth's day–night boundary on the December solstice, with more of the Southern Hemisphere in daylight.",
+    "caption": "Meteosat-9 SEVIRI, 21 December 2010. The tilted day–night boundary gives the Southern Hemisphere longer days. Axial tilt, rather than a change in Earth–Sun distance, controls this seasonal illumination.",
+    "labs": [
+      "seasons"
+    ]
+  },
+  {
+    "id": "meteosat-march-equinox",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/52000/52248/seasons_msg_20110320_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=3712&w=3712",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/seeing-equinoxes-and-solstices-from-space-52248/",
+    "licenseUrl": "https://user.eumetsat.int/resources/user-guides/data-registration-and-licensing",
+    "credit": "Robert Simmon / NASA Earth Observatory · contains modified EUMETSAT Meteosat data (2011 publication) · resized",
+    "kind": "scientific-image",
+    "alt": "Meteosat view of Earth's nearly north–south day–night boundary at the March equinox.",
+    "caption": "Meteosat-9 SEVIRI, 20 March 2011. The terminator passes close to both poles around the equinox; refraction and the Sun's finite disc mean observed daylight is not exactly twelve hours everywhere."
+  },
+  {
+    "id": "ecostress-london-night",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/psd/photojournal/pia/pia25/pia25423/PIA25423.jpg?crop=faces%2Cfocalpoint&fit=clip&h=2480&w=3507",
+    "sourceUrl": "https://science.nasa.gov/photojournal/nasas-ecostress-shows-overnight-heat-in-london/",
+    "licenseUrl": "https://www.jpl.nasa.gov/jpl-image-use-policy/",
+    "credit": "NASA/JPL-Caltech · ECOSTRESS, PIA25423 · underlying map attribution retained in image · resized",
+    "kind": "scientific-image",
+    "alt": "ECOSTRESS thermal map shows warm urban surfaces in London late at night on 15 July 2022.",
+    "caption": "ECOSTRESS measured London's land-surface temperatures near midnight on 15 July 2022. Built surfaces remained warmer than many vegetated areas. These are surface temperatures, not standard air-temperature readings."
+  },
+  {
+    "id": "usgs-haiti-intensity",
+    "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/Haiti_7.2_814.png",
+    "sourceUrl": "https://www.usgs.gov/media/images/usgs-map-august-14-2021-earthquake-haiti",
+    "licenseUrl": "https://www.usgs.gov/media/images/usgs-map-august-14-2021-earthquake-haiti",
+    "credit": "USGS · public domain · 14 August 2021 ShakeMap · resized",
+    "kind": "scientific-image",
+    "alt": "USGS ShakeMap of the 14 August 2021 Haiti earthquake with coloured zones of shaking intensity.",
+    "caption": "USGS ShakeMap for the 14 August 2021 Haiti earthquake. Intensity varies from place to place and describes shaking effects; magnitude describes the earthquake's overall size. This is the published event-time map, not live hazard information."
+  },
+  {
+    "id": "noaa-emag2-anomalies",
+    "url": "https://www.ngdc.noaa.gov/geomag/data/EMAG2/EMAG2_V3_sealevelposter.png",
+    "sourceUrl": "https://www.ncei.noaa.gov/products/earth-magnetic-model-anomaly-grid-2",
+    "licenseUrl": "https://www.ncei.noaa.gov/products/earth-magnetic-model-anomaly-grid-2",
+    "credit": "NOAA NCEI / CIRES · EMAG2 v3 · public domain · resized",
+    "kind": "scientific-image",
+    "alt": "EMAG2 global magnetic-anomaly map with alternating anomalies across the ocean floor.",
+    "caption": "NOAA EMAG2 v3 combines satellite, ship and airborne magnetic measurements. Oceanic magnetic stripes record spreading and changing polarity. Colours represent anomalies in nanoTesla, not directly the ages of rocks."
+  },
+  {
+    "id": "mauritania-upwelling-modis",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/146000/146684/mauritania_amo_2020126_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=3584&w=4903",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/perma-blooms-off-mauritania-146684/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Lauren Dauphin / NASA Earth Observatory · Aqua MODIS / EOSDIS · public domain · resized",
+    "kind": "photo",
+    "alt": "Green phytoplankton and sediment-rich water off Mauritania's desert coast, observed by Aqua MODIS.",
+    "caption": "Aqua MODIS, 5 May 2020. Upwelling in the Canary Current system supplies nutrients off Mauritania. The visible green water contains phytoplankton and sediment; it is not a temperature map."
+  },
+  {
+    "id": "sri-lanka-sea-breeze-modis",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/81000/81833/SriLanka_amo_2013099_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=2504&w=1592",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/fair-weather-clouds-sri-lanka-81833/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Robert Simmon / NASA Earth Observatory · Aqua MODIS / EOSDIS · public domain · resized",
+    "kind": "photo",
+    "alt": "Afternoon cumulus clouds over Sri Lanka, observed by Aqua MODIS on 9 April 2013.",
+    "caption": "Aqua MODIS, 9 April 2013. Sea-breeze air moves inland and helps cumulus clouds develop over the warmer island. Silvery water is sunglint. This daytime image shows sea-breeze effects, not a night-time land breeze."
+  },
+  {
+    "id": "amsre-warm-pool-anomaly",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/4000/4927/amsre_ssta_2004293_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=720&w=1440",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/sea-surface-temperature-in-western-pacific-4927/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Jesse Allen / NASA Earth Observatory · AMSR-E / Remote Sensing Systems · public domain · resized",
+    "kind": "scientific-image",
+    "alt": "AMSR-E sea-surface temperature anomalies around northern Australia in the Indo-Pacific warm pool.",
+    "caption": "AMSR-E, 19 October 2004. This warm-pool region was cooler than its long-term average. Colours show temperature anomalies, not absolute water temperature; a negative anomaly does not mean the water is cold in absolute terms."
+  },
+  {
+    "id": "bangladesh-modis-2011",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/77000/77364/bangladesh_tmo_2011313_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=5200&w=6600",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/bangladesh-77364/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Jeff Schmaltz / NASA GSFC · Terra MODIS / LANCE-EOSDIS · public domain · resized",
+    "kind": "photo",
+    "alt": "Terra MODIS natural-colour view of Bangladesh, its delta channels and the Sundarbans beside the Bay of Bengal.",
+    "caption": "Bangladesh, Terra MODIS, 9 November 2011. River-borne sediment builds the broad delta and coastal plain; folded hills lie to the east."
+  },
+  {
+    "id": "goes-land-breeze-michigan",
+    "url": "https://cimss.ssec.wisc.edu/satellite-blog/wp-content/uploads/sites/5/2025/10/goeseast_abi_radf_true_color_night_20251030132020-1024x711.png",
+    "sourceUrl": "https://cimss.ssec.wisc.edu/satellite-blog/archives/67632",
+    "licenseUrl": "https://cimss.ssec.wisc.edu/satellite-blog/about",
+    "credit": "NOAA GOES-19 / CIMSS, University of Wisconsin–Madison · public domain · 30 October 2025 · resized",
+    "kind": "scientific-image",
+    "alt": "GOES-19 satellite view of a cloud-free band beside western Lake Michigan as a land breeze pushes offshore.",
+    "caption": "GOES-19, 30 October 2025 at 13:20 UTC. A land breeze keeps clouds away from part of Lake Michigan’s western shore. The product combines visible and infrared observations across the night-to-day transition; station measurements confirm the offshore flow."
+  },
+  {
+    "id": "kamoamoa-fissure-2011",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Kamoamoa_2011-03-05_Puu_Oo_background.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kamoamoa_2011-03-05_Puu_Oo_background.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Kamoamoa_2011-03-05_Puu_Oo_background.jpg",
+    "credit": "United States Geological Survey / Wikimedia Commons · Public domain · resized",
+    "alt": "A line of lava fountains and gas rises from the Kamoamoa fissure in forest southwest of Puʻu ʻŌʻō, Hawaiʻi.",
+    "caption": "USGS, 5 March 2011: lava erupts along a newly opened fissure between Puʻu ʻŌʻō and Nāpau, Kīlauea. Several fountains mark the linear opening.",
+    "kind": "photo"
+  },
+  {
+    "id": "first-quarter-moon-2019",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/MOON_ON_THE_FIRST_QUARTER.jpg/1280px-MOON_ON_THE_FIRST_QUARTER.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MOON_ON_THE_FIRST_QUARTER.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Lapos71 / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "First-quarter Moon photographed from Calabria, with the right half of the visible lunar disc sunlit.",
+    "caption": "A telescopic photograph of the first-quarter Moon on 9 July 2019. Near quadrature, the Sun and Moon lie about 90° apart in our sky.",
+    "kind": "photo"
+  },
+  {
+    "id": "hondius-globe-gores-1615",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Terrestrial_globe_gores._LOC_2008627640.tif/lossy-page1-1280px-Terrestrial_globe_gores._LOC_2008627640.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terrestrial_globe_gores._LOC_2008627640.tif",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Terrestrial_globe_gores._LOC_2008627640.tif",
+    "credit": "Hondius, Jodocus; Rossi, Giuseppe Di. / Wikimedia Commons · Public domain · resized",
+    "alt": "Digitised historical sheets of narrow, tapered terrestrial map strips intended to cover a 19-centimetre globe.",
+    "caption": "Library of Congress: Hondius terrestrial globe gores, reissued by Giuseppe di Rossi in 1615. This is a scan of a real cartographic object; the tapered paper strips were designed to fit a spherical globe. Its historical geography is not a modern reference map.",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "smithsonian-magnetite",
+    "url": "https://ids.si.edu/ids/deliveryService?id=ark%3A%2F65665%2Fm3527db5f5a09f4a9e9d87b803eca840bc&max=1920",
+    "sourceUrl": "https://naturalhistory.si.edu/object/nmnhmineralsciences_1126519",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Chip Clark / Smithsonian National Museum of Natural History · CC0 · resized",
+    "alt": "Metallic black octahedral magnetite crystals on rock, Smithsonian specimen B10614 from Binnental, Switzerland.",
+    "caption": "Magnetite, photographed in the Smithsonian collection. Pure magnetite loses its spontaneous magnetic ordering near 580 °C, its Curie temperature. This specimen photograph shows the mineral, not a temperature measurement.",
+    "kind": "photo"
+  },
+  {
+    "id": "diomede-landsat",
+    "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/91000/91638/diomedes_oli_2017157_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=5475&w=8213",
+    "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/yesterday-and-tomorrow-islands-91638/",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "Joshua Stevens / NASA Earth Observatory, Landsat data: USGS · public domain · resized",
+    "alt": "Big and Little Diomede islands in the Bering Strait, between snow-covered Russia and Alaska, seen by Landsat 8.",
+    "caption": "Landsat 8, 6 June 2017: Big Diomede (the larger island, left) belongs to Russia and Little Diomede (right) to the US. The International Date Line passes through the water between them; it is a convention, not a visible physical feature.",
+    "kind": "photo"
+  },
+  {
+    "id": "ceres-reflected-2000-2015",
+    "url": "https://svs.gsfc.nasa.gov/vis/a030000/a030600/a030604/ceres_sw_all_average_2000-2015.png",
+    "sourceUrl": "https://svs.gsfc.nasa.gov/30604",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "NASA Goddard Space Flight Center / Scientific Visualization Studio · public domain · resized",
+    "alt": "NASA CERES map of reflected shortwave radiation averaged over 2000–2015, with a 0–385 W m⁻² colour scale.",
+    "caption": "NASA CERES observations, 2000–2015 mean. Colours show sunlight reflected by the Earth system in W m⁻². This is outgoing shortwave flux, not incoming solar irradiance or albedo itself.",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "ceres-net-2000-2015",
+    "url": "https://svs.gsfc.nasa.gov/vis/a030000/a030600/a030604/ceres_net_all_average_2000-2015.png",
+    "sourceUrl": "https://svs.gsfc.nasa.gov/30604",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "NASA Goddard Space Flight Center / Scientific Visualization Studio · public domain · resized",
+    "alt": "NASA CERES map of net radiation averaged over 2000–2015, with a −200 to +200 W m⁻² colour scale.",
+    "caption": "NASA CERES observations, 2000–2015 mean. Net radiation is incoming sunlight minus reflected shortwave and emitted longwave energy at the top of the atmosphere. Positive values indicate a radiative surplus.",
+    "kind": "scientific-image",
+    "labs": [
+      "energy-budget"
+    ]
+  },
+  {
+    "id": "naze-london-clay",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Naze_Cliffs%2C_Walton-on-the-Naze%2C_Essex_-_geograph.org.uk_-_3399527.jpg/1280px-Naze_Cliffs%2C_Walton-on-the-Naze%2C_Essex_-_geograph.org.uk_-_3399527.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naze_Cliffs,_Walton-on-the-Naze,_Essex_-_geograph.org.uk_-_3399527.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Peter Pearson / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "Grey London Clay exposed below yellow-brown Red Crag in the sea cliffs at Walton-on-the-Naze, Essex.",
+    "caption": "London Clay forms the lower part of the Naze cliffs. Clay-rich beds commonly transmit groundwater slowly and can act as aquitards; the cliff exposes the material, while permeability is established by testing.",
+    "kind": "photo"
+  },
+  {
+    "id": "aitrach-valley",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Trockental_Feldbergdonau-Aitrachtal_Schwaebische-Alb.jpg/1280px-Trockental_Feldbergdonau-Aitrachtal_Schwaebische-Alb.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trockental_Feldbergdonau-Aitrachtal_Schwaebische-Alb.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "credit": "Ustill / Wikimedia Commons · CC BY-SA 3.0 de · resized",
+    "alt": "A broad, grassy former river valley near Blumberg, now drained by the much smaller Aitrach.",
+    "caption": "The Aitrach valley preserves the former route of the Feldberg Danube. Capture by the Wutach diverted its large upstream flow towards the Rhine, leaving the small Aitrach in an oversized valley. The channel itself is difficult to distinguish in this landscape view.",
+    "kind": "photo"
+  }
+]

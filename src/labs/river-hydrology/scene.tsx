@@ -1,3 +1,191 @@
-import { makeGlbScene } from "@/labs/shared/make-glb-scene";
-
-export default makeGlbScene("river-hydrology");
+import { useMemo, useEffect } from "react";
+import * as THREE from "three";
+import { Line } from "@react-three/drei";
+import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabTick } from "@/labs/tick";
+import { annualRiverRegime, catchmentRelief } from "@/lib/river-regime-science";
+import { terrainBlockGeometry } from "../shared/science-geometry";
+import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
+import { RockMaterial } from "../shared/rock-material";
+import { TerrainMaterial, PlantStand } from "../shared/natural-world";
+import { WaterRibbon, DebrisField } from "../shared/geomorphic-terrain";
+import { FlowWaterMaterial } from "../shared/flow-water";
+import { Tag } from "../shared/kit";
+import { landscapeRandom as random } from "../shared/landscape-noise";
+const hill = catchmentRelief;
+function Basin({
+  snow,
+  flow,
+  x,
+  dam,
+  vertical,
+}: {
+  snow: number;
+  flow: number;
+  x: number;
+  dam: boolean;
+  vertical: number;
+}) {
+  const geometry = useMemo(() => {
+    const g = terrainBlockGeometry((x, z) => hill(x, z) * vertical, 3.2, 3.2, 80, -0.12);
+    const p = g.attributes.position,
+      c = new Float32Array(p.count * 3);
+    for (let i = 0; i < p.count; i++) {
+      const h = hill(p.getX(i), p.getZ(i)),
+        colour = new THREE.Color(
+          snow > 1 && h > 0.8 - Math.min(0.6, snow / 400) ? "#cfdddd" : "#7e9368",
+        );
+      c.set([colour.r, colour.g, colour.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+    return g;
+  }, [snow, vertical]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  const line = Array.from({ length: 65 }, (_, i): [number, number, number] => {
+    const x = -1.6 + (i / 64) * 3.2;
+    return [x, hill(x, 0) * vertical + 0.015, 0];
+  });
+  return (
+    <group position={[x, 0, 0]}>
+      <mesh geometry={geometry}>
+        <TerrainMaterial
+          attach="material-0"
+          kind="grass"
+          vertexColors
+          color="#ffffff"
+          roughness={0.95}
+        />
+        <RockMaterial attach="material-1" color="#9d8568" />
+      </mesh>
+      <WaterRibbon
+        path={line}
+        width={0.018 + Math.min(0.085, Math.sqrt(flow) * 0.045)}
+        color="#5994ad"
+      />
+      <PlantStand
+        kind="conifer"
+        scale={0.05}
+        seed={11}
+        positions={Array.from({ length: 72 }, (_, i) => {
+          const a = -1.45 + random(i + 378) * 2.9,
+            z = -1.45 + random(i + 721) * 2.9;
+          return [a, hill(a, z) * vertical, z] as [number, number, number];
+        }).filter(([a, , z]) => Math.abs(z) > 0.18 && hill(a, z) < 0.78)}
+      />
+      <DebrisField
+        points={Array.from({ length: 42 }, (_, i) => {
+          const a = -1.5 + random(i + 414) * 3,
+            z = (random(i + 886) < 0.5 ? -1 : 1) * (0.1 + random(i + 684) * 0.13);
+          return [a, hill(a, z) * vertical + 0.005, z];
+        })}
+        size={0.014}
+      />
+      {dam && (
+        <mesh position={[0.73, hill(0.9, 0) * vertical + 0.07, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[0.48, 0.7]} />
+          <FlowWaterMaterial color="#518da4" opacity={0.8} flow={[0.15, 0]} speed={0.1} />
+        </mesh>
+      )}
+      {dam && (
+        <mesh position={[1, hill(1, 0) * vertical + 0.12, 0]}>
+          <boxGeometry args={[0.12, 0.25, 0.8]} />
+          <meshStandardMaterial color="#adb6ae" roughness={0.9} />
+        </mesh>
+      )}
+    </group>
+  );
+}
+export default function RiverHydrology() {
+  const { params, t, trueScale } = useLabControls();
+  useLabTick(1 / 65);
+  const dam = params.dam > 0.5,
+    a = useMemo(() => annualRiverRegime(false, false), []),
+    b = useMemo(() => annualRiverRegime(true, dam), [dam]),
+    day = Math.min(364, Math.floor(t * 365)),
+    av = a.series[day],
+    bv = b.series[day],
+    f = trueScale ? 0.1 : 1,
+    max = Math.max(...a.series.map((s) => s.flow), ...b.series.map((s) => s.flow)) * 1.1;
+  const poly = (series: typeof a.series) =>
+    series
+      .map(
+        (s) => `${(35 + (s.day / 364) * 530).toFixed(3)},${(78 - (s.flow / max) * 67).toFixed(3)}`,
+      )
+      .join(" ");
+  return (
+    <>
+      <ScienceStudio
+        slug="river-hydrology"
+        camera={[4, 5, 8]}
+        scale="Two invented 100 km² catchments · relief ×10 · channel width symbolic"
+        trueScale="Terrain uses 1 scene unit = 3.125 km · river width, dam and vegetation remain enlarged symbols"
+      >
+        <Basin x={-2.15} snow={0} flow={av.flow} dam={false} vertical={f} />
+        <Basin x={2.15} snow={bv.snow} flow={bv.flow} dam={dam} vertical={f} />
+        <Tag
+          pos={[-2.15, 0.25, 2]}
+          text={`Rain-fed · ${av.flow.toFixed(2)} m³/s`}
+          note="An invented maritime regime has wetter winters and a ten-day linear routing store. Forty per cent of liquid input is assigned to losses; these assumptions are not a fit to the Thames."
+          occlude={false}
+        />
+        <Tag
+          pos={[2.15, 0.25, 2]}
+          text={`Snow-fed · ${bv.flow.toFixed(2)} m³/s`}
+          note="An invented seasonal temperature cycle stores winter snowfall. Positive temperatures melt up to 3 mm snow-water equivalent per °C per day; seven-day routing delivers runoff. A dam adds a sixty-day linear reservoir, not a real operating policy."
+          occlude={false}
+        />
+      </ScienceStudio>
+      <ScienceReadout>
+        <svg
+          viewBox="0 0 600 106"
+          className="mx-auto h-28 w-full"
+          role="img"
+          aria-label={
+            "Annual daily discharge: rain-fed in gold and snow-fed in blue, linked to the selected day"
+          }
+        >
+          <line x1="35" x2="565" y1="78" y2="78" stroke="#718a84" />
+          <polyline
+            points={poly(a.series)}
+            fill="none"
+            stroke="var(--color-sandstone)"
+            strokeWidth="2"
+          />
+          <polyline points={poly(b.series)} fill="none" stroke="var(--color-ice)" strokeWidth="2" />
+          <line
+            x1={35 + (day / 364) * 530}
+            x2={35 + (day / 364) * 530}
+            y1="10"
+            y2="80"
+            stroke="var(--color-chalk)"
+          />
+          <text x="1" y="14" fill="var(--color-mist)" fontSize="12">
+            {max.toFixed(1)}
+          </text>
+          <text x="1" y="42" fill="var(--color-mist)" fontSize="12">
+            {"m³/s"}
+          </text>
+          <text x="35" y="101" fill="var(--color-mist)" fontSize="12">
+            {"Jan"}
+          </text>
+          <text x="295" y="101" fill="var(--color-mist)" fontSize="12">
+            {"Jul"}
+          </text>
+          <text x="540" y="101" fill="var(--color-mist)" fontSize="12">
+            {"Dec"}
+          </text>
+        </svg>
+        {"Day "}
+        {day + 1} {"· rain-fed (gold) / snow-fed (blue). Snow store "}
+        {bv.snow.toFixed(1)} {"mm water equivalent; snowmelt "}
+        {bv.melt.toFixed(1)} {"mm/day."}
+        <br />
+        {"Dam "}
+        {dam ? "on: storage smooths and delays outflow" : "off"}
+        {
+          ". Annual regimes are invented and repeat after spin-up. They are not daily forecasts or records of named rivers."
+        }
+      </ScienceReadout>
+    </>
+  );
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "Path": "/assets/index-Dkx7a9Tk.js",
+    "Status": 200,
+    "Type": "application/javascript; charset=utf-8",
+    "HashMatches": true
+  },
+  {
+    "Path": "/assets/maplibre-gl-CKRTiAqP.css",
+    "Status": 200,
+    "Type": "text/css; charset=utf-8",
+    "HashMatches": true
+  },
+  {
+    "Path": "/photos/verified/ucayali-meanders.jpg",
+    "Status": 200,
+    "Type": "image/jpeg",
+    "HashMatches": true
+  },
+  {
+    "Path": "/textures/pbr/forest_ground_04_diff.webp",
+    "Status": 200,
+    "Type": "image/webp",
+    "HashMatches": true
+  },
+  {
+    "Path": "/geo/PB2002_steps.json",
+    "Status": 200,
+    "Type": "application/json; charset=utf-8",
+    "HashMatches": true
+  }
+]
