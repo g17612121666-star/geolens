@@ -11,7 +11,7 @@ This repository contains the complete Geolens redesign, including the source cod
 Use Node.js 22.12+ or Node.js 24 and npm.
 
 ```bash
-git clone https://github.com/HarryXin0919/geolens.git
+git clone https://github.com/g17612121666-star/geolens.git
 cd geolens
 npm ci
 npm run dev
@@ -19,7 +19,7 @@ npm run dev
 
 The default development address is `http://localhost:8080`. To choose another port, run `npm run dev -- --port 8085`.
 
-The educational site runs without a login, API key or external database. `.grok/app-env.json` contains the public build flags that keep authentication disabled. Map tiles, forecasts and embedded videos still require an internet connection.
+The site runs without a login, API key or database. Map tiles, forecasts and embedded videos need an internet connection. `npm run dev` and `npm run build` first copy the MapLibre worker from `node_modules` into `public/maplibre/` (ignored by Git).
 
 ## Check and build
 
@@ -31,13 +31,12 @@ npm run preview
 
 The production preview defaults to `http://127.0.0.1:8081`. Nitro generates Vercel Build Output API files in `.vercel/output/`.
 
-Example targeted scientific checks:
+Tests and lint:
 
 ```bash
-node --experimental-strip-types --test --test-isolation=none scripts/lunar-science.test.mjs scripts/carbon.test.mjs scripts/photo-semantics.test.mjs scripts/preferences.test.mjs
+npm test        # scientific-model and content tests in scripts/*.test.mjs
+npm run lint
 ```
-
-The repository also retains the original App Builder support tooling. Some of its tests and preview helpers assume the original Linux environment; use `npm run preview` for a portable local preview.
 
 ## Deploy to Vercel
 
@@ -61,7 +60,7 @@ Choose the intended project when linking. Local Vercel account/project configura
 | `src/lib/` | Scientific models, cases, glossary, atlas and weather logic |
 | `public/` | All runtime photographs, textures, models, map datasets, fonts and icons |
 | `scripts/` | Tests, content dictionaries, media preparation and build tooling |
-| `server/` | Server middleware retained from the original App Builder project |
+| `server/` | Nitro middleware that sets security headers and search-indexing rules |
 | `reports/` | Dated implementation, validation and source-review records |
 
 ## Add or update a lab
@@ -71,6 +70,12 @@ Choose the intended project when linking. Local Vercel account/project configura
 3. Register its lazy scene import in `src/labs/registry.ts`.
 4. The shared `/lab/<slug>` route supplies the player. Put local runtime assets in `public/` and preserve their source and licence records.
 5. Check the scientific behaviour, loading state, small-screen layout and production build before releasing.
+
+## Photographs
+
+Every photograph the site shows lives in `public/photos/verified/` and has a record in `scripts/verified-photo-sources.json` (source page, licence, credit, alt text and caption). `src/lib/photo-assign.ts` maps photos to labs, glossary terms, cases and realms; `scripts/atlas-photo-assignments.json` maps them to atlas places; `public/photos/manifest.json` feeds the image-credits page. When you add or remove a photo, update all of these together.
+
+Source datasets that are only needed to regenerate site files are not committed. `scripts/fetch-reconstruction.py` re-downloads the GPlates coastline snapshots used by `scripts/bake-reconstructions.mjs`.
 
 ## Data and media credits
 

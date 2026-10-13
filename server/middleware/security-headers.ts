@@ -2,13 +2,13 @@ import { PUBLIC_SITE_HOST } from '../../src/lib/public-site';
 
 /**
  * Security headers for HTML and static responses.
- * CSP must allow https://grok.com (PWA injector) and map/weather origins.
+ * CSP allows the map, weather and video origins the site uses.
  * Indexing is host-aware: the published alias may index; preview hosts stay noindex
  * even when VITE_INDEXABLE=true.
  */
 const CSP = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://grok.com https://*.grok.com",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self' data:",
   "img-src 'self' data: blob: https:",
@@ -28,8 +28,6 @@ const CSP = [
     "https://server.arcgisonline.com",
     "https://*.arcgisonline.com",
     "https://demotiles.maplibre.org",
-    "https://grok.com",
-    "https://*.grok.com",
   ].join(" "),
   "worker-src 'self' blob:",
   "child-src 'self' blob: https://www.youtube.com https://www.youtube-nocookie.com",
@@ -63,7 +61,6 @@ function isPreviewHost(host: string): boolean {
   const h = host.split(":")[0]?.toLowerCase() || "";
   if (!h) return true;
   if (h.includes("localhost") || h.includes("127.0.0.1") || h.includes("0.0.0.0")) return true;
-  if (h.includes("grok-sandbox")) return true;
   if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(h)) return true;
   if (h === PUBLIC_SITE_HOST) return false;
   if (h.endsWith(".vercel.app")) return true;
@@ -74,7 +71,7 @@ function isPreviewHost(host: string): boolean {
 function allowIndex(host: string): boolean {
   if (isPreviewHost(host)) return false;
   const hostname = host.split(':')[0].toLowerCase();
-  if (hostname === PUBLIC_SITE_HOST || hostname === 'terralens.grok.me') return true;
+  if (hostname === PUBLIC_SITE_HOST) return true;
   return INDEXABLE;
 }
 

@@ -18,7 +18,6 @@ export function isPreviewHost(host = ""): boolean {
   const h = host.split(",")[0]?.trim().split(":")[0]?.toLowerCase() || "";
   if (!h) return true;
   if (h.includes("localhost") || h.includes("127.0.0.1") || h.includes("0.0.0.0")) return true;
-  if (h.includes("grok-sandbox")) return true;
   if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(h)) return true;
   if (h === PUBLIC_SITE_HOST) return false;
   if (h.endsWith(".vercel.app")) return true;
@@ -28,12 +27,12 @@ export function isPreviewHost(host = ""): boolean {
 /**
  * Public-release switch: VITE_INDEXABLE=true plus a non-preview host.
  * The published alias is indexable. Unknown/empty host stays noindex
- * so sandbox preview cannot leak into the index.
+ * so previews cannot leak into the index.
  */
 export function shouldIndex(host?: string): boolean {
   const hostname = (host || envPublicHost()).split(",")[0]?.trim().split(":")[0] || "";
   if (isPreviewHost(hostname)) return false;
-  if (hostname.toLowerCase() === PUBLIC_SITE_HOST || hostname.toLowerCase() === 'terralens.grok.me') return true;
+  if (hostname.toLowerCase() === PUBLIC_SITE_HOST) return true;
   return envIndexOn();
 }
 

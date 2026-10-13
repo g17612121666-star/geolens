@@ -79,16 +79,20 @@ export default function SolarSystem() {
           <>
             <ambientLight intensity={0.06} />
             <pointLight position={[0, 0, 0]} intensity={3} decay={0} />
-            <StarMesh radius={trueScale ? (695700 / AU_KM) * scale : 0.12} />
+            <StarMesh radius={trueScale ? (695700 / AU_KM) * scale : all ? 0.12 : 0.3} />
             {indices.map((i) => {
               const pos = planetPosition(i, years).map((v) => v * scale) as [
                   number,
                   number,
                   number,
                 ],
+                // Teaching scale: sizes keep their order (∝ √radius) but are enlarged so
+                // each body reads as a disc rather than a dot against its orbit.
                 r = trueScale
                   ? planetRadiusAtOrbitScale(i, scale)
-                  : 0.035 + 0.085 * Math.sqrt(PLANETS[i].radius / 69911);
+                  : all
+                    ? Math.max(0.05, 0.22 * Math.sqrt(PLANETS[i].radius / 69911))
+                    : 0.18 * Math.sqrt(PLANETS[i].radius / 6371.0084);
               return (
                 <group key={i}>
                   <Orbit index={i} scale={scale} />
@@ -101,7 +105,7 @@ export default function SolarSystem() {
                     />
                     {i === selected && (
                       <Tag
-                        pos={[0, 0.3, 0]}
+                        pos={[0, r + 0.18, 0]}
                         text={PLANETS[i].name}
                         note={`Mean radius ${PLANETS[i].radius.toLocaleString("en-GB")} km; orbital period ${PLANETS[i].period.toFixed(3)} Earth years. Orbital geometry is a fixed-element experiment, not the current sky.`}
                         occlude={false}

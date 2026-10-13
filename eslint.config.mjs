@@ -5,7 +5,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-/** Flat ESLint config for the TanStack Start app-builder template. */
+/** Flat ESLint config for Geolens. */
 export default tseslint.config(
   {
     ignores: [
@@ -14,6 +14,8 @@ export default tseslint.config(
       ".vercel/**",
       ".nitro/**",
       "node_modules/**",
+      "public/**",
+      "reports/**",
       "src/routeTree.gen.ts",
     ],
   },
@@ -40,6 +42,11 @@ export default tseslint.config(
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
       "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-expressions": [
+        "error",
+        { allowShortCircuit: true, allowTernary: true },
+      ],
+      "no-empty": ["error", { allowEmptyCatch: true }],
     },
   },
   // Disable rules that conflict with Prettier formatting.

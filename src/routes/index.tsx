@@ -30,7 +30,7 @@ const SUMMARIES: Record<string, string> = {
     "Investigate how a low-lying city manages river water and coastal flood risk.",
 };
 function Home() {
-  const classroom = labFigure("seasons");
+  const classroom = labFigure("soil-texture");
   return (
     <main id="main">
       <section className="home-intro mx-auto grid max-w-[1280px] items-center gap-4 px-5 pb-10 pt-24 md:grid-cols-2 md:gap-8 md:pb-16 md:pt-28">

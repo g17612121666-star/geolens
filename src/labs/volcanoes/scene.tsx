@@ -11,16 +11,20 @@ import { volcanoGeometry, volcanoHeight } from "./geometry";
 function LavaChannel({
   points,
   active = false,
+  color = "#352e2a",
+  width = 0.031,
 }: {
   points: [number, number, number][];
   active?: boolean;
+  color?: string;
+  width?: number;
 }) {
   const geometry = useMemo(
     () =>
       new THREE.TubeGeometry(
         new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(...p))),
         80,
-        active ? 0.018 : 0.031,
+        active ? 0.018 : width,
         8,
         false,
       ),
@@ -30,7 +34,7 @@ function LavaChannel({
   return (
     <mesh geometry={geometry} castShadow>
       <RockMaterial
-        color={active ? "#d85925" : "#352e2a"}
+        color={active ? "#d85925" : color}
         emissive={active ? "#ff571d" : "#000000"}
         emissiveIntensity={active ? 0.55 : 0}
         roughness={active ? 0.65 : 0.96}
@@ -38,6 +42,13 @@ function LavaChannel({
     </mesh>
   );
 }
+const OLD_FLOWS = [
+  { start: 0.35, reach: 0.92, wiggle: 0.05, color: "#6b4a3a", width: 0.042 },
+  { start: 2.55, reach: 0.78, wiggle: 0.06, color: "#7a5644", width: 0.036 },
+  { start: 3.4, reach: 1, wiggle: 0.04, color: "#5c4235", width: 0.046 },
+  { start: 4.35, reach: 0.7, wiggle: 0.07, color: "#80604c", width: 0.032 },
+  { start: 5.3, reach: 0.88, wiggle: 0.05, color: "#664638", width: 0.04 },
+];
 export default function Volcanoes() {
   const { params, slice, t } = useLabControls();
   useLabTick(1 / 9);
@@ -54,19 +65,33 @@ export default function Volcanoes() {
   );
   const energetic = gas * (0.35 + 0.65 * v),
     plume = energetic > 0.48;
-  const flow = useMemo(
+  const flowPath = useMemo(
     () =>
-      Array.from({ length: 80 }, (_, i): [number, number, number] => {
-        const r = 0.16 + (i / 79) * (g.radius - 0.2),
-          phi = 1.6 + Math.sin(r * 7) * 0.035;
-        return [
-          Math.sin(phi) * r,
-          volcanoHeight(v, r, phi, slice * Math.PI * 0.72) + 0.025,
-          Math.cos(phi) * r,
-        ];
-      }),
+      (start: number, reach: number, wiggle: number): [number, number, number][] =>
+        Array.from({ length: 80 }, (_, i): [number, number, number] => {
+          const r = 0.16 + (i / 79) * (g.radius - 0.2) * reach,
+            phi = start + Math.sin(r * 7 + start) * wiggle;
+          return [
+            Math.sin(phi) * r,
+            volcanoHeight(v, r, phi, slice * Math.PI * 0.72) + 0.02,
+            Math.cos(phi) * r,
+          ];
+        }),
     [g.radius, v, slice],
   );
+  const flow = useMemo(() => flowPath(1.6, 1, 0.035), [flowPath]);
+  // Older, cooled flows radiating from the summit: each eruption adds a layer.
+  // Flows inside the cut-away wedge would hang in the air, so skip that sector.
+  const olderFlows = useMemo(() => {
+    const cut = slice * Math.PI * 0.72;
+    return OLD_FLOWS.filter(
+      (f) =>
+        cut < 0.01 || Math.abs(Math.atan2(Math.sin(f.start), Math.cos(f.start))) > cut / 2 + 0.15,
+    ).map((f) => ({
+      ...f,
+      points: flowPath(f.start, v < 0.5 ? f.reach : f.reach * 0.62, f.wiggle),
+    }));
+  }, [flowPath, slice, v]);
   const activeFlow = useMemo(
     () => flow.slice(0, Math.max(2, Math.round(2 + t * (flow.length - 2)))),
     [flow, t],
@@ -103,6 +128,9 @@ export default function Volcanoes() {
                 <cylinderGeometry args={[0.04, 0.065, g.height * 0.78 + 0.18, 32]} />
                 <meshStandardMaterial color="#ad3f22" emissive="#ff5a20" emissiveIntensity={0.35} />
               </mesh>
+              {olderFlows.map((f) => (
+                <LavaChannel key={f.start} points={f.points} color={f.color} width={f.width} />
+              ))}
               <LavaChannel points={flow} />
               <LavaChannel points={activeFlow} active />
               <Tag
