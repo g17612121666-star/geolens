@@ -1,5 +1,5 @@
 # Geolens. Allow crawling of the public catalogue at terralens-kohl.vercel.app.
-# Preview hosts (localhost, grok-sandbox) still send X-Robots-Tag: noindex.
+# Preview hosts (localhost, unique Vercel deployment URLs) still send X-Robots-Tag: noindex.
 User-agent: *
 Allow: /
 

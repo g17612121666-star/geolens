@@ -25,3 +25,7 @@ reports/**/*.webp
 reports/**/*.tif
 reports/**/*.glb
 reports/**/*.log
+
+__pycache__/
+*.pyc
+public/maplibre/
