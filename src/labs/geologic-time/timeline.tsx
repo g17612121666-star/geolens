@@ -174,6 +174,12 @@ export default function GeologicTime() {
             </mesh>
           );
         })}
+        <TickRings span={span} />
+        <TimeColumn span={span} progress={progress} />
+        <mesh position={[0, -1.32, 0]} receiveShadow>
+          <cylinderGeometry args={[2.25, 2.35, 0.12, 96]} />
+          <meshStandardMaterial color="#2a3133" roughness={0.55} metalness={0.2} />
+        </mesh>
         <mesh position={selected}>
           <sphereGeometry args={[0.17, 32, 24]} />
           <meshStandardMaterial
@@ -244,5 +250,64 @@ export default function GeologicTime() {
         </div>
       </ScienceReadout>
     </>
+  );
+}
+
+/** Thin dark rings at round ages so time can be read off the coil like a ruler. */
+function TickRings({ span }: { span: number }) {
+  const step = span > 1000 ? 500 : span > 100 ? 50 : 0.25;
+  const ticks = Array.from({ length: Math.floor(span / step) }, (_, i) => (i + 1) * step).filter(
+    (a) => a < span,
+  );
+  return (
+    <>
+      {ticks.map((a) => {
+        const f = 1 - a / span,
+          p = timeHelix(f),
+          next = timeHelix(Math.min(1, f + 0.0001)),
+          axis = new THREE.Vector3(...next).sub(new THREE.Vector3(...p)).normalize();
+        return (
+          <mesh
+            key={a}
+            position={p}
+            quaternion={new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), axis)}
+          >
+            <torusGeometry args={[0.094, 0.006, 8, 28]} />
+            <meshStandardMaterial color="#2e3436" roughness={0.6} />
+          </mesh>
+        );
+      })}
+    </>
+  );
+}
+
+/** The same window unrolled onto a straight glass column: each unit's height is its duration. */
+function TimeColumn({ span, progress }: { span: number; progress: number }) {
+  const units = GEOLOGIC_UNITS.filter((u) => u.young < span && u.old > 0);
+  const y = (age: number) => -1.05 + 2.1 * (1 - Math.min(age, span) / span);
+  return (
+    <group>
+      {units.map((u) => {
+        const bottom = y(u.old),
+          top = y(Math.max(u.young, 0)),
+          h = top - bottom;
+        return h > 0.002 ? (
+          <mesh key={u.name} position={[0, (top + bottom) / 2, 0]}>
+            <cylinderGeometry args={[0.3, 0.3, h, 48]} />
+            <meshPhysicalMaterial
+              color={u.color}
+              roughness={0.25}
+              clearcoat={0.8}
+              transparent
+              opacity={0.82}
+            />
+          </mesh>
+        ) : null;
+      })}
+      <mesh position={[0, -1.05 + 2.1 * progress, 0]} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[0.33, 0.022, 12, 48]} />
+        <meshStandardMaterial color="#f3d79c" emissive="#b88c40" emissiveIntensity={0.4} />
+      </mesh>
+    </group>
   );
 }
