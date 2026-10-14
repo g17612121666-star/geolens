@@ -4,7 +4,10 @@ import { useLabTick } from "@/labs/tick";
 import { useIsCompact } from "@/hooks/use-media";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
-import { RockMaterial } from "../shared/rock-material";
+import { SectionMaterial } from "../shared/section-material";
+import { landSectionGlsl } from "../shared/land-section";
+import { Buildings, settlement } from "../shared/hazard-parts";
+import { waterRibbonGeometry } from "../shared/river-terrain";
 import { TerrainMaterial, PlantStand } from "../shared/natural-world";
 import { RiverWaterMaterial } from "./water-material";
 import { riverVegetation } from "./vegetation";
@@ -18,13 +21,82 @@ import {
   riverBanks,
   riverStage,
 } from "../shared/river-terrain";
+
+const SIDES = landSectionGlsl({ rock: "sandstone", soil: 0.035, regolith: 0.07, beds: 9 });
+const BRIDGE_X = 2.25;
+
+/** A stone road bridge where a lane crosses the lower river; the deck clears flood stage. */
+function Bridge({ f }: { f: number }) {
+  const [left, right] = riverBanks(BRIDGE_X, 1.6),
+    deck = (riverStage(BRIDGE_X, 1.6) + 0.07) * f,
+    span = right - left + 0.16,
+    mid = (left + right) / 2;
+  const road = useMemo(() => {
+    const path = Array.from({ length: 90 }, (_, i) => {
+      const z = -1.98 + (i / 89) * 3.96,
+        x = BRIDGE_X + 0.12 * Math.sin(z * 1.3) * Math.min(1, Math.abs(z - mid) * 2),
+        onDeck = z > mid - span / 2 - 0.05 && z < mid + span / 2 + 0.05;
+      return [x, Math.max(riverLand(x, z) * f + 0.006, onDeck ? deck + 0.012 : 0), z] as [
+        number,
+        number,
+        number,
+      ];
+    });
+    return waterRibbonGeometry(path, 0.03);
+  }, [f, deck, mid, span]);
+  useEffect(() => () => road.dispose(), [road]);
+  return (
+    <>
+      <mesh geometry={road} receiveShadow>
+        <meshStandardMaterial color="#8b8478" roughness={0.95} />
+      </mesh>
+      <group position={[BRIDGE_X, deck, mid]}>
+        <mesh castShadow receiveShadow>
+          <boxGeometry args={[0.085, 0.024, span]} />
+          <meshStandardMaterial color="#a39a88" roughness={0.9} />
+        </mesh>
+        {[-1, 1].map((s) => (
+          <mesh key={s} position={[s * 0.038, 0.02, 0]} castShadow>
+            <boxGeometry args={[0.01, 0.018, span]} />
+            <meshStandardMaterial color="#988f7d" roughness={0.9} />
+          </mesh>
+        ))}
+        {[-0.5, 0, 0.5].map((k) => (
+          <mesh key={k} position={[0, -deck / 2 + 0.01, k * span * 0.62]} castShadow>
+            <boxGeometry args={[0.07, deck - 0.02, 0.035]} />
+            <meshStandardMaterial color="#8e8574" roughness={0.95} />
+          </mesh>
+        ))}
+      </group>
+    </>
+  );
+}
 export default function Rivers() {
   const compact = useIsCompact();
   const { params, trueScale, t } = useLabControls();
   useLabTick(1 / 12);
   const q = params.discharge ?? 0.7,
     f = trueScale ? 1 / 12 : 1;
-  const vegetation = useMemo(() => riverVegetation(f), [f]);
+  const village = useMemo(
+    () =>
+      settlement(2.15, 0.65, 16, 0.6, 0.075, 4, (x, z) => {
+        const r = riverBanks(x, 1.6)[1];
+        return z > r + 0.3 && Math.abs(x - BRIDGE_X) > 0.07 && z < 1.85 && x < 2.9;
+      }),
+    [],
+  );
+  const vegetation = useMemo(() => {
+    const v = riverVegetation(f),
+      clear = (p: [number, number, number]) =>
+        village.every((b) => Math.hypot(p[0] - b.x, p[2] - b.z) > 0.12) &&
+        Math.abs(p[0] - BRIDGE_X) > 0.06;
+    return {
+      conifers: v.conifers.filter((t) => clear(t.p)),
+      broadleaf: v.broadleaf.filter((t) => clear(t.p)),
+      shrubs: v.shrubs.filter(clear),
+      grass: v.grass,
+    };
+  }, [f, village]);
   const gravel = useMemo(
     () =>
       Array.from({ length: 90 }, (_, i) => {
@@ -58,7 +130,7 @@ export default function Rivers() {
               vertexColors
               roughness={0.94}
             />
-            <RockMaterial attach="material-1" color="#8c795f" />
+            <SectionMaterial attach="material-1" glsl={SIDES} surface cacheKey="rivers-sides" />
           </mesh>
           <mesh geometry={water} receiveShadow renderOrder={2}>
             <RiverWaterMaterial />
@@ -78,6 +150,8 @@ export default function Rivers() {
           <PlantStand kind="broadleaf" scale={0.065} seed={36} positions={vegetation.shrubs} />
           <GrassPatch positions={vegetation.grass} height={0.045} color="#7a8b4f" />
           <DebrisField points={gravel} size={0.013} />
+          <Buildings items={village} ground={(x, z) => riverLand(x, z) * f} />
+          <Bridge f={f} />
           {Array.from({ length: 18 }, (_, i) => {
             const x = -3 + ((t + i / 18) % 1) * 6,
               [left, right] = riverBanks(x, q),
