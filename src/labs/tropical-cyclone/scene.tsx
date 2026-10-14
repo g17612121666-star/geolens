@@ -88,6 +88,7 @@ export default function TropicalCyclone() {
     <>
       <ScienceStudio
         slug="tropical-cyclone"
+        horizon
         camera={[4, 5.5, 8]}
         scale="Cloud height ×5 · max-wind radius 30 km · ocean domain radius 300 km"
         trueScale="1 scene unit = 50 km · 12 km cloud depth at common geometric scale"

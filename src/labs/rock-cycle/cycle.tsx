@@ -124,8 +124,9 @@ function Specimen({ kind }: { kind: number }) {
   );
 }
 export default function RockCycle() {
-  const { params, t } = useLabControls();
+  const { params, t, setParam } = useLabControls();
   useLabTick(1 / 40);
+  const selectedRoute = Math.round(params.process ?? 0);
   const mobile = useIsCompact(),
     route = ROCK_ROUTES[Math.round(params.process ?? 0)],
     temp = params.temp ?? 500,
@@ -189,6 +190,39 @@ export default function RockCycle() {
             />
           </group>
         ))}
+        {/* Every pathway as a faint arc with a clickable bead; the selected one is bold. */}
+        {ROCK_ROUTES.map((r, k) => {
+          if (k === selectedRoute) return null;
+          const ra = new THREE.Vector3(...positions[r.from]),
+            rb = new THREE.Vector3(...positions[r.to]),
+            c = new THREE.QuadraticBezierCurve3(
+              ra,
+              ra
+                .clone()
+                .add(rb)
+                .multiplyScalar(0.5)
+                .add(new THREE.Vector3(0, 0, 0.8 + 0.15 * (k % 3))),
+              rb,
+            ),
+            pts = c.getPoints(40).slice(6, -6);
+          return (
+            <group key={k}>
+              <Line points={pts} color="#a7a294" transparent opacity={0.35} lineWidth={1} />
+              <mesh
+                position={c.getPoint(0.5)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setParam("process", k);
+                }}
+                onPointerOver={() => (document.body.style.cursor = "pointer")}
+                onPointerOut={() => (document.body.style.cursor = "auto")}
+              >
+                <sphereGeometry args={[0.08, 16, 12]} />
+                <meshStandardMaterial color="#d8b989" roughness={0.5} />
+              </mesh>
+            </group>
+          );
+        })}
         <Line points={path} color="#d8b989" lineWidth={2} />
         <Arrow
           from={path[path.length - 5]}

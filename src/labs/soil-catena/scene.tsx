@@ -1,4 +1,6 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import * as THREE from "three";
+import { TerrainMaterial } from "../shared/natural-world";
 import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { catenaProfile } from "@/lib/soil-profile-science";
@@ -33,8 +35,9 @@ export default function SoilCatena() {
         scale="Soil thickness ×20 · 120 m hillslope · topographic slope to scale"
         trueScale="1 scene unit = 20 m · soil and relief use a common scale · blades and roots enlarged"
       >
-        <RockPrism points={[...base, [3, -1.5], [-3, -1.5]]} depth={2} color="#b4a187" />
-        <RockPrism points={[...top, ...base.slice().reverse()]} depth={2} color="#67513a" />
+        <RockPrism points={[...base, [3, -1.5], [-3, -1.5]]} depth={2} color="#c4ad86" />
+        <RockPrism points={[...top, ...base.slice().reverse()]} depth={2} color="#7a5a3c" />
+        <Turf top={top} />
         <GrassPatch
           positions={Array.from({ length: 110 }, (_, i) => {
             const x = -2.9 + random(i + 120) * 5.8,
@@ -110,5 +113,24 @@ export default function SoilCatena() {
         }
       </ScienceReadout>
     </>
+  );
+}
+
+/** A thin grassed skin over the slope so the surface reads as vegetated ground. */
+function Turf({ top }: { top: [number, number][] }) {
+  const geometry = useMemo(() => {
+    const shape = new THREE.Shape([
+      ...top.map(([x, y]) => new THREE.Vector2(x, y + 0.025)),
+      ...[...top].reverse().map(([x, y]) => new THREE.Vector2(x, y - 0.015)),
+    ]);
+    const g = new THREE.ExtrudeGeometry(shape, { depth: 2.01, bevelEnabled: false });
+    g.translate(0, 0, -1.005);
+    return g;
+  }, [top]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return (
+    <mesh geometry={geometry} receiveShadow>
+      <TerrainMaterial kind="grass" color="#7c9b55" />
+    </mesh>
   );
 }

@@ -33,7 +33,7 @@ function JointRock({ side, gap }: { side: number; gap: number }) {
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry} position={[side * (0.4 + gap / 2), 0.7, 0]} castShadow receiveShadow>
-      <RockMaterial color="#b3a38b" roughness={0.96} />
+      <RockMaterial color="#c9c2b2" desaturate={0.9} roughness={0.96} />
     </mesh>
   );
 }
@@ -172,7 +172,7 @@ export default function Weathering() {
         )}
         <mesh position={[0, -0.14, 0]}>
           <boxGeometry args={[2.6, 0.2, 2]} />
-          <RockMaterial color="#7d725f" roughness={1} />
+          <RockMaterial color="#9a9282" roughness={1} />
         </mesh>
       </ScienceStudio>
       <ScienceReadout>
