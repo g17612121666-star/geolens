@@ -1,8 +1,23 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { weatherCliff } from "./cliff-geometry";
-import { PhotographicRockMaterial as CoastalRockMaterial } from "../shared/photographic-rock";
-export { CoastalRockMaterial };
+import { SectionMaterial } from "../shared/section-material";
+import { cliffFaceGlsl } from "../shared/land-section";
+
+const CHALK = cliffFaceGlsl({ rock: "chalk", beds: 3.2, bedOffset: 0.3 });
+
+/** Chalk with flint bands on the cliff faces and arch roofs; grass on the upward-facing tops. */
+export function CoastalRockMaterial() {
+  return (
+    <SectionMaterial
+      glsl={CHALK}
+      cliff={0.62}
+      cacheKey="coast-chalk"
+      color="#7d9a57"
+      roughness={0.9}
+    />
+  );
+}
 
 export function CoastalRock({
   points,

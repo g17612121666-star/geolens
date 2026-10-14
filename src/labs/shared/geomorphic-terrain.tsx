@@ -2,11 +2,14 @@ import { useEffect, useMemo, useLayoutEffect, useRef } from "react";
 import * as THREE from "three";
 import { waterRibbonGeometry } from "./river-terrain";
 import { terrainBlockGeometry } from "./science-geometry";
-import { RockMaterial } from "./rock-material";
+import { SectionMaterial, withSurfaceY } from "./section-material";
+import { landSectionGlsl, cliffFaceGlsl, type LandSection } from "./land-section";
+import { landscapeNoise } from "./landscape-noise";
 import { TerrainMaterial } from "./natural-world";
 import { FlowWaterMaterial } from "./flow-water";
 import { AlpineMaterial } from "./alpine-material";
-/** Closed terrain, with independent rock sides and an explicitly supplied surface colour. */
+/** Closed terrain whose cut faces show soil, weathered rock and bedded bedrock, with an explicitly
+ * supplied surface colour that is mottled and gives way to bare rock on steep slopes. */
 export function GeomorphicTerrain({
   height,
   colour,
@@ -15,6 +18,11 @@ export function GeomorphicTerrain({
   base = -0.3,
   resolution = 128,
   material = "grass",
+  section,
+  cliff = 0.62,
+  mottle = 0.12,
+  sideGlsl,
+  sideUniforms,
 }: {
   height: (x: number, z: number) => number;
   colour: (x: number, y: number, z: number) => string;
@@ -23,40 +31,65 @@ export function GeomorphicTerrain({
   base?: number;
   resolution?: number;
   material?: "grass" | "rock" | "sand" | "beach" | "soil" | "snow" | "alpine";
+  /** Cut-face layers; see `landSectionGlsl`. */
+  section?: LandSection;
+  /** Slopes whose normal has a vertical component below this show bare rock; 0 disables. */
+  cliff?: number;
+  /** Strength of the large-scale colour variation across the surface. */
+  mottle?: number;
+  /** A complete SectionMaterial shader for the cut faces, replacing `section`. */
+  sideGlsl?: string;
+  sideUniforms?: Record<string, { value: unknown }>;
 }) {
+  const sectionKey = JSON.stringify(section ?? {});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const glsl = useMemo(() => landSectionGlsl(section), [sectionKey]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const face = useMemo(() => cliffFaceGlsl(section), [sectionKey]);
   const geometry = useMemo(() => {
-    const g = terrainBlockGeometry(height, width, depth, resolution, base),
+    const g = withSurfaceY(terrainBlockGeometry(height, width, depth, resolution, base), height),
       p = g.attributes.position,
-      c = new Float32Array(p.count * 3);
+      c = new Float32Array(p.count * 3),
+      topCount = (resolution + 1) ** 2,
+      col = new THREE.Color();
     for (let i = 0; i < p.count; i++) {
-      const col = new THREE.Color(colour(p.getX(i), p.getY(i), p.getZ(i)));
-      col.multiplyScalar(0.94 + 0.06 * Math.sin(p.getX(i) * 31 + p.getZ(i) * 19) ** 2);
+      const x = p.getX(i),
+        z = p.getZ(i);
+      col.set(colour(x, p.getY(i), z));
+      if (i < topCount) {
+        const n =
+          landscapeNoise(x * 2.3 + 11, z * 2.3) * 0.65 + landscapeNoise(x * 9, z * 9) * 0.35;
+        col.multiplyScalar(1 - mottle + 2 * mottle * n);
+      }
       c.set([col.r, col.g, col.b], i * 3);
     }
     g.setAttribute("color", new THREE.BufferAttribute(c, 3));
     return g;
-  }, [height, colour, width, depth, base, resolution]);
+  }, [height, colour, width, depth, base, resolution, mottle]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry} castShadow receiveShadow>
       {material === "alpine" ? (
         <AlpineMaterial attach="material-0" />
       ) : (
-        // The scene's own colours carry the landform; the texture contributes relief only.
-        <TerrainMaterial
+        // The scene's own colours carry the landform; steep ground shows the bedrock beds.
+        <SectionMaterial
           attach="material-0"
-          kind={material}
-          color="#cfcfcf"
-          map={null}
+          glsl={face}
+          cliff={cliff > 0 ? cliff : -1}
+          cacheKey={`land-face-${sectionKey}`}
+          color="#d4d4d4"
           vertexColors
           roughness={0.95}
         />
       )}
-      <RockMaterial
+      <SectionMaterial
         attach="material-1"
-        color={material === "alpine" ? "#b6b4ad" : "#b39a7c"}
-        strata
-        roughness={0.96}
+        glsl={sideGlsl ?? glsl}
+        uniforms={sideUniforms}
+        surface
+        cacheKey={sideGlsl ? `land-custom-${sideGlsl.length}` : `land-${sectionKey}`}
+        roughness={0.95}
       />
     </mesh>
   );

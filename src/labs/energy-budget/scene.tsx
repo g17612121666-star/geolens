@@ -1,4 +1,5 @@
 import { Vector3 } from "three";
+import { StarMesh } from "@/components/globe/star";
 import { EarthMesh } from "@/components/globe/earth";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { radiationBudget } from "@/lib/energy-wind-science";
@@ -64,17 +65,23 @@ export default function EnergyBudget() {
           <EarthMesh radius={1.02} sunDirection={new Vector3(-2, 3, 5)} />
         </group>
         {greenhouse && (
-          <mesh position={[0.1, 0.8, -0.3]}>
-            <boxGeometry args={[4.7, 0.16, 1.1]} />
-            <meshPhysicalMaterial
-              color="#7ebbbd"
-              roughness={0.7}
-              transparent
-              opacity={0.12}
-              depthWrite={false}
-            />
-          </mesh>
+          <>
+            <mesh position={[0.1, 0.8, -0.3]}>
+              <boxGeometry args={[4.7, 0.3, 1.1]} />
+              <meshPhysicalMaterial
+                color="#9ccfd2"
+                roughness={0.6}
+                transparent
+                opacity={0.14}
+                depthWrite={false}
+              />
+            </mesh>
+            <Molecules t={t} />
+          </>
         )}
+        <group position={[-3.25, 2.75, 0.2]}>
+          <StarMesh radius={0.3} />
+        </group>
         <Flux
           from={[-2.8, 2.3, 0.2]}
           to={[-1.2, -0.3, 0.2]}
@@ -138,7 +145,7 @@ export default function EnergyBudget() {
         <Tag
           pos={[2, 0.4, 0.3]}
           text={greenhouse ? "IR layer · ε = 0.78" : "No infrared absorption"}
-          note="A grey layer absorbs and emits infrared but is transparent to sunlight. This deliberately omits convection, latent heat and spectral detail."
+          note="A grey layer absorbs and emits infrared but is transparent to sunlight. The enlarged molecules stand for greenhouse gases such as carbon dioxide (linear), water vapour (bent) and methane; their vibration is what absorbs infrared. This deliberately omits convection, latent heat and spectral detail."
           occlude={false}
         />
       </ScienceStudio>
@@ -165,5 +172,63 @@ export default function EnergyBudget() {
         {"W/m². Follow the wave symbols to trace the exchange of energy."}
       </ScienceReadout>
     </>
+  );
+}
+
+const ATOM = { C: "#3a3a3a", O: "#d4473b", H: "#f2f2f2" } as const;
+type Atom = { e: keyof typeof ATOM; p: Point; r: number };
+/** Greenhouse molecules, hugely enlarged: CO₂ is linear, H₂O bent, CH₄ tetrahedral. */
+const SHAPES: { name: string; atoms: Atom[] }[] = [
+  {
+    name: "CO2",
+    atoms: [
+      { e: "C", p: [0, 0, 0], r: 0.045 },
+      { e: "O", p: [-0.1, 0, 0], r: 0.05 },
+      { e: "O", p: [0.1, 0, 0], r: 0.05 },
+    ],
+  },
+  {
+    name: "H2O",
+    atoms: [
+      { e: "O", p: [0, 0, 0], r: 0.055 },
+      { e: "H", p: [-0.065, -0.05, 0], r: 0.032 },
+      { e: "H", p: [0.065, -0.05, 0], r: 0.032 },
+    ],
+  },
+  {
+    name: "CH4",
+    atoms: [
+      { e: "C", p: [0, 0, 0], r: 0.05 },
+      { e: "H", p: [0.06, 0.06, 0.06], r: 0.03 },
+      { e: "H", p: [-0.06, -0.06, 0.06], r: 0.03 },
+      { e: "H", p: [-0.06, 0.06, -0.06], r: 0.03 },
+      { e: "H", p: [0.06, -0.06, -0.06], r: 0.03 },
+    ],
+  },
+];
+function Molecules({ t }: { t: number }) {
+  return (
+    <group position={[0.1, 0.8, -0.3]}>
+      {Array.from({ length: 14 }, (_, i) => {
+        const shape = SHAPES[i % 3],
+          x = -2.1 + (i / 13) * 4.2,
+          z = -0.4 + 0.8 * ((i * 0.618) % 1),
+          wobble = 0.02 * Math.sin(t * 60 + i * 2.1);
+        return (
+          <group
+            key={i}
+            position={[x, 0.05 * Math.sin(i * 1.7) + wobble, z]}
+            rotation={[i * 0.7, i * 1.3 + t * 2, 0]}
+          >
+            {shape.atoms.map((a, k) => (
+              <mesh key={k} position={a.p.map((v) => v * (1 + wobble * (k ? 2 : 0))) as Point}>
+                <sphereGeometry args={[a.r, 16, 12]} />
+                <meshStandardMaterial color={ATOM[a.e]} roughness={0.35} />
+              </mesh>
+            ))}
+          </group>
+        );
+      })}
+    </group>
   );
 }

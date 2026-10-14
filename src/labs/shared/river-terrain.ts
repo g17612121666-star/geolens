@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { terrainBlockGeometry } from "./science-geometry.ts";
+import { landscapeNoise, landscapeRandom } from "./landscape-noise.ts";
 export const riverZ = (x: number) => Math.sin(x * 2.25) * (0.14 + (0.55 * (x + 3)) / 6);
 export const riverBed = (x: number) => 0.05 + 1.6 * ((3 - x) / 6) ** 2;
 const progress = (x: number) => THREE.MathUtils.clamp((x + 3) / 6, 0, 1);
@@ -102,22 +103,68 @@ export function riverSurface(discharge: number, factor = 1) {
   g.computeVertexNormals();
   return g;
 }
+const MOOR = [new THREE.Color("#86755a"), new THREE.Color("#8d8f58")],
+  PASTURE = new THREE.Color("#7f9d55"),
+  MEADOW = new THREE.Color("#93ad62"),
+  FIELDS = ["#7f9b52", "#98ab5e", "#b6a965", "#6f8a48", "#a5a65b", "#88a157"].map(
+    (c) => new THREE.Color(c),
+  ),
+  GRAVEL = new THREE.Color("#9a8e72"),
+  BAR = new THREE.Color("#c4b48e");
+
+/** Illustrative land cover: moorland upstream, pasture, then a patchwork of floodplain fields. */
+function riverCover(x: number, z: number, out: THREE.Color) {
+  const offset = z - riverZ(x),
+    d = Math.abs(offset),
+    s = progress(x),
+    side = Math.sign(offset) || 1,
+    { width } = riverSection(x, side),
+    rise = riverLand(x, z) - riverBed(x),
+    n = landscapeNoise(x * 2.2 + 5, z * 2.2);
+  // Field boundaries follow gently curving hedgerows.
+  const u = (x + 0.25 * Math.sin(z * 1.4)) / 0.5,
+    v = (z + 0.2 * Math.sin(x * 1.2)) / 0.38,
+    edge = Math.min(
+      u - Math.floor(u),
+      1 - u + Math.floor(u),
+      v - Math.floor(v),
+      1 - v + Math.floor(v),
+    );
+  const field =
+    FIELDS[Math.floor(landscapeRandom(Math.floor(u) * 31.7 + Math.floor(v) * 17.3) * 6)];
+  out.copy(MOOR[0]).lerp(MOOR[1], n);
+  out.lerp(PASTURE, THREE.MathUtils.smoothstep(s, 0.2, 0.45));
+  const farmed =
+    THREE.MathUtils.smoothstep(s, 0.5, 0.7) * (1 - THREE.MathUtils.smoothstep(rise, 0.32, 0.5));
+  out.lerp(field, farmed);
+  if (farmed > 0.5 && edge < 0.06) out.multiplyScalar(0.7);
+  out.lerp(MEADOW, (1 - THREE.MathUtils.smoothstep(d / width, 1.2, 2.2)) * 0.6);
+  // Higher, steeper upland ground is rougher grazing and heather.
+  out.lerp(MOOR[0], THREE.MathUtils.smoothstep(rise, 0.35, 0.7) * 0.6);
+  // Gravel bed, with pale bars on the inside of bends.
+  const inner = -side * Math.sin(x * 2.25);
+  out.lerp(BAR, inner > 0.35 ? 1 - THREE.MathUtils.smoothstep(d / width, 0.95, 1.35) : 0);
+  out.lerp(GRAVEL, 1 - THREE.MathUtils.smoothstep(d / width, 0.82, 1.05));
+  out.multiplyScalar(0.92 + 0.16 * landscapeNoise(x * 9, z * 9));
+  return out;
+}
+
 export function riverTerrain(factor = 1) {
   const g = terrainBlockGeometry((x, z) => riverLand(x, z) * factor, 6, 4, 256, -0.18 * factor),
     p = g.attributes.position,
-    colors: number[] = [];
+    colors: number[] = [],
+    surface = new Float32Array(p.count),
+    c = new THREE.Color();
   for (let i = 0; i < p.count; i++) {
     const x = p.getX(i),
-      z = p.getZ(i),
-      d = Math.abs(z - riverZ(x)),
-      { width } = riverSection(x, Math.sign(z - riverZ(x)) || 1);
-    const gravel = new THREE.Color("#a59978"),
-      grass = new THREE.Color("#a3b58b");
-    const c = gravel.lerp(grass, THREE.MathUtils.smoothstep(d / width, 0.82, 1.36));
-    c.multiplyScalar(0.95 + 0.05 * Math.sin(x * 3.1) * Math.cos(z * 2.7));
+      z = p.getZ(i);
+    riverCover(x, z, c);
     colors.push(c.r, c.g, c.b);
+    surface[i] = riverLand(x, z) * factor;
   }
   g.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+  // Ground height above each vertex, for cut-face shaders that measure depth below the surface.
+  g.setAttribute("surfaceY", new THREE.BufferAttribute(surface, 1));
   return g;
 }
 

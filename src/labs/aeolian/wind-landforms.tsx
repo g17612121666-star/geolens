@@ -6,6 +6,18 @@ import { duneHeight, yardangHeight } from "@/lib/aeolian-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { GeomorphicTerrain, DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
+import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
+
+/** Lee faces are steeper than the stoss: the slip face is where duneHeight falls downwind. */
+function onStoss(f: (x: number, z: number) => number, x: number, z: number) {
+  return f(x + 0.02, z) >= f(x - 0.02, z);
+}
+/** A main barchan plus two smaller ones, all translated by the chosen migration. */
+function barchanField(x: number, z: number, shift: number) {
+  const small = (x0: number, z0: number, s: number) =>
+    duneHeight((x - shift - x0) / s, (z - z0) / s) * s;
+  return Math.max(duneHeight(x - shift, z), small(1.95, -1.25, 0.38), small(-2.15, 1.25, 0.32));
+}
 export default function Aeolian() {
   const { params, t, trueScale } = useLabControls();
   useLabTick(1 / 40);
@@ -13,13 +25,28 @@ export default function Aeolian() {
     v = trueScale ? 1 : 2,
     shift = mode === 0 ? (params.migration ?? 0.4) - 0.4 : 0;
   const height = useMemo(
-    () => (x: number, z: number) =>
-      0.04 + (mode === 0 ? duneHeight(x - shift, z) : yardangHeight(x, z)),
+    () => (x: number, z: number) => {
+      if (mode === 1) return 0.04 + yardangHeight(x, z) + 0.01 * (noise(x * 5, z * 5) - 0.5);
+      const dune = barchanField(x, z, shift),
+        // Wind ripples on the stoss slope and the sand sheet, but not on the avalanche face.
+        ripples =
+          0.0035 *
+          Math.sin(x * 78 + 1.2 * Math.sin(z * 2.3) + 0.6 * noise(x * 3, z * 3)) *
+          (dune < 0.01 || onStoss((a, b) => barchanField(a, b, shift), x, z) ? 1 : 0);
+      return 0.04 + dune + ripples + 0.008 * (noise(x * 1.5, z * 1.5) - 0.5);
+    },
     [mode, shift],
   );
   const colour = useMemo(
-    () => (x: number, y: number, z: number) =>
-      mode === 0 ? (y > 0.06 ? "#dcaa66" : "#c99659") : y > 0.15 ? "#b39b78" : "#d6b583",
+    () => (x: number, y: number, z: number) => {
+      const n = noise(x * 2 + 4, z * 2);
+      if (mode === 1) {
+        // Yardangs: bedded rock ridges between sand-floored corridors.
+        return y > 0.08 ? "#b49a76" : n > 0.6 ? "#cfae7f" : "#d9b986";
+      }
+      // Darker gravel lag between dunes; clean, paler sand on the dunes.
+      return y > 0.06 ? (n > 0.5 ? "#e0b170" : "#d9a865") : n > 0.55 ? "#b88a58" : "#c4955f";
+    },
     [mode],
   );
   return (
@@ -34,44 +61,36 @@ export default function Aeolian() {
           <GeomorphicTerrain
             height={height}
             colour={colour}
-            resolution={192}
+            resolution={mode === 0 ? 320 : 220}
             base={-0.15}
-            material="sand"
+            cliff={mode === 0 ? 0.2 : 0.55}
+            mottle={0.05}
+            section={
+              mode === 0
+                ? { rock: "sand", soil: 0, regolith: 0, beds: 6 }
+                : { rock: "sandstone", soil: 0, regolith: 0.015, beds: 9, soilTone: "sandy" }
+            }
           />
-          {mode === 0 &&
-            Array.from({ length: 28 }, (_, i) => {
-              const z = -1.25 + (i / 27) * 2.5,
-                q = Math.abs(z) / 1.35,
-                crest = -0.5 + 1.75 * q * q + shift,
-                h = 0.52 * (1 - q * q),
-                end = crest + h / Math.tan((32 * Math.PI) / 180);
-              return (
-                <Line
-                  key={`slip-${i}`}
-                  points={Array.from({ length: 18 }, (_, j) => {
-                    const x = crest + ((end - crest) * j) / 17;
-                    return [x, height(x, z) + 0.003, z + 0.006 * Math.sin(j * 0.7 + i)] as [
-                      number,
-                      number,
-                      number,
-                    ];
-                  })}
-                  color="#a78050"
-                  lineWidth={0.45}
-                  transparent
-                  opacity={0.45}
-                />
-              );
-            })}
+          {mode === 0 && (
+            <DebrisField
+              points={Array.from({ length: 140 }, (_, i) => {
+                const x = -2.9 + random(i + 5) * 5.8,
+                  z = -1.9 + random(i + 77) * 3.8;
+                return [x, height(x, z) + 0.004, z] as [number, number, number];
+              }).filter(([x, , z]) => barchanField(x, z, shift) < 0.005)}
+              size={0.012}
+              color="#8d6f52"
+            />
+          )}
           {mode === 1 && (
             <DebrisField
-              points={Array.from({ length: 90 }, (_, i) => {
-                const x = -2.8 + (i % 15) * 0.4,
-                  z = -1.8 + Math.floor(i / 15) * 0.64;
-                return [x, height(x, z) + 0.014, z];
-              })}
-              size={0.025}
-              color="#847767"
+              points={Array.from({ length: 160 }, (_, i) => {
+                const x = -2.85 + random(i + 31) * 5.7,
+                  z = -1.85 + random(i + 63) * 3.7;
+                return [x, height(x, z) + 0.01, z] as [number, number, number];
+              }).filter(([x, , z]) => yardangHeight(x, z) < 0.05)}
+              size={0.022}
+              color="#8a7660"
             />
           )}
           {mode === 0 && (

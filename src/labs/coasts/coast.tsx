@@ -9,9 +9,72 @@ import { CoastalWater } from "./coastal-water";
 import { RockMaterial } from "../shared/rock-material";
 import { CoastalRock as RockPrism, CoastalRockMaterial } from "./coastal-rock";
 import { createHeadlandFront, cliffPoint } from "./cliff-geometry";
+import { WaterSides } from "../shared/shallow-water";
+import { landscapeNoise as noise } from "../shared/landscape-noise";
+
+const box = (x: number, z: number, cx: number, cz: number, hx: number, hz: number) => {
+  const qx = Math.abs(x - cx) - hx,
+    qz = Math.abs(z - cz) - hz;
+  return Math.hypot(Math.max(qx, 0), Math.max(qz, 0)) + Math.min(Math.max(qx, qz), 0);
+};
+/** Wave-cut platform around the rock, deepening offshore, with a sandy beach in the cove. */
+function seabed(stage: number) {
+  return (x: number, z: number) => {
+    const rock = Math.min(
+        box(x, z, -2.23, -0.83, 1.0, 1.8),
+        stage < 2 ? box(x, z, -1.05, 0, 1.95, 0.65) : box(x, z, 0.6, 0, 0.36, 0.55),
+      ),
+      ledges = 0.012 * Math.sin(x * 9 + Math.sin(z * 5)) + 0.025 * (noise(x * 3, z * 3) - 0.5),
+      platform = -0.05 - 0.32 * THREE.MathUtils.smoothstep(rock, 0.35, 1.7) + ledges;
+    const cove =
+        THREE.MathUtils.smoothstep(-x, 1.5, 2.1) * THREE.MathUtils.smoothstep(z, 0.95, 1.2),
+      beach = 0.07 - 0.16 * (z - 1.0) - 0.02 * (x + 2.4);
+    return Math.max(platform, THREE.MathUtils.lerp(platform, beach, cove));
+  };
+}
+/** Spit-and-bay geometry: the coast turns inland while the spit carries on across the bay. */
+const coastZ = (x: number) =>
+  x < -0.3
+    ? -0.15 + 0.06 * Math.sin(x * 1.3)
+    : -0.15 + 0.06 * Math.sin(-0.39) - 1.1 * THREE.MathUtils.smoothstep(x, -0.3, 2.4);
+const spitTip = (progress: number) => 0.4 + 2.4 * progress;
+const spitCentre = (x: number, tip: number) =>
+  -0.06 - 0.06 * Math.max(0, x) - 0.3 * Math.exp(-(((x - tip) / 0.28) ** 2));
+function spitHeight(x: number, z: number, tip: number) {
+  const inland = coastZ(x) - z,
+    land = inland > 0 ? 0.2 * THREE.MathUtils.smoothstep(inland, 0, 0.45) - 0.015 : -1,
+    dunes = inland > 0.25 ? 0.05 * noise(x * 3, z * 3) : 0,
+    c = spitCentre(x, tip),
+    seaward = z - c;
+  // Open sea deepens offshore; the lagoon behind the spit stays shallow, with marsh at its edge.
+  const sea =
+    seaward > 0
+      ? -0.06 - 0.26 * THREE.MathUtils.smoothstep(seaward, 0.1, 1.6)
+      : -0.045 + 0.06 * THREE.MathUtils.smoothstep(-inland, 0.4, 0) + 0.01 * noise(x * 6, z * 6);
+  const along =
+      THREE.MathUtils.smoothstep(x, -0.6, -0.3) *
+      (1 - THREE.MathUtils.smoothstep(x, tip - 0.05, tip + 0.1)),
+    ridge = 0.15 * Math.exp(-((seaward / 0.13) ** 2)) * along - 0.03;
+  return Math.max(land + dunes, sea, ridge);
+}
+
+const SEABED_ROCK = new THREE.Color("#8f8c7a"),
+  WEED = new THREE.Color("#5c6a44"),
+  SEA_SAND = new THREE.Color("#b9a983"),
+  BEACH = new THREE.Color("#dccb9f");
 import { Tag } from "../shared/kit";
 function Headland({ stage }: { stage: number }) {
   const geometry = useMemo(() => createHeadlandFront(stage === 0), [stage]);
+  const bed = useMemo(() => seabed(stage), [stage]);
+  const bedColour = useMemo(
+    () => (x: number, y: number, z: number) => {
+      const c = SEA_SAND.clone().lerp(SEABED_ROCK, THREE.MathUtils.smoothstep(y, -0.3, -0.12));
+      if (y > -0.12 && noise(x * 4 + 2, z * 4) > 0.55) c.lerp(WEED, 0.6);
+      if (z > 1 && x < -1.4) c.lerp(BEACH, THREE.MathUtils.smoothstep(y, -0.06, 0.0));
+      return c.getStyle();
+    },
+    [],
+  );
   useEffect(() => () => geometry.dispose(), [geometry]);
   const grasses = useMemo(
     () =>
@@ -44,6 +107,18 @@ function Headland({ stage }: { stage: number }) {
         position={[0, 0, -0.83]}
       />
       <GrassPatch positions={grasses} height={0.075} color="#7e8860" />
+      <GeomorphicTerrain
+        height={bed}
+        colour={bedColour}
+        width={7}
+        depth={5}
+        resolution={200}
+        base={-0.55}
+        cliff={0.5}
+        mottle={0.05}
+        section={{ rock: "chalk", soil: 0, regolith: 0.02, beds: 3.2, bedOffset: 0.3 }}
+      />
+      <WaterSides land={bed} level={() => 0.02} width={7} depth={5} colour="#164a5a" />
       {stage < 2 ? (
         <>
           <mesh geometry={geometry} castShadow receiveShadow>
@@ -135,32 +210,31 @@ export default function Coasts() {
             : 0)
         );
       }
-      const coast = z < -0.05 && x < -0.3 ? 0.18 : -0.2,
-        centre = -0.06 - 0.13 * Math.max(0, x) ** 2,
-        length = 0.4 + 2.4 * progress;
-      return Math.max(
-        coast,
-        x > -0.7 && x < length ? 0.3 * Math.exp(-(((z - centre) / 0.2) ** 2)) - 0.17 : -0.2,
-      );
+      return spitHeight(x, z, spitTip(progress));
     },
     [mode, constructive, groyne, progress],
   );
   const colour = useMemo(
     () => (x: number, y: number, z: number) => {
-      const dry = new THREE.Color("#cdb995"),
-        wet = new THREE.Color("#8b8b70"),
-        grass = new THREE.Color("#859171");
-      return wet
-        .lerp(dry, THREE.MathUtils.smoothstep(y, 0.015, 0.15))
-        .lerp(
-          grass,
-          THREE.MathUtils.smoothstep(y, 0.18, 0.32) * THREE.MathUtils.smoothstep(-z, 0.65, 1.6),
-        )
-        .multiplyScalar(0.97 + 0.03 * Math.sin(x * 29 + z * 31))
-        .getStyle();
+      const h = y,
+        c = new THREE.Color("#8b8b70")
+          .lerp(new THREE.Color("#d8c79e"), THREE.MathUtils.smoothstep(h, 0.01, 0.07))
+          .lerp(new THREE.Color("#cdbb92"), THREE.MathUtils.smoothstep(h, 0.08, 0.14));
+      // Shingle on the berm crest, then marram-covered dunes and grassland inland.
+      c.lerp(new THREE.Color("#9d9585"), Math.exp(-(((h - 0.12) / 0.025) ** 2)) * 0.5);
+      c.lerp(new THREE.Color("#9da36a"), THREE.MathUtils.smoothstep(h, 0.17, 0.26) * 0.8);
+      c.lerp(
+        new THREE.Color("#7c9a55"),
+        THREE.MathUtils.smoothstep(-z, 1.3, 1.9) * THREE.MathUtils.smoothstep(h, 0.15, 0.2),
+      );
+      // Salt marsh in the sheltered, shallow water behind the spit.
+      if (mode === 2 && h > -0.02 && h < 0.03 && z < spitCentre(x, spitTip(progress)) && x > -0.3)
+        c.lerp(new THREE.Color("#7c8a55"), 0.7);
+      return c.multiplyScalar(0.96 + 0.08 * noise(x * 10, z * 10)).getStyle();
     },
-    [],
+    [mode, progress],
   );
+  const headlandBed = useMemo(() => seabed(stage), [stage]);
   const zigzag = useMemo(
     () =>
       Array.from({ length: 17 }, (_, i) => {
@@ -190,7 +264,17 @@ export default function Coasts() {
           <Headland stage={stage} />
         ) : (
           <group scale={[1, v, 1]}>
-            <GeomorphicTerrain height={height} colour={colour} base={-0.4} material="beach" />
+            <GeomorphicTerrain
+              height={height}
+              colour={colour}
+              width={7}
+              depth={5}
+              resolution={200}
+              base={-0.4}
+              cliff={0.3}
+              mottle={0.05}
+              section={{ rock: "sand", soilTone: "sandy", soil: 0.015, regolith: 0, beds: 5 }}
+            />
             <GrassPatch
               positions={Array.from({ length: 145 }, (_, i) => {
                 const a = i * 2.399,
@@ -262,7 +346,20 @@ export default function Coasts() {
             />
           </group>
         )}
-        <CoastalWater height={height} vertical={v} headland={mode === 0} stage={stage} />
+        {mode === 0 ? (
+          <CoastalWater height={headlandBed} vertical={1} stage={stage} />
+        ) : (
+          <>
+            <CoastalWater height={height} vertical={v} stage={stage} />
+            <WaterSides
+              land={(x, z) => height(x, z) * v}
+              level={() => 0.02}
+              width={7}
+              depth={5}
+              colour="#164a5a"
+            />
+          </>
+        )}
         {mode === 0 && (
           <DebrisField
             points={Array.from({ length: 32 }, (_, i) => [

@@ -7,7 +7,9 @@ import { frontSection } from "@/lib/front-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
-import { TerrainMaterial } from "../shared/natural-world";
+import { PlantStand, TerrainMaterial } from "../shared/natural-world";
+import { terrainBlockGeometry } from "../shared/science-geometry";
+import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
 
 function airVolume(bottom: (x: number) => number, top: (x: number) => number, factor: number) {
   const shape = new THREE.Shape(),
@@ -69,16 +71,42 @@ export default function Fronts() {
         trueScale="Common geometric scale · 1 scene unit = 100 km"
         camera={[0.2, 1.8, 8]}
       >
-        <mesh position={[0, -0.08, 0]}>
-          <boxGeometry args={[6, 0.16, 1.85]} />
-          <TerrainMaterial kind="grass" color="#64745f" />
-        </mesh>
+        <FrontGround />
+        <FrontSurface
+          height={s.cold}
+          from={-300}
+          to={s.occluded ? s.meeting : s.coldFront}
+          factor={f}
+          colour="#4f8fd0"
+        />
+        {!s.occluded && (
+          <FrontSurface height={s.cool} from={s.warmFront} to={300} factor={f} colour="#d0614f" />
+        )}
+        {/* Cirrus streaks far ahead of the warm front, then thickening altostratus. */}
+        {!s.occluded &&
+          Array.from({ length: 4 }, (_, i) => {
+            const x = Math.min(290, s.warmFront + 150 + i * 32);
+            return (
+              <CloudVolume
+                key={`ci-${i}`}
+                position={[
+                  x / 100,
+                  (Math.min(6.2, s.cool(x) + 1.2) / 100) * f + 0.04,
+                  i % 2 ? 0.35 : -0.3,
+                ]}
+                scale={[0.42, 0.035, 0.22]}
+                seed={i + 60}
+                density={24}
+                opacity={0.45}
+              />
+            );
+          })}
         {volumes.map((geometry, i) => (
           <mesh key={i} geometry={geometry}>
             <meshBasicMaterial
               color={["#6eaac9", "#8cc8b9", "#dbab79"][i]}
               transparent
-              opacity={0.28}
+              opacity={0.2}
               depthWrite={false}
             />
           </mesh>
@@ -131,6 +159,14 @@ export default function Fronts() {
               scale={[0.32, 0.18 + (0.55 * f) / 20, 0.7]}
               seed={5}
               density={40}
+            />
+            {/* Anvil: the storm top spreads out where rising air reaches the stable layer above. */}
+            <CloudVolume
+              position={[s.coldFront / 100 + 0.32, (6.3 / 100) * f + 0.02, 0]}
+              scale={[0.6, 0.07, 0.8]}
+              seed={9}
+              density={36}
+              opacity={0.7}
             />
             <RainStreaks
               t={t}
@@ -203,6 +239,106 @@ function ChartFront({ x, kind }: { x: number; kind: "cold" | "warm" | "occluded"
           </mesh>
         );
       })}
+    </group>
+  );
+}
+
+/** The sloping frontal boundary as a translucent sheet across the section. */
+function FrontSurface({
+  height,
+  from,
+  to,
+  factor,
+  colour,
+}: {
+  height: (x: number) => number;
+  from: number;
+  to: number;
+  factor: number;
+  colour: string;
+}) {
+  const geometry = useMemo(() => {
+    const n = 96,
+      pos: number[] = [],
+      idx: number[] = [];
+    for (let i = 0; i <= n; i++) {
+      const x = from + ((to - from) * i) / n,
+        y = (height(x) / 100) * factor + 0.004;
+      pos.push(x / 100, y, -0.9, x / 100, y, 0.9);
+      if (i < n) idx.push(i * 2, i * 2 + 1, i * 2 + 2, i * 2 + 1, i * 2 + 3, i * 2 + 2);
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+    g.setIndex(idx);
+    g.computeVertexNormals();
+    return g;
+  }, [height, from, to, factor]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return (
+    <mesh geometry={geometry}>
+      <meshStandardMaterial
+        color={colour}
+        transparent
+        opacity={0.32}
+        side={THREE.DoubleSide}
+        depthWrite={false}
+        roughness={0.4}
+      />
+    </mesh>
+  );
+}
+
+/** Farmland, woods, a river and villages beneath the section (600 km × 180 km, illustrative). */
+function FrontGround() {
+  const height = useMemo(
+    () => (x: number, z: number) =>
+      0.012 * (fbm(x * 2, z * 3) - 0.5) -
+      0.01 * Math.exp(-(((z - 0.25 * Math.sin(x * 1.3)) / 0.05) ** 2)),
+    [],
+  );
+  const geometry = useMemo(() => {
+    const g = terrainBlockGeometry(height, 6, 1.85, 220, -0.16),
+      p = g.attributes.position,
+      c = new Float32Array(p.count * 3),
+      col = new THREE.Color(),
+      tone = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i),
+        z = p.getZ(i);
+      col.copy(farmland(x * 1.5, z * 1.5, 0.34));
+      if (fbm(x * 1.8 + 3, z * 2) > 0.63) col.lerp(tone.set("#4b673a"), 0.8);
+      if (Math.abs(z - 0.25 * Math.sin(x * 1.3)) < 0.04) col.set("#3f7d96");
+      c.set([col.r, col.g, col.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+    return g;
+  }, [height]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  const towns = useMemo(
+    () => [
+      ...settlement(-1.6, -0.45, 8, 0.2, 0.045, 3),
+      ...settlement(0.7, 0.55, 9, 0.22, 0.045, 7),
+      ...settlement(2.2, -0.5, 7, 0.2, 0.045, 5),
+    ],
+    [],
+  );
+  const trees = useMemo(() => {
+    const out: [number, number, number][] = [];
+    for (let i = 0; out.length < 90 && i < 1600; i++) {
+      const x = -2.9 + 5.8 * ((i * 0.618034) % 1),
+        z = -0.85 + 1.7 * ((i * 0.7548777) % 1);
+      if (fbm(x * 1.8 + 3, z * 2) > 0.65) out.push([x, height(x, z) - 0.002, z]);
+    }
+    return out;
+  }, [height]);
+  return (
+    <group>
+      <mesh geometry={geometry} receiveShadow>
+        <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
+        <TerrainMaterial attach="material-1" kind="soil" color="#7a6450" />
+      </mesh>
+      <PlantStand kind="broadleaf" positions={trees} scale={0.05} seed={21} />
+      <Buildings items={towns} ground={height} />
     </group>
   );
 }

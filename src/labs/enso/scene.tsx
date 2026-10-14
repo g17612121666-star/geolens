@@ -1,3 +1,5 @@
+import { useEffect, useMemo } from "react";
+import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
@@ -5,6 +7,18 @@ import { ensoSection } from "@/lib/ocean-circulation-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { WaterPrism } from "../shared/water-prism";
 import { RockPrism } from "../shared/rock-prism";
+import { SectionMaterial } from "../shared/section-material";
+
+const LAND_GLSL = `
+vec3 sectionColour(vec3 p,vec3 w){
+  float g=grain(w.xy*2.+w.zy*2.),bed=fract(w.y*14.+w.z*.3);
+  vec3 c=bed<.6?mix(vec3(.74,.62,.48),vec3(.64,.53,.40),g):mix(vec3(.55,.50,.46),vec3(.46,.42,.40),g);
+  return c*mix(.78,1.,smoothstep(0.,.04,min(bed,abs(bed-.6))));
+}
+vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
+import { PlantStand, TerrainMaterial } from "../shared/natural-world";
+import { terrainBlockGeometry } from "../shared/science-geometry";
+import { fbm } from "../shared/hazard-parts";
 import { Tag } from "../shared/kit";
 import { OceanSurface } from "../shared/ocean-section";
 import { CloudVolume, RainStreaks, FlowFilaments } from "../atmosphere-layers/weather-volumes";
@@ -72,31 +86,8 @@ export default function Enso() {
           opacity={0.35}
         />
         {/* West: Indonesia / Australia; east: South America with the Andes. */}
-        <RockPrism
-          points={[
-            [-3.05, bottom],
-            [-2.5, bottom],
-            [-2.5, 0.1],
-            [-2.7, 0.2],
-            [-2.9, 0.16],
-            [-3.05, 0.22],
-          ]}
-          depth={1.6}
-          color="#8fa36a"
-        />
-        <RockPrism
-          points={[
-            [2.5, bottom],
-            [3.15, bottom],
-            [3.15, 0.3],
-            [2.95, 0.72],
-            [2.8, 0.45],
-            [2.62, 0.18],
-            [2.5, 0.06],
-          ]}
-          depth={1.6}
-          color="#a08a68"
-        />
+        <LandBlock side="west" base={bottom} />
+        <LandBlock side="east" base={bottom} />
         <Tag
           pos={[-2.78, 0.45, 0.85]}
           text="Indonesia · Australia"
@@ -199,5 +190,64 @@ export default function Enso() {
         }
       </ScienceReadout>
     </>
+  );
+}
+
+/** Coastal landscapes at each end: forested islands in the west, a dry coast rising to the
+ * snow-capped Andes in the east. Relief is hugely exaggerated and illustrative. */
+function LandBlock({ side, base }: { side: "west" | "east"; base: number }) {
+  const west = side === "west",
+    from = west ? -3.05 : 2.5,
+    to = west ? -2.5 : 3.15;
+  const height = useMemo(
+    () => (x: number, z: number) => {
+      const u = (x - from) / (to - from);
+      return west
+        ? 0.04 + 0.16 * fbm(x * 5 + 1, z * 3) * (0.6 + 0.4 * Math.sin(z * 4 + 1) ** 2) - 0.05 * u
+        : 0.04 +
+            0.62 * Math.exp(-(((u - 0.68) / 0.24) ** 2)) * (0.85 + 0.3 * fbm(z * 4, x * 4)) +
+            0.02 * u;
+    },
+    [west, from, to],
+  );
+  const geometry = useMemo(() => {
+    const centre = (from + to) / 2,
+      g = terrainBlockGeometry((x, z) => height(x + centre, z), to - from, 1.6, 90, base);
+    g.translate(centre, 0, 0);
+    const p = g.attributes.position,
+      col = new Float32Array(p.count * 3),
+      c = new THREE.Color(),
+      tone = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      const y = p.getY(i);
+      if (west) c.set("#3f6b35").lerp(tone.set("#5d8a45"), fbm(p.getX(i) * 6, p.getZ(i) * 6));
+      else {
+        c.set("#b59a6e").lerp(tone.set("#8a7a62"), THREE.MathUtils.smoothstep(y, 0.15, 0.35));
+        if (y > 0.5) c.lerp(tone.set("#f0f3f3"), THREE.MathUtils.smoothstep(y, 0.5, 0.58));
+      }
+      col.set([c.r, c.g, c.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(col, 3));
+    return g;
+  }, [height, from, to, base, west]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  const trees = useMemo(() => {
+    if (!west) return [];
+    const out: [number, number, number][] = [];
+    for (let i = 0; out.length < 40 && i < 500; i++) {
+      const x = from + 0.03 + (to - from - 0.06) * ((i * 0.618034) % 1),
+        z = -0.75 + 1.5 * ((i * 0.7548777) % 1);
+      if (height(x, z) > 0.06) out.push([x, height(x, z) - 0.004, z]);
+    }
+    return out;
+  }, [west, height, from, to]);
+  return (
+    <group>
+      <mesh geometry={geometry} castShadow receiveShadow>
+        <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
+        <SectionMaterial attach="material-1" glsl={LAND_GLSL} cacheKey="enso-land-v1" />
+      </mesh>
+      <PlantStand kind="palm" positions={trees} scale={0.07} seed={5} />
+    </group>
   );
 }

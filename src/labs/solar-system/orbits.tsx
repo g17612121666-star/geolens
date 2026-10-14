@@ -81,6 +81,7 @@ export default function SolarSystem() {
             <ambientLight intensity={0.16} />
             <pointLight position={[0, 0, 0]} intensity={3.2} decay={0} />
             <StarMesh radius={trueScale ? (695700 / AU_KM) * scale : all ? 0.12 : 0.3} />
+            {all && <AsteroidBelt scale={scale} />}
             {indices.map((i) => {
               const pos = planetPosition(i, years).map((v) => v * scale) as [
                   number,
@@ -185,5 +186,28 @@ export default function SolarSystem() {
           : "Planet textures use enhanced-colour Mercury imagery, a NASA/GSFC Jupiter map, and NASA/JPL-Caltech maps for Mars and Saturn. Cloud colours for Venus and the ice giants are modelled. Saturn’s rings consist of particles."}
       </ScienceReadout>
     </>
+  );
+}
+
+/** Main-belt asteroids between Mars and Jupiter (about 2.1–3.3 AU), drawn as scattered rocks.
+ * Positions are random within the belt; sizes are enlarged far beyond true scale. */
+function AsteroidBelt({ scale }: { scale: number }) {
+  const geometry = useMemo(() => {
+    const g = new THREE.BufferGeometry(),
+      n = 900,
+      p = new Float32Array(n * 3);
+    for (let i = 0; i < n; i++) {
+      const a = i * 2.399 + Math.sin(i * 7.3),
+        r = (2.1 + 1.2 * ((i * 0.618034) % 1)) * scale,
+        y = 0.08 * scale * Math.sin(i * 12.9);
+      p.set([r * Math.cos(a), y, r * Math.sin(a)], i * 3);
+    }
+    g.setAttribute("position", new THREE.BufferAttribute(p, 3));
+    return g;
+  }, [scale]);
+  return (
+    <points geometry={geometry}>
+      <pointsMaterial color="#a89a86" size={0.018} sizeAttenuation transparent opacity={0.8} />
+    </points>
   );
 }

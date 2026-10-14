@@ -38,6 +38,29 @@ const layers = [
     note: "Shown only to 500 km. Its upper boundary varies with solar activity; the atmosphere continues beyond this view. Very high kinetic temperature does not mean dense hot air.",
   },
 ];
+const CUT_VERTEX = `varying vec3 vLocal; void main(){vLocal=position; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
+/** Cut face: density falls off with height (about 8 km scale height), with the ozone layer,
+ * meteor trails and polar aurora drawn where they occur. Colours are illustrative. */
+const CUT_FRAGMENT = `uniform float factor; uniform vec3 base; uniform float light; varying vec3 vLocal;
+float ah(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+void main(){
+  float r=length(vLocal), km=(r-1.)*6371./factor, lat=asin(clamp(vLocal.y/r,-1.,1.));
+  float density=exp(-km/8.5);
+  vec3 c=base;
+  float a=.16+.5*density;
+  float ozone=exp(-pow((km-25.)/7.,2.));
+  c=mix(c,vec3(1.,.62,.32),ozone*.65); a+=ozone*.25;
+  float meteor=step(.985,ah(floor(vec2(atan(vLocal.x,vLocal.z)*220.,km*.6))))*exp(-pow((km-90.)/9.,2.));
+  c=mix(c,vec3(1.,.95,.75),meteor); a+=meteor*.6;
+  float polar=smoothstep(1.05,1.2,abs(lat))*(1.-smoothstep(1.3,1.45,abs(lat)));
+  float curtain=.6+.4*sin(atan(vLocal.x,vLocal.z)*90.+km*.05);
+  float green=exp(-pow((km-140.)/45.,2.)),red=exp(-pow((km-300.)/70.,2.));
+  vec3 aur=vec3(.2,1.,.45)*green+vec3(1.,.25,.3)*red*.7;
+  c=mix(c,aur,polar*curtain*(green+red*.7)*.85); a+=polar*curtain*(green+red*.5)*.5;
+  gl_FragColor=vec4(c,clamp(a,0.,.85));
+  #include <colorspace_fragment>
+}`;
+
 function GasLayer({
   i,
   factor,
@@ -74,12 +97,20 @@ function GasLayer({
           opacity={i === 3 ? 0.14 : 0.23}
           depthWrite={false}
         />
-        <meshBasicMaterial
+        <shaderMaterial
           attach="material-1"
-          color={light ? new THREE.Color(color).multiplyScalar(0.6) : color}
+          uniforms={useMemo(
+            () => ({
+              factor: { value: factor },
+              base: { value: new THREE.Color(color).multiplyScalar(light ? 0.75 : 1) },
+              light: { value: light ? 1 : 0 },
+            }),
+            [factor, color, light],
+          )}
+          vertexShader={CUT_VERTEX}
+          fragmentShader={CUT_FRAGMENT}
           side={THREE.DoubleSide}
           transparent
-          opacity={0.42}
           depthWrite={false}
         />
       </mesh>
@@ -150,6 +181,8 @@ export default function AtmosphereLayers() {
             {layers.map((_, i) => (
               <GasLayer key={i} i={i} factor={factor} explode={explode} lapse={lapse} />
             ))}
+            {explode < 0.01 && <AuroraOval factor={factor} />}
+            {explode < 0.01 && <Satellite factor={factor} />}
           </group>
         )}
         {profile && (
@@ -240,5 +273,80 @@ export default function AtmosphereLayers() {
         </p>
       </ScienceReadout>
     </>
+  );
+}
+
+/** Northern auroral oval: a curtain about 23° from the pole, green near 110–200 km, red above. */
+function AuroraOval({ factor }: { factor: number }) {
+  const lo = 1 + (100 / 6371) * factor,
+    hi = 1 + (300 / 6371) * factor,
+    colat = (23 * Math.PI) / 180;
+  const geometry = useMemo(() => {
+    const n = 160,
+      pos: number[] = [],
+      col: number[] = [],
+      idx: number[] = [];
+    for (let i = 0; i <= n; i++) {
+      const a = (i / n) * Math.PI * 2,
+        wob = 0.03 * Math.sin(a * 5) + 0.02 * Math.sin(a * 11),
+        c = colat + wob;
+      for (const [k, r] of [lo, hi].entries()) {
+        pos.push(r * Math.sin(c) * Math.cos(a), r * Math.cos(c), r * Math.sin(c) * Math.sin(a));
+        if (k === 0) col.push(0.25, 1, 0.5);
+        else col.push(0.9, 0.25, 0.35);
+      }
+      if (i < n) idx.push(i * 2, i * 2 + 1, i * 2 + 2, i * 2 + 1, i * 2 + 3, i * 2 + 2);
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+    g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
+    g.setIndex(idx);
+    return g;
+  }, [lo, hi, colat]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return (
+    <group>
+      <mesh geometry={geometry}>
+        <meshBasicMaterial
+          vertexColors
+          transparent
+          opacity={0.7}
+          side={THREE.DoubleSide}
+          depthWrite={false}
+        />
+      </mesh>
+      <Tag
+        pos={[-0.45, hi + 0.12, 0.2]}
+        text="Aurora"
+        note="Charged particles from the Sun, guided by Earth's magnetic field, make oxygen glow green (about 100–200 km) and red (higher) in an oval around each magnetic pole. Brightness is illustrative."
+        occlude={false}
+      />
+    </group>
+  );
+}
+
+/** The International Space Station orbits about 410 km up, inside the thermosphere. */
+function Satellite({ factor }: { factor: number }) {
+  const r = 1 + (410 / 6371) * factor,
+    a = 0.55;
+  return (
+    <group position={[r * Math.sin(a + 0.5), r * Math.cos(a + 0.5) * 0.2, r * 0.9]}>
+      <mesh>
+        <boxGeometry args={[0.05, 0.018, 0.018]} />
+        <meshStandardMaterial color="#d9d9d4" metalness={0.6} roughness={0.35} />
+      </mesh>
+      {[-1, 1].map((s) => (
+        <mesh key={s} position={[0, 0, s * 0.045]}>
+          <boxGeometry args={[0.07, 0.003, 0.05]} />
+          <meshStandardMaterial color="#3a4f7a" metalness={0.5} roughness={0.3} />
+        </mesh>
+      ))}
+      <Tag
+        pos={[0, 0.12, 0]}
+        text="ISS · ~410 km"
+        note="The International Space Station orbits in the thermosphere, where the air is so thin it barely slows the station. Model size hugely enlarged."
+        occlude={false}
+      />
+    </group>
   );
 }

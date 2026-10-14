@@ -11,35 +11,77 @@ import {
   DebrisField,
 } from "../shared/geomorphic-terrain";
 import { RockPrism } from "../shared/rock-prism";
-import { RockMaterial } from "../shared/rock-material";
 import { Tag } from "../shared/kit";
-import { PhotographicRockMaterial } from "../shared/photographic-rock";
-import { karstRoof, karstSlab, caveFloor, caveCeiling } from "./geometry";
-function Limestone() {
+import { SectionMaterial } from "../shared/section-material";
+import { cliffFaceGlsl } from "../shared/land-section";
+import { landscapeNoise as noise } from "../shared/landscape-noise";
+import { karstRoof, karstSlab, karstTop, caveFloor, caveCeiling } from "./geometry";
+
+/** Bedded limestone on every cut, wall and roof; upward-facing ground keeps its own colour. */
+const LIMESTONE = cliffFaceGlsl({ rock: "limestone", beds: 3.4, bedOffset: 0.15 });
+function Limestone({ ground = "#c8c4b8", vertexColors = false }) {
   return (
-    <PhotographicRockMaterial
-      tint="#efece2"
-      desaturate={0.9}
-      wet={false}
-      sceneScale={8}
-      exposure={1.85}
+    <SectionMaterial
+      glsl={LIMESTONE}
+      cliff={0.55}
+      cacheKey="karst-limestone"
+      color={vertexColors ? "#ffffff" : ground}
+      vertexColors={vertexColors}
+      roughness={0.85}
     />
   );
 }
+const PAVEMENT = new THREE.Color("#c9c6bb"),
+  LICHEN = new THREE.Color("#a9a99a"),
+  MOSS = new THREE.Color("#68783f"),
+  TURF = new THREE.Color("#7f9a55"),
+  CAVE_MUD = new THREE.Color("#7f7464"),
+  WET = new THREE.Color("#6d675d");
 function Slab({
   upper,
   lower,
+  cave = false,
 }: {
   upper: (x: number, z: number) => number;
   lower: (x: number, z: number) => number;
+  cave?: boolean;
 }) {
-  const g = useMemo(() => karstSlab(upper, lower), [upper, lower]);
+  const g = useMemo(() => {
+    const g = karstSlab(upper, lower),
+      p = g.attributes.position,
+      c = new Float32Array(p.count * 3),
+      col = new THREE.Color(),
+      top = p.count / 2;
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i),
+        y = p.getY(i),
+        z = p.getZ(i);
+      if (cave) {
+        // Cave floor: wet silt and gravel, darker where the stream runs.
+        col.copy(CAVE_MUD).lerp(WET, Math.exp(-((z / 0.25) ** 2)));
+      } else if (i < top) {
+        // Pavement: pale clints with lichen; moss and turf in grykes and the doline.
+        const gryke = THREE.MathUtils.smoothstep(karstTop(x, z) - y, 0.02, 0.12),
+          doline = Math.exp(-((x + 1) ** 2 + z * z) / 0.3);
+        col.copy(PAVEMENT).lerp(LICHEN, noise(x * 6, z * 6) * 0.6);
+        col.lerp(MOSS, gryke * 0.8).lerp(TURF, THREE.MathUtils.smoothstep(doline, 0.25, 0.6));
+      } else col.copy(PAVEMENT);
+      col.multiplyScalar(0.94 + 0.12 * noise(x * 14, z * 14));
+      c.set([col.r, col.g, col.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+    return g;
+  }, [upper, lower, cave]);
   useEffect(() => () => g.dispose(), [g]);
   return (
     <mesh geometry={g} castShadow receiveShadow>
-      <Limestone />
+      <Limestone vertexColors />
     </mesh>
   );
+}
+/** Flowstone: calcite deposited from dripping water, creamy and slightly translucent. */
+function Flowstone() {
+  return <meshPhysicalMaterial color="#e3d6b8" roughness={0.35} clearcoat={0.4} sheen={0.2} />;
 }
 const base = () => -1.1;
 const rand = (i: number) => {
@@ -86,7 +128,7 @@ export default function Karst() {
       >
         <group scale={[1, v, 1]}>
           <Slab upper={roof} lower={caveCeiling} />
-          <Slab upper={caveFloor} lower={base} />
+          <Slab upper={caveFloor} lower={base} cave />
           <mesh position={[0, 0.34, -1.45]}>
             <boxGeometry args={[6, 1.1, 0.1]} />
             <Limestone />
@@ -117,10 +159,21 @@ export default function Karst() {
                   </mesh>
                 );
               })}
-              {[0.3, 1.2, 2.1].map((x, i) => {
-                const length = 0.29 + i * 0.035,
-                  ceiling = caveCeiling(x, -0.42),
-                  floor = caveFloor(x, -0.42),
+              {(
+                [
+                  [-1.7, -0.6],
+                  [-0.9, -0.75],
+                  [0.3, -0.42],
+                  [0.75, -0.9],
+                  [1.2, -0.42],
+                  [1.65, -0.8],
+                  [2.1, -0.42],
+                  [2.55, -0.7],
+                ] as [number, number][]
+              ).map(([x, z], i) => {
+                const length = 0.2 + 0.05 * (i % 4),
+                  ceiling = caveCeiling(x, z),
+                  floor = caveFloor(x, z),
                   profile = Array.from({ length: 33 }, (_, j) => {
                     const u = j / 32;
                     return new THREE.Vector2(
@@ -129,14 +182,14 @@ export default function Karst() {
                     );
                   });
                 return (
-                  <group key={x}>
-                    <mesh position={[x, ceiling, -0.42]} rotation={[0, 0, Math.PI]}>
+                  <group key={i}>
+                    <mesh position={[x, ceiling, z]} rotation={[0, 0, Math.PI]}>
                       <latheGeometry args={[profile, 32]} />
-                      <Limestone />
+                      <Flowstone />
                     </mesh>
-                    <mesh position={[x, floor, -0.42]}>
+                    <mesh position={[x, floor, z]}>
                       <latheGeometry args={[profile, 32]} />
-                      <Limestone />
+                      <Flowstone />
                     </mesh>
                     <mesh
                       position={[
@@ -144,7 +197,7 @@ export default function Karst() {
                         ceiling -
                           length -
                           ((t * 3 + i * 0.2) % 1) * Math.max(0, ceiling - floor - 2 * length),
-                        -0.42,
+                        z,
                       ]}
                     >
                       <sphereGeometry args={[0.013, 10, 8]} />

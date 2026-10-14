@@ -19,40 +19,58 @@ float grain(vec2 p){return .6*sNoise(p*70.)+.4*sNoise(p*15.);}
  * where p is the object-space and w the world-space position. Declare any uniforms in `glsl`.
  * Colours are written as sRGB values (like CSS hex) and converted to linear here.
  * Return a negative red channel from sectionColour to discard the fragment.
+ * With `surface`, the geometry must carry a `surfaceY` attribute (see `withSurfaceY`), and the
+ * GLSL can read `sectionDepth`, the local depth below the ground surface above each point.
  */
 export function SectionMaterial({
   glsl,
   uniforms = {},
   cacheKey,
+  surface = false,
+  cliff,
   ...props
 }: ThreeElements["meshStandardMaterial"] & {
   glsl: string;
   uniforms?: Record<string, { value: unknown }>;
   cacheKey: string;
+  surface?: boolean;
+  /** Ground-surface mode: keep the base colour on gentle, upward-facing slopes and show the
+   * section colour where the world-space normal's vertical component falls below this value
+   * (so overhangs and arch roofs also show rock). */
+  cliff?: number;
 }) {
   const compile = useMemo(
     () => (s: THREE.WebGLProgramParametersWithUniforms) => {
       Object.assign(s.uniforms, uniforms);
+      const depth = surface ? "varying float sectionDepth;\n" : "";
       s.vertexShader =
         "varying vec3 sectionLocal; varying vec3 sectionWorld;\n" +
+        (surface ? "attribute float surfaceY;\n" + depth : "") +
         s.vertexShader.replace(
           "#include <begin_vertex>",
           `#include <begin_vertex>
 sectionLocal=transformed;
-sectionWorld=(modelMatrix*vec4(transformed,1.)).xyz;`,
+sectionWorld=(modelMatrix*vec4(transformed,1.)).xyz;${surface ? "\nsectionDepth=surfaceY-transformed.y;" : ""}`,
         );
       s.fragmentShader =
         "varying vec3 sectionLocal; varying vec3 sectionWorld;\n" +
+        depth +
         HELPERS +
         glsl +
         "\n" +
         s.fragmentShader
           .replace(
             "#include <color_fragment>",
-            `#include <color_fragment>
+            cliff === undefined
+              ? `#include <color_fragment>
 vec3 sectionC=sectionColour(sectionLocal,sectionWorld);
 if(sectionC.r<0.)discard;
-diffuseColor.rgb*=pow(sectionC,vec3(2.2));`,
+diffuseColor.rgb*=pow(sectionC,vec3(2.2));`
+              : `#include <color_fragment>
+vec3 sectionC=sectionColour(sectionLocal,sectionWorld);
+float sectionUp=normalize((vec4(vNormal,0.)*viewMatrix).xyz).y;
+float sectionK=1.-smoothstep(${(cliff - 0.14).toFixed(3)},${(cliff + 0.08).toFixed(3)},sectionUp);
+diffuseColor.rgb=mix(diffuseColor.rgb,pow(sectionC,vec3(2.2)),sectionK);`,
           )
           .replace(
             "#include <emissivemap_fragment>",
@@ -62,7 +80,7 @@ totalEmissiveRadiance+=sectionGlow(sectionLocal,sectionWorld);`,
     },
     // Uniform objects are mutated in place by callers; the program only depends on the GLSL.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [glsl],
+    [glsl, surface, cliff],
   );
   return (
     <meshStandardMaterial
@@ -70,7 +88,7 @@ totalEmissiveRadiance+=sectionGlow(sectionLocal,sectionWorld);`,
       roughness={0.93}
       {...props}
       onBeforeCompile={compile}
-      customProgramCacheKey={() => `section-${cacheKey}`}
+      customProgramCacheKey={() => `section-${cacheKey}${surface ? "-s" : ""}${cliff ?? ""}`}
     />
   );
 }
@@ -84,4 +102,16 @@ export function useSectionUniforms(values: Record<string, unknown>) {
   ) as Record<string, { value: unknown }>;
   for (const k of Object.keys(values)) uniforms[k].value = values[k];
   return uniforms;
+}
+
+/** Adds the ground height above every vertex, so section shaders can measure depth below it. */
+export function withSurfaceY<T extends THREE.BufferGeometry>(
+  g: T,
+  height: (x: number, z: number) => number,
+) {
+  const p = g.attributes.position,
+    s = new Float32Array(p.count);
+  for (let i = 0; i < p.count; i++) s[i] = height(p.getX(i), p.getZ(i));
+  g.setAttribute("surfaceY", new THREE.BufferAttribute(s, 1));
+  return g;
 }

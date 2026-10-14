@@ -66,12 +66,25 @@ export function cirqueHeight(x: number, z: number) {
   const ribs =
     0.13 * (glacialNoise(x * 6 + glacialNoise(z, x) * 2, z * 7) - 0.5) +
     0.05 * (glacialNoise(x * 17, z * 19) - 0.5);
-  return Math.max(0.25, h + ribs * Math.min(1, Math.max(0, h - 0.55) * 2));
+  // Hummocky moraine and meltwater hollows on the apron beyond the cirques.
+  const apron =
+    0.035 * (glacialNoise(x * 2.6 + 9, z * 2.6) - 0.5) + 0.015 * (glacialNoise(x * 7, z * 7) - 0.5);
+  return Math.max(0.25 + apron, h + ribs * Math.min(1, Math.max(0, h - 0.55) * 2));
 }
 export function Cirques({ ice, t }: { ice: boolean; t: number }) {
   const colour = useMemo(
-    () => (x: number, y: number, z: number) =>
-      y > 1.7 ? "#9a9e98" : y > 0.85 ? "#6f756e" : "#4f6651",
+    () => (x: number, y: number, z: number) => {
+      const n = glacialNoise(x * 3, z * 3),
+        c = new THREE.Color("#7a8f58").lerp(
+          new THREE.Color("#8c8a6c"),
+          glacialNoise(x * 5 + 2, z * 5) * 0.6,
+        );
+      c.lerp(new THREE.Color("#8a8a78"), THREE.MathUtils.smoothstep(y, 0.4, 0.8));
+      c.lerp(new THREE.Color("#a29d92"), THREE.MathUtils.smoothstep(y, 0.9, 1.3));
+      // Snow lingers on gentler high ground and in the shaded cirque floors.
+      c.lerp(new THREE.Color("#eef2f3"), THREE.MathUtils.smoothstep(y, 1.45 + 0.25 * n, 1.75));
+      return c.getStyle();
+    },
     [],
   );
   return (
@@ -81,8 +94,11 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
         colour={colour}
         width={6}
         depth={6}
-        resolution={180}
-        material="alpine"
+        resolution={220}
+        base={-0.1}
+        cliff={0.58}
+        mottle={0.08}
+        section={{ rock: "granite", soil: 0.015, regolith: 0.05, soilTone: "thin" }}
       />
       {centres.map((a, i) => {
         const path = Array.from({ length: 41 }, (_, j) => {

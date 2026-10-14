@@ -7,7 +7,76 @@ import { Tag } from "../shared/kit";
 import { useEffect, useMemo, useLayoutEffect, useRef } from "react";
 import * as THREE from "three";
 import { airDisplacement, wrapParcel } from "./advection";
-import { TerrainMaterial } from "../shared/natural-world";
+import { PlantStand, TerrainMaterial } from "../shared/natural-world";
+import { terrainBlockGeometry } from "../shared/science-geometry";
+import { farmland, fbm, settlement, Buildings } from "../shared/hazard-parts";
+import { FlowWaterMaterial } from "../shared/flow-water";
+import { CloudVolume } from "../atmosphere-layers/weather-volumes";
+
+/** Isobar spacing implied by 0.001 m/s² over 150 km at 1.2 kg/m³, in hPa. */
+const ISOBAR_HPA = (1.2 * 0.001 * 150000) / 100;
+const ss = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
+/** Regional landscape under the f-plane: a coast to the south-west, hills to the north-east.
+ * Relief is hugely exaggerated beside the 150 km grid and plays no part in the wind model. */
+function landHeight(x: number, z: number) {
+  const coast = ss(x - z * 0.6, -2.6, -1.9),
+    hills = 0.09 * ss(x + -z * 0.5, 0.6, 3.2) * fbm(x * 1.4 + 2, z * 1.4);
+  return -0.05 * (1 - coast) + coast * (0.02 + 0.012 * (fbm(x * 3, z * 3) - 0.5) + hills);
+}
+function Landscape() {
+  const geometry = useMemo(() => {
+    const g = terrainBlockGeometry(landHeight, 6, 5.6, 200, -0.3),
+      p = g.attributes.position,
+      c = new Float32Array(p.count * 3),
+      col = new THREE.Color(),
+      tone = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i),
+        y = p.getY(i),
+        z = p.getZ(i);
+      if (y < 0) col.set("#6d7a74").lerp(tone.set("#cdb88c"), ss(y, -0.05, -0.005));
+      else col.copy(farmland(x * 1.4, z * 1.4, 0.36));
+      if (fbm(x * 1.6 + 7, z * 1.6) > 0.62) col.lerp(tone.set("#4b673a"), 0.8);
+      if (y > 0.07) col.lerp(tone.set("#7d7461"), ss(y, 0.07, 0.11));
+      c.set([col.r, col.g, col.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+    return g;
+  }, []);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  const trees = useMemo(() => {
+    const out: [number, number, number][] = [];
+    for (let i = 0; out.length < 140 && i < 2500; i++) {
+      const x = -2.9 + 5.8 * ((i * 0.618034) % 1),
+        z = -2.7 + 5.4 * ((i * 0.7548777) % 1),
+        y = landHeight(x, z);
+      if (y > 0.01 && fbm(x * 1.6 + 7, z * 1.6) > 0.64) out.push([x, y - 0.003, z]);
+    }
+    return out;
+  }, []);
+  const towns = useMemo(
+    () => [
+      ...settlement(-0.9, 1.4, 12, 0.3, 0.05, 2, (x, z) => landHeight(x, z) > 0.01),
+      ...settlement(1.2, -0.6, 10, 0.26, 0.05, 6),
+      ...settlement(-1.6, -1.8, 8, 0.24, 0.05, 9),
+    ],
+    [],
+  );
+  return (
+    <group>
+      <mesh geometry={geometry} receiveShadow>
+        <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
+        <TerrainMaterial attach="material-1" kind="soil" color="#7a6450" />
+      </mesh>
+      <mesh position={[0, -0.004, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[5.998, 5.598]} />
+        <FlowWaterMaterial color="#1f5f7a" opacity={0.88} speed={0.2} />
+      </mesh>
+      <PlantStand kind="broadleaf" positions={trees} scale={0.06} seed={11} />
+      <Buildings items={towns} ground={landHeight} />
+    </group>
+  );
+}
 
 function AirTracers({
   displacement,
@@ -69,25 +138,29 @@ export default function Wind() {
       <ScienceStudio
         slug="wind"
         camera={[1.5, 7, 5]}
-        scale="East–north plane · force arrows share a scale · wind has a separate scale"
+        scale="East–north plane · force arrows share a scale · wind has a separate scale · relief, trees and towns illustrative"
         trueScale="Forces: 0.001 m/s² per 0.85 units · wind: 10 m/s per 0.5 units"
       >
-        <mesh position={[0, -0.16, 0]}>
-          <boxGeometry args={[6, 0.28, 5.6]} />
-          <TerrainMaterial kind="grass" color="#6a7a62" roughness={1} />
-        </mesh>
+        <Landscape />
         <PressureField />
         <AirTracers displacement={displacement} velocity={[w.u, w.v]} />
         {[-2, -1, 0, 1, 2].map((z) => (
-          <Line
-            key={z}
-            points={[
-              [-2.9, 0.015, z],
-              [2.9, 0.015, z],
-            ]}
-            color={z < 0 ? "#709daa" : "#baaa89"}
-            lineWidth={1.5}
-          />
+          <group key={z}>
+            <Line
+              points={Array.from({ length: 61 }, (_, i) => {
+                const x = -2.95 + (i / 60) * 5.9;
+                return [x, landHeight(x, z) + 0.012, z] as [number, number, number];
+              })}
+              color={z < 0 ? "#3f7fa8" : "#b8894c"}
+              lineWidth={1.8}
+            />
+            <Tag
+              pos={[2.75, landHeight(2.75, z) + 0.08, z]}
+              text={`${(1014 + z * ISOBAR_HPA).toFixed(1)} hPa`}
+              note={`Isobars join points of equal surface pressure. With the lab's pressure-gradient acceleration of 0.001 m/s² and air density 1.2 kg/m³, neighbouring lines 150 km apart differ by about ${ISOBAR_HPA.toFixed(1)} hPa. The absolute values are illustrative.`}
+              occlude={false}
+            />
+          </group>
         ))}
         <Tag
           pos={[-2.2, 0.1, -2.4]}
@@ -101,10 +174,7 @@ export default function Wind() {
           note="Pressure-gradient acceleration is 0.001 m/s². Each displayed force is acceleration per unit mass."
           occlude={false}
         />
-        <mesh position={[0, 0.08, 0]}>
-          <sphereGeometry args={[0.085, 24, 16]} />
-          <meshStandardMaterial color="#eae9d6" />
-        </mesh>
+        <CloudVolume position={[0, 0.2, 0]} scale={[0.16, 0.11, 0.16]} seed={4} opacity={0.85} />
         {forces.map((force) => (
           <Arrow
             key={force.name}
