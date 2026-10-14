@@ -12,7 +12,9 @@ import { WaterRibbon, DebrisField } from "../shared/geomorphic-terrain";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { Tag } from "../shared/kit";
 import { landscapeRandom as random } from "../shared/landscape-noise";
+import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
 const hill = catchmentRelief;
+const ss = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 function Basin({
   snow,
   flow,
@@ -26,24 +28,49 @@ function Basin({
   dam: boolean;
   vertical: number;
 }) {
+  const alpine = x > 0;
+  // The snow-fed basin is a craggier mountain valley; the rain-fed one is lowland hills.
+  const relief = useMemo(
+    () => (u: number, z: number) =>
+      (hill(u, z) +
+        (alpine
+          ? 0.35 * Math.max(0, (1.6 - u) / 3.2) * (fbm(u * 2.2 + 3, z * 2.2) - 0.35)
+          : 0.03 * (fbm(u * 2, z * 2) - 0.5))) *
+      vertical,
+    [alpine, vertical],
+  );
   const geometry = useMemo(() => {
-    const g = terrainBlockGeometry((x, z) => hill(x, z) * vertical, 3.2, 3.2, 80, -0.12);
+    const g = terrainBlockGeometry(relief, 3.2, 3.2, 140, -0.12);
     const p = g.attributes.position,
-      c = new Float32Array(p.count * 3);
+      c = new Float32Array(p.count * 3),
+      col = new THREE.Color(),
+      tone = new THREE.Color(),
+      snowline = 0.85 - Math.min(0.6, snow / 400);
     for (let i = 0; i < p.count; i++) {
-      const h = hill(p.getX(i), p.getZ(i)),
-        colour = new THREE.Color(
-          snow > 1 && h > 0.8 - Math.min(0.6, snow / 400) ? "#cfdddd" : "#7e9368",
-        );
-      c.set([colour.r, colour.g, colour.b], i * 3);
+      const u = p.getX(i),
+        z = p.getZ(i),
+        h = p.getY(i) / Math.max(vertical, 1e-3),
+        n = fbm(u * 3, z * 3);
+      col.copy(farmland(u * 1.6, z * 1.6, 0.3));
+      col.lerp(tone.set("#3f5e3a"), ss(h, 0.25, 0.4) * 0.8);
+      if (alpine) {
+        col.lerp(tone.set("#8a9a6a"), ss(h, 0.6, 0.72) * 0.8);
+        col.lerp(tone.set("#8b857a"), ss(h, 0.78, 0.9) * (0.5 + 0.5 * n));
+      }
+      if (snow > 1 && h > snowline - 0.05 * n) col.set("#eef3f4");
+      c.set([col.r, col.g, col.b], i * 3);
     }
     g.setAttribute("color", new THREE.BufferAttribute(c, 3));
     return g;
-  }, [snow, vertical]);
+  }, [snow, vertical, relief, alpine]);
   useEffect(() => () => geometry.dispose(), [geometry]);
+  const houses = useMemo(
+    () => settlement(-1.05, 0.55, 9, 0.28, 0.05, alpine ? 4 : 8, (_u, z) => Math.abs(z) > 0.2),
+    [alpine],
+  );
   const line = Array.from({ length: 65 }, (_, i): [number, number, number] => {
     const x = -1.6 + (i / 64) * 3.2;
-    return [x, hill(x, 0) * vertical + 0.015, 0];
+    return [x, relief(x, 0) + 0.015, 0];
   });
   return (
     <group position={[x, 0, 0]}>
@@ -55,7 +82,7 @@ function Basin({
           color="#ffffff"
           roughness={0.95}
         />
-        <RockMaterial attach="material-1" color="#9d8568" />
+        <RockMaterial attach="material-1" color="#c4ad8c" strata />
       </mesh>
       <WaterRibbon
         path={line}
@@ -69,25 +96,26 @@ function Basin({
         positions={Array.from({ length: 72 }, (_, i) => {
           const a = -1.45 + random(i + 378) * 2.9,
             z = -1.45 + random(i + 721) * 2.9;
-          return [a, hill(a, z) * vertical, z] as [number, number, number];
-        }).filter(([a, , z]) => Math.abs(z) > 0.18 && hill(a, z) < 0.78)}
+          return [a, relief(a, z), z] as [number, number, number];
+        }).filter(([a, , z]) => Math.abs(z) > 0.18 && hill(a, z) < (alpine ? 0.6 : 0.78))}
       />
       <DebrisField
         points={Array.from({ length: 42 }, (_, i) => {
           const a = -1.5 + random(i + 414) * 3,
             z = (random(i + 886) < 0.5 ? -1 : 1) * (0.1 + random(i + 684) * 0.13);
-          return [a, hill(a, z) * vertical + 0.005, z];
+          return [a, relief(a, z) + 0.005, z];
         })}
         size={0.014}
       />
+      <Buildings items={houses} ground={relief} />
       {dam && (
-        <mesh position={[0.73, hill(0.9, 0) * vertical + 0.07, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <mesh position={[0.73, relief(0.9, 0) + 0.07, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry args={[0.48, 0.7]} />
           <FlowWaterMaterial color="#518da4" opacity={0.8} flow={[0.15, 0]} speed={0.1} />
         </mesh>
       )}
       {dam && (
-        <mesh position={[1, hill(1, 0) * vertical + 0.12, 0]}>
+        <mesh position={[1, relief(1, 0) + 0.12, 0]}>
           <boxGeometry args={[0.12, 0.25, 0.8]} />
           <meshStandardMaterial color="#adb6ae" roughness={0.9} />
         </mesh>

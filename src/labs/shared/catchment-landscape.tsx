@@ -5,6 +5,9 @@ import { TerrainMaterial, PlantStand } from "./natural-world";
 import { WaterRibbon, GrassPatch, DebrisField } from "./geomorphic-terrain";
 import { RockMaterial } from "./rock-material";
 import { useLabControls } from "@/lib/store/lab-controls";
+import * as THREE from "three";
+import { Buildings, farmland, settlement } from "./hazard-parts";
+import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
 import { landscapeRandom as random, landscapeNoise as noise } from "./landscape-noise";
 const streamDistance = (x: number, z: number) =>
   Math.min(Math.abs(z), x >= -1.7 && x <= 0 ? Math.abs(Math.abs(z) + (x * 1.2) / 1.7) : 10);
@@ -31,8 +34,44 @@ export function CatchmentLandscape({
   divide?: boolean;
 }) {
   const t = useLabControls((s) => s.t),
-    geometry = useMemo(() => terrainBlockGeometry(catchmentHeight, 4, 3.2, 128, -0.3), []);
+    geometry = useMemo(() => {
+      const g = terrainBlockGeometry(catchmentHeight, 4, 3.2, 160, -0.3),
+        p = g.attributes.position,
+        c = new Float32Array(p.count * 3),
+        col = new THREE.Color(),
+        tone = new THREE.Color();
+      for (let i = 0; i < p.count; i++) {
+        const x = p.getX(i),
+          y = p.getY(i),
+          z = p.getZ(i),
+          n = noise(x * 3 + 4, z * 3),
+          d = streamDistance(x, z);
+        // Valley meadows and fields, wooded mid-slopes, upland moor and rock near the divide.
+        col.copy(farmland(x * 1.4, z * 1.4, 0.32));
+        col.lerp(tone.set("#4f6b3c"), THREE.MathUtils.smoothstep(y, 0.28, 0.42) * 0.7);
+        col.lerp(tone.set("#8a7b5c"), THREE.MathUtils.smoothstep(y, 0.62, 0.78) * 0.8);
+        col.lerp(tone.set("#7a5f6b"), THREE.MathUtils.smoothstep(y, 0.75, 0.9) * n * 0.6);
+        if (y > 0.82 && n > 0.62) col.lerp(tone.set("#8d877c"), 0.8);
+        if (d < 0.1) col.lerp(tone.set("#5f8a4a"), 0.6);
+        // Impervious surfaces spread across the lower catchment as urban cover rises.
+        if (urban > 0 && y < 0.42 && z > 0.25 && x < 1.4 && noise(x * 5, z * 5) < urban * 1.2)
+          col.lerp(tone.set("#7b7d7c"), 0.75);
+        c.set([col.r, col.g, col.b], i * 3);
+      }
+      g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+      return g;
+    }, [urban]);
   useEffect(() => () => geometry.dispose(), [geometry]);
+  const houses = useMemo(
+    () =>
+      urban > 0.02
+        ? settlement(-0.3, 0.75, Math.round(urban * 45), 0.95, 0.06, 5, (x, z) => {
+            const y = catchmentHeight(x, z);
+            return y < 0.42 && streamDistance(x, z) > 0.14 && z > 0.25 && z < 1.45 && Math.abs(x) < 1.85;
+          })
+        : [],
+    [urban],
+  );
   const line = (start: number, end: number, z0: number) =>
     Array.from({ length: 65 }, (_, i): [number, number, number] => {
       const x = start + ((end - start) * i) / 64,
@@ -42,8 +81,8 @@ export function CatchmentLandscape({
   return (
     <group>
       <mesh geometry={geometry} receiveShadow castShadow>
-        <TerrainMaterial attach="material-0" kind="grass" color="#75916d" />
-        <RockMaterial attach="material-1" color="#b39a7c" strata />
+        <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
+        <RockMaterial attach="material-1" color="#c9b393" strata />
       </mesh>
       <WaterRibbon path={line(-2, 2, 0)} width={0.045 + flow * 0.11} color="#4c97a4" />
       <DebrisField
@@ -69,26 +108,7 @@ export function CatchmentLandscape({
         seed={11}
         positions={trees.slice(Math.round(urban * trees.length))}
       />
-      {Array.from({ length: Math.round(urban * 24) }, (_, i) => {
-        const x = -1.65 + (i % 6) * 0.55,
-          z = 0.45 + Math.floor(i / 6) * 0.29;
-        return (
-          <group key={i} position={[x, catchmentHeight(x, z), z]}>
-            <mesh position={[0, 0.015, 0]}>
-              <boxGeometry args={[0.38, 0.025, 0.23]} />
-              <meshStandardMaterial color="#687b83" roughness={0.85} />
-            </mesh>
-            <mesh position={[0, 0.085, 0]}>
-              <boxGeometry args={[0.19, 0.14, 0.13]} />
-              <meshStandardMaterial color="#b9b5a9" roughness={0.75} />
-            </mesh>
-            <mesh position={[0, 0.172, 0]} rotation={[0, Math.PI / 4, 0]}>
-              <coneGeometry args={[0.14, 0.08, 4]} />
-              <meshStandardMaterial color="#716758" roughness={0.95} />
-            </mesh>
-          </group>
-        );
-      })}
+      <Buildings items={houses} ground={catchmentHeight} />
       <GrassPatch
         positions={Array.from({ length: 130 }, (_, i) => {
           const x = -1.85 + random(i + 117) * 3.7,
@@ -110,22 +130,32 @@ export function CatchmentLandscape({
           );
         }),
       )}
-      {Array.from({ length: Math.round(72 * Math.min(1, rain)) }, (_, i) => {
-        const x = -1.8 + (i % 9) * 0.42,
-          z = -1.3 + Math.floor(i / 9) * 0.34,
-          y = catchmentHeight(x, z) + ((((i * 0.618 - t * 10) % 1) + 1) % 1) * 1.1;
-        return (
-          <Line
-            key={i}
-            points={[
-              [x, y + 0.07, z],
-              [x, y, z],
-            ]}
-            color="#a4d6e3"
-            lineWidth={1}
-          />
-        );
-      })}
+      {rain > 0.02 &&
+        [
+          [-1.2, -0.7],
+          [-0.2, 0.9],
+          [0.9, -0.4],
+          [1.5, 0.8],
+        ]
+          .slice(0, 1 + Math.round(Math.min(1, rain) * 3))
+          .map(([x, z], i) => (
+            <group key={i}>
+              <CloudVolume
+                position={[x, 1.45, z]}
+                scale={[0.6, 0.22, 0.5]}
+                seed={i * 5 + 3}
+                opacity={0.55 + 0.3 * Math.min(1, rain)}
+              />
+              <RainStreaks
+                t={t}
+                position={[x, 1.3, z]}
+                width={0.9}
+                depth={0.8}
+                height={1.1}
+                count={Math.round(20 + 60 * Math.min(1, rain))}
+              />
+            </group>
+          ))}
       {divide && (
         <Line
           points={[
