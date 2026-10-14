@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
@@ -68,6 +68,19 @@ function Gyre({ index, t }: { index: number; t: number }) {
           lineWidth={5.5}
         />
       ))}
+      {segments.map((p, i) => (
+        <CurrentTube
+          key={`tube-${i}`}
+          points={p}
+          color={
+            branches.warm.includes(i)
+              ? "#f0703f"
+              : branches.cool.includes(i)
+                ? "#3d9be0"
+                : "#c9d6d2"
+          }
+        />
+      ))}
       {segments
         .filter((_, i) => i % 2 === 0)
         .map((p, i) => (
@@ -134,5 +147,27 @@ export default function OceanCurrents() {
         }
       </ScienceReadout>
     </>
+  );
+}
+
+/** A broad, softly glowing band along one current branch, lying on the sea surface. */
+function CurrentTube({ points, color }: { points: [number, number, number][]; color: string }) {
+  const geometry = useMemo(() => {
+    const curve = new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(...p)));
+    return new THREE.TubeGeometry(curve, Math.max(8, points.length * 2), 0.026, 10, false);
+  }, [points]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return (
+    <mesh geometry={geometry}>
+      <meshStandardMaterial
+        color={color}
+        emissive={color}
+        emissiveIntensity={0.45}
+        transparent
+        opacity={0.55}
+        roughness={0.4}
+        depthWrite={false}
+      />
+    </mesh>
   );
 }

@@ -10,7 +10,23 @@ import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 import { TerrainMaterial, PlantStand } from "../shared/natural-world";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { WaterRibbon, GrassPatch, RootNetwork, PoreMarkers } from "../shared/geomorphic-terrain";
-import { RockMaterial } from "../shared/rock-material";
+import { SectionMaterial } from "../shared/section-material";
+import { farmland } from "../shared/hazard-parts";
+
+/** Cut faces: dry soil and sand above the water table, wet saturated ground (the
+ * groundwater store) below it, then bedrock; a sandy seabed under the ocean. Schematic. */
+const GROUND_GLSL = `
+vec3 sectionColour(vec3 p,vec3 w){
+  float y=w.y+.5,g=grain(w.xy+w.zy);
+  vec2 q=(w.xy+w.zy)*22.;
+  float pore=smoothstep(.35,.15,length(fract(q)-.5));
+  if(y<-.55)return mix(vec3(.46,.44,.44),vec3(.36,.35,.36),g);
+  if(w.x>1.12)return mix(vec3(.82,.74,.56),vec3(.72,.64,.47),step(.5,fract(y*30.)))*(.9+.2*g);
+  if(y<-.3)return mix(mix(vec3(.46,.58,.62),vec3(.36,.47,.52),g),vec3(.52,.72,.80),pore*.35);
+  if(y<-.24)return mix(vec3(.62,.62,.55),vec3(.52,.55,.50),g);
+  return mix(vec3(.74,.62,.44),vec3(.60,.48,.33),g);
+}
+vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 import { landscapeRandom as random } from "../shared/landscape-noise";
 type Point = [number, number, number];
 // The valley falls towards +x; transverse slopes are zero on the bounding ridges.
@@ -198,8 +214,23 @@ export default function WaterCycle() {
     focus = Math.round(params.transfer ?? 3),
     path = paths[focus];
   const terrain = useMemo(() => {
-    const g = terrainBlockGeometry((x, z) => height(x - 0.8, z), 3.8, 3.4, 128);
+    const g = terrainBlockGeometry((x, z) => height(x - 0.8, z), 3.8, 3.4, 160);
     g.translate(-0.8, 0, 0);
+    const p = g.attributes.position,
+      c = new Float32Array(p.count * 3),
+      col = new THREE.Color(),
+      tone = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i),
+        y = p.getY(i),
+        z = p.getZ(i);
+      col.copy(farmland(x * 1.4, z * 1.4, 0.34));
+      col.lerp(tone.set("#4f6b3c"), THREE.MathUtils.smoothstep(y, 0.3, 0.45) * 0.7);
+      col.lerp(tone.set("#8a7b5c"), THREE.MathUtils.smoothstep(y, 0.6, 0.8) * 0.8);
+      if (x > 0.95) col.lerp(tone.set("#ddcda3"), 0.8);
+      c.set([col.r, col.g, col.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(c, 3));
     return g;
   }, []);
   useEffect(() => () => terrain.dispose(), [terrain]);
@@ -232,8 +263,21 @@ export default function WaterCycle() {
       >
         <group position={[0, -0.5, 0]}>
           <mesh geometry={terrain} castShadow receiveShadow>
-            <TerrainMaterial attach="material-0" kind="grass" color="#93a288" />
-            <RockMaterial attach="material-1" color="#81735d" />
+            <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
+            <SectionMaterial
+              attach="material-1"
+              glsl={GROUND_GLSL}
+              cacheKey="water-cycle-ground-v1"
+            />
+          </mesh>
+          {/* Ocean basin: sandy seabed block under the sea surface. */}
+          <mesh position={[2, -0.45, 0]}>
+            <boxGeometry args={[1.8, 0.4, 3.4]} />
+            <SectionMaterial glsl={GROUND_GLSL} cacheKey="water-cycle-ground-v1" />
+          </mesh>
+          <mesh position={[2, -0.125, 1.701]}>
+            <planeGeometry args={[1.8, 0.25]} />
+            <meshPhysicalMaterial color="#2a7896" transparent opacity={0.4} depthWrite={false} />
           </mesh>
           <mesh position={[2, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
             <planeGeometry args={[1.8, 3.4]} />

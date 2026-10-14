@@ -3,7 +3,19 @@ import { Line } from "@react-three/drei";
 import { terrainBlockGeometry } from "./science-geometry";
 import { TerrainMaterial, PlantStand } from "./natural-world";
 import { WaterRibbon, GrassPatch, DebrisField } from "./geomorphic-terrain";
-import { RockMaterial } from "./rock-material";
+import { SectionMaterial } from "./section-material";
+
+/** Catchment cut faces: weathered regolith over gently dipping sandstone and mudstone beds. */
+const BEDROCK_GLSL = `
+vec3 sectionColour(vec3 p,vec3 w){
+  float g=grain(w.xy+w.zy),bed=fract(w.y*7.+w.x*.12);
+  vec3 sand=mix(vec3(.80,.68,.50),vec3(.70,.58,.42),g);
+  vec3 mud=mix(vec3(.56,.50,.46),vec3(.46,.42,.40),g);
+  vec3 c=bed<.62?sand:mud;
+  c*=mix(.75,1.,smoothstep(0.,.03,min(bed,abs(bed-.62))));
+  return mix(c,vec3(.50,.38,.27),smoothstep(-.05,.12,w.y)*.7);
+}
+vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 import { useLabControls } from "@/lib/store/lab-controls";
 import * as THREE from "three";
 import { Buildings, farmland, settlement } from "./hazard-parts";
@@ -67,7 +79,9 @@ export function CatchmentLandscape({
       urban > 0.02
         ? settlement(-0.3, 0.75, Math.round(urban * 45), 0.95, 0.06, 5, (x, z) => {
             const y = catchmentHeight(x, z);
-            return y < 0.42 && streamDistance(x, z) > 0.14 && z > 0.25 && z < 1.45 && Math.abs(x) < 1.85;
+            return (
+              y < 0.42 && streamDistance(x, z) > 0.14 && z > 0.25 && z < 1.45 && Math.abs(x) < 1.85
+            );
           })
         : [],
     [urban],
@@ -82,7 +96,7 @@ export function CatchmentLandscape({
     <group>
       <mesh geometry={geometry} receiveShadow castShadow>
         <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
-        <RockMaterial attach="material-1" color="#c9b393" strata />
+        <SectionMaterial attach="material-1" glsl={BEDROCK_GLSL} cacheKey="catchment-bedrock-v1" />
       </mesh>
       <WaterRibbon path={line(-2, 2, 0)} width={0.045 + flow * 0.11} color="#4c97a4" />
       <DebrisField
