@@ -22,11 +22,14 @@ export function LunarSurface({
   radius,
   angle = 0,
   dim = false,
+  shadow,
 }: {
   position?: [number, number, number];
   radius: number;
   angle?: number;
   dim?: boolean;
+  /** Earth's shadow along the x axis (Sun towards +x): umbra and penumbra radii at x0 and x1. */
+  shadow?: { x0: number; x1: number; u0: number; u1: number; p0: number; p1: number };
 }) {
   const [map, height] = useTexture([
     "/textures/planets/moon-lroc-4k.jpg",
@@ -36,6 +39,53 @@ export function LunarSurface({
   map.anisotropy = 16;
   height.colorSpace = THREE.NoColorSpace;
   height.anisotropy = 16;
+  const shadowUniforms = useMemo(
+    () => ({
+      uShadow: { value: new THREE.Vector3() },
+      uU: { value: new THREE.Vector2() },
+      uP: { value: new THREE.Vector2() },
+    }),
+    [],
+  );
+  if (shadow) {
+    shadowUniforms.uShadow.value.set(shadow.x0, shadow.x1, 0);
+    shadowUniforms.uU.value.set(shadow.u0, shadow.u1);
+    shadowUniforms.uP.value.set(shadow.p0, shadow.p1);
+  }
+  const eclipse = useMemo(
+    () =>
+      shadow
+        ? (sh: THREE.WebGLProgramParametersWithUniforms) => {
+            Object.assign(sh.uniforms, shadowUniforms);
+            sh.vertexShader =
+              "varying vec3 moonWorld;\n" +
+              sh.vertexShader.replace(
+                "#include <begin_vertex>",
+                "#include <begin_vertex>\nmoonWorld=(modelMatrix*vec4(transformed,1.)).xyz;",
+              );
+            sh.fragmentShader =
+              "varying vec3 moonWorld; uniform vec3 uShadow; uniform vec2 uU,uP;\n" +
+              sh.fragmentShader
+                .replace(
+                  "#include <lights_fragment_end>",
+                  `#include <lights_fragment_end>
+  float k=clamp((moonWorld.x-uShadow.x)/(uShadow.y-uShadow.x),0.,1.);
+  float umbra=mix(uU.x,uU.y,k),pen=mix(uP.x,uP.y,k),r=length(moonWorld.yz);
+  float visible=sqrt(smoothstep(umbra,pen,r));
+  reflectedLight.directDiffuse*=visible;
+  reflectedLight.directSpecular*=visible;`,
+                )
+                .replace(
+                  "#include <emissivemap_fragment>",
+                  `#include <emissivemap_fragment>
+  {float k2=clamp((moonWorld.x-uShadow.x)/(uShadow.y-uShadow.x),0.,1.);
+   float inUmbra=1.-smoothstep(mix(uU.x,uU.y,k2)*.85,mix(uU.x,uU.y,k2),length(moonWorld.yz));
+   totalEmissiveRadiance+=vec3(.42,.12,.04)*inUmbra*diffuseColor.rgb*1.6;}`,
+                );
+          }
+        : undefined,
+    [Boolean(shadow), shadowUniforms],
+  );
   // NASA LOLA height encodes -12..+12 km about the 1737.4 km reference sphere.
   // LROC albedo never substitutes for height; relief has no vertical exaggeration.
   return (
@@ -48,8 +98,10 @@ export function LunarSurface({
         displacementBias={(-radius * 12) / 1737.4}
         bumpMap={height}
         bumpScale={(radius * 24) / 1737.4}
-        color={dim ? "#945b41" : "#ffffff"}
+        color={dim && !shadow ? "#945b41" : "#ffffff"}
         roughness={0.96}
+        onBeforeCompile={eclipse}
+        customProgramCacheKey={() => (shadow ? "moon-eclipse" : "moon")}
       />
     </mesh>
   );
@@ -107,10 +159,10 @@ function LunarShadow({ p, phase }: { p: [number, number, number]; phase: number 
             ]}
           />
           <meshBasicMaterial
-            color={kind === "umbra" ? "#365268" : "#7e9cac"}
+            color={kind === "umbra" ? "#2a1a1c" : "#6f8796"}
             side={THREE.DoubleSide}
             transparent
-            opacity={kind === "umbra" ? 0.3 : 0.12}
+            opacity={kind === "umbra" ? 0.38 : 0.1}
             depthWrite={false}
           />
         </mesh>
@@ -130,6 +182,14 @@ function LunarShadow({ p, phase }: { p: [number, number, number]; phase: number 
         radius={LUNAR.moon * scale}
         angle={phase * 2 * Math.PI}
         dim={lunarEclipse(p) === "Total lunar eclipse"}
+        shadow={{
+          x0: -span * scale,
+          x1: span * scale,
+          u0: Math.max(0, radii1.umbra) * scale,
+          u1: Math.max(0, radii0.umbra) * scale,
+          p0: radii1.penumbra * scale,
+          p1: radii0.penumbra * scale,
+        }}
       />
       <Tag
         pos={[-1.15, shadowRadii(LUNAR.earth, LUNAR.au, -x).umbra * scale + 0.2, 0]}
