@@ -14,13 +14,36 @@ export default function Contours() {
     mode = (params.mode3d ?? 1) > 0.5,
     factor = mode ? (trueScale ? 1 : 2.5) : 0;
   const [spot, setSpot] = useState<[number, number]>([0, 0]);
-  const g = useMemo(
-    () => terrainBlockGeometry((x, z) => (hillHeight(x, z) / 100) * factor, 6, 4, 128, -0.16),
-    [factor],
-  );
+  const g = useMemo(() => {
+    const geometry = terrainBlockGeometry(
+      (x, z) => (hillHeight(x, z) / 100) * factor,
+      6,
+      4,
+      128,
+      -0.16,
+    );
+    // Hypsometric tint: the colour depends only on true height, as on a printed map.
+    const p = geometry.attributes.position,
+      colours = new Float32Array(p.count * 3),
+      c = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      tint(hillHeight(p.getX(i), p.getZ(i)), c);
+      colours.set([c.r, c.g, c.b], i * 3);
+    }
+    geometry.setAttribute("color", new THREE.BufferAttribute(colours, 3));
+    return geometry;
+  }, [factor]);
   useEffect(() => () => g.dispose(), [g]);
   const lines = useMemo(() => contours(interval), [interval]);
   const sampled = hillHeight(...spot);
+  const profile = useMemo(
+    () =>
+      Array.from({ length: 121 }, (_, i) => {
+        const x = -3 + (i / 120) * 6;
+        return [x, hillHeight(x, spot[1])] as [number, number];
+      }),
+    [spot],
+  );
   return (
     <>
       <ScienceStudio
@@ -41,7 +64,9 @@ export default function Contours() {
             <TerrainMaterial
               attach="material-0"
               kind="grass"
-              color="#91a27d"
+              color="#ffffff"
+              map={null}
+              vertexColors
               normalScale={new THREE.Vector2(0.12, 0.12)}
               roughness={0.95}
             />
@@ -52,7 +77,7 @@ export default function Contours() {
               key={l.height}
               segments
               points={l.points.map((p) => [p[0], (l.height / 100) * factor + 0.008, p[1]])}
-              color={l.height % 50 === 0 ? "#f0ce8b" : "#c5d4b3"}
+              color={l.height % 50 === 0 ? "#6b3f1d" : "#8c5a33"}
               lineWidth={l.height % 50 === 0 ? 2 : 1}
             />
           ))}
@@ -69,6 +94,15 @@ export default function Contours() {
               gapSize={0.025}
             />
           )}
+          <Line
+            points={profile.map(
+              ([x, h]) => [x, (h / 100) * factor + 0.02, spot[1]] as [number, number, number],
+            )}
+            color="#e8613a"
+            lineWidth={2.5}
+          />
+          <Tag pos={[-3.05, 0.25, spot[1]]} text="A" occlude={false} />
+          <Tag pos={[3.05, 0.25, spot[1]]} text="B" occlude={false} />
           <mesh position={[spot[0], (sampled / 100) * factor + 0.025, spot[1]]}>
             <sphereGeometry args={[0.04, 20, 20]} />
             <meshStandardMaterial color="#ff9974" />
@@ -91,13 +125,50 @@ export default function Contours() {
         </group>
       </ScienceStudio>
       <ScienceReadout>
+        <svg
+          viewBox="0 0 240 64"
+          className="mx-auto mb-1 block h-16 w-full max-w-md"
+          role="img"
+          aria-label="Cross-section from A to B through the clicked point"
+        >
+          <line x1="12" y1="56" x2="232" y2="56" stroke="currentColor" strokeOpacity="0.3" />
+          <polygon
+            points={`12,56 ${profile.map(([x, h]) => `${12 + ((x + 3) / 6) * 220},${56 - h * 0.48}`).join(" ")} 232,56`}
+            fill="#c9b07a"
+            fillOpacity="0.35"
+            stroke="#e8613a"
+            strokeWidth="1.5"
+          />
+          <text x="2" y="60" fontSize="9" fill="currentColor">
+            A
+          </text>
+          <text x="234" y="60" fontSize="9" fill="currentColor">
+            B
+          </text>
+        </svg>
         {"Contour interval "}
         {interval} {"m · spot "}
         {sampled.toFixed(1)}{" "}
         {
-          "m. Click the hill to check a height. Turn off “3D hill” and look from above for its contour map; the elevations stay the same."
+          "m. Click the hill to check a height and draw the A–B cross-section through that point. Turn off “3D hill” and look from above for its contour map; the elevations stay the same."
         }
       </ScienceReadout>
     </>
   );
+}
+
+const TINT = [
+  { h: 0, c: new THREE.Color("#6f9a5a") },
+  { h: 30, c: new THREE.Color("#a7b56a") },
+  { h: 60, c: new THREE.Color("#c9b178") },
+  { h: 85, c: new THREE.Color("#a7805a") },
+  { h: 100, c: new THREE.Color("#8a6a52") },
+];
+function tint(height: number, out: THREE.Color) {
+  for (let i = 1; i < TINT.length; i++)
+    if (height <= TINT[i].h) {
+      const f = (height - TINT[i - 1].h) / (TINT[i].h - TINT[i - 1].h);
+      return out.copy(TINT[i - 1].c).lerp(TINT[i].c, Math.max(0, f));
+    }
+  return out.copy(TINT[TINT.length - 1].c);
 }

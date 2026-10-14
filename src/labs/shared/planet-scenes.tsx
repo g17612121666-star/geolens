@@ -98,14 +98,39 @@ export function GraticuleScene() {
     <>
       <ScienceStudio
         slug="graticule"
+        space
         scale="Spherical coordinates · lines and marker enlarged for clarity"
         trueScale="Latitude and longitude angles are true; Earth represented as a sphere"
         lights={false}
         camera={[0, 1, 4.8]}
       >
         <group rotation={[0, Math.PI - (lon * Math.PI) / 180, 0]}>
-          <EarthMesh radius={1.25} sunDirection={new THREE.Vector3(2, 2, 4)} />
+          <EarthMesh radius={1.25} lighting="viewer" />
           <Graticule radius={1.26} />
+          <Line
+            points={Array.from({ length: 129 }, (_, i) =>
+              latLonToXYZ(0, -180 + (i / 128) * 360, 1.262),
+            )}
+            color="#e9d9b4"
+            lineWidth={1.4}
+          />
+          <Line
+            points={Array.from({ length: 97 }, (_, i) =>
+              latLonToXYZ(-90 + (i / 96) * 180, 0, 1.262),
+            )}
+            color="#e9d9b4"
+            lineWidth={1.4}
+          />
+          <Tag
+            pos={latLonToXYZ(0, -25, 1.36)}
+            text="Equator 0°"
+            note="The equator is the 0° line of latitude, halfway between the poles."
+          />
+          <Tag
+            pos={latLonToXYZ(38, 0, 1.36)}
+            text="Prime meridian 0°"
+            note="The prime meridian through Greenwich is the agreed 0° line of longitude; east and west are measured from it."
+          />
           <Line points={latitude} color="#7fd4ff" lineWidth={2} />
           <Line points={longitude} color="#edb777" lineWidth={2} />
           <CityMarker lat={lat} lon={lon} radius={1.28} />
