@@ -36,7 +36,7 @@ export default function Aeolian() {
             colour={colour}
             resolution={192}
             base={-0.15}
-            material="beach"
+            material="sand"
           />
           {mode === 0 &&
             Array.from({ length: 28 }, (_, i) => {
@@ -81,7 +81,7 @@ export default function Aeolian() {
                   x = -0.5 + 1.75 * (z / 1.35) ** 2 + shift;
                 return [x, height(x, z) + 0.006, z] as [number, number, number];
               })}
-              color="#d2a466"
+              color="#e6c99a"
               lineWidth={1.3}
             />
           )}
