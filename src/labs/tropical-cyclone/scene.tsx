@@ -1,7 +1,3 @@
-import { CloudPuffMaterial } from "../shared/cloud-material";
-import { memo, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
@@ -10,68 +6,7 @@ import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { EyeCloud } from "./eye-cloud";
-const CloudField = memo(function CloudField({
-  slice,
-  spin,
-  t,
-  maximum,
-}: {
-  slice: number;
-  spin: number;
-  t: number;
-  maximum: number;
-}) {
-  const ref = useRef<THREE.InstancedMesh>(null);
-  const applied = useRef("");
-  useFrame(() => {
-    if (!ref.current) return;
-    const revision = `${slice}:${spin}:${t}:${maximum}:${ref.current.uuid}`;
-    if (applied.current === revision) return;
-    applied.current = revision;
-    const dummy = new THREE.Object3D();
-    let count = 0;
-    for (let i = 480; i < 1200; i++) {
-      const wall = i < 480,
-        j = wall ? i : i - 480,
-        layer = Math.floor(j / 40),
-        angle = wall
-          ? ((j % 40) / 40) * Math.PI * 2 + layer * 0.13 + 0.012 * Math.sin(j * 17)
-          : spin * (((j % 240) / 240) * 6.3 + Math.floor(j / 240) * 2.094) +
-            0.055 * Math.sin(j * 17.13),
-        r = wall
-          ? 0.65 + (0.035 * layer) / 11 + 0.012 * Math.sin(i * 7.3)
-          : 1 + ((j % 240) / 240) * 4.3 + 0.14 * Math.sin(j * 11.71),
-        y = wall
-          ? 0.17 + (layer / 11) * 0.86 + 0.025 * Math.sin(j * 19)
-          : 0.2 + 0.55 * (1 - r / 6) + 0.16 * Math.sin(i * 9) ** 2,
-        advectedAngle =
-          angle + (spin * t * 7200 * tropicalVortex(r * 50000, maximum).wind) / (r * 50000),
-        wrapped = Math.atan2(
-          Math.sin(advectedAngle - Math.PI / 2),
-          Math.cos(advectedAngle - Math.PI / 2),
-        );
-      if (Math.abs(wrapped) < slice * Math.PI * 0.48) continue;
-      const advected =
-        angle + (spin * t * 7200 * tropicalVortex(r * 50000, maximum).wind) / (r * 50000);
-      dummy.position.set(r * Math.cos(advected), y, r * Math.sin(advected));
-      const puff = 0.1 + 0.13 * Math.sin(i * 19.3) ** 2;
-      dummy.scale.set(wall ? 0.21 : puff * 1.8, wall ? 0.23 : puff * 1.05, wall ? 0.2 : puff);
-      dummy.rotation.set(i * 0.13, i * 0.31, 0);
-      dummy.updateMatrix();
-      ref.current.setMatrixAt(count, dummy.matrix);
-      count++;
-    }
-    ref.current.count = count;
-    ref.current.instanceMatrix.needsUpdate = true;
-    ref.current.computeBoundingSphere();
-  });
-  return (
-    <instancedMesh ref={ref} args={[undefined, undefined, 1200]} frustumCulled={false}>
-      <planeGeometry args={[2, 2]} />
-      <CloudPuffMaterial opacity={0.7} />
-    </instancedMesh>
-  );
-});
+import { CloudShield, RainCurtains, WindSea } from "./cloud-shield";
 export default function TropicalCyclone() {
   const { params, t, trueScale, slice } = useLabControls();
   useLabTick(1 / 50);
@@ -96,15 +31,17 @@ export default function TropicalCyclone() {
         <mesh position={[0, -0.04, 0]}>
           <cylinderGeometry args={[6, 6, 0.08, 128]} />
           <FlowWaterMaterial
-            color="#174759"
+            color="#123d55"
             opacity={1}
             roughness={0.28}
             speed={0.25}
             flow={[spin, 0.2]}
           />
         </mesh>
+        <WindSea spin={spin} maximum={maximum} t={t} />
         <group scale={[1, vertical, 1]}>
-          <CloudField slice={slice} spin={spin} t={t} maximum={maximum} />
+          <CloudShield slice={slice} spin={spin} t={t} maximum={maximum} vertical={1} />
+          <RainCurtains vertical={1} maximum={maximum} />
           <EyeCloud slice={slice} spin={spin} t={t} maximum={maximum} />
           {Array.from({ length: 30 }, (_, i) => {
             const r = 0.6 + (i % 5) * 0.8,
