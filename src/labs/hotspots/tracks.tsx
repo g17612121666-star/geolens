@@ -6,10 +6,52 @@ import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { GeomorphicTerrain } from "../shared/geomorphic-terrain";
 import { RockPrism } from "../shared/rock-prism";
-import { RockMaterial } from "../shared/rock-material";
 import { Tag } from "../shared/kit";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { PlantStand } from "../shared/natural-world";
+/** Thermal plume: a hot head and stem in mostly solid mantle, with sparse melt rising. */
+function Plume({ base, t }: { base: number; t: number }) {
+  return (
+    <group position={[-1.8, 0, 0]}>
+      <mesh position={[0, -0.95, 0]} scale={[0.5, 0.42, 0.5]}>
+        <sphereGeometry args={[1, 48, 32]} />
+        <meshStandardMaterial
+          color="#c9622c"
+          emissive="#ff6a1f"
+          emissiveIntensity={0.55}
+          roughness={0.6}
+          transparent
+          opacity={0.88}
+        />
+      </mesh>
+      <mesh position={[0, (base - 0.75) / 2, 0]}>
+        <cylinderGeometry args={[0.13, 0.26, base + 0.75, 32, 1, true]} />
+        <meshStandardMaterial
+          color="#d97a38"
+          emissive="#ff7a2a"
+          emissiveIntensity={0.45}
+          transparent
+          opacity={0.6}
+          side={THREE.DoubleSide}
+          depthWrite={false}
+        />
+      </mesh>
+      {Array.from({ length: 6 }, (_, i) => {
+        const f = (t * 2 + i / 6) % 1;
+        return (
+          <mesh
+            key={i}
+            position={[0.05 * Math.sin(i * 2.4), -0.9 + f * (base + 0.9), 0.05 * Math.cos(i * 1.7)]}
+          >
+            <sphereGeometry args={[0.03, 12, 8]} />
+            <meshBasicMaterial color="#ffd27a" toneMapped={false} />
+          </mesh>
+        );
+      })}
+    </group>
+  );
+}
+
 function Track({ continental, z, t }: { continental: boolean; z: number; t: number }) {
   const top = continental ? 0.45 : 0.1,
     base = continental ? -0.2 : -0.08;
@@ -19,9 +61,13 @@ function Track({ continental, z, t }: { continental: boolean; z: number; t: numb
       for (let i = 0; i < 5; i++) {
         const dx = x - (-1.8 + i * 0.88),
           r = Math.hypot(dx, z);
+        // Oceanic: separate shield islands that subside and erode as they ride away from the
+        // plume (youngest, tallest at the left); the oldest has sunk to a seamount.
         h += continental
           ? 0.11 * Math.exp(-(((r - 0.3) / 0.13) ** 2)) - 0.045 * Math.exp(-((r / 0.25) ** 4))
-          : (0.58 - 0.08 * i) * Math.exp(-((r / (0.55 + 0.03 * i)) ** 2));
+          : [0.66, 0.48, 0.32, 0.17, 0.06][i] *
+            Math.exp(-((r / (0.3 + 0.035 * i)) ** 2)) *
+            (1 - 0.18 * i * Math.max(0, Math.sin(Math.atan2(z, dx) * 3 + i)) ** 2);
       }
       return h;
     },
@@ -29,7 +75,19 @@ function Track({ continental, z, t }: { continental: boolean; z: number; t: numb
   );
   const colour = useMemo(
     () => (x: number, y: number) =>
-      continental ? (y > top + 0.045 ? "#837362" : "#52674e") : y > 0.21 ? "#52624c" : "#726953",
+      continental
+        ? y > top + 0.045
+          ? "#837362"
+          : "#52674e"
+        : y < 0.17
+          ? "#6f6a5e"
+          : y < 0.215
+            ? "#d9c99a"
+            : x < -1.25
+              ? "#2f2c2a"
+              : x < -0.4
+                ? "#4f5f43"
+                : "#5d7a45",
     [continental, top],
   );
   return (
@@ -46,10 +104,7 @@ function Track({ continental, z, t }: { continental: boolean; z: number; t: numb
           color="#6b6454"
         />
       </group>
-      <mesh position={[-1.8, -0.8, 0]} scale={[0.48, 0.82, 0.48]}>
-        <sphereGeometry args={[1, 64, 48]} />
-        <RockMaterial color="#99785f" emissive="#725441" emissiveIntensity={0.06} />
-      </mesh>
+      <Plume base={base} t={t} />
       <group position={[t * 0.65, 0, 0]}>
         <GeomorphicTerrain
           height={height}
@@ -75,7 +130,7 @@ function Track({ continental, z, t }: { continental: boolean; z: number; t: numb
       {!continental && (
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.18, 0]}>
           <planeGeometry args={[6, 2]} />
-          <FlowWaterMaterial color="#376779" opacity={0.55} flow={[0.3, 0.15]} speed={0.4} />
+          <FlowWaterMaterial color="#2f7590" opacity={0.62} flow={[0.3, 0.15]} speed={0.4} />
         </mesh>
       )}
       <Line

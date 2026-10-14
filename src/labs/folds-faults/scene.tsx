@@ -6,7 +6,8 @@ import { foldedBed, faultBed, faultSlip } from "./geometry";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { RockMaterial } from "../shared/rock-material";
 import { Tag } from "../shared/kit";
-const COLOURS = ["#8c7460", "#b6a783", "#78856e", "#c6bda2", "#a08d79"];
+// Distinct strata so each bed can be traced through folds and across faults.
+const COLOURS = ["#9a5a42", "#d8c896", "#5f7466", "#cf9150", "#7d6b8a"];
 export default function FoldsFaults() {
   const { params, explode, t } = useLabControls();
   useLabTick(1 / 40);
@@ -41,7 +42,12 @@ export default function FoldsFaults() {
                 : [-separation, 0, 0];
           return (
             <mesh key={i} geometry={g} position={offset} castShadow receiveShadow>
-              <RockMaterial color={COLOURS[index]} roughness={0.93} envMapIntensity={0.12} />
+              <RockMaterial
+                color={COLOURS[index]}
+                desaturate={0.92}
+                roughness={0.93}
+                envMapIntensity={0.12}
+              />
             </mesh>
           );
         })}

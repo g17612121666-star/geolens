@@ -13,7 +13,7 @@ const STAGES = [
   "Continental collision",
 ];
 export default function WilsonCycle() {
-  const { params, trueScale } = useLabControls(),
+  const { params, trueScale, setParam } = useLabControls(),
     stage = Math.round(params.stage ?? 2),
     f = trueScale ? 1 : 2;
   const gap =
@@ -73,7 +73,7 @@ export default function WilsonCycle() {
         trueScale="1 scene unit = 50 km · section is not the full width of a real ocean"
       >
         <group scale={[1, f, 1]}>
-          <RockPrism points={[...mantleTop, [3, -1.65], [-3, -1.65]]} depth={1.8} color="#645b4d" />
+          <RockPrism points={[...mantleTop, [3, -1.65], [-3, -1.65]]} depth={1.8} color="#a0603d" />
           {stage < 5 ? (
             <>
               <RockPrism
@@ -84,7 +84,7 @@ export default function WilsonCycle() {
                   [-gap, -0.76],
                   [-3, -0.68],
                 ]}
-                color="#b09b7a"
+                color="#d2b07c"
               />
               <RockPrism
                 points={
@@ -106,7 +106,7 @@ export default function WilsonCycle() {
                         [gap, -0.76],
                       ]
                 }
-                color="#b09b7a"
+                color="#d2b07c"
               />
               {stage > 0 && (
                 <RockPrism
@@ -129,7 +129,7 @@ export default function WilsonCycle() {
                           [-gap, -0.22],
                         ]
                   }
-                  color="#77736a"
+                  color="#4d5560"
                 />
               )}
               {converging && (
@@ -139,7 +139,7 @@ export default function WilsonCycle() {
                     [gap + 1.7, -0.68],
                     [gap + 1.7, -1.3],
                   ]}
-                  color="#645b4d"
+                  color="#a0603d"
                 />
               )}
               {stage === 0 && (
@@ -173,7 +173,7 @@ export default function WilsonCycle() {
                   [-0.7, -0.82],
                   [-3, -0.68],
                 ]}
-                color="#b09b7a"
+                color="#d2b07c"
               />
               <RockPrism
                 points={[
@@ -185,8 +185,43 @@ export default function WilsonCycle() {
                   [0.7, -0.83],
                   [0.18, -0.95],
                 ]}
-                color="#a39176"
+                color="#c4a272"
               />
+            </>
+          )}
+          {/* Melt: decompression melting under the opening ridge; slab-derived melt feeding an arc. */}
+          {(stage === 1 || stage === 2) && (
+            <mesh position={[0, -0.36, 0]} scale={[0.32, 0.12, 0.85]}>
+              <sphereGeometry args={[1, 32, 16]} />
+              <meshStandardMaterial
+                color="#e0773a"
+                emissive="#ff6a20"
+                emissiveIntensity={0.6}
+                transparent
+                opacity={0.85}
+              />
+            </mesh>
+          )}
+          {converging && stage < 5 && (
+            <>
+              <mesh position={[gap + 0.75, -0.62, 0]} scale={[0.14, 0.32, 0.6]}>
+                <sphereGeometry args={[1, 24, 16]} />
+                <meshStandardMaterial
+                  color="#e0773a"
+                  emissive="#ff6a20"
+                  emissiveIntensity={0.55}
+                  transparent
+                  opacity={0.8}
+                />
+              </mesh>
+              <mesh position={[gap + 0.75, 0.13, 0]}>
+                <coneGeometry args={[0.24, 0.24, 40]} />
+                <meshStandardMaterial color="#5a504a" roughness={0.95} />
+              </mesh>
+              <mesh position={[gap + 0.75, 0.255, 0]}>
+                <sphereGeometry args={[0.035, 16, 12]} />
+                <meshBasicMaterial color="#ffb060" toneMapped={false} />
+              </mesh>
             </>
           )}
           {[-1, 1].map((side) => (
@@ -249,7 +284,20 @@ export default function WilsonCycle() {
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Formation stage"}
+        <div className="pointer-events-auto mb-2 flex flex-wrap justify-center gap-1">
+          {STAGES.map((name, i) => (
+            <button
+              key={name}
+              type="button"
+              aria-pressed={i === stage}
+              onClick={() => setParam("stage", i)}
+              className={`min-h-11 rounded-lg border px-2 text-xs ${i === stage ? "border-glacier text-chalk" : "border-white/10 text-mist"}`}
+            >
+              {i + 1}. {name}
+            </button>
+          ))}
+        </div>
+        {"Stage "}
         {stage + 1}/6: {STAGES[stage]}.{" "}
         {stage < 3
           ? "Extension and spreading can open a basin."

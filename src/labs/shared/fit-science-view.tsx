@@ -151,8 +151,8 @@ function softShadowTexture() {
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
   const g = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
-  g.addColorStop(0, "rgba(0,0,0,0.55)");
-  g.addColorStop(0.45, "rgba(0,0,0,0.32)");
+  g.addColorStop(0, "rgba(0,0,0,0.3)");
+  g.addColorStop(0.5, "rgba(0,0,0,0.14)");
   g.addColorStop(1, "rgba(0,0,0,0)");
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, 128, 128);

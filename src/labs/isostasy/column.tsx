@@ -22,11 +22,31 @@ export default function Isostasy() {
       >
         <mesh position={[0, -1.9, 0]}>
           <boxGeometry args={[4.6, 3.8, 2.8]} />
-          <RockMaterial color="#625b4b" transparent opacity={0.25} depthWrite={false} />
+          <meshStandardMaterial
+            color="#b8673d"
+            roughness={0.9}
+            transparent
+            opacity={0.22}
+            depthWrite={false}
+          />
         </mesh>
+        {/* Unloaded neighbours: the same crust at its ice-free equilibrium, for comparison. */}
+        {[-1, 1].map((side) => (
+          <mesh
+            key={side}
+            position={[
+              side * 1.66,
+              bare.landElevation * scale - (AIRY.crustThickness * scale) / 2,
+              0,
+            ]}
+          >
+            <boxGeometry args={[0.96, AIRY.crustThickness * scale, 1.8]} />
+            <RockMaterial color="#c7b896" desaturate={0.9} transparent opacity={0.55} />
+          </mesh>
+        ))}
         <mesh position={[0, land - (AIRY.crustThickness * scale) / 2, 0]}>
           <boxGeometry args={[2.1, AIRY.crustThickness * scale, 1.8]} />
-          <RockMaterial color="#aaa085" />
+          <RockMaterial color="#c4b48f" desaturate={0.9} />
         </mesh>
         {ice > 0 && (
           <mesh position={[0, land + (ice * scale * exaggeration) / 2, 0]}>

@@ -3,7 +3,7 @@ import { ReconstructionGlobe } from "../shared/geo-globe";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Graticule } from "@/components/globe/earth";
 export default function ContinentalDrift() {
-  const { params } = useLabControls(),
+  const { params, setParam } = useLabControls(),
     age = params.ageMa ?? 200;
   return (
     <>
@@ -19,6 +19,25 @@ export default function ContinentalDrift() {
         </group>
       </ScienceStudio>
       <ScienceReadout>
+        <div className="pointer-events-auto mb-2 flex flex-wrap justify-center gap-1">
+          {[
+            { ma: 0, label: "Today" },
+            { ma: 66, label: "66 Ma · K–Pg" },
+            { ma: 150, label: "150 Ma · Atlantic opens" },
+            { ma: 200, label: "200 Ma · break-up" },
+            { ma: 250, label: "250 Ma · Pangaea" },
+          ].map((step) => (
+            <button
+              key={step.ma}
+              type="button"
+              aria-pressed={Math.round(age / 10) * 10 === step.ma}
+              onClick={() => setParam("ageMa", step.ma)}
+              className={`min-h-11 rounded-lg border px-2 text-xs ${Math.round(age / 10) * 10 === step.ma ? "border-glacier text-chalk" : "border-white/10 text-mist"}`}
+            >
+              {step.label}
+            </button>
+          ))}
+        </div>
         <p>Continental positions {Math.round(age / 10) * 10} million years ago.</p>
         <p className="mt-2">
           {params.fossils > 0.5
