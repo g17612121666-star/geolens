@@ -21,6 +21,8 @@ export function GeomorphicTerrain({
   section,
   cliff = 0.62,
   mottle = 0.12,
+  sideGlsl,
+  sideUniforms,
 }: {
   height: (x: number, z: number) => number;
   colour: (x: number, y: number, z: number) => string;
@@ -35,6 +37,9 @@ export function GeomorphicTerrain({
   cliff?: number;
   /** Strength of the large-scale colour variation across the surface. */
   mottle?: number;
+  /** A complete SectionMaterial shader for the cut faces, replacing `section`. */
+  sideGlsl?: string;
+  sideUniforms?: Record<string, { value: unknown }>;
 }) {
   const sectionKey = JSON.stringify(section ?? {});
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -80,9 +85,10 @@ export function GeomorphicTerrain({
       )}
       <SectionMaterial
         attach="material-1"
-        glsl={glsl}
+        glsl={sideGlsl ?? glsl}
+        uniforms={sideUniforms}
         surface
-        cacheKey={`land-${sectionKey}`}
+        cacheKey={sideGlsl ? `land-custom-${sideGlsl.length}` : `land-${sectionKey}`}
         roughness={0.95}
       />
     </mesh>

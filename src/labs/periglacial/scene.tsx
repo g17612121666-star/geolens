@@ -1,54 +1,102 @@
-import { useMemo, useEffect } from "react";
+import { useMemo } from "react";
 import * as THREE from "three";
-import { TerrainMaterial } from "../shared/natural-world";
-import { GrassPatch, DebrisField } from "../shared/geomorphic-terrain";
+import { GrassPatch, GeomorphicTerrain } from "../shared/geomorphic-terrain";
+import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
+import { ShallowWater } from "../shared/shallow-water";
+import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
-import { RockPrism } from "../shared/rock-prism";
-import { RockMaterial } from "../shared/rock-material";
-import { WaterPrism } from "../shared/water-prism";
 import { Tag } from "../shared/kit";
-const CELLS = [
-  [0, 0],
-  [1, 0],
-  [1, -1],
-  [0, -1],
-  [-1, 0],
-  [-1, 1],
-  [0, 1],
-];
-function PolygonGround({ x, z, growth }: { x: number; z: number; growth: number }) {
-  const geometry = useMemo(() => {
-    const points = Array.from({ length: 6 }, (_, j) => {
-      const a = (j * Math.PI) / 3,
-        px = x + 1.1 * Math.cos(a),
-        pz = z + 1.1 * Math.sin(a),
-        d = 0.035 * Math.sin(px * 4.1 + pz * 2.7);
-      return new THREE.Vector2(
-        (1.1 - 0.02 - 0.035 * growth) * Math.cos(a) + d,
-        (1.1 - 0.02 - 0.035 * growth) * Math.sin(a) + d,
-      );
-    });
-    const shape = new THREE.Shape(points),
-      g = new THREE.ExtrudeGeometry(shape, {
-        depth: 0.33,
-        bevelEnabled: true,
-        bevelSize: 0.045,
-        bevelThickness: 0.04,
-        bevelSegments: 3,
-      });
-    g.rotateX(Math.PI / 2);
-    return g;
-  }, [x, z, growth]);
-  useEffect(() => () => geometry.dispose(), [geometry]);
+/** Ice-wedge polygons: a flat-topped hexagonal lattice, gently warped so cells are irregular. */
+const R = 1.1,
+  INNER = (R * Math.sqrt(3)) / 2;
+function edgeDistance(x: number, z: number) {
+  const wx = x + 0.2 * Math.sin(z * 1.7 + 1) + 0.07 * Math.sin(z * 4.1 + x * 0.7),
+    wz = z + 0.2 * Math.sin(x * 1.5) + 0.07 * Math.sin(x * 3.7 - z * 0.9);
+  const q = ((2 / 3) * wx) / R,
+    r = (-wx / 3 + (Math.sqrt(3) / 3) * wz) / R,
+    s = -q - r;
+  let rq = Math.round(q),
+    rr = Math.round(r);
+  const rs = Math.round(s),
+    dq = Math.abs(rq - q),
+    dr = Math.abs(rr - r),
+    ds = Math.abs(rs - s);
+  if (dq > dr && dq > ds) rq = -rr - rs;
+  else if (dr > ds) rr = -rq - rs;
+  const cx = 1.5 * R * rq,
+    cz = Math.sqrt(3) * R * (rr + rq / 2),
+    dx = Math.abs(wx - cx),
+    dz = Math.abs(wz - cz);
+  return INNER - Math.max(dz, (dz + Math.sqrt(3) * dx) / 2);
+}
+/** The same lattice in GLSL, so wedges in the cut faces sit exactly below the surface troughs. */
+const EDGE_GLSL = `
+float edgeDistance(vec2 xz){
+  float wx=xz.x+.2*sin(xz.y*1.7+1.)+.07*sin(xz.y*4.1+xz.x*.7);
+  float wz=xz.y+.2*sin(xz.x*1.5)+.07*sin(xz.x*3.7-xz.y*.9);
+  float q=(2./3.*wx)/${R.toFixed(2)},r=(-wx/3.+.57735*wz)/${R.toFixed(2)},s=-q-r;
+  float rq=floor(q+.5),rr=floor(r+.5),rs=floor(s+.5);
+  float dq=abs(rq-q),dr=abs(rr-r),ds=abs(rs-s);
+  if(dq>dr&&dq>ds)rq=-rr-rs;else if(dr>ds)rr=-rq-rs;
+  float cx=1.5*${R.toFixed(2)}*rq,cz=1.73205*${R.toFixed(2)}*(rr+rq/2.);
+  float dx=abs(wx-cx),dz=abs(wz-cz);
+  return ${INNER.toFixed(4)}-max(dz,(dz+1.73205*dx)/2.);
+}`;
+
+/** Frozen ground in section: active layer, permafrost with ice lenses, and wedges of foliated ice. */
+const frozenGround = (wedge: string) => `uniform float uThaw,uWedge,uActive,uDepth,uWinter;
+${EDGE_GLSL}
+vec3 sectionColour(vec3 p,vec3 w){
+  float d=-w.y,g=grain(vec2(w.x+w.z,w.y));
+  float e=${wedge};
+  float hw=uWedge*clamp(1.-(d-uActive)/uDepth,0.,1.);
+  // Beds are dragged upwards beside each wedge as it grows.
+  float lift=.35*uWedge*exp(-max(e,0.)/.25);
+  float lam=fract((d-lift)*9.);
+  if(d>uActive-.02&&e<hw){
+    float vein=fract(e*90./max(uWedge,.05));
+    vec3 ice=mix(vec3(.80,.89,.92),vec3(.62,.78,.86),smoothstep(.3,.7,vein));
+    return mix(ice,vec3(.55,.52,.48),smoothstep(.85,1.,vein)*.4);
+  }
+  if(uWinter>.5&&d<1.9*uActive/.7&&abs(e)<.006)return vec3(.08,.1,.12);
+  vec3 c;
+  if(d<.05)c=mix(vec3(.27,.23,.17),vec3(.33,.28,.20),g);
+  else if(d<uActive){
+    c=mix(vec3(.55,.46,.34),vec3(.50,.42,.31),g);
+    // Thawed ground is darker and wetter than seasonally frozen ground.
+    c*=d<uThaw?.78:1.;
+  }else{
+    c=mix(vec3(.50,.48,.44),vec3(.44,.42,.39),step(.5,lam))*mix(.93,1.06,g);
+    float lens=smoothstep(.86,.93,sNoise(vec2((w.x+w.z)*4.,(d-lift)*30.)));
+    c=mix(c,vec3(.80,.86,.88),lens*.6);
+  }
+  c*=mix(.75,1.,smoothstep(0.,.012,abs(d-uActive)));
+  return c;
+}
+vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
+const SECTION_GLSL = frozenGround("abs(w.x)");
+const NETWORK_GLSL = frozenGround("edgeDistance(w.xz)");
+
+const TUNDRA = new THREE.Color("#7f8452"),
+  RIM = new THREE.Color("#a29a68"),
+  TROUGH = new THREE.Color("#5f7246"),
+  SNOW = new THREE.Color("#eef2f3");
+
+/** Low-centred polygons: troughs over the wedges, raised rims beside them and wet centres. */
+function polygonHeight(x: number, z: number, growth: number) {
+  const e = edgeDistance(x, z),
+    g = 0.3 + 0.7 * growth;
   return (
-    <mesh geometry={geometry} castShadow receiveShadow>
-      <TerrainMaterial kind="soil" color="#968869" />
-    </mesh>
+    -0.05 * g * Math.exp(-((e / 0.07) ** 2)) +
+    0.045 * g * Math.exp(-(((e - 0.2) / 0.08) ** 2)) -
+    0.03 * g * THREE.MathUtils.smoothstep(e, 0.3, 0.6) +
+    0.006 * (noise(x * 6, z * 6) - 0.5)
   );
 }
+
 export default function Periglacial() {
   const { params, t } = useLabControls();
   useLabTick(1 / 50);
@@ -57,6 +105,43 @@ export default function Periglacial() {
     width = 0.1 + 0.8 * growth,
     thaw = 0.7 * Math.max(0, Math.sin(t * 2 * Math.PI)),
     winter = t > 0.55;
+  // Section view: metres. Network view: the same layering at a reduced, illustrative depth.
+  const sectionUniforms = useSectionUniforms({
+    uThaw: thaw,
+    uWedge: width / 2,
+    uActive: 0.7,
+    uDepth: 3.05,
+    uWinter: winter ? 1 : 0,
+  });
+  const networkUniforms = useSectionUniforms({
+    uThaw: thaw * 0.17,
+    uWedge: 0.03 + 0.1 * growth,
+    uActive: 0.12,
+    uDepth: 0.42,
+    uWinter: winter ? 1 : 0,
+  });
+  const ground = useMemo(() => (x: number, z: number) => polygonHeight(x, z, growth), [growth]);
+  const colour = useMemo(
+    () => (x: number, y: number, z: number) => {
+      const e = edgeDistance(x, z),
+        c = TUNDRA.clone().lerp(RIM, Math.exp(-(((e - 0.2) / 0.08) ** 2)) * 0.8);
+      c.lerp(TROUGH, Math.exp(-((e / 0.08) ** 2)));
+      c.multiplyScalar(0.92 + 0.16 * noise(x * 7, z * 7));
+      // Snow lies thickest in the troughs and thinly elsewhere.
+      if (winter) c.lerp(SNOW, 0.75 + 0.2 * Math.exp(-((e / 0.1) ** 2)));
+      return c.getStyle();
+    },
+    [winter],
+  );
+  const tussocks = useMemo(
+    () =>
+      Array.from({ length: 260 }, (_, i) => {
+        const x = -2.9 + random(i + 3) * 5.8,
+          z = -2.9 + random(i + 51) * 5.8;
+        return [x, ground(x, z), z] as [number, number, number];
+      }).filter(([x, , z]) => edgeDistance(x, z) > 0.12 && edgeDistance(x, z) < 0.32),
+    [ground],
+  );
   return (
     <>
       <ScienceStudio
@@ -65,7 +150,7 @@ export default function Periglacial() {
         scale={
           view === 0
             ? "10 m wide, 5 m deep · prescribed 0.7 m active layer · common scale"
-            : "Ice-wedge polygon network · ideal topology, not a field survey"
+            : "Ice-wedge polygon network · ideal topology, not a field survey · depths exaggerated"
         }
         trueScale={
           view === 0
@@ -75,150 +160,83 @@ export default function Periglacial() {
       >
         {view === 0 ? (
           <>
-            <RockPrism
-              points={[
-                [-5, 0],
-                [0, 0],
-                [0, -0.75],
-                [-width / 2, -0.75],
-                [0, -3.8],
-                [0, -5],
-                [-5, -5],
-              ]}
-              depth={2}
-              color="#9a8b72"
-            />
-            <RockPrism
-              points={[
-                [0, 0],
-                [5, 0],
-                [5, -5],
-                [0, -5],
-                [0, -3.8],
-                [width / 2, -0.75],
-                [0, -0.75],
-              ]}
-              depth={2}
-              color="#9a8b72"
-            />
-            <WaterPrism
-              points={[
-                [-width / 2, -0.75],
-                [width / 2, -0.75],
-                [0, -3.8],
-              ]}
-              depth={2.02}
-              colour="#9dcbdc"
-              opacity={1}
-            />
-            {[0.18, 0.32, 0.48, 0.64, 0.8].map((f, i) => (
-              <Line
-                key={i}
-                points={[
-                  [(-width / 2) * f, -0.75, 1.025],
-                  [0, -3.8 + (1 - f) * 2.6, 1.025],
-                  [(width / 2) * f, -0.75, 1.025],
-                ]}
-                color={i % 2 ? "#739ead" : "#c5e0e4"}
-                lineWidth={0.8}
+            <mesh position={[0, -2.5, 0]} castShadow receiveShadow>
+              <boxGeometry args={[10, 5, 2]} />
+              <SectionMaterial
+                glsl={SECTION_GLSL}
+                uniforms={sectionUniforms}
+                cacheKey="periglacial-section"
+                cliff={0.6}
+                color={winter ? "#e9eef0" : "#7f8452"}
               />
-            ))}
+            </mesh>
             <GrassPatch
-              positions={Array.from({ length: 50 }, (_, i) => [
-                -4.8 + (i % 25) * 0.4,
+              positions={Array.from({ length: 140 }, (_, i) => [
+                -4.85 + random(i + 7) * 9.7,
                 0,
-                i < 25 ? -0.65 : 0.65,
+                -0.95 + random(i + 97) * 1.9,
               ])}
-              height={0.045}
-              color={winter ? "#a89c7b" : "#858b56"}
+              height={0.06}
+              color={winter ? "#c9c2a8" : "#858b56"}
             />
-            <DebrisField
-              points={Array.from({ length: 72 }, (_, i) => [
-                -4.8 + (i % 18) * 0.56,
-                -0.12 - Math.floor(i / 18) * 0.45,
-                1.025,
-              ])}
-              size={0.035}
-            />
-            {thaw > 0.002 && (
-              <mesh position={[0, -thaw / 2, 1.012]}>
-                <planeGeometry args={[10, thaw]} />
-                <meshBasicMaterial color="#b89261" transparent opacity={0.4} depthWrite={false} />
-              </mesh>
-            )}
             <Line
               points={[
-                [-5, -0.7, 1.03],
-                [5, -0.7, 1.03],
+                [-5, -0.7, 1.012],
+                [5, -0.7, 1.012],
               ]}
-              color="#c6b693"
+              color="#e8dcc0"
               dashed
               dashSize={0.1}
               gapSize={0.08}
             />
-            {winter && (
-              <Line
-                points={[
-                  [0, 0, 1.035],
-                  [0.015, -0.4, 1.035],
-                  [0, -1.9, 1.035],
-                ]}
-                color="#171d24"
-                lineWidth={2}
-              />
-            )}
             <Tag
               pos={[-2.7, 0.65, 0]}
               text={thaw > 0.002 ? `Seasonal thaw · ${thaw.toFixed(2)} m` : "Seasonal layer frozen"}
-              note="Seasonal thaw reaches the selected maximum depth of 0.7 m, marked by the dashed line."
+              note="Seasonal thaw reaches the selected maximum depth of 0.7 m, marked by the dashed line. Thawed ground is shown darker and wetter."
               occlude={false}
             />
             <Tag
               pos={[2.7, -2, 1.2]}
               text="Permafrost"
-              note="Permafrost is ground remaining at or below 0 °C for at least two consecutive years; it is not necessarily pure ice. This section assumes established permafrost below the active layer."
+              note="Permafrost is ground remaining at or below 0 °C for at least two consecutive years; it is not necessarily pure ice. The pale streaks are lenses of ground ice. This section assumes established permafrost below the active layer."
               occlude={false}
             />
             <Tag
               pos={[-2.6, -3.8, 1.2]}
               text={`Ice wedge · ${width.toFixed(2)} m at top`}
-              note="Winter thermal contraction opens cracks. Water entering them can refreeze and add ice veins over repeated years. This differs from simply expanding all water by 9%, and from a glacier eroding a valley."
+              note="Winter thermal contraction opens cracks. Water entering them refreezes as thin vertical veins, so the wedge grows year after year and pushes the neighbouring beds upwards. This differs from simply expanding all water by 9%, and from a glacier eroding a valley."
               occlude={false}
             />
           </>
         ) : (
           <>
-            {CELLS.map(([q, r], i) => {
-              const x = q * 1.65,
-                z = (r + q / 2) * Math.sqrt(3) * 1.1;
-              return (
-                <group key={i} position={[x, 0, z]}>
-                  <PolygonGround x={x} z={z} growth={growth} />
-                  <GrassPatch
-                    positions={Array.from({ length: 13 }, (_, j) => {
-                      const a = j * 2.399,
-                        r = 0.2 + 0.55 * Math.sin(j * 3) ** 2;
-                      return [r * Math.cos(a), 0.047, r * Math.sin(a)];
-                    })}
-                    height={0.07}
-                    color={winter ? "#9f9374" : "#788058"}
-                  />
-                  <Line
-                    points={Array.from({ length: 7 }, (_, j): [number, number, number] => [
-                      1.1 * Math.cos((j * Math.PI) / 3),
-                      0.004,
-                      1.1 * Math.sin((j * Math.PI) / 3),
-                    ])}
-                    color={winter ? "#344451" : "#80b8c6"}
-                    lineWidth={1 + growth * 2}
-                  />
-                </group>
-              );
-            })}
+            <GeomorphicTerrain
+              height={ground}
+              colour={colour}
+              width={6}
+              depth={6}
+              resolution={240}
+              base={-0.6}
+              cliff={0.3}
+              mottle={0.04}
+              sideGlsl={NETWORK_GLSL}
+              sideUniforms={networkUniforms}
+            />
+            <ShallowWater
+              land={ground}
+              level={() => -0.012}
+              width={6}
+              depth={6}
+              resolution={200}
+              deep={0.02}
+              shallowColour={winter ? "#dfe9ec" : "#7e9a8a"}
+              deepColour={winter ? "#c4d8de" : "#3f6a70"}
+            />
+            <GrassPatch positions={tussocks} height={0.06} color={winter ? "#bdb59a" : "#8a8a55"} />
             <Tag
-              pos={[0, 1, 0]}
+              pos={[0, 0.7, 0]}
               text="Thermal-contraction polygon network"
-              note="This seven-cell pattern with uneven margins shows the topology of an ice-wedge network. Natural polygons are irregular. Lines locate wedge margins below the surface; they are not a layer of exposed blue ice covering the ground."
+              note="Troughs lie above the ice wedges, with raised rims beside them and wet, low centres; the cut faces show a wedge beneath every trough. Natural polygons are irregular; this lattice shows the topology of a network, not a field survey."
               occlude={false}
             />
           </>

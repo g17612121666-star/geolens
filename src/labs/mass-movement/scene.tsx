@@ -6,11 +6,69 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { SLUMP, slumpBase, slumpSurface, slumpStability, rotateSlump } from "@/lib/slump-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
-import { RockPrism } from "../shared/rock-prism";
+import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
 import { NaturalTree } from "../shared/natural-world";
 import { RootNetwork, DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
 import { landscapeRandom as random } from "../shared/landscape-noise";
+/** Slope materials in section: topsoil, a weathered zone and laminated clay over mudstone.
+ * Points are rotated back to their pre-failure position, so the slumped block's layers tilt. */
+const SLOPE_GLSL = `uniform float uAngle;
+vec3 sectionColour(vec3 p,vec3 w){
+  float c=cos(uAngle),s=sin(uAngle),cy=${SLUMP.centreY.toFixed(3)};
+  vec2 q=vec2(p.x*c+(p.y-cy)*s,cy-p.x*s+(p.y-cy)*c);
+  float d=(1.-.25*q.x)-q.y,g=grain(vec2(q.x+p.z*.4,q.y));
+  vec3 col;
+  if(d<.04)col=mix(vec3(.30,.23,.17),vec3(.37,.28,.20),g);
+  else if(d<.3+.06*sNoise(vec2(q.x*3.,0.))){
+    col=mix(vec3(.58,.44,.30),vec3(.64,.50,.34),g);
+    col=mix(col,vec3(.72,.52,.30),smoothstep(.68,.74,sNoise(vec2(q.x+p.z,q.y)*22.))*.6);
+  }else{
+    float lam=fract(q.y*13.+.12*sNoise(vec2(q.x*2.,0.)));
+    col=mix(vec3(.56,.51,.44),vec3(.49,.45,.39),step(.55,lam))*mix(.93,1.06,g);
+  }
+  if(q.y<-.42+.05*sNoise(vec2(q.x*2.,1.))){
+    float bed=fract(q.y*5.);
+    col=mix(vec3(.43,.42,.41),vec3(.37,.36,.35),g)*mix(.75,1.,smoothstep(0.,.08,bed));
+  }
+  float r=length(vec2(p.x,p.y-cy));
+  col*=mix(.5,1.,smoothstep(0.,.03,abs(r-${SLUMP.radius.toFixed(3)})));
+  return col;
+}
+vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
+
+/** A closed extruded slice of the slope with the layered section shader. */
+function SlopeBody({
+  points,
+  depth,
+  angle,
+}: {
+  points: [number, number][];
+  depth: number;
+  angle: number;
+}) {
+  const signature = JSON.stringify(points);
+  const geometry = useMemo(() => {
+    const g = new THREE.ExtrudeGeometry(
+      new THREE.Shape(points.map((p) => new THREE.Vector2(...p))),
+      {
+        depth,
+        bevelEnabled: false,
+      },
+    );
+    g.translate(0, 0, -depth / 2);
+    return g;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [signature, depth]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  const uniforms = useSectionUniforms({ uAngle: angle });
+  return (
+    <mesh geometry={geometry} castShadow receiveShadow>
+      <SectionMaterial glsl={SLOPE_GLSL} uniforms={uniforms} cacheKey="slump-section" />
+    </mesh>
+  );
+}
+
 const ARC = Array.from({ length: 121 }, (_, i): [number, number] => {
   const x = SLUMP.left + ((SLUMP.right - SLUMP.left) * i) / 120;
   return [x, slumpBase(x)];
@@ -36,7 +94,7 @@ export default function MassMovement() {
         scale="Selected circular slip · 1 scene unit = 10 m · no vertical exaggeration"
         trueScale="Uniform 2-D slope at a common scale · illustrative post-failure rotation · vegetation and roots enlarged"
       >
-        <RockPrism
+        <SlopeBody
           points={[
             [-3.4, slumpSurface(-3.4)],
             ...ARC,
@@ -45,9 +103,22 @@ export default function MassMovement() {
             [-3.4, -1],
           ]}
           depth={2.2}
-          color="#9b8b71"
+          angle={0}
         />
-        <RockPrism points={block} depth={2.19} color="#c5ae81" />
+        <SlopeBody points={block} depth={2.19} angle={angle} />
+        {/* Stable ground above the crown and below the toe keeps its trees. */}
+        {Array.from({ length: 22 }, (_, i) => {
+          const upper = i % 2 === 0,
+            x = upper
+              ? -3.3 + random(i + 11) * (SLUMP.left + 3.1)
+              : SLUMP.right + 0.15 + random(i + 17) * (3.25 - SLUMP.right),
+            y = slumpSurface(x);
+          return (
+            <group key={`s${i}`} position={[x, y, -0.95 + random(i + 23) * 1.7]}>
+              <NaturalTree kind="broadleaf" scale={0.07 + 0.03 * random(i + 29)} seed={i + 41} />
+            </group>
+          );
+        })}
         <Turf
           line={Array.from({ length: 41 }, (_, i): [number, number] => {
             const x = -3.4 + ((SLUMP.left - 3.4 * 0 + 3.4) * i) / 40;

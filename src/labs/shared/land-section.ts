@@ -63,8 +63,9 @@ const ROCKS: Record<Bedrock, string> = {
   granite: `
   vec2 q=vec2(p.x+p.z,p.y);
   vec3 c=mix(${v("#aaa39b")},${v("#8f8983")},g);
-  c=mix(c,${v("#3f3c3b")},smoothstep(.72,.8,sNoise(q*60.))*.55);
-  c=mix(c,${v("#c8a596")},smoothstep(.74,.82,sNoise(q*45.+7.))*.4);
+  c*=mix(.9,1.06,sNoise(q*4.));
+  c=mix(c,${v("#4a4645")},smoothstep(.74,.84,sNoise(q*38.))*.28);
+  c=mix(c,${v("#c8a596")},smoothstep(.74,.84,sNoise(q*30.+7.))*.25);
   float j=fract((p.x+p.z)*.9+.3*sNoise(vec2(p.y*2.,0.)));
   float s=fract(p.y*1.4+.2*sNoise(vec2(p.x+p.z,0.)*2.));
   c*=mix(.62,1.,smoothstep(0.,.015,min(min(j,1.-j),min(s,1.-s))));

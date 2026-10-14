@@ -5,11 +5,27 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { GeomorphicTerrain, WaterRibbon } from "../shared/geomorphic-terrain";
-import { RockMaterial } from "../shared/rock-material";
+import { DebrisField } from "../shared/geomorphic-terrain";
+import { landscapeNoise as noise } from "../shared/landscape-noise";
 import { Tag } from "../shared/kit";
-import { TerrainMaterial, PlantStand } from "../shared/natural-world";
+import { PlantStand } from "../shared/natural-world";
 import { GlacierMaterial } from "../shared/alpine-material";
-import { glacierBed as bed, icePosition, glacierIceGeometry } from "./geometry";
+import { glacierBed as bed, glacierFloor, icePosition, glacierIceGeometry } from "./geometry";
+
+/** Terminal moraine: an arc of unsorted debris at a chosen earlier ice margin. */
+const moraineE = (x: number, z: number) => Math.hypot((x - 2.62) / 0.3, z / 0.72);
+const moraine = (x: number, z: number) =>
+  x < 2.3
+    ? 0
+    : 0.075 * Math.exp(-(((moraineE(x, z) - 1) / 0.22) ** 2)) * (0.8 + 0.4 * noise(x * 9, z * 9));
+const land = (x: number, z: number) => bed(x, z) + moraine(x, z);
+const TRIM = 0.62;
+const SNOW = new THREE.Color("#eef2f3"),
+  SHATTERED = new THREE.Color("#9c978c"),
+  SCOURED = new THREE.Color("#7f8170"),
+  MEADOW = new THREE.Color("#7f9356"),
+  OUTWASH = new THREE.Color("#a59d88"),
+  TILL = new THREE.Color("#8f8775");
 import { Cirques } from "./cirques";
 function Ice({ length }: { length: number }) {
   const geometry = useMemo(() => glacierIceGeometry(length), [length]);
@@ -27,17 +43,30 @@ export default function Glaciers() {
     length = 2.2 + 3.1 * extent,
     vertical = trueScale ? 1 : 1.5,
     showIce = params.ice > 0.5;
-  const height = useMemo(() => bed, []),
+  const height = useMemo(() => land, []),
     colour = useMemo(
-      () => (x: number, y: number, z: number) =>
-        y > 2.0 ? "#eef2f2" : y > 1.85 ? "#c4ccc9" : Math.abs(z) < 0.8 ? "#6b655a" : "#4d6a4f",
+      () => (x: number, y: number, z: number) => {
+        const above = y - glacierFloor(x),
+          n = noise(x * 3 + 1, z * 3),
+          c = MEADOW.clone();
+        // Ice-scoured rock below the trimline, frost-shattered rock and snow above it.
+        c.lerp(SCOURED, THREE.MathUtils.smoothstep(above, 0.18, 0.4) * (0.6 + 0.4 * n));
+        c.lerp(SHATTERED, THREE.MathUtils.smoothstep(above, TRIM - 0.04, TRIM + 0.06));
+        c.lerp(SNOW, THREE.MathUtils.smoothstep(y, 1.75 + 0.2 * n, 1.95));
+        // Valley floor: outwash gravels beyond the ice, and till on the moraine.
+        if (Math.abs(z) < 0.45 && x > 1.2)
+          c.lerp(OUTWASH, 1 - THREE.MathUtils.smoothstep(above, 0.03, 0.12));
+        if (moraine(x, z) > 0.02) c.lerp(TILL, 0.8);
+        return c.getStyle();
+      },
       [],
     );
   const stream = useMemo(
     () =>
       Array.from({ length: 101 }, (_, i) => {
         const x = -2.7 + length + ((5.7 - length) * i) / 100;
-        return [x, bed(x, 0) + 0.02, 0] as [number, number, number];
+        const z = 0.12 * Math.sin(x * 3.1);
+        return [x, land(x, z) + 0.012, z] as [number, number, number];
       }),
     [length],
   );
@@ -61,28 +90,14 @@ export default function Glaciers() {
               <GeomorphicTerrain
                 height={height}
                 colour={colour}
-                material="alpine"
-                resolution={180}
+                resolution={200}
+                base={-0.15}
+                cliff={0.6}
+                mottle={0.08}
+                section={{ rock: "granite", soil: 0.015, regolith: 0.06, soilTone: "thin" }}
               />
               {showIce && <Ice length={length} />}
-              <WaterRibbon path={stream} width={0.04} />
-              <PlantStand
-                kind="conifer"
-                scale={0.055}
-                seed={3}
-                positions={Array.from({ length: 70 }, (_, i) => {
-                  const rand = (n: number) => {
-                    const s = Math.sin(n * 71.37 + 23) * 43758.54;
-                    return s - Math.floor(s);
-                  };
-                  const x = 0.15 + rand(i + 1) * 2.75,
-                    z = (i % 2 ? -1 : 1) * (0.83 + rand(i + 400) * 0.67);
-                  return [x, bed(x, z), z] as [number, number, number];
-                }).filter(
-                  ([x, y, z]) =>
-                    y < 1.25 && Math.abs((bed(x, z + 0.02) - bed(x, z - 0.02)) / 0.04) < 1.6,
-                )}
-              />
+              <WaterRibbon path={stream} width={0.035} color="#7fb3bd" />
               {showIce &&
                 Array.from({ length: 22 }, (_, i) => {
                   const s = (t * 0.6 + i / 22) % 1,
@@ -94,48 +109,32 @@ export default function Glaciers() {
                     </mesh>
                   );
                 })}
-              {showIce &&
-                [0.25, 0.42, 0.58].map((s, i) => (
-                  <Line
-                    key={s}
-                    points={Array.from({ length: 25 }, (_, j) => {
-                      const a = icePosition(
-                        s + 0.006 * Math.sin(j * 2 + i),
-                        (j / 24) * 1.3 - 0.65,
+              {showIce && (
+                <DebrisField
+                  points={Array.from({ length: 160 }, (_, i) => {
+                    const side = i % 2 ? 1 : -1,
+                      a = icePosition(
+                        0.1 + ((i * 0.618) % 1) * 0.82,
+                        side * (0.9 + 0.08 * Math.sin(i)),
                         length,
                       );
-                      return [a[0], a[1] + 0.003, a[2]] as [number, number, number];
-                    })}
-                    color="#527c8d"
-                    lineWidth={1.5}
-                  />
-                ))}
-              {[-1, 1].map((side) => (
-                <Line
-                  key={side}
-                  points={Array.from({ length: 90 }, (_, i) => {
-                    const a = icePosition(0.08 + (i / 89) * 0.84, side * 0.91, length);
-                    return [a[0], a[1] + 0.012, a[2]] as [number, number, number];
+                    return [a[0], a[1] + 0.008, a[2]] as [number, number, number];
                   })}
-                  color="#7c7464"
-                  lineWidth={4}
+                  size={0.018}
+                  color="#8a8274"
                 />
-              ))}
-              {Array.from({ length: 30 }, (_, i) => {
-                const a = -1.15 + (i / 29) * 2.3,
-                  x = 2.68 + 0.22 * Math.cos(a),
-                  z = 0.68 * Math.sin(a);
-                return (
-                  <mesh
-                    key={i}
-                    position={[x, bed(x, z) + 0.025, z]}
-                    rotation={[i * 0.5, i * 0.7, 0]}
-                  >
-                    <dodecahedronGeometry args={[0.04 + 0.025 * Math.sin(i * 7) ** 2, 0]} />
-                    <RockMaterial color="#8f897b" />
-                  </mesh>
-                );
-              })}
+              )}
+              <DebrisField
+                points={Array.from({ length: 70 }, (_, i) => {
+                  const a = -1.2 + ((i * 0.618) % 1) * 2.4,
+                    r = 1 + 0.12 * Math.sin(i * 5),
+                    x = 2.62 + 0.3 * r * Math.cos(a),
+                    z = 0.72 * r * Math.sin(a);
+                  return [x, land(x, z) + 0.015, z] as [number, number, number];
+                })}
+                size={0.035}
+                color="#948c7e"
+              />
               <Arrow from={[-1.8, 1.6, 0]} to={[-0.2, 1.1, 0]} color="#e1bc84" width={1} />
               {showIce && (
                 <>
@@ -182,6 +181,28 @@ export default function Glaciers() {
             </>
           )}
         </group>
+        {params.view <= 0.5 && (
+          <>
+            <PlantStand
+              kind="conifer"
+              scale={0.055}
+              seed={3}
+              positions={Array.from({ length: 70 }, (_, i) => {
+                const rand = (n: number) => {
+                  const s = Math.sin(n * 71.37 + 23) * 43758.54;
+                  return s - Math.floor(s);
+                };
+                const x = 0.15 + rand(i + 1) * 2.75,
+                  z = (i % 2 ? -1 : 1) * (0.83 + rand(i + 400) * 0.67);
+                return [x, land(x, z) * vertical, z] as [number, number, number];
+              }).filter(
+                ([x, y, z]) =>
+                  y < 1.25 * vertical &&
+                  Math.abs((bed(x, z + 0.02) - bed(x, z - 0.02)) / 0.04) < 1.6,
+              )}
+            />
+          </>
+        )}
       </ScienceStudio>
       <ScienceReadout>
         {params.view > 0.5 ? (
