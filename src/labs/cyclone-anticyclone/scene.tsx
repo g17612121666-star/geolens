@@ -6,8 +6,92 @@ import { pressureCentreFlow } from "@/lib/circulation-science";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
-import { CloudVolume } from "../atmosphere-layers/weather-volumes";
-import { TerrainMaterial } from "../shared/natural-world";
+import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
+import { PlantStand, TerrainMaterial } from "../shared/natural-world";
+import { terrainBlockGeometry } from "../shared/science-geometry";
+import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
+import { FlowWaterMaterial } from "../shared/flow-water";
+
+/** Clouds along the example cold front (towering) and warm front (layered): [x, z, height 0–1]. */
+const FRONT_CLOUDS: [number, number, number][] = [
+  [0.5, 0.7, 0.9],
+  [0.85, 1.3, 0.8],
+  [0.85, 2.0, 0.7],
+  [0.7, 2.6, 0.6],
+  [0.7, 0.25, 0.3],
+  [1.3, 0.1, 0.25],
+  [1.9, -0.1, 0.2],
+  [2.5, -0.5, 0.15],
+];
+
+/** An illustrative coastline and hills under the pressure pattern; relief is exaggerated. */
+function regionHeight(x: number, z: number) {
+  const land = fbm(x * 0.32 + 4, z * 0.32 - 1),
+    coast = THREE.MathUtils.smoothstep(land, 0.42, 0.5);
+  return (
+    -0.05 * (1 - coast) +
+    coast * (0.02 + 0.12 * Math.max(0, land - 0.55) + 0.012 * (fbm(x * 3, z * 3) - 0.5))
+  );
+}
+function RegionMap() {
+  const geometry = useMemo(() => {
+    const g = terrainBlockGeometry(regionHeight, 6.8, 6.8, 220, -0.32),
+      p = g.attributes.position,
+      c = new Float32Array(p.count * 3),
+      col = new THREE.Color(),
+      tone = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i),
+        y = p.getY(i),
+        z = p.getZ(i);
+      if (y < 0)
+        col.set("#5f6e6c").lerp(tone.set("#cdb88c"), THREE.MathUtils.smoothstep(y, -0.05, -0.005));
+      else col.copy(farmland(x * 1.3, z * 1.3, 0.36));
+      if (y > 0.03 && fbm(x * 1.5 + 9, z * 1.5) > 0.6) col.lerp(tone.set("#4b673a"), 0.8);
+      if (y > 0.05) col.lerp(tone.set("#7d7461"), THREE.MathUtils.smoothstep(y, 0.05, 0.08));
+      c.set([col.r, col.g, col.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+    return g;
+  }, []);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  const trees = useMemo(() => {
+    const out: [number, number, number][] = [];
+    for (let i = 0; out.length < 120 && i < 2500; i++) {
+      const x = -3.3 + 6.6 * ((i * 0.618034) % 1),
+        z = -3.3 + 6.6 * ((i * 0.7548777) % 1),
+        y = regionHeight(x, z);
+      if (y > 0.03 && fbm(x * 1.5 + 9, z * 1.5) > 0.62) out.push([x, y - 0.003, z]);
+    }
+    return out;
+  }, []);
+  const towns = useMemo(() => {
+    const out = [];
+    for (let i = 0; i < 9; i++) {
+      const a = i * 2.399,
+        r = 0.8 + 2.3 * ((i * 0.618) % 1),
+        x = r * Math.cos(a),
+        z = r * Math.sin(a);
+      if (regionHeight(x, z) > 0.015)
+        out.push(...settlement(x, z, 7, 0.18, 0.05, i, (u, v) => regionHeight(u, v) > 0.01));
+    }
+    return out;
+  }, []);
+  return (
+    <group>
+      <mesh geometry={geometry} receiveShadow>
+        <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
+        <TerrainMaterial attach="material-1" kind="soil" color="#7a6450" />
+      </mesh>
+      <mesh position={[0, -0.004, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[6.798, 6.798]} />
+        <FlowWaterMaterial color="#1f5f7a" opacity={0.88} speed={0.2} />
+      </mesh>
+      <PlantStand kind="broadleaf" positions={trees} scale={0.06} seed={13} />
+      <Buildings items={towns} ground={regionHeight} />
+    </group>
+  );
+}
 export default function PressureCentres() {
   const { params, t } = useLabControls();
   useLabTick(1 / 30);
@@ -22,10 +106,7 @@ export default function PressureCentres() {
         scale="Conceptual pressure centre · surface flow and vertical motion enlarged"
         trueScale="Kinematic illustration · arrow length is not a measured wind speed"
       >
-        <mesh position={[0, -0.18, 0]}>
-          <cylinderGeometry args={[3.4, 3.4, 0.3, 96]} />
-          <TerrainMaterial kind="grass" color="#6f7e66" />
-        </mesh>
+        <RegionMap />
         <PressureDisc high={high} />
         {[0.65, 1.25, 1.85, 2.45, 3.05].map((r, k) =>
           k % 2 ? null : (
@@ -46,7 +127,13 @@ export default function PressureCentres() {
               (_, i) =>
                 [
                   r * Math.cos((i / 128) * Math.PI * 2),
-                  0.01,
+                  Math.max(
+                    0,
+                    regionHeight(
+                      r * Math.cos((i / 128) * Math.PI * 2),
+                      -r * Math.sin((i / 128) * Math.PI * 2),
+                    ),
+                  ) + 0.015,
                   -r * Math.sin((i / 128) * Math.PI * 2),
                 ] as [number, number, number],
             )}
@@ -94,6 +181,41 @@ export default function PressureCentres() {
                 density={24}
                 seed={i + 7}
                 opacity={0.43}
+              />
+            );
+          })}
+        {!high &&
+          FRONT_CLOUDS.map(([x, z, tall], i) => (
+            <group key={`f-${i}`}>
+              <CloudVolume
+                position={[x, 0.42 + tall * 0.35, z]}
+                scale={[0.32, 0.18 + tall * 0.32, 0.32]}
+                density={32}
+                seed={i + 40}
+                opacity={0.6}
+              />
+              <RainStreaks
+                t={t}
+                position={[x, 0.3, z]}
+                width={0.22}
+                depth={0.22}
+                height={0.28}
+                count={tall > 0.5 ? 22 : 12}
+              />
+            </group>
+          ))}
+        {high &&
+          Array.from({ length: 12 }, (_, i) => {
+            const a = i * 2.399,
+              r = 1.6 + 1.2 * ((i * 0.618) % 1);
+            return (
+              <CloudVolume
+                key={`cu-${i}`}
+                position={[r * Math.cos(a), 0.55, -r * Math.sin(a)]}
+                scale={[0.16, 0.1, 0.16]}
+                density={24}
+                seed={i + 80}
+                opacity={0.7}
               />
             );
           })}
@@ -182,8 +304,8 @@ function PressureDisc({ high }: { high: boolean }) {
   }, [high]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
-    <mesh geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.004, 0]}>
-      <meshBasicMaterial vertexColors transparent opacity={0.45} depthWrite={false} />
+    <mesh geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.13, 0]}>
+      <meshBasicMaterial vertexColors transparent opacity={0.3} depthWrite={false} />
     </mesh>
   );
 }
