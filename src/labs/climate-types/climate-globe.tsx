@@ -94,7 +94,7 @@ export default function ClimateTypes() {
         trueScale="The globe uses the same geographic scale in both views"
       >
         <group rotation={[sample.lat * d, Math.PI - sample.lon * d, 0]}>
-          <EarthMesh radius={1.2} sunDirection={new THREE.Vector3(-1, 1, 3)} />
+          <EarthMesh radius={1.2} lighting="viewer" />
           <Classification family={family} />
           <Graticule radius={1.222} />
           <mesh position={point}>
