@@ -111,7 +111,7 @@ function Reservoir({ kind, radius }: { kind: number; radius: number }) {
   );
 }
 export default function CarbonCycle() {
-  const { params, t } = useLabControls();
+  const { params, t, setParam } = useLabControls();
   useLabTick(1 / 65);
   const compact = useIsCompact(),
     positions: [number, number, number][] = compact
@@ -163,6 +163,43 @@ export default function CarbonCycle() {
             />
           </group>
         ))}
+        {/* The whole network: every transfer as a faint arc with a clickable midpoint. */}
+        {budget.fluxes.map((f, k) => {
+          if (k === selected) return null;
+          const fa = new THREE.Vector3(...positions[f.from]),
+            fb = new THREE.Vector3(...positions[f.to]),
+            fd = fb.clone().sub(fa).normalize(),
+            s0 = fa.clone().addScaledVector(fd, radii[f.from] + 0.06),
+            s1 = fb.clone().addScaledVector(fd, -radii[f.to] - 0.06),
+            mid = s0
+              .clone()
+              .lerp(s1, 0.5)
+              .add(new THREE.Vector3(0, 0, 0.45 + 0.12 * (k % 3))),
+            c = new THREE.QuadraticBezierCurve3(s0, mid, s1);
+          return (
+            <group key={k}>
+              <Line
+                points={c.getPoints(32)}
+                color="#9aa9a4"
+                transparent
+                opacity={0.35}
+                lineWidth={1}
+              />
+              <mesh
+                position={c.getPoint(0.5)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setParam("flux", k);
+                }}
+                onPointerOver={() => (document.body.style.cursor = "pointer")}
+                onPointerOut={() => (document.body.style.cursor = "auto")}
+              >
+                <sphereGeometry args={[0.07, 16, 12]} />
+                <meshStandardMaterial color={k === 7 ? "#e6a077" : "#9ed0ca"} roughness={0.5} />
+              </mesh>
+            </group>
+          );
+        })}
         <Line
           points={points}
           color={selected === 7 ? "#e6a077" : "#9ed0ca"}
@@ -193,7 +230,7 @@ export default function CarbonCycle() {
         {budget.total.toFixed(1)} {"Pg C stays fixed."}
         <br />
         {
-          "The selected budget uses 1 Pg C = 10¹² kg of carbon. Each transfer removes the same quantity from one store as it adds to another."
+          "Click any bead on the faint arcs to follow a different transfer. The budget uses 1 Pg C = 10¹² kg of carbon; each transfer removes the same quantity from one store as it adds to another."
         }
       </ScienceReadout>
     </>

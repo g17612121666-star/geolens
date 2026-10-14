@@ -7,10 +7,15 @@ import { latLonToXYZ } from "@/lib/geo";
 import { SUBTROPICAL_GYRES, GYRE_BRANCHES } from "@/lib/ocean-circulation-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
-import { EarthMesh } from "@/components/globe/earth";
+import { EarthMesh, Atmosphere } from "@/components/globe/earth";
 import { FlowFilaments } from "../atmosphere-layers/weather-volumes";
 function Globe() {
-  return <EarthMesh radius={1.65} sunDirection={new THREE.Vector3(2, 1, 4)} />;
+  return (
+    <>
+      <EarthMesh radius={1.65} lighting="viewer" />
+      <Atmosphere radius={1.71} />
+    </>
+  );
 }
 function Gyre({ index, t }: { index: number; t: number }) {
   const g = SUBTROPICAL_GYRES[index];
@@ -55,12 +60,12 @@ function Gyre({ index, t }: { index: number; t: number }) {
           points={p}
           color={
             branches.warm.includes(i)
-              ? "#eda980"
+              ? "#f0703f"
               : branches.cool.includes(i)
-                ? "#8acddd"
-                : "#b5c4b9"
+                ? "#3d9be0"
+                : "#d6dfdb"
           }
-          lineWidth={3}
+          lineWidth={5.5}
         />
       ))}
       {segments
