@@ -30,7 +30,7 @@ export default function Glaciers() {
   const height = useMemo(() => bed, []),
     colour = useMemo(
       () => (x: number, y: number, z: number) =>
-        y > 1.85 ? "#9daba6" : Math.abs(z) < 0.8 ? "#6b655a" : "#405944",
+        y > 2.0 ? "#eef2f2" : y > 1.85 ? "#c4ccc9" : Math.abs(z) < 0.8 ? "#6b655a" : "#4d6a4f",
       [],
     );
   const stream = useMemo(
@@ -137,6 +137,30 @@ export default function Glaciers() {
                 );
               })}
               <Arrow from={[-1.8, 1.6, 0]} to={[-0.2, 1.1, 0]} color="#e1bc84" width={1} />
+              {showIce && (
+                <>
+                  <Line
+                    points={Array.from({ length: 33 }, (_, j) => {
+                      const p = icePosition(0.45, (j / 32) * 2 - 1, length);
+                      return [p[0], p[1] + 0.02, p[2]] as [number, number, number];
+                    })}
+                    color="#f4f7f8"
+                    lineWidth={2.5}
+                    dashed
+                    dashSize={0.06}
+                    gapSize={0.04}
+                  />
+                  <Tag
+                    pos={(() => {
+                      const p = icePosition(0.45, 1, length);
+                      return [p[0], p[1] + 0.35, p[2] + 0.2] as [number, number, number];
+                    })()}
+                    text="Equilibrium line"
+                    note="Above this line more snow accumulates each year than melts (accumulation zone); below it melting and calving exceed snowfall (ablation zone). The balance between the two decides whether the snout advances or retreats."
+                    occlude={false}
+                  />
+                </>
+              )}
               <Tag
                 pos={[-2.4, 2.2, -1.25]}
                 text="Accumulation"

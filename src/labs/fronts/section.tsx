@@ -78,7 +78,7 @@ export default function Fronts() {
             <meshBasicMaterial
               color={["#6eaac9", "#8cc8b9", "#dbab79"][i]}
               transparent
-              opacity={0.2}
+              opacity={0.28}
               depthWrite={false}
             />
           </mesh>
@@ -123,6 +123,30 @@ export default function Fronts() {
             </group>
           );
         })}
+        {/* Towering convective cloud and heavy showers along the steep cold front. */}
+        {!s.occluded && (
+          <group>
+            <CloudVolume
+              position={[s.coldFront / 100 + 0.12, (4 / 100) * f + 0.05, 0]}
+              scale={[0.32, 0.18 + (0.55 * f) / 20, 0.7]}
+              seed={5}
+              density={40}
+            />
+            <RainStreaks
+              t={t}
+              position={[s.coldFront / 100 + 0.12, (2.5 / 100) * f + 0.02, 0]}
+              width={0.22}
+              depth={1.4}
+              height={Math.max(0.04, (2.5 / 100) * f)}
+              count={40}
+            />
+          </group>
+        )}
+        <ChartFront
+          x={(s.occluded ? s.meeting : s.coldFront) / 100}
+          kind={s.occluded ? "occluded" : "cold"}
+        />
+        {!s.occluded && <ChartFront x={s.warmFront / 100} kind="warm" />}
         <Tag
           pos={[-2.4, 0.15, 0.98]}
           text="Cold air"
@@ -153,5 +177,32 @@ export default function Fronts() {
         }
       </ScienceReadout>
     </>
+  );
+}
+
+/** The front's ground trace drawn as on a weather chart; symbols point the way it moves. */
+function ChartFront({ x, kind }: { x: number; kind: "cold" | "warm" | "occluded" }) {
+  const colour = kind === "cold" ? "#2f6fd0" : kind === "warm" ? "#d0402f" : "#8a46b8";
+  return (
+    <group position={[x, 0.006, 0]}>
+      <mesh rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[0.03, 1.8]} />
+        <meshBasicMaterial color={colour} />
+      </mesh>
+      {Array.from({ length: 5 }, (_, i) => {
+        const z = -0.72 + i * 0.36,
+          triangle = kind === "cold" || (kind === "occluded" && i % 2 === 0);
+        return (
+          <mesh key={i} position={[0.05, 0, z]} rotation={[-Math.PI / 2, 0, 0]}>
+            {triangle ? (
+              <circleGeometry args={[0.075, 3]} />
+            ) : (
+              <circleGeometry args={[0.065, 24, -Math.PI / 2, Math.PI]} />
+            )}
+            <meshBasicMaterial color={colour} side={THREE.DoubleSide} />
+          </mesh>
+        );
+      })}
+    </group>
   );
 }

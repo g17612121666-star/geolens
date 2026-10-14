@@ -120,6 +120,7 @@ export default function SoilTexture() {
             </group>
           ))}
         </group>
+        <SettlingJar sand={sand} silt={silt} clay={clay} />
         <Tag pos={[-1.9, 0.04, 1.1]} text="100% sand" occlude={false} />
         <Tag pos={[1.9, 0.04, 1.1]} text="100% silt" occlude={false} />
         <Tag pos={[0, 0.04, -2.15]} text="100% clay" occlude={false} />
@@ -141,9 +142,60 @@ export default function SoilTexture() {
         </span>{" "}
         · {name}
         {
-          ". USDA size limits: sand 0.05–2 mm, silt 0.002–0.05 mm, clay &lt;0.002 mm. Class colours are a key, not soil photographs."
+          ". USDA size limits: sand 0.05–2 mm, silt 0.002–0.05 mm, clay <0.002 mm. The jar shows how the same mix settles in water. Class colours are a key, not soil photographs."
         }
       </ScienceReadout>
     </>
+  );
+}
+
+/**
+ * The classroom jar test: shaken soil settles with sand first, then silt, then clay,
+ * so layer thicknesses follow the selected fractions. Water and glass are schematic.
+ */
+function SettlingJar({ sand, silt, clay }: { sand: number; silt: number; clay: number }) {
+  const height = 1.2,
+    radius = 0.32,
+    layers = [
+      { f: sand, colour: "#d2b27a", name: "Sand" },
+      { f: silt, colour: "#a8906e", name: "Silt" },
+      { f: clay, colour: "#7d6a5c", name: "Clay" },
+    ];
+  let y = 0;
+  return (
+    <group position={[2.6, 0, -0.4]}>
+      {layers.map((l) => {
+        const h = (l.f / 100) * height * 0.62,
+          centre = y + h / 2;
+        y += h;
+        return h > 0.002 ? (
+          <mesh key={l.name} position={[0, centre, 0]}>
+            <cylinderGeometry args={[radius * 0.96, radius * 0.96, h, 40]} />
+            <meshStandardMaterial color={l.colour} roughness={0.95} />
+          </mesh>
+        ) : null;
+      })}
+      <mesh position={[0, y + (height - y) / 2, 0]}>
+        <cylinderGeometry args={[radius * 0.96, radius * 0.96, height - y, 40]} />
+        <meshStandardMaterial color="#9cc8d4" transparent opacity={0.35} roughness={0.1} />
+      </mesh>
+      <mesh position={[0, height / 2, 0]}>
+        <cylinderGeometry args={[radius, radius, height + 0.02, 40, 1, true]} />
+        <meshPhysicalMaterial
+          color="#e8f2f4"
+          transparent
+          opacity={0.22}
+          roughness={0.05}
+          side={THREE.DoubleSide}
+          depthWrite={false}
+        />
+      </mesh>
+      <Tag
+        pos={[0, height + 0.25, 0]}
+        text="Jar test"
+        note="Shake a soil sample with water and let it stand: sand settles within a minute, silt within hours, and clay can take a day or more. Measuring each layer estimates the texture you can then read on the triangle."
+        occlude={false}
+      />
+    </group>
   );
 }
