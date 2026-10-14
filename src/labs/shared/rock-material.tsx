@@ -6,6 +6,7 @@ type RockProps = ThreeElements["meshStandardMaterial"] & {
   repeat?: number;
   /** 0 keeps the bed colour fully saturated; 1 leaves only the photo's grey tone. */
   desaturate?: number;
+  strata?: boolean;
 };
 
 /** Texture hooks must run inside the R3F Canvas tree. */

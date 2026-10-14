@@ -185,7 +185,7 @@ export function StudioEnvironment() {
  */
 export function LabLights({
   ambient = 0.2,
-  keyIntensity = 1.75,
+  keyIntensity = 1.6,
 }: {
   ambient?: number;
   keyIntensity?: number;
@@ -205,8 +205,8 @@ export function LabLights({
       key.current.position
         .copy(target)
         .addScaledVector(offset.normalize(), distance)
-        .addScaledVector(right, -0.55 * distance)
-        .addScaledVector(up, 0.75 * distance);
+        .addScaledVector(right, -0.95 * distance)
+        .addScaledVector(up, 1.05 * distance);
       key.current.target.position.copy(target);
       key.current.target.updateMatrixWorld();
     }

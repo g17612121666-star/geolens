@@ -25,7 +25,7 @@ export default function RiverCapture() {
   );
   const colour = useMemo(
     () => (x: number, y: number, z: number) =>
-      Math.abs(z + 0.9) < 0.2 || (Math.abs(x) < 0.15 && z > head) ? "#a29c7c" : "#789079",
+      Math.abs(z + 0.9) < 0.2 || (Math.abs(x) < 0.15 && z > head) ? "#9a8f6a" : "#6f8f4e",
     [head],
   );
   const incoming = useMemo(
@@ -63,13 +63,13 @@ export default function RiverCapture() {
       >
         <group scale={[1, v, 1]}>
           <GeomorphicTerrain height={height} colour={colour} />
-          <WaterRibbon path={incoming} />
-          <WaterRibbon path={old} width={stage === 2 ? 0.025 : 0.12} />
-          <WaterRibbon path={captured} width={stage === 2 ? 0.13 : 0.07} />
+          <WaterRibbon path={incoming} width={0.2} />
+          <WaterRibbon path={old} width={stage === 2 ? 0.04 : 0.19} />
+          <WaterRibbon path={captured} width={stage === 2 ? 0.2 : 0.11} />
           <group scale={[1, 1 / v, 1]}>
             <PlantStand
               kind="broadleaf"
-              scale={0.06}
+              scale={0.1}
               seed={9}
               positions={Array.from({ length: 80 }, (_, i) => {
                 const x = -2.85 + random(i + 174) * 5.7,

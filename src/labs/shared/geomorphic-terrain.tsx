@@ -42,17 +42,20 @@ export function GeomorphicTerrain({
       {material === "alpine" ? (
         <AlpineMaterial attach="material-0" />
       ) : (
+        // The scene's own colours carry the landform; the texture contributes relief only.
         <TerrainMaterial
           attach="material-0"
           kind={material}
-          color="#ffffff"
+          color="#a8a8a8"
+          map={null}
           vertexColors
           roughness={0.95}
         />
       )}
       <RockMaterial
         attach="material-1"
-        color={material === "alpine" ? "#b6b4ad" : "#aa9276"}
+        color={material === "alpine" ? "#b6b4ad" : "#b39a7c"}
+        strata
         roughness={0.96}
       />
     </mesh>
@@ -62,8 +65,8 @@ export function GeomorphicTerrain({
 export function WaterRibbon({
   path,
   width = 0.12,
-  color = "#6caeba",
-  opacity = 0.8,
+  color = "#3f8db0",
+  opacity = 0.9,
   frozen = false,
 }: {
   path: [number, number, number][];

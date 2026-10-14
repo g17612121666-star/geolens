@@ -98,10 +98,10 @@ export default function RiverErosion() {
         ? Math.abs(z) < 0.12
           ? "#807766"
           : y > 1
-            ? "#92968b"
-            : "#748571"
+            ? "#8f9480"
+            : "#6a8a4a"
         : y > 1.62
-          ? "#838f75"
+          ? "#6d8c4c"
           : y > 1.42
             ? "#9e9f98"
             : "#b69873",
@@ -166,6 +166,26 @@ export default function RiverErosion() {
         ) : (
           <group scale={[1, vertical, 1]}>
             <GeomorphicTerrain height={height} colour={colour} />
+            {mode === 0 &&
+              [-1, 1].map((side) => (
+                <group
+                  key={side}
+                  position={[0, 0, side * 2.003]}
+                  rotation={[0, side < 0 ? Math.PI : 0, 0]}
+                >
+                  {/* Cut-face geology: soil, resistant cap rock, weaker rock below. */}
+                  {[
+                    { y0: 1.62, y1: 1.7, c: "#5b4a36" },
+                    { y0: 1.42, y1: 1.62, c: "#d6cfb8" },
+                    { y0: -0.3, y1: 1.42, c: "#7a6a5c" },
+                  ].map((b) => (
+                    <mesh key={b.y0} position={[0, (b.y0 + b.y1) / 2, 0]}>
+                      <planeGeometry args={[6, b.y1 - b.y0]} />
+                      <RockMaterial color={b.c} desaturate={0.95} strata={b.y0 < 0} />
+                    </mesh>
+                  ))}
+                </group>
+              ))}
             <WaterRibbon path={path} width={mode === 2 ? 0.09 : 0.19} />
             {mode === 0 &&
               Array.from({ length: 28 }, (_, i) => {

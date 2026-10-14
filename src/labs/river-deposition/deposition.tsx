@@ -13,6 +13,7 @@ import {
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { Tag } from "../shared/kit";
 import { landscapeRandom as random } from "../shared/landscape-noise";
+import { PlantStand } from "../shared/natural-world";
 const bend = (x: number) => 0.75 * Math.cos(x * 0.9);
 export default function RiverDeposition() {
   const { params, t, trueScale } = useLabControls();
@@ -51,12 +52,12 @@ export default function RiverDeposition() {
     () => (x: number, y: number, z: number) =>
       mode === 0
         ? z - bend(x) < -0.13 && z - bend(x) > -0.45 && Math.abs(x) < 1.6
-          ? "#cdb58a"
-          : "#7e9475"
+          ? "#d9bf86"
+          : "#6f9150"
         : mode === 1
           ? Math.abs(z) < 0.6
-            ? "#c0aa83"
-            : "#899479"
+            ? "#c9b07e"
+            : "#73924f"
           : y > 0
             ? "#b7ac85"
             : "#928c79",
@@ -91,6 +92,18 @@ export default function RiverDeposition() {
       >
         <group scale={[1, v, 1]}>
           <GeomorphicTerrain height={height} colour={colour} base={-0.18} />
+          {mode < 2 && (
+            <PlantStand
+              kind="broadleaf"
+              scale={0.13}
+              seed={11}
+              positions={Array.from({ length: 40 }, (_, i) => {
+                const x = -2.8 + random(i + 7) * 5.6,
+                  z = -1.8 + random(i + 71) * 3.6;
+                return [x, height(x, z), z] as [number, number, number];
+              }).filter(([x, , z]) => Math.abs(z - (mode === 0 ? bend(x) : 0)) > 0.75)}
+            />
+          )}
           {paths.map((p, i) => (
             <WaterRibbon key={i} path={p} width={mode === 2 ? 0.065 : 0.15} />
           ))}

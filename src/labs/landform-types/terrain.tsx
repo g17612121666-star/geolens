@@ -4,12 +4,14 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { TerrainMaterial, PlantStand } from "../shared/natural-world";
-import { DebrisField } from "../shared/geomorphic-terrain";
+import { DebrisField, WaterRibbon } from "../shared/geomorphic-terrain";
 import { RockMaterial } from "../shared/rock-material";
 import { Tag } from "../shared/kit";
 import { AlpineMaterial } from "../shared/alpine-material";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 const NAMES = ["Mountain", "Hill", "Plateau", "Plain", "Basin"];
+const FIELDS = ["#7d9a5a", "#98ad62", "#c2b56e", "#6c8a50", "#a9b878", "#8a9f5c"];
+const RIVER = (x: number) => 0.55 * Math.sin(x * 1.6) - 0.2;
 function height(kind: number, x: number, z: number) {
   const r = x * x + z * z;
   if (kind === 0) {
@@ -40,6 +42,12 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
     for (let i = 0; i < p.count; i++) {
       const h = height(kind, p.getX(i), p.getZ(i)),
         c = new THREE.Color("#79936c").lerp(new THREE.Color("#b0a58b"), Math.min(1, h / 1.8));
+      // Lowland floors read as farmland: a patchwork of fields in several crops.
+      if (kind === 3 || (kind === 4 && h < 0.2) || (kind === 1 && h < 0.18)) {
+        const cell =
+          Math.floor((p.getX(i) + 5) * 1.7) * 31 + Math.floor((p.getZ(i) + 5) * 1.3) * 17;
+        c.set(FIELDS[Math.abs(Math.floor(Math.sin(cell) * 1000)) % FIELDS.length]);
+      }
       c.multiplyScalar(0.95 + 0.05 * Math.sin(p.getX(i) * 11 + p.getZ(i) * 9));
       colours.set([c.r, c.g, c.b], i * 3);
     }
@@ -56,24 +64,39 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
           <TerrainMaterial
             attach="material-0"
             kind="grass"
-            color="#ffffff"
+            color="#a8a8a8"
+            map={null}
             vertexColors
             roughness={0.96}
             normalScale={new THREE.Vector2(0.2, 0.2)}
           />
         )}
-        <RockMaterial attach="material-1" color="#ac977b" roughness={1} />
+        <RockMaterial attach="material-1" color="#b39a7c" strata roughness={1} />
       </mesh>
+      {kind === 3 && (
+        <WaterRibbon
+          path={Array.from({ length: 81 }, (_, i) => {
+            const px = -2 + (i / 80) * 4,
+              pz = RIVER(px);
+            return [px, height(kind, px, pz) * vertical + 0.012, pz] as [number, number, number];
+          })}
+          width={0.09}
+          color="#5f9fb4"
+        />
+      )}
       <PlantStand
         kind={kind === 0 ? "conifer" : "broadleaf"}
-        scale={0.045}
+        scale={0.07}
         seed={kind + 2}
         positions={
           Array.from({ length: 60 }, (_, i) => {
             const px = -1.8 + random(i + kind * 89) * 3.6,
               pz = -1.7 + random(i + 129) * 3.4;
             return [px, height(kind, px, pz) * vertical, pz];
-          }).filter((p) => height(kind, p[0], p[2]) < 0.5) as [number, number, number][]
+          }).filter(
+            (p) =>
+              height(kind, p[0], p[2]) < 0.5 && (kind !== 3 || Math.abs(p[2] - RIVER(p[0])) > 0.18),
+          ) as [number, number, number][]
         }
       />
       {kind === 0 && (

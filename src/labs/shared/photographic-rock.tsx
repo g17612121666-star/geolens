@@ -11,6 +11,7 @@ export function PhotographicRockMaterial({
   wet = true,
   sceneScale = 10,
   exposure = 1,
+  strata = false,
   ...props
 }: ThreeElements["meshStandardMaterial"] & {
   tint?: string;
@@ -18,6 +19,8 @@ export function PhotographicRockMaterial({
   wet?: boolean;
   sceneScale?: number;
   exposure?: number;
+  /** Horizontal sedimentary banding, for cut faces of layered terrain. */
+  strata?: boolean;
 }) {
   const originals = useTexture([
     "/textures/pbr/rock_face_diff.webp",
@@ -42,6 +45,7 @@ export function PhotographicRockMaterial({
       s.uniforms.rockWet = { value: wet ? 1 : 0 };
       s.uniforms.rockScale = { value: sceneScale / 2.4 };
       s.uniforms.rockExposure = { value: exposure };
+      s.uniforms.rockStrata = { value: strata ? 1 : 0 };
       s.uniforms.cliffAlbedo = { value: maps[0] };
       s.uniforms.cliffHeight = { value: maps[1] };
       s.uniforms.cliffRoughness = { value: maps[2] };
@@ -55,7 +59,7 @@ export function PhotographicRockMaterial({
         );
       s.fragmentShader =
         `varying vec3 cliffPosition; varying vec3 cliffNormal;
-    uniform float rockDesaturate; uniform float rockWet; uniform float rockScale; uniform float rockExposure;
+    uniform float rockDesaturate; uniform float rockWet; uniform float rockScale; uniform float rockExposure; uniform float rockStrata;
     uniform sampler2D cliffAlbedo; uniform sampler2D cliffHeight; uniform sampler2D cliffRoughness;
     vec2 rockOffset(vec2 cell){return fract(sin(vec2(dot(cell,vec2(127.1,311.7)),dot(cell,vec2(269.5,183.3))))*43758.5453)*7.;}
     vec4 rockPatch(sampler2D tex,vec2 uv){
@@ -81,6 +85,14 @@ export function PhotographicRockMaterial({
     rock=mix(rock,vec3(dot(rock,vec3(.2126,.7152,.0722))),rockDesaturate);
     float wet=(1.-smoothstep(.015,.24,cliffPosition.y))*rockWet;
     diffuseColor.rgb*=rock*rockExposure*mix(1.,.56,wet);
+    if(rockStrata>.5){
+      // Gently undulating beds of alternating tone with thin dark partings.
+      float bed=cliffPosition.y*7.+.22*sin(cliffPosition.x*1.3+cliffPosition.z*.9);
+      float f=fract(bed),k=floor(bed);
+      float tone=.86+.22*fract(sin(k*91.7)*437.1);
+      float parting=1.-.3*(1.-smoothstep(0.,.05,f));
+      diffuseColor.rgb*=tone*parting*mix(vec3(1.),vec3(1.06,1.,.92),step(.5,fract(sin(k*12.9)*78.2)));
+    }
   `,
       );
       s.fragmentShader = s.fragmentShader.replace(
@@ -97,7 +109,7 @@ export function PhotographicRockMaterial({
   `,
       );
     },
-    [maps, desaturate, wet, sceneScale, exposure],
+    [maps, desaturate, wet, sceneScale, exposure, strata],
   );
   return (
     <meshStandardMaterial
@@ -108,7 +120,7 @@ export function PhotographicRockMaterial({
       envMapIntensity={0.18}
       {...props}
       onBeforeCompile={shader}
-      customProgramCacheKey={() => "coastal-photographed-rock-v4"}
+      customProgramCacheKey={() => `coastal-photographed-rock-v5-${strata ? "strata" : "plain"}`}
     />
   );
 }
