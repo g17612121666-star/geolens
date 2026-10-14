@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { EarthMesh, Graticule } from "@/components/globe/earth";
+import { EarthMesh, Graticule, Atmosphere } from "@/components/globe/earth";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { noonIrradiance, dailyMeanIrradiance } from "@/lib/insolation-science";
 import { VERIFIED_PHOTOS } from "@/lib/verified-photos";
@@ -24,12 +24,15 @@ export default function SunEarth() {
       <ScienceStudio
         slug="sun-earth"
         lights={false}
+        space
         camera={[3.8, 2.3, -5.5]}
         scale="Parallel sunlight at 1 AU · 1361 W/m² normal to the beam · local noon meridian"
         trueScale="Earth sphere at one scale · arrows and selected patch enlarged"
       >
         <EarthMesh radius={1.3} sunDirection={sun} />
+        <Atmosphere radius={1.345} />
         <Graticule radius={1.307} />
+        <SunBeam point={point} normal={n} sun={sun} />
         <Line
           points={Array.from({ length: 121 }, (_, i) => {
             const a = (((i / 120) * 180 - 90) * Math.PI) / 180;
@@ -140,6 +143,83 @@ export default function SunEarth() {
           </span>
         ) : null}
       </ScienceReadout>
+    </>
+  );
+}
+
+/**
+ * A beam of fixed cross-section arriving at the selected patch, and the ellipse it lights
+ * on the surface. The footprint lengthens by 1/cos(incidence) as latitude moves away from
+ * the subsolar point: the same energy is spread over a larger area.
+ */
+function SunBeam({
+  point,
+  normal,
+  sun,
+}: {
+  point: THREE.Vector3;
+  normal: THREE.Vector3;
+  sun: THREE.Vector3;
+}) {
+  const width = 0.24,
+    length = 1.7,
+    cosine = normal.dot(sun);
+  const beam = useMemo(() => {
+    const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), sun);
+    const centre = point.clone().addScaledVector(sun, length / 2 + 0.01);
+    return { q, centre };
+  }, [point, sun]);
+  const footprint = useMemo(() => {
+    // Right-handed local frame: x across the meridian, y along it (north), z outward normal.
+    const north = new THREE.Vector3()
+      .crossVectors(normal, new THREE.Vector3(1, 0, 0))
+      .normalize()
+      .negate();
+    const across = new THREE.Vector3().crossVectors(north, normal).normalize();
+    const basis = new THREE.Matrix4().makeBasis(across, north, normal);
+    return new THREE.Quaternion().setFromRotationMatrix(basis);
+  }, [normal]);
+  if (cosine <= 0.02) return null;
+  const stretch = Math.min(1 / cosine, 8);
+  return (
+    <>
+      <mesh position={beam.centre} quaternion={beam.q} raycast={() => null}>
+        <boxGeometry args={[width, length, width]} />
+        <meshBasicMaterial
+          color="#ffd98f"
+          transparent
+          opacity={0.16}
+          depthWrite={false}
+          toneMapped={false}
+        />
+      </mesh>
+      <mesh
+        position={point.clone().multiplyScalar(1.012)}
+        quaternion={footprint}
+        scale={[1, stretch, 1]}
+        raycast={() => null}
+      >
+        <circleGeometry args={[width / 2, 48]} />
+        <meshBasicMaterial
+          color="#ffcf73"
+          transparent
+          opacity={0.55}
+          depthWrite={false}
+          toneMapped={false}
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+      <Tag
+        pos={
+          point
+            .clone()
+            .addScaledVector(sun, length + 0.15)
+            .toArray() as [number, number, number]
+        }
+        text={`Same beam · ${stretch.toFixed(2)}× area`}
+        note="Each beam carries the same power. Where sunlight meets the ground at a low angle, that power is spread over a larger patch, so each square metre receives less."
+        occlude={false}
+      />
     </>
   );
 }

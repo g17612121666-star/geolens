@@ -1,7 +1,8 @@
 import { useEffect, useLayoutEffect, useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { EarthMesh } from "@/components/globe/earth";
+import { EarthMesh, Atmosphere } from "@/components/globe/earth";
+import { StarMesh } from "@/components/globe/star";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { LUNAR, lunarPosition, illuminatedFraction } from "@/lib/lunar-science";
@@ -28,7 +29,7 @@ function PotentialEnvelope({ radius, moon }: { radius: number; moon: [number, nu
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry}>
-      <FlowWaterMaterial color="#77bdd7" opacity={0.16} flow={[0, 0]} roughness={0.23} />
+      <FlowWaterMaterial color="#7cc7e2" opacity={0.26} flow={[0, 0]} roughness={0.23} />
     </mesh>
   );
 }
@@ -64,6 +65,7 @@ export default function Tides() {
         slug="tides"
         camera={[2.6, 4.3, 7]}
         lights={false}
+        space
         scale="Earth–Moon sizes enlarged · blue surface is exaggerated tidal potential"
         trueScale="Earth–Moon sizes and separation share one scale · potential symbol remains enlarged"
       >
@@ -72,6 +74,7 @@ export default function Tides() {
         <group rotation={[0, t * 29.53059 * Math.PI * 2, 0]}>
           <EarthMesh radius={radius} sunDirection={new THREE.Vector3(1, 0.15, 0)} />
         </group>
+        {!trueScale && <Atmosphere radius={radius * 1.03} />}
         <PotentialEnvelope radius={radius} moon={moon} />
         <Line points={trace} color="#a5dce6" lineWidth={2} />
         <Line
@@ -84,8 +87,8 @@ export default function Tides() {
                 number,
               ],
           )}
-          color="#536b76"
-          lineWidth={1}
+          color="#8aa3aa"
+          lineWidth={1.3}
         />
         <LunarSurface
           position={position}
@@ -113,9 +116,12 @@ export default function Tides() {
           note="Blue is an enlarged, offset surface representing gravitational tidal potential, not an actual shell of ocean or a predicted water height. Ocean basins, inertia, friction and coastlines determine local tide times and ranges."
           occlude={false}
         />
+        <group position={[3.95, 0.6, 0]}>
+          <StarMesh radius={0.26} />
+        </group>
         <Tag
-          pos={[2.6, 1.1, 0]}
-          text="Sun direction →"
+          pos={[3.95, 1.15, 0]}
+          text="Sun direction"
           note="The solar potential term remains fixed in this Sun-relative view. New and full Moon reinforce the lunar and solar patterns; at quarters they partly oppose."
           occlude={false}
         />

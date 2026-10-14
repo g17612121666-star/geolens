@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
-import { EarthMesh, AxisLine, Graticule, CityMarker } from "@/components/globe/earth";
+import { EarthMesh, AxisLine, Graticule, CityMarker, Atmosphere } from "@/components/globe/earth";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { Arrow, ScienceReadout, ScienceStudio } from "../shared/science-kit";
@@ -50,14 +50,26 @@ export default function Seasons() {
             : "Earth radius and orbit distance share a scale · reset to inspect the tiny Earth"
         }
         lights={false}
+        space
         camera={close ? [3.8, 1.4, 4.2] : [0, 8, 4]}
       >
         {!close && (
           <>
             <Line points={orbit} color="#98b6bc" lineWidth={1.6} />
-            <StarMesh radius={trueScale ? (2.65 * 695700) / 149597870.7 : 0.22} />
+            <StarMesh radius={trueScale ? (2.65 * 695700) / 149597870.7 : 0.4} />
+            {!trueScale &&
+              Array.from({ length: 12 }, (_, m) => {
+                const p = orbitPosition(m / 12, ecc, 2.65);
+                const out = new THREE.Vector3(p[0], 0, p[2]).normalize();
+                return (
+                  <mesh key={m} position={[p[0] + out.x * 0.06, 0, p[2] + out.z * 0.06]}>
+                    <sphereGeometry args={[m % 3 === 0 ? 0.045 : 0.028, 16, 12]} />
+                    <meshBasicMaterial color={m % 3 === 0 ? "#f2d49b" : "#9fb9bf"} />
+                  </mesh>
+                );
+              })}
             <Tag
-              pos={[0, 0.43, 0]}
+              pos={[0, 0.78, 0]}
               text="Sun"
               note="At one focus. Orbit stretch is a hypothetical experiment; Earth's present eccentricity is about 0.0167."
             />
@@ -79,6 +91,7 @@ export default function Seasons() {
         <group position={centre} rotation={[(tilt * Math.PI) / 180, 0, 0]}>
           <group rotation={[0, t * Math.PI * 2 * 365.2422, 0]}>
             <EarthMesh radius={radius} sunDirection={sun} />
+            {!trueScale && <Atmosphere radius={radius * 1.035} />}
             <Graticule radius={radius * 1.004} />
             {!trueScale &&
               [-tilt, tilt, -(90 - tilt), 90 - tilt].map((lat, i) => (

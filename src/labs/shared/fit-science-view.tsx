@@ -1,9 +1,21 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
 /** Fit projected geometry vertices so wide classroom canvases use the available space. */
-export function FitScienceView({ children, revision }: { children: ReactNode; revision: string }) {
+export function FitScienceView({
+  children,
+  revision,
+  ground = true,
+}: {
+  children: ReactNode;
+  revision: string;
+  /** Soft contact shadow under the fitted model so it sits on the stage. */
+  ground?: boolean;
+}) {
+  const [floor, setFloor] = useState<{ y: number; x: number; z: number; size: number } | null>(
+    null,
+  );
   const root = useRef<THREE.Group>(null),
     { camera, size, controls, invalidate } = useThree(),
     view = useLabControls((s) => s.viewKey);
@@ -22,6 +34,22 @@ export function FitScienceView({ children, revision }: { children: ReactNode; re
             box.expandByPoint(object.getWorldPosition(new THREE.Vector3()));
         });
         if (box.isEmpty()) return;
+        const extent = box.getSize(new THREE.Vector3());
+        const nextFloor = {
+          y: box.min.y - Math.max(0.004, extent.y * 0.004),
+          x: (box.min.x + box.max.x) / 2,
+          z: (box.min.z + box.max.z) / 2,
+          size: Math.max(extent.x, extent.z) * 1.35,
+        };
+        setFloor((prev) =>
+          prev &&
+          Math.abs(prev.y - nextFloor.y) < 1e-3 &&
+          Math.abs(prev.size - nextFloor.size) < 1e-3 &&
+          Math.abs(prev.x - nextFloor.x) < 1e-3 &&
+          Math.abs(prev.z - nextFloor.z) < 1e-3
+            ? prev
+            : nextFloor,
+        );
         const orbit = controls as unknown as { target?: THREE.Vector3; update?: () => void } | null;
         const center = box.getCenter(new THREE.Vector3()),
           direction =
@@ -107,5 +135,43 @@ export function FitScienceView({ children, revision }: { children: ReactNode; re
     });
     return () => cancelAnimationFrame(frame);
   }, [camera, size.width, size.height, controls, view, revision, invalidate]);
-  return <group ref={root}>{children}</group>;
+  return (
+    <>
+      <group ref={root}>{children}</group>
+      {ground && floor && <GroundShadow {...floor} />}
+    </>
+  );
+}
+
+let shadowTexture: THREE.CanvasTexture | null = null;
+function softShadowTexture() {
+  if (shadowTexture || typeof document === "undefined") return shadowTexture;
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 128;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+  const g = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+  g.addColorStop(0, "rgba(0,0,0,0.55)");
+  g.addColorStop(0.45, "rgba(0,0,0,0.32)");
+  g.addColorStop(1, "rgba(0,0,0,0)");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, 128, 128);
+  shadowTexture = new THREE.CanvasTexture(canvas);
+  return shadowTexture;
+}
+
+function GroundShadow({ x, y, z, size }: { x: number; y: number; z: number; size: number }) {
+  const map = useMemo(() => softShadowTexture(), []);
+  if (!map) return null;
+  return (
+    <mesh
+      position={[x, y, z]}
+      rotation={[-Math.PI / 2, 0, 0]}
+      renderOrder={-1}
+      raycast={() => null}
+    >
+      <planeGeometry args={[size, size]} />
+      <meshBasicMaterial map={map} transparent depthWrite={false} toneMapped={false} />
+    </mesh>
+  );
 }
