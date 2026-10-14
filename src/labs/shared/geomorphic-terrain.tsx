@@ -46,7 +46,7 @@ export function GeomorphicTerrain({
         <TerrainMaterial
           attach="material-0"
           kind={material}
-          color="#a8a8a8"
+          color="#cfcfcf"
           map={null}
           vertexColors
           roughness={0.95}

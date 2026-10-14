@@ -51,17 +51,61 @@ export function TerrainMaterial({
             ? "sand"
             : "forest_ground_04",
   );
+  // Use the photograph as brightness detail only, normalised by its mean luminance, so the
+  // surface averages the scene's chosen colour instead of the photo's dark olive cast.
+  const textured = props.map !== null && kind !== "snow";
+  const meanLuminance = MEAN_LUMINANCE[kind] ?? 0.1;
+  const detail = useMemo(
+    () => (shader: THREE.WebGLProgramParametersWithUniforms) => {
+      shader.uniforms.detailMean = { value: meanLuminance };
+      shader.fragmentShader = shader.fragmentShader
+        .replace(
+          "#include <map_pars_fragment>",
+          "#include <map_pars_fragment>\nuniform float detailMean;",
+        )
+        .replace(
+          "#include <map_fragment>",
+          `#ifdef USE_MAP
+  vec4 detailTexel = texture2D( map, vMapUv );
+  float detailLum = dot( detailTexel.rgb, vec3( 0.2126, 0.7152, 0.0722 ) );
+  diffuseColor.rgb *= clamp( detailLum / detailMean, 0.45, 1.7 );
+#endif`,
+        );
+    },
+    [meanLuminance],
+  );
   return (
     <meshStandardMaterial
       {...maps}
       {...(kind === "snow" ? { map: null } : {})}
-      color={kind === "grass" ? "#829363" : kind === "snow" ? "#e8f1f2" : "#ffffff"}
+      color={DEFAULT_TINT[kind]}
       normalScale={new THREE.Vector2(0.36, 0.36)}
       roughness={0.93}
       {...props}
+      onBeforeCompile={textured ? detail : undefined}
+      customProgramCacheKey={() => `terrain-detail-${textured ? kind : "plain"}`}
     />
   );
 }
+const DEFAULT_TINT: Record<string, string> = {
+  grass: "#7f9a5c",
+  soil: "#7d6650",
+  sand: "#d6b88a",
+  rock: "#a39889",
+  beach: "#d8c6a4",
+  snow: "#e8f1f2",
+};
+/**
+ * Mean luminance of each diffuse photograph as the shader samples it (sRGB-encoded values),
+ * measured from the files, so the detail factor averages 1.
+ */
+const MEAN_LUMINANCE: Record<string, number> = {
+  grass: 0.247,
+  soil: 0.36,
+  sand: 0.331,
+  rock: 0.291,
+  beach: 0.532,
+};
 /** Two instanced draws per stand, including explicit branches and individual foliage. */
 export function PlantStand({
   positions,

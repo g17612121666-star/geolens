@@ -173,7 +173,7 @@ export function StudioEnvironment() {
     <Environment
       files="/hdri/studio_small_03_1k.hdr"
       background={false}
-      environmentIntensity={0.42}
+      environmentIntensity={0.32}
     />
   );
 }
@@ -184,8 +184,8 @@ export function StudioEnvironment() {
  * student orbits to stays modelled instead of falling into an unlit back face.
  */
 export function LabLights({
-  ambient = 0.2,
-  keyIntensity = 1.6,
+  ambient = 0.12,
+  keyIntensity = 1.2,
 }: {
   ambient?: number;
   keyIntensity?: number;
@@ -223,7 +223,7 @@ export function LabLights({
   return (
     <>
       <StudioEnvironment />
-      <hemisphereLight args={["#b8d6e2", "#2a231c", 0.42]} />
+      <hemisphereLight args={["#c4dbe4", "#2a231c", 0.32]} />
       <ambientLight intensity={ambient} color="#d3dcd8" />
       <directionalLight
         ref={key}

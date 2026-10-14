@@ -43,7 +43,7 @@ export function CatchmentLandscape({
     <group>
       <mesh geometry={geometry} receiveShadow castShadow>
         <TerrainMaterial attach="material-0" kind="grass" color="#75916d" />
-        <RockMaterial attach="material-1" color="#8b795e" />
+        <RockMaterial attach="material-1" color="#b39a7c" strata />
       </mesh>
       <WaterRibbon path={line(-2, 2, 0)} width={0.045 + flow * 0.11} color="#4c97a4" />
       <DebrisField

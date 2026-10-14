@@ -64,7 +64,7 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
           <TerrainMaterial
             attach="material-0"
             kind="grass"
-            color="#a8a8a8"
+            color="#cfcfcf"
             map={null}
             vertexColors
             roughness={0.96}
