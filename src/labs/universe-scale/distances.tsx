@@ -10,7 +10,7 @@ import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 function Body({ name, radius }: { name: string; radius: number }) {
   if (name === "Earth")
-    return <EarthMesh radius={radius} sunDirection={new THREE.Vector3(-1, 0.1, 1)} />;
+    return <EarthMesh radius={radius} sunDirection={new THREE.Vector3(-0.45, 0.3, 1)} />;
   if (name === "Sun" || name === "Proxima Centauri")
     return <StarMesh radius={radius} colour={name === "Sun" ? "#fff0d7" : "#efbd9c"} />;
   return <LunarSurface radius={radius} />;
@@ -83,17 +83,35 @@ export default function UniverseScale() {
           color="#e3c27d"
           lineWidth={1.5}
         />
+        {/* Light pulse: a bright core with a soft additive glow and a fading wake. */}
         <mesh position={[-3 + 6 * t, 0, 0]}>
-          <sphereGeometry args={[0.045, 24, 16]} />
-          <meshBasicMaterial color="#fff0c4" />
+          <sphereGeometry args={[0.04, 24, 16]} />
+          <meshBasicMaterial color="#fff6dc" toneMapped={false} />
         </mesh>
-        {Array.from({ length: 4 }, (_, i) => {
-          const x = -3 + 6 * t - i * 0.07;
+        <sprite position={[-3 + 6 * t, 0, 0]} scale={[0.42, 0.42, 1]}>
+          <spriteMaterial
+            map={glowMap()}
+            color="#ffd27a"
+            transparent
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
+            toneMapped={false}
+          />
+        </sprite>
+        {Array.from({ length: 10 }, (_, i) => {
+          const x = -3 + 6 * t - (i + 1) * 0.06;
           return x >= -3 ? (
-            <mesh key={i} position={[x, 0, 0]}>
-              <sphereGeometry args={[0.034 - i * 0.006, 16, 12]} />
-              <meshBasicMaterial color="#e9bf71" transparent opacity={0.5 - i * 0.1} />
-            </mesh>
+            <sprite key={i} position={[x, 0, 0]} scale={[0.2 - i * 0.016, 0.2 - i * 0.016, 1]}>
+              <spriteMaterial
+                map={glowMap()}
+                color="#e9bf71"
+                transparent
+                opacity={0.5 - i * 0.045}
+                depthWrite={false}
+                blending={THREE.AdditiveBlending}
+                toneMapped={false}
+              />
+            </sprite>
           ) : null;
         })}
         <Tag
@@ -132,4 +150,21 @@ export default function UniverseScale() {
       </ScienceReadout>
     </>
   );
+}
+
+let glow: THREE.CanvasTexture | null = null;
+function glowMap() {
+  if (glow || typeof document === "undefined") return glow;
+  const c = document.createElement("canvas");
+  c.width = c.height = 128;
+  const ctx = c.getContext("2d")!,
+    g = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+  g.addColorStop(0, "rgba(255,255,255,1)");
+  g.addColorStop(0.3, "rgba(255,230,170,0.5)");
+  g.addColorStop(1, "rgba(255,200,120,0)");
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, 128, 128);
+  glow = new THREE.CanvasTexture(c);
+  glow.colorSpace = THREE.SRGBColorSpace;
+  return glow;
 }

@@ -15,8 +15,10 @@ const earthVert = /* glsl */ `
   varying vec2 vUv;
   varying vec3 vNormalW;
   varying vec3 vPosW;
+  varying vec3 vObj;
   void main() {
     vUv = uv;
+    vObj = normalize(position);
     vec4 world = modelMatrix * vec4(position, 1.0);
     vPosW = world.xyz;
     vNormalW = normalize(mat3(modelMatrix) * normal);
@@ -28,7 +30,6 @@ const earthFrag = /* glsl */ `
   uniform sampler2D dayMap;
   uniform sampler2D nightMap;
   uniform sampler2D bumpMap;
-  uniform sampler2D cloudMap;
   uniform float cloudAmount;
   uniform float cloudShift;
   uniform vec3 sunDirection;
@@ -40,7 +41,26 @@ const earthFrag = /* glsl */ `
   varying vec2 vUv;
   varying vec3 vNormalW;
   varying vec3 vPosW;
-  float cloudAt(vec2 uv){return smoothstep(0.16, 0.48, texture2D(cloudMap, uv + vec2(cloudShift, 0.0)).a) * 0.55 * cloudAmount;}
+  varying vec3 vObj;
+  float eh(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
+  float en(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+    return mix(mix(mix(eh(i),eh(i+vec3(1,0,0)),f.x),mix(eh(i+vec3(0,1,0)),eh(i+vec3(1,1,0)),f.x),f.y),
+      mix(mix(eh(i+vec3(0,0,1)),eh(i+vec3(1,0,1)),f.x),mix(eh(i+vec3(0,1,1)),eh(i+vec3(1,1,1)),f.x),f.y),f.z);}
+  float ef(vec3 p){return .5*en(p)+.25*en(p*2.03)+.13*en(p*4.07)+.07*en(p*8.1)+.05*en(p*16.3);}
+  /** Illustrative cloud cover arranged in Earth's climatological belts: the equatorial
+   * convergence band, clearer subtropics and swirling mid-latitude storm tracks. */
+  float cloudAt(vec3 q){
+    float c=cos(cloudShift),s=sin(cloudShift);
+    q=vec3(c*q.x-s*q.z,q.y,s*q.x+c*q.z);
+    float lat=abs(q.y);
+    float itcz=exp(-pow((q.y-.08)/.09,2.));
+    float storms=exp(-pow((lat-.74)/.14,2.));
+    float subtropics=exp(-pow((lat-.42)/.12,2.));
+    vec3 warp=vec3(ef(q*3.+1.),ef(q*3.+5.),ef(q*3.+9.));
+    float d=ef(q*7.+warp*(1.2+1.6*storms));
+    float cover=.3+.32*itcz+.38*storms-.28*subtropics+.1*smoothstep(.85,.95,lat);
+    return smoothstep(1.-cover-.12,1.-cover+.22,d)*.85*cloudAmount;
+  }
   void main() {
     vec3 n = normalize(vNormalW);
     vec3 sun = normalize(sunDirection);
@@ -57,8 +77,8 @@ const earthFrag = /* glsl */ `
     vec3 surfaceNormal=abs(det)<1e-12?n:normalize(abs(det)*n-sign(det)*.002*(dFdx(height)*r1+dFdy(height)*r2));
     float diffuse=max(dot(surfaceNormal,sun),0.0);
     // Clouds: lit by the same Sun, casting a soft shadow slightly away from it.
-    float cloud = cloudAt(vUv);
-    float shadow = cloudAt(vUv + vec2(-0.004, 0.002)) * 0.45;
+    float cloud = cloudAt(vObj);
+    float shadow = cloudAt(normalize(vObj + vec3(-0.012, 0.006, 0.0))) * 0.4;
     vec3 ground = day * (0.08 + 0.92 * sqrt(diffuse)) * (1.0 - shadow);
     vec3 view = normalize(cameraPosition - vPosW);
     float ocean = smoothstep(0.015, 0.09, day.b - max(day.r, day.g));
@@ -143,7 +163,6 @@ export function EarthMesh({
   lighting?: "sun" | "viewer";
 }) {
   const [dayMap, nightMap, bumpMap] = useTexture([DAY, NIGHT, BUMP]);
-  const cloudMap = useCloudMap();
   const showClouds = clouds ?? lighting === "sun";
   const q = useQuality();
   const segs = segments ?? q.sphere;
@@ -166,7 +185,6 @@ export function EarthMesh({
       dayMap: { value: dayMap },
       nightMap: { value: nightMap },
       bumpMap: { value: bumpMap },
-      cloudMap: { value: cloudMap },
       cloudAmount: { value: 1 },
       cloudShift: { value: 0 },
       sunDirection: { value: sunDirection.clone() },
@@ -176,7 +194,7 @@ export function EarthMesh({
       solarPosition: { value: new THREE.Vector3() },
       solarRadius: { value: 0 },
     }),
-    [dayMap, nightMap, bumpMap, cloudMap],
+    [dayMap, nightMap, bumpMap],
   );
   const haloUniforms = useMemo(() => ({ sunDirection: { value: new THREE.Vector3(1, 0, 0) } }), []);
 
@@ -198,7 +216,7 @@ export function EarthMesh({
       const e = eclipseRef.current,
         u = mat.current.uniforms;
       u.cloudAmount.value = showClouds ? 1 : 0;
-      u.cloudShift.value = useLabControls.getState().t * 0.02;
+      u.cloudShift.value = useLabControls.getState().t * 0.25;
       haloUniforms.sunDirection.value.copy(u.sunDirection.value);
       u.eclipseEnabled.value = Boolean(e);
       if (e) {

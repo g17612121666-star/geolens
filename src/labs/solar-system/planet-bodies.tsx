@@ -59,37 +59,83 @@ function MappedBody({
     </mesh>
   );
 }
-/** Procedural cloud material: explicitly a model, never an observational photograph. */
+/** Procedural cloud-top material: explicitly a model, never an observational photograph. */
+const CLOUD_GLSL = `
+float ch(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
+float cn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+  return mix(mix(mix(ch(i),ch(i+vec3(1,0,0)),f.x),mix(ch(i+vec3(0,1,0)),ch(i+vec3(1,1,0)),f.x),f.y),
+    mix(mix(ch(i+vec3(0,0,1)),ch(i+vec3(1,0,1)),f.x),mix(ch(i+vec3(0,1,1)),ch(i+vec3(1,1,1)),f.x),f.y),f.z);}
+float cf(vec3 p){return .5*cn(p)+.25*cn(p*2.03)+.15*cn(p*4.1)+.1*cn(p*8.3);}
+vec3 cloudTop(vec3 q,float kind){
+  float lat=q.y;
+  if(kind<.5){
+    // Venus: sulphuric-acid haze with sheared, Y-shaped streaks.
+    float warp=cf(q*3.+vec3(0.,0.,lat*4.));
+    float streak=cf(vec3(q.x*2.+warp*1.5,lat*9.,q.z*2.+warp*1.5));
+    return mix(vec3(.80,.72,.52),vec3(.96,.90,.74),streak)*(1.-.12*abs(lat));
+  }
+  if(kind<1.5){
+    // Uranus: nearly featureless methane haze with a brighter polar cap.
+    float band=.5+.5*sin(lat*18.+cf(q*4.)*1.5);
+    vec3 c=mix(vec3(.60,.80,.82),vec3(.68,.86,.88),band*.4);
+    return mix(c,vec3(.82,.92,.92),smoothstep(.55,.9,lat));
+  }
+  // Neptune: deep blue bands, a dark storm and bright methane-ice streaks.
+  float band=.5+.5*sin(lat*9.+cf(q*3.)*2.5);
+  vec3 c=mix(vec3(.22,.38,.74),vec3(.30,.47,.80),band*.5+.25*cf(q*6.));
+  vec2 spot=vec2(atan(q.z,q.x)+1.6,lat+.35);
+  c=mix(c,vec3(.10,.18,.44),1.-smoothstep(.08,.14,length(spot*vec2(.6,1.6))));
+  float streak=smoothstep(.62,.8,cf(vec3(q.x*1.5,lat*30.,q.z*1.5)))*smoothstep(.2,.0,abs(lat+.2));
+  return mix(c,vec3(.9,.94,1.),streak*.8);
+}`;
 function CloudBody({ index, radius }: { index: number; radius: number }) {
   const venus = index === 1,
     uranus = index === 6,
     flatten = venus ? 1 : uranus ? 0.9771 : 0.9829,
-    geometry = useMemo(() => {
-      const g = new THREE.SphereGeometry(1, 160, 112),
-        p = g.attributes.position,
-        c = new Float32Array(p.count * 3);
-      for (let k = 0; k < p.count; k++) {
-        const x = p.getX(k),
-          y = p.getY(k),
-          z = p.getZ(k),
-          lat = Math.asin(y),
-          band =
-            Math.sin(lat * (venus ? 9 : 26) + 0.12 * Math.sin(Math.atan2(z, x) * 7)) * 0.5 + 0.5,
-          base = new THREE.Color(venus ? "#dfd3b6" : uranus ? "#a4c7c7" : "#91b3c7"),
-          fine = Math.sin(x * 83 + y * 43 + z * 71) * Math.sin(y * 91 - z * 37) * 0.006;
-        base.multiplyScalar((venus ? 0.94 : 0.97) + (venus ? 0.08 : 0.04) * band + fine);
-        c.set([base.r, base.g, base.b], k * 3);
-      }
-      g.setAttribute("color", new THREE.BufferAttribute(c, 3));
-      return g;
-    }, [index]);
-  useEffect(() => () => geometry.dispose(), [geometry]);
+    kind = venus ? 0 : uranus ? 1 : 2;
+  const compile = useMemo(
+    () => (s: THREE.WebGLProgramParametersWithUniforms) => {
+      s.vertexShader =
+        "varying vec3 cloudPos;\n" +
+        s.vertexShader.replace(
+          "#include <begin_vertex>",
+          "#include <begin_vertex>\ncloudPos=normalize(position);",
+        );
+      s.fragmentShader =
+        "varying vec3 cloudPos;\n" +
+        CLOUD_GLSL +
+        "\n" +
+        s.fragmentShader.replace(
+          "#include <color_fragment>",
+          `#include <color_fragment>\ndiffuseColor.rgb*=pow(cloudTop(cloudPos,${kind.toFixed(1)}),vec3(2.2));`,
+        );
+    },
+    [kind],
+  );
   const r = radius / Math.cbrt(flatten);
   return (
     <group>
-      <mesh geometry={geometry} scale={[r, r * flatten, r]}>
-        <meshStandardMaterial vertexColors roughness={0.83} />
+      <mesh scale={[r, r * flatten, r]}>
+        <sphereGeometry args={[1, 128, 96]} />
+        <meshStandardMaterial
+          color="white"
+          roughness={0.85}
+          onBeforeCompile={compile}
+          customProgramCacheKey={() => `cloud-body-${kind}`}
+        />
       </mesh>
+      {uranus && (
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <ringGeometry args={[radius * 1.95, radius * 2.02, 128]} />
+          <meshBasicMaterial
+            color="#8a979a"
+            transparent
+            opacity={0.2}
+            side={THREE.DoubleSide}
+            depthWrite={false}
+          />
+        </mesh>
+      )}
     </group>
   );
 }
