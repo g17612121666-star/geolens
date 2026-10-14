@@ -1,1 +1,1 @@
-export {default} from './distances';
+export { default } from "./distances";

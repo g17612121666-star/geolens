@@ -1,8 +1,32 @@
-import type { ThreeElements } from '@react-three/fiber';
-import { useRockPbr } from './materials';
-import {PhotographicRockMaterial} from './photographic-rock';
+import type { ThreeElements } from "@react-three/fiber";
+import { useRockPbr } from "./materials";
+import { PhotographicRockMaterial } from "./photographic-rock";
+
+type RockProps = ThreeElements["meshStandardMaterial"] & {
+  repeat?: number;
+  /** 0 keeps the bed colour fully saturated; 1 leaves only the photo's grey tone. */
+  desaturate?: number;
+  strata?: boolean;
+};
+
 /** Texture hooks must run inside the R3F Canvas tree. */
-export function RockMaterial({repeat=3,...props}:ThreeElements['meshStandardMaterial']&{repeat?:number}){
-  return props.map===null?<ColourCodedMaterial repeat={repeat} {...props}/>:<PhotographicRockMaterial desaturate={.82} wet={false} sceneScale={repeat*1.4} exposure={1.55} {...props}/>;
+export function RockMaterial({ repeat = 3, desaturate = 0.82, ...props }: RockProps) {
+  return props.map === null ? (
+    <ColourCodedMaterial repeat={repeat} {...props} />
+  ) : (
+    <PhotographicRockMaterial
+      desaturate={desaturate}
+      wet={false}
+      sceneScale={repeat * 1.4}
+      exposure={1.55}
+      {...props}
+    />
+  );
 }
-function ColourCodedMaterial({repeat,...props}:ThreeElements['meshStandardMaterial']&{repeat:number}){const rock=useRockPbr(repeat);return <meshStandardMaterial {...rock} {...props}/>;}
+function ColourCodedMaterial({
+  repeat,
+  ...props
+}: ThreeElements["meshStandardMaterial"] & { repeat: number }) {
+  const rock = useRockPbr(repeat);
+  return <meshStandardMaterial {...rock} {...props} />;
+}

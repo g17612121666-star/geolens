@@ -1,4 +1,6 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
+import * as THREE from "three";
+import { TerrainMaterial } from "../shared/natural-world";
 import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
@@ -46,6 +48,36 @@ export default function MassMovement() {
           color="#9b8b71"
         />
         <RockPrism points={block} depth={2.19} color="#c5ae81" />
+        <Turf
+          line={Array.from({ length: 41 }, (_, i): [number, number] => {
+            const x = -3.4 + ((SLUMP.left - 3.4 * 0 + 3.4) * i) / 40;
+            return [x, slumpSurface(x)];
+          })}
+        />
+        <Turf
+          line={Array.from({ length: 41 }, (_, i): [number, number] => {
+            const x = SLUMP.right + ((3.4 - SLUMP.right) * i) / 40;
+            return [x, slumpSurface(x)];
+          })}
+        />
+        <Turf
+          line={Array.from({ length: 41 }, (_, i): [number, number] => {
+            const x = SLUMP.left + ((SLUMP.right - SLUMP.left) * i) / 40;
+            const p = rotateSlump(x, slumpSurface(x), angle);
+            return [p[0], p[1]];
+          })}
+        />
+        {/* Water table from the model's pore-pressure heads; it rises with rainfall. */}
+        <Line
+          points={result.slices.map(
+            (sl) => [sl.x, slumpBase(sl.x) + (rain * sl.h) / 10, 1.122] as [number, number, number],
+          )}
+          color="#3d8fd0"
+          lineWidth={2.5}
+          dashed
+          dashSize={0.08}
+          gapSize={0.04}
+        />
         {Array.from(
           { length: 25 },
           (_, i) => SLUMP.left + 0.12 + random(i + 431) * (SLUMP.right - SLUMP.left - 0.24),
@@ -126,6 +158,25 @@ export default function MassMovement() {
         />
       </ScienceStudio>
       <ScienceReadout>
+        <div className="mx-auto mb-2 max-w-md" aria-hidden="true">
+          <div className="relative h-2.5 rounded-full bg-gradient-to-r from-[#d0402f] via-[#e3b04b] to-[#4c9a5b]">
+            <span
+              className="absolute top-[-4px] h-[18px] w-[3px] rounded bg-chalk"
+              style={{
+                left: `${Math.min(100, Math.max(0, ((result.factor - 0.5) / 1.5) * 100))}%`,
+              }}
+            />
+            <span
+              className="absolute top-[-6px] h-[22px] w-px bg-chalk/60"
+              style={{ left: "33.3%" }}
+            />
+          </div>
+          <div className="mt-1 flex justify-between text-[11px] text-mist">
+            <span>0.5 · fails</span>
+            <span>1.0</span>
+            <span>2.0 · stable</span>
+          </div>
+        </div>
         {"Initial-slope factor of safety "}
         {result.factor.toFixed(2)} {"· maximum pore pressure "}
         {result.maxPressure.toFixed(1)} {"kPa. "}
@@ -138,5 +189,25 @@ export default function MassMovement() {
         }
       </ScienceReadout>
     </>
+  );
+}
+
+/** A thin grassed skin along a 2-D surface line, extruded across the section. */
+function Turf({ line }: { line: [number, number][] }) {
+  const key = line.map((p) => p.join(",")).join(";");
+  const geometry = useMemo(() => {
+    const shape = new THREE.Shape([
+      ...line.map(([x, y]) => new THREE.Vector2(x, y + 0.03)),
+      ...[...line].reverse().map(([x, y]) => new THREE.Vector2(x, y - 0.01)),
+    ]);
+    const g = new THREE.ExtrudeGeometry(shape, { depth: 2.22, bevelEnabled: false });
+    g.translate(0, 0, -1.11);
+    return g;
+  }, [key]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return (
+    <mesh geometry={geometry} receiveShadow>
+      <TerrainMaterial kind="grass" color="#7c9b55" />
+    </mesh>
   );
 }

@@ -1,1 +1,1 @@
-export {default} from './wind-landforms';
+export { default } from "./wind-landforms";

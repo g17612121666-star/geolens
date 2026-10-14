@@ -62,6 +62,7 @@ export default function SolarSystem() {
         slug="solar-system"
         camera={mode === 0 ? [1, 7, 7] : [0, 1.4, 9]}
         lights={mode !== 0}
+        space
         scale={
           mode === 0
             ? `Orbits use one AU scale · bodies ${trueScale ? "at the same scale" : "enlarged for visibility"}`
@@ -77,8 +78,8 @@ export default function SolarSystem() {
       >
         {mode === 0 ? (
           <>
-            <ambientLight intensity={0.06} />
-            <pointLight position={[0, 0, 0]} intensity={3} decay={0} />
+            <ambientLight intensity={0.16} />
+            <pointLight position={[0, 0, 0]} intensity={3.2} decay={0} />
             <StarMesh radius={trueScale ? (695700 / AU_KM) * scale : all ? 0.12 : 0.3} />
             {indices.map((i) => {
               const pos = planetPosition(i, years).map((v) => v * scale) as [
@@ -92,7 +93,7 @@ export default function SolarSystem() {
                   ? planetRadiusAtOrbitScale(i, scale)
                   : all
                     ? Math.max(0.05, 0.22 * Math.sqrt(PLANETS[i].radius / 69911))
-                    : 0.18 * Math.sqrt(PLANETS[i].radius / 6371.0084);
+                    : 0.3 * Math.sqrt(PLANETS[i].radius / 6371.0084);
               return (
                 <group key={i}>
                   <Orbit index={i} scale={scale} />

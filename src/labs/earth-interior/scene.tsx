@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Line, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
@@ -129,18 +129,95 @@ function CoreMaterial({ solid, attach }: { solid: boolean; attach: string }) {
     />
   );
 }
+/** Approximate geotherm (depth km → °C), smoothed from standard textbook profiles. */
+const GEOTHERM: [number, number][] = [
+  [0, 15],
+  [35, 500],
+  [100, 1300],
+  [410, 1500],
+  [660, 1900],
+  [2700, 2500],
+  [2891, 3700],
+  [2892, 4000],
+  [5150, 5300],
+  [6371, 5400],
+];
+export const HEAT_STOPS = ["#3b2a24", "#7a2412", "#c2401a", "#ec7d1f", "#f9c64a", "#fff4c8"];
+const heatVertex = /* glsl */ `
+  varying float vRadius;
+  varying vec3 vNormalW;
+  varying vec3 vPosW;
+  void main() {
+    vRadius = length(position);
+    vec4 w = modelMatrix * vec4(position, 1.0);
+    vPosW = w.xyz;
+    vNormalW = normalize(mat3(modelMatrix) * normal);
+    gl_Position = projectionMatrix * viewMatrix * w;
+  }
+`;
+const heatFragment = /* glsl */ `
+  uniform float depths[10];
+  uniform float temps[10];
+  uniform vec3 stops[6];
+  varying float vRadius;
+  varying vec3 vNormalW;
+  varying vec3 vPosW;
+  vec3 ramp(float x) {
+    float s = clamp(x, 0.0, 1.0) * 5.0;
+    int i = int(floor(min(s, 4.999)));
+    vec3 a = stops[0], b = stops[1];
+    for (int k = 0; k < 5; k++) if (k == i) { a = stops[k]; b = stops[k + 1]; }
+    return mix(a, b, fract(min(s, 4.999)));
+  }
+  void main() {
+    float depth = (1.0 - clamp(vRadius, 0.0, 1.0)) * 6371.0;
+    float t = temps[9];
+    for (int k = 0; k < 9; k++) {
+      if (depth >= depths[k] && depth <= depths[k + 1]) {
+        t = mix(temps[k], temps[k + 1], (depth - depths[k]) / max(depths[k + 1] - depths[k], 0.001));
+      }
+    }
+    vec3 colour = ramp(t / 5400.0);
+    vec3 view = normalize(cameraPosition - vPosW);
+    float facing = abs(dot(normalize(vNormalW), view));
+    gl_FragColor = vec4(colour * (0.72 + 0.28 * facing), 1.0);
+    #include <colorspace_fragment>
+  }
+`;
+function HeatMaterial({ attach }: { attach: string }) {
+  const uniforms = useMemo(
+    () => ({
+      depths: { value: GEOTHERM.map((g) => g[0]) },
+      temps: { value: GEOTHERM.map((g) => g[1]) },
+      stops: { value: HEAT_STOPS.map((c) => new THREE.Color(c)) },
+    }),
+    [],
+  );
+  return (
+    <shaderMaterial
+      attach={attach}
+      uniforms={uniforms}
+      vertexShader={heatVertex}
+      fragmentShader={heatFragment}
+      side={THREE.DoubleSide}
+    />
+  );
+}
+
 function Layer({
   index,
   inner,
   outer,
   opening,
   offset,
+  heat,
 }: {
   index: number;
   inner: number;
   outer: number;
   opening: number;
   offset: number;
+  heat: boolean;
 }) {
   const day = useTexture("/textures/earth-day.jpg"),
     bump = useTexture("/textures/earth-bump.jpg"),
@@ -172,22 +249,30 @@ function Layer({
                 metalness={l.metal}
                 side={THREE.DoubleSide}
               />
-              <PhotographicRockMaterial
-                attach="material-1"
-                color={index === 0 ? "#c9b795" : "#b4ac87"}
-                desaturate={0.85}
-                wet={false}
-                sceneScale={6}
-                exposure={1.55}
-                roughness={l.rough}
-                metalness={l.metal}
-                side={THREE.DoubleSide}
-              />
+              {heat ? (
+                <HeatMaterial attach="material-1" />
+              ) : (
+                <PhotographicRockMaterial
+                  attach="material-1"
+                  color={index === 0 ? "#c9b795" : "#b4ac87"}
+                  desaturate={0.85}
+                  wet={false}
+                  sceneScale={6}
+                  exposure={1.55}
+                  roughness={l.rough}
+                  metalness={l.metal}
+                  side={THREE.DoubleSide}
+                />
+              )}
             </>
           ) : (
             <>
               <CoreMaterial attach="material-0" solid={index === 3} />
-              <CoreMaterial attach="material-1" solid={index === 3} />
+              {heat ? (
+                <HeatMaterial attach="material-1" />
+              ) : (
+                <CoreMaterial attach="material-1" solid={index === 3} />
+              )}
             </>
           )}
         </mesh>
@@ -312,6 +397,7 @@ export default function EarthInterior() {
   const radii = [1, 1 - (35 / 6371) * (trueScale ? 1 : 4), 3480 / 6371, 1221 / 6371, 0];
   const opening = slice * Math.PI * 0.95,
     waves = params.waves > 0.5;
+  const [heat, setHeat] = useState(false);
   return (
     <>
       <ScienceStudio
@@ -331,6 +417,7 @@ export default function EarthInterior() {
               inner={radii[i + 1]}
               opening={opening}
               offset={explode * (3 - i) * 0.55}
+              heat={heat}
             />
           ))}
           {slice > 0.05 && explode <= 0.01 && <DepthRuler opening={opening} />}{" "}
@@ -338,6 +425,36 @@ export default function EarthInterior() {
         </group>
       </ScienceStudio>
       <ScienceReadout>
+        <div className="pointer-events-auto mb-2 flex flex-wrap items-center justify-center gap-2">
+          <button
+            type="button"
+            aria-pressed={!heat}
+            onClick={() => setHeat(false)}
+            className={`min-h-11 rounded-lg border px-3 ${!heat ? "border-glacier text-glacier" : "border-white/15"}`}
+          >
+            {"Materials"}
+          </button>
+          <button
+            type="button"
+            aria-pressed={heat}
+            onClick={() => setHeat(true)}
+            className={`min-h-11 rounded-lg border px-3 ${heat ? "border-glacier text-glacier" : "border-white/15"}`}
+          >
+            {"Temperature"}
+          </button>
+          {heat && (
+            <span className="flex items-center gap-2 text-xs">
+              {"15 °C"}
+              <span
+                className="inline-block h-2.5 w-36 rounded-full"
+                style={{ background: `linear-gradient(90deg, ${HEAT_STOPS.join(",")})` }}
+              />
+              {"≈5,400 °C"}
+            </span>
+          )}
+        </div>
+        {heat &&
+          "Cut faces show approximate temperature with depth: it climbs steeply through the crust, slowly through the mantle, then jumps by several hundred degrees across the core–mantle boundary. "}
         {compact && (
           <div className="mb-2 grid grid-cols-2 gap-1 text-left">
             {layers.map((layer, i) => (

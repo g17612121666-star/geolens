@@ -1,1 +1,1 @@
-export {default} from './glacier';
+export { default } from "./glacier";

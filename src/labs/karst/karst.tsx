@@ -16,7 +16,15 @@ import { Tag } from "../shared/kit";
 import { PhotographicRockMaterial } from "../shared/photographic-rock";
 import { karstRoof, karstSlab, caveFloor, caveCeiling } from "./geometry";
 function Limestone() {
-  return <PhotographicRockMaterial tint="#e7e5dc" desaturate={0.93} wet={false} sceneScale={8} />;
+  return (
+    <PhotographicRockMaterial
+      tint="#efece2"
+      desaturate={0.9}
+      wet={false}
+      sceneScale={8}
+      exposure={1.85}
+    />
+  );
 }
 function Slab({
   upper,

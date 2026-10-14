@@ -1,16 +1,21 @@
-import {useMemo} from 'react';
-import * as THREE from 'three';
+import { useMemo } from "react";
+import * as THREE from "three";
 
-export const cloudNoiseGLSL=`
+export const cloudNoiseGLSL = `
 float hash3(vec3 p){p=fract(p*.3183099+vec3(.1,.2,.3));p*=17.;return fract(p.x*p.y*p.z*(p.x+p.y+p.z));}
 float noise3(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(hash3(i),hash3(i+vec3(1,0,0)),f.x),mix(hash3(i+vec3(0,1,0)),hash3(i+vec3(1,1,0)),f.x),f.y),mix(mix(hash3(i+vec3(0,0,1)),hash3(i+vec3(1,0,1)),f.x),mix(hash3(i+vec3(0,1,1)),hash3(i+vec3(1,1,1)),f.x),f.y),f.z);}
 float cloudNoise(vec3 p){return noise3(p)*.57+noise3(p*2.07)*.28+noise3(p*4.13)*.15;}
 `;
 
 /** Camera-facing density fragments: continuous cloud banks without bead-shaped shells. */
-export function CloudPuffMaterial({opacity=.75}:{opacity?:number}){
- const uniforms=useMemo(()=>({opacity:{value:opacity}}),[opacity]);
- return <shaderMaterial transparent depthWrite={false} uniforms={uniforms} vertexShader={`
+export function CloudPuffMaterial({ opacity = 0.75 }: { opacity?: number }) {
+  const uniforms = useMemo(() => ({ opacity: { value: opacity } }), [opacity]);
+  return (
+    <shaderMaterial
+      transparent
+      depthWrite={false}
+      uniforms={uniforms}
+      vertexShader={`
   varying vec2 puffUv;varying float puffSeed;
   void main(){
    puffUv=uv;puffSeed=float(gl_InstanceID)*.173;
@@ -18,7 +23,8 @@ export function CloudPuffMaterial({opacity=.75}:{opacity?:number}){
    centre.xy+=position.xy*vec2(length(mv[0].xyz),length(mv[1].xyz));
    gl_Position=projectionMatrix*centre;
   }
- `} fragmentShader={`
+ `}
+      fragmentShader={`
   varying vec2 puffUv;varying float puffSeed;uniform float opacity;
   ${cloudNoiseGLSL}
   void main(){
@@ -31,14 +37,16 @@ export function CloudPuffMaterial({opacity=.75}:{opacity?:number}){
    #include <tonemapping_fragment>
    #include <colorspace_fragment>
   }
- `}/>;
+ `}
+    />
+  );
 }
 
-export const cloudVertex=`
+export const cloudVertex = `
  varying vec3 rayOrigin; varying vec3 rayPoint;
  void main(){rayOrigin=(inverse(modelMatrix)*vec4(cameraPosition,1.)).xyz;rayPoint=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}
 `;
-export const cloudFragment=`
+export const cloudFragment = `
  precision highp float;
  varying vec3 rayOrigin; varying vec3 rayPoint;
  uniform float seed; uniform float opacity;

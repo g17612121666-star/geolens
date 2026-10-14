@@ -6,6 +6,7 @@ import { waveExperiment } from "@/lib/seismic-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { RockMaterial } from "../shared/rock-material";
+import { TerrainMaterial } from "../shared/natural-world";
 function Wavefront({ radius, depth, color }: { radius: number; depth: number; color: string }) {
   if (radius < 0.001) return null;
   const start = radius > depth ? Math.acos(depth / radius) : 0;
@@ -48,28 +49,25 @@ export default function Earthquakes() {
       <ScienceStudio
         slug="earthquakes"
         camera={[1.5, 1.3, 8]}
+        ground={false}
         scale="One geometric scale · 1 scene unit = 50 km · hypocentre marker enlarged"
         trueScale="P = 6 km/s · S = 3.5 km/s in a uniform solid · no ray refraction"
       >
         <mesh position={[0, -2.1, 0]}>
           <boxGeometry args={[7.2, 4.2, 3.4]} />
           <RockMaterial
-            color="#897a66"
+            color="#b88f6a"
+            desaturate={0.9}
+            strata
             roughness={1}
             transparent
-            opacity={0.16}
+            opacity={0.3}
             depthWrite={false}
           />
         </mesh>
         <mesh position={[0, -0.03, 0]}>
           <boxGeometry args={[7.2, 0.045, 3.4]} />
-          <meshStandardMaterial
-            color="#718168"
-            transparent
-            opacity={0.2}
-            depthWrite={false}
-            roughness={1}
-          />
+          <TerrainMaterial kind="grass" color="#7c9b55" transparent opacity={0.85} />
         </mesh>
         <Line
           points={[

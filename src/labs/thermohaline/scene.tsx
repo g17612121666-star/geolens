@@ -1,3 +1,5 @@
+import { useEffect, useMemo } from "react";
+import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
@@ -70,6 +72,22 @@ export default function Thermohaline() {
               ]}
               opacity={0.42}
             />
+            <TemperatureFace bottom={y(4000)} />
+            {/* Sea ice at the high-latitude end, where brine rejection helps water sink. */}
+            {Array.from({ length: 9 }, (_, i) => (
+              <mesh
+                key={`ice-${i}`}
+                position={[
+                  1.35 + (i % 3) * 0.22,
+                  0.012,
+                  -0.55 + Math.floor(i / 3) * 0.5 + 0.08 * Math.sin(i * 3),
+                ]}
+                rotation={[0, i * 0.7, 0]}
+              >
+                <cylinderGeometry args={[0.09 + 0.03 * Math.sin(i * 5) ** 2, 0.1, 0.025, 7]} />
+                <meshStandardMaterial color="#eef5f7" roughness={0.55} />
+              </mesh>
+            ))}
             <FlowFilaments
               paths={Array.from({ length: 7 }, (_, k) =>
                 Array.from({ length: 97 }, (_, i) => {
@@ -204,5 +222,36 @@ export default function Thermohaline() {
         )}
       </ScienceReadout>
     </>
+  );
+}
+
+/**
+ * Front-face temperature section: warm surface water at low latitude (left) cooling
+ * towards the pole (right) and with depth. Colours are schematic, not measured data.
+ */
+function TemperatureFace({ bottom }: { bottom: number }) {
+  const geometry = useMemo(() => {
+    const g = new THREE.PlaneGeometry(4, -bottom, 40, 24),
+      p = g.attributes.position,
+      colours = new Float32Array(p.count * 3),
+      warm = new THREE.Color("#e39a5c"),
+      cool = new THREE.Color("#7fb6cf"),
+      cold = new THREE.Color("#25507a"),
+      c = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      const across = (p.getX(i) + 2) / 4,
+        depth = 1 - (p.getY(i) + -bottom / 2) / -bottom;
+      const surface = warm.clone().lerp(cool, across);
+      c.copy(surface).lerp(cold, Math.min(1, Math.pow(depth, 0.45) + across * 0.25));
+      colours.set([c.r, c.g, c.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(colours, 3));
+    return g;
+  }, [bottom]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return (
+    <mesh geometry={geometry} position={[0, bottom / 2, 0.805]}>
+      <meshBasicMaterial vertexColors transparent opacity={0.55} depthWrite={false} />
+    </mesh>
   );
 }

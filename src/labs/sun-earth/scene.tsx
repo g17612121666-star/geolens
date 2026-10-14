@@ -1,1 +1,1 @@
-export {default} from './insolation';
+export { default } from "./insolation";

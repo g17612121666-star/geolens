@@ -3,7 +3,8 @@ import { useTexture } from "@react-three/drei";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
-import { EarthMesh } from "@/components/globe/earth";
+import { EarthMesh, Atmosphere } from "@/components/globe/earth";
+import { StarMesh } from "@/components/globe/star";
 import {
   LUNAR,
   lunarPosition,
@@ -131,7 +132,7 @@ function LunarShadow({ p, phase }: { p: [number, number, number]; phase: number 
         dim={lunarEclipse(p) === "Total lunar eclipse"}
       />
       <Tag
-        pos={[0, shadowRadii(LUNAR.earth, LUNAR.au, -x).umbra * scale + 0.2, 0]}
+        pos={[-1.15, shadowRadii(LUNAR.earth, LUNAR.au, -x).umbra * scale + 0.2, 0]}
         text="Umbra"
         note="Earth blocks the entire solar disc inside this cone. Earth's atmosphere is omitted from the geometric edge."
         occlude={false}
@@ -262,6 +263,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
         key={disc ? "disc" : focus ? (solar ? "solar" : "lunar") : "orbit"}
         slug={slug}
         lights={false}
+        space
         camera={disc ? [0, 0, 4.5] : focus ? (solar ? [7, 1, 2] : [1.6, 1, 7]) : [1.8, 4.5, 6.6]}
         scale={
           disc
@@ -296,8 +298,9 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
           <>
             <directionalLight position={[10, 0, 0]} intensity={3} />
             <ambientLight intensity={0.025} />
-            <Line points={orbit} color="#526369" />
+            <Line points={orbit} color="#8aa3aa" lineWidth={1.3} />
             <EarthMesh radius={radius} sunDirection={new THREE.Vector3(1, 0, 0)} />
+            {!physical && <Atmosphere radius={radius * 1.035} />}
             <LunarSurface
               position={position}
               radius={(radius * LUNAR.moon) / LUNAR.earth}
@@ -320,7 +323,15 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               occlude={false}
               note="The phase is the illuminated fraction viewed from Earth. It is not Earth's shadow falling on the Moon."
             />
-            <Tag pos={[2.5, 0.8, 0]} text="Sunlight ←" occlude={false} />
+            <group position={[3.35, 0, 0]}>
+              <StarMesh radius={0.24} />
+              <Tag
+                pos={[0, 0.5, 0]}
+                text="Sunlight"
+                note="The Sun is far beyond this view: about 390 times farther than the Moon. Its light reaches Earth and Moon as parallel rays from this side."
+                occlude={false}
+              />
+            </group>
             {slug === "tides" && <TidalEnvelope radius={radius} moon={p} />}
           </>
         )}

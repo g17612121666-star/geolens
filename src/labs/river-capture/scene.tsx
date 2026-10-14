@@ -1,1 +1,1 @@
-export {default} from './capture';
+export { default } from "./capture";

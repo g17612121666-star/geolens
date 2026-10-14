@@ -2,6 +2,7 @@ import { Children, isValidElement, useEffect, useRef, type ReactNode } from "rea
 import { ScientificText } from "@/components/scientific-text";
 import * as THREE from "three";
 import { LabStudio } from "./studio";
+import { Starfield } from "@/components/globe/earth";
 import { LAB_BY_SLUG } from "@/lib/labs/catalog";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useIsCompact } from "@/hooks/use-media";
@@ -14,6 +15,9 @@ export function ScienceStudio({
   trueScale,
   camera = [4, 2.3, 6],
   lights = true,
+  space = false,
+  ground,
+  horizon = false,
 }: {
   slug: string;
   children: ReactNode;
@@ -21,6 +25,12 @@ export function ScienceStudio({
   trueScale?: string;
   camera?: [number, number, number];
   lights?: boolean;
+  /** Astronomy scenes: deep-space background and stars instead of the page colour. */
+  space?: boolean;
+  /** Soft ground shadow under the model; on by default except in space. */
+  ground?: boolean;
+  /** Ground-based scene: stop the camera a little below the horizon. */
+  horizon?: boolean;
 }) {
   const lab = LAB_BY_SLUG[slug];
   const revision = useLabControls((s) =>
@@ -53,6 +63,9 @@ export function ScienceStudio({
           groundShadows={false}
           fit
           fitRevision={revision}
+          fitGround={ground ?? !space}
+          backdrop={space ? <SpaceBackdrop /> : undefined}
+          maxPolarAngle={horizon ? Math.PI * 0.56 : undefined}
           target={[0, 0, 0]}
           minDistance={0.3}
           maxDistance={28}
@@ -83,6 +96,15 @@ export function ScienceStudio({
           </button>
         </div>
       </details>
+    </>
+  );
+}
+
+function SpaceBackdrop() {
+  return (
+    <>
+      <color attach="background" args={["#05070c"]} />
+      <Starfield />
     </>
   );
 }

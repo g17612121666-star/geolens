@@ -4,8 +4,58 @@ import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { TIME_WINDOWS, timeHelix, timeUnit, GEOLOGIC_UNITS } from "@/lib/geologic-time-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
-import { Tag } from "../shared/kit";
-function Coil({ span }: { span: number }) {
+import { InspectHotspot, Tag } from "../shared/kit";
+const EVENTS = [
+  {
+    age: 3500,
+    name: "Early life",
+    note: "Microbial fossils and stromatolites show life existed by at least about 3.5 billion years ago.",
+  },
+  {
+    age: 2400,
+    name: "Great Oxidation",
+    note: "Oxygen from photosynthesising microbes began to accumulate in the atmosphere about 2.4 billion years ago.",
+  },
+  {
+    age: 539,
+    name: "Cambrian explosion",
+    note: "Most major animal groups appear in the fossil record within a few tens of millions of years after about 539 Ma.",
+  },
+  {
+    age: 250,
+    name: "Pangaea",
+    note: "The supercontinent Pangaea was fully assembled around 250 Ma and began breaking apart in the Mesozoic.",
+  },
+  {
+    age: 66,
+    name: "K–Pg extinction",
+    note: "An asteroid impact 66 million years ago ended the age of non-avian dinosaurs and opened the Cenozoic.",
+  },
+  {
+    age: 0.3,
+    name: "Homo sapiens",
+    note: "Our species appears about 300,000 years ago: a sliver of the coil's final turn even in the shortest window.",
+  },
+];
+const HELIX_SAMPLES = Array.from(
+  { length: 1441 },
+  (_, i) => new THREE.Vector3(...timeHelix(i / 1440)),
+);
+/** Nearest fraction along the coil to a clicked point. */
+function fractionAt(point: THREE.Vector3) {
+  let best = 0,
+    distance = Infinity;
+  HELIX_SAMPLES.forEach((p, i) => {
+    const d = p.distanceToSquared(point);
+    if (d < distance) {
+      distance = d;
+      best = i / 1440;
+    }
+  });
+  return best;
+}
+
+function Coil({ span, onPick }: { span: number; onPick: (fraction: number) => void }) {
   const geometry = useMemo(() => {
     const curve = new THREE.CatmullRomCurve3(
         Array.from({ length: 721 }, (_, i) => new THREE.Vector3(...timeHelix(i / 720))),
@@ -23,8 +73,23 @@ function Coil({ span }: { span: number }) {
   }, [span]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
-    <mesh geometry={geometry}>
-      <meshStandardMaterial vertexColors roughness={0.45} metalness={0.2} />
+    <mesh
+      geometry={geometry}
+      castShadow
+      onClick={(e) => {
+        e.stopPropagation();
+        onPick(fractionAt(e.point));
+      }}
+      onPointerOver={() => (document.body.style.cursor = "pointer")}
+      onPointerOut={() => (document.body.style.cursor = "auto")}
+    >
+      <meshPhysicalMaterial
+        vertexColors
+        roughness={0.38}
+        metalness={0.05}
+        clearcoat={0.6}
+        clearcoatRoughness={0.25}
+      />
     </mesh>
   );
 }
@@ -43,7 +108,44 @@ export default function GeologicTime() {
         scale={`Equal distance along the coil = equal time · window ${span} Ma to present`}
         trueScale="Time is proportional to arc length in both views · this is not a rock section"
       >
-        <Coil span={span} />
+        <Coil span={span} onPick={(f) => setParam("position", f)} />
+        {GEOLOGIC_UNITS.filter((u) => u.old > 0 && u.young < span).map((u) => {
+          const mid = (Math.min(u.old, span) + Math.max(u.young, 0)) / 2,
+            f = 1 - mid / span;
+          if ((Math.min(u.old, span) - Math.max(u.young, 0)) / span < 0.1) return null;
+          const p = timeHelix(f),
+            out = new THREE.Vector3(p[0], 0, p[2]).normalize().multiplyScalar(0.32);
+          return (
+            <Tag
+              key={u.name}
+              pos={[p[0] + out.x, p[1] + 0.2, p[2] + out.z]}
+              text={u.name}
+              note={`${u.name}: ${u.old.toLocaleString("en-GB")}–${u.young.toLocaleString("en-GB")} Ma, about ${(((u.old - u.young) / 4540) * 100).toFixed(1)}% of Earth history.`}
+            />
+          );
+        })}
+        {EVENTS.filter((e) => e.age < span).map((e) => {
+          const f = 1 - e.age / span,
+            c = timeHelix(f),
+            p: [number, number, number] = [c[0] * 1.09, c[1] + 0.05, c[2] * 1.09];
+          return (
+            <InspectHotspot
+              key={e.name}
+              name={`${e.name} · ${e.age < 1 ? e.age * 1000 + " ka" : e.age + " Ma"}`}
+              note={e.note}
+            >
+              <mesh position={p} onClick={() => setParam("position", f)}>
+                <octahedronGeometry args={[0.16, 0]} />
+                <meshStandardMaterial
+                  color="#ffe2a6"
+                  emissive="#f0a640"
+                  emissiveIntensity={0.55}
+                  roughness={0.3}
+                />
+              </mesh>
+            </InspectHotspot>
+          );
+        })}
         {Array.from({ length: 13 }, (_, i) => {
           const p = timeHelix(i / 12);
           return (

@@ -113,7 +113,7 @@ export default function Volcanoes() {
             <group key="central-vent">
               <mesh geometry={g.body} castShadow receiveShadow>
                 <RockMaterial
-                  color={v > 0.5 ? "#9c8b77" : "#6a6864"}
+                  color={v > 0.5 ? "#a8957c" : "#5e5a57"}
                   roughness={0.9}
                   side={THREE.DoubleSide}
                 />

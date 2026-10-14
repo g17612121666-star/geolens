@@ -18,7 +18,11 @@ export function jointDisplace(g: THREE.BufferGeometry, amp = 0.018) {
     const z = pos.getZ(i);
     const n = fbm(x * 2.2, y * 1.8, z * 2.2) * amp;
     const joint =
-      Math.abs(Math.sin(x * 6.4 + z * 0.4)) < 0.09 ? -amp * 1.6 : Math.abs(Math.sin(y * 8.2)) < 0.08 ? -amp * 0.9 : 0;
+      Math.abs(Math.sin(x * 6.4 + z * 0.4)) < 0.09
+        ? -amp * 1.6
+        : Math.abs(Math.sin(y * 8.2)) < 0.08
+          ? -amp * 0.9
+          : 0;
     pos.setXYZ(i, x + n, y + n * 0.35 + joint, z + n * 0.75);
   }
   g.computeVertexNormals();
@@ -28,7 +32,14 @@ export function jointDisplace(g: THREE.BufferGeometry, amp = 0.018) {
 export function headlandGeometry(stage: number, _res = 22): THREE.BufferGeometry {
   void _res;
   const s = Math.min(3, Math.max(0, Math.round(stage)));
-  const g = s <= 0 ? caveHeadland() : s === 1 ? archHeadland() : s === 2 ? stackHeadland() : stumpHeadland();
+  const g =
+    s <= 0
+      ? caveHeadland()
+      : s === 1
+        ? archHeadland()
+        : s === 2
+          ? stackHeadland()
+          : stumpHeadland();
   jointDisplace(g, s >= 2 ? 0.028 : 0.02);
   paintFlintBands(g);
   return g;
@@ -266,7 +277,11 @@ export function iceTongueGeometry(
   return g;
 }
 
-export function channelGeometry(pts: THREE.Vector3[], halfW: number, depth: number): THREE.BufferGeometry {
+export function channelGeometry(
+  pts: THREE.Vector3[],
+  halfW: number,
+  depth: number,
+): THREE.BufferGeometry {
   const across = 10;
   const positions: number[] = [];
   const indices: number[] = [];
@@ -616,7 +631,10 @@ export function horizonBandGeometry(
   for (let i = 0; i <= nx; i++) {
     const u = i / nx;
     const x = (u - 0.5) * width;
-    const wave0 = Math.sin(x * 3.1 + seed) * 0.055 + Math.sin(x * 7.4 + seed * 2) * 0.02 + fbm(x * 2, seed) * 0.03;
+    const wave0 =
+      Math.sin(x * 3.1 + seed) * 0.055 +
+      Math.sin(x * 7.4 + seed * 2) * 0.02 +
+      fbm(x * 2, seed) * 0.03;
     const wave1 = Math.sin(x * 2.6 + seed * 1.3) * 0.048 + fbm(x * 3.2, seed + 2) * 0.025;
     for (let j = 0; j <= nz; j++) {
       const v = j / nz;
@@ -695,7 +713,12 @@ export function dripstoneGeometry(h: number, r: number, hang = true): THREE.Buff
   return jointDisplace(g, 0.008);
 }
 
-export function foldBedGeometry(amp: number, thick: number, y: number, phase = 0): THREE.BufferGeometry {
+export function foldBedGeometry(
+  amp: number,
+  thick: number,
+  y: number,
+  phase = 0,
+): THREE.BufferGeometry {
   const g = new THREE.PlaneGeometry(4.4, 1.55, 40, 8);
   g.rotateX(-Math.PI / 2);
   const pos = g.attributes.position;
@@ -713,8 +736,16 @@ export function volcanoEdificeGeometry(visc: number, segs = 72): THREE.BufferGeo
   const t = THREE.MathUtils.clamp(visc, 0, 1);
   const rift = t < 0.2;
   const shield = t < 0.5;
-  const rMax = rift ? 4.5 : shield ? THREE.MathUtils.lerp(4.2, 2.9, (t - 0.2) / 0.3) : THREE.MathUtils.lerp(2.35, 1.12, (t - 0.5) / 0.5);
-  const hMax = rift ? 0.2 : shield ? THREE.MathUtils.lerp(0.36, 0.68, (t - 0.2) / 0.3) : THREE.MathUtils.lerp(1.2, 2.72, (t - 0.5) / 0.5);
+  const rMax = rift
+    ? 4.5
+    : shield
+      ? THREE.MathUtils.lerp(4.2, 2.9, (t - 0.2) / 0.3)
+      : THREE.MathUtils.lerp(2.35, 1.12, (t - 0.5) / 0.5);
+  const hMax = rift
+    ? 0.2
+    : shield
+      ? THREE.MathUtils.lerp(0.36, 0.68, (t - 0.2) / 0.3)
+      : THREE.MathUtils.lerp(1.2, 2.72, (t - 0.5) / 0.5);
   const nr = segs;
   const na = Math.max(56, segs);
   const positions: number[] = [];
@@ -775,7 +806,11 @@ export function volcanoEdificeGeometry(visc: number, segs = 72): THREE.BufferGeo
 const BEDS = ["#c4a574", "#6a6258", "#d8d0c0", "#8a6a48", "#5c564c", "#b8a090"] as const;
 
 /** Sedimentary wedge with bedding stripes. Offset across the fault reads as slip, not two brown blocks. */
-export function beddedWedgeGeometry(side: "hanging" | "foot", dip = 0.62, slip = 0): THREE.BufferGeometry {
+export function beddedWedgeGeometry(
+  side: "hanging" | "foot",
+  dip = 0.62,
+  slip = 0,
+): THREE.BufferGeometry {
   const g = faultWedgeGeometry(side, dip);
   const pos = g.attributes.position;
   const colors = new Float32Array(pos.count * 3);
@@ -792,4 +827,3 @@ export function beddedWedgeGeometry(side: "hanging" | "foot", dip = 0.62, slip =
   g.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
   return g;
 }
-

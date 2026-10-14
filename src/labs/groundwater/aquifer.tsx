@@ -9,6 +9,7 @@ import { terrainGeometry } from "../shared/science-geometry";
 import { Tag, InspectHotspot } from "../shared/kit";
 import { DebrisField, PoreMarkers } from "../shared/geomorphic-terrain";
 import { RockMaterial } from "../shared/rock-material";
+import { TerrainMaterial } from "../shared/natural-world";
 export default function Groundwater() {
   const { params, trueScale, t } = useLabControls();
   useLabTick(1 / 24);
@@ -33,16 +34,35 @@ export default function Groundwater() {
         <group position={[0, -1.5 * f, 0]}>
           <mesh position={[0, -0.12 * f, 0]}>
             <boxGeometry args={[5, 0.24 * f, 4]} />
-            <RockMaterial color="#75685b" />
+            <RockMaterial color="#5c5048" />
           </mesh>
           <mesh position={[0, 0.6 * f, 0]}>
             <boxGeometry args={[5, 1.2 * f, 4]} />
-            <RockMaterial color="#bba07e" transparent opacity={0.35} depthWrite={false} />
+            {/* Saturated aquifer: water-filled sand, tinted blue */}
+            <RockMaterial
+              color="#8fb2bd"
+              desaturate={0.95}
+              transparent
+              opacity={0.5}
+              depthWrite={false}
+            />
           </mesh>
           {!confined && (
             <mesh position={[0, 2.6 * f, 0]}>
               <boxGeometry args={[5, 2.8 * f, 4]} />
-              <RockMaterial color="#bfa784" transparent opacity={0.13} depthWrite={false} />
+              <RockMaterial
+                color="#d6bd8f"
+                desaturate={0.95}
+                transparent
+                opacity={0.24}
+                depthWrite={false}
+              />
+            </mesh>
+          )}
+          {!confined && (
+            <mesh position={[0, 4.02 * f, 0]} receiveShadow>
+              <boxGeometry args={[5, 0.05 * f + 0.02, 4]} />
+              <TerrainMaterial kind="grass" color="#7f9a5c" transparent opacity={0.9} />
             </mesh>
           )}
           {confined && (

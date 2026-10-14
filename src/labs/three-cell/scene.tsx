@@ -1,4 +1,4 @@
-import { Vector3, InstancedMesh, Object3D } from "three";
+import { InstancedMesh, Object3D } from "three";
 import { useRef, useLayoutEffect } from "react";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { EarthMesh, Graticule } from "@/components/globe/earth";
@@ -58,7 +58,7 @@ export default function ThreeCell() {
         trueScale="Cell depth 12 km, Earth radius 6371 km · wind arrows enlarged"
       >
         <group rotation={[0, Math.PI, 0]}>
-          <EarthMesh radius={radius} sunDirection={new Vector3(2, 2, 4)} />
+          <EarthMesh radius={radius} lighting="viewer" />
           <Graticule radius={radius * 1.003} />
           {!trueScale && <CondensationBelt latitude={itcz} radius={radius} />}
           <Line

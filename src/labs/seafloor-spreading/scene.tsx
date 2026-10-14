@@ -110,6 +110,7 @@ export default function SeafloorSpreading() {
           <boxGeometry args={[0.035, (0.2 * exaggeration) / 12, 2.78]} />
           <RockMaterial color="#ac714a" emissive="#8d381d" emissiveIntensity={0.12} />
         </mesh>
+        <FrontSection rate={rate} exaggeration={exaggeration} />
         <Tag
           pos={[0, 0.75, 0]}
           text="Ridge axis · age 0"
@@ -139,5 +140,66 @@ export default function SeafloorSpreading() {
         }
       </ScienceReadout>
     </>
+  );
+}
+
+/**
+ * Front cut face as an ocean-crust section: sediment thickening away from the axis
+ * (older floor has had longer to collect it), pillow basalt over sheeted dykes over
+ * gabbro, and a melt lens beneath the ridge. Thicknesses are schematic.
+ */
+function FrontSection({ rate, exaggeration }: { rate: number; exaggeration: number }) {
+  const half = rate / 2,
+    z = 1.403,
+    surface = (x: number) => (-spreadingCrust(x * 20, rate, 0).subsidenceM / 20000) * exaggeration;
+  const k = exaggeration / 12;
+  const xs = useMemo(() => Array.from({ length: 101 }, (_, i) => -2.5 + (i / 100) * 5), []);
+  const sediment = useMemo(() => {
+    const shape = new THREE.Shape();
+    const thick = (x: number) => Math.min(0.16, (Math.abs(x) * 20) / half / 28) * Math.max(k, 0.25);
+    shape.moveTo(xs[0], surface(xs[0]));
+    xs.forEach((x) => shape.lineTo(x, surface(x) + thick(x)));
+    [...xs].reverse().forEach((x) => shape.lineTo(x, surface(x)));
+    return new THREE.ShapeGeometry(shape);
+  }, [xs, half, k, rate, exaggeration]);
+  useEffect(() => () => sediment.dispose(), [sediment]);
+  const band = (offset: number) =>
+    xs.map((x) => [x, surface(x) - offset * Math.max(k, 0.25), z] as [number, number, number]);
+  return (
+    <group>
+      <mesh geometry={sediment} position={[0, 0, z]}>
+        <meshStandardMaterial color="#cdbb94" roughness={1} side={THREE.DoubleSide} />
+      </mesh>
+      {[0.035, 0.085].map((o, i) => (
+        <Line
+          key={o}
+          points={band(o)}
+          color={i ? "#c9b48c" : "#d8c7a2"}
+          lineWidth={1.2}
+          dashed={i === 1}
+          dashSize={0.05}
+          gapSize={0.03}
+        />
+      ))}
+      <mesh
+        position={[0, surface(0) - 0.12 * Math.max(k, 0.25), z + 0.001]}
+        scale={[0.32, 0.05 * Math.max(k, 0.4), 1]}
+      >
+        <circleGeometry args={[1, 48]} />
+        <meshBasicMaterial color="#ff8a3d" toneMapped={false} />
+      </mesh>
+      <Tag
+        pos={[1.45, surface(1.45) - 0.32, z + 0.05]}
+        text="Sediment thickens with age"
+        note="Fine particles settle slowly onto the seafloor. Crust far from the ridge is older, so it carries a thicker blanket; at the axis there is almost none. Thickness is exaggerated."
+        occlude={false}
+      />
+      <Tag
+        pos={[0.55, surface(0) - 0.16 * Math.max(k, 0.25), z]}
+        text="Melt lens"
+        note="A thin, partly molten lens sits a few kilometres below many ridge axes and feeds the dykes and lava above it. Beneath it, the mantle is mostly solid."
+        occlude={false}
+      />
+    </group>
   );
 }

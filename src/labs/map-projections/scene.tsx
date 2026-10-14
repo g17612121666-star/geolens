@@ -1,1 +1,1 @@
-export { ProjectionScene as default } from '../shared/skills-scenes';
+export { ProjectionScene as default } from "../shared/skills-scenes";

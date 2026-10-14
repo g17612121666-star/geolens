@@ -1,15 +1,33 @@
 import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from "react";
 
 /** Existing Poly Haven rock textures; clone sampling settings for each model. */
 export function useRockPbr(repeat = 2) {
-  const originals = useTexture(['/textures/pbr/rock_diff.jpg','/textures/pbr/rock_nor.jpg','/textures/pbr/rock_rough.jpg']);
-  const maps = useMemo(() => originals.map((original,i) => {
-    const t=original.clone();t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(repeat,repeat);t.anisotropy=8;t.colorSpace=i===0?THREE.SRGBColorSpace:THREE.NoColorSpace;return t;
-  }),[originals[0],originals[1],originals[2],repeat]);
-  useEffect(()=>()=>maps.forEach(t=>t.dispose()),[maps]);
-  return {map:maps[0],normalMap:maps[1],roughnessMap:maps[2],normalScale:new THREE.Vector2(.35,.35)};
+  const originals = useTexture([
+    "/textures/pbr/rock_diff.jpg",
+    "/textures/pbr/rock_nor.jpg",
+    "/textures/pbr/rock_rough.jpg",
+  ]);
+  const maps = useMemo(
+    () =>
+      originals.map((original, i) => {
+        const t = original.clone();
+        t.wrapS = t.wrapT = THREE.RepeatWrapping;
+        t.repeat.set(repeat, repeat);
+        t.anisotropy = 8;
+        t.colorSpace = i === 0 ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+        return t;
+      }),
+    [originals[0], originals[1], originals[2], repeat],
+  );
+  useEffect(() => () => maps.forEach((t) => t.dispose()), [maps]);
+  return {
+    map: maps[0],
+    normalMap: maps[1],
+    roughnessMap: maps[2],
+    normalScale: new THREE.Vector2(0.35, 0.35),
+  };
 }
 
 /** PBR presets. Colours encode mechanism, not decoration. */
@@ -23,7 +41,13 @@ export const PBR = {
   ice: { color: "#d5eaf4", roughness: 0.14, metalness: 0.04 },
   soil: { color: "#6b5344", roughness: 0.96, metalness: 0.02 },
   sand: { color: "#c4a574", roughness: 0.9, metalness: 0.02 },
-  magma: { color: "#ff6a3d", roughness: 0.35, metalness: 0.1, emissive: "#ff3b00", emissiveIntensity: 0.45 },
+  magma: {
+    color: "#ff6a3d",
+    roughness: 0.35,
+    metalness: 0.1,
+    emissive: "#ff3b00",
+    emissiveIntensity: 0.45,
+  },
   ash: { color: "#3a4038", roughness: 0.95, metalness: 0.02 },
   limestone: { color: "#d8d0c0", roughness: 0.7, metalness: 0.04 },
   basalt: { color: "#3d3a38", roughness: 0.86, metalness: 0.08 },

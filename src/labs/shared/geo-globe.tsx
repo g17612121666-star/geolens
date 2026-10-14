@@ -1,5 +1,5 @@
-import { useEffect, useMemo } from "react";
-import { Html, useTexture } from "@react-three/drei";
+import { useMemo } from "react";
+import { Html, Line, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { latLonToXYZ } from "@/lib/geo";
 type Geometry = { type: string; coordinates: number[][] | number[][][] | number[][][][] };
@@ -79,9 +79,11 @@ export function ReconstructionGlobe({ age, radius = 1.25 }: { age: number; radiu
 }
 export function PlateLines({ radius = 1.254 }: { radius?: number }) {
   const { data, error, retry } = useGeo("/geo/plate-boundaries.json");
+  // Screen-space (fat) line segments: WebGL ignores lineWidth on basic lines,
+  // which left the boundaries as one-pixel hairlines.
   const g = useMemo(() => {
-    const p: number[] = [],
-      colors: number[] = [];
+    const points: [number, number, number][] = [],
+      colors: [number, number, number][] = [];
     for (const f of data?.features ?? []) {
       const label = String(f.properties.type ?? f.properties.boundary ?? f.properties.kind ?? "");
       const c = new THREE.Color(
@@ -90,21 +92,17 @@ export function PlateLines({ radius = 1.254 }: { radius?: number }) {
       for (const ring of rings(f.geometry))
         for (let i = 1; i < ring.length; i++)
           for (const point of [ring[i - 1], ring[i]]) {
-            p.push(...latLonToXYZ(point[1], point[0], radius));
-            colors.push(c.r, c.g, c.b);
+            points.push(latLonToXYZ(point[1], point[0], radius));
+            colors.push([c.r, c.g, c.b]);
           }
     }
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute("position", new THREE.Float32BufferAttribute(p, 3));
-    geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
-    return geometry;
+    return { points, colors };
   }, [data, radius]);
-  useEffect(() => () => g.dispose(), [g]);
   return (
     <>
-      <lineSegments geometry={g}>
-        <lineBasicMaterial vertexColors />
-      </lineSegments>
+      {g.points.length > 1 && (
+        <Line points={g.points} vertexColors={g.colors} segments lineWidth={2.4} />
+      )}
       {error && (
         <Html center>
           <button onClick={retry} className="bg-basalt p-3 text-chalk">

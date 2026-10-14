@@ -13,28 +13,28 @@ const layers = [
     name: "Troposphere",
     lo: 0,
     hi: 12,
-    color: "#8fc5e0",
+    color: "#5fb2e6",
     note: "Reference tropopause 12 km; typically about 8 km at the poles to 16–18 km in the tropics. Most weather occurs here.",
   },
   {
     name: "Stratosphere",
     lo: 12,
     hi: 50,
-    color: "#9bafdc",
+    color: "#7d8ee0",
     note: "Ozone absorbs ultraviolet radiation; temperature generally rises with height.",
   },
   {
     name: "Mesosphere",
     lo: 50,
     hi: 85,
-    color: "#bfadd6",
+    color: "#b088d8",
     note: "Temperature generally falls with height; many meteors become luminous here.",
   },
   {
     name: "Thermosphere",
     lo: 85,
     hi: 500,
-    color: "#d5b395",
+    color: "#e3a06c",
     note: "Shown only to 500 km. Its upper boundary varies with solar activity; the atmosphere continues beyond this view. Very high kinetic temperature does not mean dense hot air.",
   },
 ];
@@ -145,7 +145,7 @@ export default function AtmosphereLayers() {
               />
             </mesh>
             <group rotation={[0, Math.PI, 0]}>
-              <EarthMesh sunDirection={new THREE.Vector3(4, 2, 3)} />
+              <EarthMesh lighting="viewer" />
             </group>
             {layers.map((_, i) => (
               <GasLayer key={i} i={i} factor={factor} explode={explode} lapse={lapse} />

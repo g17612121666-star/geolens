@@ -1,1 +1,1 @@
-export {default} from './climate-globe';
+export { default } from "./climate-globe";

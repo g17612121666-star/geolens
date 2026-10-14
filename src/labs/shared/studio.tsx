@@ -26,6 +26,9 @@ export function LabStudio({
   groundShadows = true,
   fit = false,
   fitRevision = "",
+  fitGround = true,
+  backdrop,
+  maxPolarAngle,
 }: {
   slug: string;
   title: string;
@@ -42,6 +45,11 @@ export function LabStudio({
   groundShadows?: boolean;
   fit?: boolean;
   fitRevision?: string;
+  fitGround?: boolean;
+  /** Rendered outside the auto-fit group (sky, stars) so it never changes the framing. */
+  backdrop?: ReactNode;
+  /** Limit orbiting below the horizon for ground-based scenes. */
+  maxPolarAngle?: number;
 }) {
   const webgl = useWebGL();
   const entryReady = useEntryReady();
@@ -83,7 +91,14 @@ export function LabStudio({
         shadows={q.shadows}
       >
         {lights && <LabLights />}
-        {fit ? <FitScienceView revision={fitRevision}>{children}</FitScienceView> : children}
+        {backdrop}
+        {fit ? (
+          <FitScienceView revision={fitRevision} ground={fitGround}>
+            {children}
+          </FitScienceView>
+        ) : (
+          children
+        )}
         {lights && groundShadows && q.shadows && (
           <ContactShadows
             opacity={0.42}
@@ -99,6 +114,7 @@ export function LabStudio({
           maxDistance={maxDistance}
           target={target}
           autoFit={fit}
+          maxPolarAngle={maxPolarAngle}
         />
       </ClientCanvas>
       {liveText && (

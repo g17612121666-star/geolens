@@ -32,6 +32,7 @@ export default function UniverseScale() {
         slug="universe-scale"
         camera={[0, 1.4, 8]}
         lights={false}
+        space
         scale={`${s.name} · centre separation ${s.value.toLocaleString("en-GB")} ${s.unit} · bodies enlarged`}
         trueScale={`${s.name} · body radii and centre distance use one scale · locator rings enlarged`}
       >

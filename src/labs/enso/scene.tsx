@@ -71,6 +71,53 @@ export default function Enso() {
           flow={[-c.tradeStrength, 0]}
           opacity={0.35}
         />
+        {/* West: Indonesia / Australia; east: South America with the Andes. */}
+        <RockPrism
+          points={[
+            [-3.05, bottom],
+            [-2.5, bottom],
+            [-2.5, 0.1],
+            [-2.7, 0.2],
+            [-2.9, 0.16],
+            [-3.05, 0.22],
+          ]}
+          depth={1.6}
+          color="#8fa36a"
+        />
+        <RockPrism
+          points={[
+            [2.5, bottom],
+            [3.15, bottom],
+            [3.15, 0.3],
+            [2.95, 0.72],
+            [2.8, 0.45],
+            [2.62, 0.18],
+            [2.5, 0.06],
+          ]}
+          depth={1.6}
+          color="#a08a68"
+        />
+        <Tag
+          pos={[-2.78, 0.45, 0.85]}
+          text="Indonesia · Australia"
+          note="The western Pacific warm pool normally brings heavy rain here. During El Niño the rain shifts east and drought becomes more likely."
+          occlude={false}
+        />
+        <Tag
+          pos={[2.85, 0.95, 0.85]}
+          text="Peru · Andes"
+          note="Trade winds push surface water west, so cold, nutrient-rich water upwells off Peru. Weaker trades in El Niño reduce this upwelling and warm the coastal sea."
+          occlude={false}
+        />
+        {[2.05, 2.25, 2.42].map((x, k) => (
+          <Arrow
+            key={`up-${k}`}
+            from={[x, bottom * 0.55, 0.5 - k * 0.5]}
+            to={[x, -0.03, 0.5 - k * 0.5]}
+            color="#5fb7d6"
+            width={0.4 + 1.0 * Math.max(0, c.upwelling)}
+          />
+        ))}
         <CloudVolume position={[left, 1.38, 0]} scale={[0.62, 0.55, 0.75]} density={90} seed={4} />
         <RainStreaks
           t={t}

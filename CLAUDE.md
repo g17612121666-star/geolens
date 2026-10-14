@@ -31,5 +31,6 @@ Run typecheck, lint, test and build before pushing.
 - Scientific honesty: label exaggerated scales and schematic geometry, and never present an illustration as an observation.
 - Quiz questions: spread correct answers across positions, keep the correct option about as long as the distractors, and make every distractor a believable misconception.
 - Photos: only use files in `public/photos/verified/` with a record in `scripts/verified-photo-sources.json`. Keep that file, `public/photos/manifest.json` and the assignments in step. Never assign another country's landscape to an atlas place.
-- 3D: R3F + drei. Lab GLBs are Meshopt + WebP compressed (`scripts/optimize-glbs.sh`); keep named nodes and do not use Draco or mesh simplification.
+- 3D: R3F + drei. Every lab model is built procedurally in its scene; only the Mars and Saturn GLBs in `public/models/scientific/` are loaded (Meshopt + WebP via `scripts/optimize-glbs.sh`; no Draco).
+- Shared look: `LabLights` (camera-following key light), `TerrainMaterial` (photo used as brightness detail only, so pass the colour you want), `RockMaterial` (`desaturate`, `strata`), `ScienceStudio` (`space` backdrop, `ground` shadow, `horizon` camera limit). Earth globes take `lighting="viewer"` when day and night are not the subject.
 - Formatting: Prettier (`.prettierrc`), 100-column lines.

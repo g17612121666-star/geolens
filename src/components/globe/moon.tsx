@@ -2,11 +2,7 @@ import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { useQuality } from "@/labs/shared/perf";
 
-export function MoonMesh({
-  radius = 0.27,
-}: {
-  radius?: number;
-}) {
+export function MoonMesh({ radius = 0.27 }: { radius?: number }) {
   const map = useTexture("/textures/moon.jpg");
   map.colorSpace = THREE.SRGBColorSpace;
   map.anisotropy = 8;

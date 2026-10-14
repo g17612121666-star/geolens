@@ -4,7 +4,7 @@ import { pressureWind } from "@/lib/energy-wind-science";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
-import { useMemo, useLayoutEffect, useRef } from "react";
+import { useEffect, useMemo, useLayoutEffect, useRef } from "react";
 import * as THREE from "three";
 import { airDisplacement, wrapParcel } from "./advection";
 import { TerrainMaterial } from "../shared/natural-world";
@@ -74,8 +74,9 @@ export default function Wind() {
       >
         <mesh position={[0, -0.16, 0]}>
           <boxGeometry args={[6, 0.28, 5.6]} />
-          <TerrainMaterial kind="grass" color="#525f52" roughness={1} />
+          <TerrainMaterial kind="grass" color="#6a7a62" roughness={1} />
         </mesh>
+        <PressureField />
         <AirTracers displacement={displacement} velocity={[w.u, w.v]} />
         {[-2, -1, 0, 1, 2].map((z) => (
           <Line
@@ -161,5 +162,30 @@ export default function Wind() {
             : "Flat f-plane experiment; pressure gradient fixed. Tracers wrap at the window edge (150 km per scene unit)."}
       </ScienceReadout>
     </>
+  );
+}
+
+/** Pressure shading: low (blue) to the north, high (warm) to the south, as on a chart. */
+function PressureField() {
+  const geometry = useMemo(() => {
+    const g = new THREE.PlaneGeometry(6, 5.6, 1, 24),
+      p = g.attributes.position,
+      colours = new Float32Array(p.count * 3),
+      low = new THREE.Color("#4f8fd0"),
+      high = new THREE.Color("#e9a35e"),
+      c = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      // Plane local +y becomes world −z (north) after rotation.
+      c.copy(high).lerp(low, (p.getY(i) + 2.8) / 5.6);
+      colours.set([c.r, c.g, c.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(colours, 3));
+    return g;
+  }, []);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return (
+    <mesh geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.004, 0]}>
+      <meshBasicMaterial vertexColors transparent opacity={0.42} depthWrite={false} />
+    </mesh>
   );
 }

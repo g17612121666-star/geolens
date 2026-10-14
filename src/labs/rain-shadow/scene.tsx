@@ -1,1 +1,1 @@
-export { default } from './parcel';
+export { default } from "./parcel";
