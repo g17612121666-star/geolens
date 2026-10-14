@@ -19,7 +19,7 @@ export default function Aeolian() {
   );
   const colour = useMemo(
     () => (x: number, y: number, z: number) =>
-      mode === 0 ? "#f0d9b3" : y > 0.15 ? "#bbab8e" : "#e2cba7",
+      mode === 0 ? (y > 0.06 ? "#dcaa66" : "#c99659") : y > 0.15 ? "#b39b78" : "#d6b583",
     [mode],
   );
   return (
@@ -81,7 +81,7 @@ export default function Aeolian() {
                   x = -0.5 + 1.75 * (z / 1.35) ** 2 + shift;
                 return [x, height(x, z) + 0.006, z] as [number, number, number];
               })}
-              color="#e6c99a"
+              color="#d2a466"
               lineWidth={1.3}
             />
           )}

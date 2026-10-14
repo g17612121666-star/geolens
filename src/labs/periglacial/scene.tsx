@@ -61,7 +61,7 @@ export default function Periglacial() {
     <>
       <ScienceStudio
         slug="periglacial"
-        camera={view === 0 ? [1.4, 1.8, 8] : [3.4, 5, 6]}
+        camera={view === 0 ? [3.2, 3.4, 7.4] : [3.4, 5, 6]}
         scale={
           view === 0
             ? "10 m wide, 5 m deep · prescribed 0.7 m active layer · common scale"
