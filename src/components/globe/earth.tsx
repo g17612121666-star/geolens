@@ -28,6 +28,9 @@ const earthFrag = /* glsl */ `
   uniform sampler2D dayMap;
   uniform sampler2D nightMap;
   uniform sampler2D bumpMap;
+  uniform sampler2D cloudMap;
+  uniform float cloudAmount;
+  uniform float cloudShift;
   uniform vec3 sunDirection;
   uniform bool eclipseEnabled;
   uniform vec3 occultingPosition;
@@ -37,13 +40,14 @@ const earthFrag = /* glsl */ `
   varying vec2 vUv;
   varying vec3 vNormalW;
   varying vec3 vPosW;
+  float cloudAt(vec2 uv){return smoothstep(0.16, 0.48, texture2D(cloudMap, uv + vec2(cloudShift, 0.0)).a) * 0.55 * cloudAmount;}
   void main() {
     vec3 n = normalize(vNormalW);
-    float ndl = dot(n, normalize(sunDirection));
-    float dayF = smoothstep(-0.012, 0.012, ndl);
+    vec3 sun = normalize(sunDirection);
+    float ndl = dot(n, sun);
+    float dayF = smoothstep(-0.03, 0.06, ndl);
     vec3 day = texture2D(dayMap, vUv).rgb;
-    vec3 night = texture2D(nightMap, vUv).rgb * 1.35;
-    night *= (1.0 - dayF);
+    vec3 night = texture2D(nightMap, vUv).rgb * vec3(1.45, 1.2, 0.85);
     // Perturb the lighting normal from the actual terrain map; keep the
     // geometric normal for the day/night boundary and eclipse calculation.
     float height = texture2D(bumpMap, vUv).r;
@@ -51,14 +55,26 @@ const earthFrag = /* glsl */ `
     vec3 r1=cross(dp2,n), r2=cross(n,dp1);
     float det=dot(dp1,r1);
     vec3 surfaceNormal=abs(det)<1e-12?n:normalize(abs(det)*n-sign(det)*.002*(dFdx(height)*r1+dFdy(height)*r2));
-    float diffuse=max(dot(surfaceNormal,normalize(sunDirection)),0.0);
-    vec3 color = mix(night * 0.65 + day * 0.018, day * (0.1 + 0.9 * sqrt(diffuse)), dayF);
+    float diffuse=max(dot(surfaceNormal,sun),0.0);
+    // Clouds: lit by the same Sun, casting a soft shadow slightly away from it.
+    float cloud = cloudAt(vUv);
+    float shadow = cloudAt(vUv + vec2(-0.004, 0.002)) * 0.45;
+    vec3 ground = day * (0.08 + 0.92 * sqrt(diffuse)) * (1.0 - shadow);
     vec3 view = normalize(cameraPosition - vPosW);
-    float fresnel = pow(1.0 - max(dot(n, view), 0.0), 2.2);
-    color += vec3(0.28, 0.58, 0.9) * fresnel * 0.24 * smoothstep(-.18,.35,ndl);
-    float spec = pow(max(dot(reflect(-normalize(sunDirection), n), view), 0.0), 22.0);
     float ocean = smoothstep(0.015, 0.09, day.b - max(day.r, day.g));
-    color += vec3(0.6, 0.75, 0.95) * spec * dayF * ocean * 0.26;
+    float glint = pow(max(dot(reflect(-sun, n), view), 0.0), 40.0);
+    float fresnelS = 0.04 + 0.96 * pow(1.0 - max(dot(n, view), 0.0), 5.0);
+    ground += vec3(1.0, 0.92, 0.8) * (glint * 0.6 + fresnelS * 0.05) * ocean * dayF * (1.0 - cloud);
+    vec3 cloudLit = vec3(0.97, 0.98, 1.0) * (0.06 + 0.94 * smoothstep(-0.05, 0.6, ndl));
+    vec3 lit = mix(ground, cloudLit, cloud);
+    vec3 dark = night * 0.7 * (1.0 - cloud * 0.8) + day * 0.012 + cloud * vec3(0.02, 0.025, 0.035);
+    vec3 color = mix(dark, lit, dayF);
+    // Twilight: a warm band where sunlight crosses the most air.
+    float twilight = exp(-pow((ndl - 0.02) / 0.09, 2.0));
+    color += vec3(1.0, 0.42, 0.16) * twilight * 0.09;
+    // Atmospheric haze towards the limb on the day side.
+    float rim = pow(1.0 - max(dot(n, view), 0.0), 2.4);
+    color = mix(color, vec3(0.42, 0.68, 1.0), rim * 0.3 * smoothstep(-0.15, 0.4, ndl));
     if(eclipseEnabled && ndl>0.0){
       vec3 a=solarPosition-vPosW, b=occultingPosition-vPosW;
       float r=asin(clamp(solarRadius/length(a),0.0,1.0));
@@ -80,17 +96,38 @@ const earthFrag = /* glsl */ `
   }
 `;
 
+/** Sun-aware atmosphere shell: blue on the day limb, reddening near the terminator. */
+const haloVert = /* glsl */ `
+  varying vec3 vN; varying vec3 vP;
+  void main(){ vec4 w=modelMatrix*vec4(position,1.); vP=w.xyz; vN=normalize(mat3(modelMatrix)*normal); gl_Position=projectionMatrix*viewMatrix*w; }
+`;
+const haloFrag = /* glsl */ `
+  uniform vec3 sunDirection; varying vec3 vN; varying vec3 vP;
+  void main(){
+    vec3 v=normalize(cameraPosition-vP), n=normalize(vN);
+    float edge=pow(1.0-abs(dot(n,v)),2.6);
+    float ndl=dot(n,normalize(sunDirection));
+    float lit=smoothstep(-0.35,0.35,ndl);
+    vec3 c=mix(vec3(1.0,0.5,0.25),vec3(0.38,0.66,1.0),smoothstep(-0.1,0.4,ndl));
+    gl_FragColor=vec4(c, edge*lit*0.85);
+  }
+`;
+
 export function EarthMesh({
   sunDirection = new THREE.Vector3(4, 0.4, 2),
   radius = 1,
   segments,
-  clouds = false,
+  clouds,
   occluder,
   lighting = "sun",
+  halo = true,
 }: {
+  /** Sun-aware atmosphere rim. */
+  halo?: boolean;
   sunDirection?: THREE.Vector3;
   radius?: number;
   segments?: number;
+  /** Sun-lit cloud cover; on by default for Sun-lit globes, off for viewer-lit map globes. */
   clouds?: boolean;
   occluder?: {
     position: THREE.Vector3;
@@ -106,6 +143,8 @@ export function EarthMesh({
   lighting?: "sun" | "viewer";
 }) {
   const [dayMap, nightMap, bumpMap] = useTexture([DAY, NIGHT, BUMP]);
+  const cloudMap = useCloudMap();
+  const showClouds = clouds ?? lighting === "sun";
   const q = useQuality();
   const segs = segments ?? q.sphere;
   const mat = useRef<THREE.ShaderMaterial>(null);
@@ -127,6 +166,9 @@ export function EarthMesh({
       dayMap: { value: dayMap },
       nightMap: { value: nightMap },
       bumpMap: { value: bumpMap },
+      cloudMap: { value: cloudMap },
+      cloudAmount: { value: 1 },
+      cloudShift: { value: 0 },
       sunDirection: { value: sunDirection.clone() },
       eclipseEnabled: { value: false },
       occultingPosition: { value: new THREE.Vector3() },
@@ -134,8 +176,9 @@ export function EarthMesh({
       solarPosition: { value: new THREE.Vector3() },
       solarRadius: { value: 0 },
     }),
-    [dayMap, nightMap, bumpMap],
+    [dayMap, nightMap, bumpMap, cloudMap],
   );
+  const haloUniforms = useMemo(() => ({ sunDirection: { value: new THREE.Vector3(1, 0, 0) } }), []);
 
   const mesh = useRef<THREE.Mesh>(null);
   useFrame(({ camera }) => {
@@ -154,6 +197,9 @@ export function EarthMesh({
       } else mat.current.uniforms.sunDirection.value.copy(sunRef.current);
       const e = eclipseRef.current,
         u = mat.current.uniforms;
+      u.cloudAmount.value = showClouds ? 1 : 0;
+      u.cloudShift.value = useLabControls.getState().t * 0.02;
+      haloUniforms.sunDirection.value.copy(u.sunDirection.value);
       u.eclipseEnabled.value = Boolean(e);
       if (e) {
         u.occultingPosition.value.copy(e.position);
@@ -176,7 +222,20 @@ export function EarthMesh({
           uniforms={uniforms}
         />
       </mesh>
-      {clouds && <CloudLayer radius={radius * 1.012} />}
+      {halo && (
+        <mesh scale={1.035} raycast={() => null}>
+          <sphereGeometry args={[radius, 64, 48]} />
+          <shaderMaterial
+            vertexShader={haloVert}
+            fragmentShader={haloFrag}
+            uniforms={haloUniforms}
+            transparent
+            depthWrite={false}
+            side={THREE.BackSide}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+      )}
     </group>
   );
 }
