@@ -8,7 +8,7 @@ import { Tag, InspectHotspot } from "../shared/kit";
 import { ScienceReadout, ScienceStudio } from "../shared/science-kit";
 import { shellSection } from "../shared/science-geometry";
 import { useRockNormal, useRockPbr } from "../shared/materials";
-import { PhotographicRockMaterial } from "../shared/photographic-rock";
+import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
 
 const layers = [
   {
@@ -129,6 +129,50 @@ function CoreMaterial({ solid, attach }: { solid: boolean; attach: string }) {
     />
   );
 }
+
+/** Procedural cut faces: layered crust, convecting mantle, swirling liquid outer core and a
+ * crystalline inner core. Patterns are illustrative; they are not mapped mantle structure. */
+const INTERIOR_GLSL = `uniform float uTime,uCrustR;
+vec3 sectionColour(vec3 p,vec3 w){
+  float r=length(p),a=atan(p.y,length(p.xz)),g=grain(p.xy*3.+p.zy*3.);
+  if(r>uCrustR){
+    float f=(r-uCrustR)/(1.-uCrustR);
+    vec3 c=f>.55?mix(vec3(.78,.64,.56),vec3(.64,.52,.47),g):mix(vec3(.55,.55,.58),vec3(.44,.45,.48),g);
+    if(f>.9)c=mix(vec3(.80,.70,.52),vec3(.68,.58,.42),step(.5,fract(f*60.)));
+    return c;
+  }
+  if(r>.546){
+    float depth=(1.-r)*6371.;
+    float flow=sFbm(vec2(a*2.4+.15*sin(uTime*.3+r*6.),r*7.-uTime*.05));
+    vec3 upper=vec3(.40,.46,.24),tz=vec3(.50,.43,.24),lower=vec3(.60,.33,.18),dpp=vec3(.42,.15,.08);
+    vec3 c=depth<410.?upper:depth<660.?mix(upper,tz,.8):mix(tz,lower,smoothstep(660.,1400.,depth));
+    c=mix(c,dpp,smoothstep(2600.,2880.,depth));
+    float plume=smoothstep(.62,.8,flow),slab=smoothstep(.38,.22,flow);
+    c=mix(c,vec3(.84,.48,.20),plume*.6);
+    c=mix(c,vec3(.22,.24,.24),slab*.5);
+    return c*(.9+.2*g);
+  }
+  if(r>.192){
+    float swirl=sFbm(vec2(a*5.+uTime*.6+3.*r,r*14.-uTime*.4));
+    return mix(vec3(.62,.36,.14),vec3(.92,.66,.30),swirl);
+  }
+  vec3 cell=floor(p*26.);
+  float facet=sHash(cell.xy+cell.z*7.1);
+  return mix(vec3(.84,.78,.58),vec3(.96,.92,.76),facet)*(.94+.1*g);
+}
+vec3 sectionGlow(vec3 p,vec3 w){
+  float r=length(p),a=atan(p.y,length(p.xz));
+  if(r<=.546&&r>.192){
+    float swirl=sFbm(vec2(a*5.+uTime*.6+3.*r,r*14.-uTime*.4));
+    return vec3(1.,.48,.12)*(.18+.4*swirl);
+  }
+  if(r<=.192)return vec3(.35,.32,.22);
+  if(r<=uCrustR){
+    float flow=sFbm(vec2(a*2.4+.15*sin(uTime*.3+r*6.),r*7.-uTime*.05));
+    return vec3(1.,.4,.1)*smoothstep(.7,.9,flow)*.25*smoothstep(.85,.6,r);
+  }
+  return vec3(0.);
+}`;
 /** Approximate geotherm (depth km → °C), smoothed from standard textbook profiles. */
 const GEOTHERM: [number, number][] = [
   [0, 15],
@@ -211,7 +255,9 @@ function Layer({
   opening,
   offset,
   heat,
+  uniforms,
 }: {
+  uniforms: Record<string, { value: unknown }>;
   index: number;
   inner: number;
   outer: number;
@@ -252,15 +298,12 @@ function Layer({
               {heat ? (
                 <HeatMaterial attach="material-1" />
               ) : (
-                <PhotographicRockMaterial
+                <SectionMaterial
                   attach="material-1"
-                  color={index === 0 ? "#c9b795" : "#b4ac87"}
-                  desaturate={0.85}
-                  wet={false}
-                  sceneScale={6}
-                  exposure={1.55}
+                  glsl={INTERIOR_GLSL}
+                  uniforms={uniforms}
+                  cacheKey="earth-interior-v1"
                   roughness={l.rough}
-                  metalness={l.metal}
                   side={THREE.DoubleSide}
                 />
               )}
@@ -271,7 +314,15 @@ function Layer({
               {heat ? (
                 <HeatMaterial attach="material-1" />
               ) : (
-                <CoreMaterial attach="material-1" solid={index === 3} />
+                <SectionMaterial
+                  attach="material-1"
+                  glsl={INTERIOR_GLSL}
+                  uniforms={uniforms}
+                  cacheKey="earth-interior-v1"
+                  roughness={index === 3 ? 0.45 : 0.35}
+                  metalness={0.35}
+                  side={THREE.DoubleSide}
+                />
               )}
             </>
           )}
@@ -398,6 +449,8 @@ export default function EarthInterior() {
   const opening = slice * Math.PI * 0.95,
     waves = params.waves > 0.5;
   const [heat, setHeat] = useState(false);
+  const t = useLabControls((st) => st.t);
+  const uniforms = useSectionUniforms({ uTime: t * 40, uCrustR: radii[1] });
   return (
     <>
       <ScienceStudio
@@ -418,6 +471,7 @@ export default function EarthInterior() {
               opening={opening}
               offset={explode * (3 - i) * 0.55}
               heat={heat}
+              uniforms={uniforms}
             />
           ))}
           {slice > 0.05 && explode <= 0.01 && <DepthRuler opening={opening} />}{" "}
