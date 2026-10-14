@@ -1,1 +1,1 @@
-export {default} from './deposition';
+export { default } from "./deposition";

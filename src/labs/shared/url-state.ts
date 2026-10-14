@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useLabControls } from "@/lib/store/lab-controls";
-import type { LabMeta } from '@/lib/labs/types';
+import type { LabMeta } from "@/lib/labs/types";
 
 const KEYS = ["t", "step", "labels", "explode", "slice", "speed", "geometryScale"] as const;
 
-export function applyLabUrl(lab?:LabMeta) {
+export function applyLabUrl(lab?: LabMeta) {
   const u = readLabUrl();
   const s = useLabControls.getState();
   if (u.t != null) s.setT(u.t);
@@ -14,11 +14,12 @@ export function applyLabUrl(lab?:LabMeta) {
   if (u.slice != null) s.setSlice(u.slice);
   if (u.speed != null) s.setSpeed(u.speed);
   if (u.layout) s.setLayout(u.layout);
-  if(u.geometryScale!=null)s.setTrueScale(u.geometryScale);
+  if (u.geometryScale != null) s.setTrueScale(u.geometryScale);
   for (const [k, v] of Object.entries(u.params)) {
-    const extra=lab?.controls.extra?.find(e=>e.key===k),toggle=lab?.controls.toggles?.find(e=>e.key===k);
-    if(extra)s.setParam(k,Math.max(extra.min,Math.min(extra.max,v)));
-    else if(toggle)s.setParam(k,v>.5?1:0);
+    const extra = lab?.controls.extra?.find((e) => e.key === k),
+      toggle = lab?.controls.toggles?.find((e) => e.key === k);
+    if (extra) s.setParam(k, Math.max(extra.min, Math.min(extra.max, v)));
+    else if (toggle) s.setParam(k, v > 0.5 ? 1 : 0);
   }
 }
 
@@ -31,7 +32,7 @@ function write() {
   q.set("labels", s.labels ? "1" : "0");
   if (s.explode > 0.01) q.set("explode", s.explode.toFixed(2));
   q.set("slice", s.slice.toFixed(2));
-  if(s.trueScale)q.set('geometryScale','1');
+  if (s.trueScale) q.set("geometryScale", "1");
   if (s.speed !== 1) q.set("speed", String(s.speed));
   if (s.layout === "projector") q.set("layout", "projector");
   for (const [k, v] of Object.entries(s.params)) {
@@ -49,7 +50,7 @@ export function readLabUrl(): {
   explode?: number;
   slice?: number;
   speed?: number;
-  geometryScale?:boolean;
+  geometryScale?: boolean;
   layout?: "hud" | "projector";
   params: Record<string, number>;
 } {
@@ -74,7 +75,7 @@ export function readLabUrl(): {
     explode: num("explode"),
     slice: num("slice"),
     speed: num("speed"),
-    geometryScale:q.has('geometryScale')?q.get('geometryScale')==='1':undefined,
+    geometryScale: q.has("geometryScale") ? q.get("geometryScale") === "1" : undefined,
     layout: q.get("layout") === "projector" ? "projector" : undefined,
     params,
   };

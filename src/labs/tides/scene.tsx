@@ -1,1 +1,1 @@
-export {default} from './tidal-globe';
+export { default } from "./tidal-globe";

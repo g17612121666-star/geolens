@@ -65,13 +65,20 @@ const SCENE_IMPORTS = {
   "storm-surge": () => import("@/labs/storm-surge/scene"),
 };
 
-type Slug=keyof typeof SCENE_IMPORTS;
-const imports=new Map<string,Promise<{default:ComponentType}>>();
-export function preloadLab(slug:string){
- const importer=SCENE_IMPORTS[slug as Slug];if(!importer)return;
- let pending=imports.get(slug);
- if(!pending){pending=importer();imports.set(slug,pending);pending.catch(()=>imports.delete(slug));}
- return pending;
+type Slug = keyof typeof SCENE_IMPORTS;
+const imports = new Map<string, Promise<{ default: ComponentType }>>();
+export function preloadLab(slug: string) {
+  const importer = SCENE_IMPORTS[slug as Slug];
+  if (!importer) return;
+  let pending = imports.get(slug);
+  if (!pending) {
+    pending = importer();
+    imports.set(slug, pending);
+    pending.catch(() => imports.delete(slug));
+  }
+  return pending;
 }
-export const LAB_SCENES:Record<string,ComponentType>=Object.fromEntries(Object.keys(SCENE_IMPORTS).map(slug=>[slug,lazy(()=>preloadLab(slug)!)]));
+export const LAB_SCENES: Record<string, ComponentType> = Object.fromEntries(
+  Object.keys(SCENE_IMPORTS).map((slug) => [slug, lazy(() => preloadLab(slug)!)]),
+);
 export const SHIPPED_SLUGS = Object.keys(LAB_SCENES);

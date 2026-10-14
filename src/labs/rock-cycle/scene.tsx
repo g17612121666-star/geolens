@@ -1,1 +1,1 @@
-export {default} from './cycle';
+export { default } from "./cycle";
