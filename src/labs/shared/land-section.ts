@@ -54,11 +54,12 @@ const ROCKS: Record<Bedrock, string> = {
   float y=p.y*BEDS+BEDOFF+.06*sNoise(vec2(p.x+p.z,1.)*2.);
   float i=floor(y),fy=fract(y),h=sHash(vec2(i,5.));
   vec3 c=mix(${v("#cfcabd")},${v("#b9b3a5")},h);
-  c*=mix(.9,1.05,g);
-  if(fy<.06)c=mix(${v("#7d776c")},c,fy/.06);
-  float jc=(p.x+p.z)*1.9+h*.6;
+  c*=mix(.9,1.05,g)*mix(.95,1.04,sNoise(vec2(p.x+p.z,p.y)*vec2(2.,6.)));
+  if(fy<.05)c=mix(${v("#857f73")},c,fy/.05);
+  // Joints: spacing, offset and presence vary bed by bed, and they wander slightly.
+  float jc=(p.x+p.z)*(1.2+1.1*h)+h*7.+.12*sNoise(vec2(p.y*5.,i));
   float jf=fract(jc);
-  if(sHash(vec2(floor(jc),i))>.4)c*=mix(.6,1.,smoothstep(0.,.02,min(jf,1.-jf)));
+  if(sHash(vec2(floor(jc),i))>.5)c*=mix(.72,1.,smoothstep(0.,.014,min(jf,1.-jf)));
   return c;`,
   granite: `
   vec2 q=vec2(p.x+p.z,p.y);

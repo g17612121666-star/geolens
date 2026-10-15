@@ -67,6 +67,9 @@ const earthFrag = /* glsl */ `
     float ndl = dot(n, sun);
     float dayF = smoothstep(-0.03, 0.06, ndl);
     vec3 day = texture2D(dayMap, vUv).rgb;
+    // The day map stores oceans as near-black navy; lift them to the deep blue seen from orbit.
+    float sea = smoothstep(.002, .005, day.b - max(day.r, day.g)) * (1. - smoothstep(.03, .08, max(day.r, day.g)));
+    day = mix(day, vec3(.008, .035, .1), sea);
     vec3 night = texture2D(nightMap, vUv).rgb * vec3(1.45, 1.2, 0.85);
     // Perturb the lighting normal from the actual terrain map; keep the
     // geometric normal for the day/night boundary and eclipse calculation.
@@ -141,7 +144,10 @@ export function EarthMesh({
   occluder,
   lighting = "sun",
   halo = true,
+  cloudCover = 1,
 }: {
+  /** Scales cloud opacity, for globes shown large (such as the home page). */
+  cloudCover?: number;
   /** Sun-aware atmosphere rim. */
   halo?: boolean;
   sunDirection?: THREE.Vector3;
@@ -215,7 +221,7 @@ export function EarthMesh({
       } else mat.current.uniforms.sunDirection.value.copy(sunRef.current);
       const e = eclipseRef.current,
         u = mat.current.uniforms;
-      u.cloudAmount.value = showClouds ? 1 : 0;
+      u.cloudAmount.value = showClouds ? cloudCover : 0;
       u.cloudShift.value = useLabControls.getState().t * 0.25;
       haloUniforms.sunDirection.value.copy(u.sunDirection.value);
       u.eclipseEnabled.value = Boolean(e);

@@ -38,6 +38,14 @@ float cellEdge(vec2 q){
     float e=length(n+o-f);if(e<a){b=a;a=e;}else b=min(b,e);}
   return b-a;
 }
+/** Nearest Voronoi cell: x = distance to its edge, y = a random id for the cell. */
+vec2 cellStone(vec2 q){
+  vec2 i=floor(q),f=fract(q);float a=9.,b=9.;vec2 id=vec2(0.);
+  for(int x=-1;x<=1;x++)for(int y=-1;y<=1;y++){
+    vec2 n=vec2(float(x),float(y)),o=vec2(sHash(i+n),sHash(i+n+7.3));
+    float e=length(n+o-f);if(e<a){b=a;a=e;id=i+n;}else b=min(b,e);}
+  return vec2(b-a,sHash(id+3.1));
+}
 vec3 sectionColour(vec3 p,vec3 w){
   float h=p.x+p.z,d=-p.y+.025*(sNoise(vec2(h*5.,1.))-.5);
   ${colour}
@@ -57,9 +65,12 @@ vec3 sectionColour(vec3 p,vec3 w){
     ${index === 2 ? "c=mix(c,vec3(.36,.16,.10),smoothstep(.84,.9,sNoise(q*44.))*.6);" : ""}
   }else{
     // Weathered parent material: angular stones that become larger and commoner with depth.
-    float st=smoothstep(.74-.1*clamp(d-1.,0.,1.),.78-.1*clamp(d-1.,0.,1.),sNoise(q*vec2(16.,20.)));
-    c=mix(c,vec3(.70,.68,.63)*mix(.8,1.08,sNoise(q*60.)),st);
-    c*=1.-.35*st*(1.-st)*4.;
+    float deep=clamp(d-1.,0.,1.);
+    vec2 cs=cellStone(q*vec2(11.-3.*deep,13.-4.*deep));
+    float st=step(cs.y,.22+.25*deep)*smoothstep(.03,.07,cs.x);
+    vec3 stone=mix(vec3(.66,.64,.60),vec3(.76,.73,.67),sHash(vec2(cs.y,2.)))*mix(.85,1.06,sNoise(q*70.));
+    c=mix(c,stone,st);
+    c*=1.-.3*step(cs.y,.22+.25*deep)*(1.-smoothstep(.0,.04,cs.x))*smoothstep(.02,.03,cs.x+.02);
   }
   // Roots: fine pale threads, thinning out with depth.
   float col=floor(h*28.),rf=fract((h+.012*sin(d*25.+col))*28.);
@@ -87,6 +98,7 @@ export default function SoilProfile() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="soil-profile"
         camera={[2, 1.4, 6]}
         scale="Illustrative 2 m profile · common geometric scale · no compulsory O–A–E–B–C sequence"

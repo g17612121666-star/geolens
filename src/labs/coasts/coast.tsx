@@ -247,6 +247,7 @@ export default function Coasts() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="coasts"
         camera={[4.3, 3.4, 7]}
         scale={

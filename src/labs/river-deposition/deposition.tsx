@@ -265,6 +265,7 @@ export default function RiverDeposition() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="river-deposition"
         camera={[3.5, 4.3, 7]}
         scale="600 × 400 m conceptual reach · relief ×5 · sediment symbols enlarged"

@@ -112,6 +112,7 @@ export default function Weathering() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="weathering"
         camera={[2.6, 1.9, 6]}
         scale={

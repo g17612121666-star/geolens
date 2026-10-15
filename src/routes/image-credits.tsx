@@ -22,7 +22,7 @@ function ImageCredits() {
     [query],
   );
   return (
-    <main id="main" className="mx-auto max-w-5xl px-5 pb-16 pt-24">
+    <main id="main" className="mx-auto max-w-[1280px] px-5 pb-16 pt-24">
       <p className="section-label">Geolens</p>
       <h1 className="mt-3 font-display text-5xl">Image credits</h1>
       <p className="mt-5 max-w-3xl leading-7 text-mist">

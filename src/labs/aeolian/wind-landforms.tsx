@@ -52,6 +52,7 @@ export default function Aeolian() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="aeolian"
         camera={[4.2, 4, 7]}
         scale="60 × 40 m selected landform · relief ×2 · wind points +x"

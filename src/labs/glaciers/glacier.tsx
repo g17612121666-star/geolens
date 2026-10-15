@@ -73,6 +73,7 @@ export default function Glaciers() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="glaciers"
         camera={[6, 6, 2.8]}
         scale={

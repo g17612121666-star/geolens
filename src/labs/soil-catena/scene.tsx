@@ -113,6 +113,7 @@ export default function SoilCatena() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="soil-catena"
         camera={[1.3, 2.1, 7]}
         scale="Soil thickness ×20 · 120 m hillslope · topographic slope to scale"

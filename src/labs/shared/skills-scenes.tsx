@@ -284,6 +284,8 @@ function ProjectionSurface({ morph, kind }: { morph: number; kind: number }) {
     return geo;
   }, [morph, kind]);
   useEffect(() => () => g.dispose(), [g]);
+  const morphUniform = useMemo(() => ({ value: morph }), []); // eslint-disable-line react-hooks/exhaustive-deps
+  morphUniform.value = morph;
   return (
     <mesh geometry={g}>
       <meshBasicMaterial
@@ -297,6 +299,17 @@ function ProjectionSurface({ morph, kind }: { morph: number; kind: number }) {
 }
 /** The day texture's oceans are very dark; recolour them as a clear atlas-blue sea. */
 function atlasColours(s: THREE.WebGLProgramParametersWithUniforms) {
+  // While still a globe, shade it softly from the upper left so it reads as a sphere;
+  // the shading fades out as the surface unfolds into a flat map.
+  s.vertexShader =
+    "uniform float uMorph; varying float vShade;\n" +
+    s.vertexShader.replace(
+      "#include <begin_vertex>",
+      `#include <begin_vertex>
+float lambert=max(0.,dot(normalize(position),normalize(vec3(-.45,.5,.75))));
+vShade=mix(.5+.6*lambert,1.,smoothstep(.0,.6,uMorph));`,
+    );
+  s.fragmentShader = "varying float vShade;\n" + s.fragmentShader;
   s.fragmentShader = s.fragmentShader.replace(
     "#include <map_fragment>",
     `#include <map_fragment>
@@ -304,7 +317,7 @@ vec3 day=diffuseColor.rgb;
 // Ocean pixels are near-black navy (about sRGB 2, 5, 20): blue-dominant and very dark.
 float ocean=smoothstep(.002,.005,day.b-max(day.r,day.g))*(1.-smoothstep(.03,.08,max(day.r,day.g)));
 vec3 sea=vec3(.06,.2,.38);
-diffuseColor.rgb=mix(day*1.3,sea,ocean);`,
+diffuseColor.rgb=mix(day*1.3,sea,ocean)*vShade;`,
   );
 }
 /** Map sheet behind the flattened projection, with a neat line around the mapped area. */

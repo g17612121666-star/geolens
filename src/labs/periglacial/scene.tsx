@@ -145,6 +145,7 @@ export default function Periglacial() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="periglacial"
         camera={view === 0 ? [3.2, 3.4, 7.4] : [3.4, 5, 6]}
         scale={

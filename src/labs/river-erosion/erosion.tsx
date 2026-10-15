@@ -226,7 +226,7 @@ export default function RiverErosion() {
   const mode = Math.round(params.feature ?? 0),
     progress = params.retreat ?? 0.35,
     lip = waterfallLip(progress),
-    vertical = trueScale ? 1 : 1.5;
+    vertical = trueScale ? 1 : mode === 0 ? 2.2 : 1.5;
   /** Valley axis for the V-shaped valley: the river winds between interlocking spurs. */
   const valleyZ = (x: number) => 0.38 * Math.sin(x * 1.5 + 0.4);
   const height = useMemo(
@@ -343,12 +343,15 @@ export default function RiverErosion() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="river-erosion"
         camera={mode === 1 ? [1.6, 2.6, 4.2] : mode === 0 ? [6.4, 3.1, 2.3] : [2.5, 6.2, 5.4]}
         scale={
           mode === 1
             ? "Pothole close-up · 1 unit = 1 m · block cut through the hollow · stones enlarged"
-            : "60 × 40 m terrain · vertical ×1.5 · retreat prescribed, not dated"
+            : mode === 0
+              ? "60 × 40 m terrain · vertical ×2.2 · retreat prescribed, not dated"
+              : "60 × 40 m terrain · vertical ×1.5 · valley shape prescribed"
         }
         trueScale={
           mode === 1

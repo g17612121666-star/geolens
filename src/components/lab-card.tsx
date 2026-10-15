@@ -20,7 +20,9 @@ export function LabCard({ lab, className }: { lab: LabMeta; className?: string }
       <div className="relative aspect-[16/10] overflow-hidden bg-trench">
         <LabThumb slug={lab.slug} />
         <div className="absolute left-3 top-3">
-          <Badge tone="glacier">{realm?.title}</Badge>
+          <Badge tone="glacier" className="border-transparent bg-basalt/90 backdrop-blur">
+            {realm?.title}
+          </Badge>
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">

@@ -60,6 +60,7 @@ export default function RockCycle() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="rock-cycle"
         camera={[0, 0.4, 9]}
         scale="Rock and material examples · positions and specimen sizes are schematic"

@@ -6,7 +6,8 @@ import { useLabTick } from "@/labs/tick";
 import { classroomDensity } from "@/lib/ocean-circulation-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { WaterPrism } from "../shared/water-prism";
-import { RockPrism } from "../shared/rock-prism";
+import { GeomorphicTerrain } from "../shared/geomorphic-terrain";
+import { PlantStand } from "../shared/natural-world";
 import { Tag } from "../shared/kit";
 import { OceanSurface } from "../shared/ocean-section";
 import { FlowFilaments } from "../atmosphere-layers/weather-volumes";
@@ -46,33 +47,14 @@ export default function Thermohaline() {
       >
         {view === 0 ? (
           <>
-            <RockPrism
-              points={[
-                [-2, y(4000)],
-                [2, y(4000)],
-                [2, y(4000) - 0.1],
-                [-2, y(4000) - 0.1],
-              ]}
-              depth={1.6}
-            />
-            <WaterPrism
-              points={[
-                [-2, 0],
-                [2, 0],
-                [2, y(4000)],
-                [-2, y(4000)],
-              ]}
-              colour="#32667c"
-              opacity={0.2}
-            />
+            <OceanBasin bottom={y(4000)} />
             <OceanSurface
               points={[
-                [-2, 0],
-                [2, 0],
+                [-2.02, 0],
+                [2.02, 0],
               ]}
-              opacity={0.42}
+              opacity={0.4}
             />
-            <TemperatureFace bottom={y(4000)} />
             {/* Sea ice at the high-latitude end, where brine rejection helps water sink. */}
             {Array.from({ length: 9 }, (_, i) => (
               <mesh
@@ -225,33 +207,101 @@ export default function Thermohaline() {
   );
 }
 
+const SHORE = 2.02;
+/** Seabed fraction of full depth: shelves at both ends and a mid-ocean ridge in the middle. */
+function seabed(x: number, bottom: number) {
+  const ax = Math.abs(x),
+    depth =
+      (1 -
+        0.32 * Math.exp(-((x / 0.32) ** 2)) -
+        0.04 * Math.sin(x * 9) * Math.exp(-((x / 0.6) ** 2))) *
+      (1 - 0.93 * THREE.MathUtils.smoothstep(ax, 1.55, 1.92));
+  return THREE.MathUtils.lerp(depth * bottom, 0.07, THREE.MathUtils.smoothstep(ax, 1.95, 2.08));
+}
+const TROPIC = new THREE.Color("#e39a5c"),
+  POLAR = new THREE.Color("#8cc0d6"),
+  DEEP = new THREE.Color("#22507a");
+/** Schematic temperature of the water: warm surface at low latitude (left), cold deep water. */
+function waterColour(x: number, y: number, bottom: number, out: THREE.Color) {
+  const across = (x + 2) / 4,
+    depth = Math.min(1, -y / -bottom);
+  return out
+    .copy(TROPIC)
+    .lerp(POLAR, across)
+    .lerp(DEEP, Math.min(1, Math.pow(depth, 0.45) + across * 0.25));
+}
+
 /**
- * Front-face temperature section: warm surface water at low latitude (left) cooling
- * towards the pole (right) and with depth. Colours are schematic, not measured data.
+ * The ocean basin in section: bathymetry with shelves and a ridge, a tropical coast on the
+ * left and an ice-covered polar coast on the right, and water faces coloured by temperature.
  */
-function TemperatureFace({ bottom }: { bottom: number }) {
-  const geometry = useMemo(() => {
-    const g = new THREE.PlaneGeometry(4, -bottom, 40, 24),
-      p = g.attributes.position,
-      colours = new Float32Array(p.count * 3),
-      warm = new THREE.Color("#e39a5c"),
-      cool = new THREE.Color("#7fb6cf"),
-      cold = new THREE.Color("#25507a"),
-      c = new THREE.Color();
-    for (let i = 0; i < p.count; i++) {
-      const across = (p.getX(i) + 2) / 4,
-        depth = 1 - (p.getY(i) + -bottom / 2) / -bottom;
-      const surface = warm.clone().lerp(cool, across);
-      c.copy(surface).lerp(cold, Math.min(1, Math.pow(depth, 0.45) + across * 0.25));
-      colours.set([c.r, c.g, c.b], i * 3);
+function OceanBasin({ bottom }: { bottom: number }) {
+  const ground = useMemo(() => (x: number) => seabed(x, bottom), [bottom]);
+  const land = useMemo(
+    () => (x: number, z: number) => ground(x) + 0.01 * Math.sin(z * 7 + x * 3),
+    [ground],
+  );
+  const colour = useMemo(
+    () => (x: number, y: number) =>
+      y > 0.03 ? (x < 0 ? "#6f8f48" : "#eef3f5") : y > -0.05 ? "#cbb98e" : "#7e786c",
+    [],
+  );
+  const faces = useMemo(() => {
+    const p: number[] = [],
+      c: number[] = [],
+      idx: number[] = [],
+      col = new THREE.Color(),
+      n = 200;
+    for (const z of [0.801, -0.801]) {
+      const start = p.length / 3;
+      for (let i = 0; i <= n; i++) {
+        const x = -SHORE + (2 * SHORE * i) / n,
+          floor = Math.min(0, ground(x));
+        for (const y of [0, floor]) {
+          p.push(x, y, z);
+          waterColour(x, y, bottom, col);
+          c.push(col.r, col.g, col.b);
+        }
+        if (i < n) {
+          const a = start + i * 2;
+          if (z > 0) idx.push(a, a + 1, a + 2, a + 2, a + 1, a + 3);
+          else idx.push(a, a + 2, a + 1, a + 2, a + 3, a + 1);
+        }
+      }
     }
-    g.setAttribute("color", new THREE.BufferAttribute(colours, 3));
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(p, 3));
+    g.setAttribute("color", new THREE.Float32BufferAttribute(c, 3));
+    g.setIndex(idx);
     return g;
-  }, [bottom]);
-  useEffect(() => () => geometry.dispose(), [geometry]);
+  }, [ground, bottom]);
+  useEffect(() => () => faces.dispose(), [faces]);
+  const palms = useMemo(
+    () =>
+      Array.from({ length: 10 }, (_, i) => {
+        const x = -2.08 - 0.1 * ((i * 0.618) % 1),
+          z = -0.7 + (i / 9) * 1.4;
+        return [x, land(x, z), z] as [number, number, number];
+      }),
+    [land],
+  );
   return (
-    <mesh geometry={geometry} position={[0, bottom / 2, 0.805]}>
-      <meshBasicMaterial vertexColors transparent opacity={0.55} depthWrite={false} />
-    </mesh>
+    <>
+      <GeomorphicTerrain
+        height={(x, z) => land(x, z)}
+        colour={(x, y) => colour(x, y)}
+        width={4.3}
+        depth={1.6}
+        base={bottom - 0.12}
+        resolution={180}
+        cliff={0.35}
+        mottle={0.05}
+        section={{ rock: "shale", soil: 0.02, regolith: 0.04, beds: 9, soilTone: "thin" }}
+      />
+      <mesh geometry={faces}>
+        <meshBasicMaterial vertexColors transparent opacity={0.6} depthWrite={false} />
+      </mesh>
+      <PlantStand kind="broadleaf" positions={palms} scale={0.08} seed={4} />
+    </>
   );
 }

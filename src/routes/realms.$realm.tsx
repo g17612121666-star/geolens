@@ -17,7 +17,7 @@ export const Route = createFileRoute("/realms/$realm")({
   head: ({ params }) => {
     const meta = REALMS.find((r) => r.slug === params.realm);
     return headFor({
-      title: meta?.title ?? "Realm",
+      title: meta?.title ?? "Subject",
       description: meta?.blurb ?? "Geolens realm.",
       path: `/realms/${params.realm}`,
       image: meta ? REALM_FIGURE[meta.slug]?.src : undefined,
@@ -34,17 +34,24 @@ function RealmPage() {
   const fig = REALM_FIGURE[meta.slug];
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
-      <p className="section-label">{"Realm"}</p>
-      <h1 className="mt-3 font-display text-4xl md:text-5xl">{meta.title}</h1>
-      <p className="mt-2 text-glacier">{meta.kicker}</p>
-      <p className="mt-5 max-w-2xl text-mist">{meta.blurb}</p>
-      {fig && <Figure {...fig} className="realm-cover mt-8" />}
+      <div className="grid items-center gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1fr_1.15fr]">
+        <div>
+          <p className="section-label">{"Subject"}</p>
+          <h1 className="mt-3 font-display text-5xl md:text-6xl">{meta.title}</h1>
+          <p className="mt-3 text-lg text-glacier">{meta.kicker}</p>
+          <p className="mt-5 max-w-xl text-lg leading-8 text-mist">{meta.blurb}</p>
+          <p className="mt-6 text-sm text-mist">
+            {labs.length} {labs.length === 1 ? "interactive lab" : "interactive labs"}
+          </p>
+        </div>
+        {fig && <Figure {...fig} className="realm-cover" />}
+      </div>
       {labs.length === 0 ? (
         <p className="mt-16 max-w-lg text-mist">
           {"There are no labs in this subject yet. Browse Explore to find another topic."}
         </p>
       ) : (
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {labs.map((lab) => (
             <LabCard key={lab.slug} lab={lab} />
           ))}

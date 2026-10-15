@@ -161,6 +161,8 @@
 .formula, math { font-family: Calibri, "Times New Roman", serif; font-variant-numeric: lining-nums tabular-nums; letter-spacing: normal; }
 .lab-showcase-window { display:flex; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:none; padding-block:4px 8px; }
 .lab-showcase-window::-webkit-scrollbar { display:none; }
+/* Fade the trailing edge so a partly visible card reads as 'scroll for more'. */
+@media(min-width:768px){ .lab-showcase-window { mask-image:linear-gradient(to right,#000 calc(100% - 72px),transparent); } }
 .lab-showcase-row { display:flex; flex:none; gap:20px; padding-right:20px; }
 .lab-showcase-card { display:flex; flex-direction:column; flex:none; width:300px; border:1px solid var(--color-glass-border); border-radius:16px; overflow:hidden; background:var(--color-basalt); transition:border-color 180ms; }
 .lab-showcase-card:hover, .lab-showcase-card:focus-visible { border-color:var(--color-glacier); }
@@ -182,6 +184,8 @@
 @media print { .loading-progress, .lab-entry-panel { display: none; } }
 
 [data-lab-entry="loading"] > div[inert] h1 { animation: none; }
+/* Lab titles appear immediately: a heavy first 3D frame can stall CSS animations. */
+[data-lab-entry] h1, [data-lab-entry="ready"] > div > main h1 { animation: none; }
 
 /* The palette changes; photographs, physical materials and formula fonts do not. */
 :root[data-theme="light"] {
@@ -206,4 +210,4 @@
 @media(max-width:767px){.hero-globe {width:min(100%,360px);margin-inline:auto;}.home-intro{gap:0;}.home-intro h1{font-size:clamp(2.75rem,10vw,3.6rem);}}
 @media(prefers-reduced-motion:reduce){.editorial-card:hover{transform:none;}}
 
-.realm-cover img{width:100%;max-height:26rem;object-fit:cover;}
+.realm-cover img{width:100%;aspect-ratio:16/10;max-height:24rem;object-fit:cover;}

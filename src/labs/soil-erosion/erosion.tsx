@@ -226,6 +226,7 @@ export default function SoilErosion() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="soil-erosion"
         camera={[4.6, 4.5, 8]}
         scale="Two 20 × 10 m plots · surface lowering ×30 · enlarged process tracers"

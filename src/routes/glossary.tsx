@@ -127,7 +127,7 @@ function Glossary() {
     setRevealed(false);
   }
   return (
-    <main id="main" className="mx-auto max-w-[1180px] px-5 pb-24 pt-24">
+    <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="section-label">{"Glossary"}</p>
@@ -219,13 +219,13 @@ function Glossary() {
                 />
               </label>
               <label>
-                <span className="mb-2 block text-sm text-mist">{"Realm"}</span>
+                <span className="mb-2 block text-sm text-mist">{"Subject"}</span>
                 <select
                   className={field}
                   value={realm}
                   onChange={(e) => update({ realm: e.target.value })}
                 >
-                  <option value="all">{"All realms"}</option>
+                  <option value="all">{"All subjects"}</option>
                   {REALMS.map((r) => (
                     <option key={r.slug} value={r.slug}>
                       {r.title}
