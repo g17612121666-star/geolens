@@ -116,6 +116,7 @@ export default function Rivers() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="rivers"
         scale="Long-profile relief ×12 · channel breadth enlarged"
         trueScale="Long-profile relief ×1 · channel breadth and vegetation still enlarged"

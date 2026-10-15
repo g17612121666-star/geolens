@@ -67,6 +67,9 @@ const earthFrag = /* glsl */ `
     float ndl = dot(n, sun);
     float dayF = smoothstep(-0.03, 0.06, ndl);
     vec3 day = texture2D(dayMap, vUv).rgb;
+    // The day map stores oceans as near-black navy; lift them to the deep blue seen from orbit.
+    float sea = smoothstep(.002, .005, day.b - max(day.r, day.g)) * (1. - smoothstep(.03, .08, max(day.r, day.g)));
+    day = mix(day, vec3(.008, .035, .1), sea);
     vec3 night = texture2D(nightMap, vUv).rgb * vec3(1.45, 1.2, 0.85);
     // Perturb the lighting normal from the actual terrain map; keep the
     // geometric normal for the day/night boundary and eclipse calculation.
@@ -82,9 +85,9 @@ const earthFrag = /* glsl */ `
     vec3 ground = day * (0.08 + 0.92 * sqrt(diffuse)) * (1.0 - shadow);
     vec3 view = normalize(cameraPosition - vPosW);
     float ocean = smoothstep(0.015, 0.09, day.b - max(day.r, day.g));
-    float glint = pow(max(dot(reflect(-sun, n), view), 0.0), 40.0);
+    float glint = pow(max(dot(reflect(-sun, n), view), 0.0), 70.0);
     float fresnelS = 0.04 + 0.96 * pow(1.0 - max(dot(n, view), 0.0), 5.0);
-    ground += vec3(1.0, 0.92, 0.8) * (glint * 0.6 + fresnelS * 0.05) * ocean * dayF * (1.0 - cloud);
+    ground += vec3(1.0, 0.92, 0.8) * (glint * 0.3 + fresnelS * 0.05) * ocean * dayF * (1.0 - cloud);
     vec3 cloudLit = vec3(0.97, 0.98, 1.0) * (0.06 + 0.94 * smoothstep(-0.05, 0.6, ndl));
     vec3 lit = mix(ground, cloudLit, cloud);
     vec3 dark = night * 0.7 * (1.0 - cloud * 0.8) + day * 0.012 + cloud * vec3(0.02, 0.025, 0.035);
@@ -141,7 +144,10 @@ export function EarthMesh({
   occluder,
   lighting = "sun",
   halo = true,
+  cloudCover = 1,
 }: {
+  /** Scales cloud opacity, for globes shown large (such as the home page). */
+  cloudCover?: number;
   /** Sun-aware atmosphere rim. */
   halo?: boolean;
   sunDirection?: THREE.Vector3;
@@ -215,7 +221,7 @@ export function EarthMesh({
       } else mat.current.uniforms.sunDirection.value.copy(sunRef.current);
       const e = eclipseRef.current,
         u = mat.current.uniforms;
-      u.cloudAmount.value = showClouds ? 1 : 0;
+      u.cloudAmount.value = showClouds ? cloudCover : 0;
       u.cloudShift.value = useLabControls.getState().t * 0.25;
       haloUniforms.sunDirection.value.copy(u.sunDirection.value);
       u.eclipseEnabled.value = Boolean(e);

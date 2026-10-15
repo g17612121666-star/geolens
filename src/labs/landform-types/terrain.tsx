@@ -199,6 +199,7 @@ export default function LandformTypes() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="landform-types"
         camera={[3.5, 5.5, 8]}
         scale="Both samples: 4 × 4 km · relief ×2 · identical comparison scale"

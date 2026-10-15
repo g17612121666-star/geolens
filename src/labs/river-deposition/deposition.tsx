@@ -265,6 +265,7 @@ export default function RiverDeposition() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="river-deposition"
         camera={[3.5, 4.3, 7]}
         scale="600 × 400 m conceptual reach · relief ×5 · sediment symbols enlarged"
@@ -314,7 +315,12 @@ export default function RiverDeposition() {
                 note="On the outside of the bend the deepest, fastest flow undercuts the bank, which collapses to leave a steep cliff exposing the floodplain sediments."
                 occlude={false}
               />
-              <Arrow from={[-0.7, 0.2, -0.62]} to={[0.6, 0.2, -0.72]} color="#a2ced3" width={0.65} />
+              <Arrow
+                from={[-0.7, 0.2, -0.62]}
+                to={[0.6, 0.2, -0.72]}
+                color="#a2ced3"
+                width={0.65}
+              />
             </>
           ) : mode === 1 ? (
             <>

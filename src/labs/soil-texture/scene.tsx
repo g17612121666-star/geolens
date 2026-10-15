@@ -49,6 +49,47 @@ export default function SoilTexture() {
     return geo;
   }, []);
   useEffect(() => () => g.dispose(), [g]);
+  // Class boundaries: segments wherever neighbouring sample points fall in different classes.
+  const borders = useMemo(() => {
+    const out: number[] = [],
+      n = 160,
+      cls = (a: number, b: number) => soilTexture((a * 100) / n, (b * 100) / n);
+    for (let a = 0; a < n; a++)
+      for (let b = 0; a + b < n; b++) {
+        const here = cls(a + 0.5, b + 0.5);
+        if (a + b + 1 < n && cls(a + 1.5, b + 0.5) !== here)
+          out.push(
+            ...xyz(((a + 1) * 100) / n, (b * 100) / n),
+            ...xyz(((a + 1) * 100) / n, ((b + 1) * 100) / n),
+          );
+        if (a + b + 1 < n && cls(a + 0.5, b + 1.5) !== here)
+          out.push(
+            ...xyz((a * 100) / n, ((b + 1) * 100) / n),
+            ...xyz(((a + 1) * 100) / n, ((b + 1) * 100) / n),
+          );
+      }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.Float32BufferAttribute(out, 3));
+    geo.translate(0, 0.004, 0);
+    return geo;
+  }, []);
+  useEffect(() => () => borders.dispose(), [borders]);
+  // A solid tile beneath the coloured face, so the triangle reads as an object.
+  const tile = useMemo(() => {
+    const corners = [xyz(100, 0), xyz(0, 0), xyz(0, 100)],
+      shape = new THREE.Shape(corners.map(([x, , z]) => new THREE.Vector2(x, -z))),
+      geo = new THREE.ExtrudeGeometry(shape, {
+        depth: 0.08,
+        bevelEnabled: true,
+        bevelSize: 0.04,
+        bevelThickness: 0.02,
+        bevelSegments: 3,
+      });
+    geo.rotateX(-Math.PI / 2);
+    geo.translate(0, -0.085, 0);
+    return geo;
+  }, []);
+  useEffect(() => () => tile.dispose(), [tile]);
   return (
     <>
       <ScienceStudio
@@ -57,9 +98,33 @@ export default function SoilTexture() {
         trueScale="Barycentric percentages are exact · slab thickness is a display aid"
         camera={[0, 5.4, 4.4]}
       >
-        <mesh geometry={g}>
-          <meshStandardMaterial vertexColors side={THREE.DoubleSide} roughness={0.88} />
+        <mesh geometry={tile} castShadow receiveShadow>
+          <meshStandardMaterial color="#e4ddcf" roughness={0.6} />
         </mesh>
+        <mesh geometry={g} receiveShadow>
+          <meshStandardMaterial vertexColors side={THREE.DoubleSide} roughness={0.7} />
+        </mesh>
+        <lineSegments geometry={borders}>
+          <lineBasicMaterial color="#5d5547" transparent opacity={0.75} />
+        </lineSegments>
+        {/* Ticks every 10% along each edge. */}
+        {Array.from({ length: 9 }, (_, i) => (i + 1) * 10).flatMap((v) => [
+          <Line
+            key={`s${v}`}
+            points={[xyz(v, 0), [xyz(v, 0)[0], 0.02, xyz(v, 0)[2] + 0.1]]}
+            color="#6b6355"
+          />,
+          <Line
+            key={`c${v}`}
+            points={[xyz(0, v), [xyz(0, v)[0] - 0.09, 0.02, xyz(0, v)[2] - 0.05]]}
+            color="#6b6355"
+          />,
+          <Line
+            key={`t${v}`}
+            points={[xyz(100 - v, v), [xyz(100 - v, v)[0] + 0.09, 0.02, xyz(100 - v, v)[2] - 0.05]]}
+            color="#6b6355"
+          />,
+        ])}
         {[20, 40, 60, 80].map((v) => (
           <group key={v}>
             <Line points={[xyz(0, v), xyz(100 - v, v)]} color="#f4efe6" transparent opacity={0.3} />
@@ -77,9 +142,20 @@ export default function SoilTexture() {
             { label: "Clay · plates", fraction: clay, x: 1.15 },
           ].map((sample, k) => (
             <group key={k} position={[sample.x, 0, 0]}>
-              <mesh position={[0, -0.06, 0]}>
-                <cylinderGeometry args={[0.39, 0.35, 0.1, 40]} />
-                <meshStandardMaterial color="#6c695d" roughness={0.85} />
+              <mesh position={[0, -0.03, 0]} receiveShadow>
+                <cylinderGeometry args={[0.38, 0.38, 0.02, 48]} />
+                <meshStandardMaterial color="#f2efe8" roughness={0.4} />
+              </mesh>
+              <mesh position={[0, 0.02, 0]}>
+                <cylinderGeometry args={[0.4, 0.4, 0.09, 48, 1, true]} />
+                <meshPhysicalMaterial
+                  color="#e6f1f3"
+                  transparent
+                  opacity={0.3}
+                  roughness={0.05}
+                  side={THREE.DoubleSide}
+                  depthWrite={false}
+                />
               </mesh>
               {k < 2 ? (
                 <DebrisField
@@ -88,8 +164,8 @@ export default function SoilTexture() {
                       r = 0.31 * Math.sqrt((i + 0.5) / Math.max(1, sample.fraction * 0.8));
                     return [r * Math.cos(a), 0.018 + 0.02 * Math.sin(i * 3) ** 2, r * Math.sin(a)];
                   })}
-                  size={k === 0 ? 0.038 : 0.021}
-                  color={k === 0 ? "#c6b590" : "#b8a386"}
+                  size={k === 0 ? 0.034 : 0.016}
+                  color={k === 0 ? "#d3c29b" : "#a8957a"}
                 />
               ) : (
                 Array.from({ length: Math.round(clay * 0.6) }, (_, i) => {
@@ -175,9 +251,18 @@ function SettlingJar({ sand, silt, clay }: { sand: number; silt: number; clay: n
           </mesh>
         ) : null;
       })}
-      <mesh position={[0, y + (height - y) / 2, 0]}>
-        <cylinderGeometry args={[radius * 0.96, radius * 0.96, height - y, 40]} />
-        <meshStandardMaterial color="#9cc8d4" transparent opacity={0.35} roughness={0.1} />
+      <mesh position={[0, y + (height * 0.92 - y) / 2, 0]}>
+        <cylinderGeometry args={[radius * 0.96, radius * 0.96, height * 0.92 - y, 40]} />
+        <meshStandardMaterial color="#a9b9a6" transparent opacity={0.42} roughness={0.1} />
+      </mesh>
+      {/* The finest clay can stay suspended for days, clouding the water just above it. */}
+      <mesh position={[0, y + 0.06, 0]}>
+        <cylinderGeometry args={[radius * 0.955, radius * 0.955, 0.12, 40]} />
+        <meshStandardMaterial color="#8b7d69" transparent opacity={0.3} depthWrite={false} />
+      </mesh>
+      <mesh position={[0, height + 0.04, 0]} castShadow>
+        <cylinderGeometry args={[radius + 0.02, radius + 0.02, 0.07, 40]} />
+        <meshStandardMaterial color="#c9a24b" metalness={0.6} roughness={0.35} />
       </mesh>
       <mesh position={[0, height / 2, 0]}>
         <cylinderGeometry args={[radius, radius, height + 0.02, 40, 1, true]} />

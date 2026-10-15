@@ -22,7 +22,7 @@ export function ProgressImage({
     setState(ref.current?.complete ? (ref.current.naturalWidth ? "ready" : "error") : "loading");
   }, [src, attempt]);
   return (
-    <span className={"relative block overflow-hidden " + className}>
+    <span className={"relative block overflow-hidden bg-trench " + className}>
       <img
         key={String(src) + attempt}
         ref={ref}
@@ -40,7 +40,8 @@ export function ProgressImage({
           onError?.(e);
         }}
         className={
-          "block size-full " +
+          "block size-full transition-opacity duration-300 " +
+          (state === "loading" ? "opacity-0 " : "opacity-100 ") +
           (className.includes("object-contain") ? "object-contain" : "object-cover")
         }
       />

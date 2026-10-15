@@ -74,15 +74,14 @@ export function ControlBar({
   return (
     <div
       data-lab-controls
-      className="pointer-events-auto mx-auto flex w-full max-w-[1100px] flex-col gap-2 rounded-[20px] border border-white/10 bg-basalt/80 px-3 py-2.5 backdrop-blur-xl md:flex-row md:flex-wrap md:items-center md:gap-3"
+      className="pointer-events-auto flex w-full flex-col gap-2 rounded-2xl border border-white/10 bg-basalt/90 px-3 py-2 shadow-[0_8px_30px_rgb(0_0_0/0.12)] backdrop-blur-xl md:flex-row md:flex-wrap md:items-center md:gap-x-4 md:gap-y-1.5"
     >
       <div className="flex flex-wrap items-center gap-1.5">
         {playback && (
-          <IconBtn label={playing ? "Pause" : "Play"} onClick={toggle}>
+          <IconBtn label={playing ? "Pause" : "Play"} onClick={toggle} showLabel primary>
             {playing ? <Pause className="size-4" /> : <Play className="size-4" />}
           </IconBtn>
         )}
-        {!playback && <span className="px-2 text-xs text-mist">{"Adjust parameters"}</span>}
         {playback && (
           <div className="flex rounded-[10px] bg-white/6 p-0.5">
             {[1, 2, 4].map((s) => (
@@ -91,7 +90,7 @@ export function ControlBar({
                 aria-pressed={speed === s}
                 onClick={() => setSpeed(s)}
                 className={cn(
-                  "inline-flex h-11 min-w-11 items-center justify-center rounded-[8px] px-2 font-mono text-[13px]",
+                  "inline-flex h-9 min-w-10 items-center justify-center rounded-[8px] px-2 text-[13px] tabular-nums",
                   speed === s ? "bg-glacier text-basalt" : "text-mist hover:text-chalk",
                 )}
               >
@@ -110,9 +109,7 @@ export function ControlBar({
 
       {timeLabel && (
         <label className="flex min-w-48 flex-1 items-center gap-3">
-          <span className="hidden shrink-0 font-mono text-[13px] uppercase tracking-[0.12em] text-mist sm:inline">
-            {timeLabel}
-          </span>
+          <span className="hidden shrink-0 text-[13px] text-mist sm:inline">{timeLabel}</span>
           <input
             type="range"
             min={0}
@@ -124,19 +121,17 @@ export function ControlBar({
             aria-label={timeLabel}
             suppressHydrationWarning
           />
-          <span className="w-10 shrink-0 font-mono text-[13px] tabular-nums text-chalk">
-            {t.toFixed(2)}
-          </span>
+          <span className="w-9 shrink-0 text-[13px] tabular-nums text-chalk">{t.toFixed(2)}</span>
         </label>
       )}
 
       {lab.controls.extra?.map((ex) =>
         ex.options ? (
-          <label key={ex.key} className="flex shrink-0 items-center gap-2 text-xs text-mist">
+          <label key={ex.key} className="flex shrink-0 items-center gap-2 text-[13px] text-mist">
             <span>{ex.label}</span>
             <select
               aria-label={ex.label}
-              className="min-h-11 max-w-56 rounded-xl border border-white/15 bg-basalt px-3 text-chalk"
+              className="min-h-10 max-w-56 rounded-lg border border-white/15 bg-basalt px-2.5 text-[13px] text-chalk"
               value={params[ex.key] ?? ex.default ?? ex.min}
               onChange={(e) => setParam(ex.key, Number(e.target.value))}
             >
@@ -149,7 +144,7 @@ export function ControlBar({
           </label>
         ) : (
           <label key={ex.key} className="flex shrink-0 items-center gap-2">
-            <span className="max-w-48 font-mono text-[13px] text-mist">{ex.label}</span>
+            <span className="max-w-48 text-[13px] text-mist">{ex.label}</span>
             <input
               type="range"
               min={ex.min}
@@ -157,11 +152,11 @@ export function ControlBar({
               step={ex.step}
               value={params[ex.key] ?? ex.default ?? ex.min}
               onChange={(e) => setParam(ex.key, Number(e.target.value))}
-              className="h-2 w-24 shrink-0 accent-sandstone"
+              className="h-2 w-28 shrink-0 accent-sandstone"
               aria-label={ex.label}
               suppressHydrationWarning
             />
-            <span className="min-w-12 shrink-0 whitespace-nowrap font-mono text-[13px] tabular-nums text-chalk">
+            <span className="min-w-12 shrink-0 whitespace-nowrap text-[13px] tabular-nums text-chalk">
               {Number(params[ex.key] ?? ex.default ?? ex.min).toFixed(
                 Math.min(6, (String(ex.step).split(".")[1] ?? "").length),
               )}
@@ -180,7 +175,7 @@ export function ControlBar({
             aria-pressed={on}
             onClick={() => setParam(tg.key, on ? 0 : 1)}
             className={cn(
-              "inline-flex h-11 shrink-0 items-center rounded-full border px-3 font-mono text-[13px]",
+              "inline-flex h-9 shrink-0 items-center rounded-full border px-3 text-[13px]",
               on
                 ? "border-glacier/40 bg-glacier/15 text-glacier"
                 : "border-white/10 text-mist hover:text-chalk",
@@ -192,11 +187,11 @@ export function ControlBar({
         );
       })}
 
-      <div className="flex flex-wrap items-center gap-1">
+      <div className="flex flex-wrap items-center gap-1 md:ml-auto md:border-l md:border-white/10 md:pl-3">
         {lab.controls.explode && (
           <label className="flex items-center gap-1.5 pr-2">
             <Layers2 className="size-3.5 text-mist" />
-            <span className="text-sm text-mist">Separate layers</span>
+            <span className="text-[13px] text-mist">Separate layers</span>
             <input
               type="range"
               min={0}
@@ -208,7 +203,7 @@ export function ControlBar({
               aria-label={"Explode layers"}
               suppressHydrationWarning
             />
-            <output className="text-sm tabular-nums text-chalk">
+            <output className="text-[13px] tabular-nums text-chalk">
               {Math.round(explode * 100)}%
             </output>
           </label>
@@ -216,7 +211,7 @@ export function ControlBar({
         {lab.controls.slice && (
           <label className="flex items-center gap-1.5 pr-2">
             <Spline className="size-3.5 text-mist" />
-            <span className="text-sm text-mist">Cutaway</span>
+            <span className="text-[13px] text-mist">Cutaway</span>
             <input
               type="range"
               min={0}
@@ -228,7 +223,9 @@ export function ControlBar({
               aria-label={"Cross-section"}
               suppressHydrationWarning
             />
-            <output className="text-sm tabular-nums text-chalk">{Math.round(slice * 100)}%</output>
+            <output className="text-[13px] tabular-nums text-chalk">
+              {Math.round(slice * 100)}%
+            </output>
           </label>
         )}
         <IconBtn
@@ -243,7 +240,7 @@ export function ControlBar({
           onClick={() => setTrueScale(!trueScale)}
           active={trueScale}
         >
-          <span className="font-mono text-[10px]">{trueScale ? "1:1" : "×"}</span>
+          <span className="text-[11px] font-semibold tabular-nums">{trueScale ? "1:1" : "×N"}</span>
         </IconBtn>
         <IconBtn
           label={layout === "projector" ? "Exit projector" : "Projector"}
@@ -284,16 +281,21 @@ export function ControlBar({
   );
 }
 
+/** Icon buttons show a tooltip; only the primary action also shows its text. */
 function IconBtn({
   children,
   onClick,
   label,
   active,
+  showLabel,
+  primary,
 }: {
   children: React.ReactNode;
   onClick: () => void;
   label: string;
   active?: boolean;
+  showLabel?: boolean;
+  primary?: boolean;
 }) {
   return (
     <button
@@ -303,12 +305,13 @@ function IconBtn({
       title={label}
       onClick={onClick}
       className={cn(
-        "inline-flex h-11 items-center justify-center gap-2 rounded-lg px-2.5 text-sm text-chalk hover:bg-white/10",
+        "inline-flex h-10 min-w-10 items-center justify-center gap-2 rounded-lg px-2.5 text-[13px] text-chalk hover:bg-white/10",
+        primary && "bg-glacier text-basalt hover:bg-glacier/90",
         active && "bg-glacier/20 text-glacier",
       )}
     >
       {children}
-      <span>{label}</span>
+      {showLabel && <span>{label}</span>}
     </button>
   );
 }

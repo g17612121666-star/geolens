@@ -1,51 +1,140 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import * as THREE from "three";
-import { TerrainMaterial } from "../shared/natural-world";
-import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { catenaProfile } from "@/lib/soil-profile-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
-import { RockPrism } from "../shared/rock-prism";
-import { GrassPatch, RootNetwork, DebrisField } from "../shared/geomorphic-terrain";
+import {
+  GeomorphicTerrain,
+  GrassPatch,
+  RootNetwork,
+  WaterRibbon,
+} from "../shared/geomorphic-terrain";
+import { PlantStand } from "../shared/natural-world";
+import { useSectionUniforms } from "../shared/section-material";
 import { Tag } from "../shared/kit";
-import { landscapeRandom as random } from "../shared/landscape-noise";
+import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
+
+const SAMPLES = 81;
+
+/**
+ * Catena cut faces. Soil thickness along the slope comes from the model (uThick), so the soil
+ * thins on the backslope and thickens at the toe. The lower slope is wetter: its subsoil is
+ * grey with rusty mottles (gleying). Below the soil lies weathered and then solid sandstone.
+ */
+const CATENA_GLSL = `uniform float uThick[${SAMPLES}];
+vec3 sectionColour(vec3 p,vec3 w){
+  float u=clamp((p.x+3.)/6.,0.,1.),k=u*${SAMPLES - 1}.;
+  int i=int(floor(k));
+  float t=mix(uThick[i],uThick[min(i+1,${SAMPLES - 1})],fract(k));
+  float d=sectionDepth+.015*(sNoise(vec2(p.x*6.+p.z*3.,1.))-.5);
+  float g=grain(vec2(p.x+p.z,p.y));
+  float wet=smoothstep(.62,.9,u);
+  vec3 c;
+  if(d<.012)c=vec3(.30,.36,.20);
+  else if(d<t*.32){
+    c=mix(vec3(.30,.23,.16),vec3(.24,.20,.16),wet)*mix(.85,1.12,sNoise(vec2(p.x+p.z,p.y)*60.));
+  }else if(d<t){
+    vec3 brown=vec3(.58,.42,.28),gley=vec3(.50,.52,.50);
+    c=mix(brown,gley,wet)*mix(.9,1.07,g);
+    float mottle=smoothstep(.7,.76,sNoise(vec2(p.x+p.z,p.y)*vec2(28.,40.)))*wet;
+    c=mix(c,vec3(.72,.42,.20),mottle*.85);
+  }else if(d<t+.14){
+    float st=smoothstep(.6,.68,sNoise(vec2(p.x+p.z,p.y)*vec2(16.,22.)));
+    c=mix(vec3(.66,.58,.46),vec3(.76,.68,.54),st)*mix(.92,1.06,g);
+  }else{
+    float y=p.y*6.+.1*sNoise(vec2(p.x+p.z,1.)*2.),f=fract(y),h=sHash(vec2(floor(y),3.));
+    c=mix(vec3(.76,.64,.47),vec3(.66,.55,.40),h)*mix(.7,1.,smoothstep(0.,.07,f))*mix(.9,1.06,g);
+  }
+  // Horizon boundaries are drawn faintly so the changing thickness reads clearly.
+  float e=min(abs(d-t*.32),abs(d-t));
+  return c*mix(.8,1.,smoothstep(0.,.006,e));
+}
+vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
+
+const CREST = new THREE.Color("#8b8a55"),
+  SLOPE = new THREE.Color("#86a052"),
+  WET = new THREE.Color("#5d7a45");
+
 export default function SoilCatena() {
   const { params, trueScale } = useLabControls(),
     slope = params.slope ?? 0.55,
     thicknessScale = (trueScale ? 1 : 20) / 20;
-  const top = useMemo(
-      () =>
-        Array.from({ length: 81 }, (_, i): [number, number] => {
-          const x = -3 + (i / 80) * 6;
-          return [x, catenaProfile(x, slope).surface];
-        }),
-      [slope],
+  const height = useMemo(
+    () => (x: number, z: number) =>
+      catenaProfile(x, slope).surface + 0.02 * (noise(x * 2 + 1, z * 2) - 0.5),
+    [slope],
+  );
+  const colour = useMemo(
+    () => (x: number, y: number, z: number) => {
+      const u = (x + 3) / 6,
+        c = CREST.clone()
+          .lerp(SLOPE, THREE.MathUtils.smoothstep(u, 0.15, 0.35))
+          .lerp(WET, THREE.MathUtils.smoothstep(u, 0.68, 0.88));
+      // Thin soil on the steepest ground shows bare, eroded patches.
+      const bare = Math.exp(-(((u - 0.4) / 0.12) ** 2)) * slope * noise(x * 6, z * 6);
+      return c
+        .lerp(new THREE.Color("#8e7558"), THREE.MathUtils.smoothstep(bare, 0.3, 0.6))
+        .getStyle();
+    },
+    [slope],
+  );
+  const uniforms = useSectionUniforms({
+    uThick: Array.from(
+      { length: SAMPLES },
+      (_, i) => catenaProfile(-3 + (6 * i) / (SAMPLES - 1), slope).thicknessM * thicknessScale,
     ),
-    base = top.map(([x, y]): [number, number] => [
-      x,
-      y - catenaProfile(x, slope).thicknessM * thicknessScale,
-    ]);
+  });
+  const plants = useMemo(() => {
+    const trees: [number, number, number][] = [],
+      grass: [number, number, number][] = [],
+      rushes: [number, number, number][] = [];
+    for (let i = 0; i < 700; i++) {
+      const x = -2.92 + random(i + 120) * 5.84,
+        z = -0.94 + random(i + 430) * 1.88,
+        y = height(x, z),
+        u = (x + 3) / 6;
+      if (u < 0.2 && random(i + 7) < 0.06 && trees.length < 9) trees.push([x, y - 0.01, z]);
+      else if (u > 0.72 && rushes.length < 160) rushes.push([x, y, z]);
+      else if (grass.length < 160) grass.push([x, y, z]);
+    }
+    return { trees, grass, rushes };
+  }, [height]);
+  const stream = useMemo(
+    () =>
+      Array.from({ length: 41 }, (_, i) => {
+        const z = -1 + (2 * i) / 40,
+          x = 2.82 + 0.05 * Math.sin(z * 3);
+        return [x, height(x, z) + 0.006, z] as [number, number, number];
+      }),
+    [height],
+  );
   const names = ["Crest", "Backslope", "Footslope / toe"],
     positions = [-2.5, -0.7, 2.4];
   return (
     <>
       <ScienceStudio
+        horizon
         slug="soil-catena"
         camera={[1.3, 2.1, 7]}
         scale="Soil thickness ×20 · 120 m hillslope · topographic slope to scale"
         trueScale="1 scene unit = 20 m · soil and relief use a common scale · blades and roots enlarged"
       >
-        <RockPrism points={[...base, [3, -1.5], [-3, -1.5]]} depth={2} color="#c4ad86" />
-        <RockPrism points={[...top, ...base.slice().reverse()]} depth={2} color="#7a5a3c" />
-        <Turf top={top} />
-        <GrassPatch
-          positions={Array.from({ length: 110 }, (_, i) => {
-            const x = -2.9 + random(i + 120) * 5.8,
-              z = -0.94 + random(i + 430) * 1.88;
-            return [x, catenaProfile(x, slope).surface, z];
-          })}
-          height={0.11}
+        <GeomorphicTerrain
+          height={height}
+          colour={colour}
+          width={6}
+          depth={2}
+          base={-1.5}
+          resolution={180}
+          cliff={0.3}
+          mottle={0.06}
+          sideGlsl={CATENA_GLSL}
+          sideUniforms={uniforms}
         />
+        <GrassPatch positions={plants.grass} height={0.1} color="#7f9150" />
+        <GrassPatch positions={plants.rushes} height={0.16} color="#4f6a3a" />
+        <PlantStand kind="broadleaf" positions={plants.trees} scale={0.16} seed={5} />
+        <WaterRibbon path={stream} width={0.05} color="#5b8f9c" />
         {positions.map((x, i) => (
           <RootNetwork
             key={i}
@@ -57,40 +146,23 @@ export default function SoilCatena() {
             seed={i}
           />
         ))}
-        <DebrisField
-          points={Array.from({ length: 36 }, (_, i) => {
-            const x = -2.9 + random(i + 753) * 5.8;
-            return [
-              x,
-              catenaProfile(x, slope).surface -
-                catenaProfile(x, slope).thicknessM * thicknessScale -
-                0.07 -
-                random(i + 553) * 0.34,
-              1.015,
-            ];
-          })}
-          size={0.035}
-        />
-        <Line points={top.map(([x, y]) => [x, y + 0.015, 1.01])} color="#86a477" lineWidth={3} />
         {positions.map((x, i) => {
           const c = catenaProfile(x, slope),
-            end: [number, number, number] = [x, c.surface + 0.25, 1.1];
+            end: [number, number, number] = [x, c.surface + 0.35, 1.1];
           return (
-            <group key={i}>
-              <Line points={[[x, c.surface, 1.01], end]} color="#d8c294" />
-              <Tag
-                pos={end}
-                text={`${names[i]} · ${c.thicknessM.toFixed(2)} m soil`}
-                note={
-                  i === 0
-                    ? "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one illustrative case."
-                    : i === 1
-                      ? "Steepening reduces prescribed backslope thickness in this example. The model is not an erosion-rate law and does not guarantee that every steep soil is thin."
-                      : "The lower slope receives water and sediment. Accumulation can deepen the soil; wetter conditions may alter drainage and horizon colours."
-                }
-                occlude={false}
-              />
-            </group>
+            <Tag
+              key={i}
+              pos={end}
+              text={`${names[i]} · ${c.thicknessM.toFixed(2)} m soil`}
+              note={
+                i === 0
+                  ? "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one illustrative case."
+                  : i === 1
+                    ? "Steepening reduces prescribed backslope thickness in this example; bare patches show where thin soil is exposed. The model is not an erosion-rate law and does not guarantee that every steep soil is thin."
+                    : "The lower slope receives water and sediment, so the soil is deeper. It is often waterlogged: the grey subsoil with rusty mottles shows gleying, where iron is reduced and moved by standing water."
+              }
+              occlude={false}
+            />
           );
         })}
         {[-1.8, 0, 1.5].map((x) => (
@@ -113,24 +185,5 @@ export default function SoilCatena() {
         }
       </ScienceReadout>
     </>
-  );
-}
-
-/** A thin grassed skin over the slope so the surface reads as vegetated ground. */
-function Turf({ top }: { top: [number, number][] }) {
-  const geometry = useMemo(() => {
-    const shape = new THREE.Shape([
-      ...top.map(([x, y]) => new THREE.Vector2(x, y + 0.025)),
-      ...[...top].reverse().map(([x, y]) => new THREE.Vector2(x, y - 0.015)),
-    ]);
-    const g = new THREE.ExtrudeGeometry(shape, { depth: 2.01, bevelEnabled: false });
-    g.translate(0, 0, -1.005);
-    return g;
-  }, [top]);
-  useEffect(() => () => geometry.dispose(), [geometry]);
-  return (
-    <mesh geometry={geometry} receiveShadow>
-      <TerrainMaterial kind="grass" color="#7c9b55" />
-    </mesh>
   );
 }

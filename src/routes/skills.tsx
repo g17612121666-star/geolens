@@ -22,7 +22,7 @@ function Skills() {
     .filter(Boolean)
     .filter((l) => !labs.some((x) => x.slug === l.slug));
   return (
-    <main id="main" className="mx-auto max-w-[1100px] px-5 pb-24 pt-24">
+    <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
       <p className="section-label">{"Skills studio"}</p>
       <h1 className="mt-3 font-display text-4xl">{"Read the map, then the hill."}</h1>
       <p className="mt-5 max-w-2xl text-lg leading-7 text-mist">

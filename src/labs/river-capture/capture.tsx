@@ -118,6 +118,7 @@ export default function RiverCapture() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="river-capture"
         camera={[2.7, 6.4, 5.8]}
         scale="Invented 6 × 4 km catchments · relief ×2 · three selected stages"

@@ -121,6 +121,7 @@ export default function Karst() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="karst"
         camera={[4.5, 3.8, 7]}
         scale="Selected 60 × 30 m limestone block · relief ×1.3 · joints enlarged"

@@ -312,11 +312,8 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             {titleBlock}
           </div>
           <div
-            style={{
-              bottom: "calc(var(--lab-controls-height, 130px) + 2rem)",
-              scrollbarWidth: "thin",
-            }}
-            className="pointer-events-auto absolute right-6 top-20 z-10 flex w-[22rem] flex-col gap-4 overflow-x-hidden overflow-y-auto pr-1"
+            style={{ scrollbarWidth: "thin" }}
+            className="pointer-events-auto absolute bottom-4 right-6 top-20 z-10 flex w-[22rem] flex-col gap-4 overflow-x-hidden overflow-y-auto pr-1"
           >
             <StepRail lab={lab} />
             <WhyPanel lab={lab} />
@@ -357,7 +354,9 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
         </div>
       )}
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-3 z-10 px-3 md:bottom-4 md:px-6">
+      <div
+        className={`pointer-events-none absolute bottom-4 z-10 ${projector ? "inset-x-6 mx-auto max-w-[1100px]" : "left-6 right-[25rem]"}`}
+      >
         <ControlBar
           lab={lab}
           fullscreen={fs}

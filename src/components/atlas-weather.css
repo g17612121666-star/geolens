@@ -1,7 +1,8 @@
 .field-page {
-  max-width: 1380px;
+  /* Same content width and gutters as the site header and the other listing pages. */
+  max-width: 1280px;
   margin-inline: auto;
-  padding: 7rem 1.5rem 4rem;
+  padding: 6rem 1.25rem 4rem;
 }
 .field-page--projector {
   max-width: 1600px;
@@ -549,7 +550,7 @@
   }
 }
 .weather-page {
-  max-width: 1220px;
+  max-width: 1280px;
 }
 .weather-page.field-page--projector {
   max-width: 1540px;

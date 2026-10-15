@@ -89,6 +89,7 @@ export default function MassMovement() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="mass-movement"
         camera={[1.2, 2.4, 7]}
         scale="Selected circular slip · 1 scene unit = 10 m · no vertical exaggeration"

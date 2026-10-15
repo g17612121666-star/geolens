@@ -13,7 +13,26 @@ import {
   DebrisField,
 } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
-import { landscapeRandom as random } from "../shared/landscape-noise";
+import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
+/** Topsoil, subsoil and parent material at fixed depths, so a lowered surface eats into the topsoil. */
+const PLOT_GLSL = `
+vec3 sectionColour(vec3 p,vec3 w){
+  float top=.5-.12*p.x,d=top-p.y+.01*(sNoise(vec2(p.x*6.+p.z*4.,1.))-.5);
+  float g=grain(vec2(p.x+p.z,p.y));
+  vec3 c;
+  if(d<.13)c=mix(vec3(.33,.25,.17),vec3(.27,.21,.15),sNoise(vec2(p.x+p.z,p.y)*50.));
+  else if(d<.3){
+    c=mix(vec3(.58,.44,.30),vec3(.53,.40,.27),g);
+    c*=mix(.75,1.,smoothstep(0.,.06,abs(fract((p.x+p.z)*5.+sNoise(vec2(p.y*9.,0.)))-.5)*2.));
+  }else{
+    float st=smoothstep(.62,.7,sNoise(vec2(p.x+p.z,p.y)*vec2(14.,18.)));
+    c=mix(vec3(.70,.62,.49),vec3(.80,.74,.62),st)*mix(.92,1.06,g);
+  }
+  return c*mix(.82,1.,smoothstep(0.,.006,min(abs(d-.13),abs(d-.3))));
+}
+vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
+const RILLS = [-0.62, -0.18, 0.31, 0.7];
+
 function Plot({
   covered,
   wind,
@@ -30,8 +49,36 @@ function Plot({
   const result = soilExport(60 * t, covered, wind),
     loss = (result.meanLossMm / 1000 / 5) * (real ? 1 : 30),
     base = (x: number) => 0.5 - 0.12 * x;
-  const height = useMemo(() => (x: number, z: number) => base(x) - loss, [loss]),
-    colour = useMemo(() => () => (covered ? "#485e35" : "#775b3c"), [covered]);
+  // Rills cut into the bare plot as runoff concentrates; they deepen with the soil exported.
+  const rill = covered || wind ? 0 : Math.round(Math.min(0.07, loss * 4 + 0.004) * 200) / 200,
+    q = Math.round(loss * 400) / 400;
+  const height = useMemo(
+    () => (x: number, z: number) => {
+      let cut = 0;
+      for (const r of RILLS) {
+        const c = r + 0.04 * Math.sin(x * 3 + r * 9);
+        cut = Math.max(
+          cut,
+          Math.exp(-(((z - c) / 0.05) ** 2)) * THREE.MathUtils.smoothstep(x, -1.9, 0.5),
+        );
+      }
+      const tilth = covered ? 0 : 0.006 * Math.sin(z * 60);
+      return base(x) - q - rill * cut + tilth + 0.004 * (noise(x * 5, z * 5) - 0.5);
+    },
+    [q, rill, covered],
+  );
+  const colour = useMemo(
+    () => (x: number, y: number, z: number) =>
+      covered
+        ? noise(x * 4, z * 4) > 0.5
+          ? "#4f6a37"
+          : "#5b7640"
+        : y < base(x) - q - 0.01
+          ? "#6a4f36"
+          : "#7a5c3e",
+    [covered, q],
+  );
+  const exported = result.exported / 6000;
   return (
     <group position={[x, 0, 0]}>
       <GeomorphicTerrain
@@ -40,17 +87,48 @@ function Plot({
         width={4}
         depth={2}
         base={-0.12}
-        material="soil"
+        resolution={160}
+        cliff={0.25}
+        mottle={0.05}
+        sideGlsl={PLOT_GLSL}
       />
+      {/* Plot boundary boards and the collecting trough at the downslope end. */}
+      {[-1, 1].map((side) => (
+        <mesh
+          key={side}
+          position={[0, 0.53, side * 1.01]}
+          rotation={[0, 0, -Math.atan(0.12)]}
+          castShadow
+        >
+          <boxGeometry args={[4.05, 0.12, 0.025]} />
+          <meshStandardMaterial color="#b9a17c" roughness={0.85} />
+        </mesh>
+      ))}
+      <mesh position={[-2.01, 0.8, 0]} castShadow>
+        <boxGeometry args={[0.025, 0.12, 2.05]} />
+        <meshStandardMaterial color="#b9a17c" roughness={0.85} />
+      </mesh>
+      <group position={[2.12, 0.22, 0]}>
+        <mesh castShadow receiveShadow>
+          <boxGeometry args={[0.22, 0.14, 2.05]} />
+          <meshStandardMaterial color="#9aa0a3" metalness={0.5} roughness={0.4} />
+        </mesh>
+        {/* Sediment collected in the trough, filling as more soil is exported. */}
+        <mesh position={[0, -0.06 + 0.06 * Math.min(1, exported * 4), 0]}>
+          <boxGeometry args={[0.18, 0.12 * Math.min(1, exported * 4) + 0.002, 1.98]} />
+          <meshStandardMaterial color="#6f5236" roughness={0.95} />
+        </mesh>
+      </group>
       {covered && (
         <>
           <GrassPatch
-            positions={Array.from({ length: 150 }, (_, i) => {
-              const a = -1.9 + random(i + 72) * 3.8,
-                z = -0.94 + random(i + 429) * 1.88;
+            positions={Array.from({ length: 360 }, (_, i) => {
+              const a = -1.92 + random(i + 72) * 3.84,
+                z = -0.95 + random(i + 429) * 1.9;
               return [a, height(a, z), z];
             })}
-            height={0.16}
+            height={0.13}
+            color="#5f7a42"
           />
           {[-1.5, -0.7, 0.1, 0.9, 1.7].map((a, i) => (
             <RootNetwork
@@ -66,58 +144,73 @@ function Plot({
         </>
       )}
       <DebrisField
-        points={Array.from({ length: 42 }, (_, i) => {
+        points={Array.from({ length: 60 }, (_, i) => {
           const a = -1.85 + random(i + 931) * 3.7,
             z = -0.91 + random(i + 818) * 1.82;
-          return [a, height(a, z) + 0.015, z];
+          return [a, height(a, z) + 0.01, z];
         })}
-        size={0.018}
+        size={0.016}
         color="#9c8768"
       />
-      {Array.from({ length: 32 }, (_, i) => {
-        const a = -1.9 + ((t * 2 + i / 32) % 1) * 3.8,
-          z = -0.85 + ((i % 9) / 8) * 1.7,
-          phase = (t * 12 + i * 0.31) % 1;
-        return (
-          <mesh
-            key={i}
-            position={
-              wind
-                ? [a, height(a, z) + 0.05 + 0.16 * Math.sin(phase * Math.PI), z]
-                : [a, height(a, z) + 0.02 + (1 - phase) * 0.7, z]
-            }
-          >
-            <sphereGeometry args={[wind ? 0.022 : 0.013, 8, 6]} />
-            <meshBasicMaterial
-              color={wind ? "#c7a46e" : "#92c4ce"}
-              transparent
-              opacity={covered ? 0.3 : 0.8}
-            />
-          </mesh>
-        );
-      })}
+      {wind
+        ? Array.from({ length: 40 }, (_, i) => {
+            const a = -1.9 + ((t * 2 + i / 40) % 1) * 4.2,
+              z = -0.85 + random(i + 3) * 1.7,
+              phase = (t * 12 + i * 0.31) % 1,
+              rise = 0.04 + 0.5 * random(i + 9) * ((a + 2) / 4);
+            return (
+              <mesh
+                key={i}
+                position={[
+                  a,
+                  height(Math.min(1.95, a), z) + rise + 0.1 * Math.sin(phase * Math.PI),
+                  z,
+                ]}
+              >
+                <sphereGeometry args={[0.03 + 0.05 * random(i + 11), 8, 6]} />
+                <meshBasicMaterial
+                  color="#c7a46e"
+                  transparent
+                  opacity={(covered ? 0.12 : 0.35) * (1 - rise)}
+                  depthWrite={false}
+                />
+              </mesh>
+            );
+          })
+        : Array.from({ length: 36 }, (_, i) => {
+            const a = -1.9 + random(i + 31) * 3.8,
+              z = -0.9 + random(i + 47) * 1.8,
+              phase = (t * 14 + random(i + 5)) % 1;
+            return (
+              <mesh
+                key={i}
+                position={[a, height(a, z) + 0.02 + (1 - phase) * 0.9, z]}
+                scale={[1, 4, 1]}
+              >
+                <sphereGeometry args={[0.008, 6, 4]} />
+                <meshBasicMaterial color="#a9cfd8" transparent opacity={0.7} />
+              </mesh>
+            );
+          })}
       {!wind &&
-        [-0.6, 0, 0.6].map((z) => (
+        RILLS.map((r) => (
           <WaterRibbon
-            key={z}
+            key={r}
             path={Array.from({ length: 61 }, (_, i) => {
-              const a = -2 + (i / 60) * 4;
-              return [a, height(a, z) + 0.009, z + 0.04 * Math.sin(a * 4)] as [
-                number,
-                number,
-                number,
-              ];
+              const a = -1.9 + (i / 60) * 3.9,
+                z = r + 0.04 * Math.sin(a * 3 + r * 9);
+              return [a, height(a, z) + 0.006, z] as [number, number, number];
             })}
-            width={covered ? 0.008 : 0.023}
+            width={covered ? 0.006 : 0.02}
             opacity={0.55}
-            color="#8eaaa4"
+            color={covered ? "#8eaaa4" : "#9a8466"}
           />
         ))}
       <Arrow from={[-1.4, 0.9, 1.2]} to={[1.2, 0.65, 1.2]} color="#c6cdb7" width={0.8} />
       <Tag
         pos={[0, 0.9, -1.35]}
         text={covered ? "Covered plot" : "Bare plot"}
-        note={`Invented active-layer budget: remaining ${result.remaining.toFixed(1)} kg, in transport ${result.moving.toFixed(1)} kg and exported ${result.exported.toFixed(1)} kg. Total remains 6000 kg. The covered detachment coefficient is chosen as 15% of the bare value; this is not a measured universal reduction.`}
+        note={`Invented active-layer budget: remaining ${result.remaining.toFixed(1)} kg, in transport ${result.moving.toFixed(1)} kg and exported ${result.exported.toFixed(1)} kg. Total remains 6000 kg. The covered detachment coefficient is chosen as 15% of the bare value; this is not a measured universal reduction. Exported soil collects in the trough; the dark topsoil in the cut face thins as the surface is lowered.`}
         occlude={false}
       />
     </group>
@@ -133,6 +226,7 @@ export default function SoilErosion() {
   return (
     <>
       <ScienceStudio
+        horizon
         slug="soil-erosion"
         camera={[4.6, 4.5, 8]}
         scale="Two 20 × 10 m plots · surface lowering ×30 · enlarged process tracers"

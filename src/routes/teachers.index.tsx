@@ -64,7 +64,7 @@ function TeachersIndex() {
     }
   }
   return (
-    <main id="main" className="mx-auto max-w-[1080px] px-5 pb-24 pt-24">
+    <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
       <p className="section-label">{"Teachers"}</p>
       <h1 className="mt-3 max-w-3xl font-display text-4xl text-chalk md:text-5xl">
         {"Bring Earth science into the room."}
@@ -111,13 +111,13 @@ function TeachersIndex() {
             />
           </label>
           <label className="text-sm text-mist">
-            {"Realm"}
+            {"Subject"}
             <select
               className={field}
               value={search.realm ?? ""}
               onChange={(e) => update({ realm: e.target.value || undefined })}
             >
-              <option value="">{"All realms"}</option>
+              <option value="">{"All subjects"}</option>
               {REALMS.map((r) => (
                 <option key={r.slug} value={r.slug}>
                   {r.title}
@@ -178,8 +178,13 @@ function TeachersIndex() {
           const labs = filtered.filter((lab) => lab.realm === realm.slug);
           return labs.length ? (
             <section key={realm.slug} id={`realm-${realm.slug}`}>
-              <h2 className="font-display text-3xl">{realm.title}</h2>
-              <div className="mt-5 grid gap-6 md:grid-cols-2">
+              <h2 className="border-b border-white/10 pb-3 font-display text-3xl">
+                {realm.title}
+                <span className="ml-3 align-middle text-sm text-mist">
+                  {labs.length} {labs.length === 1 ? "lesson" : "lessons"}
+                </span>
+              </h2>
+              <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {labs.map((lab) => (
                   <article
                     key={lab.slug}
@@ -199,12 +204,12 @@ function TeachersIndex() {
                           decoding="async"
                           width="640"
                           height="360"
-                          className="aspect-video w-full object-cover"
+                          className="aspect-[16/8] w-full bg-trench object-cover"
                         />
                       </Link>
                     )}
-                    <div className="flex flex-1 flex-col p-6">
-                      <h3 className="mt-2 font-display text-2xl">
+                    <div className="flex flex-1 flex-col p-5">
+                      <h3 className="font-display text-xl leading-snug">
                         <Link
                           to="/teachers/$slug"
                           params={{ slug: lab.slug }}
@@ -213,8 +218,10 @@ function TeachersIndex() {
                           {lab.title}
                         </Link>
                       </h3>
-                      <p className="mt-3 text-sm leading-6 text-chalk/90">{lab.objective}</p>
-                      <p className="mb-5 mt-4 border-l-2 border-glacier/40 pl-4 text-sm leading-6 text-mist">
+                      <p className="mt-2 line-clamp-3 text-sm leading-6 text-chalk/90">
+                        {lab.objective}
+                      </p>
+                      <p className="mb-5 mt-4 line-clamp-4 border-l-2 border-glacier/40 pl-4 text-sm leading-6 text-mist">
                         <span className="mb-1 block font-medium text-chalk">
                           {"Start a discussion"}
                         </span>

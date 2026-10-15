@@ -46,7 +46,12 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-5">
+      <div
+        className={cn(
+          "mx-auto flex h-full items-center justify-between",
+          lab ? "px-6" : "max-w-[1280px] px-5",
+        )}
+      >
         <Link to="/" className="flex items-baseline gap-2.5" aria-label={"Geolens home"}>
           <span className="font-display text-[22px] leading-none text-chalk">{"Geolens"}</span>
         </Link>
@@ -70,7 +75,12 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
           ) : (
             <>
               <nav className="hidden items-center gap-0.5 lg:flex" aria-label={"Primary"}>
-                <HoverMenu label={"Realms"} open={realmsOpen} setOpen={setRealmsOpen} width="w-72">
+                <HoverMenu
+                  label={"Subjects"}
+                  open={realmsOpen}
+                  setOpen={setRealmsOpen}
+                  width="w-72"
+                >
                   {REALMS.map((r) => (
                     <Link
                       key={r.slug}
@@ -125,7 +135,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
             className="flex max-h-[calc(100dvh-3.5rem)] flex-col gap-1 overflow-y-auto px-4 py-4"
             aria-label={"Mobile"}
           >
-            <p className="section-label px-3 pb-2">{"Realms"}</p>
+            <p className="section-label px-3 pb-2">{"Subjects"}</p>
             {REALMS.map((r) => (
               <Link
                 key={r.slug}

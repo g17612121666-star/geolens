@@ -16,7 +16,7 @@ export function HeroEarth() {
         <ambientLight intensity={0.4} />
         <directionalLight position={[-3, 2, 7]} intensity={2.2} />
         <group rotation={[0, 0.45, 0.2]}>
-          <EarthMesh sunDirection={sun} clouds segments={128} />
+          <EarthMesh sunDirection={sun} clouds cloudCover={0.5} segments={160} />
           <Atmosphere radius={1.012} />
         </group>
         <OrbitControls
