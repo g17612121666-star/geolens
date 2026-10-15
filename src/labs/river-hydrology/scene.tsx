@@ -153,13 +153,13 @@ export default function RiverHydrology() {
         <Tag
           pos={[-2.15, 0.25, 2]}
           text={`Rain-fed · ${av.flow.toFixed(2)} m³/s`}
-          note="An invented maritime regime has wetter winters and a ten-day linear routing store. Forty per cent of liquid input is assigned to losses; these assumptions are not a fit to the Thames."
+          note="An invented maritime regime with wetter winters. 40% of the rain is lost (for example to evaporation) and a ten-day store delays the rest. Not fitted to the Thames."
           occlude={false}
         />
         <Tag
           pos={[2.15, 0.25, 2]}
           text={`Snow-fed · ${bv.flow.toFixed(2)} m³/s`}
-          note="An invented seasonal temperature cycle stores winter snowfall. Positive temperatures melt up to 3 mm snow-water equivalent per °C per day; seven-day routing delivers runoff. A dam adds a sixty-day linear reservoir, not a real operating policy."
+          note="An invented temperature cycle stores winter snowfall. Above 0 °C, up to 3 mm of snow-water equivalent melts per degree per day, and a seven-day store delays the runoff. The dam adds a 60-day reservoir, not a real operating rule."
           occlude={false}
         />
       </ScienceStudio>
@@ -211,7 +211,7 @@ export default function RiverHydrology() {
         {"Dam "}
         {dam ? "on: storage smooths and delays outflow" : "off"}
         {
-          ". Annual regimes are invented and repeat after spin-up. They are not daily forecasts or records of named rivers."
+          ". Both regimes are invented and repeat every year; they are not forecasts or records of real rivers."
         }
       </ScienceReadout>
     </>

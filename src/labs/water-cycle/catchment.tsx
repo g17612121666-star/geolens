@@ -94,7 +94,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [1.5, 2, 0.4],
     ],
     color: "#e9c18a",
-    note: "Liquid becomes invisible water vapour. Solar energy powers evaporation; clouds contain droplets or ice.",
+    note: "Liquid water becomes invisible water vapour, mainly using energy from the Sun. Clouds are droplets or ice, not vapour.",
   },
   {
     name: "Atmospheric transport",
@@ -104,7 +104,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [-1.5, 2, 0.4],
     ],
     color: "#b9d8e6",
-    note: "Wind carries water vapour and cloud droplets. This arrow is not a measured wind field.",
+    note: "Wind carries water vapour and cloud droplets. The arrow shows direction only, not a measured wind.",
   },
   {
     name: "Precipitation",
@@ -133,7 +133,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [-0.7, -0.42, 0.5],
     ],
     color: "#72bcce",
-    note: "Water enters soil. Percolation transfers it through the unsaturated zone towards the water table.",
+    note: "Water soaks into the soil. Percolation then carries it down through the unsaturated zone to the water table.",
   },
   {
     name: "Groundwater flow",
@@ -143,7 +143,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [1.1, -0.02, 1.6],
     ],
     color: "#509ca9",
-    note: "Groundwater flows down a hydraulic-head gradient through pores and fractures, not a vast cavern.",
+    note: "Groundwater flows slowly from high to low hydraulic head through pores and fractures, not through open caverns.",
   },
   {
     name: "Transpiration",
@@ -153,7 +153,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [-0.2, 2, -0.8],
     ],
     color: "#9ac794",
-    note: "Roots take up soil water; leaves release water vapour. Interception stores precipitation briefly on vegetation.",
+    note: "Roots take up soil water and leaves release it as water vapour through tiny pores called stomata.",
   },
   {
     name: "Snowmelt",
@@ -285,7 +285,7 @@ export default function WaterCycle() {
           </mesh>
           <InspectHotspot
             name="Reservoir"
-            note="Invented reservoir, initially 10,000 m³. Abstraction moves water to the human-use store, conserving the combined total. The shoreline retreats as the level falls; its shape is illustrative, not a surveyed storage curve."
+            note="An invented reservoir that starts with 10,000 m³. Abstraction moves water into the human-use store, so the combined total stays the same. The shoreline retreats as the level falls; its shape is illustrative."
           >
             <ReservoirSurface abstraction={abstraction} />
           </InspectHotspot>
@@ -400,7 +400,7 @@ export default function WaterCycle() {
             pos={[-1, -0.8, 1.7]}
             text="Pore water"
             occlude={false}
-            note="Water occupies pores and fractures. Blue dots reveal the store in this cut face."
+            note="Blue dots mark water held in pores and fractures in this cut face."
           />
           {paths.map((p, i) => (
             <Transfer key={p.name} path={p} index={i} selected={i === focus} />
@@ -425,8 +425,10 @@ export default function WaterCycle() {
           {remaining.toFixed(0)} {"+ human use "}
           {withdrawn.toFixed(0)} {"= 10,000 m³"}
         </span>{" "}
-        {"(isolated teaching budget). "}
-        {basin ? "Gold follows the dividing ridges; the outlet faces the ocean." : ""}
+        {"(closed teaching budget). "}
+        {basin
+          ? "The gold dashed line follows the drainage divide; the outlet faces the ocean."
+          : ""}
       </ScienceReadout>
     </>
   );

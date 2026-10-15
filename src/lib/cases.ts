@@ -29,7 +29,7 @@ export const CASES: CaseStudy[] = [
     lede: "Winter daylight decreases as you travel north from London to Lerwick. Earth’s tilted axis explains both the shorter days and the lower midday Sun.",
     body: [
       "At the December solstice, London has less than eight hours of daylight while Lerwick has less than six. The difference comes from latitude: northern places follow a shorter path through the illuminated half of Earth when the Northern Hemisphere tilts away from the Sun.",
-      "Use the seasons model to compare December with June. Keep the axial tilt fixed and follow each place through a complete rotation. Opposite seasons in Sydney provide a useful check on the idea that Earth’s changing distance from the Sun is the main cause.",
+      "Use the seasons model to compare December with June. Keep the axial tilt fixed and follow each place through a complete rotation. Opposite seasons in Sydney are a useful test of the idea that Earth’s changing distance from the Sun is the main cause.",
     ],
     exam: {
       prompt: "Explain why Lerwick’s December day is shorter than London’s, using axial tilt rather than distance from the Sun.",
@@ -52,10 +52,10 @@ export const CASES: CaseStudy[] = [
     lede: "Miami receives a higher midday Sun than London in December. Comparing their solar angles helps explain why the same season brings different amounts of solar energy.",
     body: [
       "Near the December solstice, the noon Sun is about 40° above the horizon in Miami and about 15° in London. A steeper beam spreads its energy across a smaller horizontal area. Miami also has a longer winter day, extending the time during which sunlight is received.",
-      "Compare the cities in the solar-altitude model, then use the energy-budget model to introduce reflection and atmospheric effects. Solar angle helps explain the contrast, but measured surface energy also depends on cloud, haze and the properties of the ground.",
+      "Compare the two cities in the solar-altitude model, then use the energy-budget model to introduce reflection by clouds and the ground. Solar angle explains much of the contrast, but the energy reaching the surface also depends on cloud, haze and the type of ground.",
     ],
     exam: {
-      prompt: "Using noon solar altitude, explain why Miami’s December energy receipt exceeds London’s even on a cloudless day.",
+      prompt: "Using noon solar altitude, explain why Miami receives more solar energy than London in December, even on a cloudless day.",
       hint: "Compare the solar angle and length of daylight. A higher Sun spreads the incoming beam over less ground.",
     },
     sources: [
@@ -75,8 +75,8 @@ export const CASES: CaseStudy[] = [
     state: "step=2",
     lede: "Waves erode the soft glacial till cliffs of Holderness, while longshore drift carries sediment south towards Spurn. Coastal defences change how that sediment is shared along the shore.",
     body: [
-      "Holderness cliffs are largely made of glacial till rather than hard, well-cemented rock. Wave erosion at the foot combines with weathering and slope failure above. Retreat varies along the coast and through time, so a single average rate cannot describe every cliff or storm season.",
-      "Waves approaching obliquely move sediment alongshore. Groynes can retain material on their up-drift side while reducing supply farther down the coast. Use the coasts model to trace this transfer, then locate Mappleton and Spurn to discuss how a local defence affects the wider sediment budget.",
+      "Holderness cliffs are largely made of glacial till rather than hard, well-cemented rock. Wave erosion at the foot combines with weathering and slope failure above. Retreat varies along the coast and from year to year, so a single average rate does not describe every cliff or every winter.",
+      "Waves approaching obliquely move sediment alongshore. Groynes trap material on their up-drift side and reduce the supply farther down the coast. Use the coasts model to trace this transfer, then locate Mappleton and Spurn to discuss how a local defence affects the wider sediment budget.",
     ],
     exam: {
       prompt: "Explain how longshore drift and groynes together change the sediment budget of Holderness, using Mappleton and Spurn Head.",
@@ -99,11 +99,11 @@ export const CASES: CaseStudy[] = [
     zoom: 8,
     lede: "The changing rocks of the Dorset and East Devon coast produce contrasting cliffs, bays and arches. Durdle Door and Old Harry Rocks show how coastal erosion works with geological structure.",
     body: [
-      "Rock resistance and the orientation of beds help determine where headlands and bays develop. Durdle Door is a limestone arch, while Old Harry Rocks are chalk stacks. These are separate examples that help illustrate stages of coastal erosion, rather than a single landform observed through time.",
-      "Waves exploit joints and other weaknesses, while weathering and gravity also weaken cliffs. Compare the model’s cave–arch–stack sequence with the photographs and ask what evidence would be needed to reconstruct a particular headland’s history.",
+      "Rock resistance and the orientation of beds help determine where headlands and bays develop. Durdle Door is a limestone arch, while Old Harry Rocks are chalk stacks. They are separate landforms that illustrate different stages of erosion, not one feature watched through time.",
+      "Waves exploit joints and other weaknesses, while weathering and gravity also weaken cliffs. Compare the model’s cave–arch–stack–stump sequence with the photographs, and ask what evidence would be needed to reconstruct one headland’s history.",
     ],
     exam: {
-      prompt: "Using a named Jurassic Coast landform, describe the sequence from cave to stump.",
+      prompt: "With reference to a named Jurassic Coast example, explain how a headland can be eroded from a cave to a stump.",
       hint: "Explain how erosion enlarges weaknesses into a cave and arch, then how collapse can leave a stack and eventually a stump.",
     },
     sources: [
@@ -122,7 +122,7 @@ export const CASES: CaseStudy[] = [
     zoom: 9,
     lede: "Lake District rivers flow through valleys reshaped by earlier glaciers. Their channels show how running water continues to modify an inherited landscape.",
     body: [
-      "Ice widened and deepened many Lake District valleys, leaving troughs, hanging valleys and lakes. Since the glaciers retreated, rivers have cut smaller channels into those valley floors and moved sediment through them. The resulting landscape records more than one process.",
+      "Ice widened and deepened many Lake District valleys, leaving troughs, hanging valleys and lakes. Since the ice retreated, rivers have cut smaller channels into those valley floors and carried sediment along them, so the landscape records more than one process.",
       "Compare a broad valley cross-section with the narrow channel inside it. Then switch between the glaciers, rivers and contours models to connect the valley shape, the present flow and the pattern drawn on a map.",
     ],
     exam: {
@@ -145,12 +145,12 @@ export const CASES: CaseStudy[] = [
     zoom: 11,
     lede: "The cirques and ridges of Eryri make contour patterns easier to understand. Compare a mapped slope with the landform that gives the lines their shape.",
     body: [
-      "Glacial erosion helped shape the cirques, sharp ridges and deep valleys around Yr Wyddfa. Contours turn these three-dimensional forms into lines of equal elevation. Closely spaced lines indicate steep slopes; their pattern helps distinguish a hollow from a projecting ridge.",
+      "Glacial erosion helped shape the cirques, sharp ridges and deep valleys around Yr Wyddfa. Contours turn these three-dimensional forms into lines of equal elevation. Closely spaced lines show steep slopes, and the shape of the lines tells a hollow apart from a projecting ridge.",
       "Use the contours model to rotate a hill before viewing it from above. Ask students to predict the lines around a cirque and a spur, then compare their sketches with a map of Eryri. Check the map’s stated interval before calculating heights.",
     ],
     exam: {
       prompt: "On an OS-style extract of Yr Wyddfa, how would you distinguish a cirque from a spur using contours alone?",
-      hint: "Look for a hollow enclosed by steep backwalls at a cirque, and contour bends pointing downhill along a spur.",
+      hint: "A cirque shows as an armchair-shaped hollow with tightly packed contours at its back wall; a spur shows as contours bending into a V or U that points downhill.",
     },
     sources: [
       { label: "Ordnance Survey" },
@@ -172,7 +172,7 @@ export const CASES: CaseStudy[] = [
       "A stream entering a swallow hole may reappear at a spring elsewhere. Its underground catchment need not follow the surface drainage divide. Use the karst model to trace a possible route and discuss why dye tracing is useful for testing it.",
     ],
     exam: {
-      prompt: "Explain how a swallow hole forms and what it implies for the drainage network on Carboniferous limestone.",
+      prompt: "Explain how a swallow hole forms and what it shows about drainage on Carboniferous limestone.",
       hint: "Connect carbonation along joints with underground drainage, and explain why a surface watershed may not match the groundwater catchment.",
     },
     sources: [
@@ -191,12 +191,12 @@ export const CASES: CaseStudy[] = [
     zoom: 9,
     lede: "Flooding on the Somerset Levels depends on how quickly water can leave a low-lying landscape. Saturated ground, river capacity, tides and drainage management all influence the response.",
     body: [
-      "Much of the Levels is low and flat, so water can move away slowly. Prolonged rain fills soil and channel stores before additional water spreads over the floodplain. Embankments, pumping and the tidal conditions downstream influence where water accumulates and how long it remains.",
-      "Use the hydrograph model to compare a rapid runoff response with a long falling limb. Ask students to distinguish the rainfall that supplies water from the drainage conditions that control its removal.",
+      "Much of the Levels is low and flat, so water drains away slowly. Prolonged rain fills the soil and the channels before extra water spreads over the floodplain. Embankments, pumping and the tidal conditions downstream influence where water accumulates and how long it remains.",
+      "Use the hydrograph model to compare a rapid runoff response with a long falling limb. Ask students to separate the rainfall that supplies the water from the drainage conditions that control how fast it leaves.",
     ],
     exam: {
       prompt: "Using the idea of lag time, explain why the Somerset Levels can stay flooded long after the rain has stopped.",
-      hint: "Explain how saturated ground adds runoff while low gradients and restricted outlets can prolong the flood’s falling limb.",
+      hint: "Explain how saturated ground increases runoff, while low gradients and restricted outlets lengthen the falling limb.",
     },
     sources: [
       { label: "Environment Agency — Somerset" },
@@ -214,8 +214,8 @@ export const CASES: CaseStudy[] = [
     zoom: 7,
     lede: "The Thames connects water supply, groundwater and tidal flood management. Following its stores and transfers shows why a river basin can experience both shortage and flood risk.",
     body: [
-      "Rainfall entering the Thames basin can become surface runoff, soil water or groundwater before reaching the river. Abstraction changes the amount available in these stores. A regional shortage can develop when demand and other losses exceed replenishment over the period being considered.",
-      "The lower river is tidal, and the Thames Barrier helps manage tidal-surge flood risk upstream. Compare this with water-supply management: both concern water, but they act on different flows, timescales and decisions within the basin.",
+      "Rainfall entering the Thames basin can become surface runoff, soil water or groundwater before reaching the river. Abstraction removes water from these stores. A regional shortage develops when abstraction and other losses exceed recharge over a period of time.",
+      "The lower river is tidal, and the Thames Barrier helps manage tidal-surge flood risk upstream. Compare this with water-supply management: both concern water, but they deal with different flows, timescales and decisions.",
     ],
     exam: {
       prompt: "Why can a reservoir in the Thames basin fall in a dry summer even though the global water cycle is closed?",
@@ -237,11 +237,11 @@ export const CASES: CaseStudy[] = [
     zoom: 6,
     lede: "Iceland exposes a spreading plate boundary above sea level. Its rifts and volcanoes let students connect crustal extension with magma rising from the mantle.",
     body: [
-      "The Mid-Atlantic Ridge crosses Iceland, where the North American and Eurasian plates move apart. Extension produces faults and fissures, while rising mantle material partly melts as pressure falls. An additional mantle upwelling contributes to the island’s unusually abundant volcanism.",
-      "Basaltic lava is common, but Iceland’s eruptions do not all behave alike. Magma composition, gas and interaction with ice or water affect explosivity. Compare a divergent-boundary model with a volcano model before discussing a particular eruption.",
+      "The Mid-Atlantic Ridge crosses Iceland, where the North American and Eurasian plates move apart. Extension produces faults and fissures, while rising mantle material partly melts as pressure falls. A mantle plume beneath Iceland adds extra magma, which is why there is so much volcanic activity.",
+      "Basaltic lava is common, but Iceland’s eruptions do not all behave alike. Magma composition, gas content and contact with ice or water all affect how explosive an eruption is. Compare a divergent-boundary model with a volcano model before discussing a particular eruption.",
     ],
     exam: {
-      prompt: "Explain why Iceland has both basaltic fissure eruptions and occasional explosive, ash-rich events such as 2010.",
+      prompt: "Explain why Iceland has both gentle basaltic fissure eruptions and occasional explosive, ash-rich eruptions such as Eyjafjallajökull in 2010.",
       hint: "Explain the divergent boundary and mantle upwelling, then consider how magma composition and interaction with ice can alter eruption style.",
     },
     sources: [
@@ -262,7 +262,7 @@ export const CASES: CaseStudy[] = [
     lede: "The San Andreas Fault records horizontal motion between the Pacific and North American plates. Offset landforms help reveal movement that is difficult to notice from day to day.",
     body: [
       "The San Andreas is part of a transform boundary, with the Pacific Plate moving northwest relative to North America. Friction can hold parts of the fault while stress accumulates, followed by sudden slip during an earthquake. Other sections can move more gradually.",
-      "Look for displaced channels or other features that cross the fault, then compare their movement with the plate-boundaries model. Contrast this setting with Cascadia, where subduction also supplies conditions for a volcanic arc.",
+      "Look for displaced channels or other features that cross the fault, then compare their movement with the plate-boundaries model. Contrast this setting with Cascadia, where subduction also feeds a chain of volcanoes.",
     ],
     exam: {
       prompt: "Why does the San Andreas system produce large earthquakes but not a volcanic arc, unlike Cascadia?",
@@ -285,7 +285,7 @@ export const CASES: CaseStudy[] = [
     lede: "Cascadia links an offshore subduction zone with earthquakes, tsunamis and the Cascade volcanoes. The shared plate setting produces these hazards through different processes.",
     body: [
       "Oceanic lithosphere descends beneath North America at the Cascadia subduction zone. Water released from the descending plate promotes partial melting in the mantle above, helping supply the Cascade volcanic arc over geological time.",
-      "A large earthquake on the offshore plate boundary can displace the seabed and generate a tsunami. Use the plate-boundaries and tsunami models to separate gradual subduction, sudden fault slip and the movement of water that follows.",
+      "A large earthquake on the offshore plate boundary can displace the seabed and generate a tsunami. Use the plate-boundaries and tsunami models to separate slow subduction, sudden fault slip and the movement of water that follows.",
     ],
     exam: {
       prompt: "Explain how the Cascadia subduction system forms a volcanic arc over geological time, and how a megathrust earthquake can generate a tsunami in minutes.",
@@ -307,8 +307,8 @@ export const CASES: CaseStudy[] = [
     zoom: 7,
     lede: "Yellowstone’s hot springs and caldera sit above a long-lived volcanic system. Older volcanic centres across the Snake River Plain help trace its relationship with plate movement.",
     body: [
-      "Yellowstone lies within the North American Plate rather than on its edge. Heat supports an extensive hydrothermal system, while older volcanic centres extend southwest along the Snake River Plain. Their ages and locations help investigate movement of the plate relative to the underlying source.",
-      "Use the hotspots model to compare an age-progressive continental track with Hawaiʻi’s oceanic island chain. A hot-spring photograph shows an active hydrothermal feature; understanding deeper magma storage requires geophysical and geological measurements.",
+      "Yellowstone lies within the North American Plate rather than on its edge. Heat drives a large hydrothermal system, while older volcanic centres extend southwest along the Snake River Plain. Their ages and positions record how the plate has moved over the heat source beneath.",
+      "Use the hotspots model to compare an age-progressive continental track with Hawaiʻi’s oceanic island chain. A hot spring shows that the system is active, but the magma stored deeper down can only be studied with geophysical and geological measurements.",
     ],
     exam: {
       prompt: "How does the age pattern of calderas in the Snake River Plain support a hotspot under a moving plate?",
@@ -330,12 +330,12 @@ export const CASES: CaseStudy[] = [
     zoom: 6,
     lede: "The Hawaiian island and seamount chain becomes older away from its active southeastern end. It provides evidence of oceanic plate movement over a long-lived volcanic source.",
     body: [
-      "Repeated basaltic eruptions build broad shield volcanoes in Hawaiʻi. As the Pacific Plate moves relative to the hotspot, older volcanoes become inactive and new centres develop nearer the active source. Subsidence and erosion continue after volcanic activity ends.",
-      "Compare position and age along the chain in the hotspots model. Discuss why the bend towards the Emperor seamounts is more complex than a perfectly fixed hotspot and a plate moving in one unchanging direction.",
+      "Repeated basaltic eruptions build broad shield volcanoes in Hawaiʻi. As the Pacific Plate moves over the hotspot, older volcanoes are carried away and die out, and new ones form above the active source. The extinct volcanoes then sink and erode.",
+      "Compare position and age along the chain in the hotspots model. Discuss why the bend towards the Emperor seamounts cannot be explained simply by a fixed hotspot and a plate moving in one unchanging direction.",
     ],
     exam: {
       prompt: "Why are Hawaiian volcanoes shields rather than stratovolcanoes, and how does the island chain record plate motion?",
-      hint: "Connect relatively fluid basaltic lava with shield shape, and increasing volcanic age with motion away from the active source.",
+      hint: "Link runny basaltic lava to the broad shield shape, then link the increasing age of volcanoes to plate movement away from the hotspot.",
     },
     sources: [
       { label: "USGS Hawaiian Volcano Observatory" },
@@ -353,8 +353,8 @@ export const CASES: CaseStudy[] = [
     zoom: 9,
     lede: "The Grand Canyon exposes old rock layers within a much younger river-cut valley. Separating the age of the rocks from the age of the landform is the key to reading its history.",
     body: [
-      "Rock layers exposed in the canyon preserve long intervals of deposition, deformation and erosion. Their sequence is not a clock that runs at one constant rate: unconformities represent missing time, and the oldest exposed rocks are far older than the canyon itself.",
-      "The Colorado River cut into an elevated landscape after much of that rock history had occurred. Use the geologic-time and landform models to distinguish rock formation, uplift and river incision, then identify which observations support each part of the explanation.",
+      "Rock layers exposed in the canyon preserve long intervals of deposition, deformation and erosion. The layers are not a clock running at a steady rate: unconformities represent missing time, and the oldest exposed rocks are far older than the canyon itself.",
+      "The Colorado River cut into an elevated landscape after much of that rock history had occurred. Use the geologic-time and landform-types models to separate rock formation, uplift and river incision, then identify the evidence for each stage.",
     ],
     exam: {
       prompt: "Distinguish the age of the rocks in the Grand Canyon walls from the age of the canyon as a landform.",
@@ -375,8 +375,8 @@ export const CASES: CaseStudy[] = [
     zoom: 6,
     lede: "The lower Mississippi transports water and sediment into a delta shaped by deposition, subsidence and the sea. Engineering changes where that sediment can accumulate.",
     body: [
-      "Meanders, floodplains and natural levees record repeated erosion and deposition along the lower river. At the coast, sediment delivered through distributary channels builds delta land where accumulation can keep pace with the processes that remove or submerge it.",
-      "Levees and river-management works alter floodwater and sediment routes. Compare a river-built delta with a tidal estuary, then use the deposition model to examine the balance between sediment input, redistribution and changing water level.",
+      "Meanders, floodplains and natural levees record repeated erosion and deposition along the lower river. At the coast, distributary channels deliver sediment that builds new land wherever deposition keeps pace with erosion, subsidence and sea-level rise.",
+      "Levees and river-management works alter floodwater and sediment routes. Compare a river-built delta with a tidal estuary, then use the river-deposition model to explore the balance between sediment supply, redistribution and changing water level.",
     ],
     exam: {
       prompt: "Explain why the Mississippi can maintain a bird-foot delta while many UK rivers end in estuaries.",
@@ -398,8 +398,8 @@ export const CASES: CaseStudy[] = [
     zoom: 11,
     lede: "Yosemite Valley shows how glaciers can widen and deepen a pre-existing river valley. Its steep walls and hanging tributaries help connect landforms with contour maps.",
     body: [
-      "River erosion established a valley before glaciers enlarged it into a broad trough. The main glacier eroded more deeply than smaller tributary glaciers in places, leaving hanging valleys from which waterfalls now descend.",
-      "Compare the valley’s broad floor with its steep sides, then inspect how these differences appear in contour spacing. The present river continues to modify the floor, so its channel should not be confused with the scale of the entire glacial valley.",
+      "A river valley existed before glaciers enlarged it into a broad trough. The main glacier eroded more deeply than the smaller tributary glaciers, leaving hanging valleys from which waterfalls now plunge.",
+      "Compare the valley’s broad floor with its steep sides, then see how these differences appear in contour spacing. The present river still modifies the floor, but its small channel should not be confused with the whole glacial valley.",
     ],
     exam: {
       prompt: "How would a contour map distinguish Yosemite Valley from a V-shaped river gorge of similar depth?",
@@ -418,14 +418,14 @@ export const CASES: CaseStudy[] = [
     lat: 29.95,
     lon: -90.07,
     zoom: 5,
-    lede: "Katrina and Sandy affected different coastal settings, but both show how storm winds can raise water levels. Coastal shape, tides and defences influenced the resulting floods.",
+    lede: "Katrina and Sandy struck different coasts, but both show how storm winds can raise the sea. Coastal shape, tides and defences shaped the floods that followed.",
     body: [
-      "Storm surge is the rise above the expected tide caused mainly by wind stress and atmospheric pressure. Water levels at the shore also depend on waves, tidal timing and the shape and depth of the coast. A wind category alone does not describe the full flood threat.",
-      "Katrina’s flooding around New Orleans and Sandy’s impacts around New York require attention to their different settings and storm histories. Sandy underwent extratropical transition near landfall. Use the surge model to compare coastal geometry without treating either event as a generic tropical-cyclone replay.",
+      "Storm surge is the rise in sea level above the expected tide, caused mainly by wind pushing water onshore and partly by low air pressure. Water levels at the shore also depend on waves, the timing of high tide and the shape and depth of the coast, so a storm’s wind category alone does not describe the flood threat.",
+      "Katrina (2005) flooded New Orleans; Sandy (2012) flooded parts of New York and New Jersey after losing its tropical characteristics just before landfall. Use the storm-surge model to see how wind and shelf depth change surge, but study each event in its own setting.",
     ],
     exam: {
-      prompt: "Distinguish storm surge from river flooding in the Katrina disaster, and say which lab models the cyclone itself.",
-      hint: "Separate surge, waves, tide and river inputs. Explain how they combine with local coastal geometry and flood defences.",
+      prompt: "Explain why the flooding of New Orleans during Hurricane Katrina cannot be explained by the storm’s wind category alone.",
+      hint: "Separate storm surge, waves and tide, then explain how shallow coastal water, low-lying land and failed flood defences increased the flooding.",
     },
     sources: [
       { label: "NOAA / NHC Katrina and Sandy reports" },
@@ -444,11 +444,11 @@ export const CASES: CaseStudy[] = [
     lede: "The Dust Bowl shows how drought and loss of protective vegetation can make soil vulnerable to wind erosion. Land management changed how easily dry particles could be removed.",
     body: [
       "During the Dust Bowl, severe drought coincided with exposed and disturbed soils across parts of the Great Plains. Wind detached and transported particles, sometimes carrying fine dust far from its source. Vegetation loss reduced protection from direct wind and removed roots that helped hold soil together.",
-      "Use the soil-erosion model to compare bare ground with covered ground. Ask students to separate the climatic trigger from the land-use conditions that increased vulnerability, then compare wind removal with water-cut gullies on the Loess Plateau.",
+      "Use the soil-erosion model to compare bare ground with covered ground. Ask students to separate the climatic trigger (drought) from the land use that made soils vulnerable, then compare wind erosion with the water-cut gullies of the Loess Plateau.",
     ],
     exam: {
       prompt: "Explain how vegetation removal made Great Plains soils vulnerable to wind erosion in the 1930s.",
-      hint: "Explain how roots, surface cover and roughness reduce sediment movement, and why dry exposed topsoil is more easily eroded.",
+      hint: "Explain how roots, surface cover and rough ground reduce soil movement, and why dry, exposed topsoil is easily lifted by wind.",
     },
     sources: [
       { label: "NOAA / NCEI drought and Dust Bowl" },
@@ -467,10 +467,10 @@ export const CASES: CaseStudy[] = [
     lede: "Reservoir levels in the Colorado River basin respond to the balance of inflow, withdrawals, releases and evaporation. Exposed shorelines make changes in stored water visible.",
     body: [
       "A reservoir stores water when inflow exceeds releases and other losses. Its level falls when that balance reverses. Climate affects rain, snow and runoff, while management determines how water is distributed and released for different uses.",
-      "The pale shoreline bands around reservoirs mark earlier water levels, but they do not explain the full cause by themselves. Use the water-balance model to separate inputs, outputs and storage change, then consult dated records before discussing a particular period.",
+      "The pale bands around the reservoirs mark earlier water levels, but they do not explain why the level fell. Use the water-cycle model to separate inputs, outputs and storage change, then check dated records before discussing a particular period.",
     ],
     exam: {
-      prompt: "Using stores and transfers, explain a falling Lake Mead level without claiming the global water cycle is leaking.",
+      prompt: "Using the ideas of stores and transfers, explain why the water level in Lake Mead can fall even though the global water cycle is a closed system.",
       hint: "Track inflow, releases, withdrawals and evaporation. A regional store can decline while the total quantity of water on Earth remains nearly unchanged.",
     },
     sources: [
@@ -486,14 +486,14 @@ export const CASES: CaseStudy[] = [
     lat: 51.477,
     lon: -0.0015,
     zoom: 12,
-    lede: "Greenwich connects the convention of zero longitude with the physical relationship between rotation and time. Earth turns through approximately 15 degrees of longitude per hour.",
+    lede: "Greenwich links the agreed line of zero longitude with the link between Earth’s rotation and time. Earth turns through about 15 degrees of longitude every hour.",
     body: [
-      "A prime meridian provides a reference from which longitude is measured east or west. Choosing that reference is a convention. Earth’s rotation supplies the underlying relationship between longitude and local solar time.",
-      "Rotate the graticule model while following two meridians. Compare the time at which each faces the Sun, then distinguish local solar time from civil time zones, whose boundaries follow political and practical choices.",
+      "A prime meridian is the line from which longitude is measured east or west. Which line to use is an agreed choice; the link between longitude and local solar time comes from Earth’s rotation.",
+      "Use the graticule model to compare the longitudes of two places and work out the difference in their local solar time. Then distinguish local solar time from civil time zones, whose boundaries follow political and practical choices.",
     ],
     exam: {
       prompt: "Why is 15° of longitude equal to one hour, and why is the Greenwich meridian not required for that arithmetic?",
-      hint: "Divide 360 degrees by 24 hours to obtain 15 degrees per hour, and separate that geometry from the choice of a zero meridian.",
+      hint: "Divide 360° by 24 hours to get 15° per hour, and explain that this works from any starting meridian.",
     },
     sources: [
       { label: "Royal Observatory Greenwich" },
@@ -508,14 +508,14 @@ export const CASES: CaseStudy[] = [
     lat: 39.8,
     lon: -98.6,
     zoom: 3,
-    lede: "US time zones approximate the change in solar time across longitude, while their boundaries accommodate communities and administration. The day–night boundary follows Earth’s geometry.",
+    lede: "US time zones roughly follow the change in solar time with longitude, but their boundaries are drawn around communities and states. The day–night boundary simply follows Earth’s geometry.",
     body: [
       "Places farther west reach local solar noon later because Earth rotates eastward. A difference of 15 degrees in longitude corresponds to about one hour of solar time. Civil time zones group places under a common clock rather than changing continuously with longitude.",
-      "Use the rotation model to follow two locations, then compare that smooth progression with a time-zone map. Include the date when checking an actual clock difference, because daylight-saving rules can affect the result.",
+      "Use the rotation model to follow two locations, then compare that smooth progression with a time-zone map. When checking a real clock difference, note the date, because daylight-saving rules can change the answer.",
     ],
     exam: {
       prompt: "If solar noon has just reached New York, about how long until solar noon in a place 45° of longitude further west?",
-      hint: "A 45-degree longitude difference corresponds to about three hours of local solar time. Civil clock differences depend on zone rules.",
+      hint: "Divide 45° by 15° per hour to get about three hours of solar time. Clock times may differ because of time-zone rules.",
     },
     sources: [
       { label: "NIST / USNO" },
@@ -532,8 +532,8 @@ export const CASES: CaseStudy[] = [
     zoom: 5,
     lede: "The Kola Superdeep Borehole reached about 12 km into Earth’s crust. Comparing that depth with Earth’s layers shows why scientists rely on seismic evidence to investigate the interior.",
     body: [
-      "Drilling at Kola sampled only a small fraction of the continental crust, despite reaching a depth of roughly 12 km. The mantle and core lie far beyond that direct reach. Rock samples answer valuable local questions but cannot provide a complete section through the planet.",
-      "Open the Earth-interior model and compare the borehole depth with the crust and mantle. Discuss how seismic waves, gravity and other evidence constrain regions that cannot be directly visited or drilled.",
+      "Despite reaching roughly 12 km, the Kola borehole did not drill through the continental crust. The mantle and core lie far beyond direct reach, so rock samples answer local questions but cannot give a section through the whole planet.",
+      "Open the Earth-interior model and compare the borehole depth with the crust and mantle. Discuss how seismic waves, gravity and other evidence tell us about regions that can never be visited or drilled.",
     ],
     exam: {
       prompt: "Why is the Kola borehole not evidence for the composition of the outer core?",
@@ -554,12 +554,12 @@ export const CASES: CaseStudy[] = [
     zoom: 9,
     lede: "The Moon’s phase depends on the Sun–Earth–Moon geometry. Observers in Eryri and California see nearly the same phase even though their clocks and horizons differ.",
     body: [
-      "The Moon is always lit on the side facing the Sun. Its phase describes how much of that illuminated half is visible from Earth. A full Moon is approximately opposite the Sun in the sky, rather than being illuminated by Earth’s shadow.",
-      "Use the Moon model to compare phase with the Moon’s position above a local horizon. Longitude and Earth’s rotation affect when it is visible, while the phase changes much more slowly over the month.",
+      "The Moon is always lit on the side facing the Sun. Its phase describes how much of that sunlit half we can see from Earth. At full Moon, the Moon is roughly opposite the Sun in our sky; phases are not caused by Earth’s shadow.",
+      "Use the moon-phases model to compare the phase with the Moon’s position in its orbit. Earth’s rotation and the observer’s longitude decide when the Moon is visible, while the phase changes slowly over the month.",
     ],
     exam: {
       prompt: "Why can two observers, one in Snowdonia and one in Yosemite, see the same lunar phase on the same date but at different clock times?",
-      hint: "Separate the viewing geometry that produces lunar phase from the rotation and longitude that determine local viewing time.",
+      hint: "Separate the Sun–Earth–Moon geometry that sets the phase from Earth’s rotation and longitude, which set the local time it is seen.",
     },
     sources: [{ label: "NASA Moon phases" }],
   },
@@ -572,9 +572,9 @@ export const CASES: CaseStudy[] = [
     lat: 37.74,
     lon: -119.57,
     zoom: 11,
-    lede: "Seeing a full Moon above Yosemite’s cliffs depends on lunar phase, its path across the sky and the observer’s viewpoint. An eclipse requires an additional alignment.",
+    lede: "Seeing a full Moon above Yosemite’s cliffs depends on the phase, the Moon’s path across the sky and where the observer stands. An eclipse needs an extra alignment.",
     body: [
-      "At full Moon, the Moon is approximately opposite the Sun as seen from Earth. A mountain can delay its appearance above the visible horizon, so landscape photographs depend on both astronomical geometry and the local line of sight.",
+      "At full Moon, the Moon is approximately opposite the Sun as seen from Earth. A high cliff can delay its appearance, so moonrise photographs depend on both astronomy and the local skyline.",
       "Most full Moons pass above or below Earth’s shadow because the lunar orbit is inclined. Use the eclipse model to locate an orbital node and explain why a full Moon alone is not enough for a lunar eclipse.",
     ],
     exam: {
@@ -594,11 +594,11 @@ export const CASES: CaseStudy[] = [
     zoom: 7,
     lede: "North Carolina’s Outer Banks are sandy barrier islands reshaped by waves, sediment transport and storms. They offer a useful comparison with the eroding till cliffs of Holderness.",
     body: [
-      "Barrier islands separate the open sea from shallow coastal waters. Sand moves alongshore and across the islands as waves, tides and storms change the coast. Storm overwash and inlet formation can move sediment even when buildings and roads remain fixed in place.",
-      "Compare the Outer Banks with Holderness in the coasts model. Both need a sediment-budget explanation, but one is a mobile sandy barrier system and the other includes soft eroding cliffs that supply sediment.",
+      "Barrier islands separate the open sea from shallow coastal waters. Sand moves alongshore and across the islands as waves, tides and storms change the coast. Storm overwash and new inlets move sand across the islands, even though buildings and roads stay fixed in place.",
+      "Compare the Outer Banks with Holderness in the coasts model. Both need a sediment-budget explanation, but one is a mobile sandy barrier system and the other is a coast of soft cliffs that supply sediment as they erode.",
     ],
     exam: {
-      prompt: "Compare the Holderness cliff and the Outer Banks as sediment systems. What is shared, and what is not?",
+      prompt: "Compare the Holderness coast and the Outer Banks as sediment systems. What do they have in common, and how do they differ?",
       hint: "Explain the shared role of longshore sediment transport, then compare mobile barrier sand with sediment supplied by till-cliff erosion.",
     },
     sources: [
@@ -617,12 +617,12 @@ export const CASES: CaseStudy[] = [
     zoom: 9,
     lede: "Mammoth Cave developed as water dissolved limestone and enlarged underground routes. Its passages provide a comparison with karst drainage in the Yorkshire Dales.",
     body: [
-      "Water containing dissolved carbon dioxide reacts with limestone and can enlarge fractures into passages over long periods. Cave levels and their relation to rivers help reconstruct changes in drainage and base level.",
-      "Use the karst model to follow water from infiltration to an underground channel and spring. Contrast dissolution of limestone with weathering in less soluble rock, and avoid assuming that every underground passage is visible from the surface.",
+      "Water containing dissolved carbon dioxide reacts with limestone and, over long periods, enlarges fractures into passages. Cave levels and their height above today’s rivers help reconstruct past changes in drainage and base level.",
+      "Use the karst model to follow water from infiltration to an underground channel and spring. Contrast the dissolution of limestone with weathering in less soluble rock, and remember that most underground passages cannot be seen from the surface.",
     ],
     exam: {
       prompt: "Why do sinkholes and caves cluster on carbonate rocks rather than on granite?",
-      hint: "Explain how weakly acidic water dissolves calcite along fractures. Other rocks, including granite, do not develop by the same carbonate-dissolution process.",
+      hint: "Explain how weakly acidic water dissolves calcite along fractures. Granite’s minerals dissolve far more slowly, so it does not develop caves and sinkholes in the same way.",
     },
     sources: [{ label: "NPS / USGS Mammoth Cave" }],
   },
@@ -635,14 +635,14 @@ export const CASES: CaseStudy[] = [
     lat: 33.45,
     lon: -112.07,
     zoom: 8,
-    lede: "Phoenix illustrates how buildings, paving and limited moisture can influence urban temperature. Heat stored during the day can keep built surfaces warm after sunset.",
+    lede: "Phoenix shows how buildings, paving and dry ground affect urban temperature. Heat stored during the day keeps built surfaces warm after sunset.",
     body: [
       "Urban surfaces differ from surrounding land in reflectivity, heat storage, shade and evaporation. Paving and buildings can store substantial energy, while limited soil moisture reduces evaporative cooling. The balance changes through the day and between neighbourhoods.",
-      "Compare surface properties in the energy-budget model. Ask students to distinguish a thermal image of surface temperature from an air-temperature measurement, then discuss how trees, shade and building materials alter local conditions.",
+      "Use the thermal-circulation model’s urban heat setting and the energy-budget model’s albedo slider. Ask students to distinguish a thermal image of surface temperature from an air-temperature reading, then discuss how trees, shade and building materials change local conditions.",
     ],
     exam: {
-      prompt: "Explain why a city can stay warmer than surrounding desert at night, using albedo and latent heat.",
-      hint: "Discuss heat storage, reduced evapotranspiration and surface properties, then explain why the urban contrast can persist into the night.",
+      prompt: "Explain why Phoenix can stay warmer than the surrounding desert at night.",
+      hint: "Explain how concrete, asphalt and buildings absorb and store heat by day and release it slowly at night, and how irrigated trees and shade can reduce the effect.",
     },
     sources: [{ label: "NOAA / NWS urban heat" }],
   },
@@ -657,12 +657,12 @@ export const CASES: CaseStudy[] = [
     zoom: 7,
     lede: "A sunny afternoon can bring cooler air inland from the sea as the land warms faster than nearby water. The sea breeze is a local response to unequal heating.",
     body: [
-      "As land heats, the air above it warms and a pressure pattern develops that can draw cooler marine air inland near the surface. Rising air over land and return flow aloft complete a simplified circulation.",
-      "Use the thermal-circulation model to compare daytime and nighttime heating. Then consider why a strong background wind, cloud or an irregular coastline may prevent the neat circulation shown in the model.",
+      "As the land heats, the air above it warms and rises, and lower pressure near the surface draws cooler sea air inland. A return flow towards the sea higher up completes the circulation.",
+      "Use the thermal-circulation model to compare daytime and night-time heating. Then consider why a strong prevailing wind, cloud or an irregular coastline may spoil the neat circulation shown in the model.",
     ],
     exam: {
       prompt: "Draw and label a sea-breeze circulation for a calm, sunny afternoon on the south coast.",
-      hint: "Connect warmer land with rising air and onshore surface flow, then complete the circulation with a return branch aloft.",
+      hint: "Show warm land with rising air and lower surface pressure, an onshore breeze at ground level, and a return flow out to sea higher up.",
     },
     sources: [{ label: "Met Office sea breezes" }],
   },
@@ -678,7 +678,7 @@ export const CASES: CaseStudy[] = [
     lede: "Snow-covered and snow-free ground in the Cairngorms reflect different amounts of sunlight. Their contrast makes the role of albedo visible in a familiar landscape.",
     body: [
       "Fresh snow generally reflects a much larger fraction of sunlight than dark exposed ground. When snow cover changes, the fraction of incoming solar energy absorbed by the landscape changes too. The effect also depends on cloud, solar angle and snow condition.",
-      "Compare the two surfaces in the energy-budget model while keeping incoming sunlight constant. Ask students to explain the difference in absorption before changing another variable, such as cloud or surface temperature.",
+      "In the energy-budget model, move the albedo slider from a snow value to a dark-ground value. Ask students to explain the change in absorbed energy before discussing other factors such as cloud.",
     ],
     exam: {
       prompt: "Why does a snow-covered Cairngorm plateau heat the air less than a snow-free peat surface under the same incoming solar radiation?",
@@ -695,13 +695,13 @@ export const CASES: CaseStudy[] = [
     lat: 39.74,
     lon: -104.99,
     zoom: 7,
-    lede: "Denver’s elevation makes pressure and altitude easier to discuss, but the city remains well within the troposphere. Most of the weather layer still lies above it.",
+    lede: "Denver’s height above sea level makes it a good place to discuss air pressure and altitude, but the city is still well inside the troposphere, with most of the weather layer above it.",
     body: [
       "Denver stands roughly 1.6 km above sea level. Atmospheric pressure is lower there than at sea level because less air lies above the city. The tropopause is still several kilometres higher, with its altitude varying by latitude and weather.",
-      "Locate Denver’s elevation within the atmosphere model rather than placing it near the top of the atmosphere. Compare pressure with altitude, and distinguish this change from the day-to-day pressure variations associated with weather systems.",
+      "Find Denver’s height in the atmosphere-layers model: it sits near the bottom, not near the top. Compare pressure with altitude, and separate this change from the day-to-day pressure changes caused by weather systems.",
     ],
     exam: {
-      prompt: "Why is Denver’s weather still ‘troposphere’ weather even though the city is a mile above sea level?",
+      prompt: "Denver is a mile above sea level. Explain why its weather still happens in the troposphere.",
       hint: "Compare the city’s elevation with the much greater depth of the troposphere; high ground does not place the city outside the weather layer.",
     },
     sources: [
@@ -720,8 +720,8 @@ export const CASES: CaseStudy[] = [
     zoom: 11,
     lede: "Intense rainfall can destabilise Hong Kong’s steep slopes, including those underlain by deeply weathered rock. The role of groundwater differs from wave erosion at the foot of a Holderness cliff.",
     body: [
-      "Weathering can turn granite and other rocks into thick, weak material called saprolite. Rain infiltrating a slope can raise pore-water pressure and reduce the effective forces holding particles together. Slope angle, drainage, vegetation and engineering all affect stability.",
-      "Compare this setting with coastal slumping at Holderness. Both involve gravity-driven movement, but their materials and triggers differ. Use the mass-movement model to isolate changes in water and slope angle before discussing the details of a particular failure.",
+      "Weathering can turn granite and other rocks into thick, weak material called saprolite. Rain soaking into a slope raises the pore-water pressure, which reduces the friction holding the material in place. Slope angle, drainage, vegetation and engineering all affect stability.",
+      "Compare this setting with coastal slumping at Holderness. Both involve gravity-driven movement, but their materials and triggers differ. Use the mass-movement model’s pore-pressure slider to see how water affects stability before discussing a particular landslide.",
     ],
     exam: {
       prompt: "Contrast a Hong Kong hillslope failure with Holderness cliff retreat, using rock type and the triggering process.",
@@ -743,12 +743,12 @@ export const CASES: CaseStudy[] = [
     zoom: 10,
     lede: "Shanghai’s Huangpu River connects urban drainage with a tidal river in a low-lying delta. Rainfall, river flow and coastal water levels can act together during flooding.",
     body: [
-      "The Huangpu is influenced by tides as well as freshwater flow from its catchment. Heavy rainfall can increase runoff while high downstream water levels restrict drainage. Flood walls and other infrastructure modify exposure but do not remove the need to understand those interacting processes.",
-      "Compare Shanghai with the lower Mississippi. Both occupy low-lying river landscapes, but their catchments, sediment systems and tidal influences differ. Use the basin and surge models to trace where water enters and what controls its exit.",
+      "The Huangpu is affected by tides as well as by river flow from its catchment. Heavy rain increases runoff, while high water downstream slows drainage. Flood walls reduce the risk but do not remove it.",
+      "Compare Shanghai with the lower Mississippi. Both occupy low-lying river landscapes, but their catchments, sediment systems and tidal influences differ. Use the hydrograph and storm-surge models to trace where water enters and what controls how it leaves.",
     ],
     exam: {
-      prompt: "Explain why a high tide plus Meiyu rain is a different flood story from a Mississippi overbank flood.",
-      hint: "Explain the combined influence of catchment runoff and downstream tidal water levels, rather than treating the flood peak as rainfall alone.",
+      prompt: "Explain why Meiyu rain arriving at high tide can flood Shanghai, and how this differs from a Mississippi overbank flood.",
+      hint: "Explain how catchment runoff combines with high tidal water levels downstream, rather than treating the flood as rainfall alone.",
     },
     sources: [
       { label: "Shanghai Water Authority — Huangpu tide" },
@@ -765,14 +765,14 @@ export const CASES: CaseStudy[] = [
     lon: 113.55,
     zoom: 7,
     state: "t=0.4",
-    lede: "Typhoon Mangkhut illustrates the combined effects of wind, heavy rain and coastal water rise. A typhoon belongs to the same storm family as an Atlantic hurricane.",
+    lede: "Typhoon Mangkhut (2018) shows the combined effects of wind, heavy rain and storm surge. A typhoon is the same kind of storm as an Atlantic hurricane.",
     body: [
-      "Regional naming differs, but a typhoon is a tropical cyclone with an organised warm-core circulation. Its winds can drive water towards the coast while low pressure, tides and waves contribute to water levels. Heavy rain creates an additional source of flooding.",
-      "Compare the tropical-cyclone and surge models, then locate the Pearl River Delta’s low-lying coasts. Mangkhut and Katrina share physical processes, but their tracks, coastal geometry and local impacts must be evaluated separately.",
+      "Names differ by region, but a typhoon is a tropical cyclone with a warm core. Its winds drive water towards the coast, while low pressure, tides and waves add to the water level. Heavy rain adds a second source of flooding.",
+      "Compare the tropical-cyclone and surge models, then locate the Pearl River Delta’s low-lying coasts. Mangkhut and Katrina share the same physics, but their tracks, coasts and impacts must be studied separately.",
     ],
     exam: {
-      prompt: "Using the warm-core engine, explain why Mangkhut and Katrina are the same class of storm despite different names.",
-      hint: "Explain the shared tropical-cyclone physics behind the regional names, then connect storm winds and coastal geometry with surge.",
+      prompt: "Explain why Typhoon Mangkhut and Hurricane Katrina are the same type of storm despite their different names.",
+      hint: "Describe the shared features: warm ocean water as the energy source, a warm core, an eye and spiral rain bands. Then explain that the name depends only on the ocean basin.",
     },
     sources: [
       { label: "HKO — Super Typhoon Mangkhut" },
@@ -791,10 +791,10 @@ export const CASES: CaseStudy[] = [
     lede: "Wind deposited the fine sediment of the Loess Plateau, while running water later cut many of its gullies. Distinguishing deposition from erosion makes this landscape easier to explain.",
     body: [
       "Loess is predominantly wind-deposited silt. Once exposed on slopes, it can be detached and transported by rainfall and concentrated runoff. Deep gullies therefore record water erosion of material that originally arrived by a different process.",
-      "Compare the aeolian and soil-erosion models to follow the sediment through both stages. Then contrast the plateau with the Dust Bowl, where wind removal of exposed topsoil was central to the event being studied.",
+      "Compare the aeolian and soil-erosion models to follow the sediment through both stages. Then contrast the plateau with the Dust Bowl, where wind removed exposed topsoil.",
     ],
     exam: {
-      prompt: "Explain how the Loess Plateau records both wind deposition and water erosion, using a US Dust Bowl comparison.",
+      prompt: "Explain how the Loess Plateau records both wind deposition and water erosion. Compare it with the Dust Bowl.",
       hint: "Separate the earlier aeolian deposition of silt from its later removal by runoff and gully erosion.",
     },
     sources: [

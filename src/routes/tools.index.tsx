@@ -7,7 +7,7 @@ export const Route = createFileRoute("/tools/")({
   head: () =>
     headFor({
       title: "Tools",
-      description: "Earth-motion calculator, live weather, world map studio, and atlas.",
+      description: "Free geography tools: an Earth-motion calculator, live weather, a world map studio and an atlas.",
       path: "/tools",
     }),
 });

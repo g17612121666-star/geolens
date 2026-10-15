@@ -308,7 +308,7 @@ function Track({ setting, z, t }: { setting: Setting; z: number; t: number }) {
         note={
           continental
             ? "The southwest end of the recognised Yellowstone track reaches roughly 17 Ma. Older calderas are buried by later basalt; these depressions are symbols, not surveyed caldera outlines."
-            : "Moving away from the plume, islands cool, sink and erode: green valleys, then a coral atoll ring around a lagoon, then a drowned flat-topped seamount. Shapes are illustrative, not coastlines."
+            : "Moving away from the plume, islands cool, sink and erode: green valleys, then a coral atoll ring around a lagoon, then a drowned flat-topped seamount. Shapes are illustrative, not real coastlines."
         }
         occlude={false}
       />
@@ -325,7 +325,7 @@ function Track({ setting, z, t }: { setting: Setting; z: number; t: number }) {
         pos={[PLUME_X - 0.75, -1.2, D / 2 + 0.05]}
         text="Mantle plume"
         tone="magma"
-        note="A plume hypothesis involves an upwelling of hot but mostly solid mantle. Partial melting near the top feeds magma up through the plate; this is not a hollow pipe or a column of liquid magma. Geometry and colours are schematic."
+        note="In the plume hypothesis, hot but mostly solid mantle rises slowly. Partial melting near the top feeds magma up through the plate; it is not a hollow pipe or a column of liquid magma. Geometry and colours are schematic."
         occlude={false}
       />
     </group>
@@ -343,8 +343,8 @@ export default function Hotspots() {
       <ScienceStudio
         slug="hotspots"
         camera={[2.4, 3.6, 7.6]}
-        scale="Independent hotspot sections · age direction is geographic · relief, plate and plume not to scale"
-        trueScale="No surveyed depth or distance scale · plate thickness and thermal anomalies are schematic"
+        scale="Separate hotspot sections · compass directions are real · relief, plate and plume not to scale"
+        trueScale="No true depth or distance scale · plate thickness and plume are schematic"
       >
         {hawaii && <Track setting={OCEAN} z={both ? -1.25 : 0} t={t} />}
         {yellowstone && <Track setting={LAND} z={both ? 1.25 : 0} t={t} />}
@@ -359,7 +359,7 @@ export default function Hotspots() {
       </ScienceStudio>
       <ScienceReadout>
         {hawaii
-          ? "Hawaiʻi's volcanic islands become older towards the northwest; Kauaʻi is about 5.5 Ma old. "
+          ? "Hawaiʻi's volcanic islands become older towards the northwest; Kauaʻi’s rocks are about 5–5.5 million years old. "
           : ""}
         {yellowstone
           ? "Yellowstone's volcanic track extends about 17 Ma into the past, with older sites towards the southwest. "
@@ -369,7 +369,7 @@ export default function Hotspots() {
           : "Press Play to follow plate motion above each hotspot."}
         <br />
         {
-          "The plate (with its cut face) moves over a fixed plume in the mantle below, without an assigned travel rate. Right is northwest for Hawaiʻi and southwest for Yellowstone."
+          "Here the plume is held still and the plate moves over it at no set speed. Right is northwest for Hawaiʻi and southwest for Yellowstone."
         }
       </ScienceReadout>
     </>

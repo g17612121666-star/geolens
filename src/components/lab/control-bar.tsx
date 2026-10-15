@@ -200,7 +200,7 @@ export function ControlBar({
               value={explode}
               onChange={(e) => setExplode(Number(e.target.value))}
               className="h-2 w-16 accent-magma"
-              aria-label={"Explode layers"}
+              aria-label={"Separate layers"}
               suppressHydrationWarning
             />
             <output className="text-[13px] tabular-nums text-chalk">
@@ -220,7 +220,7 @@ export function ControlBar({
               value={slice}
               onChange={(e) => setSlice(Number(e.target.value))}
               className="h-2 w-16 accent-ice"
-              aria-label={"Cross-section"}
+              aria-label={"Cutaway"}
               suppressHydrationWarning
             />
             <output className="text-[13px] tabular-nums text-chalk">
@@ -250,7 +250,7 @@ export function ControlBar({
           <Projector className="size-4" />
         </IconBtn>
         <IconBtn
-          label={copied ? "Link copied" : shareFailed ? "Use address bar" : "Share"}
+          label={copied ? "Link copied" : shareFailed ? "Copy from address bar" : "Share"}
           onClick={() => {
             const url = labShareUrl();
             if (!navigator.clipboard) {
@@ -273,7 +273,7 @@ export function ControlBar({
         <IconBtn label={fullscreen ? "Exit fullscreen" : "Fullscreen"} onClick={onToggleFullscreen}>
           {fullscreen ? <Minimize className="size-4" /> : <Maximize className="size-4" />}
         </IconBtn>
-        <IconBtn label="Controls" onClick={onOpenKeys}>
+        <IconBtn label="Shortcuts" onClick={onOpenKeys}>
           <Keyboard className="size-4" />
         </IconBtn>
       </div>

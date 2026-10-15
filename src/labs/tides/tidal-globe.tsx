@@ -66,8 +66,8 @@ export default function Tides() {
         camera={[2.6, 4.3, 7]}
         lights={false}
         space
-        scale="Earth–Moon sizes enlarged · blue surface is exaggerated tidal potential"
-        trueScale="Earth–Moon sizes and separation share one scale · potential symbol remains enlarged"
+        scale="Earth and Moon enlarged · blue surface shows the tidal effect, greatly exaggerated"
+        trueScale="Earth–Moon sizes and separation share one scale · blue tidal surface still exaggerated"
       >
         <directionalLight position={[10, 3, 2]} intensity={3} />
         <ambientLight intensity={0.16} />
@@ -107,13 +107,13 @@ export default function Tides() {
         <Tag
           pos={[position[0], position[1] + radius * 0.4 + 0.22, position[2]]}
           text={phase}
-          note="The potential envelope combines lunar and solar quadrupole terms. The Moon changes its direction relative to the Sun through an ideal synodic month."
+          note="The blue surface adds the Moon's and the Sun's tidal effects. Over one synodic month the Moon's direction changes relative to the Sun."
           occlude={false}
         />
         <Tag
           pos={[-1.4, -1.35, 0]}
           text="Two tidal lobes"
-          note="Blue is an enlarged, offset surface representing gravitational tidal potential, not an actual shell of ocean or a predicted water height. Ocean basins, inertia, friction and coastlines determine local tide times and ranges."
+          note="The blue surface is an enlarged picture of the tide-raising effect, not a layer of ocean or a predicted water height. Ocean basins, friction and coastlines set real tide times and ranges."
           occlude={false}
         />
         <group position={[3.95, 0.6, 0]}>
@@ -122,7 +122,7 @@ export default function Tides() {
         <Tag
           pos={[3.95, 1.15, 0]}
           text="Sun direction"
-          note="The solar potential term remains fixed in this Sun-relative view. New and full Moon reinforce the lunar and solar patterns; at quarters they partly oppose."
+          note="The Sun stays in one direction in this view. At new and full Moon the lunar and solar effects add; at the quarters they partly cancel."
           occlude={false}
         />
       </ScienceStudio>
@@ -135,7 +135,7 @@ export default function Tides() {
         <br />
         <span className="formula">{"Lunar tidal strength ∝ 1/r³"}</span>
         {
-          "; solar contribution 0.46 at mean lunar distance. Earth rotates while the potential follows the Moon–Sun geometry. No tide times, flood heights or coast-specific forecast."
+          "; the Sun's effect is 0.46 of the Moon's at mean distance. Earth rotates beneath a pattern that follows the Moon and Sun. This is not a forecast of tide times or heights."
         }
       </ScienceReadout>
     </>

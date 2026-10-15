@@ -194,7 +194,7 @@ function LunarShadow({ p, phase }: { p: [number, number, number]; phase: number 
       <Tag
         pos={[-1.15, shadowRadii(LUNAR.earth, LUNAR.au, -x).umbra * scale + 0.2, 0]}
         text="Umbra"
-        note="Earth blocks the entire solar disc inside this cone. Earth's atmosphere is omitted from the geometric edge."
+        note="Inside this cone Earth blocks the whole Sun. The cone ignores Earth's atmosphere, which bends some red light into it."
         occlude={false}
       />
       <Tag
@@ -258,7 +258,7 @@ function SolarShadow({ p }: { p: [number, number, number] }) {
       <Tag
         pos={[0, 1.4, 0]}
         text="Earth · solar obscuration"
-        note="Surface darkness is calculated from the overlapping apparent solar and lunar discs. The translucent volume is the Moon's penumbra. Radii and separations use one scale; this close view omits the distant Moon."
+        note="Darkness on the surface is calculated from how much of the Sun's disc the Moon covers. The pale cone is the Moon's penumbra. Sizes and distances share one scale; the Moon itself is off-screen."
         occlude={false}
       />
     </>
@@ -421,7 +421,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
           ? `${solar ? "Solar shadow view" : lunarEclipse(shadowPoint)} at ${((t - 0.5) * 0.012 * 29.53059 * 24).toFixed(2)} h from ${solar ? "new" : "full"} Moon.`
           : `At day ${(t * 29.53059).toFixed(1)} of the model month, the Moon is ${(fraction * 100).toFixed(1)}% illuminated as seen from Earth (${phaseName.toLowerCase()}).`}{" "}
         {slug === "eclipses" && !focus
-          ? lunarEclipse(p) + ". Open Shadow close-up for a closer view."
+          ? lunarEclipse(p) + ". Turn on Shadow close-up for a closer view."
           : slug === "tides"
             ? "The surface shows the combined lunar and solar tidal effects."
             : `The Moon's orbit is tilted by ${aligned ? "0" : LUNAR.inclination}°.`}

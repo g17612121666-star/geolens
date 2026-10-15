@@ -7,7 +7,7 @@ export function teacherArticle(lab: LabMeta) {
   const sections: ArticleSection[] = [
     { heading: 'Before the lesson', paragraphs: [
       lab.objective,
-      'Open the model before the lesson and choose a view that makes the important feature easy to see. Drag to rotate, and use the on-screen controls to change one variable at a time. The Controls panel explains the available keyboard shortcuts.',
+      'Open the model before the lesson and choose a view that makes the important feature easy to see. Drag to rotate, and use the on-screen controls to change one variable at a time. The Shortcuts button lists the keyboard shortcuts.',
       lab.controls.playback === false
         ? 'Ask students to predict the result before you change a setting. Compare the new view with the starting state.'
         : 'Pause the animation at a useful moment. Ask students what should happen next, then play it to test their explanation.',

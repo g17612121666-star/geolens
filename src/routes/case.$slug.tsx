@@ -68,7 +68,7 @@ function CasePage() {
       {openSlug && (
         <div className="mt-8">
           <Button asChild>
-            <a href={href}>{"Open this state in the lab"}</a>
+            <a href={href}>{"Open this setup in the lab"}</a>
           </Button>
         </div>
       )}
@@ -82,7 +82,7 @@ function CasePage() {
       </section>
       {labs.length > 0 && (
         <div className="mt-10">
-          <p className="section-label mb-3">{"Process labs"}</p>
+          <p className="section-label mb-3">{"Related labs"}</p>
           <div className="flex flex-wrap gap-2">
             {labs.map((lab) => (
               <Link key={lab.slug} to="/lab/$slug" params={{ slug: lab.slug }}>

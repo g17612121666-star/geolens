@@ -93,7 +93,7 @@ export default function SunEarth() {
         <Tag
           pos={[-1.25, 1.55, -0.5]}
           text={`Normal at ${Math.abs(lat).toFixed(1)}°${lat < 0 ? "S" : "N"}`}
-          note="The leader points to the outward normal at the gold local-noon patch. Its angle to incoming sunlight determines horizontal top-of-atmosphere flux; the daily mean also includes night. Neither calculation includes atmospheric absorption or reflection."
+          note="The arrow points straight out from the ground at the gold noon patch (the surface normal). Its angle to the sunlight sets the energy per square metre above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere."
           occlude={false}
         />
       </ScienceStudio>
@@ -129,7 +129,7 @@ export default function SunEarth() {
             />
             <span>
               {
-                "Actual SDO solar observation, displayed in processed orange colour. Sunspots are cooler magnetic regions. The switch does not alter this fixed-irradiance experiment. "
+                "Real SDO image of the Sun, coloured orange in processing. Sunspots are cooler, magnetic regions. This switch does not change the calculation, which uses a fixed solar irradiance. "
               }
               <a
                 className="pointer-events-auto text-ice underline"

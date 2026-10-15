@@ -14,7 +14,7 @@ export const Route = createFileRoute("/privacy")({
   head: () =>
     headFor({
       title: "Privacy",
-      description: "Geolens does not run accounts, ads, or student tracking.",
+      description: "Geolens has no accounts, no adverts and no student tracking.",
       path: "/privacy",
     }),
 });
@@ -29,37 +29,37 @@ function Privacy() {
       <div className="mt-8 space-y-5 text-[17px] leading-7 text-chalk/90">
         <p>
           {
-            "Geolens is a free classroom studio. There is no login, no paywall, no advertising, and no sponsorship banner. We do not keep student work, scores, or class lists."
+            "Geolens is free to use. There is no login, paywall, advertising or sponsorship. We do not keep student work, scores or class lists."
           }
         </p>
         <p>
           {
-            "Lab state (tilt, date, viscosity, labels) lives in the page URL and in this browser only. Copy the link to share a setup. Closing the tab does not send that state to a server."
+            "Lab settings (such as tilt, date, viscosity or labels) are kept only in the page address and in your browser. Copy the link to share a setup. Nothing about them is sent to a server when you close the tab."
           }
         </p>
         <p>
           {
-            "We do not track academic behaviour. There is no analytics SDK that scores a pupil’s clicks."
+            "We do not track what students do. There is no analytics software recording clicks."
           }
         </p>
         <p>
           {"Hosting may set a Cloudflare bot-management cookie ("}
           <code className="font-mono text-sm">{"__cf_bm"}</code>
-          {"). That cookie is for abuse control, not classroom surveillance."}
+          {"). It is used to block automated abuse, not to track students."}
         </p>
         <p>
           {
-            "Maps request tiles from OpenFreeMap / OpenStreetMap and, on the live-weather tool, a forecast from Open-Meteo. Those requests carry an IP address to those services. If the tile network fails, the atlas falls back to a static Natural Earth coastline we ship with the app."
+            "Maps load tiles from OpenFreeMap / OpenStreetMap, and the live-weather tool loads forecasts from Open-Meteo. Like any web request, these share your IP address with those services. If the map tiles fail to load, the atlas shows a simple Natural Earth coastline built into the site."
           }
         </p>
         <p>
           {
-            "Type is self-hosted on this origin (Fraunces, Geist, Geist Mono). A classroom that blocks Google Fonts still gets the faces."
+            "Fonts (Fraunces, Geist and Geist Mono) are served by Geolens itself, so they still load where Google Fonts is blocked."
           }
         </p>
         <p>
           {
-            "Some labs embed a YouTube nocookie film. That request leaves this origin for youtube-nocookie.com only when you open the Why panel and the film is on the page. Autoplay is off. There is no YouTube account wall."
+            "Some labs include a film from youtube-nocookie.com, YouTube’s privacy-enhanced mode. It is requested only when a lab’s Why panel shows the film. Films do not autoplay, and you do not need a YouTube account."
           }
         </p>
         <p>
@@ -82,7 +82,7 @@ function Privacy() {
           >
             {PRODUCER_X_HANDLE}
           </a>
-          {". You can use these contact details to ask about this privacy information."}
+          {"."}
         </p>
         <p>
           {"See also"}{" "}

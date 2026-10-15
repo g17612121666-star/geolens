@@ -373,13 +373,13 @@ export default function Earthquakes() {
           pos={[-0.55, -d - 0.12, 0.05]}
           text={`Hypocentre · ${depth.toFixed(0)} km`}
           tone="magma"
-          note="Rupture starts at the focus or hypocentre; the red patch marks an illustrative slipping part of the fault. This point-source experiment launches spherical fronts in a uniform solid; real ruptures spread over a fault area."
+          note="Rupture starts at the focus (hypocentre); the red patch shows part of the fault slipping. Here the waves spread as spheres from one point through uniform rock; real ruptures spread across a whole fault surface."
           occlude={false}
         />
         <Tag
           pos={[station[0] + 0.85, station[1] + 0.95, station[2]]}
           text="Seismometer · 50 km"
-          note="The station is 50 km horizontally from the epicentre. Straight-ray travel distance is the square root of depth squared plus 50 km squared. Its drum record shows the P then the larger S arrival."
+          note="The station is 50 km horizontally from the epicentre, so the straight-line distance from the focus is √(depth² + 50²) km. Its drum record shows the P-wave arrival, then the larger S-wave."
           occlude={false}
         />
         <Tag
@@ -392,7 +392,7 @@ export default function Earthquakes() {
         <Tag
           pos={[-3.0, -0.7, 0.05]}
           text="Moho · 35 km"
-          note="Layers: sedimentary cover, granitic upper crust, denser lower crust, then the olive-green mantle below the Moho. Thicknesses are typical continental values at the scene's 50 km grid."
+          note="Layers: sedimentary cover, granitic upper crust, denser lower crust, then the olive-green mantle below the Moho. Thicknesses are typical continental values, drawn at the scene's scale of 1 unit = 50 km."
           occlude={false}
         />
       </ScienceStudio>
@@ -412,7 +412,7 @@ export default function Earthquakes() {
         {w.sArrival.toFixed(2)} {"s."}
         <br />
         {
-          "The cut face shows each front where it crosses the rock; faint shells show the cut-away half. The violet ring is the slower surface wave, which does most of the shaking that sways the buildings."
+          "The cut face shows each wave front where it crosses the rock; faint shells show the cut-away half. The violet ring is the slower surface wave, which causes most of the shaking that sways the buildings."
         }
       </ScienceReadout>
     </>

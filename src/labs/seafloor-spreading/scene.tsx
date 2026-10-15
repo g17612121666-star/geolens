@@ -306,11 +306,11 @@ export default function SeafloorSpreading() {
         {rate} {"mm/year · each flank "}
         {half.toFixed(1)}{" "}
         {
-          "mm/year. Teal / sandstone: opposite remanent magnetic polarities, mirrored on each flank."
+          "mm/year. Teal and sand-coloured stripes record opposite magnetic polarities, mirrored on each flank."
         }
         <br />
         {
-          "Play advances an invented reversal record through 1 Ma. It illustrates symmetry, not the real geomagnetic chronology. Subsidence follows an illustrative √age curve; above 40 mm/year the rift valley gives way to an axial high."
+          "Play runs a made-up reversal record through 1 Ma to show the symmetry; it is not the real reversal timescale. The seafloor deepens with the square root of its age; above 40 mm/year the rift valley gives way to an axial high."
         }
       </ScienceReadout>
     </>

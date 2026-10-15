@@ -18,7 +18,7 @@ export const Route = createFileRoute("/realms/$realm")({
     const meta = REALMS.find((r) => r.slug === params.realm);
     return headFor({
       title: meta?.title ?? "Subject",
-      description: meta?.blurb ?? "Geolens realm.",
+      description: meta?.blurb ?? "A Geolens subject.",
       path: `/realms/${params.realm}`,
       image: meta ? REALM_FIGURE[meta.slug]?.src : undefined,
     });
@@ -48,7 +48,7 @@ function RealmPage() {
       </div>
       {labs.length === 0 ? (
         <p className="mt-16 max-w-lg text-mist">
-          {"There are no labs in this subject yet. Browse Explore to find another topic."}
+          {"There are no labs in this subject yet. Try Explore to find another topic."}
         </p>
       ) : (
         <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">

@@ -23,7 +23,7 @@ export function RotationScene() {
         space
         camera={[0, 1, 4.8]}
         scale="Earth rotates eastward · 15° per mean solar hour · Sun direction held fixed"
-        trueScale="Spherical Earth · time-zone lines are ideal 15° meridians, not civil borders"
+        trueScale="Spherical Earth · time-zone lines are ideal 15° meridians, not real borders"
       >
         {/* Sun direction marker: same direction as the shader's light, well outside Earth. */}
         <group position={ROTATION_SUN.clone().multiplyScalar(2.45).toArray()}>
@@ -289,7 +289,7 @@ export function SolarAltitudeScene() {
         {hour.toFixed(1)} {"h; altitude "}
         {((Math.asin(selected[1] / 1.8) * 180) / Math.PI).toFixed(1)}
         {
-          "°. The gnomon shadow follows the Sun and ends at the displayed ground edge. Refraction is excluded."
+          "°. The pin's shadow points away from the Sun and is cut off at the edge of the ground. Refraction is ignored."
         }
       </ScienceReadout>
     </>

@@ -89,13 +89,13 @@ export default function TropicalCyclone() {
         <Tag
           pos={[-2.4, 0.85, 2.3]}
           text="Eye"
-          note="The eye has relatively light winds, subsidence and often reduced cloud. It is surrounded by the strong winds and deep convection of the eyewall; it is not a funnel touching the sea."
+          note="The eye has relatively light winds, sinking air and often little cloud. It is surrounded by the strong winds and deep convection of the eyewall; it is not a funnel touching the sea."
           occlude={false}
         />
         <Tag
           pos={[2.0, 1.65 * vertical, -0.5]}
           text="Eyewall"
-          note="The ideal tangential wind reaches its maximum at 30 km radius. Rising moist air and latent heat release are essential to real convection but are not thermodynamically solved here."
+          note="In this model the wind peaks 30 km from the centre. In real storms, rising moist air releases latent heat that powers the eyewall; that heat is not calculated here."
           occlude={false}
         />
         <Tag
@@ -111,7 +111,7 @@ export default function TropicalCyclone() {
           className="mx-auto h-24 w-full max-w-lg"
           role="img"
           aria-label={
-            "Ideal tangential wind profile: peak at radius 30 kilometres, decreasing outward"
+            "Idealised wind profile: peak at a radius of 30 kilometres, decreasing outwards"
           }
         >
           <line x1="25" x2="365" y1="80" y2="80" stroke="#8b9f9c" />
@@ -130,12 +130,13 @@ export default function TropicalCyclone() {
           </text>
         </svg>
         {"Maximum tangential wind "}
-        {maximum.toFixed(1)} {"m/s · ideal centre "}
+        {maximum.toFixed(1)} {"m/s · model centre pressure "}
         {(centre.pressure / 100).toFixed(0)} {"hPa. "}
-        {spin < 0 ? "Northern: anticlockwise" : "Southern: clockwise"} {"viewed from above."}
+        {spin < 0 ? "Northern Hemisphere: anticlockwise" : "Southern Hemisphere: clockwise"}{" "}
+        {"viewed from above."}
         <br />
         {
-          "Slice opens the structure. Cloud fragments and tracers follow two hours of a steady ideal vortex; arrows illustrate inflow, ascent and outflow. No intensity evolution, rainfall, track or landfall forecast."
+          "Use Cutaway to open the structure. Clouds and tracers move as in two hours of a steady, idealised vortex; arrows show inflow, rising air and outflow. The model does not forecast intensity changes, rainfall, track or landfall."
         }
       </ScienceReadout>
     </>

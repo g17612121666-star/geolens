@@ -40,7 +40,7 @@ export default function Groundwater() {
           {confined && (
             <InspectHotspot
               name="Aquitard"
-              note="A low-permeability clay layer confines the aquifer below 12 m. The gold pressure surface above it is the level in a well, not an extra water-filled layer."
+              note="A low-permeability clay layer caps the 12 m thick aquifer. The gold surface above it shows the level water would rise to in a well, not another layer of water."
             >
               <mesh position={[2.52, 1.32 * f, 0]}>
                 <boxGeometry args={[0.02, 0.24 * f, 4]} />
@@ -127,15 +127,15 @@ export default function Groundwater() {
             text={confined ? "Pressure head" : "Water table"}
             note={
               confined
-                ? "The potentiometric surface is the level to which water rises in a well. The confined aquifer remains saturated beneath its lid."
-                : "The water table separates saturated pores below from an unsaturated zone above. The coloured surface is a level, not a hollow lake."
+                ? "The potentiometric surface is the level water rises to in a well. The confined aquifer stays fully saturated beneath the clay layer."
+                : "The water table separates saturated pores below from the unsaturated zone above. The coloured surface is a level, not an underground lake."
             }
             occlude={false}
           />
           <Tag
             pos={[0.9, 4.3 * f, 0]}
             text="Pumping well"
-            note="The pumping rate is imposed on a fully penetrating ideal well. In this steady experiment a fixed-head boundary supplies the withdrawal; it does not model long-term storage depletion."
+            note="An idealised well pumping at the set rate through the full aquifer thickness. The fixed-head outer boundary resupplies the water, so the model does not show long-term depletion."
             occlude={false}
           />
         </group>
@@ -156,8 +156,8 @@ export default function Groundwater() {
           "K = 10 m/day, fixed head at 500 m, well radius 0.2 m. Steady Thiem / Dupuit approximation. "
         }
         {pump > 0
-          ? "Play follows water moving towards the well through the fixed head field."
-          : "Set pumping above zero to follow inward flow tracers."}{" "}
+          ? "Play shows water moving towards the well."
+          : "Raise Pump above zero to see tracers flow towards the well."}{" "}
         {""}
       </ScienceReadout>
     </>

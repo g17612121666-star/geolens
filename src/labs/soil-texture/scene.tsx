@@ -95,7 +95,7 @@ export default function SoilTexture() {
       <ScienceStudio
         slug="soil-texture"
         scale="USDA texture triangle · percentages sum to 100 · fine-earth fraction only"
-        trueScale="Barycentric percentages are exact · slab thickness is a display aid"
+        trueScale="Positions on the triangle are exact · the slab’s thickness is only for display"
         camera={[0, 5.4, 4.4]}
       >
         <mesh geometry={tile} castShadow receiveShadow>
@@ -190,7 +190,7 @@ export default function SoilTexture() {
               <Tag
                 pos={[0, 0.25, 0.4]}
                 text={`${sample.fraction.toFixed(0)}% ${sample.label}`}
-                note="Separate enlarged material samples show angular grains and platy clay particles. The trays use different magnifications; neither particle count nor displayed size is a measured soil sample. The percentage is the fine-earth mass fraction."
+                note="Enlarged samples show angular sand and silt grains and flat clay plates. Each tray uses a different magnification, so grain counts and sizes are not measurements. The percentage is by mass of the fine earth."
                 occlude={false}
               />
             </group>
@@ -203,7 +203,7 @@ export default function SoilTexture() {
         <Tag
           pos={[xyz(sand, clay)[0], 0.4, xyz(sand, clay)[2]]}
           text={name}
-          note="Classifies particle sizes, not colour, fertility or organic content. Changing a fraction may reduce the other to keep the total at 100%."
+          note="The class depends on particle sizes, not colour, fertility or organic content. Silt is whatever remains after sand and clay, so the total stays at 100%."
           occlude={false}
         />
       </ScienceStudio>

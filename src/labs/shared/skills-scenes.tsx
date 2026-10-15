@@ -154,8 +154,8 @@ export function GridReferenceScene() {
     <>
       <ScienceStudio
         slug="grid-references"
-        scale="Local 100 km square · eastings first, then northings · relief exaggerated"
-        trueScale="Planar grid scale equal on both axes · fictional local square"
+        scale="Fictional 100 km square · eastings first, then northings · relief exaggerated"
+        trueScale="Same grid scale east–west and north–south · relief is still exaggerated"
         camera={[0, 5.5, 3.8]}
         horizon
       >
@@ -352,7 +352,7 @@ export function ProjectionScene() {
     <>
       <ScienceStudio
         slug="map-projections"
-        scale="Globe → flat map · ±85° latitude · projection distorts length, shape or area"
+        scale="Globe → flat map · shown to 85° N and S · every flat map distorts distance, shape or area"
         trueScale="No flat world map preserves all distances, shapes and areas"
         camera={[0, 1, 6]}
       >
@@ -424,14 +424,14 @@ export function ProjectionScene() {
       </ScienceStudio>
       <ScienceReadout>
         {names[kind]} · {Math.round(morph * 100)}
-        {"% unfolded. "}
+        {"% flattened. "}
         {kind === 0
-          ? "Mercator is conformal locally; area grows strongly towards the poles."
+          ? "Mercator keeps local shapes and angles; areas grow strongly towards the poles."
           : kind === 1
-            ? "Equal area is preserved in the fully flat view; shapes are distorted."
-            : "This compromise balances several distortions; it is not equal-area or conformal."}{" "}
+            ? "When fully flat, this map keeps true relative areas; shapes are distorted."
+            : "This compromise spreads distortion between area and shape; it keeps neither exactly."}{" "}
         {
-          "Gold circles start with the same angular radius on the globe; compare their shape and area on the flat map. Intermediate shapes are a visual interpolation."
+          "The gold circles are the same size on the globe; compare their shape and area on the flat map. In-between stages are a visual transition, not a projection."
         }
       </ScienceReadout>
     </>

@@ -117,12 +117,12 @@ export default function Weathering() {
         camera={[2.6, 1.9, 6]}
         scale={
           mode === 0
-            ? "Joint opening change ×10 · initial joint 20 mm wide · water mass fixed"
+            ? "Joint widening exaggerated ×10 · joint starts 20 mm wide · water mass fixed"
             : mode === 1
-              ? "0.3 m initial calcite sphere · prescribed dissolution, not a rate law"
-              : "Prescribed root thickening in an existing joint · 1 unit = 0.5 m"
+              ? "Calcite sphere starts with a 0.3 m radius · dissolution is shown, not a calculated rate"
+              : "Root thickening in an existing joint is drawn, not calculated · 1 scene unit = 0.5 m"
         }
-        trueScale="Common geometric scale · 1 scene unit = 0.5 m · particles enlarged"
+        trueScale="Everything at one scale · 1 scene unit = 0.5 m · particles enlarged"
       >
         {mode === 1 ? (
           <>
@@ -155,7 +155,7 @@ export default function Weathering() {
             <Tag
               pos={[0, 1.95, 0]}
               text="Dissolved ions leave the solid"
-              note="Calcite reacts with carbon dioxide and water to give dissolved calcium and bicarbonate. Symbol particles do not show actual ion size, concentration or stoichiometric counts."
+              note="Calcite reacts with carbon dioxide and water to give dissolved calcium and bicarbonate. The dots are symbols; they do not show real ion sizes, numbers or concentrations."
               occlude={false}
             />
           </>
@@ -188,7 +188,7 @@ export default function Weathering() {
                 <Tag
                   pos={[0, 1.95, 0]}
                   text={`${(t * 100).toFixed(0)}% of water mass frozen`}
-                  note="A fixed water mass occupies about 9% more volume as ice. The joint walls are allowed to move in this geometric experiment; real cracking depends on confinement, water supply, stresses and rock strength. Ice segregation is another important frost-weathering mechanism."
+                  note="Water takes up about 9% more volume as ice. Here the joint walls simply move apart; real cracking depends on confinement, water supply and rock strength. Ice lenses fed by migrating water (ice segregation) also break rock."
                   occlude={false}
                 />
               </>
@@ -203,7 +203,7 @@ export default function Weathering() {
                 <Tag
                   pos={[1.1, 2.05, 0]}
                   text="Root growth can widen an existing joint"
-                  note="The root and moving walls are a prescribed mechanism, not a growth-rate or force calculation. Roots, microbes and lichens also contribute chemical weathering."
+                  note="The root and the moving walls are drawn, not calculated from growth rates or forces. Roots, microbes and lichens also weather rock chemically."
                   occlude={false}
                 />
               </>
@@ -238,7 +238,7 @@ export default function Weathering() {
           ? `Actual joint ${(ice.jointWidth * 1000).toFixed(2)} mm · liquid ${(ice.liquidVolume * 1000).toFixed(2)} L + ice ${(ice.iceVolume * 1000).toFixed(2)} L, from 7.00 kg water.`
           : mode === 1
             ? `Solid calcite ${dissolve.remainingMass.toFixed(1)} kg · dissolved calcite equivalent ${dissolve.dissolvedMass.toFixed(1)} kg.`
-            : "Process widens an existing joint as a root thickens. The two rock pieces remain in place."}
+            : "As Process runs, the root thickens and widens the existing joint. Both rock pieces stay in place."}
         {mode === 1 && (
           <>
             {" "}
@@ -247,7 +247,7 @@ export default function Weathering() {
         )}
         <br />
         {
-          "Play illustrates progressive change, not elapsed years. Weathering changes rock in place; erosion transports the resulting material. No automatic fracture threshold is calculated."
+          "Play shows the order of change, not elapsed years. Weathering changes rock in place; erosion carries the material away. The model does not predict when the rock breaks."
         }
       </ScienceReadout>
     </>

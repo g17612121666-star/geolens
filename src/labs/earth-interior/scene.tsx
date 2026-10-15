@@ -28,14 +28,14 @@ const layers = [
   {
     name: "Outer core · liquid",
     color: "#ae875b",
-    note: "Liquid iron-rich alloy, from about 2,890 to 5,150 km depth. Transmits P waves; it does not sustain ordinary shear (S) waves. Smooth metallic highlights are a material cue, not a map of flow.",
+    note: "Liquid iron-rich alloy, from about 2,890 to 5,150 km depth. Transmits P waves but not S (shear) waves. The smooth metallic sheen marks the material; it is not a map of flow.",
     rough: 0.2,
     metal: 0.96,
   },
   {
     name: "Inner core · solid",
     color: "#d4d2bf",
-    note: "Solid iron-rich alloy, radius about 1,221 km. High pressure allows it to remain solid at very high temperature. Fine grain and metallic highlights are illustrative material cues, not observed crystal sizes.",
+    note: "Solid iron-rich alloy, radius about 1,221 km. High pressure keeps it solid despite its very high temperature. The fine metallic texture marks the material; it does not show real crystal sizes.",
     rough: 0.42,
     metal: 0.9,
   },
@@ -508,7 +508,7 @@ export default function EarthInterior() {
           )}
         </div>
         {heat &&
-          "Cut faces show approximate temperature with depth: it climbs steeply through the crust, slowly through the mantle, then jumps by several hundred degrees across the core–mantle boundary. "}
+          "Cut faces show approximate temperature with depth: it climbs steeply through the crust, slowly through the mantle, then rises sharply again near the core–mantle boundary. "}
         {compact && (
           <div className="mb-2 grid grid-cols-2 gap-1 text-left">
             {layers.map((layer, i) => (

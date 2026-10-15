@@ -10,7 +10,7 @@ export const Route = createFileRoute("/skills")({
   head: () =>
     headFor({
       title: "Skills studio",
-      description: "Contours, graticule, projections, and grid references.",
+      description: "Practise map skills in 3D: contours, latitude and longitude, map projections and grid references.",
       path: "/skills",
     }),
 });
@@ -26,13 +26,13 @@ function Skills() {
       <p className="section-label">{"Skills studio"}</p>
       <h1 className="mt-3 font-display text-4xl">{"Read the map, then the hill."}</h1>
       <p className="mt-5 max-w-2xl text-lg leading-7 text-mist">
-        {"This page is the skills studio — a bench of labs you can open."}{" "}
-        <Link to="/realms/$realm" params={{ realm: "skills" }} className="text-ice hover:underline">
-          {"/realms/skills"}
-        </Link>{" "}
         {
-          "is the same realm as a catalogue card: hook, photo, and the list. Start here to run a contour or a projection; use the realm page to browse. GCSE map questions are contour questions. Then the graticule, a projection, a grid reference, a hydrograph, a texture triangle."
+          "Practise map skills in 3D: contours, latitude and longitude, map projections and grid references, then a hydrograph and a soil texture triangle. Many GCSE map questions start with contours, so begin there. To browse with photos, open the "
         }
+        <Link to="/realms/$realm" params={{ realm: "skills" }} className="text-ice hover:underline">
+          {"Skills subject page"}
+        </Link>
+        {"."}
       </p>
       <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
         {labs.map((lab) => (
@@ -41,7 +41,7 @@ function Skills() {
       </div>
       {extras.length > 0 && (
         <>
-          <h2 className="mt-16 font-display text-2xl">{"Also a skill, housed in another realm"}</h2>
+          <h2 className="mt-16 font-display text-2xl">{"Skills labs in other subjects"}</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {extras.map((lab) => (
               <LabCard key={lab.slug} lab={lab} />

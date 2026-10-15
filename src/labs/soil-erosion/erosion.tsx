@@ -210,7 +210,7 @@ function Plot({
       <Tag
         pos={[0, 0.9, -1.35]}
         text={covered ? "Covered plot" : "Bare plot"}
-        note={`Invented active-layer budget: remaining ${result.remaining.toFixed(1)} kg, in transport ${result.moving.toFixed(1)} kg and exported ${result.exported.toFixed(1)} kg. Total remains 6000 kg. The covered detachment coefficient is chosen as 15% of the bare value; this is not a measured universal reduction. Exported soil collects in the trough; the dark topsoil in the cut face thins as the surface is lowered.`}
+        note={`Model soil budget: ${result.remaining.toFixed(1)} kg in place, ${result.moving.toFixed(1)} kg in transport and ${result.exported.toFixed(1)} kg exported, always totalling 6000 kg. Cover multiplies detachment by 0.15, a chosen value, not a measured reduction. Exported soil collects in the trough; the dark topsoil in the cut face thins as the surface lowers.`}
         occlude={false}
       />
     </group>
@@ -229,28 +229,28 @@ export default function SoilErosion() {
         horizon
         slug="soil-erosion"
         camera={[4.6, 4.5, 8]}
-        scale="Two 20 × 10 m plots · surface lowering ×30 · enlarged process tracers"
-        trueScale="1 scene unit = 5 m · actual mean surface lowering · process tracers enlarged"
+        scale="Two 20 × 10 m plots · surface lowering exaggerated ×30 · raindrops and grains enlarged"
+        trueScale="1 scene unit = 5 m · true mean surface lowering · raindrops and grains still enlarged"
       >
         <Plot covered={false} wind={wind} t={t} x={-2.5} real={trueScale} />
         <Plot covered={covered} wind={wind} t={t} x={2.5} real={trueScale} />
       </ScienceStudio>
       <ScienceReadout>
         {"Model minute "}
-        {(t * 60).toFixed(1)} {"· bare export "}
+        {(t * 60).toFixed(1)} {"· bare plot exported "}
         {a.exported.toFixed(0)} {"kg / mean loss "}
-        {a.meanLossMm.toFixed(2)} {"mm · comparison export "}
+        {a.meanLossMm.toFixed(2)} {"mm · comparison plot exported "}
         {b.exported.toFixed(0)} {"kg / mean loss "}
         {b.meanLossMm.toFixed(2)} {"mm."}
         <br />
         {
-          "Invented 6000 kg active layer per plot: remaining + in transport + exported stays constant. "
+          "Each plot starts with a 6000 kg model surface layer; in place + in transport + exported always equals 6000 kg. "
         }
         {wind
           ? "Dry wind-transport example."
-          : "Rain detachment and runoff-transport example; blue routes indicate concentrated flow, not calculated rill depths."}{" "}
+          : "Rain splash and runoff example; blue lines show where flow concentrates, not calculated rill depths."}{" "}
         {
-          "Vegetation changes a disclosed coefficient; neither soil loss nor protection is a site prediction."
+          "Cover changes one stated coefficient, so these numbers do not predict soil loss at a real site."
         }
       </ScienceReadout>
     </>

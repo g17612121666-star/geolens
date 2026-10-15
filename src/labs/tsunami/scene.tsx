@@ -292,13 +292,13 @@ export default function Tsunami() {
         <Tag
           pos={[-1.7, 0.45, -0.4]}
           text="Deep ocean · 4000 m"
-          note="An ideal offshore disturbance has launched a 20-minute long-wave packet with a 0.5 m deep-water amplitude. In deep water the wave is fast (about 200 m/s) but low. Seamounts and the trench are illustrative; the front face follows the modelled transect exactly."
+          note="An idealised offshore disturbance sends out a 20-minute wave packet with a 0.5 m amplitude. In deep water the wave is fast (about 200 m/s) but low. Seamounts and the trench are illustrative; the front face follows the modelled depth profile exactly."
           occlude={false}
         />
         <Tag
           pos={[1.8, 0.45, -0.4]}
           text="Shelf · 100 m"
-          note="Wave speed falls as sqrt(g h). The Green’s-law approximation increases amplitude as depth to the power −1/4, conserving one-dimensional wave-energy flux in slowly varying depth."
+          note="Wave speed is √(g h), so it falls as the water shallows. Green’s law makes the amplitude grow as depth to the power −1/4, which keeps the wave’s energy flux constant while depth changes slowly."
           occlude={false}
         />
         <Tag
@@ -312,7 +312,7 @@ export default function Tsunami() {
             pos={[crestX, waveY(elevation(crest)) + 0.3, HALF]}
             text={`${crest.speed.toFixed(0)} m/s`}
             tone="sandstone"
-            note="Speed of the wave crest at this depth: c = sqrt(g h). It slows as the water shallows, so the wave bunches up and grows taller."
+            note="Speed of the wave crest at this depth: c = √(g h). It slows as the water shallows, so the wave bunches up and grows taller."
             occlude={false}
           />
         )}
@@ -350,11 +350,11 @@ export default function Tsunami() {
           </text>
         </svg>
         {source
-          ? `Source stage: prescribed uplift ${uplift.toFixed(2)} m displaces the water column. Gold arrow enlarges its direction of motion.`
-          : `Propagation stage: ${(seconds / 60).toFixed(1)} min · front ${crest.speed.toFixed(1)} m/s at ${crest.depth.toFixed(0)} m depth. Central crest reaches 100 m water at ${(TRANSECT.totalTravel / 60).toFixed(1)} min.`}
+          ? `Source stage: the seafloor rises ${uplift.toFixed(2)} m and lifts the water above it. The gold arrow shows the direction of motion (enlarged).`
+          : `Propagation stage: ${(seconds / 60).toFixed(1)} min · front ${crest.speed.toFixed(1)} m/s at ${crest.depth.toFixed(0)} m depth. The central crest reaches 100 m depth at ${(TRANSECT.totalTravel / 60).toFixed(1)} min.`}
         <br />
         {
-          "Two teaching stages: prescribed uplift, then a separate long-wave approximation. The gold line follows the crest; the chart shows true displacement in metres. No rupture dynamics, breaking, run-up or inundation are calculated."
+          "Two stages: a set seafloor uplift, then a simple long-wave model. The gold line follows the crest; the chart shows the true sea-surface height in metres. Fault rupture, breaking, run-up and inundation are not modelled."
         }
       </ScienceReadout>
     </>

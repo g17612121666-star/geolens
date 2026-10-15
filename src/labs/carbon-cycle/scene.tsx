@@ -218,7 +218,7 @@ export default function CarbonCycle() {
                   ? CARBON_STORES[i]
                   : `${CARBON_STORES[i]} · ${budget.stores[i].toFixed(0)} Pg C`
               }
-              note={`${budget.stores[i].toFixed(1)} Pg C in this invented closed teaching budget. This is not a measured estimate of Earth’s carbon. The outer sphere volumes, not radii, encode the amounts. Contents identify reservoir types; trees and molecular symbols are enlarged and are not counted measurements.`}
+              note={`${budget.stores[i].toFixed(1)} Pg C in this invented teaching budget, not a measured estimate of Earth’s carbon. Sphere volume, not radius, shows the amount; the trees and molecules inside are symbols.`}
               occlude={false}
             />
           </group>
@@ -290,7 +290,7 @@ export default function CarbonCycle() {
         {budget.total.toFixed(1)} {"Pg C stays fixed."}
         <br />
         {
-          "Click any bead on the faint arcs to follow a different transfer. The budget uses 1 Pg C = 10¹² kg of carbon; each transfer removes the same quantity from one store as it adds to another."
+          "Click a bead on a faint arc to follow another transfer. 1 Pg C = 10¹² kg of carbon; every transfer removes from one store exactly what it adds to another."
         }
       </ScienceReadout>
     </>

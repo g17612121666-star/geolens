@@ -30,13 +30,13 @@ export function SceneProgress({ compact = false }: { compact?: boolean }) {
         value={downloading ? (loaded / total) * 100 : undefined}
         detail={
           downloading
-            ? `${loaded} of ${total} discovered resources ready`
+            ? `${loaded} of ${total} files loaded`
             : "Preparing lighting and the first complete frame…"
         }
       />
       {slow && (
         <div className="mt-4 text-sm text-mist">
-          <p>{"This is taking longer than expected. You can keep waiting or retry the lesson."}</p>
+          <p>{"This is taking longer than expected. You can keep waiting or reload the lab."}</p>
           <button
             type="button"
             className="mt-2 min-h-11 rounded-full border border-white/20 px-5 text-chalk"
@@ -116,12 +116,12 @@ class EntryBoundary extends Component<{ children: ReactNode }, { failed: boolean
         className="flex min-h-[60vh] flex-col items-center justify-center gap-5 p-6 text-center"
         role="alert"
       >
-        <p>{"The lesson could not finish loading. Check your connection and try again."}</p>
+        <p>{"The lab could not finish loading. Check your connection and try again."}</p>
         <button
           className="min-h-11 rounded-full border border-white/25 px-6"
           onClick={() => window.location.reload()}
         >
-          {"Retry lesson"}
+          {"Try again"}
         </button>
         <a href="/explore" className="underline">
           {"Back to labs"}

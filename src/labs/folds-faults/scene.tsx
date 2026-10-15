@@ -264,7 +264,7 @@ export default function FoldsFaults() {
             <Tag
               pos={[0, 2.25 + separation, 0]}
               text={kind === 0 ? "Anticline · older core" : "Syncline · younger core"}
-              note="These beds remain upright: the oldest bed (conglomerate) is at the bottom of the original sequence. Core age defines anticline versus syncline; inverted folds cannot be named from shape alone."
+              note="These beds are the right way up, so the oldest (conglomerate) is at the bottom. The age of the beds in the core decides anticline or syncline; an overturned fold cannot be named from its shape alone."
               occlude={false}
             />
           </>
@@ -324,7 +324,7 @@ export default function FoldsFaults() {
           : `Relative slip ${(amount * 0.7 * 1000).toFixed(0)} m${kind === 4 ? "" : `; vertical throw ${Math.abs(slip[1] * 1000).toFixed(0)} m`}.`}
         <br />
         {
-          "Play or scrub Process to deform the section. Explode separates beds or blocks for inspection; the gap is not a real canyon. Geometry demonstrates structure, not stress, strain history or earthquake timing."
+          "Press Play or drag Process to deform the section. Explode pulls beds or blocks apart for inspection; the gap is not a real canyon. The model shows structure, not stress or earthquake timing."
         }
       </ScienceReadout>
     </>

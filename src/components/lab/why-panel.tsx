@@ -142,7 +142,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
                   {paragraph}
                 </p>
               ))}
-            <p className="section-label">{"Common misconceptions"}</p>
+            <p className="section-label">{"Points to watch for"}</p>
             <ul className="list-disc space-y-1 pl-4 text-mist">
               {lab.teacher.pitfalls.map((p) => (
                 <li key={p}>{p}</li>
