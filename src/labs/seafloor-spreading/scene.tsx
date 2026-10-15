@@ -277,7 +277,7 @@ export default function SeafloorSpreading() {
         />
         <Tag
           pos={[-2.3, 0.15, D / 2 + 0.05]}
-          text={`${(50 / half).toFixed(1)} Ma`}
+          text={`${((50 + OFFSET * 20) / half).toFixed(1)} Ma`}
           note="Age increases with distance from the axis: age = distance / half spreading rate. This ideal experiment has equal rates on both flanks."
           occlude={false}
         />

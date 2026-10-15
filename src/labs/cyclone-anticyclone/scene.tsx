@@ -103,8 +103,8 @@ export default function PressureCentres() {
       <ScienceStudio
         slug="cyclone-anticyclone"
         camera={[1.4, 6.7, 6]}
-        scale="Conceptual pressure centre · surface flow and vertical motion enlarged"
-        trueScale="Kinematic illustration · arrow length is not a measured wind speed"
+        scale="Idealised pressure centre · surface flow and vertical motion enlarged"
+        trueScale="Arrows show the flow pattern, not measured wind speeds"
       >
         <RegionMap />
         <PressureDisc high={high} />
@@ -114,7 +114,7 @@ export default function PressureCentres() {
               key={`p-${r}`}
               pos={[r * Math.cos(0.6 + k * 0.5), 0.05, -r * Math.sin(0.6 + k * 0.5)]}
               text={`${high ? 1036 - k * 6 : 976 + k * 8} hPa`}
-              note={`Isobar: a line joining places with the same surface pressure (${high ? 1036 - k * 6 : 976 + k * 8} hPa in this illustrative pattern). ${high ? "Pressure is highest at the centre of the anticyclone." : "Pressure is lowest at the centre of the depression."}`}
+              note={`Isobar: a line joining places with the same surface pressure (${high ? 1036 - k * 6 : 976 + k * 8} hPa in this example pattern). ${high ? "Pressure is highest at the centre of the anticyclone." : "Pressure is lowest at the centre of the depression."}`}
               occlude={false}
             />
           ),
@@ -252,20 +252,20 @@ export default function PressureCentres() {
         <Tag
           pos={[0, 2.1, 0]}
           text={high ? "H · sinking" : "L · rising"}
-          note="Surface convergence under a low is balanced by ascent and outflow aloft; surface divergence under a high is supplied by descent. The vertical arrow is exaggerated."
+          note="Air converging at the surface under a low rises and flows out aloft; air diverging under a high is replaced by air sinking from above. The vertical arrow is exaggerated."
           occlude={false}
         />
         <Tag
           pos={[-2.5, 0.1, 2.6]}
           text={`${south ? "SH" : "NH"} · ${spin > 0 ? "anticlockwise" : "clockwise"}`}
-          note="Viewed from above. Hemisphere reversal changes rotation, while a low still converges and a high still diverges near the surface."
+          note="Viewed from above. Switching hemisphere reverses the spin, but a low still converges and a high still diverges near the surface."
           occlude={false}
         />
         {!high && (
           <Tag
             pos={[2.6, 0.1, 1.8]}
             text="Fronts · cold blue / warm coral"
-            note="These two example surface traces identify a developing extratropical cyclone. They are not an eyewall, and real fronts are neither circular nor rigidly rotating spokes. Open Fronts for their vertical geometry."
+            note="Example cold and warm fronts of a developing midlatitude depression, not a hurricane eyewall. Real fronts do not rotate rigidly like spokes. Open the Fronts lab to see their slopes."
             occlude={false}
           />
         )}
@@ -273,14 +273,13 @@ export default function PressureCentres() {
       <ScienceReadout>
         {south ? "Southern" : "Northern"} {"hemisphere · "}
         {high
-          ? "high pressure, surface divergence and subsidence"
-          : "low pressure, surface convergence and ascent"}
+          ? "high pressure, surface divergence and sinking air"
+          : "low pressure, surface convergence and rising air"}
         {". Spin is read from above."}
         <br />
         {high
-          ? "Subsidence often suppresses deep cloud, but fog or low stratus may persist."
-          : "Blue and coral traces mark example cold and warm fronts. This is an extratropical system, not a tropical eyewall."}{" "}
-        {"Follow the parcels to connect surface convergence with rising air."}
+          ? "Sinking air usually stops deep cloud forming, but fog or low cloud may persist. Follow the parcels spiralling out from the centre."
+          : "Blue and coral lines mark example cold and warm fronts; this is a midlatitude depression, not a tropical cyclone. Follow the parcels spiralling in towards the rising centre."}
       </ScienceReadout>
     </>
   );

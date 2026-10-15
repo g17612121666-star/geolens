@@ -34,7 +34,7 @@ const EVENTS = [
   {
     age: 0.3,
     name: "Homo sapiens",
-    note: "Our species appears about 300,000 years ago: a sliver of the full window, visible only when you zoom in to the Quaternary.",
+    note: "Our species appears about 300,000 years ago: a sliver of the full window, and only about a third of one turn even in the Quaternary view.",
   },
 ];
 const HELIX_SAMPLES = Array.from(

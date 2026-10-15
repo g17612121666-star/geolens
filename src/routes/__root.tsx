@@ -44,7 +44,7 @@ function Root() {
       <body className="bg-void text-chalk">
         <noscript>
           <p style={{ padding: 24, color: "#f4efe6", fontFamily: "Georgia, serif" }}>
-            Geolens is a free geoscience studio. Enable JavaScript for the 3D labs, or read the
+            Geolens is a free Earth science site. Turn on JavaScript for the 3D labs, or read the
             lab titles and objectives as static pages.
           </p>
         </noscript>

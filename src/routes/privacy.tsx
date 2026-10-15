@@ -38,9 +38,7 @@ function Privacy() {
           }
         </p>
         <p>
-          {
-            "We do not track what students do. There is no analytics software recording clicks."
-          }
+          {"We do not track what students do. There is no analytics software recording clicks."}
         </p>
         <p>
           {"Hosting may set a Cloudflare bot-management cookie ("}

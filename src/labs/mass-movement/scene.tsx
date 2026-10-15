@@ -92,8 +92,8 @@ export default function MassMovement() {
         horizon
         slug="mass-movement"
         camera={[1.2, 2.4, 7]}
-        scale="Selected circular slip · 1 scene unit = 10 m · no vertical exaggeration"
-        trueScale="Uniform 2-D slope at a common scale · illustrative post-failure rotation · vegetation and roots enlarged"
+        scale="Circular slip surface · 1 scene unit = 10 m · no vertical exaggeration"
+        trueScale="2-D slope at a common scale · rotation after failure is illustrative · vegetation and roots enlarged"
       >
         <SlopeBody
           points={[
@@ -213,19 +213,19 @@ export default function MassMovement() {
         <Tag
           pos={[crown[0] - 0.3, crown[1] + 0.55, 1.12]}
           text="Crown / head scarp"
-          note="The curved base stays at a fixed radius. Rigid rotation moves the head down and the toe outward or upward; it does not stretch a generic block along a straight slope."
+          note="The crown is the top edge of the slide, where the head scarp breaks away. The block rotates on its curved base, so the head drops and tilts back while the toe moves outward and upward."
           occlude={false}
         />
         <Tag
           pos={[toe[0] + 0.3, toe[1] + 0.55, 1.12]}
           text="Toe"
-          note="The toe may bulge during rotational movement. Real slumps deform, can develop multiple shear surfaces and may turn into flows; the rigid block here is an illustration."
+          note="The toe may bulge during rotational movement. Real slumps deform, can develop multiple shear surfaces and may turn into flows; the rigid block here is a simplification."
           occlude={false}
         />
         <Tag
           pos={[0, -0.55, 1.12]}
           text="Curved shear surface"
-          note="This is one prescribed slip circle, not a search for the critical failure surface. The strength calculation refers to the initial geometry. Blue lines show prescribed pressure heads, not an underground open lake."
+          note="The model tests one chosen slip circle; it does not search for the weakest possible surface. Strength is calculated for the slope before it moves. Blue lines show water-pressure levels in the soil, not an underground lake."
           occlude={false}
         />
       </ScienceStudio>
@@ -249,15 +249,15 @@ export default function MassMovement() {
             <span>2.0 · stable</span>
           </div>
         </div>
-        {"Initial-slope factor of safety "}
+        {"Starting factor of safety "}
         {result.factor.toFixed(2)} {"· maximum pore pressure "}
         {result.maxPressure.toFixed(1)} {"kPa. "}
         {result.factor < 1
-          ? "Resistance below driving demand: Play shows a prescribed rotation."
-          : "Resistance exceeds driving demand here: increase pore pressure to compare."}
+          ? "Driving forces exceed resistance: Play shows the slump rotating (illustrative)."
+          : "Resistance exceeds driving forces: increase Pore pressure to compare."}
         <br />
         {
-          "The Bishop calculation uses cohesion of 2 kPa, a friction angle of 15° and unit weight of 20 kN/m³ for the selected initial slope."
+          "The Bishop calculation uses cohesion of 2 kPa, a friction angle of 15° and unit weight of 20 kN/m³ for the starting slope."
         }
       </ScienceReadout>
     </>

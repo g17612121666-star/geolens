@@ -68,7 +68,7 @@ export default function Fronts() {
       <ScienceStudio
         slug="fronts"
         scale="Vertical dimensions ×20 · cold slope 1:50 · warm slope 1:150"
-        trueScale="Common geometric scale · 1 scene unit = 100 km"
+        trueScale="Same scale in every direction · 1 scene unit = 100 km"
         camera={[0.2, 1.8, 8]}
       >
         <FrontGround />
@@ -186,30 +186,30 @@ export default function Fronts() {
         <Tag
           pos={[-2.4, 0.15, 0.98]}
           text="Cold air"
-          note="The advancing cold air undercuts warmer air. The ideal boundary slopes 1 vertically to 50 horizontally; the teaching view enlarges its vertical dimension."
+          note="The advancing cold air pushes under the warmer air. The boundary rises 1 km for every 50 km across; the teaching view stretches heights ×20."
           occlude={false}
         />
         <Tag
           pos={[0, (s.ceiling / 100) * f + 0.4, 0]}
           text={s.occluded ? "Warm air lifted off surface" : "Warm sector"}
-          note="Occlusion removes the surface warm sector where the colder advancing air catches the cool air ahead. This example is a cold-type occlusion; real structures vary."
+          note="When the cold front catches the warm front, the warm sector is lifted off the ground (occlusion). This example is a cold occlusion; real occlusions vary."
           occlude={false}
         />
         <Tag
           pos={[2.5, 0.15, 0.98]}
           text="Cool air ahead"
-          note="The ideal warm-front boundary slopes 1:150. Cloud symbols show possible ascent and condensation, not a calculated cloud base or rainfall rate."
+          note="The warm-front boundary slopes 1:150. Clouds show where rising air can condense; they are not a calculated cloud base or rainfall rate."
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
         {"Section spans 600 km. "}
         {s.occluded
-          ? `Cold-type occlusion: the warm layer is lifted at least ${s.liftAtMeeting.toFixed(2)} km above the meeting point.`
+          ? `Cold occlusion: the warm layer is lifted at least ${s.liftAtMeeting.toFixed(2)} km above the meeting point.`
           : `Surface warm sector ${(s.warmFront - s.coldFront).toFixed(0)} km wide.`}
         <br />
         {
-          "Play or scrub Process to follow the faster cold front. Slopes and speeds are prescribed; clouds are illustrative. A surface weather-chart line is the ground trace of a sloping boundary."
+          "Play or drag Process to follow the faster cold front. Slopes and speeds are set by the model, and the clouds are for illustration. A front on a weather chart marks where a sloping boundary meets the ground."
         }
       </ScienceReadout>
     </>

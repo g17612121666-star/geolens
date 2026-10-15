@@ -20,18 +20,18 @@ const FAMILIES = [
     name: "Dry",
     colour: "#d5ac6a",
     description:
-      "Rainfall is low relative to the classification’s aridity threshold; dry climates can be hot or cold.",
+      "Rainfall is below a dryness threshold that rises with temperature; dry climates can be hot or cold.",
   },
   {
     code: "C",
     name: "Temperate",
     colour: "#93ba74",
     description:
-      "Mild winters and seasonal temperatures; subclasses describe summer warmth and rainfall patterns.",
+      "Mild winters and warm or hot summers; subclasses describe summer warmth and when rain falls.",
   },
   {
     code: "D",
-    name: "Continental",
+    name: "Cold continental",
     colour: "#859fc9",
     description: "Cold winters and warm summers create a marked annual temperature range.",
   },
@@ -90,7 +90,7 @@ export default function ClimateTypes() {
       <ScienceStudio
         slug="climate-types"
         camera={[0, 0.15, 5]}
-        scale="The globe preserves geographic proportions. Climate colours summarise the 1991–2020 reference period"
+        scale="Globe to scale · colours show 1991–2020 climate averages"
         trueScale="The globe uses the same geographic scale in both views"
       >
         <group rotation={[sample.lat * d, Math.PI - sample.lon * d, 0]}>

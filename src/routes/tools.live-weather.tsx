@@ -67,7 +67,7 @@ const LAYERS: { id: Layer; label: string; unit: string; note: string }[] = [
     id: "temperature",
     label: "Temperature",
     unit: "°C",
-    note: "Air temperature is measured in the model at 2 m above the surface.",
+    note: "Air temperature is the model value 2 m above the ground.",
   },
   {
     id: "precipitation",
@@ -79,7 +79,7 @@ const LAYERS: { id: Layer; label: string; unit: string; note: string }[] = [
     id: "wind",
     label: "Wind",
     unit: "m s⁻¹",
-    note: "Wind speed is measured in the model at 10 m; the direction tells you where it comes from.",
+    note: "Wind speed is the model value 10 m above the ground; the direction is where the wind comes from.",
   },
   {
     id: "cloud",

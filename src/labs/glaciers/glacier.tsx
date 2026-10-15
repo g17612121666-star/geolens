@@ -78,8 +78,8 @@ export default function Glaciers() {
         camera={[6, 6, 2.8]}
         scale={
           params.view > 0.5
-            ? "6 × 6 km selected cirques · relief ×1.5 · ice flows away from the headwalls"
-            : "6 × 4 km selected valley · relief ×1.5 · ice flow remains down-valley"
+            ? "6 × 6 km cirque block · relief ×1.5 · ice flows away from the headwalls"
+            : "6 × 4 km valley · relief ×1.5 · ice always flows down-valley"
         }
         trueScale="1 scene unit = 1 km · equal geometric scales · debris, cracks and vegetation enlarged"
       >
@@ -164,19 +164,19 @@ export default function Glaciers() {
               <Tag
                 pos={[-2.4, 2.2, -1.25]}
                 text="Accumulation"
-                note="Snow persisting across years compacts to firn and ice. The illustrated head is a source area, not a calculated equilibrium-line altitude."
+                note="Snow that survives from year to year compacts into firn and then glacier ice, which flows down-valley from this source area."
                 occlude={false}
               />
               <Tag
                 pos={[-0.5, 2.0, 2.0]}
                 text="U-shaped trough"
-                note="Abrasion and quarrying by debris-bearing ice can broaden and deepen a valley. Hiding present ice exposes the selected bed; it does not simulate the rate or history of valley erosion."
+                note="Abrasion and plucking by debris-laden ice widen and deepen the valley. Switch off Ice to see the bed; the model does not simulate how fast the valley was eroded."
                 occlude={false}
               />
               <Tag
                 pos={[2.8, 0.3, 0.7]}
                 text="Earlier moraine"
-                note="This ridge marks a chosen earlier ice margin. Unsorted debris can accumulate at a margin that remains in roughly one position. A retreating glacier still moves its surviving ice down-valley."
+                note="This ridge marks an earlier ice margin, where unsorted debris built up while the snout stayed in roughly one place. Even while the glacier retreats, its ice still flows down-valley."
                 occlude={false}
               />
             </>
@@ -209,20 +209,20 @@ export default function Glaciers() {
         {params.view > 0.5 ? (
           <>
             {
-              "Three adjacent cirques leave intervening arêtes and a central horn. Hide Ice to inspect the selected bedrock form."
+              "Three neighbouring cirques leave arêtes between them and a horn in the centre. Switch off Ice to see the bare rock."
             }
             <br />
             {
-              "The 6 × 6 km block has equal horizontal scales; T removes 1.5-fold vertical exaggeration. Ice and flow tracers are schematic; Extent applies to Valley glacier."
+              "Relief is exaggerated ×1.5; Physical scale removes this. Ice and flow tracers are schematic, and Ice extent applies only to Valley glacier."
             }
           </>
         ) : (
           <>
-            {"Selected valley ice length "}
+            {"Glacier length "}
             {length.toFixed(2)} {"km. Play always moves ice down-valley."}
             <br />
             {
-              "Extent compares margin positions independently; it does not reverse flow or calculate a mass-balance response. Hide Ice to inspect the trough and debris."
+              "Ice extent compares margin positions; it does not reverse the flow or model mass balance. Switch off Ice to see the trough and debris."
             }
           </>
         )}

@@ -150,8 +150,8 @@ export default function Periglacial() {
         camera={view === 0 ? [3.2, 3.4, 7.4] : [3.4, 5, 6]}
         scale={
           view === 0
-            ? "10 m wide, 5 m deep · prescribed 0.7 m active layer · common scale"
-            : "Ice-wedge polygon network · ideal topology, not a field survey · depths exaggerated"
+            ? "10 m wide, 5 m deep · 0.7 m active layer · common scale"
+            : "Ice-wedge polygon network · idealised pattern, not a field survey · depths exaggerated"
         }
         trueScale={
           view === 0
@@ -193,19 +193,19 @@ export default function Periglacial() {
             <Tag
               pos={[-2.7, 0.65, 0]}
               text={thaw > 0.002 ? `Seasonal thaw · ${thaw.toFixed(2)} m` : "Seasonal layer frozen"}
-              note="Seasonal thaw reaches the selected maximum depth of 0.7 m, marked by the dashed line. Thawed ground is shown darker and wetter."
+              note="Seasonal thaw reaches a maximum depth of 0.7 m, marked by the dashed line. Thawed ground is shown darker and wetter."
               occlude={false}
             />
             <Tag
               pos={[2.7, -2, 1.2]}
               text="Permafrost"
-              note="Permafrost is ground remaining at or below 0 °C for at least two consecutive years; it is not necessarily pure ice. The pale streaks are lenses of ground ice. This section assumes established permafrost below the active layer."
+              note="Permafrost is ground that stays at or below 0 °C for at least two consecutive years; it is not necessarily solid ice. The pale streaks are lenses of ground ice beneath the active layer."
               occlude={false}
             />
             <Tag
               pos={[-2.6, -3.8, 1.2]}
               text={`Ice wedge · ${width.toFixed(2)} m at top`}
-              note="Winter thermal contraction opens cracks. Water entering them refreezes as thin vertical veins, so the wedge grows year after year and pushes the neighbouring beds upwards. This differs from simply expanding all water by 9%, and from a glacier eroding a valley."
+              note="Intense winter cold makes frozen ground contract and crack. Meltwater enters the cracks and freezes as thin vertical veins, so the wedge widens year after year and pushes the neighbouring layers upwards. It is not caused by water simply expanding as it freezes, nor by a glacier."
               occlude={false}
             />
           </>
@@ -237,7 +237,7 @@ export default function Periglacial() {
             <Tag
               pos={[0, 0.7, 0]}
               text="Thermal-contraction polygon network"
-              note="Troughs lie above the ice wedges, with raised rims beside them and wet, low centres; the cut faces show a wedge beneath every trough. Natural polygons are irregular; this lattice shows the topology of a network, not a field survey."
+              note="Troughs lie above the ice wedges, with raised rims beside them and wet, low centres; the cut faces show a wedge beneath every trough. Natural polygons are irregular; this regular network is idealised, not a field survey."
               occlude={false}
             />
           </>
@@ -253,7 +253,7 @@ export default function Periglacial() {
         {(growth * 100).toFixed(0)}%.
         <br />
         {
-          "Play follows a prescribed year; Wedge development compares accumulated growth without assigning a rate. Ice-wedge polygons differ from frost-sorted stone circles. Neither requires a glacier on the spot."
+          "Play runs through one year. Wedge development compares how much a wedge has grown, not how fast. Ice-wedge polygons differ from frost-sorted stone circles; neither needs a glacier on site."
         }
       </ScienceReadout>
     </>

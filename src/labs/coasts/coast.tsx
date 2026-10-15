@@ -182,7 +182,7 @@ function Headland({ stage }: { stage: number }) {
       <Tag
         pos={[0.35, 2.2, -0.6]}
         text={["Sea cave", "Sea arch", "Sea stack", "Stump"][stage]}
-        note="A possible headland sequence: wave erosion enlarges an opening, an arch can form, roof collapse isolates a stack, and further erosion lowers it. Rock structure and strength control the sequence; no stage has a prescribed age."
+        note="Waves exploit joints in the chalk to enlarge a cave. It can break through to form an arch; the roof collapses to leave a stack, and erosion lowers the stack to a stump. Rock structure controls the details, and the stages are not dated."
         occlude={false}
       />
     </>
@@ -330,18 +330,22 @@ export default function Coasts() {
                     : "Eroded profile example"
                   : "Mainland"
               }
-              note="Selected beach profiles illustrate possible net sediment gain or loss. Real cross-shore transport depends on wave period, height, grain size, beach slope and water level; a wave label alone does not predict the outcome."
+              note={
+                mode === 1
+                  ? "These two beach profiles show a possible net gain (a berm) or loss of sand. Real outcomes also depend on wave height and period, grain size, beach slope and tide level."
+                  : "The spit is attached to the mainland at this end. Sediment drifting along the coast feeds its growth."
+              }
               occlude={false}
             />
             <Tag
               pos={[1.7, 0.55, 0.8]}
               text={
-                mode === 1 ? (groyne ? "Downdrift supply reduced" : "Longshore transport") : "Spit"
+                mode === 1 ? (groyne ? "Down-drift supply reduced" : "Longshore transport") : "Spit"
               }
               note={
                 mode === 1
-                  ? "Oblique swash and roughly downslope backwash can move grains alongshore. Alongshore currents also transport sediment. The groyne intercepts the illustrated supply, but bypassing and changing wave directions occur in real systems."
-                  : "A spit is attached to land at one end and extends into water as sediment accumulates. A hooked end can reflect changing waves and currents. Growth is selected geometry, not a predicted rate or complete sediment budget."
+                  ? "Swash runs up the beach at an angle and backwash returns straight down the slope, so grains zigzag along the shore; currents also move sediment. The groyne traps this supply, though on real coasts some sand passes round groynes and wave direction changes."
+                  : "A spit is attached to land at one end and grows into open water as drifting sediment builds up. A hooked end can record changing waves and currents. Sheltered water behind it fills with mud and salt marsh. Spit extent is a chosen shape, not a predicted growth rate."
               }
               occlude={false}
             />
@@ -377,15 +381,15 @@ export default function Coasts() {
       </ScienceStudio>
       <ScienceReadout>
         {mode === 0
-          ? "Inspect the cave from the seaward side, then compare arch, stack and stump. Openings are cut into a solid rock body; the cave retains a back wall."
+          ? "Look into the cave from the sea, then compare the arch, stack and stump. The chalk headland, banded with dark flint, stands on a wave-cut platform; the cave has a back wall."
           : mode === 1
-            ? "Swash moves grains obliquely up the beach; backwash returns downslope. The zigzag is one transport pathway, not the full nearshore circulation."
-            : "A spit extends from the shore into a bay. Change Spit extent to compare the attached deposit; the water beyond remains open."}
+            ? "Swash moves grains diagonally up the beach; backwash returns them straight downslope. The zigzag is one simplified pathway."
+            : "A spit grows from the shore across a bay, sheltering a shallow lagoon with salt marsh behind it. Change Spit extent to compare its length; the water beyond its tip stays open."}
         <br />
         {mode === 1
           ? groyne
-            ? "Groyne on: illustrated grains are intercepted updrift. This does not create new sediment."
-            : "Select Constructive waves to compare a berm-bearing profile; the alternatives are chosen beach states."
+            ? "Groyne on: grains are trapped on the up-drift side, so less reaches the beach beyond. The groyne creates no new sediment."
+            : "Toggle Constructive waves to compare a beach with a berm and an eroded beach; both are example profiles."
           : "No erosion or growth rate is calculated. Rock structure, waves, tides and sediment supply control real coasts."}
       </ScienceReadout>
     </>

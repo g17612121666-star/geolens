@@ -186,8 +186,8 @@ export default function ThermalCirculation() {
       <ScienceStudio
         slug="thermal-circulation"
         camera={[1.6, 3.3, 7.5]}
-        scale="Vertical circulation ×4 · prescribed thermal contrast · trees, buildings and clouds illustrative"
-        trueScale="Conceptual domain 20 km wide and 2 km deep · trees and buildings enlarged"
+        scale="Height ×4 · temperatures set by the model · trees, buildings and clouds not to scale"
+        trueScale="Model area 20 km wide and 2 km deep · trees and buildings enlarged"
       >
         <mesh geometry={geometry} castShadow receiveShadow>
           <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
@@ -259,13 +259,13 @@ export default function ThermalCirculation() {
         <Tag
           pos={[-1.7, 0.12, 1.6]}
           text={`${urban ? "Rural" : coast ? "Sea" : "Left"} ${c.left.toFixed(1)} °C`}
-          note="The temperatures are prescribed to explore circulation direction, not calculated from a full surface-energy budget. Water warms and cools more slowly than land."
+          note="These temperatures follow a set daily cycle; they are not calculated from an energy budget. Water warms and cools more slowly than land."
           occlude={false}
         />
         <Tag
           pos={[1.7, 0.2, 1.6]}
           text={`${urban ? "Urban" : coast ? "Land" : "Right"} ${c.right.toFixed(1)} °C`}
-          note="A warmer column tends to expand; pressure differences drive a return circulation. Cumulus clouds often build where air rises over the warmer side. Real breezes depend on background wind, moisture and terrain."
+          note="Warmer air expands and rises; the pressure differences this creates drive the loop. Cumulus clouds often build where air rises over the warmer side. Real breezes also depend on background wind, moisture and terrain."
           occlude={false}
         />
         <Tag
@@ -282,7 +282,7 @@ export default function ThermalCirculation() {
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Illustrative local hour "}
+        {"Local hour "}
         {hour.toFixed(1)} {"· right minus left "}
         {c.contrast.toFixed(1)} {"°C. "}
         {urban
@@ -294,7 +294,7 @@ export default function ThermalCirculation() {
             : "Both settings are off: equal temperature gives no thermal circulation."}
         <br />
         {
-          "Play follows the chosen daily heating cycle; the Sun marks the hour. Real conditions may prevent the night-time reversal shown in the coastal example."
+          "Play runs through a daily heating cycle; the Sun marks the hour. In real weather the night-time reversal does not always happen."
         }
       </ScienceReadout>
     </>

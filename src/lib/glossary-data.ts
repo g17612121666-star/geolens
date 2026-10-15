@@ -34,14 +34,14 @@ const EXTRA: GlossaryEntry[] = [
     def: RICH.Levee!,
     exam: "Levée",
     lab: "rivers",
-    labTitle: "Rivers from source to mouth",
+    labTitle: "River long profile",
   },
   {
     term: "Levée",
     def: RICH.Levée!,
     exam: "Levee",
     lab: "rivers",
-    labTitle: "Rivers from source to mouth",
+    labTitle: "River long profile",
   },
   {
     term: "Trench",
@@ -72,14 +72,14 @@ const EXTRA: GlossaryEntry[] = [
     term: "Floodplain",
     def: RICH.Floodplain!,
     lab: "rivers",
-    labTitle: "Rivers from source to mouth",
+    labTitle: "River long profile",
   },
   {
     term: "Oxbow",
     def: RICH.Oxbow!,
     exam: "Oxbow lake",
     lab: "rivers",
-    labTitle: "Rivers from source to mouth",
+    labTitle: "River long profile",
   },
   {
     term: "Delta",

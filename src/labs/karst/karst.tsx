@@ -124,7 +124,7 @@ export default function Karst() {
         horizon
         slug="karst"
         camera={[4.5, 3.8, 7]}
-        scale="Selected 60 × 30 m limestone block · relief ×1.3 · joints enlarged"
+        scale="60 × 30 m limestone block · relief ×1.3 · joints enlarged"
         trueScale="1 scene unit = 10 m · common geometric scale · joints, tracers and vegetation enlarged"
       >
         <group scale={[1, v, 1]}>
@@ -219,7 +219,7 @@ export default function Karst() {
               <Tag
                 pos={[0.8, 0.5, 1.7]}
                 text="Cave passage"
-                note="A selected open passage lies within soluble rock. Dissolution can enlarge fractures and bedding-plane openings. Most of the landscape remains rock; it is not a hollow underground lake. Cave networks can be much more complex."
+                note="One open passage in soluble limestone. Dissolution widens joints and bedding planes into passages. Most of the block is still solid rock, not a hollow underground lake; real cave networks are far more complex."
                 occlude={false}
               />
             </>
@@ -235,19 +235,19 @@ export default function Karst() {
           <Tag
             pos={[-2.1, 2.25, -0.9]}
             text="Clints and grykes"
-            note="Clints are limestone blocks; grykes are enlarged fissures between them. Joint opening is exaggerated for inspection and changes a chosen geometry, not a calculated dissolution rate."
+            note="Clints are limestone blocks; grykes are the widened joints between them. Joint opening exaggerates the gryke width so you can see it; it is not a calculated dissolution rate."
             occlude={false}
           />
           <Tag
             pos={[-0.6, 2.2, 0.8]}
             text="Doline"
-            note="This surface depression is a solutional sinkhole example. Other sinkholes involve subsidence or collapse. Water can enter connected fractures and underground drainage; not all depressions open directly into a large cave."
+            note="This surface hollow is a solution doline (sinkhole). Other sinkholes form by subsidence or collapse. Water drains into connected fractures; not every hollow opens straight into a large cave."
             occlude={false}
           />
           <Tag
             pos={[3.1, 0.25, 0.7]}
             text="Spring"
-            note="Groundwater emerges where the connected drainage intersects the land surface. The route is schematic; it does not calculate hydraulic head, transit time or contaminant transport."
+            note="Underground water returns to the surface here (a resurgence). The route is schematic; flow speed and travel time are not calculated."
             occlude={false}
           />
         </group>
@@ -257,8 +257,8 @@ export default function Karst() {
         {"Water containing dissolved CO₂ can dissolve calcite and enlarge connected openings."}
         <br />
         {cut
-          ? "Cutaway exposes a selected passage and enlarged flow tracers."
-          : "The front rock face hides the passage; enable Cutaway to inspect it."}{" "}
+          ? "Cutaway reveals the cave passage; flow tracers are enlarged."
+          : "The front rock face hides the passage; switch on Cutaway to see it."}{" "}
         {"Calcite can precipitate from cave water where carbon dioxide escapes."}
       </ScienceReadout>
     </>

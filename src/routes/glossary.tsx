@@ -116,7 +116,7 @@ function Glossary() {
       setNotice("Glossary link copied.");
     } catch {
       if (term) update({ term });
-      setNotice("Copy the address bar to share this view.");
+      setNotice("Copy the link from the address bar to share this view.");
     }
   }
   function mark(remembered: boolean) {
@@ -290,7 +290,7 @@ function Glossary() {
             <div className="mt-5 rounded-2xl border border-white/10 p-8">
               <h2 className="font-display text-2xl">{"No terms in this selection."}</h2>
               <p className="mt-3 text-mist">
-                {"Try another spelling, choose all realms or turn off “Needs practice”."}
+                {"Try another spelling, choose All subjects or turn off “Needs practice”."}
               </p>
             </div>
           ) : revision && current ? (

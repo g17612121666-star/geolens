@@ -10,7 +10,8 @@ export const Route = createFileRoute("/skills")({
   head: () =>
     headFor({
       title: "Skills studio",
-      description: "Practise map skills in 3D: contours, latitude and longitude, map projections and grid references.",
+      description:
+        "Practise map skills in 3D: contours, latitude and longitude, map projections and grid references.",
       path: "/skills",
     }),
 });

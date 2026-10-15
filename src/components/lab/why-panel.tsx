@@ -183,7 +183,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
               params={{ slug: lab.slug }}
               className="inline-flex h-11 items-center text-ice hover:underline"
             >
-              {"Open the teaching guide"}
+              {"Open the teacher notes"}
             </Link>
           </div>
         )}

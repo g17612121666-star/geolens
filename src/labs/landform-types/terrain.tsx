@@ -177,14 +177,14 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
         text={NAMES[kind]}
         note={
           kind === 0
-            ? "High relief and steep, rugged slopes characterise this mountain example: forest gives way to alpine grassland, bare rock and snow with height. There is no universal height threshold separating all mountains and hills."
+            ? "High relief and steep, rugged slopes: forest gives way to alpine grassland, bare rock and snow with height. No single height separates mountains from hills."
             : kind === 1
-              ? "This hill has lower relief and gentler slopes than the mountain selected here. Height alone does not define every landform."
+              ? "This hill has lower relief and gentler slopes than the mountain. Height alone does not define a landform."
               : kind === 2
-                ? "A plateau is an extensive, relatively level high surface. Its edge may be steep, exposing the rock beds beneath, and rivers may dissect it; plateaux have different origins."
+                ? "A plateau is a broad, fairly level high surface. Its edges may be steep, exposing the rock layers beneath, and rivers may cut valleys into it. Plateaux form in different ways."
                 : kind === 3
-                  ? "A plain has relatively low local relief. Plains can occur at high or low elevation; this selected example is low, with fields and a meandering river."
-                  : "A basin is a depression relative to its surroundings. It can have an outlet or internal drainage; the shape alone does not guarantee a lake."
+                  ? "A plain has low local relief. Plains can lie at high or low elevation; this one is low, with fields and a meandering river."
+                  : "A basin is lower than the land around it. It may have an outlet or drain inwards; the shape alone does not mean it holds a lake."
         }
         occlude={false}
       />
@@ -203,7 +203,7 @@ export default function LandformTypes() {
         slug="landform-types"
         camera={[3.5, 5.5, 8]}
         scale="Both samples: 4 × 4 km · relief ×2 · identical comparison scale"
-        trueScale="Both samples: 1 scene unit = 1 km · common horizontal and vertical scale · vegetation / clasts enlarged"
+        trueScale="Both samples: 1 scene unit = 1 km · common horizontal and vertical scale · trees and boulders enlarged"
       >
         <Tile kind={a} x={-2.5} vertical={f} />
         <Tile kind={b} x={2.5} vertical={f} />
@@ -216,7 +216,7 @@ export default function LandformTypes() {
         }
         <br />
         {
-          "Select any two of five forms. These are invented terrain surfaces, not surveyed locations. Colour and texture aid reading; they do not determine origin, climate or rock type."
+          "Choose any two of the five forms. These are invented surfaces, not real places. Colour and texture help you read them; they do not show origin, climate or rock type."
         }
       </ScienceReadout>
     </>

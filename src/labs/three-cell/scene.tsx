@@ -54,7 +54,7 @@ export default function ThreeCell() {
         slug="three-cell"
         camera={[0, 1, 5.5]}
         lights={false}
-        scale="Cell depth enlarged · zonal-mean circulation, not individual weather systems"
+        scale="Cell depth enlarged · average circulation, not individual weather systems"
         trueScale="Cell depth 12 km, Earth radius 6371 km · wind arrows enlarged"
       >
         <group rotation={[0, Math.PI, 0]}>
@@ -135,8 +135,8 @@ export default function ThreeCell() {
             text={b.name}
             note={
               b.name === "Ferrel"
-                ? "The Ferrel cell is a zonal-mean, thermally indirect circulation maintained mainly by midlatitude eddy transports. Real air follows weather systems, not a neat permanent loop."
-                : `${b.name}: near-surface equatorward return, ascent at the lower-latitude end, poleward flow aloft and descent farther poleward. Boundaries vary in reality.`
+                ? "The Ferrel cell is an average, ‘indirect’ circulation kept going mainly by heat and momentum carried by midlatitude weather systems. Real air follows those systems, not a neat permanent loop."
+                : `${b.name}: air rises at the lower-latitude end, flows poleward aloft, sinks farther poleward and returns towards the equator near the surface. Real boundaries vary.`
             }
             occlude={false}
           />
@@ -144,7 +144,7 @@ export default function ThreeCell() {
         <Tag
           pos={[2.1, Math.sin((itcz * Math.PI) / 180) * radius + 0.1, 0]}
           text={`ITCZ ${Math.abs(itcz).toFixed(1)}°${itcz < 0 ? "S" : "N"}`}
-          note="The model prescribes a ±10° annual shift. Real ITCZ position varies with longitude, land, oceans and season; it does not follow a single solar-latitude formula."
+          note="The model moves the ITCZ 10° either side of the equator each year. The real ITCZ varies with longitude, land, ocean and season; it does not simply follow the overhead Sun."
           occlude={false}
         />
       </ScienceStudio>
@@ -155,7 +155,7 @@ export default function ThreeCell() {
         <br />
         {three ? "Gold: tropical / polar surface easterlies · blue: midlatitude westerlies. " : ""}
         {
-          "The enlarged cloud belt follows the prescribed ITCZ; it is not observed cloud or a rainfall forecast. It is omitted at true scale."
+          "The enlarged cloud belt marks the model ITCZ; it is not observed cloud. It is hidden at Physical scale."
         }
       </ScienceReadout>
     </>

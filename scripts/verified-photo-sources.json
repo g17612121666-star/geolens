@@ -56,7 +56,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Chris / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "Aerial photograph of Spurn Point curving across the Humber estuary entrance.",
-    "caption": "Spurn Point, England, photographed in 2024. Longshore transport supplies a spit at the Humber estuary.",
+    "caption": "Spurn Point, England, photographed in 2024. Longshore drift feeds this spit across the mouth of the Humber estuary.",
     "kind": "photo"
   },
   {
@@ -186,7 +186,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Yosemite-creek-campground-topo.jpg",
     "credit": "USGS / Wikimedia Commons · Public domain · resized",
     "alt": "USGS topographic map extract showing Yosemite Creek, a campground, contours and coordinate markings.",
-    "caption": "A real USGS topographic sheet of Yosemite Creek. Read the sheet's coordinate system and scale before giving a position; it is not an OS National Grid map.",
+    "caption": "A USGS topographic map of Yosemite Creek. Check its coordinate system and scale before giving a position: it does not use the British National Grid.",
     "kind": "scientific-image"
   },
   {
@@ -326,7 +326,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:ISS-65_Night_lights_of_South_Africa.jpg",
     "credit": "NASA / Wikimedia Commons · Public domain · resized",
     "alt": "South African city lights beneath a curved glowing atmospheric horizon and stars, viewed from the ISS.",
-    "caption": "South Africa on Earth's night side, seen from the ISS. Rotation carries locations through sunlight and darkness; this is a photograph of the night hemisphere.",
+    "caption": "South Africa at night, seen from the ISS. Earth's rotation carries every place through daylight and darkness each day.",
     "kind": "photo"
   },
   {
@@ -456,7 +456,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:An_aerial_view_of_tsunami_damage_in_an_area_north_of_Sendai,_Japan,_taken_from_a_U.S._Navy_helicopter.jpg",
     "credit": "Mass Communication Specialist 3rd Class Dylan McCord / Wikimedia Commons · Public domain · resized",
     "alt": "Debris, damaged buildings and inundated land at a fishing port near Kesennuma after the 2011 tsunami.",
-    "caption": "Kesennuma, Japan, after the 2011 Tōhoku tsunami. This aerial photograph records inundation damage; it does not show a breaking tsunami wave.",
+    "caption": "Kesennuma, Japan, after the 2011 Tōhoku tsunami. The photograph shows the damage left by inundation, not the tsunami wave itself.",
     "kind": "photo"
   },
   {
@@ -466,7 +466,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "NASA, ESA, J. Dalcanton, B.F. Williams, and L.C. Johnson (University of Washington), the PHAT team, and R. Gendler / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "A Hubble mosaic of Andromeda's bright central region, dark dust lanes and densely packed stars.",
-    "caption": "NASA/ESA Hubble mosaic of Andromeda. Resolved stars and dust lanes provide an observed view of a galaxy about 2.5 million light-years away.",
+    "caption": "NASA/ESA Hubble mosaic of the Andromeda Galaxy, about 2.5 million light-years away. Individual stars and dust lanes are visible.",
     "kind": "scientific-image"
   },
   {
@@ -476,7 +476,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Pahoeoe_fountain_original.jpg",
     "credit": "Jim D. Griggs, HVO (USGS) staff photographer[1][2] / Wikimedia Commons · Public domain · resized",
     "alt": "An arching orange lava fountain erupts from a vent on Kīlauea amid dark cooling lava.",
-    "caption": "Kīlauea, 25 February 1983. USGS photographed a lava fountain approximately 10 metres high; molten rock is at the surface, not throughout the mantle.",
+    "caption": "A lava fountain about 10 metres high at Kīlauea, photographed by USGS on 25 February 1983. Magma reaches the surface here, but the mantle beneath is almost entirely solid.",
     "kind": "photo"
   },
   {
@@ -486,7 +486,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:One_frosty_morning._(52657835823).jpg",
     "credit": "Bernard Spragg. NZ from Christchurch, New Zealand / Wikimedia Commons · Public domain · resized",
     "alt": "Wisps of low fog rise above a calm lake on a frosty morning, with trees reflected in the water.",
-    "caption": "Evaporation fog over a lake. Water vapour mixes into colder air and condenses into droplets; invisible vapour itself cannot be photographed.",
+    "caption": "Evaporation fog over a lake. Water evaporating from the warmer lake condenses into tiny droplets in the cold air above; the fog is droplets, not invisible water vapour.",
     "kind": "photo"
   },
   {
@@ -496,7 +496,7 @@
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "credit": "Dexter Perkins / Wikimedia Commons · CC0 · resized",
     "alt": "Rounded remnants of granite emerge from loose weathered material in an exposed rock profile.",
-    "caption": "Weathered granite documented by GeoDIL. Mineral breakdown and disintegration progressively turn intact rock into weathered material.",
+    "caption": "Weathered granite. As its minerals break down, solid rock gradually turns into loose weathered material.",
     "kind": "photo"
   },
   {
@@ -556,7 +556,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Richard Sutcliffe / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A low grassy coastal terrace below an older cliff near Northbank.",
-    "caption": "A raised beach near Northbank. Former shorelines record changes in relative sea level, which can include land uplift after unloading of ice.",
+    "caption": "A raised beach near Northbank. Former shorelines record changes in relative sea level, including land rising after the weight of an ice sheet was removed.",
     "kind": "photo"
   },
   {
@@ -606,7 +606,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Principal_Aquifers_of_the_United_States,_Ground_Water_Atlas_of_the_United_States,_published_2000_by_USGS_02.png",
     "credit": "USGS Office of Groundwater / Wikimedia Commons · Public domain · resized",
     "alt": "USGS map showing the distribution of principal aquifers across the United States.",
-    "caption": "USGS principal aquifers of the United States, 2000. Colours identify aquifer systems; the map does not show water-table depth or whether a particular well is confined.",
+    "caption": "USGS principal aquifers of the United States, 2000. Colours identify aquifer systems; the map does not show water-table depth or whether an aquifer is confined at a particular well.",
     "kind": "scientific-image"
   },
   {
@@ -656,7 +656,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Marie-Lan Taÿ Pamart / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "A pale specimen of kaolinite from Ixtassou, France.",
-    "caption": "Kaolinite from Ixtassou, France, is a clay mineral. Clay as a soil texture means particles smaller than 0.002 mm; mineral identity and particle size are different properties.",
+    "caption": "Kaolinite, a clay mineral, from Ixtassou, France. In soil texture, 'clay' means particles smaller than 0.002 mm, so mineral type and particle size are different properties.",
     "kind": "photo"
   },
   {
@@ -836,7 +836,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "credit": "Aravind Sivaraj / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "A hand pump used to draw groundwater at Perambalur, India.",
-    "caption": "Groundwater hand pump at Perambalur, India. Abstraction removes water from an aquifer; pumping may lower the water level around a well, which is measured below ground.",
+    "caption": "Groundwater hand pump at Perambalur, India. Abstraction removes water from an aquifer, and heavy pumping can lower the water table around a well.",
     "kind": "photo"
   },
   {
@@ -876,7 +876,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
     "credit": "Luca Galuzzi (Lucag) / Wikimedia Commons · CC BY-SA 2.5 · resized",
     "alt": "Tall orange sand dunes under a clear sky at Sossusvlei, Namibia.",
-    "caption": "Sossusvlei dunes, Namib Desert. Wind transports loose sand by surface creep and saltation; the dunes record accumulated transport rather than individual grain paths.",
+    "caption": "Sossusvlei dunes, Namib Desert. Wind moves sand grains by saltation (bouncing) and surface creep, building dunes over time.",
     "kind": "photo"
   },
   {
@@ -886,7 +886,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Jakub Hałun / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "The isolated rock stack Hvítserkur rises from shallow coastal water in northwestern Iceland.",
-    "caption": "Hvítserkur, Iceland. This isolated coastal rock illustrates a stack, with openings cut through its base.",
+    "caption": "Hvítserkur, Iceland: a sea stack with openings eroded through its base.",
     "kind": "photo"
   },
   {
@@ -896,7 +896,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Installing_a_temporary_seismometer.jpg",
     "credit": "Thomas Pratt, USGS. Public domain. / Wikimedia Commons · Public domain · resized",
     "alt": "USGS scientists install a field seismometer at Sabana Yeguas, Puerto Rico.",
-    "caption": "USGS seismometer installation at Sabana Yeguas, Puerto Rico, 10 January 2020. Recorded ground motion distinguishes P, S and surface-wave arrivals; the photograph shows the measuring instrument.",
+    "caption": "USGS scientists install a seismometer at Sabana Yeguas, Puerto Rico, on 10 January 2020. Its records show the arrival of P waves, S waves and surface waves.",
     "kind": "photo"
   },
   {
@@ -926,7 +926,7 @@
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "credit": "Plorpy2 / Wikimedia Commons · CC0 · resized",
     "alt": "Photographs of clay samples comparing grey reduced material and oxidised reddish material.",
-    "caption": "Real clay samples showing contrasting redox conditions. Prolonged saturation restricts oxygen, often producing grey gley colours; oxidation can produce reddish mottles.",
+    "caption": "Clay samples showing contrasting redox conditions. Prolonged waterlogging removes oxygen, often producing grey gley colours; oxidation produces reddish mottles.",
     "kind": "photo"
   },
   {
@@ -1096,7 +1096,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Donnchadh H / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "Rounded hills and fields around the Vale of Edale, viewed from Grindslow Knoll.",
-    "caption": "The Vale of Edale and Lose Hill, Peak District, England. A landscape photograph shows local relief, ridges and valley slopes.",
+    "caption": "The Vale of Edale and Lose Hill, Peak District, England. Rounded ridges and valley slopes show the local relief.",
     "kind": "photo"
   },
   {
@@ -1106,7 +1106,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Evan_Dec_16_2012_0135Z.jpg",
     "credit": "NASA image courtesy Jeff Schmaltz, LANCE MODIS Rapid Response. Caption by Michon Scott. / Wikimedia Commons · Public domain · resized",
     "alt": "Cyclone Evan's spiral cloud bands cross the islands of Fiji in a NASA satellite image.",
-    "caption": "Aqua MODIS observed Cyclone Evan near Fiji on 16 December 2012. Its cloud bands spiral around the centre; a mathematical logarithmic spiral is an approximation, not a measured exact fit.",
+    "caption": "Aqua MODIS observed Cyclone Evan near Fiji on 16 December 2012. Its cloud bands spiral around the centre, roughly following a logarithmic spiral.",
     "kind": "photo"
   },
   {
@@ -1126,7 +1126,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Released_to_Public_Lunar_Eclipse,_2003_(NASA)_(411737672).jpg",
     "credit": "NASA Kennedy Space Center, KSC-00PP-0096 · public domain · via Wikimedia Commons · resized",
     "alt": "The Moon appears copper-red during a lunar eclipse viewed from Merritt Island, Florida.",
-    "caption": "NASA Kennedy Space Center photograph, 20 January 2000. Earth's shadow falls on the Moon; sunlight filtered through Earth's atmosphere gives the eclipsed surface a reddish colour.",
+    "caption": "NASA Kennedy Space Center photograph of a total lunar eclipse. Earth's shadow falls on the Moon; sunlight filtered through Earth's atmosphere gives the eclipsed surface a reddish colour.",
     "kind": "photo"
   },
   {
@@ -1135,8 +1135,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Magnetic_field_intensity_at_Earth%E2%80%99s_surface_in_2014_and_2025,_as_measured_by_ESA%27s_SWARM_satellite_constellation.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "C.C. Finlay, C. Kloss, N. Gillet / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Swarm-derived maps compare Earth's magnetic field intensity in 2014 and 2025, with a nanoTesla scale.",
-    "caption": "Swarm-based core-field models for 2014 and 2025, in nanoTesla. Satellite measurements constrain the field generated mainly by motion of conducting liquid in the outer core; this is not a photograph of the core.",
+    "alt": "Swarm-derived maps compare Earth's magnetic field intensity in 2014 and 2025, with a scale in nanotesla.",
+    "caption": "Swarm-based models of Earth's magnetic field in 2014 and 2025, in nanotesla. The field is generated mainly by moving liquid iron in the outer core.",
     "kind": "scientific-image"
   },
   {
@@ -1156,7 +1156,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Richard Webb / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A small stream runs along a valley much larger than its present channel.",
-    "caption": "A photographed misfit stream. Its present flow is small relative to its valley; former glacial meltwater or a change in drainage may explain the mismatch.",
+    "caption": "A misfit stream: its flow is small for the size of its valley. Former glacial meltwater or a change in drainage may explain the mismatch.",
     "kind": "photo"
   },
   {
@@ -1166,7 +1166,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Neptune_Full_(original).jpg",
     "credit": "NASA/JPL / Wikimedia Commons · Public domain · resized",
     "alt": "Voyager 2 image of Neptune's blue disc showing cloud bands and the Great Dark Spot.",
-    "caption": "NASA/JPL Voyager 2 image assembled from green and orange filter observations in August 1989. Neptune is an ice giant; its displayed deep blue is enhanced relative to its natural appearance.",
+    "caption": "Voyager 2 image of Neptune, assembled from green and orange filter observations in August 1989. The deep blue here is enhanced; the ice giant's natural colour is paler.",
     "kind": "scientific-image"
   },
   {
@@ -1186,7 +1186,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:2023_Ozone_Hole_Update_(SVS14449_-_ozone_geos5_2023264_print).jpg",
     "credit": "NASA's Scientific Visualization Studio - Amy Moran, Lauren Dauphin, Paul Newman, Katie Jepson, Aaron E. Lepsch / Wikimedia Commons · Public domain · resized",
     "alt": "NASA map of low ozone concentrations over Antarctica in September 2023.",
-    "caption": "NASA Ozone Watch and GEOS-5, 21 September 2023. The mapped ozone hole is a region of depleted stratospheric ozone; colour represents measured or analysed ozone, not a visible opening.",
+    "caption": "NASA Ozone Watch and GEOS-5, 21 September 2023. The ozone hole is a region of depleted stratospheric ozone; the colours show ozone amounts, not a visible gap.",
     "kind": "scientific-image"
   },
   {
@@ -1196,7 +1196,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Gaisarix / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Rounded grey stones and pebbles of different sizes on an English North Sea beach.",
-    "caption": "Pebbles on the North Sea coast of England. Repeated collisions can round and reduce fragments through attrition; a still image records the resulting grains.",
+    "caption": "Pebbles on the North Sea coast of England. Repeated collisions round and shrink fragments through attrition.",
     "kind": "photo"
   },
   {
@@ -1226,7 +1226,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Aquarius_spacecraft_first_global_salinity_map_Aug-Sep_2011.jpg",
     "credit": "NASA/GSFC/JPL-Caltech / Wikimedia Commons · Public domain · resized",
     "alt": "Aquarius satellite map of ocean surface salinity with warm colours in saltier subtropical waters.",
-    "caption": "NASA Aquarius surface-salinity composite, August–September 2011. Colours show salt concentration; black marks missing data. This early product contains calibration artefacts and is not a map of deep-water salinity.",
+    "caption": "NASA Aquarius surface-salinity composite, August–September 2011. Colours show salt concentration at the surface only; black marks missing data. This early product contains some calibration errors.",
     "kind": "scientific-image"
   },
   {
@@ -1286,7 +1286,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "CWALTER / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "A thin, dark soil lies directly over jointed granite on Île de Berder, Brittany.",
-    "caption": "Rankosol over granite on Île de Berder, France. A shallow organic-rich surface over non-calcareous bedrock illustrates a ranker; horizons are real field layers, not a template.",
+    "caption": "Rankosol over granite on Île de Berder, France: a thin, organic-rich topsoil directly over non-calcareous bedrock, typical of a ranker.",
     "kind": "photo"
   },
   {
@@ -1357,7 +1357,7 @@
     "credit": "Robert Simmon / NASA Earth Observatory · contains modified EUMETSAT Meteosat data (2011 publication) · resized",
     "kind": "scientific-image",
     "alt": "Meteosat view of Earth's day–night boundary on the December solstice, with more of the Southern Hemisphere in daylight.",
-    "caption": "Meteosat-9 SEVIRI, 21 December 2010. The tilted day–night boundary gives the Southern Hemisphere longer days. Axial tilt, rather than a change in Earth–Sun distance, controls this seasonal illumination."
+    "caption": "Meteosat-9 SEVIRI, 21 December 2010. The tilted day–night boundary shows the Southern Hemisphere having longer days. Axial tilt, not a change in Earth–Sun distance, causes this seasonal pattern."
   },
   {
     "id": "meteosat-march-equinox",
@@ -1387,7 +1387,7 @@
     "credit": "USGS · public domain · 14 August 2021 ShakeMap · resized",
     "kind": "scientific-image",
     "alt": "USGS ShakeMap of the 14 August 2021 Haiti earthquake with coloured zones of shaking intensity.",
-    "caption": "USGS ShakeMap for the 14 August 2021 Haiti earthquake. Intensity varies from place to place and describes shaking effects; magnitude describes the earthquake's overall size. This is the published event-time map, not live hazard information."
+    "caption": "USGS ShakeMap for the 14 August 2021 Haiti earthquake. Intensity describes the shaking felt in each place; magnitude describes the size of the earthquake as a whole."
   },
   {
     "id": "noaa-emag2-anomalies",
@@ -1397,7 +1397,7 @@
     "credit": "NOAA NCEI / CIRES · EMAG2 v3 · public domain · resized",
     "kind": "scientific-image",
     "alt": "EMAG2 global magnetic-anomaly map with alternating anomalies across the ocean floor.",
-    "caption": "NOAA EMAG2 v3 combines satellite, ship and airborne magnetic measurements. Oceanic magnetic stripes record spreading and changing polarity. Colours represent anomalies in nanoTesla, not directly the ages of rocks."
+    "caption": "NOAA EMAG2 v3 combines satellite, ship and airborne magnetic measurements. Stripes on the ocean floor record spreading and reversals of Earth's magnetic field. Colours show anomalies in nanotesla, not rock ages."
   },
   {
     "id": "mauritania-upwelling-modis",
@@ -1417,7 +1417,7 @@
     "credit": "Robert Simmon / NASA Earth Observatory · Aqua MODIS / EOSDIS · public domain · resized",
     "kind": "photo",
     "alt": "Afternoon cumulus clouds over Sri Lanka, observed by Aqua MODIS on 9 April 2013.",
-    "caption": "Aqua MODIS, 9 April 2013. Sea-breeze air moves inland and helps cumulus clouds develop over the warmer island. Silvery water is sunglint. This daytime image shows sea-breeze effects, not a night-time land breeze."
+    "caption": "Aqua MODIS, 9 April 2013. Sea-breeze air moves inland and helps cumulus clouds develop over the warmer island. The silvery water is sunglint."
   },
   {
     "id": "amsre-warm-pool-anomaly",
@@ -1427,7 +1427,7 @@
     "credit": "Jesse Allen / NASA Earth Observatory · AMSR-E / Remote Sensing Systems · public domain · resized",
     "kind": "scientific-image",
     "alt": "AMSR-E sea-surface temperature anomalies around northern Australia in the Indo-Pacific warm pool.",
-    "caption": "AMSR-E, 19 October 2004. This warm-pool region was cooler than its long-term average. Colours show temperature anomalies, not absolute water temperature; a negative anomaly does not mean the water is cold in absolute terms."
+    "caption": "AMSR-E, 19 October 2004. This warm-pool region was cooler than its long-term average. Colours show the difference from average, so the water was still warm in absolute terms."
   },
   {
     "id": "place-ae",
@@ -1685,8 +1685,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_landscape_1960_(JOKAMT2Ma76-2).tif",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Erkki Voutilainen / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "A winter river and snow-covered trees in Finland, photographed in February 1963.",
-    "caption": "Finland, February 1963. A historical field photograph of seasonal snow beside a river.",
+    "alt": "A winter river and snow-covered trees in Finland, in a historical photograph.",
+    "caption": "Finland, around 1960. A historical field photograph of seasonal snow beside a river.",
     "kind": "photo"
   },
   {
@@ -1976,7 +1976,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Tomascastelazo / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Large cumulus clouds above open fields in Mexico.",
-    "caption": "Mexico. Cloud development over farmland illustrates the contrast between clear ground and moist rising air.",
+    "caption": "Mexico. Cumulus clouds form where warm, moist air rises and cools above the land.",
     "kind": "photo"
   },
   {
@@ -2756,7 +2756,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Mangkhut_approaching_the_Philippines.jpg",
     "credit": "EOSDIS Worldview / Wikimedia Commons · Public domain · resized",
     "alt": "Satellite view of Typhoon Mangkhut with a compact eye and spiralling cloud bands in September 2018.",
-    "caption": "Typhoon Mangkhut, September 2018, observed by NASA EOSDIS. The western North Pacific storm later affected the Philippines and southern China; this image is a historical observation.",
+    "caption": "Typhoon Mangkhut in September 2018, observed by NASA EOSDIS. The western North Pacific storm went on to strike the Philippines and southern China.",
     "kind": "photo"
   },
   {
@@ -2876,7 +2876,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Dust_bowl,_Texas_Panhandle,_TX_fsa.8b27276_edit.jpg",
     "credit": "Arthur Rothstein / Wikimedia Commons · Public domain · resized",
     "alt": "A car on a Texas Panhandle road beneath a wall of airborne dust during the Dust Bowl.",
-    "caption": "Texas Panhandle during the Dust Bowl. Wind removed exposed topsoil during severe drought; this photograph records dust in the air, rather than water-cut gullies.",
+    "caption": "Texas Panhandle during the Dust Bowl. During severe drought, wind lifted exposed topsoil and filled the air with dust.",
     "kind": "photo"
   },
   {
@@ -2906,7 +2906,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Robert693 / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Phoenix's skyline, transport surfaces and desert mountains seen from Sky Harbor airport.",
-    "caption": "Phoenix, Arizona. Built surfaces store heat in a desert city. Air or thermal measurements are needed to quantify the urban heat island; this photograph shows the land cover.",
+    "caption": "Phoenix, Arizona. Paving and buildings store heat in this desert city; measuring the urban heat island needs temperature data, not a photograph.",
     "kind": "photo"
   },
   {
@@ -2956,7 +2956,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "NASA, ESA, and the Hubble Heritage Team (STScI/AURA) / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "Hubble observations of Comet ISON's bright coma and tail on 2 November 2013, before perihelion.",
-    "caption": "Hubble observed Comet ISON on 2 November 2013, before its closest approach to the Sun. Perihelion names that closest orbital point; the coloured filters show coma and tail structure, not a map of the orbit.",
+    "caption": "Hubble observed Comet ISON on 2 November 2013, before perihelion, its closest approach to the Sun.",
     "kind": "scientific-image"
   },
   {
@@ -2996,7 +2996,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Alan Bowring / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "Blorenge above Llanfoist, with the shallow Cwm Craf hollow visible on its front slope.",
-    "caption": "Cwm Craf on Blorenge, Wales, has been interpreted as a former nivation hollow. Persistent snow patches can promote weathering and sediment removal without forming a moving glacier. The foreground hollow lies in a glacial moraine.",
+    "caption": "Cwm Craf on Blorenge, Wales, has been interpreted as a former nivation hollow. Persistent snow patches can promote weathering and sediment removal without forming a moving glacier. The ridge in the foreground is the glacial moraine at Llanfoist.",
     "kind": "photo"
   },
   {
@@ -3046,7 +3046,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Colin Smith / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "Sunlit shingle beach and coastal buildings at Southsea, Portsmouth.",
-    "caption": "Southsea, Portsmouth. Land and sea warm at different rates in sunshine, creating conditions that can support a sea breeze. A photograph of the coast alone does not measure its wind direction.",
+    "caption": "Southsea, Portsmouth. In sunshine, land warms faster than the sea, which can set up a sea breeze.",
     "kind": "photo"
   },
   {
@@ -3076,7 +3076,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Terrestrial_globe_gores._LOC_2008627640.tif",
     "credit": "Hondius, Jodocus; Rossi, Giuseppe Di. / Wikimedia Commons · Public domain · resized",
     "alt": "Digitised historical sheets of narrow, tapered terrestrial map strips intended to cover a 19-centimetre globe.",
-    "caption": "Library of Congress: Hondius terrestrial globe gores, reissued by Giuseppe di Rossi in 1615. This is a scan of a real cartographic object; the tapered paper strips were designed to fit a spherical globe. Its historical geography is not a modern reference map.",
+    "caption": "Library of Congress scan of Hondius terrestrial globe gores, reissued by Giuseppe di Rossi in 1615. The tapered paper strips were cut to cover a sphere; the geography is historical, not a modern reference map.",
     "kind": "scientific-image"
   },
   {
@@ -3086,7 +3086,7 @@
     "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
     "credit": "Chip Clark / Smithsonian National Museum of Natural History · CC0 · resized",
     "alt": "Metallic black octahedral magnetite crystals on rock, Smithsonian specimen B10614 from Binnental, Switzerland.",
-    "caption": "Magnetite, photographed in the Smithsonian collection. Pure magnetite loses its spontaneous magnetic ordering near 580 °C, its Curie temperature. This specimen photograph shows the mineral, not a temperature measurement.",
+    "caption": "Magnetite in the Smithsonian collection. Pure magnetite loses its magnetism above about 580 °C, its Curie temperature.",
     "kind": "photo"
   },
   {
@@ -3126,7 +3126,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Peter Pearson / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "Grey London Clay exposed below yellow-brown Red Crag in the sea cliffs at Walton-on-the-Naze, Essex.",
-    "caption": "London Clay forms the lower part of the Naze cliffs. Clay-rich beds commonly transmit groundwater slowly and can act as aquitards; the cliff exposes the material, while permeability is established by testing.",
+    "caption": "London Clay forms the lower part of the Naze cliffs. Clay-rich beds let groundwater through only slowly, so they can act as aquitards.",
     "kind": "photo"
   },
   {
@@ -3136,7 +3136,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
     "credit": "Ustill / Wikimedia Commons · CC BY-SA 3.0 de · resized",
     "alt": "A broad, grassy former river valley near Blumberg, now drained by the much smaller Aitrach.",
-    "caption": "The Aitrach valley preserves the former route of the Feldberg Danube. Capture by the Wutach diverted its large upstream flow towards the Rhine, leaving the small Aitrach in an oversized valley. The channel itself is difficult to distinguish in this landscape view.",
+    "caption": "The Aitrach valley follows the former route of the Feldberg Danube. Capture by the Wutach diverted its upper flow towards the Rhine, leaving the small Aitrach in an oversized valley.",
     "kind": "photo"
   }
 ]
