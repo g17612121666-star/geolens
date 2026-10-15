@@ -75,7 +75,12 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
           ) : (
             <>
               <nav className="hidden items-center gap-0.5 lg:flex" aria-label={"Primary"}>
-                <HoverMenu label={"Subjects"} open={realmsOpen} setOpen={setRealmsOpen} width="w-72">
+                <HoverMenu
+                  label={"Subjects"}
+                  open={realmsOpen}
+                  setOpen={setRealmsOpen}
+                  width="w-72"
+                >
                   {REALMS.map((r) => (
                     <Link
                       key={r.slug}

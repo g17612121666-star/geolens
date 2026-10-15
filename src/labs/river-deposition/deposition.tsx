@@ -315,7 +315,12 @@ export default function RiverDeposition() {
                 note="On the outside of the bend the deepest, fastest flow undercuts the bank, which collapses to leave a steep cliff exposing the floodplain sediments."
                 occlude={false}
               />
-              <Arrow from={[-0.7, 0.2, -0.62]} to={[0.6, 0.2, -0.72]} color="#a2ced3" width={0.65} />
+              <Arrow
+                from={[-0.7, 0.2, -0.62]}
+                to={[0.6, 0.2, -0.72]}
+                color="#a2ced3"
+                width={0.65}
+              />
             </>
           ) : mode === 1 ? (
             <>
