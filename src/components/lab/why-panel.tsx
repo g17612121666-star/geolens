@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import { Figure } from "@/components/figure";
 import { labFigures, termThumb } from "@/lib/figures";
 import { labVideo } from "@/lib/lab-videos";
+import { Gallery } from "@/components/gallery";
+import { LAB_GALLERY } from "@/lib/media-galleries";
 
 const WHY_LABELS = ["Why it happens", "Try a comparison", "Reading the result"] as const;
 
@@ -19,6 +21,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
   const pairs = lab.misconceptions?.length ? lab.misconceptions : [lab.misconception];
   const figs = labFigures(lab.slug);
   const video = labVideo(lab.slug);
+  const gallery = (LAB_GALLERY[lab.slug] ?? []).filter((g) => g.src !== figs[0]?.src);
   const seenTermSrc = new Set<string>();
 
   return (
@@ -101,6 +104,12 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+            {gallery.length > 0 && (
+              <div>
+                <p className="section-label mb-2">{"Real examples"}</p>
+                <Gallery figures={gallery} columns={1} />
               </div>
             )}
           </div>
