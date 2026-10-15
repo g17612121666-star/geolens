@@ -62,7 +62,7 @@ export default function Contours() {
     <>
       <ScienceStudio
         slug="contours"
-        scale="Relief ×2.5 · same hill and contour vertices · T restores equal horizontal / vertical scale"
+        scale="Height exaggerated ×2.5 · Compare physical scale shows equal horizontal and vertical scales"
         trueScale="1 scene unit = 100 m in all directions"
         camera={[4.8, 5.8, 7]}
       >
@@ -176,7 +176,7 @@ export default function Contours() {
           </text>
         </svg>
         {"Contour interval "}
-        {interval} {"m · spot "}
+        {interval} {"m · clicked point "}
         {sampled.toFixed(1)}{" "}
         {
           "m. Click the hill to check a height and draw the A–B cross-section through that point. Turn off “3D hill” and look from above for its contour map; the elevations stay the same."

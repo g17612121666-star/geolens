@@ -184,13 +184,13 @@ export default function RiverCapture() {
           <Tag
             pos={[-2, 1.25, -1.7]}
             text={stage === 2 ? "Captured headwaters" : "Neighbouring river"}
-            note="The upstream water formerly continued east across the scene. After interception it turns into the lower captor valley. Channel widths and tracer speed do not measure discharge."
+            note="Before capture these headwaters flow east across the scene. After capture they turn into the lower captor valley. Channel widths and tracer speeds do not show discharge."
             occlude={false}
           />
           <Tag
             pos={[-0.9, 0.75, 1.75]}
             text="Captor stream"
-            note="Headward erosion extends this lower valley towards the divide. When the divide is breached, the lower route can divert the neighbouring river. Relative base level, rock type and structure all affect the process."
+            note="Headward erosion extends this lower valley towards the divide. When the divide is breached, the lower route can divert the neighbouring river. Base level, rock type and structure all affect how fast it cuts back."
             occlude={false}
           />
           {stage === 2 && (
@@ -198,7 +198,7 @@ export default function RiverCapture() {
               <Tag
                 pos={[2, 1.3, 0.15]}
                 text="Beheaded reach"
-                note="A reduced local stream may occupy the former valley, which now looks too large for it (a misfit stream). An elbow of capture and an underfit valley are clues; neither proves capture without other geomorphic and geological evidence."
+                note="A smaller stream may now occupy the former valley, which looks too large for it (a misfit stream). An elbow of capture and a misfit stream are clues, but proving capture needs other geological evidence."
                 occlude={false}
               />
               <Tag
@@ -222,7 +222,7 @@ export default function RiverCapture() {
         }
         <br />
         {
-          "The gold arrow shows headward extension, opposite the captor’s downstream flow. Stages are selected geometry, not a dated erosion simulation. Play follows the current water route."
+          "The gold arrow shows headward erosion extending the valley upstream, while its water still flows downstream. The stages are not dated. Play follows the current water route."
         }
       </ScienceReadout>
     </>

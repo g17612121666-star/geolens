@@ -138,7 +138,7 @@ export default function Wind() {
       <ScienceStudio
         slug="wind"
         camera={[1.5, 7, 5]}
-        scale="East–north plane · force arrows share a scale · wind has a separate scale · relief, trees and towns illustrative"
+        scale="East–north plane · forces share one scale, wind another · relief, trees and towns not to scale"
         trueScale="Forces: 0.001 m/s² per 0.85 units · wind: 10 m/s per 0.5 units"
       >
         <Landscape />
@@ -157,7 +157,7 @@ export default function Wind() {
             <Tag
               pos={[2.75, landHeight(2.75, z) + 0.08, z]}
               text={`${(1014 + z * ISOBAR_HPA).toFixed(1)} hPa`}
-              note={`Isobars join points of equal surface pressure. With the lab's pressure-gradient acceleration of 0.001 m/s² and air density 1.2 kg/m³, neighbouring lines 150 km apart differ by about ${ISOBAR_HPA.toFixed(1)} hPa. The absolute values are illustrative.`}
+              note={`Isobars join points of equal surface pressure. With the lab's pressure-gradient acceleration of 0.001 m/s² and air density 1.2 kg/m³, neighbouring lines 150 km apart differ by about ${ISOBAR_HPA.toFixed(1)} hPa. The pressure values themselves are only examples.`}
               occlude={false}
             />
           </group>
@@ -171,7 +171,7 @@ export default function Wind() {
         <Tag
           pos={[-2.2, 0.1, 2.4]}
           text="Higher pressure · south"
-          note="Pressure-gradient acceleration is 0.001 m/s². Each displayed force is acceleration per unit mass."
+          note="The pressure-gradient force is 0.001 m/s² (force per kilogram of air). All force arrows show force per unit mass."
           occlude={false}
         />
         <CloudVolume position={[0, 0.2, 0]} scale={[0.16, 0.11, 0.16]} seed={4} opacity={0.85} />
@@ -216,20 +216,20 @@ export default function Wind() {
       <ScienceReadout>
         <span className="text-sandstone">{"Gold: pressure gradient"}</span> ·{" "}
         <span className="text-glacier">{"Blue: Coriolis"}</span> ·{" "}
-        <span className="text-magma">{"Coral: friction"}</span> {"· white: velocity."}
+        <span className="text-magma">{"Coral: friction"}</span> {"· White: wind velocity."}
         <br />
         {south ? "Southern" : "Northern"} {"hemisphere · eastward "}
         {w.u.toFixed(2)}
         {", northward "}
         {w.v.toFixed(2)} {"m/s. "}
         {w.steady
-          ? "Steady force balance; pale filaments advect with the wind."
+          ? "Steady force balance; the pale streaks drift with the wind."
           : `${(t * 24).toFixed(2)} h after release from rest.`}{" "}
         {!coriolis && !friction
           ? "Without Coriolis or friction, this constant gradient keeps accelerating the air."
           : !friction && transient
-            ? "Without friction the wind oscillates; it does not settle spontaneously."
-            : "Flat f-plane experiment; pressure gradient fixed. Tracers wrap at the window edge (150 km per scene unit)."}
+            ? "Without friction the wind keeps oscillating and never settles."
+            : "Constant-Coriolis (f-plane) model with a fixed pressure gradient. Streaks leaving one edge reappear at the other (150 km per scene unit)."}
       </ScienceReadout>
     </>
   );

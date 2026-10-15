@@ -17,7 +17,7 @@ export const Route = createFileRoute("/search")({
   head: () =>
     headFor({
       title: "Search",
-      description: "Find a Geolens lab, glossary term, atlas place, tool, or teacher note.",
+      description: "Find a Geolens lab, glossary term, atlas place, tool or teacher note.",
       path: "/search",
     }),
 });

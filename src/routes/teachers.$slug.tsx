@@ -23,7 +23,7 @@ export const Route = createFileRoute("/teachers/$slug")({
       title: lab ? `Teacher notes · ${lab.title}` : "Teacher notes",
       description: lab
         ? `Illustrated lesson notes, a 3D demonstration and discussion questions for ${lab.title}. Free for teachers and geography clubs.`
-        : "Teacher notes.",
+        : "Free teacher notes from Geolens.",
       path: `/teachers/${params.slug}`,
       image: lab ? labFigures(lab.slug)[0]?.src : undefined,
     });
@@ -102,7 +102,7 @@ function TeacherArticlePage() {
           href={lessonLink(lab)}
           className="inline-flex min-h-11 items-center rounded-full border border-glacier/30 bg-glacier/10 px-4 text-glacier"
         >
-          {"Start projector"}
+          {"Open in projector view"}
         </a>
         <button
           className="min-h-11 rounded-full border border-white/15 px-4 text-ice"
@@ -185,7 +185,7 @@ function TeacherArticlePage() {
         <h2 className="font-display text-2xl">{"Rehearse with the model"}</h2>
         <p className="mt-2 text-sm leading-6 text-mist">
           {
-            "The same scene and controls as the lab. Load it when you are ready; use Start projector for the full classroom view."
+            "The same scene and controls as the lab. Load it when you are ready; use Open in projector view for the full classroom view."
           }
         </p>
         <button
@@ -293,7 +293,7 @@ function TeacherArticlePage() {
 
       {more.length > 0 && (
         <section className="mt-12">
-          <h2 className="font-display text-2xl text-chalk">{"Same realm"}</h2>
+          <h2 className="font-display text-2xl text-chalk">{"More in this subject"}</h2>
           <ul className="mt-3 space-y-2">
             {more.map((l) => (
               <li key={l.slug}>

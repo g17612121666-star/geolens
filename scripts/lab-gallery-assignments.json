@@ -1,0 +1,774 @@
+{
+  "seasons": [
+    {
+      "id": "meteosat-march-equinox",
+      "caption": "Meteosat satellite image at the March equinox: the terminator runs nearly pole to pole, as in the model when neither hemisphere tilts towards the Sun."
+    },
+    {
+      "id": "greens-mill-sundial",
+      "caption": "A sundial in Nottingham. Its shadow is long in winter and short in summer because the noon Sun's altitude changes with the seasons."
+    }
+  ],
+  "rotation": [
+    {
+      "id": "meteosat-march-equinox",
+      "caption": "Meteosat satellite image showing the day–night terminator. Earth's eastward rotation carries every place across this boundary at sunrise and sunset."
+    },
+    {
+      "id": "greenwich-meridian",
+      "caption": "The historic Greenwich Meridian marker. Longitude is measured from here, and every 15° of longitude is about one hour of solar time."
+    },
+    {
+      "id": "diomede-landsat",
+      "caption": "Landsat image of the Diomede Islands, either side of the International Date Line: a convention where the calendar date changes, not a physical line."
+    }
+  ],
+  "moon-phases": [
+    {
+      "id": "first-quarter-moon-2019",
+      "caption": "A first-quarter Moon: half the visible disc is lit when the Moon is about 90° from the Sun in our sky, as in the model's quarter position."
+    },
+    {
+      "id": "nearly-full-moon-viatour",
+      "caption": "A nearly full Moon, lit almost completely because it lies roughly opposite the Sun. Earth's shadow does not cause the phase."
+    }
+  ],
+  "earth-interior": [
+    {
+      "id": "kola-borehole-site-2020",
+      "caption": "The Kola Superdeep Borehole site. At 12.262 km it is the deepest hole ever drilled, yet it did not get through the continental crust."
+    },
+    {
+      "id": "swarm-core-field",
+      "caption": "Swarm satellite maps of Earth's magnetic field. The field is generated mainly by moving liquid iron in the outer core."
+    },
+    {
+      "id": "puerto-rico-seismometer",
+      "caption": "A seismometer being installed in Puerto Rico. Recorded P- and S-wave arrivals are the main evidence for the layers in the model."
+    }
+  ],
+  "plate-boundaries": [
+    {
+      "id": "san-andreas-highsmith",
+      "caption": "The San Andreas Fault, California: a transform boundary where the plates slide past each other horizontally."
+    },
+    {
+      "id": "himalaya-iss",
+      "caption": "The Himalaya from the ISS: a convergent boundary where continental crust has been shortened and thickened in a collision."
+    },
+    {
+      "id": "noaa-puerto-rico-trench",
+      "caption": "NOAA seafloor relief map of the Puerto Rico Trench, a deep trench along a convergent plate boundary. Colours and labels are a visualisation of measured depth."
+    }
+  ],
+  "contours": [
+    {
+      "id": "edale-lose-hill",
+      "caption": "The Vale of Edale and Lose Hill, Peak District. Compare the real valley and spur shapes with the contour patterns the model draws."
+    },
+    {
+      "id": "yosemite-topographic-sheet",
+      "caption": "A USGS topographic sheet of Yosemite Creek. Tightly packed contours mark steep valley sides; widely spaced ones mark gentle ground."
+    }
+  ],
+  "rivers": [
+    {
+      "id": "cwmorthin-plunge-pool",
+      "caption": "A waterfall and plunge pool at Cwmorthin, Wales: a steep step typical of an upper course, where the long profile is steepest."
+    },
+    {
+      "id": "hannibal-mississippi-levee",
+      "caption": "The Mississippi at Hannibal, Missouri: a wide lowland river on a gentle gradient, bordered by an engineered levee."
+    },
+    {
+      "id": "lena-delta-landsat",
+      "caption": "False-colour Landsat image of the Lena Delta, Russia, where the river reaches base level and deposits its load."
+    }
+  ],
+  "water-cycle": [
+    {
+      "id": "cameroon-forest-canopy",
+      "caption": "Forest canopy in Cameroon. Leaves intercept rainfall and return water to the air by transpiration."
+    },
+    {
+      "id": "sawtooth-snowmelt",
+      "caption": "Snowmelt feeding a stream in Idaho: water released from a snow store into surface flow."
+    },
+    {
+      "id": "perambalur-handpump",
+      "caption": "A groundwater hand pump in India. Abstraction removes water from the groundwater store."
+    }
+  ],
+  "solar-system": [
+    {
+      "id": "messenger-mercury",
+      "caption": "NASA MESSENGER mosaic of Mercury, a small rocky terrestrial planet close to the Sun."
+    },
+    {
+      "id": "voyager-neptune-disc",
+      "caption": "Voyager 2 image of Neptune, an ice giant about 30 times farther from the Sun than Earth. Its displayed colour has been processed."
+    },
+    {
+      "id": "apollo17-earth",
+      "caption": "Earth photographed by Apollo 17: the largest of the four rocky terrestrial planets."
+    }
+  ],
+  "sun-earth": [
+    {
+      "id": "sdo-visible-sunspots",
+      "caption": "NASA SDO view of the photosphere with a large sunspot group: the visible surface that supplies the sunlight in the model."
+    },
+    {
+      "id": "meteosat-december-solstice",
+      "caption": "Meteosat satellite image at the December solstice. Sunlight strikes the southern hemisphere more directly, so equal beams spread over smaller areas there."
+    }
+  ],
+  "universe-scale": [
+    {
+      "id": "eso-orion-stars",
+      "caption": "Stars and nebulae in Orion. Stars that look close together in the sky can lie hundreds of light-years apart."
+    },
+    {
+      "id": "sdo-venus-transit",
+      "caption": "SDO image sequence of Venus crossing the Sun in 2012. Timing such transits helped astronomers measure the astronomical unit."
+    }
+  ],
+  "geologic-time": [
+    {
+      "id": "mount-stephen-trilobite",
+      "caption": "A Middle Cambrian trilobite, roughly 500 million years old, from the Mount Stephen beds, Canada. Fossils mark positions on the timeline."
+    },
+    {
+      "id": "scollard-kpg-boundary",
+      "caption": "The K–Pg boundary in Alberta, about 66 million years ago, when the non-bird dinosaurs disappeared."
+    },
+    {
+      "id": "grand-canyon-hopi-point",
+      "caption": "The Grand Canyon exposes a long stack of rock layers, but unconformities mean parts of the record are missing."
+    }
+  ],
+  "eclipses": [
+    {
+      "id": "nasa-lunar-eclipse-2000",
+      "caption": "A total lunar eclipse in January 2000. The Moon lies in Earth's umbra and is lit only by reddened light refracted through Earth's atmosphere."
+    },
+    {
+      "id": "sdo-venus-transit",
+      "caption": "Venus crossing the Sun in 2012. Like an eclipse, a transit needs the bodies to line up near an orbital node."
+    }
+  ],
+  "tides": [
+    {
+      "id": "first-quarter-moon-2019",
+      "caption": "A first-quarter Moon. With the Sun and Moon at right angles, their tidal effects partly cancel, favouring neap tides."
+    },
+    {
+      "id": "nearly-full-moon-viatour",
+      "caption": "A nearly full Moon. Near full and new Moon the Sun and Moon line up, favouring spring tides with a larger range."
+    }
+  ],
+  "solar-altitude": [
+    {
+      "id": "meteosat-december-solstice",
+      "caption": "Meteosat satellite image at the December solstice. The Sun is overhead at the Tropic of Capricorn, so northern noon altitudes are at their lowest."
+    },
+    {
+      "id": "meteosat-march-equinox",
+      "caption": "Meteosat satellite image at the March equinox. The Sun is overhead at the equator, and the noon altitude at any latitude is 90° minus the latitude."
+    }
+  ],
+  "continental-drift": [
+    {
+      "id": "antarctic-glossopteris-fossil",
+      "caption": "A Glossopteris leaf fossil from Antarctica. The same plant fossils on separate southern continents suggest they were once joined in Pangaea."
+    },
+    {
+      "id": "noaa-south-atlantic-bathymetry",
+      "caption": "NOAA bathymetry of the South Atlantic. The continental shelves of South America and Africa fit together closely, like the model's shelf fit."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "yellowstone-grand-prismatic",
+      "caption": "Grand Prismatic Spring, Yellowstone: hydrothermal activity above a continental hotspot, inside the North American Plate."
+    },
+    {
+      "id": "noaa-arctic-seamount",
+      "caption": "NOAA multibeam survey of an Arctic seamount. Volcanoes carried off a hotspot can sink to become seamounts like this."
+    },
+    {
+      "id": "kilauea-lava-fountain",
+      "caption": "A lava fountain on Kīlauea, 1983: the active volcanic end of the Hawaiian hotspot chain."
+    }
+  ],
+  "seafloor-spreading": [
+    {
+      "id": "noaa-emag2-anomalies",
+      "caption": "NOAA EMAG2 magnetic-anomaly map. Bands that run parallel to the mid-ocean ridges record reversals of Earth's magnetic field."
+    },
+    {
+      "id": "noaa-south-atlantic-bathymetry",
+      "caption": "NOAA bathymetry of the South Atlantic, showing the Mid-Atlantic Ridge running midway between the continents."
+    },
+    {
+      "id": "thingvellir-rift",
+      "caption": "Þingvellir, Iceland: a place where the spreading Mid-Atlantic Ridge rises above sea level and faults open the ground."
+    }
+  ],
+  "atmosphere-layers": [
+    {
+      "id": "graw-radiosondes",
+      "caption": "Radiosondes carried by weather balloons measure temperature with height, giving the profile the model uses to define the layers."
+    },
+    {
+      "id": "nasa-ozone-2023",
+      "caption": "NASA map of the Antarctic ozone hole, September 2023. The ozone layer lies in the stratosphere."
+    },
+    {
+      "id": "iss-aurora-indian-ocean",
+      "caption": "An aurora seen from the ISS, which itself orbits within the thermosphere. The green light is emitted by oxygen roughly 100–250 km above the surface."
+    }
+  ],
+  "energy-budget": [
+    {
+      "id": "ceres-reflected-2000-2015",
+      "caption": "NASA CERES satellite map of reflected sunlight: the shortwave energy the model sends back to space from clouds, ice and bright surfaces."
+    },
+    {
+      "id": "ceres-longwave-2015",
+      "caption": "NASA CERES satellite map of outgoing longwave radiation: the infrared energy that Earth emits to space."
+    },
+    {
+      "id": "cairngorms-winter-snow",
+      "caption": "Snow and dark ground in the Cairngorms: a real high- and low-albedo contrast like the model's surface choices."
+    }
+  ],
+  "thermal-circulation": [
+    {
+      "id": "goes-land-breeze-michigan",
+      "caption": "GOES-19 satellite image: a cloud-free band beside Lake Michigan marks a land breeze, the night-time reversal of the sea breeze."
+    },
+    {
+      "id": "ecostress-london-night",
+      "caption": "ECOSTRESS thermal map of London at night. Built-up areas stay warmer than green spaces: an urban heat island."
+    },
+    {
+      "id": "southsea-beach",
+      "caption": "Southsea beach, Portsmouth. On sunny days the land warms faster than the sea, the contrast that drives a sea breeze."
+    }
+  ],
+  "wind": [
+    {
+      "id": "noaa-surface-analysis-2022",
+      "caption": "NOAA surface analysis charts. Closely spaced isobars mark a strong pressure gradient and strong winds."
+    },
+    {
+      "id": "japan-extratropical-cyclone",
+      "caption": "MODIS satellite image of a depression northeast of Japan. Clouds spiral anticlockwise around the low, as Coriolis deflection predicts in the Northern Hemisphere."
+    }
+  ],
+  "three-cell": [
+    {
+      "id": "hawaii-windward-leeward",
+      "caption": "MODIS satellite image of Hawaiʻi. Northeasterly trade winds, the surface branch of the Hadley cell, bring rain to windward slopes."
+    },
+    {
+      "id": "sossusvlei-dunes",
+      "caption": "The Namib Desert: a subtropical desert beneath sinking air in the descending branch of the Hadley circulation, here combined with a cold offshore current."
+    }
+  ],
+  "fronts": [
+    {
+      "id": "noaa-surface-analysis-2022",
+      "caption": "NOAA surface analysis charts with cold, warm and occluded fronts drawn between air masses as a storm develops."
+    },
+    {
+      "id": "japan-extratropical-cyclone",
+      "caption": "MODIS satellite image of a midlatitude depression. Long cloud bands mark the fronts wrapping around the low."
+    }
+  ],
+  "cyclone-anticyclone": [
+    {
+      "id": "noaa-surface-analysis-2022",
+      "caption": "NOAA surface charts marking H and L pressure centres. Winds blow anticlockwise around lows in the Northern Hemisphere."
+    },
+    {
+      "id": "evan-2012-modis",
+      "caption": "MODIS satellite image of Cyclone Evan near Fiji, in the Southern Hemisphere, where cyclones spiral clockwise."
+    }
+  ],
+  "climate-types": [
+    {
+      "id": "cameroon-forest-canopy",
+      "caption": "Tropical rainforest in Cameroon: a landscape example of an Af (tropical wet) climate."
+    },
+    {
+      "id": "sossusvlei-dunes",
+      "caption": "Namib Desert dunes: a landscape example of a hot desert (BW) climate."
+    },
+    {
+      "id": "place-uk-dwn",
+      "caption": "Exmoor, North Devon: a landscape in the Cfb (temperate oceanic) climate."
+    }
+  ],
+  "drainage-basin": [
+    {
+      "id": "rhine-moselle-confluence",
+      "caption": "The Moselle joins the Rhine at Koblenz, Germany: a confluence, where a tributary meets the main river."
+    },
+    {
+      "id": "sawtooth-snowmelt",
+      "caption": "Snowmelt streams near a source area in Idaho's Sawtooth Mountains, high in a drainage basin."
+    },
+    {
+      "id": "lena-delta-landsat",
+      "caption": "Landsat image of the Lena Delta: the river's mouth, where its basin's water reaches the Arctic Ocean."
+    }
+  ],
+  "hydrograph": [
+    {
+      "id": "stillaguamish-flood",
+      "caption": "The Stillaguamish River in flood. Overbank water like this happens near the peak of a storm hydrograph."
+    },
+    {
+      "id": "place-uk-som",
+      "caption": "Floodwater around Burrowbridge, Somerset, February 2014. Flat, saturated land produces a long, slow falling limb."
+    }
+  ],
+  "river-hydrology": [
+    {
+      "id": "sawtooth-snowmelt",
+      "caption": "Snowmelt in Idaho's Sawtooth Mountains. Nival regimes peak when stored snow melts in spring and early summer."
+    },
+    {
+      "id": "glen-canyon-dam",
+      "caption": "Glen Canyon Dam, Arizona. Reservoir releases smooth the natural seasonal regime of the Colorado River downstream."
+    },
+    {
+      "id": "huey-creek-gauge",
+      "caption": "A USGS stream gauge in Antarctica. Year-round records of stage and discharge reveal a river's regime."
+    }
+  ],
+  "ocean-currents": [
+    {
+      "id": "mauritania-upwelling-modis",
+      "caption": "MODIS satellite image off Mauritania. The Canary Current, an eastern boundary current, is linked to upwelling of nutrient-rich water here."
+    },
+    {
+      "id": "aquarius-salinity-2011",
+      "caption": "Aquarius satellite salinity map. The saltiest surface water lies in the subtropical gyres, beneath the subtropical highs where evaporation exceeds rainfall."
+    }
+  ],
+  "thermohaline": [
+    {
+      "id": "noaa-ctd-rosette",
+      "caption": "A NOAA CTD rosette measures temperature and salinity with depth, which together set seawater density."
+    },
+    {
+      "id": "aquarius-salinity-2011",
+      "caption": "Aquarius satellite map of sea-surface salinity, one of the two controls on density in the model."
+    },
+    {
+      "id": "noaa-deep-solo-deployment",
+      "caption": "A Deep SOLO float being deployed. Such floats measure temperature and salinity down to great depth, tracking deep-water masses."
+    }
+  ],
+  "carbon-cycle": [
+    {
+      "id": "white-beech-litter",
+      "caption": "Leaf litter in New South Wales. Decomposers respire, returning carbon from the litter to the air: part of the fast carbon cycle."
+    },
+    {
+      "id": "chukurovo-lignite",
+      "caption": "Lignite from Bulgaria. Burning this fossil fuel releases carbon stored for millions of years in the slow cycle."
+    },
+    {
+      "id": "place-ee",
+      "caption": "Viru Bog, Estonia. Waterlogged peat stores carbon because decomposition is very slow."
+    }
+  ],
+  "enso": [
+    {
+      "id": "sentinel-la-nina-2025",
+      "caption": "Sentinel-6 satellite map of sea-surface height in January 2025: lower sea levels in the cool central and eastern Pacific during La Niña."
+    },
+    {
+      "id": "amsre-warm-pool-anomaly",
+      "caption": "AMSR-E sea-surface temperature anomalies around the western Pacific warm pool, where trade winds pile up warm water."
+    }
+  ],
+  "landform-types": [
+    {
+      "id": "himalaya-iss",
+      "caption": "The Himalaya from the ISS: mountains with very high elevation and relief."
+    },
+    {
+      "id": "ahuriri-river-plain",
+      "caption": "The Ahuriri River plain, New Zealand: low relief and gentle slopes across a broad valley floor."
+    },
+    {
+      "id": "place-il",
+      "caption": "Makhtesh Ramon, Israel: an erosional basin enclosed by higher ground."
+    }
+  ],
+  "river-erosion": [
+    {
+      "id": "cwmorthin-plunge-pool",
+      "caption": "Cwmorthin, Wales: a waterfall over a nick point with a plunge pool eroded below it."
+    },
+    {
+      "id": "wutach-gorge",
+      "caption": "Wutach Gorge, Germany: a narrow gorge cut by rapid downcutting."
+    },
+    {
+      "id": "place-us-wv",
+      "caption": "New River Gorge, West Virginia: steep slopes falling to the river form a V-shaped valley."
+    }
+  ],
+  "river-deposition": [
+    {
+      "id": "ucayali-meanders",
+      "caption": "The Ucayali River, Peru, from the ISS. Meanders build slip-off slopes on inner bends while cut banks erode the outer bends."
+    },
+    {
+      "id": "hannibal-mississippi-levee",
+      "caption": "An engineered levee on the Mississippi. Natural levées form where floodwater drops sediment beside the channel; this one is built."
+    },
+    {
+      "id": "thames-estuary-landsat",
+      "caption": "Landsat image of the Thames estuary. Pale water carries suspended sediment that settles where the flow slows."
+    }
+  ],
+  "river-capture": [
+    {
+      "id": "aitrach-valley",
+      "caption": "The Aitrach valley, Germany: a beheaded stream now far too small for the valley left after the Wutach captured its headwaters."
+    },
+    {
+      "id": "bald-eagle-wind-gap",
+      "caption": "Bald Eagle Mountain, Pennsylvania. A wind gap, a notch with no through-flowing river, can mark a former river course."
+    },
+    {
+      "id": "misfit-stream-valley",
+      "caption": "A misfit stream in a valley much larger than its present flow, one possible result of capture or meltwater loss."
+    }
+  ],
+  "coasts": [
+    {
+      "id": "hvitserkur-stack",
+      "caption": "Hvítserkur, Iceland: a sea stack with arches eroded through its base."
+    },
+    {
+      "id": "purbeck-coastal-stumps",
+      "caption": "Chalk cliffs and offshore remnants in Purbeck, Dorset: stacks and stumps left as the cliff retreats."
+    },
+    {
+      "id": "tallebudgera-groyne",
+      "caption": "A groyne at Tallebudgera Creek, Australia, interrupting longshore drift."
+    }
+  ],
+  "glaciers": [
+    {
+      "id": "yosemite-tunnel-view",
+      "caption": "Yosemite Valley: a U-shaped trough, with Bridalveil Fall dropping from a hanging valley on the right."
+    },
+    {
+      "id": "little-matterhorn-montana",
+      "caption": "Little Matterhorn, Montana: a pyramidal horn left by glacial erosion on several sides."
+    },
+    {
+      "id": "horicon-drumlins",
+      "caption": "Aerial view of drumlins near Horicon Marsh, Wisconsin, streamlined by former ice flow."
+    }
+  ],
+  "karst": [
+    {
+      "id": "bimmah-sinkhole",
+      "caption": "Bimmah sinkhole, Oman: a doline formed by dissolution and collapse."
+    },
+    {
+      "id": "kyllini-stalactites",
+      "caption": "Stalactites in a Greek cave, deposited as dripping water loses carbon dioxide."
+    },
+    {
+      "id": "mammoth-cave-broadway",
+      "caption": "Broadway passage, Mammoth Cave, Kentucky: a large passage enlarged by groundwater dissolving limestone."
+    }
+  ],
+  "folds-faults": [
+    {
+      "id": "stillwater-reverse-fault",
+      "caption": "A reverse fault offsetting layers in a rock sample from Montana; the hanging wall has moved up relative to the footwall."
+    },
+    {
+      "id": "san-andreas-highsmith",
+      "caption": "The San Andreas Fault, California: a strike-slip fault with mainly horizontal movement."
+    },
+    {
+      "id": "thingvellir-rift",
+      "caption": "Þingvellir, Iceland: normal faults bound the rift where the crust is being stretched."
+    }
+  ],
+  "aeolian": [
+    {
+      "id": "dunhuang-yardangs",
+      "caption": "Yardangs at Dunhuang, China: streamlined ridges carved by wind abrasion."
+    },
+    {
+      "id": "mojave-mesquite-dune",
+      "caption": "A nabkha in the Mojave Desert: sand trapped around a mesquite shrub."
+    },
+    {
+      "id": "dustbowl-texas-rothstein",
+      "caption": "A 1930s Dust Bowl storm in Texas: deflation lifting fine soil into suspension."
+    }
+  ],
+  "rock-cycle": [
+    {
+      "id": "galapagos-pillow-lava",
+      "caption": "Pillow lava at the Galápagos Rift: igneous rock formed as lava cools in seawater."
+    },
+    {
+      "id": "grand-canyon-hopi-point",
+      "caption": "The Grand Canyon's layered cliffs: sedimentary rocks formed by deposition and lithification."
+    },
+    {
+      "id": "weathered-granite",
+      "caption": "Weathered granite breaking down into loose material: the first step towards new sediment."
+    }
+  ],
+  "soil-profile": [
+    {
+      "id": "karelian-podzolic-soil",
+      "caption": "A podzolic soil in Karelia, with a pale leached E horizon above a browner B horizon."
+    },
+    {
+      "id": "nipe-oxisol",
+      "caption": "A deep red Oxisol in Puerto Rico, formed by long, intense tropical weathering."
+    },
+    {
+      "id": "ponce-calciustoll",
+      "caption": "A Mollisol near Ponce, Puerto Rico, with a dark organic-rich A horizon over pale carbonate-rich subsoil."
+    }
+  ],
+  "soil-texture": [
+    {
+      "id": "ixtassou-kaolinite",
+      "caption": "Kaolinite, a clay mineral. Clay as a texture class means particles smaller than 0.002 mm, whatever the mineral."
+    },
+    {
+      "id": "place-us-ia",
+      "caption": "Iowa's Loess Hills are made of silt-rich wind-blown sediment, which would plot near the silt corner of the texture triangle."
+    }
+  ],
+  "weathering": [
+    {
+      "id": "foel-fras-blockfield",
+      "caption": "Angular blocks on Foel Fras, Wales: mechanical weathering, such as frost shattering, breaks rock without changing its minerals."
+    },
+    {
+      "id": "roots-in-bedrock",
+      "caption": "Tree roots growing into rock joints: biological weathering that can widen cracks."
+    },
+    {
+      "id": "malham-limestone-pavement",
+      "caption": "Limestone pavement at Malham: carbonation, a type of chemical weathering, has dissolved the joints into grykes."
+    }
+  ],
+  "soil-erosion": [
+    {
+      "id": "nrcs-raindrop-soil-splash",
+      "caption": "A raindrop hitting bare soil (USDA NRCS): rain splash detaches particles before runoff moves them."
+    },
+    {
+      "id": "shanxi-loess-hills",
+      "caption": "Loess hills in Shanxi, China, deeply cut by gullies where concentrated runoff erodes soft silt."
+    },
+    {
+      "id": "dustbowl-texas-rothstein",
+      "caption": "A Dust Bowl dust storm in Texas: wind erosion of bare, dry soil."
+    }
+  ],
+  "earthquakes": [
+    {
+      "id": "usgs-haiti-intensity",
+      "caption": "USGS ShakeMap of the 2021 Haiti earthquake. The star marks the epicentre and the coloured rings show intensity falling with distance."
+    },
+    {
+      "id": "puerto-rico-seismometer",
+      "caption": "A seismometer being installed in Puerto Rico. Its records of P-, S- and surface-wave arrivals are used to locate the focus."
+    }
+  ],
+  "volcanoes": [
+    {
+      "id": "fuji-kawaguchiko",
+      "caption": "Mount Fuji, Japan: a steep-sided stratovolcano built from layers of lava and fragmental deposits."
+    },
+    {
+      "id": "pinatubo-pyroclastic-deposits",
+      "caption": "Pyroclastic-flow deposits filling a valley below Pinatubo after its 1991 eruption."
+    },
+    {
+      "id": "kamoamoa-fissure-2011",
+      "caption": "A fissure eruption on Kīlauea, 2011: runny basaltic lava erupting along a linear crack."
+    }
+  ],
+  "tsunami": [
+    {
+      "id": "kamchatka-displacement",
+      "caption": "NASA ARIA satellite map of ground displacement after the 2025 Kamchatka megathrust earthquake. This kind of sudden seabed movement can trigger a tsunami."
+    },
+    {
+      "id": "porto-covo-breaking-wave",
+      "caption": "A wind wave breaking in Portugal, for contrast. Its wavelength is tens of metres; a tsunami's can be hundreds of kilometres."
+    }
+  ],
+  "tropical-cyclone": [
+    {
+      "id": "mangkhut-2018-modis",
+      "caption": "Satellite image of Typhoon Mangkhut, 2018, with a compact eye and spiral rainbands."
+    },
+    {
+      "id": "evan-2012-modis",
+      "caption": "MODIS satellite image of Cyclone Evan near Fiji: a Southern Hemisphere tropical cyclone spiralling clockwise."
+    },
+    {
+      "id": "katrina-new-orleans-2005",
+      "caption": "New Orleans flooded after Hurricane Katrina, 2005: storm surge and failed defences caused much of the damage."
+    }
+  ],
+  "graticule": [
+    {
+      "id": "mollweide-blue-marble",
+      "caption": "A Mollweide world map with the graticule drawn: meridians converge at the poles, while parallels never meet."
+    },
+    {
+      "id": "diomede-landsat",
+      "caption": "The Diomede Islands, either side of the International Date Line, which roughly follows the 180° meridian."
+    },
+    {
+      "id": "nasa-blue-marble-july",
+      "caption": "NASA Blue Marble in a latitude–longitude grid, where every meridian and parallel is drawn as a straight line."
+    }
+  ],
+  "map-projections": [
+    {
+      "id": "mercator-blue-marble",
+      "caption": "The Mercator projection keeps local angles but greatly enlarges high latitudes."
+    },
+    {
+      "id": "mollweide-blue-marble",
+      "caption": "The Mollweide projection keeps relative areas correct but distorts shapes near its edges."
+    },
+    {
+      "id": "hondius-globe-gores-1615",
+      "caption": "Globe gores from 1615: tapering strips that could be pasted on to a sphere with little distortion."
+    }
+  ],
+  "grid-references": [
+    {
+      "id": "yosemite-topographic-sheet",
+      "caption": "A USGS topographic sheet of Yosemite Creek. Its red numbered squares are US land-survey sections, not British National Grid squares: always check which grid a map uses."
+    },
+    {
+      "id": "greenwich-meridian",
+      "caption": "The Greenwich Meridian marker. WGS84 GPS longitude differs from this historic line by about 102 metres, a reminder that coordinate systems differ."
+    }
+  ],
+  "mass-movement": [
+    {
+      "id": "redcliff-coastal-slump",
+      "caption": "Rotational slumping above Redcliff Point, Dorset: blocks slide and tilt on a curved shear surface."
+    },
+    {
+      "id": "redhill-hongkong-landslide",
+      "caption": "A rainfall-triggered slope failure on the Redhill Peninsula, Hong Kong: higher pore pressure reduced the slope's strength."
+    }
+  ],
+  "rain-shadow": [
+    {
+      "id": "reunion-foehn-wall",
+      "caption": "A föhn cloud wall over a ridge on Réunion: moist air rises and cools on the windward side, then sinks and warms on the lee side."
+    },
+    {
+      "id": "place-jm",
+      "caption": "Fog and cloud on the Blue Mountains of Jamaica, where moist air forced up over high ground produces orographic cloud and rain."
+    }
+  ],
+  "groundwater": [
+    {
+      "id": "okee-fenokee-observation-well",
+      "caption": "A USGS observation well in Georgia that records changes in the water table."
+    },
+    {
+      "id": "perambalur-handpump",
+      "caption": "A hand pump in India. Pumping abstracts groundwater and can create a cone of depression around the well."
+    },
+    {
+      "id": "naze-london-clay",
+      "caption": "London Clay at Walton-on-the-Naze, Essex: a low-permeability layer that can act as an aquitard."
+    }
+  ],
+  "isostasy": [
+    {
+      "id": "himalaya-iss",
+      "caption": "The Himalaya from the ISS. High mountains are supported by a deep root of thickened crust, as in the model."
+    },
+    {
+      "id": "aletsch-glacier",
+      "caption": "The Aletsch Glacier, Switzerland. Ice sheets far thicker than this pressed the crust down, and it rebounds when the ice melts."
+    }
+  ],
+  "wilson-cycle": [
+    {
+      "id": "moine-thrust-knockan",
+      "caption": "The Moine Thrust at Knockan Crag, Scotland: a record of Caledonian collision when the Iapetus Ocean closed."
+    },
+    {
+      "id": "appalachians-modis",
+      "caption": "MODIS satellite image of the Appalachian ridges, folded during continental collisions that assembled Pangaea."
+    },
+    {
+      "id": "noaa-south-atlantic-bathymetry",
+      "caption": "NOAA bathymetry of the South Atlantic: passive margins on both sides of an ocean that opened as Africa and South America rifted apart."
+    }
+  ],
+  "soil-catena": [
+    {
+      "id": "gley-redox-samples",
+      "caption": "Gley clay compared with oxidised clay. Waterlogged soils at the foot of a slope often become grey gleys."
+    },
+    {
+      "id": "berder-ranker",
+      "caption": "A thin ranker soil over granite in Brittany, typical of steep upper slopes where soil stays shallow."
+    },
+    {
+      "id": "ponce-calciustoll",
+      "caption": "A Puerto Rico soil whose parent material includes colluvium, sediment moved downslope and deposited."
+    }
+  ],
+  "periglacial": [
+    {
+      "id": "foel-fras-blockfield",
+      "caption": "A blockfield on Foel Fras, Wales, broken up by frost shattering in past periglacial conditions."
+    },
+    {
+      "id": "blorenge-cwm-craf",
+      "caption": "Cwm Craf on Blorenge, Wales: a hollow interpreted as formed by nivation beneath lingering snow patches."
+    }
+  ],
+  "storm-surge": [
+    {
+      "id": "katrina-new-orleans-2005",
+      "caption": "New Orleans after Hurricane Katrina, 2005: low-lying neighbourhoods flooded after the surge and the failure of flood defences."
+    },
+    {
+      "id": "thames-barrier-evans",
+      "caption": "The Thames Barrier, London. Its gates close to keep tidal surges out of the upper estuary."
+    },
+    {
+      "id": "place-us-la",
+      "caption": "Landsat image of the Chandeleur barrier islands, Louisiana, which storm surges and waves repeatedly overwash and break up."
+    }
+  ]
+}

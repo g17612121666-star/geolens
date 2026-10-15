@@ -15,8 +15,8 @@ const KEYS: { key: string; does: string }[] = [
   { key: "L", does: "Show or hide labels" },
   { key: "R", does: "Reset the experiment" },
   { key: "F", does: "Fullscreen" },
-  { key: "P", does: "Switch projector view" },
-  { key: "T", does: "Compare model scales" },
+  { key: "P", does: "Projector view on or off" },
+  { key: "T", does: "Switch teaching / physical scale" },
   { key: "Click", does: "Inspect a named part" },
   { key: "Drag", does: "Rotate the model" },
   { key: "Ctrl + scroll", does: "Zoom in or out" },
@@ -180,18 +180,18 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
   }
 
   const extraKeys = [
-    ...(lab.controls.explode ? [{ key: "E", does: "Explode" }] : []),
-    ...(lab.controls.slice ? [{ key: "X", does: "Slice" }] : []),
+    ...(lab.controls.explode ? [{ key: "E", does: "Separate layers" }] : []),
+    ...(lab.controls.slice ? [{ key: "X", does: "Cutaway" }] : []),
   ];
 
   const keysPanel = keysOpen && (
     <div
       role="dialog"
-      aria-label="Model controls"
+      aria-label="Shortcuts"
       className="pointer-events-auto fixed left-1/2 top-24 z-50 max-h-[70vh] w-[min(26rem,calc(100%-2rem))] -translate-x-1/2 overflow-y-auto rounded-2xl border border-white/10 bg-basalt/95 p-4 backdrop-blur-xl"
     >
       <div className="flex items-center justify-between">
-        <p className="section-label">{"Keys"}</p>
+        <p className="section-label">{"Shortcuts"}</p>
         <button
           type="button"
           className="text-sm text-mist hover:text-chalk"
@@ -275,7 +275,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
               className="text-glacier underline"
               onClick={() => setKeysOpen((v) => !v)}
             >
-              {"Keys"}
+              {"Shortcuts"}
             </button>
           </p>
           <div className="grid gap-3 p-3 sm:grid-cols-2">

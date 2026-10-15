@@ -1,0 +1,360 @@
+{
+  "uk-daylength": [
+    {
+      "id": "meteosat-march-equinox",
+      "caption": "Meteosat-9 satellite image at the March equinox, 2011. The terminator runs almost from pole to pole, so London and Lerwick both get about 12 hours of daylight. Compare it with December's tilted boundary."
+    },
+    {
+      "id": "greens-mill-sundial",
+      "caption": "A sundial at Green's Windmill, Nottingham. In December the low midday Sun casts long shadows across Britain, and the Sun is lower still at Lerwick."
+    }
+  ],
+  "florida-insolation": [
+    {
+      "id": "meteosat-december-solstice",
+      "caption": "Meteosat-9 satellite image, 21 December 2010. At the solstice northern latitudes such as London's are tilted away from the Sun, while places nearer the tropics, such as Miami, still receive a much higher noon Sun."
+    },
+    {
+      "id": "ceres-net-2000-2015",
+      "caption": "NASA CERES satellite map of net radiation (2000–2015 average). It illustrates the process rather than either city: low latitudes gain energy overall, while high latitudes lose it."
+    }
+  ],
+  "holderness": [
+    {
+      "id": "glacial-till-bank",
+      "caption": "A bank of glacial till elsewhere in Britain, not at Holderness. It illustrates the poorly sorted mixture of clay and stones that makes the Holderness cliffs easy for waves to erode."
+    },
+    {
+      "id": "tallebudgera-groyne",
+      "caption": "A groyne at Tallebudgera Creek, Gold Coast, Australia. It is not Holderness, but it shows how groynes trap sediment on one side, the process that affects coasts south of Mappleton."
+    }
+  ],
+  "jurassic-coast": [
+    {
+      "id": "redcliff-coastal-slump",
+      "caption": "Slumping above Redcliff Point, near Weymouth, Dorset, on the Jurassic Coast. Weak clays let blocks rotate down curved slip surfaces as the cliff retreats."
+    },
+    {
+      "id": "hvitserkur-stack",
+      "caption": "Hvítserkur, Iceland (not the Jurassic Coast). This sea stack, with arches cut through its base, illustrates the cave–arch–stack stages seen at Durdle Door and Old Harry Rocks."
+    }
+  ],
+  "lake-district": [
+    {
+      "id": "aletsch-glacier",
+      "caption": "Aletsch Glacier, Switzerland, shows the process rather than the place: a valley glacier deepening and widening its trough, as glaciers once did in Lake District valleys."
+    },
+    {
+      "id": "crearlagh-hanging-valley",
+      "caption": "A hanging valley at Crearlagh Burn, Scotland (not the Lake District). Tributary valleys like this are left high above a main glacial trough, a feature common around the Lakeland fells."
+    }
+  ],
+  "snowdonia": [
+    {
+      "id": "foel-fras-blockfield",
+      "caption": "Angular frost-shattered blocks cover the summit of Foel Fras in the Carneddau, within Eryri. Freeze–thaw on the high ground continued after the glaciers left."
+    },
+    {
+      "id": "denali-glacial-basin",
+      "caption": "Glacier-filled cirques and sharp ridges in Denali National Park, Alaska. They show active ice carving the cirques and arêtes that are now ice-free around Yr Wyddfa."
+    }
+  ],
+  "yorkshire-dales": [
+    {
+      "id": "alabama-karst-spring",
+      "caption": "A karst spring in Alabama, USA. Water that sinks into limestone can re-emerge at a spring like this one, as streams do at resurgences in the Dales."
+    },
+    {
+      "id": "kyllini-stalactites",
+      "caption": "Stalactites in a cave on Mount Kyllini, Greece. They illustrate how dissolved calcium carbonate is redeposited underground, as in Dales caves."
+    }
+  ],
+  "somerset-levels": [
+    {
+      "id": "place-nl",
+      "caption": "Flat, waterlogged winter ground in the Netherlands. This is not Somerset, but it shows a similar problem: in very low-lying land, drainage must be managed by channels and pumping."
+    },
+    {
+      "id": "hannibal-mississippi-levee",
+      "caption": "A levee on the Mississippi at Hannibal, Missouri, holding back floodwater in 2008. It illustrates how embankments, like those along Somerset rivers, change where floodwater can go."
+    }
+  ],
+  "thames": [
+    {
+      "id": "thames-estuary-landsat",
+      "caption": "Landsat image of the Thames estuary. The tidal river widens towards the North Sea; pale water carries suspended sediment."
+    },
+    {
+      "id": "naze-london-clay",
+      "caption": "London Clay in the cliffs at Walton-on-the-Naze, Essex. This low-permeability clay underlies much of the lower Thames basin and limits how groundwater moves."
+    }
+  ],
+  "iceland": [
+    {
+      "id": "noaa-south-atlantic-bathymetry",
+      "caption": "NOAA bathymetry of the South Atlantic showing the Mid-Atlantic Ridge. This is the same ridge that crosses Iceland, seen here thousands of kilometres to the south, mostly under deep water."
+    },
+    {
+      "id": "galapagos-pillow-lava",
+      "caption": "Pillow lava at the Galápagos Rift, Pacific Ocean. It shows the process rather than Iceland: basalt erupting at a spreading centre, as it does along the submarine Mid-Atlantic Ridge."
+    },
+    {
+      "id": "kamoamoa-fissure-2011",
+      "caption": "A fissure eruption at Kīlauea, Hawaiʻi, in 2011. It shows the type of eruption, not Iceland: lava rises along a linear crack, as in many Icelandic eruptions."
+    }
+  ],
+  "san-andreas": [
+    {
+      "id": "usgs-haiti-intensity",
+      "caption": "USGS ShakeMap for the 2021 Haiti earthquake, not California. The same method maps how shaking intensity spreads out from the epicentre after Californian earthquakes."
+    },
+    {
+      "id": "puerto-rico-seismometer",
+      "caption": "USGS scientists install a seismometer in Puerto Rico. Networks of instruments like this record slip and shaking along faults such as the San Andreas."
+    }
+  ],
+  "cascadia": [
+    {
+      "id": "crater-lake-caldera",
+      "caption": "Crater Lake, Oregon, fills the caldera of Mount Mazama, a Cascade arc volcano fed by magma generated above the Cascadia subduction zone."
+    },
+    {
+      "id": "kamchatka-displacement",
+      "caption": "NASA ARIA displacement map after the 2025 Kamchatka megathrust earthquake, Russia. It shows the type of subduction-zone event that Cascadia can also produce."
+    },
+    {
+      "id": "tohoku-tsunami-aftermath",
+      "caption": "Kesennuma, Japan, after the 2011 Tōhoku tsunami. A subduction-zone earthquake generated the tsunami, a hazard the Cascadia coast also faces."
+    }
+  ],
+  "yellowstone": [
+    {
+      "id": "hawaiian-chain-iss",
+      "caption": "The Hawaiian islands from the ISS: an oceanic hotspot chain to compare with Yellowstone's track of older volcanic centres across the Snake River Plain."
+    },
+    {
+      "id": "crater-lake-caldera",
+      "caption": "Crater Lake, Oregon, a caldera formed by collapse after a large eruption. It illustrates caldera formation; Yellowstone's much larger calderas are harder to see from the ground."
+    }
+  ],
+  "hawaii": [
+    {
+      "id": "hawaiian-chain-iss",
+      "caption": "The main Hawaiian islands from the ISS. The youngest, largest island is at the southeastern end; the islands become older and more eroded towards the northwest."
+    },
+    {
+      "id": "kamoamoa-fissure-2011",
+      "caption": "Lava fountains along the Kamoamoa fissure on Kīlauea, March 2011. Repeated basaltic eruptions like this build broad shield volcanoes."
+    },
+    {
+      "id": "hawaii-windward-leeward",
+      "caption": "Terra MODIS satellite image of the Hawaiian islands, 2003. The older islands to the northwest are smaller than the young Island of Hawaiʻi, having subsided and eroded since their volcanoes became inactive."
+    }
+  ],
+  "grand-canyon": [
+    {
+      "id": "canyonlands-drainage",
+      "caption": "ASTER satellite image of Canyonlands, Utah, upstream on the Colorado River system. It shows the same process of incision into the uplifted Colorado Plateau, not the Grand Canyon itself."
+    },
+    {
+      "id": "siccar-unconformity",
+      "caption": "Siccar Point, Scotland, not Arizona. This angular unconformity illustrates the kind of missing time also recorded by the Great Unconformity in the Grand Canyon."
+    }
+  ],
+  "mississippi": [
+    {
+      "id": "hannibal-mississippi-levee",
+      "caption": "An engineered levee beside the Mississippi at Hannibal, Missouri, in June 2008. This reach is upstream of the lower river, but it shows how embankments confine floodwater."
+    },
+    {
+      "id": "place-us-la",
+      "caption": "Landsat image of the Chandeleur Islands, Louisiana. These barrier islands are remnants of an abandoned Mississippi delta lobe, now eroding as sediment supply has moved elsewhere."
+    }
+  ],
+  "yosemite": [
+    {
+      "id": "yosemite-topographic-sheet",
+      "caption": "USGS topographic sheet of Yosemite Creek, inside Yosemite National Park. Closely spaced contours mark the steep valley walls."
+    },
+    {
+      "id": "aletsch-glacier",
+      "caption": "Aletsch Glacier, Switzerland, illustrates the process rather than Yosemite: a large valley glacier deepening and widening a trough, as ice once did in Yosemite Valley."
+    }
+  ],
+  "katrina-sandy": [
+    {
+      "id": "place-us-ny",
+      "caption": "Lower Manhattan and the Battery beside New York Harbour. Sandy's 2012 storm surge flooded low ground at this tip of the island."
+    },
+    {
+      "id": "ike-bolivar-surge",
+      "caption": "Bolivar Peninsula, Texas, after Hurricane Ike in 2008. It is neither Katrina nor Sandy, but it shows the destruction storm surge can cause on a low barrier coast."
+    }
+  ],
+  "dust-bowl": [
+    {
+      "id": "place-us-ks",
+      "caption": "Grassland in Kansas, part of the Great Plains affected in the 1930s. Undisturbed grass cover holds the soil that ploughing exposed to the wind."
+    },
+    {
+      "id": "shanxi-loess-hills",
+      "caption": "Loess hills in Shanxi, China, for comparison: here running water, not wind, has cut deep gullies into wind-deposited silt."
+    }
+  ],
+  "colorado": [
+    {
+      "id": "canyonlands-drainage",
+      "caption": "ASTER satellite image of tributaries draining to the Colorado River in Canyonlands, Utah, upstream of Lake Powell."
+    },
+    {
+      "id": "grand-canyon-hopi-point",
+      "caption": "The Grand Canyon, Arizona, between Lake Powell and Lake Mead. Water released from Glen Canyon Dam flows through it on its way to Lake Mead."
+    }
+  ],
+  "greenwich": [
+    {
+      "id": "mollweide-blue-marble",
+      "caption": "A world map with its graticule. The central meridian of this Mollweide map is the prime meridian through Greenwich, from which longitude is measured east and west."
+    },
+    {
+      "id": "greens-mill-sundial",
+      "caption": "A sundial at Green's Windmill, Nottingham, about 1.2° west of Greenwich. It shows local solar time, which here runs about four and a half minutes behind solar time at Greenwich."
+    }
+  ],
+  "time-zones-us": [
+    {
+      "id": "diomede-landsat",
+      "caption": "Landsat 8 image of the Diomede Islands in the Bering Strait. Little Diomede (US) and Big Diomede (Russia) lie either side of the International Date Line, under 4 km apart but nearly a day apart on the clock."
+    },
+    {
+      "id": "meteosat-march-equinox",
+      "caption": "Meteosat-9 satellite image at the March equinox. It illustrates the process, not the USA: as Earth rotates eastward, the day–night boundary sweeps westward across places at different longitudes."
+    }
+  ],
+  "kola": [
+    {
+      "id": "mantle-xenolith",
+      "caption": "A mantle xenolith from Peridot Mesa, Arizona, not Kola. Rock from the mantle reaches the surface only when magma carries it up; drilling has never reached the mantle."
+    },
+    {
+      "id": "puerto-rico-seismometer",
+      "caption": "A USGS seismometer being installed in Puerto Rico. Seismic waves recorded by instruments like this reveal layers far deeper than the Kola borehole's 12 km."
+    }
+  ],
+  "snowdonia-moon": [
+    {
+      "id": "place-uk-snowdonia",
+      "caption": "Nant Gwynant in Eryri. Steep valley sides like these raise the local horizon, so the Moon appears later than it would over flat ground."
+    },
+    {
+      "id": "first-quarter-moon-2019",
+      "caption": "First-quarter Moon photographed from Calabria, Italy. The phase depends on Sun–Earth–Moon geometry, so observers in Eryri see the same half-lit disc at the same time."
+    }
+  ],
+  "yosemite-moon": [
+    {
+      "id": "yosemite-tunnel-view",
+      "caption": "Yosemite Valley from Tunnel View. The high granite walls hide the horizon, delaying when a rising full Moon becomes visible from the valley floor."
+    },
+    {
+      "id": "nasa-lunar-eclipse-2000",
+      "caption": "Lunar eclipse of 20 January 2000, photographed from Florida. An eclipse happens only when a full Moon lies near a node of its inclined orbit; most full Moons miss Earth's shadow."
+    }
+  ],
+  "outer-banks": [
+    {
+      "id": "place-us-la",
+      "caption": "Landsat image of the Chandeleur barrier islands, Louisiana. Like the Outer Banks, these narrow sandy islands are reshaped by storms; they illustrate the process, not North Carolina."
+    },
+    {
+      "id": "ike-bolivar-surge",
+      "caption": "Bolivar Peninsula, Texas, after Hurricane Ike (2008). Overwash spread sand across the low barrier and destroyed buildings, a process the Outer Banks also experience."
+    }
+  ],
+  "mammoth-cave": [
+    {
+      "id": "malham-limestone-pavement",
+      "caption": "Limestone pavement at Malham, Yorkshire Dales, for comparison. Here dissolution has widened joints at the surface; at Mammoth Cave it has enlarged passages deep underground."
+    },
+    {
+      "id": "alabama-karst-spring",
+      "caption": "A karst spring in Alabama. It shows how water moving through limestone passages re-emerges at the surface, as underground rivers do near Mammoth Cave."
+    }
+  ],
+  "phoenix-heat": [
+    {
+      "id": "ecostress-london-night",
+      "caption": "ECOSTRESS thermal map of London at night, July 2022. It is not Phoenix, but it shows how measured surface temperatures reveal an urban heat island that an ordinary photograph cannot."
+    }
+  ],
+  "uk-sea-breeze": [
+    {
+      "id": "sri-lanka-sea-breeze-modis",
+      "caption": "Aqua MODIS image of Sri Lanka, April 2013, illustrating the process: cumulus forms over the sun-warmed island as sea-breeze air moves inland, while the cooler sea stays clear."
+    },
+    {
+      "id": "goes-land-breeze-michigan",
+      "caption": "GOES-19 satellite image of Lake Michigan, October 2025. A cloud-free band along the shore marks a land breeze, the night-time reverse of a sea breeze."
+    }
+  ],
+  "cairngorms-albedo": [
+    {
+      "id": "ceres-reflected-2000-2015",
+      "caption": "NASA CERES satellite map of reflected sunlight. Snow- and ice-covered regions and cloudy areas reflect strongly; this is reflected energy in W m⁻², not albedo itself."
+    }
+  ],
+  "denver-air": [
+    {
+      "id": "atmospheric-limb",
+      "caption": "Earth's atmosphere seen edge-on from the ISS. The weather layer is far thicker than Denver's 1.6 km elevation, so the city lies well inside the troposphere."
+    },
+    {
+      "id": "graw-radiosondes",
+      "caption": "Radiosondes like these are launched twice daily from upper-air stations, including one at Denver. They measure how pressure and temperature change with height."
+    }
+  ],
+  "hong-kong-landslide": [
+    {
+      "id": "place-hk",
+      "caption": "Hong Kong in 2005. Dense development climbs steep hillsides above the harbour, which is why slope stability matters so much here."
+    },
+    {
+      "id": "weathered-granite",
+      "caption": "Deeply weathered granite with rounded unweathered cores (location outside Hong Kong). It illustrates saprolite, the weak weathered material that forms many Hong Kong slopes."
+    }
+  ],
+  "shanghai-huangpu": [
+    {
+      "id": "thames-barrier-evans",
+      "caption": "The Thames Barrier in London, for comparison. Like Shanghai's flood walls along the Huangpu, it protects a tidal river city against high water."
+    },
+    {
+      "id": "bangladesh-modis-2011",
+      "caption": "Terra MODIS satellite image of the Ganges–Brahmaputra delta, Bangladesh. It shows the process rather than Shanghai: rivers building a low, monsoon-flooded delta plain like the Yangtze delta."
+    }
+  ],
+  "typhoon-mangkhut": [
+    {
+      "id": "place-hk",
+      "caption": "Hong Kong's harbour and high-rise waterfront, which Mangkhut's winds and storm surge struck in September 2018."
+    },
+    {
+      "id": "place-mo",
+      "caption": "A bridge over the coastal waters of Macau, in the Pearl River Delta. Mangkhut's storm surge flooded low-lying parts of Macau in 2018."
+    },
+    {
+      "id": "isabel-hurricane-eye",
+      "caption": "Hurricane Isabel photographed from the ISS in 2003. An Atlantic hurricane and a Pacific typhoon such as Mangkhut are the same kind of storm, with an eye and an eyewall."
+    }
+  ],
+  "loess-plateau": [
+    {
+      "id": "place-us-ia",
+      "caption": "Loess Hills, western Iowa, USA. They show the same process as the Loess Plateau: wind-deposited silt that erodes easily once exposed, here farmed along the contours."
+    },
+    {
+      "id": "nrcs-raindrop-soil-splash",
+      "caption": "A raindrop striking bare soil (USDA NRCS). Splash detaches particles, the first step in the water erosion that cut the plateau's gullies."
+    }
+  ]
+}

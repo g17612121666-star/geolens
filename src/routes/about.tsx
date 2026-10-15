@@ -68,8 +68,8 @@ function About() {
             easier for students to investigate and explain.
           </p>
           <p className="mt-4 leading-7 text-mist">
-            As a student docent at the Shanghai Natural History Museum, he also takes part in
-            sharing science with museum visitors. Geolens brings this interest in education and
+            As a student docent at the Shanghai Natural History Museum, he also shares science with
+            museum visitors. Geolens brings this interest in education and
             public science communication into a resource that students, teachers and geography clubs
             can use together.
           </p>

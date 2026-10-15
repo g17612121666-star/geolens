@@ -55,7 +55,7 @@ export default function Aeolian() {
         horizon
         slug="aeolian"
         camera={[4.2, 4, 7]}
-        scale="60 × 40 m selected landform · relief ×2 · wind points +x"
+        scale="60 × 40 m example · relief ×2 · wind follows the arrow"
         trueScale="1 scene unit = 10 m · equal distances · sand grains enlarged"
       >
         <group scale={[1, v, 1]}>
@@ -123,8 +123,8 @@ export default function Aeolian() {
             text={mode === 0 ? "Gentler stoss slope" : "Wind-eroded ridges"}
             note={
               mode === 0
-                ? "Wind carries sand up the windward stoss slope. Transport includes saltation, surface creep and suspension of sufficiently fine material. The drawn grains are enlarged direction markers."
-                : "Yardangs are streamlined erosional remnants, commonly aligned with prevailing erosive winds. Abrasion and deflation act with weathering and rock structure. They are not heaps of deposited dune sand."
+                ? "Wind carries sand up the gentle windward (stoss) slope by saltation and surface creep; the finest grains travel in suspension. The grains shown are enlarged to mark direction."
+                : "Yardangs are streamlined ridges carved by the wind, usually aligned with the strongest winds. Abrasion and deflation work with weathering and rock structure. They are eroded rock, not piles of dune sand."
             }
             occlude={false}
           />
@@ -133,8 +133,8 @@ export default function Aeolian() {
             text={mode === 0 ? "Horns point downwind" : "Tapered downwind ends"}
             note={
               mode === 0
-                ? "The crescent tips lie downwind of the central crest. The centre leeward slip face is 32° at true scale; twice-enlarged relief makes it look steeper. Actual repose angles vary."
-                : "These invented ridges taper along the wind direction. Their shapes do not determine a wind speed or erosion rate."
+                ? "The crescent tips lie downwind of the central crest. The slip face is 32° at true scale; doubled relief makes it look steeper. Real angles of repose vary."
+                : "These invented ridges taper downwind. Their shapes do not give a wind speed or erosion rate."
             }
             occlude={false}
           />
@@ -142,11 +142,11 @@ export default function Aeolian() {
       </ScienceStudio>
       <ScienceReadout>
         {mode === 0
-          ? "Barchan: deposited sand, a gentler windward slope and a steeper lee slip face. Migration translates the chosen shape downwind without assigning a rate."
+          ? "Barchan: deposited sand, a gentler windward slope and a steeper lee slip face. Dune position moves the dune downwind without a set speed."
           : "Yardang: rock carved into streamlined ridges, aligned broadly with the erosive wind."}
         <br />
         {
-          "Play follows enlarged hopping grains downwind. The static shape is not a sediment-transport simulation. Many deserts have rock or gravel surfaces; a dune requires an available sand supply."
+          "Play shows enlarged grains hopping downwind; the dune shape is not simulated from sand transport. Many deserts have rock or gravel surfaces; a dune needs a supply of sand."
         }
       </ScienceReadout>
     </>

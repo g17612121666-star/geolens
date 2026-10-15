@@ -23,7 +23,7 @@ export const Route = createFileRoute("/tools/earth-motion")({
     headFor({
       title: "Earth-motion calculator",
       description:
-        "Explore daylight, solar altitude and the terminator with reproducible UTC calculations and a 3D Earth.",
+        "Calculate daylight and the Sun’s height for any place and date, and see the day–night boundary on a 3D Earth.",
       path: "/tools/earth-motion",
     }),
 });
@@ -437,7 +437,7 @@ function EarthMotion() {
           <p className="mt-3 leading-7 text-mist">
             <span className="formula">{"Noon altitude = 90° − |latitude − declination|."}</span>{" "}
             {
-              "Negative altitude means the Sun remains below the horizon at noon. At 0° tilt, most latitudes receive twelve geometric daylight hours; the poles are a special horizon boundary."
+              "Negative altitude means the Sun remains below the horizon at noon. At 0° tilt, almost every latitude gets twelve hours of geometric daylight; at the poles the Sun circles along the horizon."
             }
           </p>
           <p className="mt-3 leading-7 text-mist">

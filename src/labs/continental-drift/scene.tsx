@@ -9,8 +9,8 @@ export default function ContinentalDrift() {
     <>
       <ScienceStudio
         slug="continental-drift"
-        scale="GPlates MULLER2019 · 10 Ma snapshots · modern coastline shapes reconstructed"
-        trueScale="Spherical globe · no invented continent trajectories"
+        scale="GPlates MULLER2019 · 10 Ma snapshots · modern coastlines moved back in time"
+        trueScale="Globe to scale · positions shown only at reconstructed 10 Ma steps"
         camera={[2.8, 1.2, 3.8]}
       >
         <group rotation={[0, Math.PI, 0]}>

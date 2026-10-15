@@ -242,7 +242,7 @@ export default function Isostasy() {
         <Tag
           pos={[0, iceTop + 0.35, 0]}
           text={`${Math.round(ice)} m of ice`}
-          note="Ice loading depresses each column by the added ice mass divided by mantle density. Real adjustment is delayed by thousands of years and spreads sideways through lithospheric flexure."
+          note="Each column sinks by the ice thickness × 917/3300 (ice density ÷ mantle density). Real adjustment takes thousands of years and spreads sideways as the lithosphere bends."
           occlude={false}
         />
         {lakes.length > 0 && (

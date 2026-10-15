@@ -270,7 +270,7 @@ export function PlateSection({ kind = 0 }: { kind?: number }) {
       <Tag
         pos={[-2.2, -1.25, D / 2 + 0.05]}
         text="Mantle · mostly solid"
-        note="Green: rigid lithospheric mantle, part of the plate. Red-brown: hotter, weaker asthenosphere. Colours distinguish materials; the section has no measured speed or length scale and is not a magma ocean."
+        note="Green: rigid lithospheric mantle, part of the plate. Red-brown: hotter, weaker asthenosphere, still solid rather than a magma ocean. The section has no true length or speed scale."
         occlude={false}
       />
     </group>

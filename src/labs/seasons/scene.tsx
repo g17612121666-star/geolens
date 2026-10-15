@@ -42,12 +42,12 @@ export default function Seasons() {
         scale={
           close
             ? "Earth close-up · rays show sunlight direction · same tilt and year controls"
-            : "Earth enlarged · fixed axial direction · T compares actual sizes and distances"
+            : "Earth enlarged · axis keeps a fixed direction · physical scale shows true sizes and distances"
         }
         trueScale={
           close
             ? "Spherical Earth · surface locations to scale · arrows are direction symbols"
-            : "Earth radius and orbit distance share a scale · reset to inspect the tiny Earth"
+            : "Earth radius and orbit distance share one scale · Earth is a tiny dot at this scale"
         }
         lights={false}
         space
@@ -71,7 +71,7 @@ export default function Seasons() {
             <Tag
               pos={[0, 0.78, 0]}
               text="Sun"
-              note="At one focus. Orbit stretch is a hypothetical experiment; Earth's present eccentricity is about 0.0167."
+              note="The Sun sits at one focus of the orbit. Orbit stretch is a what-if setting; Earth's real eccentricity is about 0.0167."
             />
           </>
         )}
@@ -170,7 +170,7 @@ export default function Seasons() {
         {(new THREE.Vector3(...position).length() / 2.65).toFixed(3)} {"AU. "}
         {ecc > 0.001
           ? "Stretched orbit: labels mark directions, not equal time intervals."
-          : "Set tilt to zero to compare 12-hour days throughout the orbit."}
+          : "Set Axial tilt to 0° to see 12-hour days all year."}
       </ScienceReadout>
     </>
   );

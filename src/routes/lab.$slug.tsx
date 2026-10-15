@@ -18,8 +18,8 @@ export const Route = createFileRoute("/lab/$slug")({
     const lab = LAB_BY_SLUG[params.slug];
     if (!lab) {
       return headFor({
-        title: "Not on the bench",
-        description: "This slug is not a shipped lab.",
+        title: "Lab not found",
+        description: "We could not find this lab on Geolens.",
         path: `/lab/${params.slug}`,
       });
     }

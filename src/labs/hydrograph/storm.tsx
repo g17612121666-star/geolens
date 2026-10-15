@@ -41,7 +41,7 @@ export default function Hydrograph() {
           <Tag
             pos={[0.12, 0.98, 0]}
             text={`${row.q.toFixed(2)} m³/s`}
-            note="The bar shows selected discharge, not a measured water depth. Channel width and rain respond to the same selected storm hour as the graph."
+            note="The bar shows discharge at the selected hour, not water depth. The river width and rain in the landscape match the same hour on the graph."
             occlude={false}
           />
         </group>
@@ -129,7 +129,7 @@ export default function Hydrograph() {
         {"Runoff fraction "}
         {data.coefficient.toFixed(2)}
         {"; storage time "}
-        {data.tau.toFixed(2)} {"h in the selected catchment model."}
+        {data.tau.toFixed(2)} {"h in this model catchment."}
       </ScienceReadout>
     </>
   );

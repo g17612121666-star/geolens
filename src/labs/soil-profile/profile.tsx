@@ -101,7 +101,7 @@ export default function SoilProfile() {
         horizon
         slug="soil-profile"
         camera={[2, 1.4, 6]}
-        scale="Illustrative 2 m profile · common geometric scale · no compulsory O–A–E–B–C sequence"
+        scale="Example 2 m profile, drawn to scale · not every soil has every O–A–E–B–C horizon"
         trueScale="1 scene unit = 1 m · grains and roots enlarged for visibility"
       >
         <mesh geometry={geometry}>
@@ -188,7 +188,7 @@ export default function SoilProfile() {
         {profile.name}. {profile.context}
         <br />
         {
-          "Depths are teaching examples, not a field survey. E (eluviated) and R (hard bedrock) are valid designations but are absent from these exposed examples. Select a horizon label for its meaning."
+          "Depths are teaching examples, not field measurements. These examples have no E (leached) or R (bedrock) horizon, though other soils do. Select a horizon label to read what it means."
         }
       </ScienceReadout>
     </>

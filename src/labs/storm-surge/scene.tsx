@@ -274,7 +274,7 @@ export default function StormSurge() {
         <Tag
           pos={[-1.8, 1.0, 0]}
           text={`Onshore wind ${wind} m/s`}
-          note="Wind stress is rho_air × Cd × speed², using air density 1.225 kg/m³ and constant drag coefficient 0.0015. These are disclosed teaching inputs. Whitecaps and clouds strengthen with the wind but are illustrative."
+          note="Wind stress = air density × drag coefficient × wind speed², using 1.225 kg/m³ and a fixed drag coefficient of 0.0015. Whitecaps and clouds grow with the wind but are only illustrative."
           occlude={false}
         />
         <Tag
@@ -307,7 +307,7 @@ export default function StormSurge() {
         {"Combined steady setup "}
         {result.coastalSetup.toFixed(2)}{" "}
         {
-          "m at the coast; read it on the striped gauge (1 m bands). This excludes tides, waves and inundation and must not be used as a warning or flood forecast."
+          "m at the coast; read it on the striped gauge (1 m bands). Tides, waves and inland flooding are left out, so this is not a flood forecast."
         }
       </ScienceReadout>
     </>

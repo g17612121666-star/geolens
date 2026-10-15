@@ -350,8 +350,8 @@ export default function RiverErosion() {
           mode === 1
             ? "Pothole close-up · 1 unit = 1 m · block cut through the hollow · stones enlarged"
             : mode === 0
-              ? "60 × 40 m terrain · vertical ×2.2 · retreat prescribed, not dated"
-              : "60 × 40 m terrain · vertical ×1.5 · valley shape prescribed"
+              ? "60 × 40 m terrain · vertical ×2.2 · retreat stages not dated"
+              : "60 × 40 m terrain · vertical ×1.5 · fixed valley shape"
         }
         trueScale={
           mode === 1
@@ -431,7 +431,7 @@ export default function RiverErosion() {
                   <Tag
                     pos={[lip + 0.35, poolY + 0.62, 0.62]}
                     text="Plunge pool"
-                    note="Falling water, turbulence and swirling stones deepen a pool at the foot of the fall. The fallen blocks come from the collapsed cap. Depth and retreat are chosen geometries, not calculated erosion rates."
+                    note="Falling water, turbulence and swirling stones deepen a pool at the foot of the fall. The fallen blocks come from the collapsed cap. The pool depth and retreat distance are chosen, not calculated."
                     occlude={false}
                   />
                   <Tag
@@ -473,10 +473,10 @@ export default function RiverErosion() {
           ? `Water flows downstream; the waterfall retreats upstream by ${(25 * progress).toFixed(1)} m in this chosen sequence. Change Retreat to expose a longer gorge.`
           : mode === 1
             ? "Flow swirls stones around a hollow in the bedrock. The block is cut through the centre of a 1.24 m wide, 0.85 m deep example."
-            : "A narrow channel cuts the valley floor; weathering and slope processes act on both sides. The water moves downstream while the selected valley stays fixed."}
+            : "A narrow channel cuts the valley floor while weathering and slope processes lower both sides. The water flows downstream; the valley shape does not change."}
         <br />
         {
-          "Play follows flow only. No erosion rate, sediment budget or landform age is inferred. Select a feature, rotate the model and compare the real photograph."
+          "Play animates the flow only; the model gives no erosion rate or landform age. Choose a feature, rotate the model and compare it with the photograph."
         }
       </ScienceReadout>
     </>

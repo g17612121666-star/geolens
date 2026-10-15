@@ -13,8 +13,8 @@ export const ROCK_ROUTES = [
   { from: 1, to: 3, name: "Weathering / erosion of sedimentary rock" },
   { from: 2, to: 3, name: "Weathering / erosion of metamorphic rock" },
   { from: 3, to: 1, name: "Deposition, burial and lithification" },
-  { from: 0, to: 2, name: "Solid-state change of igneous rock" },
-  { from: 1, to: 2, name: "Solid-state change of sedimentary rock" },
+  { from: 0, to: 2, name: "Metamorphism of igneous rock" },
+  { from: 1, to: 2, name: "Metamorphism of sedimentary rock" },
   { from: 0, to: 4, name: "Melting of igneous rock" },
   { from: 1, to: 4, name: "Melting of sedimentary rock" },
   { from: 2, to: 4, name: "Melting of metamorphic rock" },
@@ -64,7 +64,7 @@ export default function RockCycle() {
         slug="rock-cycle"
         camera={[0, 0.4, 9]}
         scale="Rock and material examples · positions and specimen sizes are schematic"
-        trueScale="No common sample mass, process rate or geographic scale is implied"
+        trueScale="Not to scale · no sample size, process rate or distance is implied"
       >
         {positions.map((p, i) => (
           <group key={i} position={p}>
@@ -74,11 +74,11 @@ export default function RockCycle() {
               text={NAMES[i]}
               note={
                 i === 0
-                  ? "Igneous rock forms by cooling and crystallisation of melt. This coarse-grained texture is illustrative, not a scan or a mineral identification."
+                  ? "Igneous rock forms by cooling and crystallisation of melt. The coarse-grained texture is drawn, not scanned from a real specimen."
                   : i === 1
                     ? "This clastic sedimentary example is bedded. Compaction and cementation can lithify sediment; chemical and biological sedimentary rocks have other pathways."
                     : i === 2
-                      ? "This foliated example illustrates solid-state recrystallisation and deformation. Not all metamorphic rocks are foliated, and melting is a separate process."
+                      ? "This foliated example shows minerals recrystallised and aligned while the rock stayed solid. Not all metamorphic rocks are foliated, and melting is a separate process."
                       : i === 3
                         ? "Loose sediment is material that can be transported and deposited. Grain sizes are enlarged. It is not yet a lithified sedimentary rock."
                         : "Magma is melt that may contain crystals and gas. It becomes igneous rock on cooling and solidification, not merely by becoming hotter."
@@ -146,7 +146,7 @@ export default function RockCycle() {
         {pressure.toFixed(2)} {"GPa. That pressure equals roughly "}
         {((pressure * 1e9) / (2800 * 9.81) / 1000).toFixed(1)}{" "}
         {
-          "km of a uniform 2800 kg/m³ overburden. Temperature and pressure alone do not identify a rock or its melt fraction; composition, fluids, time and path matter. The moving specimen changes at the symbolic process midpoint; this is a route illustration, not a reaction-rate or melt-fraction model."
+          "km of rock with a uniform density of 2800 kg/m³. Temperature and pressure alone do not identify a rock or how much of it melts; composition, fluids, time and history also matter. The moving specimen changes type halfway along the route; it shows the route, not a reaction rate."
         }
       </ScienceReadout>
     </>

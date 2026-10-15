@@ -9,8 +9,8 @@ export const Route = createFileRoute("/$")({
   component: NotFoundPage,
   head: () => ({
     meta: [
-      { title: pageTitle("Not on the chart") },
-      { name: "description", content: "This coordinate is empty ocean. The page is not on the chart." },
+      { title: pageTitle("Page not found") },
+      { name: "description", content: "We could not find this page on Geolens." },
       robotsMeta(),
     ],
   }),

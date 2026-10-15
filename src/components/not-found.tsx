@@ -5,7 +5,7 @@ import { pageTitle } from "@/lib/seo";
 
 export function NotFoundPage() {
   useEffect(() => {
-    document.title = pageTitle("This coordinate is empty ocean");
+    document.title = pageTitle("Page not found");
   }, []);
   return (
     <main id="main" className="relative flex min-h-dvh items-center px-6 pt-14">
@@ -24,7 +24,7 @@ export function NotFoundPage() {
         </h1>
         <p className="mt-4 text-mist">
           {
-            "The page is not on the chart. The globe still turns. Pick a lab and start from a coast you know."
+            "We could not find that page. It may have moved, or the link may be mistyped. Pick a lab or go back to the home page."
           }
         </p>
         <div className="mt-8 flex gap-3">

@@ -127,25 +127,25 @@ export default function EnergyBudget() {
         <Tag
           pos={[-2.8, 2.65, 0.2]}
           text={`Incoming ${b.incoming.toFixed(0)} W/m²`}
-          note="The solar irradiance of 1361 W/m² is divided by four to average a disc intercept over the area of a sphere."
+          note="Earth intercepts 1361 W/m² across a disc but spreads it over a sphere with four times the area, so the average is a quarter."
           occlude={false}
         />
         <Tag
           pos={[-2.05, 1.5, 0.4]}
           text={`Reflected ${b.reflected.toFixed(0)}`}
-          note="Planetary albedo is the fraction of incoming sunlight reflected to space. It includes atmosphere, clouds and surface."
+          note="Planetary albedo is the fraction of incoming sunlight reflected to space by air, clouds and the surface."
           occlude={false}
         />
         <Tag
           pos={[1.1, 2.7, 0.3]}
           text={`To space ${b.outgoing.toFixed(0)} W/m²`}
-          note="Outgoing longwave equals surface radiation transmitted through the layer plus upward radiation emitted by the layer. At equilibrium it balances absorbed sunlight."
+          note="Outgoing infrared = surface radiation that passes through the layer + infrared the layer emits upwards. At equilibrium it equals the sunlight absorbed."
           occlude={false}
         />
         <Tag
           pos={[2, 0.4, 0.3]}
           text={greenhouse ? "IR layer · ε = 0.78" : "No infrared absorption"}
-          note="A grey layer absorbs and emits infrared but is transparent to sunlight. The enlarged molecules stand for greenhouse gases such as carbon dioxide (linear), water vapour (bent) and methane; their vibration is what absorbs infrared. This deliberately omits convection, latent heat and spectral detail."
+          note="One layer absorbs and emits the same share of infrared at every wavelength but lets sunlight through. The hugely enlarged molecules stand for greenhouse gases: carbon dioxide (linear), water vapour (bent) and methane; their vibrations absorb infrared. Convection, evaporation and wavelength detail are left out."
           occlude={false}
         />
       </ScienceStudio>
@@ -166,7 +166,7 @@ export default function EnergyBudget() {
         </span>{" "}
         {"W/m²."}
         <br />
-        {"Surface equilibrium "}
+        {"Equilibrium surface temperature "}
         {(b.surfaceK - 273.15).toFixed(1)} {"°C · top-of-atmosphere balance "}
         {(b.absorbed - b.outgoing).toFixed(1)}{" "}
         {"W/m². Follow the wave symbols to trace the exchange of energy."}

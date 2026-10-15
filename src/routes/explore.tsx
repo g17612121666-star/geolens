@@ -208,7 +208,9 @@ function Explore() {
         )}
       </div>
       <p role="status" className="my-6 text-sm text-mist">
-        {kind === "labs" ? list.length + " labs" : cases.length + " case studies"}
+        {kind === "labs"
+          ? list.length + (list.length === 1 ? " lab" : " labs")
+          : cases.length + (cases.length === 1 ? " case study" : " case studies")}
         {query ? " matching “" + query + "”" : ""}
       </p>
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

@@ -7,6 +7,8 @@ import { LAB_BY_SLUG } from "@/lib/labs/catalog";
 import { headFor, learningResourceJsonLd, siteOrigin } from "@/lib/seo";
 import { Figure } from "@/components/figure";
 import { caseFigure } from "@/lib/case-figures";
+import { Gallery } from "@/components/gallery";
+import { CASE_GALLERY } from "@/lib/media-galleries";
 
 export const Route = createFileRoute("/case/$slug")({
   beforeLoad: ({ params }) => {
@@ -32,6 +34,7 @@ function CasePage() {
   const openSlug = c.labs[0];
   const href = openSlug ? `/lab/${openSlug}${c.state ? `?${c.state}` : ""}` : "/explore";
   const fig = caseFigure(c.slug);
+  const gallery = (CASE_GALLERY[c.slug] ?? []).filter((g) => g.src !== fig?.src);
   const jsonLd = learningResourceJsonLd({
     name: c.title,
     description: c.lede,
@@ -65,10 +68,16 @@ function CasePage() {
           <p key={p.slice(0, 48)}>{p}</p>
         ))}
       </div>
+      {gallery.length > 0 && (
+        <section className="mt-8">
+          <p className="section-label mb-3">{"More from this case"}</p>
+          <Gallery figures={gallery} />
+        </section>
+      )}
       {openSlug && (
         <div className="mt-8">
           <Button asChild>
-            <a href={href}>{"Open this state in the lab"}</a>
+            <a href={href}>{"Open this setup in the lab"}</a>
           </Button>
         </div>
       )}
@@ -82,7 +91,7 @@ function CasePage() {
       </section>
       {labs.length > 0 && (
         <div className="mt-10">
-          <p className="section-label mb-3">{"Process labs"}</p>
+          <p className="section-label mb-3">{"Related labs"}</p>
           <div className="flex flex-wrap gap-2">
             {labs.map((lab) => (
               <Link key={lab.slug} to="/lab/$slug" params={{ slug: lab.slug }}>

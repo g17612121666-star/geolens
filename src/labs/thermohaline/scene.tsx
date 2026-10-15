@@ -42,7 +42,7 @@ export default function Thermohaline() {
         trueScale={
           view === 0
             ? "6000 km section, 4 km deep · no vertical exaggeration"
-            : "Tank geometry uses a common scale · parcel marker enlarged"
+            : "Tank shown as in Teaching scale · parcel marker enlarged"
         }
       >
         {view === 0 ? (
@@ -111,19 +111,19 @@ export default function Thermohaline() {
             <Tag
               pos={[2.25, 0.4, 0]}
               text="High latitudes · deep-water formation"
-              note="Buoyancy loss can allow convection and formation of dense water. This Atlantic-to-Southern-Ocean section is schematic, not a real pipe or a map of every sinking site."
+              note="Cooling and sea-ice formation, which leaves salt behind in the water, make surface water dense enough to sink. The basin is schematic, not a map of real sinking sites."
               occlude={false}
             />
             <Tag
               pos={[-2, 0.4, 0]}
               text="Return and upwelling"
-              note="Winds and turbulent mixing help return deep water towards the surface, especially through the Southern Ocean. Temperature and salinity alone do not power a complete conveyor."
+              note="Winds and mixing bring deep water back towards the surface. In the real ocean much of this happens in the Southern Ocean, not only at low latitudes as drawn here."
               occlude={false}
             />
             <Tag
               pos={[0, y(4000) - 0.35, 0.9]}
               text="Deep return · centuries of transport"
-              note="Tracer age varies between routes and water masses. Animation speed is arbitrary; this view does not assign one global turnover time."
+              note="Deep water takes centuries to return, and the time differs between routes. The animation speed is not to scale."
               occlude={false}
             />
           </>
@@ -177,13 +177,13 @@ export default function Thermohaline() {
             <Tag
               pos={[0, 0.5, 0]}
               text={`${rho.toFixed(2)} kg/m³ · parcel`}
-              note="Linear classroom approximation at a common reference pressure. Not the TEOS-10 equation of state; compressibility, mixing and changing coefficients are excluded."
+              note="A simple linear formula at one reference pressure, not the full TEOS-10 equation of state."
               occlude={false}
             />
             <Tag
               pos={[0, -2.45, 0]}
               text={`Reference water ${reference.toFixed(2)} kg/m³`}
-              note="Reference temperature 10 °C and Absolute Salinity 35 g/kg. The marker is released at mid-depth. Its motion illustrates buoyancy direction; real water deforms and mixes, rather than staying in a rigid sphere."
+              note="Reference water: 10 °C and Absolute Salinity 35 g/kg. The marker starts at mid-depth and shows only which way buoyancy acts; real water mixes rather than moving as a solid ball."
               occlude={false}
             />
           </>
@@ -191,15 +191,15 @@ export default function Thermohaline() {
       </ScienceStudio>
       <ScienceReadout>
         {view === 0
-          ? "Warm upper limb (amber); cold deep return (blue). Choose Density experiment to vary the parcel."
+          ? "Warm upper water (amber) flows from the tropical coast (left) to the icy polar coast (right), sinks and returns at depth (blue). Choose Density experiment to vary the parcel."
           : `${temperature} °C · Absolute Salinity ${salinity.toFixed(1)} g/kg · density difference ${difference >= 0 ? "+" : ""}${difference.toFixed(2)} kg/m³: ${Math.abs(difference) < 0.005 ? "neutral" : difference > 0 ? "denser parcel tends to sink" : "lighter parcel rises towards the surface"}.`}
         <br />
         {view === 0 ? (
-          "Overturning also needs winds and mixing. The separate parcel experiment does not calculate AMOC transport or a shutdown threshold."
+          "Overturning also needs winds and mixing. The parcel experiment does not calculate AMOC strength or a shutdown threshold."
         ) : (
           <>
             <span className="formula">{"ρ = 1027 [1 − 0.0002(T − 10) + 0.00076(SA − 35)]"}</span>
-            {". Play illustrates buoyancy direction, not descent speed."}
+            {". Play shows the direction of movement, not its speed."}
           </>
         )}
       </ScienceReadout>

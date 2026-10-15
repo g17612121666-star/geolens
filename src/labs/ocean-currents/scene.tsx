@@ -126,21 +126,23 @@ export default function OceanCurrents() {
         slug="ocean-currents"
         camera={[0, 0.8, 6]}
         scale="Geographic globe · current routes schematic · widths and tracers enlarged"
-        trueScale="Earth is spherical at one scale · current symbols remain enlarged for reading"
+        trueScale="Globe at one scale · current symbols still enlarged for reading"
       >
         <Gyre index={index} t={t} />
         <Tag
           pos={[0, 2.05, 0]}
           text={`${g.name} subtropical gyre`}
-          note="The routes show the broad direction of the selected surface currents. Trace the poleward western branch and equatorward eastern branch."
+          note="The routes show the broad direction of the surface currents. Trace the western branch flowing poleward and the eastern branch flowing towards the equator."
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
         {g.western}
-        {": warmer poleward western boundary (amber). "}
+        {": warmer western boundary current flowing poleward (orange). "}
         {g.eastern}
-        {": cooler equatorward eastern boundary (blue). Grey connects the branches."}
+        {
+          ": cooler eastern boundary current flowing towards the equator (blue). Grey links the branches."
+        }
         <br />
         {
           "Viewed on a map, northern subtropical gyres turn clockwise and southern ones anticlockwise. Play shows direction only. UK winters reflect westerlies, ocean heat and geography together; the Gulf Stream is one contribution."

@@ -17,7 +17,7 @@ export default function DrainageBasin() {
       {
         p: [-1, catchmentHeight(-1, 0.7) + 0.25, 0.7] as [number, number, number],
         name: "Tributary",
-        note: "A stream that joins another river.",
+        note: "A stream that joins a larger river.",
       },
       {
         p: [0, catchmentHeight(0, 0) + 0.25, 0] as [number, number, number],
@@ -27,7 +27,7 @@ export default function DrainageBasin() {
       {
         p: [2, catchmentHeight(2, 0) + 0.25, 0] as [number, number, number],
         name: "Outlet",
-        note: "Water leaves this catchment at its outlet. A river mouth is where it enters a lake, sea or another receiving water body.",
+        note: "Water leaves the catchment here. A river’s mouth is where it enters a lake, the sea or a larger river.",
       },
     ];
   return (
@@ -35,7 +35,7 @@ export default function DrainageBasin() {
       <ScienceStudio
         slug="drainage-basin"
         scale="Idealised surface catchment · relief, channels and vegetation enlarged"
-        trueScale="Catchment topology is shown; this is not a surveyed elevation model"
+        trueScale="Shows how the catchment fits together · not a surveyed elevation model"
         camera={[3, 3.8, 5]}
       >
         <CatchmentLandscape divide={params.overlay > 0.5} />
@@ -67,7 +67,7 @@ export default function DrainageBasin() {
       <ScienceReadout>
         <strong>{parts[focus].name}.</strong> {parts[focus].note}{" "}
         {
-          "Gold follows the surface divide; the whole enclosed land area contributes, not just the blue channel. Groundwater divides may differ."
+          "The gold line is the surface drainage divide: all the land inside it drains to the outlet, not just the blue channel. Groundwater divides can differ."
         }
       </ScienceReadout>
     </>

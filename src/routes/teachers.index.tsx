@@ -230,13 +230,13 @@ function TeachersIndex() {
                       </p>
                       <div className="mt-auto flex flex-wrap gap-2">
                         <Link to="/teachers/$slug" params={{ slug: lab.slug }} className={button}>
-                          {"Open the full note"}
+                          {"Open teacher notes"}
                         </Link>
                         <a
                           href={lessonLink(lab)}
                           className={`${button} border-glacier/30 bg-glacier/10`}
                         >
-                          {"Start projector"}
+                          {"Open in projector view"}
                         </a>
                       </div>
                     </div>

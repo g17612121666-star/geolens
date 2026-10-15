@@ -163,19 +163,19 @@ export default function Enso() {
         <Tag
           pos={[left, 1.95, 0]}
           text="Convection shifts with warm water"
-          note="The Walker circulation is schematic. In El Niño, principal ascent shifts towards the central Pacific and normal easterly trades weaken. Real events differ in strength and location."
+          note="A schematic Walker circulation. In El Niño the main rising air shifts towards the central Pacific and the easterly trade winds weaken. Real events differ in strength and location."
           occlude={false}
         />
         <Tag
           pos={[-2.1, 0.06, 1.15]}
           text={`West · ${c.westTemperature.toFixed(1)} °C`}
-          note="Ideal western equatorial Pacific, towards Indonesia. Temperatures are prescribed teaching values, not observations or an index-to-temperature calibration."
+          note="Idealised western equatorial Pacific, towards Indonesia. Temperatures are set teaching values, not observations."
           occlude={false}
         />
         <Tag
           pos={[2.1, 0.06, 1.15]}
           text={`East · ${c.eastTemperature.toFixed(1)} °C`}
-          note="Ideal eastern equatorial Pacific, towards South America. Stronger trades usually favour a shallower eastern thermocline and stronger cold-water upwelling."
+          note="Idealised eastern equatorial Pacific, towards South America. Stronger trades usually favour a shallower eastern thermocline and stronger cold-water upwelling."
           occlude={false}
         />
       </ScienceStudio>
@@ -183,10 +183,10 @@ export default function Enso() {
         {c.phase} {"· thermocline west "}
         {c.westDepth.toFixed(0)} {"m / east "}
         {c.eastDepth.toFixed(0)}{" "}
-        {"m. Gold: ideal thermocline; amber: warmer upper water; blue: colder water."}
+        {"m. Gold: idealised thermocline; amber: warmer upper water; blue: colder water."}
         <br />
         {
-          "ENSO selects a prescribed state. Play moves illustrative tracers, not years or a forecast. Teleconnections change probabilities; they do not determine a particular UK winter."
+          "The ENSO slider picks a set state; Play only moves the tracers and does not show years or a forecast. Teleconnections change the odds but do not decide a particular UK winter."
         }
       </ScienceReadout>
     </>

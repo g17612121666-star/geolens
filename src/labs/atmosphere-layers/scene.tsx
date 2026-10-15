@@ -14,7 +14,7 @@ const layers = [
     lo: 0,
     hi: 12,
     color: "#5fb2e6",
-    note: "Reference tropopause 12 km; typically about 8 km at the poles to 16–18 km in the tropics. Most weather occurs here.",
+    note: "Tropopause drawn at 12 km; really about 8 km at the poles and 16–18 km in the tropics. Most weather happens here.",
   },
   {
     name: "Stratosphere",
@@ -35,7 +35,7 @@ const layers = [
     lo: 85,
     hi: 500,
     color: "#e3a06c",
-    note: "Shown only to 500 km. Its upper boundary varies with solar activity; the atmosphere continues beyond this view. Very high kinetic temperature does not mean dense hot air.",
+    note: "Shown only to 500 km; its top varies with solar activity and the air thins out beyond. Temperatures are very high, but the gas is so thin it would not feel hot.",
   },
 ];
 const CUT_VERTEX = `varying vec3 vLocal; void main(){vLocal=position; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
@@ -153,7 +153,7 @@ export default function AtmosphereLayers() {
         scale={
           profile
             ? "Reference temperature profile · horizontal: °C · vertical: km"
-            : "Altitude ×8 · gas layers, not solid shells · T restores the thin film"
+            : "Altitude ×8 · gas layers, not solid shells · press T for true thickness"
         }
         trueScale={
           profile
@@ -224,7 +224,7 @@ export default function AtmosphereLayers() {
             <Tag
               pos={[0, 2.2, 0]}
               text="Temperature profile"
-              note="Reference trend: the tropospheric section follows the chosen lapse rate. The rest is an illustrative atmospheric profile, not a radiosonde observation."
+              note="The troposphere part follows your lapse rate. Above it the curve is a typical average profile, not a measured sounding."
               occlude={false}
             />
           </group>
@@ -268,8 +268,8 @@ export default function AtmosphereLayers() {
           </div>
         )}
         <p>
-          The selected profile starts at 15 °C at the surface. Separating the layers helps identify
-          them; real atmospheric gases remain continuous.
+          The profile starts at 15 °C at the surface. Separating the layers helps you identify them,
+          but real air has no gaps between layers.
         </p>
       </ScienceReadout>
     </>

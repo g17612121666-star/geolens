@@ -306,7 +306,7 @@ export default function RiverDeposition() {
               <Tag
                 pos={[0, 0.3, -0.3]}
                 text="Point bar"
-                note="Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonised by grass and trees. Secondary circulation, boundary shear and sediment supply all shape the bar; a single surface-speed arrow cannot explain the whole cross-section."
+                note="Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonised by grass and trees. Spiralling (helicoidal) flow and sediment supply also shape the bar, so surface speed alone does not explain it."
                 occlude={false}
               />
               <Tag
@@ -342,7 +342,7 @@ export default function RiverDeposition() {
               <Tag
                 pos={[0.5, 0.2, 0.75]}
                 text="Distributaries"
-                note="A delta can grow where sediment supply exceeds removal by waves and tides and space is filled. Channels split and shift; this three-branch pattern is an illustration. The cut face shows flat topsets over seaward-sloping foresets."
+                note="A delta grows where the river supplies sediment faster than waves and tides remove it. Channels split and shift; the three branches here are illustrative. The cut face shows flat topsets over seaward-sloping foresets."
                 occlude={false}
               />
               <Tag
@@ -397,17 +397,17 @@ export default function RiverDeposition() {
           <Tag
             pos={[0, 0.65, 0]}
             text="Settling · 2 m / 20 min"
-            note="Separate enlarged vessel: the global timeline spans 20 minutes. The grain position uses the stated Stokes settling speed through 2 m of still fresh water. The vessel is not at the landscape scale."
+            note="A separate, enlarged tube, not at landscape scale. One play-through lasts 20 minutes; the grain falls through 2 m of still fresh water at its Stokes settling speed."
             occlude={false}
           />
         </group>
       </ScienceStudio>
       <ScienceReadout>
         {mode === 0
-          ? "Inner-bank point bar opposite an undercut river cliff. Flow tracers move downstream; the selected bar is not growing."
+          ? "Inner-bank point bar opposite an undercut river cliff. Flow tracers move downstream; the bar does not grow in this model."
           : mode === 1
-            ? `${flood ? "Overbank flow shown" : "Channel flow shown"} · natural levees border a lower floodplain. Toggle Overbank water to reveal the relation.`
-            : "A sediment-built delta with branching distributaries meets the sea. This is one mouth type; estuaries are different receiving environments."}
+            ? `${flood ? "Overbank flow shown" : "Channel flow shown"} · natural levees border a lower floodplain. Toggle Overbank water to compare.`
+            : "A delta of river sediment, crossed by branching distributaries, builds out into the sea. Not every river mouth builds a delta; many end in estuaries."}
         <br />
         {"Separate settling experiment: "}
         {grain.toFixed(0)} {"μm quartz spheres settle at "}

@@ -446,8 +446,8 @@ export default function Volcanoes() {
             )}
             <Tag
               pos={[0, height + 0.45, 0]}
-              text={composite ? "Composite cone end-member" : "Shield end-member"}
-              note="Edifice shape records many eruptions. Viscosity, eruption rate, gas, fragmentation and erosion all contribute; this is a comparison, not a predictive formula. Dark tongues are older lava flows; snow and forest are illustrative."
+              text={composite ? "Composite cone" : "Shield volcano"}
+              note="A volcano’s shape builds up over many eruptions. Viscosity, eruption rate, gas, fragmentation and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative."
               occlude={false}
             />
           </group>
@@ -491,7 +491,7 @@ export default function Volcanoes() {
             <Tag
               pos={[0, 0.55, 0]}
               text="Fissure vents"
-              note="A linear crack can erupt basalt as a 'curtain of fire', building low spatter ramparts. Fissures are a vent geometry, not a distinct viscosity."
+              note="A linear crack can erupt basalt as a 'curtain of fire', building low spatter ramparts. A fissure is a vent shape, not a type of magma."
               occlude={false}
             />
           </group>
@@ -540,18 +540,18 @@ export default function Volcanoes() {
       </ScienceStudio>
       <ScienceReadout>
         {"Viscosity "}
-        {v.toFixed(2)} {"· gas drive "}
+        {v.toFixed(2)} {"· Gas drive "}
         {gas.toFixed(2)} ·{" "}
         {fissure ? "fissure vents" : composite ? "steeper composite cone" : "broad shield"}.{" "}
         {plume
-          ? "A qualitative fragmenting ash plume is active."
+          ? "Gas is shattering the magma into an ash plume (shown qualitatively)."
           : fountaining
             ? "Gas-rich fluid basalt throws up lava fountains."
             : fissure
               ? "Lava emerges along the linear opening."
-              : "The advancing lava front follows the selected process progress."}{" "}
+              : "The lava flow advances as the Process slider moves forward."}{" "}
         {
-          "Use the slice to cut into the cone. Gas, water interaction and eruption conditions also control explosivity; basalt can erupt explosively."
+          "Use Cutaway to look inside the volcano. Gas, contact with water and ascent conditions also affect how explosive an eruption is; basalt can erupt explosively too."
         }
       </ScienceReadout>
     </>

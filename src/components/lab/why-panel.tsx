@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils";
 import { Figure } from "@/components/figure";
 import { labFigures, termThumb } from "@/lib/figures";
 import { labVideo } from "@/lib/lab-videos";
+import { Gallery } from "@/components/gallery";
+import { LAB_GALLERY } from "@/lib/media-galleries";
 
 const WHY_LABELS = ["Why it happens", "Try a comparison", "Reading the result"] as const;
 
@@ -19,6 +21,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
   const pairs = lab.misconceptions?.length ? lab.misconceptions : [lab.misconception];
   const figs = labFigures(lab.slug);
   const video = labVideo(lab.slug);
+  const gallery = (LAB_GALLERY[lab.slug] ?? []).filter((g) => g.src !== figs[0]?.src);
   const seenTermSrc = new Set<string>();
 
   return (
@@ -103,6 +106,12 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
                 </ul>
               </div>
             )}
+            {gallery.length > 0 && (
+              <div>
+                <p className="section-label mb-2">{"Real examples"}</p>
+                <Gallery figures={gallery} columns={1} />
+              </div>
+            )}
           </div>
         )}
         <div className={cn("space-y-3", tab !== "terms" && "hidden")}>
@@ -142,7 +151,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
                   {paragraph}
                 </p>
               ))}
-            <p className="section-label">{"Common misconceptions"}</p>
+            <p className="section-label">{"Points to watch for"}</p>
             <ul className="list-disc space-y-1 pl-4 text-mist">
               {lab.teacher.pitfalls.map((p) => (
                 <li key={p}>{p}</li>
@@ -183,7 +192,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
               params={{ slug: lab.slug }}
               className="inline-flex h-11 items-center text-ice hover:underline"
             >
-              {"Open the teaching guide"}
+              {"Open the teacher notes"}
             </Link>
           </div>
         )}

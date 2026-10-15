@@ -117,13 +117,13 @@ export default function RainShadow() {
         <Tag
           pos={[-2, 0.5, 0.8]}
           text="Windward · rising"
-          note="Unsaturated air cools at about 9.8 °C/km. Above the lifting condensation level this experiment uses 6 °C/km; real saturated lapse rates vary with temperature and pressure."
+          note="Unsaturated air cools at about 9.8 °C/km. Above cloud base the model uses 6 °C/km; real saturated rates vary with temperature and pressure."
           occlude={false}
         />
         <Tag
           pos={[2, 0.5, 0.8]}
           text="Leeward · descending"
-          note="After condensate has fallen out, descending unsaturated air warms at about 9.8 °C/km. This idealisation excludes mixing and radiative heating."
+          note="Once its condensed water has rained out, the sinking air warms at about 9.8 °C/km. The model ignores mixing with other air and radiative heating or cooling."
           occlude={false}
         />
       </ScienceStudio>
@@ -142,7 +142,7 @@ export default function RainShadow() {
         {(downstream.relativeHumidity * 100).toFixed(0)}
         {"% RH. "}
         {crest <= parcel.lcl
-          ? "This ridge is too low to reach condensation."
+          ? "This ridge is too low for the air to reach cloud base."
           : "Condensation removes moisture as the air crosses the ridge."}
       </ScienceReadout>
     </>

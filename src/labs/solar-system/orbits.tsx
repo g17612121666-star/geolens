@@ -109,7 +109,7 @@ export default function SolarSystem() {
                       <Tag
                         pos={[0, r + 0.18, 0]}
                         text={PLANETS[i].name}
-                        note={`Mean radius ${PLANETS[i].radius.toLocaleString("en-GB")} km; orbital period ${PLANETS[i].period.toFixed(3)} Earth years. Orbital geometry is a fixed-element experiment, not the current sky.`}
+                        note={`Mean radius ${PLANETS[i].radius.toLocaleString("en-GB")} km; orbital period ${PLANETS[i].period.toFixed(3)} Earth years. Positions come from a fixed model, not today's sky.`}
                         occlude={false}
                       />
                     )}
@@ -126,7 +126,7 @@ export default function SolarSystem() {
                 <Tag
                   pos={[0, v.r + 0.35, 0]}
                   text={PLANETS[v.i].name}
-                  note={`Mean radius ${PLANETS[v.i].radius.toLocaleString("en-GB")} km; ${(PLANETS[v.i].radius / 6371.0084).toFixed(2)} Earth radii. Spacing on this comparison board has no distance meaning.`}
+                  note={`Mean radius ${PLANETS[v.i].radius.toLocaleString("en-GB")} km; ${(PLANETS[v.i].radius / 6371.0084).toFixed(2)} Earth radii. The spacing here does not show distance.`}
                   occlude={false}
                 />
               </group>
@@ -139,7 +139,7 @@ export default function SolarSystem() {
               <Tag
                 pos={[0, 1.7, 0]}
                 text={p.name}
-                note={`Mean radius ${p.radius.toLocaleString("en-GB")} km. Mercury uses an enhanced-colour MESSENGER map. Mars and Saturn use NASA model geometry and mapped materials; Jupiter uses a NASA global map. Venus, Uranus and Neptune show explicitly modelled cloud colours, not mapped weather observations.`}
+                note={`Mean radius ${p.radius.toLocaleString("en-GB")} km. Mercury uses an enhanced-colour MESSENGER map. Mars and Saturn use NASA model geometry and mapped materials; Jupiter uses a NASA global map. Venus, Uranus and Neptune have modelled cloud colours, not observed maps.`}
                 occlude={false}
               />
             </group>
@@ -182,7 +182,7 @@ export default function SolarSystem() {
           : ` Model year ${years.toFixed(3)}; the selected planet rotates on the same time scale as the orbital view.`}
         <br />
         {mode === 0
-          ? "All planets begin at perihelion in this model. Press T to show physical radii at the orbital scale, or choose Inner / all orbits to examine the inner system."
+          ? "All planets begin at perihelion in this model. Choose physical scale (T) to show true radii at the orbital scale, or turn off All eight orbits to examine the inner system."
           : "Planet textures use enhanced-colour Mercury imagery, a NASA/GSFC Jupiter map, and NASA/JPL-Caltech maps for Mars and Saturn. Cloud colours for Venus and the ice giants are modelled. Saturn’s rings consist of particles."}
       </ScienceReadout>
     </>

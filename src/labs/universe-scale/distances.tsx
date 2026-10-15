@@ -117,7 +117,7 @@ export default function UniverseScale() {
         <Tag
           pos={[0, -1, 0]}
           text={`Light time · ${lightTime}`}
-          note="The moving dot follows a light signal at constant speed. The entire journey is compressed into a short playback. The selected progress and readout use the same fraction of the physical travel time."
+          note="The moving dot is a light signal travelling at constant speed. At 1× speed, playback squeezes the whole journey into 24 seconds; the readout shows the matching real travel time."
           occlude={false}
         />
       </ScienceStudio>

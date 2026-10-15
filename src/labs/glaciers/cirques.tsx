@@ -126,19 +126,19 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
       <Tag
         pos={[0, 2.7, 0]}
         text="Horn"
-        note="Several adjacent cirques can erode back towards a mountain summit, leaving a pyramidal peak. This prescribed three-basin form illustrates the relationship, not a surveyed mountain or a calculated erosion history."
+        note="Several cirques eroding back into one summit leave a pyramidal peak. This three-cirque form is an invented example, not a surveyed mountain."
         occlude={false}
       />
       <Tag
         pos={[-1.55, 1.7, 0]}
         text="Arête"
-        note="A narrow ridge separates adjacent glacially eroded hollows or valleys. The ridge is a remnant between basins, not a deposited wall."
+        note="A narrow ridge left between neighbouring cirques or glacial valleys. It is rock that remains, not a wall of deposited debris."
         occlude={false}
       />
       <Tag
         pos={[1.5, 0.75, 0.5]}
         text="Cirque"
-        note="A bowl-shaped hollow with steep headwalls and a gentler floor can be eroded at the head of a glacier. The thin ice overlay and moving symbols only indicate a possible flow direction; thickness and rate are not solved."
+        note="A bowl-shaped hollow with a steep headwall and a gentler floor, eroded at the head of a glacier. The thin ice and moving symbols show only the flow direction, not ice thickness or speed."
         occlude={false}
       />
     </>

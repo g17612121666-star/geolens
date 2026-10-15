@@ -34,7 +34,7 @@ const EVENTS = [
   {
     age: 0.3,
     name: "Homo sapiens",
-    note: "Our species appears about 300,000 years ago: a sliver of the coil's final turn even in the shortest window.",
+    note: "Our species appears about 300,000 years ago: a sliver of the full window, and only about a third of one turn even in the Quaternary view.",
   },
 ];
 const HELIX_SAMPLES = Array.from(
@@ -193,7 +193,7 @@ export default function GeologicTime() {
         <Tag
           pos={[2.7, 0.8, 1.5]}
           text={`${age < 10 ? age.toFixed(3) : age.toFixed(1)} Ma`}
-          note={`Selected time: ${unit.name}. Ma denotes millions of years before the present here. The marker follows equal elapsed time along the coil; spatial closeness between turns is not closeness in time.`}
+          note={`Selected time: ${unit.name}. Ma means millions of years before the present. Equal distance along the coil means equal time; neighbouring turns are not close in time.`}
           occlude={false}
         />
         <Tag
@@ -201,15 +201,15 @@ export default function GeologicTime() {
           text={`${span} Ma`}
           note={
             span === 4540
-              ? "The approximate age of Earth is 4.54 billion years. This viewing window begins at that estimate, not at an exact globally dated rock boundary."
-              : "This window enlarges a shorter interval with a new time-per-length scale. It does not change the duration of any unit."
+              ? "Earth is about 4.54 billion years old. This window starts at that estimate, not at a dated rock boundary."
+              : "This window stretches a shorter interval along the coil. It does not change how long any unit lasted."
           }
           occlude={false}
         />
         <Tag
           pos={[1.5, 1.5, -0.6]}
           text="Present"
-          note="Recent human history occupies a tiny fraction of the full window. A visibility marker is enlarged, not the duration it represents."
+          note="Recorded human history is a tiny fraction of the full window. The marker is enlarged so you can see it; the time it stands for is not."
           occlude={false}
         />
       </ScienceStudio>
@@ -226,7 +226,7 @@ export default function GeologicTime() {
         {(span / 3).toFixed(2)} {"million years."}
         <br />
         {
-          "Pale collars mark era/eon boundaries at their actual proportional positions. ICS boundaries: 2026/06 edition. Phanerozoic begins at 538.8 Ma; its eras have very different durations. Select a shorter window to inspect recent time. The coil is a time axis, not strata thickness or an evolutionary ladder."
+          "Pale collars mark eon and era boundaries in their true positions (ICS chart, 2026/06 edition). The Phanerozoic begins at 538.8 Ma, and its eras differ greatly in length. Choose a shorter window to inspect recent time. The coil is a time axis, not a thickness of rock layers or an evolutionary ladder."
         }
         <div className="pointer-events-auto mt-1 flex flex-wrap justify-center gap-2">
           {[

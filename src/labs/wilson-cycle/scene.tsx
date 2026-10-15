@@ -203,7 +203,7 @@ export default function WilsonCycle() {
         <Tag
           pos={[0, 1.3, 0]}
           text={STAGES[stage]}
-          note="These are idealised stages of ocean-basin opening and closure. A basin need not complete every stage or close along the same boundary; this is not a prediction of the Atlantic’s future."
+          note="These are idealised stages of ocean-basin opening and closure. A real basin may skip stages or close along a different line from where it opened; this is not a forecast of the Atlantic’s future."
           occlude={false}
         />
         <Tag
@@ -281,7 +281,7 @@ export default function WilsonCycle() {
         {stage < 3
           ? "Extension and spreading can open a basin."
           : stage < 5
-            ? "Oceanic lithosphere subducts; continental crust is not simply swallowed in the same way."
+            ? "Oceanic lithosphere sinks at the trench; buoyant continental crust resists being pulled down."
             : "Collision thickens and deforms the continental crust; remnants of an ocean may remain in the suture."}
         <br />
         {

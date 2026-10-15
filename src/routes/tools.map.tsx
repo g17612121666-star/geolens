@@ -835,7 +835,7 @@ function MapStudio() {
         >
           {[
             ["A: Tropical", "Monthly mean temperatures remain warm throughout the year."],
-            ["B: Dry", "Rainfall falls below the classification’s aridity threshold."],
+            ["B: Dry", "Precipitation is below the classification’s dryness threshold."],
             ["C: Temperate", "Winters are mild compared with continental climates."],
             ["D: Continental", "Cold winters contrast with a warmer summer."],
             ["E: Polar", "Even the warmest month remains cool."],
@@ -892,7 +892,7 @@ function MapStudio() {
               Bird’s PB2002 model (2003), converted by Nordpil under ODC-BY 1.0
             </a>
             . Borders come from Natural Earth’s public-domain dataset. Other overlays show selected
-            teaching examples; current routes and movement arrows are simplified.
+            teaching examples; ocean-current paths and motion arrows are simplified.
           </p>
           <p>
             Distance and area calculations use a sphere with a radius of 6,371 km. For area

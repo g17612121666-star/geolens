@@ -117,7 +117,7 @@ export default function SoilCatena() {
         slug="soil-catena"
         camera={[1.3, 2.1, 7]}
         scale="Soil thickness ×20 · 120 m hillslope · topographic slope to scale"
-        trueScale="1 scene unit = 20 m · soil and relief use a common scale · blades and roots enlarged"
+        trueScale="1 scene unit = 20 m · soil and relief use a common scale · grass and roots enlarged"
       >
         <GeomorphicTerrain
           height={height}
@@ -156,10 +156,10 @@ export default function SoilCatena() {
               text={`${names[i]} · ${c.thicknessM.toFixed(2)} m soil`}
               note={
                 i === 0
-                  ? "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one illustrative case."
+                  ? "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one example."
                   : i === 1
-                    ? "Steepening reduces prescribed backslope thickness in this example; bare patches show where thin soil is exposed. The model is not an erosion-rate law and does not guarantee that every steep soil is thin."
-                    : "The lower slope receives water and sediment, so the soil is deeper. It is often waterlogged: the grey subsoil with rusty mottles shows gleying, where iron is reduced and moved by standing water."
+                    ? "In this model, a steeper slope gives a thinner backslope soil; bare patches show where soil is thinnest. It is not an erosion-rate law, and not every steep slope has thin soil."
+                    : "The lower slope receives water and sediment, so the soil is thicker. It is often waterlogged: the grey subsoil with rusty mottles shows gleying, where iron is reduced and moved by standing water."
               }
               occlude={false}
             />
@@ -181,7 +181,7 @@ export default function SoilCatena() {
         }
         <br />
         {
-          "Change Slope to compare a prescribed sequence. Only soil thickness is enlarged in the teaching view. Soil development, erosion and deposition rates are not calculated."
+          "Change Slope to compare the soil thicknesses. Only soil thickness is exaggerated in the teaching view, and the model does not calculate rates of soil formation, erosion or deposition."
         }
       </ScienceReadout>
     </>
