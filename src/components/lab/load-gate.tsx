@@ -57,7 +57,7 @@ export function LabLoadFallback({ slug, title }: { slug: string; title: string }
           <LabThumb slug={slug} />
         </div>
       </div>
-      <h1 className="mt-6 text-center text-2xl font-medium text-chalk">{title}</h1>
+      <p className="mt-6 text-center text-2xl font-medium text-chalk">{title}</p>
       <div className="mt-6 w-full max-w-md">
         <SceneProgress />
       </div>

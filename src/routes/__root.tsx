@@ -36,7 +36,7 @@ export const Route = createRootRoute({
 
 function Root() {
   return (
-    <html lang="en" className="antialiased" suppressHydrationWarning>
+    <html lang="en-GB" className="antialiased" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: preferenceBootScript }} />
         <HeadContent />

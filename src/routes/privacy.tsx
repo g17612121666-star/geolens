@@ -41,9 +41,9 @@ function Privacy() {
           {"We do not track what students do. There is no analytics software recording clicks."}
         </p>
         <p>
-          {"Hosting may set a Cloudflare bot-management cookie ("}
-          <code className="font-mono text-sm">{"__cf_bm"}</code>
-          {"). It is used to block automated abuse, not to track students."}
+          {
+            "The site is hosted on Vercel, which handles each request and may keep short-lived server logs to run and protect the service. Geolens itself sets no tracking cookies."
+          }
         </p>
         <p>
           {

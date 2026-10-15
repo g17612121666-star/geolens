@@ -28,7 +28,7 @@
       "slug": "landforms",
       "title": "Landforms",
       "kicker": "Read the shape of a landscape",
-      "blurb": "Examine how rivers, waves, glaciers and rock deformation create the landforms we observe in the landscape."
+      "blurb": "Examine how rivers, waves, glaciers and rock deformation shape the land around us."
     },
     {
       "slug": "soils",
@@ -40,7 +40,7 @@
       "slug": "hazards",
       "title": "Hazards",
       "kicker": "Understand hazardous processes",
-      "blurb": "Explore the mechanisms behind earthquakes, eruptions and severe storms, and distinguish a physical process from its local impacts."
+      "blurb": "Explore what drives earthquakes, eruptions, tsunamis and storms, and separate the physical process from its local impacts."
     },
     {
       "slug": "skills",
@@ -9216,12 +9216,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Identify hypocentre, epicentre and the separate fault trace. Set Focus depth to 20 km and predict which front reaches the station first."
+          "body": "Find the hypocentre, the epicentre and the fault scarp, which is in a different place. Set Focus depth to 20 km and predict which wave front reaches the seismometer first."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Scrub Process through both arrivals and read the times. Increase depth, then explain the longer ray path."
+          "body": "Drag the Process slider past both arrivals and read the times. Increase Focus depth, then explain why the ray path gets longer."
         },
         {
           "id": "explain",
@@ -9262,7 +9262,7 @@
           "choices": [
             "Arrive first, before P-waves",
             "Travel through the liquid outer core",
-            "Arrive later and often cause the damage",
+            "Arrive later and often cause most damage",
             "Are the same as S-waves"
           ],
           "answer": 2,
@@ -9282,8 +9282,8 @@
       ],
       "why": [
         "An earthquake releases energy when rock slips along a fault. The focus is the source at depth and the epicentre lies above it; different seismic waves transmit the disturbance through and along Earth.",
-        "Scrub Process through both arrivals and read the times. Increase depth, then explain the longer ray path.",
-        "The wave illustration separates propagation mechanisms; shaking and damage also depend on the source, distance, ground and buildings."
+        "Drag the Process slider past both arrivals and read the times. Increase Focus depth, then explain why the ray path gets longer.",
+        "The model shows how each wave type travels; real shaking and damage also depend on the source, distance, ground and buildings."
       ],
       "glossary": [
         {
@@ -9303,11 +9303,11 @@
         {
           "term": "S-wave",
           "exam": "Secondary wave",
-          "def": "A shear seismic wave with particle motion perpendicular to its travel direction. It propagates through solids but not through the liquid outer core."
+          "def": "A shear seismic wave with particle motion perpendicular to its travel direction. It travels through solids but not through liquids, such as the outer core."
         },
         {
           "term": "Surface wave",
-          "def": "A seismic wave that travels along Earth’s surface, including Love and Rayleigh waves. These waves can produce strong, prolonged ground motion, although damage also depends on frequency, distance, ground conditions and buildings. They differ from body waves travelling through Earth."
+          "def": "A seismic wave that travels along Earth’s surface rather than through its interior; Love and Rayleigh waves are examples. Surface waves can cause strong, prolonged shaking, although damage also depends on distance, ground conditions and buildings."
         },
         {
           "term": "Magnitude",
@@ -9339,10 +9339,10 @@
         }
       ],
       "teacher": {
-        "script": "Identify hypocentre, epicentre and the separate fault trace. Set Focus depth to 20 km and predict which front reaches the station first.\n\nScrub Process through both arrivals and read the times. Increase depth, then explain the longer ray path.",
+        "script": "Find the hypocentre, the epicentre and the fault scarp, which is in a different place. Set Focus depth to 20 km and predict which wave front reaches the seismometer first.\n\nDrag the Process slider past both arrivals and read the times. Increase Focus depth, then explain why the ray path gets longer.",
         "pitfalls": [
           "Distinguish earthquake magnitude from the intensity of shaking experienced at a particular location.",
-          "Locate the epicentre at the surface above the focus, and explain that S waves do not pass through the liquid outer core.",
+          "Locate the epicentre at the surface above the focus, and explain that S-waves do not pass through the liquid outer core.",
           "Identify the fault setting before interpreting an event; California includes transform movement as well as other tectonic settings."
         ]
       },
@@ -9372,10 +9372,10 @@
         ]
       },
       "modelNotes": [
-        "P fronts expand at 6 km/s and S fronts at 3.5 km/s.",
-        "Play or scrub Process through 25 seconds and change Focus depth.",
+        "P-wave fronts spread at 6 km/s and S-wave fronts at 3.5 km/s.",
+        "The Process slider covers 25 seconds; play it or drag it, and change Focus depth.",
         "Compare P and S arrivals at the station 50 km horizontally from the epicentre; the straight-ray distance is √(depth² + 50²).",
-        "The violet surface front is a simplified illustration launched when S first reaches the epicentre and travelling at 3.2 km/s."
+        "The violet surface-wave ring is simplified: it starts when the S-wave first reaches the epicentre and then travels at 3.2 km/s."
       ]
     },
     {
@@ -9397,17 +9397,17 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Compare the broad shield and steeper composite cone. Name viscosity as one influence on lava flow. Raise Gas drive independently. Basalt can fragment too; gas and external water matter."
+          "body": "Move Viscosity to compare a broad shield with a steeper composite cone. Then raise Gas drive on its own: with enough gas, even runny basalt can erupt explosively."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Switch to Fissure vents. A fissure is a crack, not a viscosity class. Open the cross-section and identify the conduit."
+          "body": "Use the Cutaway slider to find the conduit and magma chamber. Then turn on Fissure vents: a fissure is a crack in the ground, not a type of magma."
         },
         {
           "id": "explain",
           "title": "Explain",
-          "body": "Explain why viscosity alone cannot determine whether an eruption fragments magma or produces flowing lava."
+          "body": "Why can viscosity alone not decide whether an eruption is explosive or produces lava flows?"
         },
         {
           "id": "check",
@@ -9462,9 +9462,9 @@
         }
       ],
       "why": [
-        "Magma composition, gas content and the conditions of ascent influence eruption style. Comparing volcanic forms helps connect those processes with lava flows, fragmental deposits and the structure built over time.",
-        "Switch to Fissure vents. A fissure is a crack, not a viscosity class. Open the cross-section and identify the conduit.",
-        "The displayed eruptions illustrate selected mechanisms; volcano shape alone cannot predict the next eruption."
+        "Magma composition, gas content and the conditions of ascent influence eruption style. Comparing volcano shapes links these processes to lava flows, ash layers and how a volcano is built up over time.",
+        "Use the Cutaway slider to find the conduit and magma chamber. Then turn on Fissure vents: a fissure is a crack in the ground, not a type of magma.",
+        "The eruptions shown illustrate a few processes; a volcano’s shape alone cannot predict its next eruption."
       ],
       "glossary": [
         {
@@ -9478,7 +9478,7 @@
         {
           "term": "Stratovolcano",
           "exam": "Composite cone",
-          "def": "A commonly steep-sided volcano built from successive lava flows and fragmental deposits. Its magma composition and eruption style can vary; many form above subduction zones."
+          "def": "A steep-sided volcano built from alternating lava flows and layers of ash and other fragments. Its magma composition and eruption style can vary; many form above subduction zones."
         },
         {
           "term": "Fissure eruption",
@@ -9518,7 +9518,7 @@
         }
       ],
       "teacher": {
-        "script": "Compare the broad shield and steeper composite cone. Name viscosity as one influence on lava flow. Raise Gas drive independently. Basalt can fragment too; gas and external water matter.\n\nSwitch to Fissure vents. A fissure is a crack, not a viscosity class. Open the cross-section and identify the conduit.",
+        "script": "Move Viscosity to compare a broad shield with a steeper composite cone. Then raise Gas drive on its own: with enough gas, even runny basalt can erupt explosively.\n\nUse the Cutaway slider to find the conduit and magma chamber. Then turn on Fissure vents: a fissure is a crack in the ground, not a type of magma.",
         "pitfalls": [
           "Compare effusive and explosive activity rather than assuming every volcano erupts in the same way.",
           "Include hotspot and divergent-boundary examples as well as volcanoes around subduction zones.",
@@ -9586,12 +9586,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Scrub the first source stage and explain water displacement, contrasting it with wind-driven surge. Continue to the separate propagation approximation and follow the prescribed wave packet."
+          "body": "Drag Process through the first stage, where the seafloor rises and lifts the water above it. How does this differ from a wind-driven storm surge? Then follow the wave in the second stage as it travels towards the shelf."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Read the same front’s speed in deep and shallow water. Use the metre-scale chart to compare amplitudes."
+          "body": "Read the wave’s speed in deep water and again in shallow water. Use the chart, drawn in metres, to compare wave heights."
         },
         {
           "id": "explain",
@@ -9620,9 +9620,9 @@
           "prompt": "In deep water a tsunami is…",
           "choices": [
             "A 30 m wall everywhere",
-            "Stationary",
+            "Slow until it reaches the coast",
             "Fast and often unnoticed at sea",
-            "Only in rivers"
+            "Only a few kilometres long"
           ],
           "answer": 2,
           "explain": "A tsunami's long wavelength allows it to travel rapidly through deep water while its offshore height may remain small. A ship can therefore experience little noticeable change even as the wave passes."
@@ -9639,7 +9639,7 @@
           "explain": "As a tsunami enters shallower water, it slows and its wavelength shortens. Its height can increase through shoaling, with the final coastal response also shaped by refraction, seabed geometry and energy loss."
         },
         {
-          "prompt": "Katrina and Sandy’s water at the coast was…",
+          "prompt": "The coastal flooding from hurricanes Katrina and Sandy was mainly…",
           "choices": [
             "Storm surge from wind and low pressure",
             "A tsunami from a megathrust earthquake",
@@ -9652,7 +9652,7 @@
       ],
       "why": [
         "A tsunami has a long wavelength and travels faster in deeper water. As it crosses into shallower water, it slows and its amplitude can increase as energy is concentrated into a smaller depth.",
-        "Read the same front’s speed in deep and shallow water. Use the metre-scale chart to compare amplitudes.",
+        "Read the wave’s speed in deep water and again in shallow water. Use the chart, drawn in metres, to compare wave heights.",
         "This long-wave calculation ends offshore and excludes breaking, run-up and inundation on land."
       ],
       "glossary": [
@@ -9678,7 +9678,7 @@
         },
         {
           "term": "Drawdown",
-          "def": "A lowering of water level. In the tsunami lab it means the withdrawal of the sea before some waves; many tsunami arrive without this warning. Groundwater drawdown means a lowered water table or pressure level."
+          "def": "A lowering of water level. Here it means the sea pulling back before some tsunami waves arrive; many tsunamis arrive without this warning. Groundwater drawdown means a lowered water table or pressure level."
         },
         {
           "term": "Run-up",
@@ -9706,7 +9706,7 @@
         }
       ],
       "teacher": {
-        "script": "Scrub the first source stage and explain water displacement, contrasting it with wind-driven surge. Continue to the separate propagation approximation and follow the prescribed wave packet.\n\nRead the same front’s speed in deep and shallow water. Use the metre-scale chart to compare amplitudes.",
+        "script": "Drag Process through the first stage, where the seafloor rises and lifts the water above it. How does this differ from a wind-driven storm surge? Then follow the wave in the second stage as it travels towards the shelf.\n\nRead the wave’s speed in deep water and again in shallow water. Use the chart, drawn in metres, to compare wave heights.",
         "pitfalls": [
           "Distinguish a tsunami from astronomical tides and wind-driven storm surge, including the 1953 North Sea event.",
           "Explain why a tsunami can have a small wave height in deep water and change greatly as it enters shallow water.",
@@ -9727,10 +9727,10 @@
       ],
       "controls": {},
       "modelNotes": [
-        "The propagation experiment starts with a prescribed 20-minute wave packet and 0.5 m deep-water amplitude.",
+        "The travelling stage starts with a set 20-minute wave packet with a 0.5 m amplitude in deep water.",
         "Along a 500 km transect, depth declines gradually from 4000 m to 100 m.",
-        "The first 15% of Process prescribes up to 1 m of seafloor uplift and displaces the overlying water column; the gold arrow magnifies the direction.",
-        "The 3D wave height uses the same vertical scale as bathymetry, enlarged twentyfold in the teaching view.",
+        "In the first 15% of Process the seafloor rises by up to 1 m and lifts the water above it; the gold arrow shows the direction, enlarged.",
+        "In the teaching view depth is enlarged ×20 and wave height a further ×600; Physical scale shows both at true scale.",
         "Gradually varying depth, no reflection and no lateral spreading are strong assumptions; the transect ends in 100 m water before the coast."
       ]
     },
@@ -9755,12 +9755,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Locate eye, eyewall and rainbands. Trace inflow, ascent and outflow, distinguishing subsidence in the eye."
+          "body": "Find the eye, eyewall and rainbands. Follow the arrows for inflow, rising air and outflow, and find the sinking air in the eye."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Read the wind profile and its 30 km maximum. Change Intensity; explain why the pressure is model-dependent."
+          "body": "Read the wind profile and find its peak at 30 km. Change Intensity and watch the centre pressure: why is that number only a model estimate?"
         },
         {
           "id": "explain",
@@ -9808,7 +9808,7 @@
           "explain": "UK winter storms are usually extratropical cyclones associated with contrasts between air masses and with fronts. Their structure and energy sources differ from those of a tropical cyclone over warm water."
         },
         {
-          "prompt": "Saffir–Simpson rates…",
+          "prompt": "The Saffir–Simpson scale rates…",
           "choices": [
             "Every named storm in Europe",
             "Storms by total rainfall",
@@ -9821,7 +9821,7 @@
       ],
       "why": [
         "A tropical cyclone draws moist air inward near the surface, with strong ascent in the eyewall and outflow aloft. Its eye has weaker winds and often descending air, distinct from a tornado funnel.",
-        "Read the wind profile and its 30 km maximum. Change Intensity; explain why the pressure is model-dependent.",
+        "Read the wind profile and find its peak at 30 km. Change Intensity and watch the centre pressure: why is that number only a model estimate?",
         "The ideal vortex links wind and pressure through stated assumptions; it does not calculate storm development, rainfall or a track."
       ],
       "glossary": [
@@ -9852,7 +9852,7 @@
         },
         {
           "term": "Midlatitude cyclone",
-          "exam": "Depression / extra-tropical cyclone",
+          "exam": "Depression / extratropical cyclone",
           "def": "An extratropical low-pressure system that develops from contrasts in temperature and is commonly associated with warm and cold fronts."
         }
       ],
@@ -9877,7 +9877,7 @@
         }
       ],
       "teacher": {
-        "script": "Locate eye, eyewall and rainbands. Trace inflow, ascent and outflow, distinguishing subsidence in the eye.\n\nRead the wind profile and its 30 km maximum. Change Intensity; explain why the pressure is model-dependent.",
+        "script": "Find the eye, eyewall and rainbands. Follow the arrows for inflow, rising air and outflow, and find the sinking air in the eye.\n\nRead the wind profile and find its peak at 30 km. Change Intensity and watch the centre pressure: why is that number only a model estimate?",
         "pitfalls": [
           "Distinguish a tropical cyclone from a midlatitude windstorm and apply intensity scales only to the storms they describe.",
           "Locate the strongest winds around the eyewall rather than in the relatively calm eye.",
@@ -9923,8 +9923,8 @@
       "modelNotes": [
         "The ideal wind profile increases linearly from a calm centre to a maximum at radius 30 km, then decreases inversely with radius.",
         "Intensity selects maximum tangential wind from 38 to 80 m/s.",
-        "A steady radial gradient-wind balance uses constant density 1.15 kg/m³, Coriolis magnitude 0.00005 per second and outer pressure 101300 Pa at 300 km.",
-        "Cloud depth is 12 km, enlarged fivefold until T is pressed; cloud particles are visual volumes, not simulated droplets or rainfall."
+        "Pressure comes from a steady gradient-wind balance with air density 1.15 kg/m³, a Coriolis parameter of 0.00005 per second and 101300 Pa at 300 km radius.",
+        "Cloud depth is 12 km, drawn five times taller in the teaching view (Physical scale, or the T key, shows it 1:1); the clouds are visual only, not simulated droplets or rainfall."
       ]
     },
     {
@@ -11841,12 +11841,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Set wind and pressure drop to zero and identify the reference sea level. Raise Onshore wind and compare two shelf depths."
+          "body": "Set Onshore wind and Pressure drop to zero and find the reference sea level (dashed line). Raise Onshore wind, then compare two values of Shelf depth."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Set wind to zero and isolate a pressure drop of 3000 Pa. Combine the effects, then compare physical scale to discuss geometric scale."
+          "body": "Set Onshore wind to zero and Pressure drop to 3000 Pa to see the pressure effect alone. Then combine both, and switch to Physical scale (1:1) to see how small the rise is beside the shelf."
         },
         {
           "id": "explain",
@@ -11883,18 +11883,18 @@
           "explain": "Rapid displacement of a large volume of water generates a tsunami, often following vertical seafloor motion. Storm surge instead develops through atmospheric forcing by winds and pressure."
         },
         {
-          "prompt": "If I raise the wind slider towards the coast, the water should…",
+          "prompt": "If you raise Onshore wind, the water should…",
           "choices": [
-            "Pile higher on the shelf",
+            "Pile up higher towards the coast",
             "Flatten",
-            "Rise evenly along the whole coast",
+            "Rise evenly across the whole shelf",
             "Drain away offshore"
           ],
           "answer": 0,
           "explain": "Stronger onshore wind applies greater stress to the water surface and drives more water towards the coast. In the model, the resulting setup also depends on shelf depth."
         },
         {
-          "prompt": "1953 eastern England and Katrina’s Gulf Coast pair because…",
+          "prompt": "The 1953 North Sea flood and Hurricane Katrina are paired because…",
           "choices": [
             "Both were tsunamis",
             "Both were surges from wind and low pressure",
@@ -11907,7 +11907,7 @@
       ],
       "why": [
         "Onshore winds push water towards the coast, while lower atmospheric pressure also raises the water surface. Shallow shelves can produce a larger setup for the same forcing.",
-        "Set wind to zero and isolate a pressure drop of 3000 Pa. Combine the effects, then compare physical scale to discuss geometric scale.",
+        "Set Onshore wind to zero and Pressure drop to 3000 Pa to see the pressure effect alone. Then combine both, and switch to Physical scale (1:1) to see how small the rise is beside the shelf.",
         "This steady shelf experiment excludes tides, waves and inundation, which are needed to assess a real coastal flood."
       ],
       "glossary": [
@@ -11961,7 +11961,7 @@
         }
       ],
       "teacher": {
-        "script": "Set wind and pressure drop to zero and identify the reference sea level. Raise Onshore wind and compare two shelf depths.\n\nSet wind to zero and isolate a pressure drop of 3000 Pa. Combine the effects, then compare physical scale to discuss geometric scale.",
+        "script": "Set Onshore wind and Pressure drop to zero and find the reference sea level (dashed line). Raise Onshore wind, then compare two values of Shelf depth.\n\nSet Onshore wind to zero and Pressure drop to 3000 Pa to see the pressure effect alone. Then combine both, and switch to Physical scale (1:1) to see how small the rise is beside the shelf.",
         "pitfalls": [
           "Distinguish storm surge from a tsunami by explaining the process that raises the water level.",
           "Consider wind-driven water accumulation and atmospheric pressure as well as waves on the surface.",
