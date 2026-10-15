@@ -3,9 +3,11 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { VERIFIED_PHOTOS } from '../src/lib/verified-photos.ts';
+import { LAB_GALLERY, CASE_GALLERY } from '../src/lib/media-galleries.ts';
+const flat = gallery => Object.fromEntries(Object.entries(gallery).flatMap(([key, list]) => list.map((slot, i) => [`${key}#${i + 1}`, slot])));
 
 const atlas=JSON.parse(readFileSync('scripts/atlas-photo-assignments.json','utf8'));
-const surfaces={...registry,ATLAS_PHOTOS:Object.fromEntries(Object.entries(atlas).map(([key,id])=>[key,VERIFIED_PHOTOS[id]])),EARTH_MOTION:{solstice:VERIFIED_PHOTOS['meteosat-december-solstice'],sundial:VERIFIED_PHOTOS['greens-mill-sundial']}};
+const surfaces={...registry,ATLAS_PHOTOS:Object.fromEntries(Object.entries(atlas).map(([key,id])=>[key,VERIFIED_PHOTOS[id]])),EARTH_MOTION:{solstice:VERIFIED_PHOTOS['meteosat-december-solstice'],sundial:VERIFIED_PHOTOS['greens-mill-sundial']},LAB_GALLERY:flat(LAB_GALLERY),CASE_GALLERY:flat(CASE_GALLERY)};
 
 const rows = Object.entries(surfaces).flatMap(([group, slots]) => Object.entries(slots).map(([key, slot]) => {
   if(!slot) throw new Error(`Missing reviewed assignment: ${group}/${key}`);
