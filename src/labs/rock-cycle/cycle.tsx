@@ -1,15 +1,11 @@
-import { useMemo, useEffect, useLayoutEffect, useRef } from "react";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { useIsCompact } from "@/hooks/use-media";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
-import { RockMaterial } from "../shared/rock-material";
-import { RockPrism } from "../shared/rock-prism";
 import { Tag } from "../shared/kit";
-import { GraniteMaterial } from "./granite-material";
-import { landscapeNoise } from "../shared/landscape-noise";
+import { Specimen } from "./specimens";
 const NAMES = ["Igneous", "Sedimentary", "Metamorphic", "Sediment", "Magma"];
 export const ROCK_ROUTES = [
   { from: 4, to: 0, name: "Cooling and crystallisation" },
@@ -23,106 +19,6 @@ export const ROCK_ROUTES = [
   { from: 1, to: 4, name: "Melting of sedimentary rock" },
   { from: 2, to: 4, name: "Melting of metamorphic rock" },
 ];
-function Crystalline() {
-  const g = useMemo(() => {
-    const g = new THREE.IcosahedronGeometry(0.61, 5),
-      p = g.attributes.position;
-    for (let i = 0; i < p.count; i++) {
-      const x = p.getX(i),
-        y = p.getY(i),
-        z = p.getZ(i),
-        v =
-          0.84 +
-          0.17 * landscapeNoise(x * 5 + y * 3, z * 5 - y * 2) +
-          0.035 * landscapeNoise(x * 24 - y * 13, z * 29 + y * 17);
-      p.setXYZ(i, x * v, y * v, z * v);
-    }
-    g.computeVertexNormals();
-    return g;
-  }, []);
-  useEffect(() => () => g.dispose(), [g]);
-  return (
-    <mesh geometry={g}>
-      <GraniteMaterial />
-    </mesh>
-  );
-}
-function Grains() {
-  const ref = useRef<THREE.InstancedMesh>(null);
-  useLayoutEffect(() => {
-    if (!ref.current) return;
-    const o = new THREE.Object3D();
-    for (let i = 0; i < 120; i++) {
-      const r = 0.5 * Math.sqrt((i + 0.5) / 120),
-        a = i * 2.399;
-      o.position.set(
-        r * Math.cos(a),
-        0.2 * (1 - r / 0.5) + 0.03 * Math.sin(i * 7),
-        r * Math.sin(a),
-      );
-      o.scale.setScalar(0.045 + 0.012 * Math.sin(i * 13) ** 2);
-      o.rotation.set(i * 0.3, i * 0.4, i * 0.7);
-      o.updateMatrix();
-      ref.current.setMatrixAt(i, o.matrix);
-      ref.current.setColorAt(i, new THREE.Color(i % 3 === 0 ? "#c4b38b" : "#a58d69"));
-    }
-    ref.current.instanceMatrix.needsUpdate = true;
-    ref.current.computeBoundingSphere();
-  }, []);
-  return (
-    <instancedMesh ref={ref} args={[undefined, undefined, 120]}>
-      <dodecahedronGeometry args={[1, 0]} />
-      <meshStandardMaterial roughness={0.94} />
-    </instancedMesh>
-  );
-}
-function Specimen({ kind }: { kind: number }) {
-  if (kind === 0) return <Crystalline />;
-  if (kind === 3) return <Grains />;
-  if (kind === 4)
-    return (
-      <mesh scale={[1, 0.68, 1]}>
-        <sphereGeometry args={[0.57, 72, 48]} />
-        <meshStandardMaterial
-          color="#7e382c"
-          emissive="#a34524"
-          emissiveIntensity={0.32}
-          roughness={0.5}
-        />
-      </mesh>
-    );
-  return (
-    <>
-      {Array.from({ length: kind === 1 ? 5 : 10 }, (_, i) => {
-        const dy = kind === 1 ? 0.19 : 0.095,
-          b = -0.48 + i * dy,
-          wave = (x: number) => (kind === 1 ? 0 : 0.095 * Math.sin(x * 5)),
-          points = [
-            ...Array.from({ length: 41 }, (_, j) => {
-              const left = -0.56 + 0.08 * Math.sin(b * 5),
-                right = 0.56 - 0.06 * Math.cos(b * 7),
-                x = left + (j / 40) * (right - left);
-              return [x, b + wave(x)] as [number, number];
-            }),
-            ...Array.from({ length: 41 }, (_, j) => {
-              const left = -0.56 + 0.08 * Math.sin((b + dy) * 5),
-                right = 0.56 - 0.06 * Math.cos((b + dy) * 7),
-                x = right - (j / 40) * (right - left);
-              return [x, b + dy + wave(x)] as [number, number];
-            }),
-          ];
-        return (
-          <RockPrism
-            key={i}
-            points={points}
-            depth={0.72}
-            color={kind === 1 ? (i % 2 ? "#b9a078" : "#998867") : i % 2 ? "#afa89d" : "#565d5b"}
-          />
-        );
-      })}
-    </>
-  );
-}
 export default function RockCycle() {
   const { params, t, setParam } = useLabControls();
   useLabTick(1 / 40);
@@ -171,7 +67,7 @@ export default function RockCycle() {
       >
         {positions.map((p, i) => (
           <group key={i} position={p}>
-            <Specimen kind={i} />
+            <Specimen kind={i} plinth />
             <Tag
               pos={[0, 0.85, 0]}
               text={NAMES[i]}

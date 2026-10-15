@@ -4,40 +4,86 @@ import { Line } from "@react-three/drei";
 import { SOIL_PROFILES } from "@/lib/soil-profile-science";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
-import { RockMaterial } from "../shared/rock-material";
+import { SectionMaterial } from "../shared/section-material";
 import { RootNetwork, GrassPatch, DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
 import { landscapeRandom as random } from "../shared/landscape-noise";
+const hex = (h: string) => {
+  const c = new THREE.Color(h);
+  // Work in sRGB like CSS hex; SectionMaterial converts to linear.
+  const [r, g, b] = [c.r, c.g, c.b].map((v) => Math.pow(v, 1 / 2.2));
+  return `vec3(${r.toFixed(3)},${g.toFixed(3)},${b.toFixed(3)})`;
+};
+/** Structure drawn for each horizon type: litter, crumb, blocky peds or stony parent material. */
+const kindOf = (code: string) =>
+  code[0] === "O" ? 0 : code[0] === "A" ? 1 : code[0] === "B" ? 2 : 3;
+
+/** A section shader for one profile: wavy horizon boundaries, structure, roots and burrows. */
+function profileGlsl(index: number) {
+  const { horizons } = SOIL_PROFILES[index],
+    blend = index === 2 ? 0.08 : 0.018,
+    rootDepth = index === 1 ? 0.65 : 0.35;
+  const colour = horizons
+    .map((h, i) =>
+      i === 0
+        ? `vec3 c=${hex(h.colour)};int kind=${kindOf(h.code)};`
+        : `{float t=smoothstep(${(horizons[i - 1].bottom - blend).toFixed(3)},${(horizons[i - 1].bottom + blend).toFixed(3)},d);c=mix(c,${hex(h.colour)},t);if(t>.5)kind=${kindOf(h.code)};}`,
+    )
+    .join("\n");
+  return `
+float cellEdge(vec2 q){
+  vec2 i=floor(q),f=fract(q);float a=9.,b=9.;
+  for(int x=-1;x<=1;x++)for(int y=-1;y<=1;y++){
+    vec2 n=vec2(float(x),float(y)),o=vec2(sHash(i+n),sHash(i+n+7.3));
+    float e=length(n+o-f);if(e<a){b=a;a=e;}else b=min(b,e);}
+  return b-a;
+}
+vec3 sectionColour(vec3 p,vec3 w){
+  float h=p.x+p.z,d=-p.y+.025*(sNoise(vec2(h*5.,1.))-.5);
+  ${colour}
+  vec2 q=vec2(h,d);
+  float g=grain(q);
+  c*=mix(.9,1.08,g);
+  if(kind==0){
+    // Leaf litter: pale fragments in dark humus.
+    c=mix(c,vec3(.55,.42,.26),smoothstep(.7,.78,sNoise(q*vec2(40.,90.)))*.7);
+  }else if(kind==1){
+    // Crumb structure.
+    c*=.84+.3*sNoise(q*55.);
+  }else if(kind==2){
+    // Blocky peds separated by darker cracks and clay coatings.
+    float e=cellEdge(q*vec2(8.,6.));
+    c*=mix(.74,1.,smoothstep(0.,.06,e));
+    ${index === 2 ? "c=mix(c,vec3(.36,.16,.10),smoothstep(.84,.9,sNoise(q*44.))*.6);" : ""}
+  }else{
+    // Weathered parent material: angular stones that become larger and commoner with depth.
+    float st=smoothstep(.74-.1*clamp(d-1.,0.,1.),.78-.1*clamp(d-1.,0.,1.),sNoise(q*vec2(16.,20.)));
+    c=mix(c,vec3(.70,.68,.63)*mix(.8,1.08,sNoise(q*60.)),st);
+    c*=1.-.35*st*(1.-st)*4.;
+  }
+  // Roots: fine pale threads, thinning out with depth.
+  float col=floor(h*28.),rf=fract((h+.012*sin(d*25.+col))*28.);
+  float root=(1.-smoothstep(.0,.06,abs(rf-.5)-.42))*step(.55,sHash(vec2(col,3.)))*(1.-smoothstep(${(rootDepth * 0.5).toFixed(2)},${rootDepth.toFixed(2)},d*(1.+sHash(vec2(col,5.)))));
+  c=mix(c,vec3(.80,.72,.58),root*.7);
+  // Earthworm and animal burrows, back-filled with darker topsoil.
+  float burrow=smoothstep(.86,.89,sNoise(q*vec2(26.,12.)+3.))*step(d,${index === 1 ? "1.2" : "0.8"});
+  c=mix(c,${hex(horizons[Math.min(1, horizons.length - 1)].colour)},burrow*.7);
+  return c;
+}
+vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
+}
+
 export default function SoilProfile() {
   const { params } = useLabControls(),
     index = Math.round(params.profile ?? 0),
     profile = SOIL_PROFILES[index];
   const geometry = useMemo(() => {
-    const g = new THREE.BoxGeometry(1.6, 2, 1, 64, 120, 24);
+    const g = new THREE.BoxGeometry(1.6, 2, 1, 2, 2, 2);
     g.translate(0, -1, 0);
-    const p = g.attributes.position,
-      c = new Float32Array(p.count * 3);
-    for (let i = 0; i < p.count; i++) {
-      const x = p.getX(i),
-        z = p.getZ(i),
-        depth = -p.getY(i) + 0.007 * Math.sin(x * 8 + z * 6),
-        found = profile.horizons.findIndex((h) => depth <= h.bottom),
-        j = found < 0 ? profile.horizons.length - 1 : found,
-        h = profile.horizons[j],
-        colour = new THREE.Color(h.colour);
-      const above = profile.horizons[j - 1],
-        width = index === 2 ? 0.1 : 0.012;
-      if (above && depth - above.bottom < width)
-        colour.lerp(new THREE.Color(above.colour), 0.5 * (1 - (depth - above.bottom) / width));
-      const grain =
-        1 + 0.055 * Math.sin(x * 51 + z * 29 + depth * 41) * Math.cos(x * 87 - depth * 71);
-      colour.multiplyScalar(grain);
-      c.set([colour.r, colour.g, colour.b], i * 3);
-    }
-    g.setAttribute("color", new THREE.BufferAttribute(c, 3));
     return g;
-  }, [index]);
+  }, []);
   useEffect(() => () => geometry.dispose(), [geometry]);
+  const glsl = useMemo(() => profileGlsl(index), [index]);
   return (
     <>
       <ScienceStudio
@@ -47,13 +93,12 @@ export default function SoilProfile() {
         trueScale="1 scene unit = 1 m · grains and roots enlarged for visibility"
       >
         <mesh geometry={geometry}>
-          <RockMaterial
-            map={null}
-            color="#ffffff"
-            vertexColors
-            roughness={1}
-            repeat={6}
-            normalScale={new THREE.Vector2(0.15, 0.15)}
+          <SectionMaterial
+            glsl={glsl}
+            cliff={0.7}
+            cacheKey={`soil-profile-${index}`}
+            color={index === 0 ? "#3b2e20" : "#5a6a39"}
+            roughness={0.98}
           />
         </mesh>
         <GrassPatch
@@ -75,15 +120,6 @@ export default function SoilProfile() {
             seed={i + index * 7}
           />
         ))}
-        <DebrisField
-          points={Array.from({ length: 90 }, (_, i) => [
-            -0.76 + random(i + 29) * 1.52,
-            -0.12 - random(i + 492) * 1.81,
-            0.515,
-          ])}
-          size={0.02}
-          color={profile.horizons[1].colour}
-        />
         {index === 0 && (
           <DebrisField
             points={Array.from({ length: 28 }, (_, i) => [

@@ -5,7 +5,32 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { freezingJoint, calciteDissolution } from "@/lib/weathering-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
-import { RockMaterial } from "../shared/rock-material";
+import { SectionMaterial } from "../shared/section-material";
+import { cliffFaceGlsl } from "../shared/land-section";
+import { GeomorphicTerrain } from "../shared/geomorphic-terrain";
+import { landscapeNoise } from "../shared/landscape-noise";
+
+/** Bedded sandstone; upward-facing surfaces carry a grey-green lichen crust. */
+const SANDSTONE = cliffFaceGlsl({ rock: "sandstone", beds: 5.5, bedOffset: 0.2 });
+/** Fine-grained pale limestone with faint bedding and shell fragments, but no joints. */
+const LIMESTONE = cliffFaceGlsl({
+  custom: `
+  float b=fract(p.y*5.+.1*sNoise(vec2(p.x*2.,p.z*2.)));
+  vec3 c=mix(vec3(.86,.83,.75),vec3(.78,.75,.67),sNoise(vec2(p.x+p.z,p.y)*6.));
+  c*=mix(.88,1.,smoothstep(0.,.08,b))*mix(.94,1.05,g);
+  return mix(c,vec3(.95,.93,.88),smoothstep(.8,.86,sNoise(vec2(p.x*40.+p.z*30.,p.y*40.)))*.6);`,
+});
+function BlockMaterial() {
+  return (
+    <SectionMaterial
+      glsl={SANDSTONE}
+      cliff={0.7}
+      cacheKey="weathering-sandstone"
+      color="#9fa38a"
+      roughness={0.95}
+    />
+  );
+}
 import { NaturalTree } from "../shared/natural-world";
 import { RootNetwork } from "../shared/geomorphic-terrain";
 import { FlowWaterMaterial } from "../shared/flow-water";
@@ -33,10 +58,35 @@ function JointRock({ side, gap }: { side: number; gap: number }) {
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry} position={[side * (0.4 + gap / 2), 0.7, 0]} castShadow receiveShadow>
-      <RockMaterial color="#c9c2b2" desaturate={0.9} roughness={0.96} />
+      <BlockMaterial />
     </mesh>
   );
 }
+/** A limestone boulder whose surface is etched into solution pits as dissolution proceeds. */
+function PittedLimestone({ radius, pitting }: { radius: number; pitting: number }) {
+  const geometry = useMemo(() => {
+    const g = new THREE.IcosahedronGeometry(1, 5),
+      p = g.attributes.position;
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i),
+        y = p.getY(i),
+        z = p.getZ(i),
+        pits = Math.max(0, landscapeNoise(x * 6 + y * 4, z * 6 - y * 3) - 0.55) * 2.2,
+        lumps = 0.05 * (landscapeNoise(x * 2 + 5, z * 2 + y) - 0.5),
+        r = 1 + lumps - 0.12 * pitting * pits;
+      p.setXYZ(i, x * r, y * r * 0.9, z * r);
+    }
+    g.computeVertexNormals();
+    return g;
+  }, [pitting]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return (
+    <mesh geometry={geometry} position={[0, 0.7, 0]} scale={radius} castShadow receiveShadow>
+      <SectionMaterial glsl={LIMESTONE} cacheKey="weathering-limestone" roughness={0.9} />
+    </mesh>
+  );
+}
+
 export default function Weathering() {
   const { params, t, trueScale } = useLabControls();
   useLabTick(1 / 45);
@@ -75,24 +125,21 @@ export default function Weathering() {
       >
         {mode === 1 ? (
           <>
-            <mesh position={[0, 0.7, 0]}>
-              <sphereGeometry args={[dissolve.radius * 2, 96, 64]} />
-              <RockMaterial
-                color="#d4cbb5"
-                normalScale={new THREE.Vector2(0.15, 0.15)}
-                roughness={1}
-              />
-            </mesh>
+            <PittedLimestone radius={dissolve.radius * 2} pitting={Math.round(t * 20) / 20} />
             <mesh position={[0, 0.6, 0]}>
               <boxGeometry args={[2.3, 1.6, 1.8]} />
               <meshPhysicalMaterial
                 color="#578e9b"
                 transparent
-                opacity={0.1}
-                roughness={0.7}
+                opacity={0.14}
+                roughness={0.2}
                 depthWrite={false}
               />
             </mesh>
+            <lineSegments position={[0, 0.6, 0]}>
+              <edgesGeometry args={[new THREE.BoxGeometry(2.3, 1.6, 1.8)]} />
+              <lineBasicMaterial color="#cfe3e6" transparent opacity={0.6} />
+            </lineSegments>
             {Array.from({ length: 20 }, (_, i) => {
               const a = i * 2.399,
                 r = 0.65 + t * 0.45,
@@ -128,10 +175,12 @@ export default function Weathering() {
                   <mesh position={[0, liquidHeight + frozenHeight / 2, 0]}>
                     <boxGeometry args={[gap * 0.97, frozenHeight, 0.98]} />
                     <meshPhysicalMaterial
-                      color="#b6d4dd"
-                      roughness={0.26}
+                      color="#cfe6ee"
+                      roughness={0.12}
+                      clearcoat={1}
+                      clearcoatRoughness={0.1}
                       transparent
-                      opacity={0.84}
+                      opacity={0.9}
                     />
                   </mesh>
                 )}
@@ -170,10 +219,17 @@ export default function Weathering() {
               ))}
           </>
         )}
-        <mesh position={[0, -0.14, 0]}>
-          <boxGeometry args={[2.6, 0.2, 2]} />
-          <RockMaterial color="#9a9282" roughness={1} />
-        </mesh>
+        <group position={[0, -0.02, 0]}>
+          <GeomorphicTerrain
+            height={(x, z) => 0.012 * (landscapeNoise(x * 4 + 3, z * 4) - 0.5)}
+            colour={(x, y, z) => (landscapeNoise(x * 3, z * 3) > 0.55 ? "#6f8a49" : "#7f9752")}
+            width={2.6}
+            depth={2}
+            base={-0.5}
+            resolution={64}
+            section={{ rock: "sandstone", soil: 0.08, regolith: 0.12, beds: 5.5, bedOffset: 0.2 }}
+          />
+        </group>
       </ScienceStudio>
       <ScienceReadout>
         {MODES[mode]}.{" "}
