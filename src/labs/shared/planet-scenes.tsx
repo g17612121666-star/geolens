@@ -131,6 +131,32 @@ export function GraticuleScene() {
             text="Prime meridian 0°"
             note="The prime meridian through Greenwich is the agreed 0° line of longitude; east and west are measured from it."
           />
+          {/* Tropics and polar circles, at the latitudes set by Earth's axial tilt. */}
+          {[23.44, -23.44, 66.56, -66.56].map((l) => (
+            <Line
+              key={l}
+              points={Array.from({ length: 129 }, (_, i) =>
+                latLonToXYZ(l, -180 + (i / 128) * 360, 1.262),
+              )}
+              color={Math.abs(l) < 30 ? "#f1d38a" : "#cfe6f2"}
+              lineWidth={1}
+              dashed
+              dashSize={0.05}
+              gapSize={0.035}
+              transparent
+              opacity={0.8}
+            />
+          ))}
+          <Tag
+            pos={latLonToXYZ(23.44, -55, 1.34)}
+            text="Tropic of Cancer 23.4°N"
+            note="The furthest north the Sun is ever directly overhead, at the June solstice. Its latitude equals Earth's axial tilt."
+          />
+          <Tag
+            pos={latLonToXYZ(66.56, -40, 1.34)}
+            text="Arctic Circle 66.6°N"
+            note="North of this line there is at least one day each year when the Sun does not set, and one when it does not rise."
+          />
           <Line points={latitude} color="#7fd4ff" lineWidth={2} />
           <Line points={longitude} color="#edb777" lineWidth={2} />
           <CityMarker lat={lat} lon={lon} radius={1.28} />

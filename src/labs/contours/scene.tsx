@@ -5,7 +5,26 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { TerrainMaterial } from "../shared/natural-world";
-import { RockMaterial } from "../shared/rock-material";
+import { SectionMaterial, withSurfaceY } from "../shared/section-material";
+import { landSectionGlsl } from "../shared/land-section";
+
+const SIDES = landSectionGlsl({ rock: "sandstone", soil: 0.03, regolith: 0.05, beds: 12 });
+/** The summit: a survey trig pillar marks the highest point. */
+const SUMMIT: [number, number] = (() => {
+  let best: [number, number] = [0, 0],
+    top = -1;
+  for (let i = 0; i <= 120; i++)
+    for (let j = 0; j <= 80; j++) {
+      const x = -3 + (6 * i) / 120,
+        z = -2 + (4 * j) / 80,
+        h = hillHeight(x, z);
+      if (h > top) {
+        top = h;
+        best = [x, z];
+      }
+    }
+  return best;
+})();
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { contours, hillHeight } from "./geometry";
 export default function Contours() {
@@ -15,13 +34,8 @@ export default function Contours() {
     factor = mode ? (trueScale ? 1 : 2.5) : 0;
   const [spot, setSpot] = useState<[number, number]>([0, 0]);
   const g = useMemo(() => {
-    const geometry = terrainBlockGeometry(
-      (x, z) => (hillHeight(x, z) / 100) * factor,
-      6,
-      4,
-      128,
-      -0.16,
-    );
+    const surface = (x: number, z: number) => (hillHeight(x, z) / 100) * factor;
+    const geometry = withSurfaceY(terrainBlockGeometry(surface, 6, 4, 128, -0.16), surface);
     // Hypsometric tint: the colour depends only on true height, as on a printed map.
     const p = geometry.attributes.position,
       colours = new Float32Array(p.count * 3),
@@ -70,7 +84,7 @@ export default function Contours() {
               normalScale={new THREE.Vector2(0.12, 0.12)}
               roughness={0.95}
             />
-            <RockMaterial attach="material-1" color="#9e8a6b" />
+            <SectionMaterial attach="material-1" glsl={SIDES} surface cacheKey="contour-sides" />
           </mesh>
           {lines.map((l) => (
             <Line
@@ -113,6 +127,21 @@ export default function Contours() {
             note="Click any point on the surface to measure its elevation above this model's datum."
             occlude={false}
           />
+          {mode && (
+            <group
+              position={[SUMMIT[0], (hillHeight(...SUMMIT) / 100) * factor, SUMMIT[1]]}
+              scale={0.6}
+            >
+              <mesh position={[0, 0.09, 0]} castShadow>
+                <boxGeometry args={[0.07, 0.18, 0.07]} />
+                <meshStandardMaterial color="#efeee8" roughness={0.6} />
+              </mesh>
+              <mesh position={[0, 0.185, 0]}>
+                <cylinderGeometry args={[0.02, 0.025, 0.012, 16]} />
+                <meshStandardMaterial color="#9a958a" metalness={0.5} roughness={0.4} />
+              </mesh>
+            </group>
+          )}
           <Line
             points={[
               [-3, 0.01, 2.2],

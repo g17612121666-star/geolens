@@ -6,6 +6,9 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "./science-kit";
 import { Tag } from "./kit";
 import { projectedPosition, geographicCircle } from "../map-projections/projection";
+import { terrainBlockGeometry } from "./science-geometry";
+import { SectionMaterial, withSurfaceY } from "./section-material";
+import { landSectionGlsl } from "./land-section";
 
 /** Fictional relief for the coordinate exercise (u east, v south, both 0–1). */
 function surveyHeight(u: number, v: number) {
@@ -21,7 +24,7 @@ function mapHeight(x: number, z: number) {
 }
 
 /** Fictional map sheet in Ordnance Survey style, not a field photograph. */
-function SurveyPaper() {
+function SurveyPaper({ attach }: { attach?: string }) {
   const texture = useMemo(() => {
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 1024;
@@ -112,32 +115,23 @@ function SurveyPaper() {
     return texture;
   }, []);
   useEffect(() => () => texture.dispose(), [texture]);
-  return <meshStandardMaterial map={texture} roughness={0.95} />;
+  return <meshStandardMaterial attach={attach} map={texture} roughness={0.95} />;
 }
 
-/** Map sheet raised into a relief model: same contours, now visible as landforms. */
+/** Map sheet raised into a relief block: same contours, now visible as landforms, with cut
+ * faces showing the ground beneath. */
+const SHEET_SECTION = landSectionGlsl({ rock: "sandstone", soil: 0.03, regolith: 0.05, beds: 9 });
 function ReliefSheet() {
-  const geometry = useMemo(() => {
-    const g = new THREE.PlaneGeometry(4, 4, 160, 160),
-      p = g.attributes.position;
-    for (let i = 0; i < p.count; i++) {
-      // Plane local +y becomes world −z (north) after the −90° rotation about X.
-      p.setZ(i, mapHeight(p.getX(i), -p.getY(i)));
-    }
-    g.computeVertexNormals();
-    return g;
-  }, []);
+  const geometry = useMemo(
+    () => withSurfaceY(terrainBlockGeometry(mapHeight, 4, 4, 180, -0.18), mapHeight),
+    [],
+  );
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
-    <>
-      <mesh geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} receiveShadow castShadow>
-        <SurveyPaper />
-      </mesh>
-      <mesh position={[0, -0.05, 0]}>
-        <boxGeometry args={[4, 0.1, 4]} />
-        <meshStandardMaterial color="#d9d3bb" roughness={0.9} />
-      </mesh>
-    </>
+    <mesh geometry={geometry} receiveShadow castShadow>
+      <SurveyPaper attach="material-0" />
+      <SectionMaterial attach="material-1" glsl={SHEET_SECTION} surface cacheKey="grid-sheet" />
+    </mesh>
   );
 }
 
@@ -203,10 +197,21 @@ export function GridReferenceScene() {
           color="#e8613a"
           lineWidth={3}
         />
-        <mesh position={[x, y + 0.06, z]}>
-          <sphereGeometry args={[0.065, 24, 16]} />
-          <meshStandardMaterial color="#e8613a" />
-        </mesh>
+        {/* A map pin at the south-west corner of the selected 100 m square. */}
+        <group position={[x, y, z]}>
+          <mesh position={[0, 0.16, 0]} castShadow>
+            <cylinderGeometry args={[0.008, 0.008, 0.32, 8]} />
+            <meshStandardMaterial color="#d9d4ca" metalness={0.6} roughness={0.3} />
+          </mesh>
+          <mesh position={[0, 0.33, 0]} castShadow>
+            <sphereGeometry args={[0.05, 24, 16]} />
+            <meshStandardMaterial color="#e8613a" roughness={0.35} />
+          </mesh>
+          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.004, 0]}>
+            <ringGeometry args={[0.03, 0.05, 24]} />
+            <meshBasicMaterial color="#e8613a" />
+          </mesh>
+        </group>
         {/* North arrow and 10 km scale bar beside the sheet */}
         <group position={[2.45, 0.02, -1.6]}>
           <mesh rotation={[-Math.PI / 2, 0, 0]}>
@@ -233,7 +238,7 @@ export function GridReferenceScene() {
         />
         <Tag pos={[1.2, 0.02, 2.75]} text="10 km" occlude={false} />
         <Tag
-          pos={[x, y + 0.42, z]}
+          pos={[x, y + 0.55, z]}
           text={`${String(e).padStart(3, "0")} ${String(n).padStart(3, "0")}`}
           note="Six figures identify a 100 m grid square. The marker shows its southwest corner; it is not a surveyed point accurate to one metre."
           occlude={false}
@@ -281,8 +286,48 @@ function ProjectionSurface({ morph, kind }: { morph: number; kind: number }) {
   useEffect(() => () => g.dispose(), [g]);
   return (
     <mesh geometry={g}>
-      <meshBasicMaterial map={map} side={THREE.DoubleSide} />
+      <meshBasicMaterial
+        map={map}
+        side={THREE.DoubleSide}
+        onBeforeCompile={atlasColours}
+        customProgramCacheKey={() => "projection-atlas-v2"}
+      />
     </mesh>
+  );
+}
+/** The day texture's oceans are very dark; recolour them as a clear atlas-blue sea. */
+function atlasColours(s: THREE.WebGLProgramParametersWithUniforms) {
+  s.fragmentShader = s.fragmentShader.replace(
+    "#include <map_fragment>",
+    `#include <map_fragment>
+vec3 day=diffuseColor.rgb;
+// Ocean pixels are near-black navy (about sRGB 2, 5, 20): blue-dominant and very dark.
+float ocean=smoothstep(.002,.005,day.b-max(day.r,day.g))*(1.-smoothstep(.03,.08,max(day.r,day.g)));
+vec3 sea=vec3(.06,.2,.38);
+diffuseColor.rgb=mix(day*1.3,sea,ocean);`,
+  );
+}
+/** Map sheet behind the flattened projection, with a neat line around the mapped area. */
+function MapSheet({ morph, kind }: { morph: number; kind: number }) {
+  const w = projectedPosition(0, 180, 1, kind)[0],
+    h = projectedPosition(85, 0, 1, kind)[1],
+    opacity = THREE.MathUtils.smoothstep(morph, 0.75, 1);
+  if (opacity <= 0) return null;
+  const frame: [number, number, number][] = [
+    [-w - 0.04, -h - 0.04, 0.002],
+    [w + 0.04, -h - 0.04, 0.002],
+    [w + 0.04, h + 0.04, 0.002],
+    [-w - 0.04, h + 0.04, 0.002],
+    [-w - 0.04, -h - 0.04, 0.002],
+  ];
+  return (
+    <>
+      <mesh position={[0, 0, -0.01]}>
+        <planeGeometry args={[2 * w + 0.36, 2 * h + 0.36]} />
+        <meshStandardMaterial color="#f4efe2" roughness={0.9} transparent opacity={opacity} />
+      </mesh>
+      <Line points={frame} color="#3d3a33" lineWidth={1.4} transparent opacity={opacity} />
+    </>
   );
 }
 export function ProjectionScene() {
@@ -299,6 +344,7 @@ export function ProjectionScene() {
         camera={[0, 1, 6]}
       >
         <ProjectionSurface morph={morph} kind={kind} />
+        <MapSheet morph={morph} kind={kind} />
         {/* The mapped surface stops at ±85°; close the poles while it is still a globe. */}
         {morph < 0.02 &&
           [1, -1].map((pole) => (
