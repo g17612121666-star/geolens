@@ -4,11 +4,13 @@ import { HomeHero } from "@/components/globe/home-hero";
 import { ProgressImage } from "@/components/progress-media";
 import { Button } from "@/components/ui/button";
 import { LabFilmstrip } from "@/components/lab-filmstrip";
-import { REALMS, labsInRealm } from "@/lib/labs/catalog";
+import { LAB_BY_SLUG, REALMS, labsInRealm } from "@/lib/labs/catalog";
 import { REALM_FIGURE, labFigure } from "@/lib/figures";
 import { CASES } from "@/lib/cases";
 import { caseFigure } from "@/lib/case-figures";
 import { headFor } from "@/lib/seo";
+import { LabCard } from "@/components/lab-card";
+import { useRecentLabs } from "@/lib/recent-labs";
 export const Route = createFileRoute("/")({
   component: Home,
   head: () =>
@@ -65,6 +67,7 @@ function Home() {
           <HomeHero />
         </div>
       </section>
+      <RecentLabs />
       <section className="mx-auto max-w-[1280px] border-t border-white/10 px-5 py-12 md:py-16">
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -179,5 +182,39 @@ function Home() {
         </div>
       </section>
     </main>
+  );
+}
+
+/** Labs this browser opened recently; nothing is stored anywhere else. */
+function RecentLabs() {
+  const [slugs, forget] = useRecentLabs();
+  const labs = slugs
+    .map((s) => LAB_BY_SLUG[s])
+    .filter(Boolean)
+    .slice(0, 3);
+  if (labs.length === 0) return null;
+  return (
+    <section
+      aria-labelledby="recent-labs"
+      className="mx-auto max-w-[1280px] border-t border-white/10 px-5 py-10"
+    >
+      <div className="flex items-end justify-between gap-4">
+        <h2 id="recent-labs" className="font-display text-2xl md:text-3xl">
+          {"Continue where you left off"}
+        </h2>
+        <button
+          type="button"
+          onClick={forget}
+          className="min-h-11 text-sm text-mist hover:text-chalk"
+        >
+          {"Clear"}
+        </button>
+      </div>
+      <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {labs.map((lab) => (
+          <LabCard key={lab.slug} lab={lab} />
+        ))}
+      </div>
+    </section>
   );
 }

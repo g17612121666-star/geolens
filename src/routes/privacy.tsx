@@ -39,7 +39,7 @@ function Privacy() {
         </p>
         <p>
           {
-            "Quiz answers and glossary practice marks are saved only in this browser, so a student can pick up where they left off on the same device. They are never sent to a server. Pages and files you open are also kept by your browser so they still work without a connection. Start again in a lab’s Check tab clears that lab, and clearing the site’s data removes them all."
+            "Quiz answers, glossary practice marks and the labs you opened recently are saved only in this browser, so a student can pick up where they left off on the same device. They are never sent to a server. Pages and files you open are also kept by your browser so they still work without a connection. Start again in a lab’s Check tab clears that lab, and clearing the site’s data removes them all."
           }
         </p>
         <p>

@@ -8,6 +8,7 @@ import { WhyPanel } from "./why-panel";
 import { ControlBar } from "./control-bar";
 import { useIsCompact, useMediaQuery } from "@/hooks/use-media";
 import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state";
+import { recordLabVisit } from "@/lib/recent-labs";
 
 const KEYS: { key: string; does: string }[] = [
   { key: "Space", does: "Play / pause" },
@@ -86,6 +87,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
 
   useEffect(() => {
     hydrate(defaultParams(lab));
+    recordLabVisit(lab.slug);
     setInteractive(true);
     if (lab.controls.slice) {
       useLabControls.getState().setSlice(0.42);
