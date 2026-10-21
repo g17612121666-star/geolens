@@ -34,6 +34,9 @@ export const Route = createRootRoute({
   component: Root,
 });
 
+// Labs and pages a visitor has opened keep working without a connection (public/sw.js).
+const SW_REGISTER = `if("serviceWorker"in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}`;
+
 function Root() {
   return (
     <html lang="en-GB" className="antialiased" suppressHydrationWarning>
@@ -52,6 +55,7 @@ function Root() {
           <Outlet />
         </SiteShell>
         <Scripts />
+        {import.meta.env.PROD && <script dangerouslySetInnerHTML={{ __html: SW_REGISTER }} />}
       </body>
     </html>
   );
