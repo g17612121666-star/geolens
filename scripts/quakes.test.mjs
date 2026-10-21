@@ -33,3 +33,17 @@ test('distance to the nearest plate boundary is small on a boundary and large in
   // Central Australia is far inside the Australian plate.
   assert.ok(distanceToBoundaryKm(-25, 134, segs) > 1000);
 });
+
+test('a real USGS feed (significant earthquakes, 2015) parses, merges duplicates and follows plate boundaries', () => {
+  const raw = JSON.parse(readFileSync(new URL('./fixtures/usgs-significant-2015.geojson', import.meta.url), 'utf8'));
+  const quakes = parseFeed(raw);
+  assert.equal(raw.features.length, 156);
+  // Nine events appear twice, reported by both the USGS and the Global CMT catalogue (within 1 s
+  // and 1 km), including the M8.3 Illapel, Chile earthquake of 16 September 2015.
+  assert.equal(quakes.filter((q) => q.mag === 8.3).length, 1);
+  assert.equal(quakes[0].mag, 8.3);
+  assert.equal(quakes.length, 147);
+  const near = quakes.filter((q) => distanceToBoundaryKm(q.lat, q.lon, segs) <= 200).length;
+  assert.ok(near / quakes.length > 0.8, `near ${near}/${quakes.length}`);
+  assert.ok(quakes.some((q) => depthClass(q.depthKm) === 'deep'));
+});

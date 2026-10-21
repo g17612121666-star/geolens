@@ -58,7 +58,32 @@ export function parseFeed(json: unknown): Quake[] {
       tsunami: f.properties?.tsunami === 1,
     });
   }
-  return out.sort((a, b) => b.mag - a.mag);
+  return dedupe(out.sort((a, b) => b.mag - a.mag));
+}
+
+/**
+ * Feeds sometimes list one event twice, reported by two networks under different ids.
+ * Treat events within 60 s, 100 km and 0.3 magnitude units of a kept event as the same one.
+ */
+function dedupe(sorted: Quake[]): Quake[] {
+  const kept: Quake[] = [];
+  for (const q of sorted) {
+    const same = kept.some(
+      (k) =>
+        Math.abs(k.time - q.time) <= 60_000 &&
+        Math.abs(k.mag - q.mag) <= 0.3 &&
+        surfaceKm(k.lat, k.lon, q.lat, q.lon) <= 100,
+    );
+    if (!same) kept.push(q);
+  }
+  return kept;
+}
+
+function surfaceKm(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const a = unit(lat1, lon1),
+    b = unit(lat2, lon2);
+  const dot = Math.min(1, Math.max(-1, a[0] * b[0] + a[1] * b[1] + a[2] * b[2]));
+  return Math.acos(dot) * EARTH_RADIUS_KM;
 }
 
 export async function fetchQuakes(id: FeedId, signal?: AbortSignal): Promise<Quake[]> {
