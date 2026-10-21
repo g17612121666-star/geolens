@@ -8,6 +8,7 @@ import { Figure } from "@/components/figure";
 import { labFigures, termThumb } from "@/lib/figures";
 import { labVideo } from "@/lib/lab-videos";
 import { useQuizAnswers } from "@/lib/quiz-progress";
+import { PRODUCER_MAILTO } from "@/lib/contact";
 import { Gallery } from "@/components/gallery";
 import { LAB_GALLERY } from "@/lib/media-galleries";
 
@@ -204,6 +205,12 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             >
               {"Printable student worksheet"}
             </Link>
+            <a
+              href={`${PRODUCER_MAILTO}?subject=${encodeURIComponent(`Geolens: mistake in ${lab.title}`)}&body=${encodeURIComponent(`Lab: ${lab.title} (/lab/${lab.slug})\n\nWhat looks wrong, and where:\n`)}`}
+              className="inline-flex h-11 items-center text-ice hover:underline"
+            >
+              {"Report a mistake in this lab"}
+            </a>
           </div>
         )}
       </div>
