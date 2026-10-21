@@ -9,16 +9,17 @@ export function AlpineMaterial({ attach }: { attach?: string }) {
     "/textures/pbr/rock_face_disp.webp",
     "/textures/pbr/forest_ground_04_diff.webp",
   ]);
+  const [rockMap, heightMap, soilMap] = originals;
   const maps = useMemo(
     () =>
-      originals.map((source, i) => {
+      [rockMap, heightMap, soilMap].map((source, i) => {
         const t = source.clone();
         t.wrapS = t.wrapT = THREE.RepeatWrapping;
         t.colorSpace = i === 1 ? THREE.NoColorSpace : THREE.SRGBColorSpace;
         t.anisotropy = 8;
         return t;
       }),
-    [...originals],
+    [rockMap, heightMap, soilMap],
   );
   useEffect(() => () => maps.forEach((t) => t.dispose()), [maps]);
   const shader = useMemo(

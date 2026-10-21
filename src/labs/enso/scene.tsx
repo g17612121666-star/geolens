@@ -18,7 +18,7 @@ vec3 sectionColour(vec3 p,vec3 w){
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { fbm } from "../shared/hazard-parts";
+import { fbm } from "../shared/hazard-utils";
 import { Tag } from "../shared/kit";
 import { OceanSurface } from "../shared/ocean-section";
 import { CloudVolume, RainStreaks, FlowFilaments } from "../atmosphere-layers/weather-volumes";

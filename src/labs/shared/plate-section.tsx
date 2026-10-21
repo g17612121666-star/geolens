@@ -6,8 +6,9 @@ import { Tag } from "./kit";
 import { FlowWaterMaterial } from "./flow-water";
 import { PlantStand, TerrainMaterial } from "./natural-world";
 import { terrainBlockGeometry } from "./science-geometry";
-import { SectionMaterial, useSectionUniforms } from "./section-material";
-import { fbm } from "./hazard-parts";
+import { SectionMaterial } from "./section-material";
+import { useSectionUniforms } from "./section-utils";
+import { fbm } from "./hazard-utils";
 
 const W = 5.6,
   D = 1.6,

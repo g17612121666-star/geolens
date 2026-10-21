@@ -200,6 +200,7 @@ export function EarthMesh({
       solarPosition: { value: new THREE.Vector3() },
       solarRadius: { value: 0 },
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- sunDirection only seeds the uniform (its default is a new Vector3 each render); useFrame copies the live value from sunRef
     [dayMap, nightMap, bumpMap],
   );
   const haloUniforms = useMemo(() => ({ sunDirection: { value: new THREE.Vector3(1, 0, 0) } }), []);

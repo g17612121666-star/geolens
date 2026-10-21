@@ -9,7 +9,8 @@ import { ShallowWater } from "../shared/shallow-water";
 import { Tag } from "../shared/kit";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 import { PlantStand } from "../shared/natural-world";
-import { Buildings, farmland, settlement } from "../shared/hazard-parts";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, settlement } from "../shared/hazard-utils";
 import type { LandSection } from "../shared/land-section";
 
 // The bend's apex lies away from the default camera, so the point bar faces the viewer.

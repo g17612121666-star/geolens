@@ -11,7 +11,7 @@ import { TerrainMaterial, PlantStand } from "../shared/natural-world";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { WaterRibbon, GrassPatch, RootNetwork, PoreMarkers } from "../shared/geomorphic-terrain";
 import { SectionMaterial } from "../shared/section-material";
-import { farmland } from "../shared/hazard-parts";
+import { farmland } from "../shared/hazard-utils";
 
 /** Cut faces: dry soil and sand above the water table, wet saturated ground (the
  * groundwater store) below it, then bedrock; a sandy seabed under the ocean. Schematic. */

@@ -9,9 +9,10 @@ export function useRockPbr(repeat = 2) {
     "/textures/pbr/rock_nor.jpg",
     "/textures/pbr/rock_rough.jpg",
   ]);
+  const [diffMap, norMap, roughMap] = originals;
   const maps = useMemo(
     () =>
-      originals.map((original, i) => {
+      [diffMap, norMap, roughMap].map((original, i) => {
         const t = original.clone();
         t.wrapS = t.wrapT = THREE.RepeatWrapping;
         t.repeat.set(repeat, repeat);
@@ -19,7 +20,7 @@ export function useRockPbr(repeat = 2) {
         t.colorSpace = i === 0 ? THREE.SRGBColorSpace : THREE.NoColorSpace;
         return t;
       }),
-    [originals[0], originals[1], originals[2], repeat],
+    [diffMap, norMap, roughMap, repeat],
   );
   useEffect(() => () => maps.forEach((t) => t.dispose()), [maps]);
   return {

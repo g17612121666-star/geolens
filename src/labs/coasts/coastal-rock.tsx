@@ -34,6 +34,7 @@ export function CoastalRock({
     const g = new THREE.ExtrudeGeometry(shape, { depth, steps: 1, bevelEnabled: false });
     g.translate(0, 0, -depth / 2);
     return weatherCliff(g);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on signature (points as JSON) so a fresh points array with the same vertices does not rebuild the geometry
   }, [signature, depth]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (

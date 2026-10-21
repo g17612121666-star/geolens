@@ -7,8 +7,9 @@ import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
-import { fbm } from "../shared/hazard-parts";
+import { SectionMaterial } from "../shared/section-material";
+import { useSectionUniforms } from "../shared/section-utils";
+import { fbm } from "../shared/hazard-utils";
 import { FlowWaterMaterial } from "../shared/flow-water";
 
 const W = 6,

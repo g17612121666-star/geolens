@@ -11,8 +11,10 @@ import { Tag, InspectHotspot } from "../shared/kit";
 import { WaterRibbon } from "../shared/geomorphic-terrain";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
-import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
+import { SectionMaterial } from "../shared/section-material";
+import { useSectionUniforms } from "../shared/section-utils";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, fbm, settlement } from "../shared/hazard-utils";
 export default function Groundwater() {
   const { params, trueScale, t } = useLabControls();
   useLabTick(1 / 24);
@@ -22,7 +24,11 @@ export default function Groundwater() {
     f = trueScale ? 1 / 20 : 1;
   const head = (x: number, z: number) =>
     (wellHead(Math.hypot(x, z) * 200, pump, H, confined) / 10) * f;
-  const surface = useMemo(() => terrainGeometry(head, 5, 4, 160), [pump, H, confined, f]);
+  const surface = useMemo(
+    () => terrainGeometry(head, 5, 4, 160),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- head is redefined each render from pump, H, confined and f, which are listed
+    [pump, H, confined, f],
+  );
   useEffect(() => () => surface.dispose(), [surface]);
   const atWell = wellHead(0.2, pump, H, confined),
     radii = [10, 30, 80, 200, 400];

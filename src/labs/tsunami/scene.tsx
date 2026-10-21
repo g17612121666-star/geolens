@@ -10,7 +10,8 @@ import { RockMaterial } from "../shared/rock-material";
 import { TerrainMaterial, PlantStand } from "../shared/natural-world";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, fbm, settlement } from "../shared/hazard-utils";
 
 const TRANSECT = longWaveTransect();
 /** 1 scene unit = 100 km horizontally. The ocean runs from x = -2.5 (source) to 2.5 (shelf). */
@@ -97,6 +98,7 @@ export default function Tsunami() {
     }
     g.setAttribute("color", new THREE.BufferAttribute(c, 3));
     return g;
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- floorY and toY are redefined each render and read only f, which is listed
   }, [f]);
   useEffect(() => () => floor.dispose(), [floor]);
 
@@ -162,6 +164,7 @@ export default function Tsunami() {
           ease = 1 - THREE.MathUtils.smoothstep(x, X1, COAST + 0.04);
         return waveY(elevation(p)) * ease;
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- waveY and elevation are redefined each render and read only source, uplift, seconds, f and lift, which are listed
     [xs, source, uplift, seconds, f, lift],
   );
   useLayoutEffect(() => {
@@ -177,6 +180,7 @@ export default function Tsunami() {
     water.computeVertexNormals();
     water.computeBoundingSphere();
     column.computeBoundingSphere();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- floorY is redefined each render from f; heights (listed) is recomputed whenever f changes
   }, [heights, water, column, xs]);
 
   const crest = TRANSECT.points.reduce(
@@ -184,7 +188,11 @@ export default function Tsunami() {
     TRANSECT.points[0],
   );
   const crestX = crest.x / 100000 + X0;
-  const ground = useMemo(() => (x: number, z: number) => floorY(floorMetres(x, z)), [f]);
+  const ground = useMemo(
+    () => (x: number, z: number) => floorY(floorMetres(x, z)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- floorY is redefined each render and reads only f, which is listed
+    [f],
+  );
   const town = useMemo(
     () =>
       settlement(

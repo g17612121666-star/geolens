@@ -9,7 +9,8 @@ import { Tag } from "../shared/kit";
 import { TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { WaterRibbon } from "../shared/geomorphic-terrain";
-import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { PlantStand } from "../shared/natural-world";
 
 /** 1 scene unit = 50 km. The block is cut through the hypocentre along z = 0. */
@@ -73,6 +74,7 @@ function CrustMaterial({
       uS: { value: s },
       uFault: { value: faultX },
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- the uniforms object must stay stable for the compiled shader; its values are updated below on every render
     [],
   );
   uniforms.uDepth.value = depth;
@@ -229,6 +231,7 @@ export default function Earthquakes() {
     }
     p.needsUpdate = true;
     geometry.computeVertexNormals();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- w is a new object each render from waveExperiment(seconds, depth), both of which are listed
   }, [geometry, seconds, depth, motionScale]);
 
   const towns = useMemo(
@@ -250,6 +253,7 @@ export default function Earthquakes() {
           a = Math.atan2(z, x);
         return [lift, slope * Math.sin(a) * 0.9, -slope * Math.cos(a) * 0.9];
       },
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- w is a new object each render from waveExperiment(seconds, depth), both of which are listed
     [seconds, depth, motionScale],
   );
   const trees = useMemo(() => {

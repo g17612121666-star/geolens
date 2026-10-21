@@ -1,19 +1,8 @@
-import {
-  Component,
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect,
-  type ReactNode,
-} from "react";
+import { Component, useState, useCallback, useEffect, type ReactNode } from "react";
 import { useProgress } from "@react-three/drei";
 import { LabThumb } from "@/components/lab-thumb";
 import { LoadingProgress } from "@/components/loading-progress";
-const EntryReady = createContext<((ready: boolean) => void) | null>(null);
-export function useEntryReady() {
-  return useContext(EntryReady);
-}
+import { EntryReady } from "./entry-ready";
 export function SceneProgress({ compact = false }: { compact?: boolean }) {
   const { active, loaded, total } = useProgress();
   const [slow, setSlow] = useState(false);

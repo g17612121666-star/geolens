@@ -7,7 +7,7 @@ import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { GeomorphicTerrain, WaterRibbon, DebrisField } from "../shared/geomorphic-terrain";
 import { PlantStand } from "../shared/natural-world";
 import { Tag } from "../shared/kit";
-import { fbm } from "../shared/hazard-parts";
+import { fbm } from "../shared/hazard-utils";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 
 /** Floor of the neighbouring (donor) valley, which flows east along z ≈ -0.9. */

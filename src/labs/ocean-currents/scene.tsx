@@ -39,7 +39,7 @@ function Gyre({ index, t }: { index: number; t: number }) {
           (v) => v.normalize().multiplyScalar(1.671).toArray() as [number, number, number],
         );
       }),
-    [index],
+    [g.points],
   );
   const path = segments.flat(),
     rotation = new THREE.Quaternion().setFromEuler(

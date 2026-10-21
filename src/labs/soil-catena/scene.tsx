@@ -10,7 +10,7 @@ import {
   WaterRibbon,
 } from "../shared/geomorphic-terrain";
 import { PlantStand } from "../shared/natural-world";
-import { useSectionUniforms } from "../shared/section-material";
+import { useSectionUniforms } from "../shared/section-utils";
 import { Tag } from "../shared/kit";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 

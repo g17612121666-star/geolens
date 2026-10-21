@@ -7,7 +7,8 @@ import { foldedBed, faultBed, faultSlip } from "./geometry";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { PlantStand } from "../shared/natural-world";
-import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
+import { SectionMaterial } from "../shared/section-material";
+import { useSectionUniforms } from "../shared/section-utils";
 
 const LITHOLOGY = [
   "Conglomerate",
@@ -148,12 +149,13 @@ export default function FoldsFaults() {
     slip = faultSlip(kind, amount * 0.7),
     separation = explode * 0.6,
     shortening = 1 - 0.25 * amount;
+  const foldAmount = fold ? amount : 0;
   const beds = useMemo(
     () =>
       fold
-        ? Array.from({ length: 5 }, (_, i) => foldedBed(i, amount, syncline))
+        ? Array.from({ length: 5 }, (_, i) => foldedBed(i, foldAmount, syncline))
         : Array.from({ length: 10 }, (_, i) => faultBed(i % 5, i >= 5, kind === 4)),
-    [fold, kind, syncline, fold ? amount : 0],
+    [fold, kind, syncline, foldAmount],
   );
   useEffect(() => () => beds.forEach((g) => g.dispose()), [beds]);
   const foldTop = useMemo(
@@ -164,6 +166,7 @@ export default function FoldsFaults() {
     [shortening, syncline, amount, separation],
   );
   const flat = useMemo(() => () => 0.65, []);
+  const [slipX, slipY, slipZ] = slip;
   const trees = useMemo(() => {
     const out: [number, number, number][] = [];
     for (let i = 0; i < 26; i++) {
@@ -171,10 +174,10 @@ export default function FoldsFaults() {
         z = (i % 2 ? 1 : -1) * (0.55 + 0.4 * ((i * 0.7548777) % 1));
       if (fold) out.push([x * shortening, foldTop(x * shortening) - 0.004, z]);
       else if (x < -0.15) out.push([x - separation, 0.646, z]);
-      else if (x > 0.25) out.push([x + separation + slip[0], 0.646 + slip[1], z + slip[2]]);
+      else if (x > 0.25) out.push([x + separation + slipX, 0.646 + slipY, z + slipZ]);
     }
     return out;
-  }, [fold, shortening, foldTop, separation, slip[0], slip[1], slip[2]]);
+  }, [fold, shortening, foldTop, separation, slipX, slipY, slipZ]);
   const faultX = (y: number) => (kind === 4 ? 0 : (0.65 - y) / Math.tan(Math.PI / 3));
   return (
     <>

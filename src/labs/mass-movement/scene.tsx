@@ -6,7 +6,8 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { SLUMP, slumpBase, slumpSurface, slumpStability, rotateSlump } from "@/lib/slump-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
-import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
+import { SectionMaterial } from "../shared/section-material";
+import { useSectionUniforms } from "../shared/section-utils";
 import { NaturalTree } from "../shared/natural-world";
 import { RootNetwork, DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
@@ -275,6 +276,7 @@ function Turf({ line }: { line: [number, number][] }) {
     const g = new THREE.ExtrudeGeometry(shape, { depth: 2.22, bevelEnabled: false });
     g.translate(0, 0, -1.11);
     return g;
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on key (line serialised) so a fresh line array with the same points does not rebuild the geometry
   }, [key]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (

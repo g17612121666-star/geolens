@@ -8,7 +8,8 @@ import { Tag, InspectHotspot } from "../shared/kit";
 import { ScienceReadout, ScienceStudio } from "../shared/science-kit";
 import { shellSection } from "../shared/science-geometry";
 import { useRockNormal } from "../shared/materials";
-import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
+import { SectionMaterial } from "../shared/section-material";
+import { useSectionUniforms } from "../shared/section-utils";
 
 const layers = [
   {
@@ -186,7 +187,7 @@ const GEOTHERM: [number, number][] = [
   [5150, 5300],
   [6371, 5400],
 ];
-export const HEAT_STOPS = ["#3b2a24", "#7a2412", "#c2401a", "#ec7d1f", "#f9c64a", "#fff4c8"];
+const HEAT_STOPS = ["#3b2a24", "#7a2412", "#c2401a", "#ec7d1f", "#f9c64a", "#fff4c8"];
 const heatVertex = /* glsl */ `
   varying float vRadius;
   varying vec3 vNormalW;

@@ -9,7 +9,8 @@ import { RockMaterial } from "../shared/rock-material";
 import { TerrainMaterial, PlantStand } from "../shared/natural-world";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 
 /** 1 scene unit = 20 km across the shelf; heights in metres are multiplied by `f / 20000`. */
@@ -134,6 +135,7 @@ export default function StormSurge() {
     surface.computeVertexNormals();
     column.computeBoundingSphere();
     surface.computeBoundingSphere();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- eta is redefined each render and reads only result, which is listed
   }, [result, s, wind, trueScale, surface, column, ground]);
 
   const town = useMemo(

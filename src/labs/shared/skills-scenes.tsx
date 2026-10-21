@@ -7,7 +7,8 @@ import { ScienceStudio, ScienceReadout } from "./science-kit";
 import { Tag } from "./kit";
 import { projectedPosition, geographicCircle } from "../map-projections/projection";
 import { terrainBlockGeometry } from "./science-geometry";
-import { SectionMaterial, withSurfaceY } from "./section-material";
+import { SectionMaterial } from "./section-material";
+import { withSurfaceY } from "./section-utils";
 import { landSectionGlsl } from "./land-section";
 
 /** Fictional relief for the coordinate exercise (u east, v south, both 0–1). */

@@ -45,6 +45,7 @@ export default function RainShadow() {
     }
     g.setAttribute("color", new THREE.BufferAttribute(colours, 3));
     return g;
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- surface is redefined each render from crest and f, which are listed
   }, [crest, f]);
   useEffect(() => () => terrain.dispose(), [terrain]);
   const x = -3 + t * 6,

@@ -2,7 +2,8 @@ import { useEffect, useMemo, useLayoutEffect, useRef } from "react";
 import * as THREE from "three";
 import { waterRibbonGeometry } from "./river-terrain";
 import { terrainBlockGeometry } from "./science-geometry";
-import { SectionMaterial, withSurfaceY } from "./section-material";
+import { SectionMaterial } from "./section-material";
+import { withSurfaceY } from "./section-utils";
 import { landSectionGlsl, cliffFaceGlsl, type LandSection } from "./land-section";
 import { landscapeNoise } from "./landscape-noise";
 import { TerrainMaterial } from "./natural-world";
@@ -109,7 +110,11 @@ export function WaterRibbon({
   frozen?: boolean;
 }) {
   const pathKey = path.map((p) => p.join(",")).join(";");
-  const geometry = useMemo(() => waterRibbonGeometry(path, width), [pathKey, width]);
+  const geometry = useMemo(
+    () => waterRibbonGeometry(path, width),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on pathKey (path serialised) so a fresh path array with the same points does not rebuild the geometry
+    [pathKey, width],
+  );
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry} receiveShadow>
@@ -151,6 +156,7 @@ export function DebrisField({
     });
     mesh.current.instanceMatrix.needsUpdate = true;
     mesh.current.computeBoundingSphere();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on pointsKey (points serialised) so a fresh points array with the same positions does not reset the instances
   }, [pointsKey, size]);
   return (
     <instancedMesh ref={mesh} args={[undefined, undefined, points.length]} castShadow receiveShadow>
@@ -209,6 +215,7 @@ export function GrassPatch({
     g.setIndex(idx);
     g.computeVertexNormals();
     return g;
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on positionsKey (positions serialised) so a fresh positions array with the same entries does not rebuild the geometry
   }, [positionsKey, height]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
@@ -310,6 +317,7 @@ export function PoreMarkers({
     mesh.current.instanceMatrix.needsUpdate = true;
     if (mesh.current.instanceColor) mesh.current.instanceColor.needsUpdate = true;
     mesh.current.computeBoundingSphere();
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on key (positions and colours serialised) so fresh arrays with the same entries do not reset the instances
   }, [key, radius]);
   return (
     <instancedMesh ref={mesh} args={[undefined, undefined, positions.length]}>

@@ -2,7 +2,8 @@ import { OrbitControls } from "@react-three/drei";
 import { useMemo } from "react";
 import * as THREE from "three";
 import { Atmosphere, EarthMesh } from "./earth";
-import { ClientCanvas, useWebGL } from "./client-canvas";
+import { ClientCanvas } from "./client-canvas";
+import { useWebGL } from "./use-webgl";
 import { usePrefersReducedMotion } from "@/hooks/use-media";
 import { GlobePoster } from "./home-hero";
 export function HeroEarth() {

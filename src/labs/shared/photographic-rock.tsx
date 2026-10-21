@@ -27,16 +27,17 @@ export function PhotographicRockMaterial({
     "/textures/pbr/rock_face_disp.webp",
     "/textures/pbr/rock_face_rough.webp",
   ]);
+  const [diffMap, dispMap, roughMap] = originals;
   const maps = useMemo(
     () =>
-      originals.map((source, i) => {
+      [diffMap, dispMap, roughMap].map((source, i) => {
         const map = source.clone();
         map.wrapS = map.wrapT = THREE.RepeatWrapping;
         map.anisotropy = 8;
         map.colorSpace = i === 0 ? THREE.SRGBColorSpace : THREE.NoColorSpace;
         return map;
       }),
-    [originals[0], originals[1], originals[2]],
+    [diffMap, dispMap, roughMap],
   );
   useEffect(() => () => maps.forEach((map) => map.dispose()), [maps]);
   const shader = useMemo(

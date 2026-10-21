@@ -9,7 +9,8 @@ import { Tag } from "../shared/kit";
 import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, fbm, settlement } from "../shared/hazard-utils";
 
 function airVolume(bottom: (x: number) => number, top: (x: number) => number, factor: number) {
   const shape = new THREE.Shape(),

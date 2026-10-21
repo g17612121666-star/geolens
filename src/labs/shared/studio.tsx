@@ -1,9 +1,11 @@
 import { useEffect, type ReactNode } from "react";
 import type { CanvasProps } from "@react-three/fiber";
 import { ContactShadows } from "@react-three/drei";
-import { SceneProgress, useEntryReady } from "@/components/lab/load-gate";
+import { SceneProgress } from "@/components/lab/load-gate";
+import { useEntryReady } from "@/components/lab/entry-ready";
 import { FitScienceView } from "./fit-science-view";
-import { ClientCanvas, useWebGL } from "@/components/globe/client-canvas";
+import { ClientCanvas } from "@/components/globe/client-canvas";
+import { useWebGL } from "@/components/globe/use-webgl";
 import { LabThumb } from "@/components/lab-thumb";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { GenericFallback } from "./fallback";
