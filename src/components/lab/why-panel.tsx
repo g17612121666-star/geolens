@@ -1,6 +1,5 @@
 import { ProgressFrame } from "@/components/progress-media";
 import { ScientificText } from "@/components/scientific-text";
-import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import type { LabMeta, PanelTab } from "@/lib/labs/types";
 import { useLabControls } from "@/lib/store/lab-controls";
