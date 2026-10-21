@@ -64,9 +64,9 @@
       ],
       "curriculum": [
         "KS3 Earth and atmosphere",
-        "GCSE background",
+        "GCSE",
         "NGSS MS-ESS1-1",
-        "APES 4.7 Solar radiation and Earth’s seasons"
+        "APES 4.7"
       ],
       "steps": [
         {
@@ -251,8 +251,8 @@
       ],
       "curriculum": [
         "KS3 Earth and atmosphere",
-        "NGSS MS-ESS1-1",
-        "GCSE background"
+        "GCSE",
+        "NGSS MS-ESS1-1"
       ],
       "steps": [
         {
@@ -417,8 +417,8 @@
       ],
       "curriculum": [
         "KS3 Earth and atmosphere",
-        "NGSS MS-ESS1-1",
-        "GCSE background"
+        "GCSE",
+        "NGSS MS-ESS1-1"
       ],
       "steps": [
         {
@@ -596,9 +596,9 @@
       ],
       "curriculum": [
         "KS3 Earth and atmosphere",
-        "GCSE AQA 3.1.1",
-        "NGSS MS-ESS2-1",
-        "A-level plate tectonics background"
+        "AQA GCSE 3.1.1.2 Tectonic hazards",
+        "AQA A-level 3.1.5 Hazards",
+        "NGSS MS-ESS2-1"
       ],
       "steps": [
         {
@@ -781,9 +781,9 @@
         "HS Earth Sci"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.1",
-        "NGSS MS-ESS2-3",
-        "A-level plate tectonics"
+        "AQA GCSE 3.1.1.2 Tectonic hazards",
+        "AQA A-level 3.1.5 Hazards",
+        "NGSS MS-ESS2-3"
       ],
       "steps": [
         {
@@ -999,9 +999,8 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "GCSE map skills",
-        "AQA 3.3 Geographical applications",
-        "KS3 map skills"
+        "KS3 map skills",
+        "AQA GCSE 3.4 Geographical skills"
       ],
       "steps": [
         {
@@ -1184,8 +1183,7 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.3.1",
-        "Edexcel rivers",
+        "AQA GCSE 3.1.3.3 River landscapes in the UK",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -1354,7 +1352,8 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE water cycle",
+        "AQA A-level 3.1.1 Water and carbon cycles",
+        "GCSE",
         "NGSS MS-ESS2-4",
         "APES 4.1 / 4.2"
       ],
@@ -1579,8 +1578,8 @@
       ],
       "curriculum": [
         "KS3 Earth and atmosphere",
-        "NGSS MS-ESS1-2",
-        "GCSE background"
+        "GCSE",
+        "NGSS MS-ESS1-2"
       ],
       "steps": [
         {
@@ -2231,8 +2230,8 @@
       ],
       "curriculum": [
         "KS3",
-        "NGSS HS-ESS1-6",
-        "GCSE"
+        "GCSE",
+        "NGSS HS-ESS1-6"
       ],
       "steps": [
         {
@@ -2654,7 +2653,8 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE coasts",
+        "AQA GCSE 3.1.3.2 Coastal landscapes in the UK",
+        "AQA A-level 3.1.3 Coastal systems and landscapes",
         "NGSS MS-ESS1-1"
       ],
       "steps": [
@@ -2817,8 +2817,8 @@
       ],
       "curriculum": [
         "KS3",
-        "NGSS MS-ESS1-1",
-        "GCSE"
+        "GCSE",
+        "NGSS MS-ESS1-1"
       ],
       "steps": [
         {
@@ -3004,7 +3004,8 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.1",
+        "AQA GCSE 3.1.1.2 Tectonic hazards",
+        "AQA A-level 3.1.5 Hazards",
         "NGSS MS-ESS2-3"
       ],
       "steps": [
@@ -3193,7 +3194,8 @@
         "HS Earth Sci"
       ],
       "curriculum": [
-        "GCSE",
+        "AQA GCSE 3.1.1.2 Tectonic hazards",
+        "AQA A-level 3.1.5 Hazards",
         "NGSS MS-ESS2-3"
       ],
       "steps": [
@@ -3366,7 +3368,8 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.1",
+        "AQA GCSE 3.1.1.2 Tectonic hazards",
+        "AQA A-level 3.1.5 Hazards",
         "NGSS MS-ESS2-3"
       ],
       "steps": [
@@ -3549,7 +3552,7 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE weather",
+        "GCSE",
         "NGSS MS-ESS2-5",
         "APES 4.4"
       ],
@@ -3733,7 +3736,7 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE climate",
+        "AQA GCSE 3.1.1.4 Climate change",
         "NGSS MS-ESS2-6",
         "APES 4.4"
       ],
@@ -3922,7 +3925,7 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE weather",
+        "GCSE",
         "NGSS MS-ESS2-5"
       ],
       "steps": [
@@ -4099,8 +4102,8 @@
         "HS Earth Sci"
       ],
       "curriculum": [
-        "GCSE weather",
-        "A-level atmosphere",
+        "GCSE",
+        "A-level",
         "NGSS HS-ESS2"
       ],
       "steps": [
@@ -4287,7 +4290,7 @@
         "APES"
       ],
       "curriculum": [
-        "GCSE weather",
+        "AQA GCSE 3.1.1.3 Weather hazards",
         "A-level",
         "NGSS HS-ESS2-4",
         "APES 4.5"
@@ -4472,7 +4475,7 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE weather",
+        "GCSE",
         "NGSS MS-ESS2-5"
       ],
       "steps": [
@@ -4628,7 +4631,7 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE weather",
+        "GCSE",
         "NGSS MS-ESS2-5"
       ],
       "steps": [
@@ -4797,7 +4800,7 @@
         "APES"
       ],
       "curriculum": [
-        "GCSE climate",
+        "GCSE",
         "NGSS MS-ESS2-6",
         "APES 4.7"
       ],
@@ -4996,7 +4999,8 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE rivers",
+        "AQA GCSE 3.1.3.3 River landscapes in the UK",
+        "AQA A-level 3.1.1 Water and carbon cycles",
         "NGSS MS-ESS2-4"
       ],
       "steps": [
@@ -5197,8 +5201,8 @@
         "APES"
       ],
       "curriculum": [
-        "GCSE",
-        "A-level hydrology",
+        "AQA GCSE 3.1.3.3 River landscapes in the UK",
+        "AQA A-level 3.1.1 Water and carbon cycles",
         "APES"
       ],
       "steps": [
@@ -5388,8 +5392,8 @@
         "APES"
       ],
       "curriculum": [
-        "A-level",
-        "GCSE"
+        "AQA GCSE 3.1.3.3 River landscapes in the UK",
+        "AQA A-level 3.1.1 Water and carbon cycles"
       ],
       "steps": [
         {
@@ -5970,8 +5974,8 @@
         "APES"
       ],
       "curriculum": [
+        "AQA A-level 3.1.1 Water and carbon cycles",
         "GCSE",
-        "A-level carbon",
         "APES 1.4 / 4.6"
       ],
       "steps": [
@@ -6366,7 +6370,7 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE landscapes",
+        "GCSE",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -6588,7 +6592,7 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.3.1",
+        "AQA GCSE 3.1.3.3 River landscapes in the UK",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -6792,7 +6796,7 @@
         "A-level"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.3.1",
+        "AQA GCSE 3.1.3.3 River landscapes in the UK",
         "A-level"
       ],
       "steps": [
@@ -7001,7 +7005,7 @@
       ],
       "curriculum": [
         "GCSE",
-        "A-level fluvial"
+        "A-level"
       ],
       "steps": [
         {
@@ -7184,7 +7188,8 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.3.2",
+        "AQA GCSE 3.1.3.2 Coastal landscapes in the UK",
+        "AQA A-level 3.1.3 Coastal systems and landscapes",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -7432,7 +7437,8 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.3.3",
+        "AQA GCSE 3.1.3.4 Glacial landscapes in the UK",
+        "AQA A-level 3.1.4 Glacial systems and landscapes",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -7643,7 +7649,7 @@
       ],
       "curriculum": [
         "GCSE",
-        "A-level carbonation"
+        "A-level"
       ],
       "steps": [
         {
@@ -7832,7 +7838,7 @@
         "HS Earth Sci"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.1",
+        "GCSE",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -8034,7 +8040,7 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "A-level",
+        "AQA A-level 3.1.2 Hot desert systems and landscapes",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -8228,7 +8234,7 @@
       ],
       "curriculum": [
         "KS3",
-        "GCSE rocks",
+        "GCSE",
         "NGSS MS-ESS2-1"
       ],
       "steps": [
@@ -8465,8 +8471,8 @@
       ],
       "curriculum": [
         "GCSE",
-        "APES 4.3",
-        "A-level"
+        "A-level",
+        "APES 4.3"
       ],
       "steps": [
         {
@@ -9210,7 +9216,8 @@
         "HS Earth Sci"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.1.4",
+        "AQA GCSE 3.1.1.2 Tectonic hazards",
+        "AQA A-level 3.1.5 Hazards",
         "NGSS MS-ESS3-2"
       ],
       "steps": [
@@ -9391,7 +9398,8 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.1.3",
+        "AQA GCSE 3.1.1.2 Tectonic hazards",
+        "AQA A-level 3.1.5 Hazards",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -9580,7 +9588,8 @@
         "HS Earth Sci"
       ],
       "curriculum": [
-        "GCSE",
+        "AQA GCSE 3.1.1.2 Tectonic hazards",
+        "AQA A-level 3.1.5 Hazards",
         "NGSS MS-ESS3-2"
       ],
       "steps": [
@@ -9748,7 +9757,8 @@
         "APES"
       ],
       "curriculum": [
-        "GCSE hazards",
+        "AQA GCSE 3.1.1.3 Weather hazards",
+        "AQA A-level 3.1.5 Hazards",
         "NGSS MS-ESS3-2",
         "APES"
       ],
@@ -9941,7 +9951,7 @@
       ],
       "curriculum": [
         "KS3 map skills",
-        "GCSE",
+        "AQA GCSE 3.4 Geographical skills",
         "NGSS MS-ESS1-1"
       ],
       "steps": [
@@ -10135,7 +10145,7 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "GCSE map skills",
+        "AQA GCSE 3.4 Geographical skills",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -10335,9 +10345,8 @@
         "GCSE"
       ],
       "curriculum": [
-        "GCSE map skills",
-        "AQA 3.3",
-        "KS3"
+        "KS3",
+        "AQA GCSE 3.4 Geographical skills"
       ],
       "steps": [
         {
@@ -10526,7 +10535,8 @@
         "HS Earth Sci"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.3.2",
+        "AQA GCSE 3.1.3.2 Coastal landscapes in the UK",
+        "AQA A-level 3.1.3 Coastal systems and landscapes",
         "NGSS MS-ESS2-2"
       ],
       "steps": [
@@ -10707,7 +10717,7 @@
         "APES"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.2",
+        "GCSE",
         "NGSS MS-ESS2-4",
         "APES 4.8"
       ],
@@ -10896,8 +10906,8 @@
         "APES"
       ],
       "curriculum": [
+        "AQA A-level 3.1.1 Water and carbon cycles",
         "GCSE",
-        "A-level water cycle",
         "NGSS MS-ESS2-4",
         "APES 4.2"
       ],
@@ -11089,7 +11099,7 @@
         "NGSS MS"
       ],
       "curriculum": [
-        "A-level plate tectonics background",
+        "A-level",
         "NGSS HS-ESS2-1"
       ],
       "steps": [
@@ -11264,7 +11274,7 @@
         "HS Earth Sci"
       ],
       "curriculum": [
-        "A-level plate tectonics",
+        "AQA A-level 3.1.5 Hazards",
         "NGSS HS-ESS2-1"
       ],
       "steps": [
@@ -11463,8 +11473,8 @@
         "APES"
       ],
       "curriculum": [
-        "GCSE soils",
-        "A-level soils",
+        "GCSE",
+        "A-level",
         "APES 4.3"
       ],
       "steps": [
@@ -11637,8 +11647,8 @@
         "HS Earth Sci"
       ],
       "curriculum": [
-        "GCSE AQA cold environments",
-        "A-level glacial / periglacial"
+        "AQA GCSE 3.1.2.4 Cold environments",
+        "AQA A-level 3.1.4 Glacial systems and landscapes"
       ],
       "steps": [
         {
@@ -11835,7 +11845,8 @@
         "APES"
       ],
       "curriculum": [
-        "GCSE AQA 3.1.1.4",
+        "AQA GCSE 3.1.1.3 Weather hazards",
+        "AQA A-level 3.1.5 Hazards",
         "NGSS MS-ESS3-2"
       ],
       "steps": [
