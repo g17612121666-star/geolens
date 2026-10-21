@@ -52,6 +52,7 @@ function RealmPage() {
         </p>
       ) : (
         <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          <h2 className="sr-only">{`Labs in ${meta.title}`}</h2>
           {labs.map((lab) => (
             <LabCard key={lab.slug} lab={lab} />
           ))}

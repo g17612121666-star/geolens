@@ -25,7 +25,10 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
   const seenTermSrc = new Set<string>();
 
   return (
-    <aside className="pointer-events-auto flex w-full shrink-0 flex-col rounded-2xl border border-white/10 bg-basalt/95">
+    <aside
+      aria-label="Explanations, terms and quiz"
+      className="pointer-events-auto flex w-full shrink-0 flex-col rounded-2xl border border-white/10 bg-basalt/95"
+    >
       <div className="flex border-b border-white/10" role="tablist" aria-label="Lab guide">
         {(
           [

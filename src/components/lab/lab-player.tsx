@@ -239,6 +239,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
         data-lab-ready={interactive}
         inert={!interactive}
         id="main"
+        role="main"
         className="min-h-dvh bg-void pt-16"
       >
         <div className="px-4 pb-3">{titleBlock}</div>
@@ -295,6 +296,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
       data-lab-ready={interactive}
       inert={!interactive}
       id="main"
+      role="main"
       style={{ "--lab-controls-height": `${barHeight}px` } as CSSProperties}
       className="relative h-dvh overflow-hidden bg-void"
     >
