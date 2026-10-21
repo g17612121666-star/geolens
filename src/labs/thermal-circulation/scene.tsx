@@ -10,7 +10,8 @@ import { Tag } from "../shared/kit";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { farmland, fbm, settlement, Buildings } from "../shared/hazard-parts";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 import { StarMesh } from "@/components/globe/star";
 
@@ -154,6 +155,7 @@ export default function ThermalCirculation() {
       true,
     );
     return new THREE.TubeGeometry(curve, 160, 0.09, 12, true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- path is redefined each render and reads only f, which is listed
   }, [f]);
   useEffect(() => () => loop.dispose(), [loop]);
   const trees = useMemo(() => {

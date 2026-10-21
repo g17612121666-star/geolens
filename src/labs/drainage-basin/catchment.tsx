@@ -1,6 +1,7 @@
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
-import { CatchmentLandscape, catchmentHeight } from "../shared/catchment-landscape";
+import { CatchmentLandscape } from "../shared/catchment-landscape";
+import { catchmentHeight } from "../shared/catchment-height";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 export default function DrainageBasin() {

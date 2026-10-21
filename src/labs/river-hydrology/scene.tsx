@@ -1,6 +1,5 @@
 import { useMemo, useEffect } from "react";
 import * as THREE from "three";
-import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { annualRiverRegime, catchmentRelief } from "@/lib/river-regime-science";
@@ -12,7 +11,8 @@ import { WaterRibbon, DebrisField } from "../shared/geomorphic-terrain";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { Tag } from "../shared/kit";
 import { landscapeRandom as random } from "../shared/landscape-noise";
-import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, fbm, settlement } from "../shared/hazard-utils";
 const hill = catchmentRelief;
 const ss = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 function Basin({

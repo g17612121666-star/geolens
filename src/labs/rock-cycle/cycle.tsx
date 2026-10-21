@@ -7,7 +7,7 @@ import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { Specimen } from "./specimens";
 const NAMES = ["Igneous", "Sedimentary", "Metamorphic", "Sediment", "Magma"];
-export const ROCK_ROUTES = [
+const ROCK_ROUTES = [
   { from: 4, to: 0, name: "Cooling and crystallisation" },
   { from: 0, to: 3, name: "Weathering / erosion of igneous rock" },
   { from: 1, to: 3, name: "Weathering / erosion of sedimentary rock" },

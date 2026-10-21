@@ -9,6 +9,9 @@ import { labFigure } from "@/lib/figures";
 import { caseFigure } from "@/lib/case-figures";
 import { ProgressImage } from "@/components/progress-media";
 import { headFor } from "@/lib/seo";
+import { useQuizScores } from "@/lib/quiz-progress";
+
+const ANSWER_KEYS = Object.fromEntries(LABS.map((l) => [l.slug, l.questions.map((q) => q.answer)]));
 export const Route = createFileRoute("/explore")({
   component: Explore,
   head: () =>
@@ -62,6 +65,7 @@ const COLLECTIONS = [
 const field = "min-h-11 rounded-xl border border-white/20 bg-basalt px-3 text-sm text-chalk";
 const fold = (s: string) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
 function Explore() {
+  const scores = useQuizScores(ANSWER_KEYS);
   const [kind, setKind] = useState<"labs" | "cases">("labs"),
     [query, setQuery] = useState(""),
     [realm, setRealm] = useState("all"),
@@ -240,8 +244,16 @@ function Explore() {
                       {lab.title}
                     </h2>
                     <p className="mt-3 flex-1 text-sm leading-7 text-mist">{lab.hook}</p>
-                    <span className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-sm text-glacier">
-                      Explore the model <ArrowUpRight size={18} />
+                    <span className="mt-6 flex items-center justify-between gap-3 border-t border-white/10 pt-4 text-sm text-glacier">
+                      Explore the model
+                      <span className="flex items-center gap-3">
+                        {scores[lab.slug] && (
+                          <span className="font-mono text-xs text-mist">
+                            {`Quiz ${scores[lab.slug].correct}/${scores[lab.slug].total}`}
+                          </span>
+                        )}
+                        <ArrowUpRight size={18} />
+                      </span>
                     </span>
                   </div>
                 </Link>

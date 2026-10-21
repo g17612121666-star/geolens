@@ -28,10 +28,12 @@ import { Route as TeachersSlugRouteImport } from './routes/teachers.$slug'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ToolsAtlasRouteImport } from './routes/tools.atlas'
 import { Route as ToolsEarthMotionRouteImport } from './routes/tools.earth-motion'
+import { Route as ToolsEarthquakesRouteImport } from './routes/tools.earthquakes'
 import { Route as ToolsLiveWeatherRouteImport } from './routes/tools.live-weather'
 import { Route as ToolsMapRouteImport } from './routes/tools.map'
 import { Route as ToolsWeatherRouteImport } from './routes/tools.weather'
 import { Route as TopicSlugRouteImport } from './routes/topic.$slug'
+import { Route as WorksheetSlugRouteImport } from './routes/worksheet.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -128,6 +130,11 @@ const ToolsEarthMotionRoute = ToolsEarthMotionRouteImport.update({
   path: '/tools/earth-motion',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsEarthquakesRoute = ToolsEarthquakesRouteImport.update({
+  id: '/tools/earthquakes',
+  path: '/tools/earthquakes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsLiveWeatherRoute = ToolsLiveWeatherRouteImport.update({
   id: '/tools/live-weather',
   path: '/tools/live-weather',
@@ -146,6 +153,11 @@ const ToolsWeatherRoute = ToolsWeatherRouteImport.update({
 const TopicSlugRoute = TopicSlugRouteImport.update({
   id: '/topic/$slug',
   path: '/topic/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorksheetSlugRoute = WorksheetSlugRouteImport.update({
+  id: '/worksheet/$slug',
+  path: '/worksheet/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -167,10 +179,12 @@ export interface FileRoutesByFullPath {
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
+  '/tools/earthquakes': typeof ToolsEarthquakesRoute
   '/tools/live-weather': typeof ToolsLiveWeatherRoute
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
+  '/worksheet/$slug': typeof WorksheetSlugRoute
   '/teachers/': typeof TeachersIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
@@ -191,10 +205,12 @@ export interface FileRoutesByTo {
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
+  '/tools/earthquakes': typeof ToolsEarthquakesRoute
   '/tools/live-weather': typeof ToolsLiveWeatherRoute
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
+  '/worksheet/$slug': typeof WorksheetSlugRoute
   '/teachers': typeof TeachersIndexRoute
   '/tools': typeof ToolsIndexRoute
 }
@@ -217,10 +233,12 @@ export interface FileRoutesById {
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
+  '/tools/earthquakes': typeof ToolsEarthquakesRoute
   '/tools/live-weather': typeof ToolsLiveWeatherRoute
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
+  '/worksheet/$slug': typeof WorksheetSlugRoute
   '/teachers/': typeof TeachersIndexRoute
   '/tools/': typeof ToolsIndexRoute
 }
@@ -244,10 +262,12 @@ export interface FileRouteTypes {
     | '/teachers/$slug'
     | '/tools/atlas'
     | '/tools/earth-motion'
+    | '/tools/earthquakes'
     | '/tools/live-weather'
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
+    | '/worksheet/$slug'
     | '/teachers/'
     | '/tools/'
   fileRoutesByTo: FileRoutesByTo
@@ -268,10 +288,12 @@ export interface FileRouteTypes {
     | '/teachers/$slug'
     | '/tools/atlas'
     | '/tools/earth-motion'
+    | '/tools/earthquakes'
     | '/tools/live-weather'
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
+    | '/worksheet/$slug'
     | '/teachers'
     | '/tools'
   id:
@@ -293,10 +315,12 @@ export interface FileRouteTypes {
     | '/teachers/$slug'
     | '/tools/atlas'
     | '/tools/earth-motion'
+    | '/tools/earthquakes'
     | '/tools/live-weather'
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
+    | '/worksheet/$slug'
     | '/teachers/'
     | '/tools/'
   fileRoutesById: FileRoutesById
@@ -318,10 +342,12 @@ export interface RootRouteChildren {
   RealmsRealmRoute: typeof RealmsRealmRoute
   ToolsAtlasRoute: typeof ToolsAtlasRoute
   ToolsEarthMotionRoute: typeof ToolsEarthMotionRoute
+  ToolsEarthquakesRoute: typeof ToolsEarthquakesRoute
   ToolsLiveWeatherRoute: typeof ToolsLiveWeatherRoute
   ToolsMapRoute: typeof ToolsMapRoute
   ToolsWeatherRoute: typeof ToolsWeatherRoute
   TopicSlugRoute: typeof TopicSlugRoute
+  WorksheetSlugRoute: typeof WorksheetSlugRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
 }
 
@@ -460,6 +486,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsEarthMotionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/earthquakes': {
+      id: '/tools/earthquakes'
+      path: '/tools/earthquakes'
+      fullPath: '/tools/earthquakes'
+      preLoaderRoute: typeof ToolsEarthquakesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/live-weather': {
       id: '/tools/live-weather'
       path: '/tools/live-weather'
@@ -486,6 +519,13 @@ declare module '@tanstack/react-router' {
       path: '/topic/$slug'
       fullPath: '/topic/$slug'
       preLoaderRoute: typeof TopicSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/worksheet/$slug': {
+      id: '/worksheet/$slug'
+      path: '/worksheet/$slug'
+      fullPath: '/worksheet/$slug'
+      preLoaderRoute: typeof WorksheetSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -522,10 +562,12 @@ const rootRouteChildren: RootRouteChildren = {
   RealmsRealmRoute: RealmsRealmRoute,
   ToolsAtlasRoute: ToolsAtlasRoute,
   ToolsEarthMotionRoute: ToolsEarthMotionRoute,
+  ToolsEarthquakesRoute: ToolsEarthquakesRoute,
   ToolsLiveWeatherRoute: ToolsLiveWeatherRoute,
   ToolsMapRoute: ToolsMapRoute,
   ToolsWeatherRoute: ToolsWeatherRoute,
   TopicSlugRoute: TopicSlugRoute,
+  WorksheetSlugRoute: WorksheetSlugRoute,
   ToolsIndexRoute: ToolsIndexRoute,
 }
 export const routeTree = rootRouteImport

@@ -33,6 +33,7 @@ export function WaterPrism({
       g.setAttribute("color", new THREE.BufferAttribute(c, 3));
     }
     return g;
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on signature (points as JSON) so a fresh points array with the same vertices does not rebuild the geometry
   }, [signature, depth, colour, colour2]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (

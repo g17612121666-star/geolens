@@ -321,7 +321,7 @@ export const CASES: CaseStudy[] = [
   },
   {
     slug: "hawaii",
-    title: "Hawaii hotspot track",
+    title: "Hawaiʻi hotspot track",
     place: "Hawaiʻi to Emperor seamounts",
     region: "US",
     labs: ["hotspots", "volcanoes", "plate-boundaries"],

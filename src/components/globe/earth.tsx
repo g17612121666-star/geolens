@@ -32,6 +32,7 @@ const earthFrag = /* glsl */ `
   uniform sampler2D bumpMap;
   uniform float cloudAmount;
   uniform float cloudShift;
+  uniform float glintAmount;
   uniform vec3 sunDirection;
   uniform bool eclipseEnabled;
   uniform vec3 occultingPosition;
@@ -87,7 +88,7 @@ const earthFrag = /* glsl */ `
     float ocean = smoothstep(0.015, 0.09, day.b - max(day.r, day.g));
     float glint = pow(max(dot(reflect(-sun, n), view), 0.0), 70.0);
     float fresnelS = 0.04 + 0.96 * pow(1.0 - max(dot(n, view), 0.0), 5.0);
-    ground += vec3(1.0, 0.92, 0.8) * (glint * 0.3 + fresnelS * 0.05) * ocean * dayF * (1.0 - cloud);
+    ground += vec3(1.0, 0.92, 0.8) * (glint * 0.3 * glintAmount + fresnelS * 0.05) * ocean * dayF * (1.0 - cloud);
     vec3 cloudLit = vec3(0.97, 0.98, 1.0) * (0.06 + 0.94 * smoothstep(-0.05, 0.6, ndl));
     vec3 lit = mix(ground, cloudLit, cloud);
     vec3 dark = night * 0.7 * (1.0 - cloud * 0.8) + day * 0.012 + cloud * vec3(0.02, 0.025, 0.035);
@@ -145,7 +146,10 @@ export function EarthMesh({
   lighting = "sun",
   halo = true,
   cloudCover = 1,
+  glint = true,
 }: {
+  /** Ocean sunglint highlight; turn off on data maps where it could be mistaken for a feature. */
+  glint?: boolean;
   /** Scales cloud opacity, for globes shown large (such as the home page). */
   cloudCover?: number;
   /** Sun-aware atmosphere rim. */
@@ -193,6 +197,7 @@ export function EarthMesh({
       bumpMap: { value: bumpMap },
       cloudAmount: { value: 1 },
       cloudShift: { value: 0 },
+      glintAmount: { value: glint ? 1 : 0 },
       sunDirection: { value: sunDirection.clone() },
       eclipseEnabled: { value: false },
       occultingPosition: { value: new THREE.Vector3() },
@@ -200,7 +205,8 @@ export function EarthMesh({
       solarPosition: { value: new THREE.Vector3() },
       solarRadius: { value: 0 },
     }),
-    [dayMap, nightMap, bumpMap],
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- sunDirection only seeds the uniform (its default is a new Vector3 each render); useFrame copies the live value from sunRef
+    [dayMap, nightMap, bumpMap, glint],
   );
   const haloUniforms = useMemo(() => ({ sunDirection: { value: new THREE.Vector3(1, 0, 0) } }), []);
 

@@ -8,34 +8,13 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { SceneProgress, useEntryReady } from "@/components/lab/load-gate";
+import { SceneProgress } from "@/components/lab/load-gate";
+import { useEntryReady } from "@/components/lab/entry-ready";
 import { LoadingProgress } from "@/components/loading-progress";
 import * as THREE from "three";
 import { pageScrollUnlessCtrl } from "@/lib/embedded-wheel";
 import { usePreferences } from "@/lib/preferences";
-
-let webglSupport: boolean | undefined;
-/** null = not yet tested (avoid a black canvas while we probe). */
-export function useWebGL(): boolean | null {
-  const [ok, setOk] = useState<boolean | null>(null);
-  useEffect(() => {
-    if (webglSupport !== undefined) {
-      setOk(webglSupport);
-      return;
-    }
-    try {
-      const c = document.createElement("canvas");
-      const gl =
-        c.getContext("webgl2", { failIfMajorPerformanceCaveat: false }) || c.getContext("webgl");
-      webglSupport = Boolean(gl);
-      setOk(webglSupport);
-      gl?.getExtension("WEBGL_lose_context")?.loseContext();
-    } catch {
-      setOk(false);
-    }
-  }, []);
-  return ok;
-}
+import { useWebGL } from "./use-webgl";
 
 export function ClientCanvas({
   children,

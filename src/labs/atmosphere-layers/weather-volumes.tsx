@@ -11,7 +11,7 @@ export function CloudVolume({
   position = [0, 0, 0],
   scale = [1, 1, 1],
   seed = 1,
-  density = 64,
+  density: _density = 64,
   opacity = 0.62,
 }: {
   position?: [number, number, number];

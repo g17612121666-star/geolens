@@ -9,7 +9,10 @@ export function StepRail({ lab }: { lab: LabMeta }) {
   const current = lab.steps[step] ?? lab.steps[0];
 
   return (
-    <aside className="pointer-events-auto flex w-full shrink-0 flex-col gap-3 rounded-2xl border border-white/10 bg-basalt/95 p-4">
+    <aside
+      aria-label="Lab steps"
+      className="pointer-events-auto flex w-full shrink-0 flex-col gap-3 rounded-2xl border border-white/10 bg-basalt/95 p-4"
+    >
       <p className="section-label">{"Try the experiment"}</p>
       <ol className="grid grid-cols-2 gap-1">
         {lab.steps.map((s, i) => (

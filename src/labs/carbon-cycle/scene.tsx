@@ -11,7 +11,7 @@ import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { SectionMaterial } from "../shared/section-material";
-import { farmland, fbm } from "../shared/hazard-parts";
+import { farmland, fbm } from "../shared/hazard-utils";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 /** Anchor points for each store in the diorama: atmosphere, biosphere, ocean, sediment, fossil. */
 const POS: [number, number, number][] = [

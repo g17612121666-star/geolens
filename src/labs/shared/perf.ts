@@ -10,6 +10,14 @@ export type Quality = {
   stars: number;
 };
 
+/** Phones and tablets with several cores and memory can afford sharper canvases. */
+function capableDevice(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const cores = navigator.hardwareConcurrency ?? 4;
+  const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 4;
+  return cores >= 6 && memory >= 4;
+}
+
 export function useQuality(): Quality {
   const compact = useIsCompact();
   if (compact) {
@@ -19,7 +27,8 @@ export function useQuality(): Quality {
       lathe: 64,
       particles: 10,
       shadows: false,
-      dpr: [1, 1.35],
+      // Labs redraw only when something changes, so a sharper canvas costs little when idle.
+      dpr: [1, capableDevice() ? 2 : 1.5],
       stars: 800,
     };
   }

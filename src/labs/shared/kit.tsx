@@ -7,7 +7,7 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { cn } from "@/lib/utils";
 import { useIsCompact } from "@/hooks/use-media";
 import { useRockNormal } from "./materials";
-import { IceBody, WaterBody, jointedBlockGeometry } from "./parts";
+import { IceBody, WaterBody } from "./parts";
 
 export function Tag({
   pos,
@@ -292,4 +292,4 @@ export function StudioFloor({ size = 14 }: { size?: number }) {
   );
 }
 
-export { IceBody, WaterBody, jointedBlockGeometry };
+export { IceBody, WaterBody };

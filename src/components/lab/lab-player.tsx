@@ -8,6 +8,7 @@ import { WhyPanel } from "./why-panel";
 import { ControlBar } from "./control-bar";
 import { useIsCompact, useMediaQuery } from "@/hooks/use-media";
 import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state";
+import { recordLabVisit } from "@/lib/recent-labs";
 
 const KEYS: { key: string; does: string }[] = [
   { key: "Space", does: "Play / pause" },
@@ -86,6 +87,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
 
   useEffect(() => {
     hydrate(defaultParams(lab));
+    recordLabVisit(lab.slug);
     setInteractive(true);
     if (lab.controls.slice) {
       useLabControls.getState().setSlice(0.42);
@@ -239,6 +241,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
         data-lab-ready={interactive}
         inert={!interactive}
         id="main"
+        role="main"
         className="min-h-dvh bg-void pt-16"
       >
         <div className="px-4 pb-3">{titleBlock}</div>
@@ -295,6 +298,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
       data-lab-ready={interactive}
       inert={!interactive}
       id="main"
+      role="main"
       style={{ "--lab-controls-height": `${barHeight}px` } as CSSProperties}
       className="relative h-dvh overflow-hidden bg-void"
     >

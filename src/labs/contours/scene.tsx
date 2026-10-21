@@ -5,7 +5,8 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { TerrainMaterial } from "../shared/natural-world";
-import { SectionMaterial, withSurfaceY } from "../shared/section-material";
+import { SectionMaterial } from "../shared/section-material";
+import { withSurfaceY } from "../shared/section-utils";
 import { landSectionGlsl } from "../shared/land-section";
 
 const SIDES = landSectionGlsl({ rock: "sandstone", soil: 0.03, regolith: 0.05, beds: 12 });

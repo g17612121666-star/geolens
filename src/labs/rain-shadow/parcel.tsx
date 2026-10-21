@@ -45,6 +45,7 @@ export default function RainShadow() {
     }
     g.setAttribute("color", new THREE.BufferAttribute(colours, 3));
     return g;
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- surface is redefined each render from crest and f, which are listed
   }, [crest, f]);
   useEffect(() => () => terrain.dispose(), [terrain]);
   const x = -3 + t * 6,
@@ -86,7 +87,7 @@ export default function RainShadow() {
             const tx = -2.8 + random(i + 475) * 1.9,
               tz = -1.12 + random(i + 491) * 2.24;
             return [tx, surface(tx, tz), tz] as [number, number, number];
-          }).filter(([x, , z]) => Math.abs(z) > 0.2)}
+          }).filter(([, , z]) => Math.abs(z) > 0.2)}
           scale={0.08}
           kind="conifer"
           seed={5}

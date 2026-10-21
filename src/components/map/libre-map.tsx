@@ -2,7 +2,6 @@ import { LoadingProgress } from "@/components/loading-progress";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { attachStyleFallback, basemapStyle, type MapBasemap, type MapPhase } from "@/lib/map-style";
-import { plateColor } from "@/lib/map-overlays";
 import { pageScrollUnlessCtrl } from "@/lib/embedded-wheel";
 
 export { FIORD, LIBERTY } from "@/lib/map-style";
@@ -659,22 +658,19 @@ export function LibreMap({
     });
   }, [overlays, graticule]);
 
+  const [centerLng, centerLat] = center;
   useEffect(() => {
     mapRef.current?.flyTo({ center, zoom, essential: false });
-  }, [center[0], center[1], zoom, mapVersion]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- center is a fresh array from callers each render; keyed on its listed coordinates
+  }, [centerLng, centerLat, zoom, mapVersion]);
 
+  const markerLng = marker?.[0],
+    markerLat = marker?.[1],
+    markerBLng = markerB?.[0],
+    markerBLat = markerB?.[1];
   useEffect(() => {
     framePins(mapRef.current, 500);
-  }, [
-    fitMarkers,
-    marker?.[0],
-    marker?.[1],
-    markerB?.[0],
-    markerB?.[1],
-    mapVersion,
-    customA,
-    customB,
-  ]);
+  }, [fitMarkers, markerLng, markerLat, markerBLng, markerBLat, mapVersion, customA, customB]);
 
   useEffect(() => {
     if (markerModes.current.a !== customA) {
@@ -721,7 +717,8 @@ export function LibreMap({
     return () => {
       cancelled = true;
     };
-  }, [marker?.[0], marker?.[1], mapVersion, draggableMarker, customA]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- marker is a fresh array from callers each render; keyed on its listed coordinates
+  }, [markerLng, markerLat, mapVersion, draggableMarker, customA]);
 
   useEffect(() => {
     if (markerModes.current.b !== customB) {
@@ -759,7 +756,8 @@ export function LibreMap({
     return () => {
       cancelled = true;
     };
-  }, [markerB?.[0], markerB?.[1], mapVersion, customB]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- markerB is a fresh array from callers each render; keyed on its listed coordinates
+  }, [markerBLng, markerBLat, mapVersion, customB]);
 
   const credit = basemap ? CREDIT[basemap] : null;
 
@@ -806,5 +804,3 @@ export function LibreMap({
     </div>
   );
 }
-
-export { plateColor };

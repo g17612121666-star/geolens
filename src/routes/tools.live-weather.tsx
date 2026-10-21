@@ -123,7 +123,8 @@ function useWeather(point: WeatherPoint) {
       clearTimeout(timer);
       controller.abort();
     };
-  }, [point.lat, point.lon, version]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- point may be a fresh object each render; keyed on its lat and lon
+  }, [point.lat, point.lon, key, version]);
   return {
     ...(state.key === key ? state : { data: null, busy: true, error: null }),
     retry: () => reload((v) => v + 1),
@@ -193,6 +194,7 @@ function LiveWeather() {
         a: wa.data?.hours.find((x) => x.time === h.time)?.[layer] ?? null,
         b: wb.data?.hours.find((x) => x.time === h.time)?.[layer] ?? null,
       })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- timeline is derived from wa.data and wb.data, which are listed (it is a fresh [] each render while neither has loaded)
     [wa.data, wb.data, layer],
   );
   const defaultPair = samePoint(a, PRESETS[0]) && samePoint(b, PRESETS[11]);

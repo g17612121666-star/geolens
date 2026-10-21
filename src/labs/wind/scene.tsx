@@ -9,7 +9,8 @@ import * as THREE from "three";
 import { airDisplacement, wrapParcel } from "./advection";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { farmland, fbm, settlement, Buildings } from "../shared/hazard-parts";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 

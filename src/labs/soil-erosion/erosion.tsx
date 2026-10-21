@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import * as THREE from "three";
-import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { soilExport } from "@/lib/soil-erosion-science";
@@ -236,22 +235,30 @@ export default function SoilErosion() {
         <Plot covered={covered} wind={wind} t={t} x={2.5} real={trueScale} />
       </ScienceStudio>
       <ScienceReadout>
-        {"Model minute "}
-        {(t * 60).toFixed(1)} {"· bare plot exported "}
-        {a.exported.toFixed(0)} {"kg / mean loss "}
-        {a.meanLossMm.toFixed(2)} {"mm · comparison plot exported "}
-        {b.exported.toFixed(0)} {"kg / mean loss "}
-        {b.meanLossMm.toFixed(2)} {"mm."}
-        <br />
-        {
-          "Each plot starts with a 6000 kg model surface layer; in place + in transport + exported always equals 6000 kg. "
-        }
-        {wind
-          ? "Dry wind-transport example."
-          : "Rain splash and runoff example; blue lines show where flow concentrates, not calculated rill depths."}{" "}
-        {
-          "Cover changes one stated coefficient, so these numbers do not predict soil loss at a real site."
-        }
+        <p>
+          {"Model minute "}
+          {(t * 60).toFixed(1)}
+        </p>
+        <dl className="mt-1 grid w-fit grid-cols-[auto_auto_auto] gap-x-6 gap-y-0.5 text-left tabular-nums">
+          <dt />
+          <dd className="text-mist">{"Soil carried off"}</dd>
+          <dd className="text-mist">{"Ground lowered (average)"}</dd>
+          <dt className="text-mist">{"Bare plot (left)"}</dt>
+          <dd>{a.exported.toFixed(0)} kg</dd>
+          <dd>{a.meanLossMm.toFixed(2)} mm</dd>
+          <dt className="text-mist">{covered ? "Covered plot (right)" : "Bare plot (right)"}</dt>
+          <dd>{b.exported.toFixed(0)} kg</dd>
+          <dd>{b.meanLossMm.toFixed(2)} mm</dd>
+        </dl>
+        <p className="mt-2">
+          {
+            "Each plot starts with 6000 kg of loose surface soil. Ground lowering counts all soil loosened so far, including soil still moving downslope. "
+          }
+          {wind
+            ? "Dry wind-transport example."
+            : "Rain splash and runoff example; blue lines show where flow concentrates, not calculated rill depths."}{" "}
+          {"Model values for comparison only, not predictions for a real field."}
+        </p>
       </ScienceReadout>
     </>
   );

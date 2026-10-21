@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 import * as THREE from "three";
 import { GrassPatch, GeomorphicTerrain } from "../shared/geomorphic-terrain";
-import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
+import { SectionMaterial } from "../shared/section-material";
+import { useSectionUniforms } from "../shared/section-utils";
 import { ShallowWater } from "../shared/shallow-water";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 import { Line } from "@react-three/drei";

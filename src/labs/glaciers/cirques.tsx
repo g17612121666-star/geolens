@@ -46,7 +46,7 @@ function CirqueIce({ angle }: { angle: number }) {
     </mesh>
   );
 }
-export function cirqueHeight(x: number, z: number) {
+function cirqueHeight(x: number, z: number) {
   const radius = Math.hypot(x, z),
     angle = Math.atan2(z, x);
   let h = 0.25 + Math.max(0, 2.9 - radius) * (0.73 + 0.12 * Math.cos(angle * 3 + 0.25));

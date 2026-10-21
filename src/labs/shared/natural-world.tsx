@@ -29,6 +29,7 @@ function useSurfaceMaps(
         t.anisotropy = 8;
         return t;
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on each texture (two or three, depending on kind) so the clones rebuild only when a texture itself changes, not when the array is new
     [...originals, repeat],
   );
   useEffect(() => () => maps.forEach((t) => t.dispose()), [maps]);

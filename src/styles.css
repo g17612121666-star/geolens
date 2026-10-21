@@ -14,7 +14,7 @@
   --color-magma: #ff6a3d;
   --color-sandstone: #e8b86d;
   --color-moss: #7c9a6a;
-  --color-fault: #e24b4b;
+  --color-fault: #ec5f5f;
   --color-glass: rgb(255 255 255 / 0.08);
   --color-glass-border: rgb(255 255 255 / 0.1);
   --color-ink: #ffffff;
@@ -100,7 +100,7 @@
     [data-print-hide] {
       display: none !important;
     }
-    html, body, body > div:has([data-teacher-note]) {
+    html, body, body > div:has([data-teacher-note]), body > div:has([data-worksheet]) {
       background: white !important;
       color: #111 !important;
     }
@@ -114,7 +114,7 @@
     main {
       padding-top: 0 !important;
     }
-    [data-teacher-note], [data-teacher-note] * {
+    [data-teacher-note], [data-teacher-note] *, [data-worksheet], [data-worksheet] * {
       color: #111 !important;
       background-color: transparent !important;
       border-color: #ccc !important;
@@ -191,7 +191,7 @@
 :root[data-theme="light"] {
  --color-void:#f4f6f3;--color-basalt:#ffffff;--color-trench:#eaf0eb;--color-slate:#dde7e1;
  --color-chalk:#19342b;--color-paper:#18392e;--color-mist:#52685e;
- --color-glacier:#007969;--color-ice:#17658a;--color-magma:#b63d19;
+ --color-glacier:#006a5c;--color-ice:#17658a;--color-magma:#b63d19;
  --color-sandstone:#886020;--color-moss:#49683a;--color-fault:#b83232;
  --color-ink:#19342b;--color-glass:rgb(25 52 43 / .035);--color-glass-border:rgb(25 52 43 / .16);
 }
@@ -201,6 +201,9 @@
 :root[data-theme="light"] [class*="hover:bg-white"]:hover {background-color:rgb(25 52 43 / .07);}
 :root[data-theme="light"] .bg-glacier {color:#fff;}
 :root[data-theme="light"] .bg-magma {color:#fff;}
+
+/* Links inside running text are underlined, so they never rely on colour alone. */
+:where(p, li, dd) > a.text-ice {text-decoration-line:underline;text-underline-offset:3px;}
 
 /* Shared editorial rhythm for the Geolens collections. */
 .editorial-card {transition: border-color 180ms, transform 180ms;}

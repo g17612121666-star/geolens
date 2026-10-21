@@ -15,8 +15,17 @@ export function treeGeometry(kind: TreeKind = "conifer", seed = 1) {
     uvs: number[] = [];
   const up = new THREE.Vector3(0, 1, 0);
   const branch = (a: THREE.Vector3, b: THREE.Vector3, r: number) => {
+    // Thin twigs are a few pixels wide on screen: three open sides are enough.
     const d = b.clone().sub(a),
-      g = new THREE.CylinderGeometry(r * 0.35, r, d.length(), 7, 3);
+      thin = r < 0.012,
+      g = new THREE.CylinderGeometry(
+        r * 0.35,
+        r,
+        d.length(),
+        thin ? 3 : r < 0.03 ? 5 : 7,
+        r < 0.03 ? 1 : 3,
+        thin,
+      );
     g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(up, d.normalize()));
     g.translate(...a.clone().lerp(b, 0.5).toArray());
     wood.push(g);
@@ -80,9 +89,9 @@ export function treeGeometry(kind: TreeKind = "conifer", seed = 1) {
               tl = len * 0.36 * (1 - twig / 10),
               end = root.clone().add(new THREE.Vector3(Math.cos(ta) * tl, 0.09, Math.sin(ta) * tl));
             branch(root, end, 0.007);
-            for (let n = 0; n < 9; n++)
+            for (let n = 0; n < 7; n++)
               for (const s of [-1, 1]) {
-                const pos = root.clone().lerp(end, n / 9);
+                const pos = root.clone().lerp(end, (n + 0.5) / 7);
                 leaf(
                   pos,
                   new THREE.Vector3(

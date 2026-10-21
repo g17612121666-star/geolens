@@ -1,4 +1,4 @@
-import { riverLand, riverZ, riverBanks } from "../shared/river-terrain.ts";
+import { riverLand, riverBanks } from "../shared/river-terrain.ts";
 type Point = [number, number, number];
 /** An illustrative temperate catchment, not a habitat map or a fixed river-bank planting rule. */
 export function riverVegetation(verticalScale = 1) {

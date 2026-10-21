@@ -12,6 +12,11 @@ const TOOLS = [
     hint: "Find the Sun’s height for a place and date",
   },
   { to: "/tools/live-weather", label: "Live weather", hint: "Compare weather in two places" },
+  {
+    to: "/tools/earthquakes",
+    label: "Live earthquakes",
+    hint: "Recent earthquakes and plate boundaries",
+  },
   { to: "/tools/map", label: "World map studio", hint: "Explore the geography of a place" },
 ] as const;
 

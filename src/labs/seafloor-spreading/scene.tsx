@@ -8,7 +8,8 @@ import { EXPERIMENT_REVERSALS, spreadingCrust } from "@/lib/spreading-science";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { TerrainMaterial } from "../shared/natural-world";
-import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
+import { SectionMaterial } from "../shared/section-material";
+import { useSectionUniforms } from "../shared/section-utils";
 import { Tag } from "../shared/kit";
 
 /** 1 scene unit = 20 km horizontally. Two ridge segments are offset by a transform fault. */

@@ -52,9 +52,10 @@ export function LunarSurface({
     shadowUniforms.uU.value.set(shadow.u0, shadow.u1);
     shadowUniforms.uP.value.set(shadow.p0, shadow.p1);
   }
+  const hasShadow = Boolean(shadow);
   const eclipse = useMemo(
     () =>
-      shadow
+      hasShadow
         ? (sh: THREE.WebGLProgramParametersWithUniforms) => {
             Object.assign(sh.uniforms, shadowUniforms);
             sh.vertexShader =
@@ -84,7 +85,7 @@ export function LunarSurface({
                 );
           }
         : undefined,
-    [Boolean(shadow), shadowUniforms],
+    [hasShadow, shadowUniforms],
   );
   // NASA LOLA height encodes -12..+12 km about the 1737.4 km reference sphere.
   // LROC albedo never substitutes for height; relief has no vertical exaggeration.
@@ -109,6 +110,7 @@ export function LunarSurface({
 function TidalEnvelope({ radius, moon }: { radius: number; moon: [number, number, number] }) {
   const geometry = useMemo(() => new THREE.SphereGeometry(radius * 1.13, 64, 48), [radius]);
   const rest = useMemo(() => Float32Array.from(geometry.attributes.position.array), [geometry]);
+  const [moonX, moonY, moonZ] = moon;
   useLayoutEffect(() => {
     const p = geometry.attributes.position;
     for (let i = 0; i < p.count; i++) {
@@ -119,7 +121,8 @@ function TidalEnvelope({ radius, moon }: { radius: number; moon: [number, number
     p.needsUpdate = true;
     geometry.computeVertexNormals();
     geometry.computeBoundingSphere();
-  }, [geometry, rest, moon[0], moon[1], moon[2]]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- moon is a fresh array from the caller each render; keyed on its listed coordinates
+  }, [geometry, rest, moonX, moonY, moonZ]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry}>

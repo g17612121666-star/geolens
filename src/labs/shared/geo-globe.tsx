@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
 import { Html, Line, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 import { latLonToXYZ } from "@/lib/geo";
@@ -46,14 +47,29 @@ function useGeo(url: string): { data: Geo; error: undefined; retry: () => void }
   }
   throw pending.get(url);
 }
-function ModernGlobe({ radius }: { radius: number }) {
-  const [day, bump] = useTexture(["/textures/earth-day.jpg", "/textures/earth-bump.jpg"]);
+type Fade = { material?: React.Ref<THREE.MeshStandardMaterial>; onReady?: () => void };
+const MODERN = ["/textures/earth-day.jpg", "/textures/earth-bump.jpg"];
+const snapshotUrl = (snapshot: number) => `/geo/reconstruction/coastlines-${snapshot}-4k.webp`;
+function useReady(onReady?: () => void) {
+  useEffect(() => onReady?.(), [onReady]);
+}
+function ModernGlobe({ radius, material, onReady }: { radius: number } & Fade) {
+  const [day, bump] = useTexture(MODERN);
   day.colorSpace = THREE.SRGBColorSpace;
   day.anisotropy = 12;
+  useReady(onReady);
   return (
     <mesh rotation={[0, Math.PI / 2, 0]}>
       <sphereGeometry args={[radius, 160, 96]} />
-      <meshStandardMaterial map={day} bumpMap={bump} bumpScale={0.004} roughness={0.84} />
+      <meshStandardMaterial
+        ref={material}
+        map={day}
+        bumpMap={bump}
+        bumpScale={0.004}
+        roughness={0.84}
+        transparent={Boolean(material)}
+        depthWrite={!material}
+      />
     </mesh>
   );
 }
@@ -119,29 +135,91 @@ float palaeoHeight;
       "#include <roughnessmap_fragment>\n  roughnessFactor=mix(.42,.9,land);",
     );
 };
-function ReconstructedSnapshot({ snapshot, radius }: { snapshot: number; radius: number }) {
-  const texture = useTexture(`/geo/reconstruction/coastlines-${snapshot}-4k.webp`);
+function ReconstructedSnapshot({
+  snapshot,
+  radius,
+  material,
+  onReady,
+}: { snapshot: number; radius: number } & Fade) {
+  const texture = useTexture(snapshotUrl(snapshot));
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.anisotropy = 12;
+  useReady(onReady);
   return (
     <mesh rotation={[0, Math.PI / 2, 0]}>
       <sphereGeometry args={[radius, 160, 96]} />
       <meshStandardMaterial
+        ref={material}
         map={texture}
         roughness={0.84}
+        transparent={Boolean(material)}
+        depthWrite={!material}
         onBeforeCompile={PALAEO_SHADER}
         customProgramCacheKey={() => "palaeo-globe-v1"}
       />
     </mesh>
   );
 }
-export function ReconstructionGlobe({ age, radius = 1.25 }: { age: number; radius?: number }) {
-  const snapshot = Math.max(0, Math.min(250, Math.round(age / 10) * 10));
+function Snapshot({ snapshot, radius, ...fade }: { snapshot: number; radius: number } & Fade) {
   // Ancient snapshots need neither modern relief nor on-device GeoJSON rasterisation.
   return snapshot === 0 ? (
-    <ModernGlobe radius={radius} />
+    <ModernGlobe radius={radius} {...fade} />
   ) : (
-    <ReconstructedSnapshot snapshot={snapshot} radius={radius} />
+    <ReconstructedSnapshot snapshot={snapshot} radius={radius} {...fade} />
+  );
+}
+/**
+ * Shows the nearest 10 Ma snapshot. When the age changes, the previous snapshot stays on top
+ * until the next one has loaded, then fades out, so stepping through time never flashes a
+ * loading screen. Neighbouring snapshots are preloaded.
+ */
+export function ReconstructionGlobe({ age, radius = 1.25 }: { age: number; radius?: number }) {
+  const snapshot = Math.max(0, Math.min(250, Math.round(age / 10) * 10));
+  const [current, setCurrent] = useState(snapshot);
+  const [leaving, setLeaving] = useState<number | null>(null);
+  const ready = useRef(true);
+  const opacity = useRef(1);
+  const material = useRef<THREE.MeshStandardMaterial>(null);
+  const invalidate = useThree((s) => s.invalidate);
+  useEffect(() => {
+    if (snapshot === current) return;
+    setLeaving(current);
+    setCurrent(snapshot);
+    ready.current = false;
+    opacity.current = 1;
+  }, [snapshot, current]);
+  useEffect(() => {
+    for (const next of [snapshot - 10, snapshot + 10])
+      if (next > 0 && next <= 250) useTexture.preload(snapshotUrl(next));
+    if (snapshot === 10) useTexture.preload(MODERN);
+  }, [snapshot]);
+  const onReady = useMemo(
+    () => () => {
+      ready.current = true;
+      invalidate();
+    },
+    [invalidate],
+  );
+  useFrame((_, dt) => {
+    if (leaving === null || !ready.current) return;
+    opacity.current = Math.max(0, opacity.current - dt * 3.5);
+    if (material.current) material.current.opacity = opacity.current;
+    if (opacity.current <= 0) setLeaving(null);
+    invalidate();
+  });
+  const base = <Snapshot key={current} snapshot={current} radius={radius} onReady={onReady} />;
+  return (
+    <>
+      {leaving === null ? base : <Suspense fallback={null}>{base}</Suspense>}
+      {leaving !== null && (
+        <Snapshot
+          key={`leaving-${leaving}`}
+          snapshot={leaving}
+          radius={radius * 1.002}
+          material={material}
+        />
+      )}
+    </>
   );
 }
 export function PlateLines({ radius = 1.254 }: { radius?: number }) {

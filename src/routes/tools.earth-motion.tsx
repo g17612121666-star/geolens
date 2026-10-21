@@ -100,10 +100,12 @@ function EarthMotion() {
   const dateKey = parsed?.getTime();
   const outA = useMemo(
     () => (parsed ? solarReading(parsed, a.lat, a.lon, tilt, refraction, equationOn) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- parsed is a new Date each render; keyed on dateKey, its timestamp
     [dateKey, a, tilt, refraction, equationOn],
   );
   const outB = useMemo(
     () => (parsed && b ? solarReading(parsed, b.lat, b.lon, tilt, refraction, equationOn) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- parsed is a new Date each render; keyed on dateKey, its timestamp
     [dateKey, b, tilt, refraction, equationOn],
   );
   const year = parsed?.getUTCFullYear() ?? 2026;

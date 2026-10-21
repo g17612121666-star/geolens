@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, CloudSun, Globe2, Map, SunMedium } from "lucide-react";
+import { Activity, ArrowUpRight, CloudSun, Globe2, Map, SunMedium } from "lucide-react";
 import { headFor } from "@/lib/seo";
 
 export const Route = createFileRoute("/tools/")({
@@ -8,7 +8,7 @@ export const Route = createFileRoute("/tools/")({
     headFor({
       title: "Tools",
       description:
-        "Free geography tools: an Earth-motion calculator, live weather, a world map studio and an atlas.",
+        "Free geography tools: an Earth-motion calculator, live weather, live earthquakes, a world map studio and an atlas.",
       path: "/tools",
     }),
 });
@@ -27,6 +27,13 @@ const TOOLS = [
     title: "Live weather",
     blurb:
       "Compare current modelled weather in two places, then follow both forecasts along the same 72-hour timeline. Investigate differences in temperature, rain, wind and cloud cover.",
+  },
+  {
+    to: "/tools/earthquakes",
+    icon: Activity,
+    title: "Live earthquakes",
+    blurb:
+      "See the past day, week or month of earthquakes from the USGS on a 3D globe with plate boundaries. Compare depths and magnitudes, and test how closely earthquakes follow plate edges.",
   },
   {
     to: "/tools/map",

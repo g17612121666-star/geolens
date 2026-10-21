@@ -1,6 +1,5 @@
 import { ProgressFrame } from "@/components/progress-media";
 import { ScientificText } from "@/components/scientific-text";
-import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import type { LabMeta, PanelTab } from "@/lib/labs/types";
 import { useLabControls } from "@/lib/store/lab-controls";
@@ -8,8 +7,11 @@ import { cn } from "@/lib/utils";
 import { Figure } from "@/components/figure";
 import { labFigures, termThumb } from "@/lib/figures";
 import { labVideo } from "@/lib/lab-videos";
+import { useQuizAnswers } from "@/lib/quiz-progress";
+import { PRODUCER_MAILTO } from "@/lib/contact";
 import { Gallery } from "@/components/gallery";
 import { LAB_GALLERY } from "@/lib/media-galleries";
+import { SpeakButton } from "@/components/speak-button";
 
 const WHY_LABELS = ["Why it happens", "Try a comparison", "Reading the result"] as const;
 
@@ -25,7 +27,10 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
   const seenTermSrc = new Set<string>();
 
   return (
-    <aside className="pointer-events-auto flex w-full shrink-0 flex-col rounded-2xl border border-white/10 bg-basalt/95">
+    <aside
+      aria-label="Explanations, terms and quiz"
+      className="pointer-events-auto flex w-full shrink-0 flex-col rounded-2xl border border-white/10 bg-basalt/95"
+    >
       <div className="flex border-b border-white/10" role="tablist" aria-label="Lab guide">
         {(
           [
@@ -130,7 +135,14 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             if (tfig && show) seenTermSrc.add(tfig.src);
             return (
               <div key={`${g.term}-${index}`}>
-                <p className="font-medium text-chalk">{exam && g.exam ? g.exam : g.term}</p>
+                <p className="flex items-center justify-between gap-2 font-medium text-chalk">
+                  {exam && g.exam ? g.exam : g.term}
+                  <SpeakButton
+                    text={exam && g.exam ? g.exam : g.term}
+                    label={`Say ${exam && g.exam ? g.exam : g.term}`}
+                    className="-my-2"
+                  />
+                </p>
                 {exam && g.exam && <p className="font-mono text-[13px] text-mist">{g.term}</p>}
                 <p className="mt-1 text-mist">{g.def}</p>
                 {show && tfig && <Figure {...tfig} size="sm" />}
@@ -194,6 +206,19 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             >
               {"Open the teacher notes"}
             </Link>
+            <Link
+              to="/worksheet/$slug"
+              params={{ slug: lab.slug }}
+              className="inline-flex h-11 items-center text-ice hover:underline"
+            >
+              {"Printable student worksheet"}
+            </Link>
+            <a
+              href={`${PRODUCER_MAILTO}?subject=${encodeURIComponent(`Geolens: mistake in ${lab.title}`)}&body=${encodeURIComponent(`Lab: ${lab.title} (/lab/${lab.slug})\n\nWhat looks wrong, and where:\n`)}`}
+              className="inline-flex h-11 items-center text-ice hover:underline"
+            >
+              {"Report a mistake in this lab"}
+            </a>
           </div>
         )}
       </div>
@@ -203,12 +228,27 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
 
 function CheckList({ lab }: { lab: LabMeta }) {
   const qs = lab.questions;
-  const [picked, setPicked] = useState<Record<number, number>>({});
+  const { picked, pick, reset } = useQuizAnswers(lab.slug);
+  const answered = qs.filter((_, i) => picked[i] !== undefined).length;
+  const correct = qs.filter((q, i) => picked[i] === q.answer).length;
   return (
     <div className="space-y-5">
       <p className="text-mist">
         Choose an answer, then compare your reasoning with the explanation.
       </p>
+      {answered > 0 && (
+        <div className="flex items-center justify-between gap-3 rounded-[10px] border border-white/10 px-3 py-2 text-[13px]">
+          <p className="text-chalk" role="status">
+            {answered < qs.length
+              ? `${answered} of ${qs.length} answered · ${correct} correct`
+              : `${correct} of ${qs.length} correct`}
+            <span className="text-mist">{" · saved on this device"}</span>
+          </p>
+          <button type="button" onClick={reset} className="min-h-11 text-ice hover:underline">
+            {"Start again"}
+          </button>
+        </div>
+      )}
       {qs.map((q, i) => {
         const choice = picked[i];
         const shown = choice !== undefined;
@@ -223,7 +263,7 @@ function CheckList({ lab }: { lab: LabMeta }) {
                 <li key={c}>
                   <button
                     type="button"
-                    onClick={() => setPicked((p) => ({ ...p, [i]: j }))}
+                    onClick={() => pick(i, j)}
                     className={cn(
                       "min-h-11 w-full rounded-[10px] border px-3 py-2 text-left text-[13px]",
                       choice === j

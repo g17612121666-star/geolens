@@ -5,6 +5,7 @@ import { LABS, REALMS } from "@/lib/labs/catalog";
 import { headFor } from "@/lib/seo";
 import { Figure } from "@/components/figure";
 import { termFigure } from "@/lib/figures";
+import { SpeakButton } from "@/components/speak-button";
 
 type GlossarySearch = { q?: string; letter?: string; realm?: string; term?: string };
 export const Route = createFileRoute("/glossary")({
@@ -166,7 +167,14 @@ function Glossary() {
           <article className="mt-5 grid gap-6 rounded-2xl border border-white/10 bg-white/[.025] p-5 md:grid-cols-2">
             <div>
               <p className="section-label">{"Term"}</p>
-              <h2 className="mt-3 font-display text-4xl">{selected.term}</h2>
+              <div className="mt-3 flex items-center gap-3">
+                <h2 className="font-display text-4xl">{selected.term}</h2>
+                <SpeakButton
+                  text={`${selected.term}. ${selected.def}`}
+                  label={`Read ${selected.term} and its definition aloud`}
+                  showLabel
+                />
+              </div>
               {selected.exam && (
                 <p className="mt-2 text-sm text-glacier">
                   {"Also written: "}
@@ -352,9 +360,16 @@ function Glossary() {
                           {g.term}
                         </Link>
                       </h2>
-                      {known.includes(key(g.term)) && (
-                        <span className="text-xs text-glacier">{"Understood"}</span>
-                      )}
+                      <span className="flex items-center gap-2">
+                        {known.includes(key(g.term)) && (
+                          <span className="text-xs text-glacier">{"Understood"}</span>
+                        )}
+                        <SpeakButton
+                          text={g.term}
+                          label={`Say ${g.term}`}
+                          className="-mr-2 -mt-2"
+                        />
+                      </span>
                     </div>
                     {g.exam && <p className="mt-1 text-xs text-glacier">{g.exam}</p>}
                     <Definition entry={g} />

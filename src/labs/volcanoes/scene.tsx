@@ -9,7 +9,7 @@ import { Tag } from "../shared/kit";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 import { TerrainMaterial, PlantStand } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { farmland, fbm } from "../shared/hazard-parts";
+import { farmland, fbm } from "../shared/hazard-utils";
 import { volcanoHeight } from "./geometry";
 
 const SIZE = 7,

@@ -9,7 +9,8 @@ import { Tag } from "../shared/kit";
 import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { Buildings, farmland, fbm, settlement } from "../shared/hazard-parts";
+import { Buildings } from "../shared/hazard-parts";
+import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { FlowWaterMaterial } from "../shared/flow-water";
 
 /** Clouds along the example cold front (towering) and warm front (layered): [x, z, height 0–1]. */

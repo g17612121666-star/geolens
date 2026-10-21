@@ -182,7 +182,7 @@ export function ControlBar({
             )}
           >
             {tg.label}
-            <span className="ml-2 text-xs opacity-75">{on ? "On" : "Off"}</span>
+            <span className="ml-2 text-xs">{on ? "On" : "Off"}</span>
           </button>
         );
       })}

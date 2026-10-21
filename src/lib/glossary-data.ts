@@ -13,7 +13,7 @@ export type GlossaryEntry = {
 import DEFINITIONS from "../../scripts/glossary-definitions.json";
 const RICH:Record<string,string> = DEFINITIONS;
 
-function expandDef(term: string, def: string, exam: string | undefined, _labTitle: string): string {
+function expandDef(term: string, def: string, _exam: string | undefined, _labTitle: string): string {
   const hit =
     RICH[term] ??
     Object.entries(RICH).find(([k]) => k.toLowerCase() === term.toLowerCase())?.[1];

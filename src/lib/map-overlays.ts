@@ -1062,7 +1062,7 @@ export const TEACHING_PRESETS: {
     note: "The Himalaya rise where the Indian and Eurasian continental plates collide.",
   },
   {
-    name: "Hawaii",
+    name: "Hawaiʻi",
     lat: 19.6,
     lon: -155.5,
     zoom: 7,

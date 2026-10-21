@@ -43,7 +43,7 @@ export default function Plates() {
                 <CityMarker lat={19.4} lon={-155.3} radius={1.26} color="#f99c75" />
                 <Tag
                   pos={latLonToXYZ(19.4, -155.3, 1.4)}
-                  text="Hawaii hotspot"
+                  text="Hawaiʻi hotspot"
                   note="Young volcanism at the southeastern end of the Hawaiian chain. Older islands extend northwest as the Pacific plate moves relative to the hotspot."
                 />
               </>
@@ -80,7 +80,7 @@ export default function Plates() {
         ) : (
           `Continental positions ${Math.round(age / 10) * 10} million years ago. Move towards the present to compare how the continents have shifted.`
         )}
-        {hotspot && age >= 5 && !section && " Return to the present to locate Hawaii."}
+        {hotspot && age >= 5 && !section && " Return to the present to locate Hawaiʻi."}
         <br />
         {section
           ? "Arrows show relative plate motion. Compare the section with the surface pattern on the globe."

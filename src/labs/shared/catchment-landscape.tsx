@@ -18,17 +18,11 @@ vec3 sectionColour(vec3 p,vec3 w){
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 import { useLabControls } from "@/lib/store/lab-controls";
 import * as THREE from "three";
-import { Buildings, farmland, settlement } from "./hazard-parts";
+import { Buildings } from "./hazard-parts";
+import { farmland, settlement } from "./hazard-utils";
 import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
 import { landscapeRandom as random, landscapeNoise as noise } from "./landscape-noise";
-const streamDistance = (x: number, z: number) =>
-  Math.min(Math.abs(z), x >= -1.7 && x <= 0 ? Math.abs(Math.abs(z) + (x * 1.2) / 1.7) : 10);
-export const catchmentHeight = (x: number, z: number) =>
-  0.08 +
-  0.52 * ((2 - x) / 4) ** 2 +
-  0.5 * Math.sin((z * Math.PI) / 3.2) ** 2 +
-  0.025 * (noise(x * 4, z * 5) - 0.5) * Math.min(1, streamDistance(x, z) * 8) -
-  0.055 * Math.exp(-((streamDistance(x, z) / 0.1) ** 4));
+import { catchmentHeight, streamDistance } from "./catchment-height";
 const trees = Array.from({ length: 130 }, (_, i) => {
   const x = -1.85 + random(i + 3) * 3.7,
     z = -1.48 + random(i + 611) * 2.96;
@@ -128,7 +122,7 @@ export function CatchmentLandscape({
           const x = -1.85 + random(i + 117) * 3.7,
             z = -1.43 + random(i + 713) * 2.86;
           return [x, catchmentHeight(x, z), z] as [number, number, number];
-        }).filter(([x, y, z]) => streamDistance(x, z) > 0.13)}
+        }).filter(([x, , z]) => streamDistance(x, z) > 0.13)}
         height={0.055}
       />
       {[-1, 1].map((sign, k) =>
