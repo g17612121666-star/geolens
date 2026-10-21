@@ -124,6 +124,13 @@ function TeacherArticlePage() {
         >
           {"Print lesson"}
         </button>
+        <Link
+          to="/worksheet/$slug"
+          params={{ slug: lab.slug }}
+          className="inline-flex min-h-11 items-center rounded-full border border-white/15 px-4 text-ice"
+        >
+          {"Student worksheet"}
+        </Link>
         <button
           className="min-h-11 rounded-full border border-white/15 px-4 text-ice"
           aria-pressed={largeText}

@@ -38,6 +38,11 @@ function Privacy() {
           }
         </p>
         <p>
+          {
+            "Quiz answers and glossary practice marks are saved only in this browser, so a student can pick up where they left off on the same device. They are never sent to a server. Start again in a lab’s Check tab clears that lab, and clearing the site’s data removes them all."
+          }
+        </p>
+        <p>
           {"We do not track what students do. There is no analytics software recording clicks."}
         </p>
         <p>

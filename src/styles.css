@@ -100,7 +100,7 @@
     [data-print-hide] {
       display: none !important;
     }
-    html, body, body > div:has([data-teacher-note]) {
+    html, body, body > div:has([data-teacher-note]), body > div:has([data-worksheet]) {
       background: white !important;
       color: #111 !important;
     }
@@ -114,7 +114,7 @@
     main {
       padding-top: 0 !important;
     }
-    [data-teacher-note], [data-teacher-note] * {
+    [data-teacher-note], [data-teacher-note] *, [data-worksheet], [data-worksheet] * {
       color: #111 !important;
       background-color: transparent !important;
       border-color: #ccc !important;
