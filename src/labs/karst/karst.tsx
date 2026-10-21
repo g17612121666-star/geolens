@@ -5,12 +5,10 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import {
-  GeomorphicTerrain,
   WaterRibbon,
   GrassPatch,
   DebrisField,
 } from "../shared/geomorphic-terrain";
-import { RockPrism } from "../shared/rock-prism";
 import { Tag } from "../shared/kit";
 import { SectionMaterial } from "../shared/section-material";
 import { cliffFaceGlsl } from "../shared/land-section";
@@ -94,7 +92,6 @@ export default function Karst() {
   const cut = params.cutaway > 0.5,
     opening = params.joint ?? 0.06,
     v = trueScale ? 1 : 1.3;
-  const colour = useMemo(() => () => "#9caaa2", []);
   const roof = useMemo(() => (x: number, z: number) => karstRoof(x, z, opening), [opening]);
   const flow = useMemo(
     () =>
@@ -229,7 +226,7 @@ export default function Karst() {
               const x = -2.8 + rand(i + 97) * 5.6,
                 z = -1.35 + rand(i + 181) * 2.7;
               return [x, roof(x, z) + 0.002, z] as [number, number, number];
-            }).filter(([x, y, z]) => y < 1.72 && Math.abs(x + 1) > 0.5)}
+            }).filter(([x, y]) => y < 1.72 && Math.abs(x + 1) > 0.5)}
             height={0.07}
           />
           <Tag

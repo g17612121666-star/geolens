@@ -794,7 +794,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Increase Time before present to step back towards Pangaea in 10 Ma snapshots. Return to 0 Ma and turn on Hawaii hotspot to find Hawaii."
+          "body": "Increase Time before present to step back towards Pangaea in 10 Ma snapshots. Return to 0 Ma and turn on Hawaiʻi hotspot to find Hawaiʻi."
         },
         {
           "id": "explain",
@@ -842,7 +842,7 @@
           "explain": "The San Andreas mainly accommodates horizontal motion between the Pacific and North American plates. Slip on the fault causes earthquakes but, unlike ridges and subduction zones, produces little magma."
         },
         {
-          "prompt": "A hotspot track like Hawaii is evidence that…",
+          "prompt": "A hotspot track like Hawaiʻi is evidence that…",
           "choices": [
             "A plate has moved over a long-lived plume, leaving older volcanoes behind.",
             "Plates stay still while mantle plumes migrate beneath them.",
@@ -855,7 +855,7 @@
       ],
       "why": [
         "At divergent boundaries plates separate, at convergent boundaries they approach, and at transform boundaries they slide past. These relative motions help explain the distribution of ridges, trenches and earthquakes.",
-        "Increase Time before present to step back towards Pangaea in 10 Ma snapshots. Return to 0 Ma and turn on Hawaii hotspot to find Hawaii.",
+        "Increase Time before present to step back towards Pangaea in 10 Ma snapshots. Return to 0 Ma and turn on Hawaiʻi hotspot to find Hawaiʻi.",
         "Past views move modern coastlines using a plate model, so they show continental positions rather than ancient shorelines."
       ],
       "glossary": [
@@ -909,7 +909,7 @@
         }
       ],
       "teacher": {
-        "script": "Rotate the present-day globe. Teal marks divergent boundaries, coral convergent and sand transform. Turn on Boundary section and change Boundary type to compare their motion.\n\nIncrease Time before present to step back towards Pangaea in 10 Ma snapshots. Return to 0 Ma and turn on Hawaii hotspot to find Hawaii.",
+        "script": "Rotate the present-day globe. Teal marks divergent boundaries, coral convergent and sand transform. Turn on Boundary section and change Boundary type to compare their motion.\n\nIncrease Time before present to step back towards Pangaea in 10 Ma snapshots. Return to 0 Ma and turn on Hawaiʻi hotspot to find Hawaiʻi.",
         "pitfalls": [
           "Distinguish countries from tectonic plates; the United Kingdom lies on the Eurasian plate.",
           "Check that arrows show the relative movement of the plates, including motion parallel to a transform boundary.",
@@ -973,7 +973,7 @@
         "toggles": [
           {
             "key": "hotspot",
-            "label": "Hawaii hotspot"
+            "label": "Hawaiʻi hotspot"
           },
           {
             "key": "section",
@@ -3021,7 +3021,7 @@
         {
           "id": "explain",
           "title": "Explain",
-          "body": "Which evidence would you use to test the continental arrangement shown in an older reconstruction?"
+          "body": "Set 250 Ma and turn on Fossil evidence. Where do Mesosaurus, Glossopteris and Lystrosaurus sites sit, and which other evidence would you use to test this arrangement?"
         },
         {
           "id": "check",
@@ -3066,7 +3066,7 @@
         {
           "prompt": "The Himalaya record…",
           "choices": [
-            "A hotspot track like Hawaii",
+            "A hotspot track like Hawaiʻi",
             "A mid-ocean ridge like Iceland",
             "A transform fault like San Andreas",
             "A collision between India and Eurasia"
@@ -3167,7 +3167,7 @@
         "toggles": [
           {
             "key": "fossils",
-            "label": "Fossil / fit overlay"
+            "label": "Fossil evidence"
           }
         ]
       },
@@ -3176,7 +3176,8 @@
         "Pangaea stayed assembled from about 300 Ma until it began to break apart around 200–180 Ma.",
         "The globe uses EarthByte’s Müller 2019 plate reconstruction at 10 Ma intervals.",
         "Set Ma before present to 250 Ma, then compare the 10 Ma snapshots towards the present.",
-        "At about 250 Ma the continental shelves fit together as Pangaea."
+        "At about 250 Ma the continental shelves fit together as Pangaea.",
+        "Fossil evidence shows a few representative published sites for each species, moved with their plates by the same model. The dots mark where fossils are found, not each species’ full range."
       ]
     },
     {
@@ -3305,7 +3306,7 @@
       "cases": [
         {
           "slug": "hawaii",
-          "label": "Hawaii"
+          "label": "Hawaiʻi"
         },
         {
           "slug": "yellowstone",
@@ -3339,7 +3340,7 @@
         "toggles": [
           {
             "key": "hawaii",
-            "label": "Hawaii",
+            "label": "Hawaiʻi",
             "defaultOn": true
           },
           {
@@ -9510,7 +9511,7 @@
       "cases": [
         {
           "slug": "hawaii",
-          "label": "Hawaii shields"
+          "label": "Hawaiʻi shields"
         },
         {
           "slug": "iceland",
@@ -11303,7 +11304,7 @@
         {
           "prompt": "The Caledonides and Appalachians record…",
           "choices": [
-            "A hotspot track like Hawaii",
+            "A hotspot track like Hawaiʻi",
             "An older ocean that opened and then closed",
             "A rift that never became an ocean",
             "A transform fault like San Andreas"

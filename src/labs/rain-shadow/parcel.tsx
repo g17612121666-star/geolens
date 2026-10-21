@@ -86,7 +86,7 @@ export default function RainShadow() {
             const tx = -2.8 + random(i + 475) * 1.9,
               tz = -1.12 + random(i + 491) * 2.24;
             return [tx, surface(tx, tz), tz] as [number, number, number];
-          }).filter(([x, , z]) => Math.abs(z) > 0.2)}
+          }).filter(([, , z]) => Math.abs(z) > 0.2)}
           scale={0.08}
           kind="conifer"
           seed={5}

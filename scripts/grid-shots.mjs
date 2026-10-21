@@ -35,7 +35,7 @@ for (const [path, name] of jobs) {
     try {
       await page.screenshot({ path: `/workspace/screenshots/${name}.jpg`, type: "jpeg", quality: 70, timeout: 5000, animations: "disabled" });
       console.log("ok-fallback", name, Date.now() - t0, "ms");
-    } catch (e2) {
+    } catch {
       console.log("fail", name, err.message?.slice(0, 120));
     }
   }

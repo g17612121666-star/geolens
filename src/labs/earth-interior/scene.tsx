@@ -7,7 +7,7 @@ import { useLabTick } from "@/labs/tick";
 import { Tag, InspectHotspot } from "../shared/kit";
 import { ScienceReadout, ScienceStudio } from "../shared/science-kit";
 import { shellSection } from "../shared/science-geometry";
-import { useRockNormal, useRockPbr } from "../shared/materials";
+import { useRockNormal } from "../shared/materials";
 import { SectionMaterial, useSectionUniforms } from "../shared/section-material";
 
 const layers = [

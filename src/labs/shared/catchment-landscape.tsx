@@ -128,7 +128,7 @@ export function CatchmentLandscape({
           const x = -1.85 + random(i + 117) * 3.7,
             z = -1.43 + random(i + 713) * 2.86;
           return [x, catchmentHeight(x, z), z] as [number, number, number];
-        }).filter(([x, y, z]) => streamDistance(x, z) > 0.13)}
+        }).filter(([x, , z]) => streamDistance(x, z) > 0.13)}
         height={0.055}
       />
       {[-1, 1].map((sign, k) =>

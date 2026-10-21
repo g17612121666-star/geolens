@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import * as THREE from "three";
 
 export const cloudNoiseGLSL = `
 float hash3(vec3 p){p=fract(p*.3183099+vec3(.1,.2,.3));p*=17.;return fract(p.x*p.y*p.z*(p.x+p.y+p.z));}

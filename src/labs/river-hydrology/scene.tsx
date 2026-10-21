@@ -1,6 +1,5 @@
 import { useMemo, useEffect } from "react";
 import * as THREE from "three";
-import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { annualRiverRegime, catchmentRelief } from "@/lib/river-regime-science";
