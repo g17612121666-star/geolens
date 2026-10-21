@@ -1,4 +1,4 @@
-import { PUBLIC_SITE_HOST } from '../../src/lib/public-site';
+import { PUBLIC_SITE_HOST } from "../../src/lib/public-site";
 
 /**
  * Security headers for HTML and static responses.
@@ -18,6 +18,7 @@ const CSP = [
     "https://tiles.openfreemap.org",
     "https://*.openfreemap.org",
     "https://api.open-meteo.com",
+    "https://earthquake.usgs.gov",
     "https://*.tile.openstreetmap.org",
     "https://*.openstreetmap.org",
     "https://tile.openstreetmap.org",
@@ -70,7 +71,7 @@ function isPreviewHost(host: string): boolean {
 /** Unique deployment URLs remain noindex; the published alias is open. */
 function allowIndex(host: string): boolean {
   if (isPreviewHost(host)) return false;
-  const hostname = host.split(':')[0].toLowerCase();
+  const hostname = host.split(":")[0].toLowerCase();
   if (hostname === PUBLIC_SITE_HOST) return true;
   return INDEXABLE;
 }

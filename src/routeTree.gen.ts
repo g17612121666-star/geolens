@@ -28,6 +28,7 @@ import { Route as TeachersSlugRouteImport } from './routes/teachers.$slug'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ToolsAtlasRouteImport } from './routes/tools.atlas'
 import { Route as ToolsEarthMotionRouteImport } from './routes/tools.earth-motion'
+import { Route as ToolsEarthquakesRouteImport } from './routes/tools.earthquakes'
 import { Route as ToolsLiveWeatherRouteImport } from './routes/tools.live-weather'
 import { Route as ToolsMapRouteImport } from './routes/tools.map'
 import { Route as ToolsWeatherRouteImport } from './routes/tools.weather'
@@ -129,6 +130,11 @@ const ToolsEarthMotionRoute = ToolsEarthMotionRouteImport.update({
   path: '/tools/earth-motion',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsEarthquakesRoute = ToolsEarthquakesRouteImport.update({
+  id: '/tools/earthquakes',
+  path: '/tools/earthquakes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsLiveWeatherRoute = ToolsLiveWeatherRouteImport.update({
   id: '/tools/live-weather',
   path: '/tools/live-weather',
@@ -173,6 +179,7 @@ export interface FileRoutesByFullPath {
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
+  '/tools/earthquakes': typeof ToolsEarthquakesRoute
   '/tools/live-weather': typeof ToolsLiveWeatherRoute
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
@@ -198,6 +205,7 @@ export interface FileRoutesByTo {
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
+  '/tools/earthquakes': typeof ToolsEarthquakesRoute
   '/tools/live-weather': typeof ToolsLiveWeatherRoute
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
@@ -225,6 +233,7 @@ export interface FileRoutesById {
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
+  '/tools/earthquakes': typeof ToolsEarthquakesRoute
   '/tools/live-weather': typeof ToolsLiveWeatherRoute
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
@@ -253,6 +262,7 @@ export interface FileRouteTypes {
     | '/teachers/$slug'
     | '/tools/atlas'
     | '/tools/earth-motion'
+    | '/tools/earthquakes'
     | '/tools/live-weather'
     | '/tools/map'
     | '/tools/weather'
@@ -278,6 +288,7 @@ export interface FileRouteTypes {
     | '/teachers/$slug'
     | '/tools/atlas'
     | '/tools/earth-motion'
+    | '/tools/earthquakes'
     | '/tools/live-weather'
     | '/tools/map'
     | '/tools/weather'
@@ -304,6 +315,7 @@ export interface FileRouteTypes {
     | '/teachers/$slug'
     | '/tools/atlas'
     | '/tools/earth-motion'
+    | '/tools/earthquakes'
     | '/tools/live-weather'
     | '/tools/map'
     | '/tools/weather'
@@ -330,6 +342,7 @@ export interface RootRouteChildren {
   RealmsRealmRoute: typeof RealmsRealmRoute
   ToolsAtlasRoute: typeof ToolsAtlasRoute
   ToolsEarthMotionRoute: typeof ToolsEarthMotionRoute
+  ToolsEarthquakesRoute: typeof ToolsEarthquakesRoute
   ToolsLiveWeatherRoute: typeof ToolsLiveWeatherRoute
   ToolsMapRoute: typeof ToolsMapRoute
   ToolsWeatherRoute: typeof ToolsWeatherRoute
@@ -473,6 +486,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsEarthMotionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/earthquakes': {
+      id: '/tools/earthquakes'
+      path: '/tools/earthquakes'
+      fullPath: '/tools/earthquakes'
+      preLoaderRoute: typeof ToolsEarthquakesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/live-weather': {
       id: '/tools/live-weather'
       path: '/tools/live-weather'
@@ -542,6 +562,7 @@ const rootRouteChildren: RootRouteChildren = {
   RealmsRealmRoute: RealmsRealmRoute,
   ToolsAtlasRoute: ToolsAtlasRoute,
   ToolsEarthMotionRoute: ToolsEarthMotionRoute,
+  ToolsEarthquakesRoute: ToolsEarthquakesRoute,
   ToolsLiveWeatherRoute: ToolsLiveWeatherRoute,
   ToolsMapRoute: ToolsMapRoute,
   ToolsWeatherRoute: ToolsWeatherRoute,

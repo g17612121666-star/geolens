@@ -34,6 +34,7 @@ export function Footer() {
           <div className="flex flex-col gap-2 text-sm">
             <Link to="/tools/earth-motion">Earth motion</Link>
             <Link to="/tools/live-weather">Live weather</Link>
+            <Link to="/tools/earthquakes">Live earthquakes</Link>
             <Link to="/tools/map">World map</Link>
             <Link to="/search">Search Geolens</Link>
           </div>
