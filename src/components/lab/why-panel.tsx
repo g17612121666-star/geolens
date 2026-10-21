@@ -11,6 +11,7 @@ import { useQuizAnswers } from "@/lib/quiz-progress";
 import { PRODUCER_MAILTO } from "@/lib/contact";
 import { Gallery } from "@/components/gallery";
 import { LAB_GALLERY } from "@/lib/media-galleries";
+import { SpeakButton } from "@/components/speak-button";
 
 const WHY_LABELS = ["Why it happens", "Try a comparison", "Reading the result"] as const;
 
@@ -134,7 +135,14 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             if (tfig && show) seenTermSrc.add(tfig.src);
             return (
               <div key={`${g.term}-${index}`}>
-                <p className="font-medium text-chalk">{exam && g.exam ? g.exam : g.term}</p>
+                <p className="flex items-center justify-between gap-2 font-medium text-chalk">
+                  {exam && g.exam ? g.exam : g.term}
+                  <SpeakButton
+                    text={exam && g.exam ? g.exam : g.term}
+                    label={`Say ${exam && g.exam ? g.exam : g.term}`}
+                    className="-my-2"
+                  />
+                </p>
                 {exam && g.exam && <p className="font-mono text-[13px] text-mist">{g.term}</p>}
                 <p className="mt-1 text-mist">{g.def}</p>
                 {show && tfig && <Figure {...tfig} size="sm" />}
