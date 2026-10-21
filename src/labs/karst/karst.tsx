@@ -4,11 +4,7 @@ import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
-import {
-  WaterRibbon,
-  GrassPatch,
-  DebrisField,
-} from "../shared/geomorphic-terrain";
+import { WaterRibbon, GrassPatch, DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
 import { SectionMaterial } from "../shared/section-material";
 import { cliffFaceGlsl } from "../shared/land-section";
