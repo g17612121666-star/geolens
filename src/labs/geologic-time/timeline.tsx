@@ -121,9 +121,7 @@ export default function GeologicTime() {
             <Tag
               key={u.name}
               pos={[p[0] + out.x, p[1] - 0.22, p[2] + out.z]}
-              text={
-                u.old > span && span === TIME_WINDOWS[2] ? `Quaternary · part of ${u.name}` : u.name
-              }
+              text={u.old > span && span === TIME_WINDOWS[2] ? `Quaternary (${u.name})` : u.name}
               note={`${u.name}: ${u.old.toLocaleString("en-GB")}–${u.young.toLocaleString("en-GB")} Ma, about ${(((u.old - u.young) / 4540) * 100).toFixed(1)}% of Earth history.`}
             />
           );
@@ -201,7 +199,7 @@ export default function GeologicTime() {
           occlude={false}
         />
         <Tag
-          pos={[1.8, -1.6, -0.4]}
+          pos={[2.3, -1.55, -0.9]}
           text={`${span} Ma`}
           note={
             span === 4540
