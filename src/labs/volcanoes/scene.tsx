@@ -455,7 +455,7 @@ export default function Volcanoes() {
               />
             )}
             <Tag
-              pos={[-radius * 0.55, height * 0.45 + 0.35, 0]}
+              pos={[radius * 0.6, height * 0.55 + 0.3, 0]}
               text={composite ? "Composite cone" : "Shield volcano"}
               note="A volcano’s shape builds up over many eruptions. Viscosity, eruption rate, gas, fragmentation and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative."
               occlude={false}
@@ -517,7 +517,7 @@ export default function Volcanoes() {
         )}
         {sliced && cut < 0.05 && (
           <Tag
-            pos={[fissure ? 0.9 : 0.12, -0.42, cut]}
+            pos={[fissure ? 0.9 : -0.5, fissure ? -0.42 : -0.3, cut]}
             text={fissure ? "Feeder dyke" : "Conduit"}
             tone="magma"
             note={
@@ -530,7 +530,7 @@ export default function Volcanoes() {
         )}
         {sliced && cut < 0.05 && !fissure && (
           <Tag
-            pos={[-0.55, height * 0.35, cut]}
+            pos={[-0.8, height * 0.28, cut]}
             text={composite ? "Ash and lava layers" : "Thin basalt flows"}
             note={
               composite
