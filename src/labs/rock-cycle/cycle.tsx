@@ -28,7 +28,7 @@ const REGIMES = [
   "surface conditions, where weathering, erosion and deposition happen",
   "shallow burial, where sediment can compact and cement but most rock is too cool to metamorphose",
   "metamorphic conditions, where rock can recrystallise while staying solid but is too cool for crustal rock to melt",
-  "hot enough for partial melting of some rocks, especially granitic rock containing water; drier rock stays solid",
+  "the range where some rocks are partly molten, especially granitic rock containing water; drier rock stays solid",
   "hot enough for many crustal rocks, including dry basalt, to be partly or largely molten",
 ];
 function regimeFor(temp: number, pressure: number) {
@@ -132,8 +132,8 @@ export default function RockCycle() {
               <Arrow
                 from={c.getPoint(0.6).toArray()}
                 to={c.getPoint(0.68).toArray()}
-                color="#7d796e"
-                width={1}
+                color="#9a958a"
+                width={1.6}
               />
               <mesh
                 position={c.getPoint(0.5)}
