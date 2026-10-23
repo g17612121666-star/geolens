@@ -428,33 +428,27 @@ export default function RiverErosion() {
                     occlude={false}
                   />
                   <Tag
-                    pos={[lip + 0.35, poolY + 0.45, 0]}
+                    pos={[lip + 0.35, poolY + 0.9, 0]}
                     text="Plunge pool"
                     note="Falling water, turbulence and swirling stones deepen a pool at the foot of the fall. The fallen blocks come from the collapsed cap. The pool depth and retreat distance are chosen, not calculated."
                     occlude={false}
                   />
                   <Tag
-                    pos={[2.5, 1.1, 0]}
+                    pos={[2.9, 0.6, 0]}
                     text="Gorge"
                     note="As the waterfall retreats it leaves a steep-sided gorge downstream. Its walls expose the cap rock above the weaker beds."
                     occlude={false}
                   />
-                  {/* Flow and retreat point in opposite directions: label both. */}
-                  <Arrow from={[-2.7, 1.72, 0]} to={[-1.9, 1.72, 0]} color="#7fd4ff" width={2} />
-                  <Tag
-                    pos={[-2.3, 1.95, 0]}
-                    text="Flow downstream"
-                    note="Water always flows downstream, from the upland reach, over the lip and down the gorge."
-                    occlude={false}
-                  />
+                  {/* Flow (blue) and retreat (orange) point in opposite directions. */}
+                  <Arrow from={[-2.8, 1.75, 0]} to={[-1.8, 1.75, 0]} color="#7fd4ff" width={2} />
                   <Arrow
-                    from={[Math.min(2.7, lip + 1.4), 1.95, 1.3]}
-                    to={[lip + 0.1, 1.95, 1.3]}
+                    from={[2.6, 1.95, -1.3]}
+                    to={[lip + 0.1, 1.95, -1.3]}
                     color="#e4bd82"
                     width={2}
                   />
                   <Tag
-                    pos={[Math.min(2.7, lip + 1.4), 2.15, 1.3]}
+                    pos={[2.6, 2.15, -1.3]}
                     text="Retreat upstream"
                     note="The lip moves upstream, against the flow, as the cap collapses block by block. The gorge it leaves behind lengthens downstream of the new lip."
                     occlude={false}

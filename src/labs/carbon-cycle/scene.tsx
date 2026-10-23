@@ -168,7 +168,7 @@ function StoreGauge({ radius, colour }: { radius: number; colour: string }) {
       <meshPhysicalMaterial
         color={colour}
         transparent
-        opacity={0.28}
+        opacity={0.42}
         roughness={0.3}
         depthWrite={false}
       />
@@ -269,10 +269,10 @@ export default function CarbonCycle() {
         {active && (
           <>
             <Arrow
-              from={curve.getPoint(0.86).toArray() as [number, number, number]}
+              from={curve.getPoint(0.7).toArray() as [number, number, number]}
               to={end.toArray() as [number, number, number]}
               color={selected === 7 ? "#e6a077" : "#9ed0ca"}
-              width={1}
+              width={2.2}
             />
             {Array.from({ length: 9 }, (_, i) => (
               <mesh key={i} position={curve.getPoint((t * 6 + i / 9) % 1)}>

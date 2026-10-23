@@ -166,7 +166,7 @@ export default function Glaciers() {
                   <Tag
                     pos={(() => {
                       const p = icePosition(0.97, 0, length);
-                      return [p[0], p[1] + 0.3, p[2] + 0.45] as [number, number, number];
+                      return [p[0], p[1] + 0.5, p[2] + 0.9] as [number, number, number];
                     })()}
                     text="Snout"
                     note="The lower end of the glacier, also called the terminus. Ice keeps arriving here from up-valley; the snout retreats when melting removes ice faster than it arrives."
@@ -187,7 +187,7 @@ export default function Glaciers() {
                 occlude={false}
               />
               <Tag
-                pos={[2.75, 0.45, -0.95]}
+                pos={[2.9, 0.35, -1.3]}
                 text="Earlier moraine"
                 note="This ridge marks an earlier ice margin, where unsorted debris built up while the snout stayed in roughly one place. Even while the glacier retreats, its ice still flows down-valley."
                 occlude={false}

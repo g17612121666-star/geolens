@@ -87,8 +87,9 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
     },
     [],
   );
+  // Turned so the default camera looks along one arête, with a cirque on either side of it.
   return (
-    <>
+    <group rotation={[0, 0.61, 0]}>
       <GeomorphicTerrain
         height={cirqueHeight}
         colour={colour}
@@ -138,11 +139,11 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
         occlude={false}
       />
       <Tag
-        pos={[1.5, 0.75, 0.5]}
+        pos={[1.5, 0.75, 0]}
         text="Cirque"
         note="A bowl-shaped hollow with a steep headwall and a gentler floor, eroded at the head of a glacier. The thin ice and moving symbols show only the flow direction, not ice thickness or speed."
         occlude={false}
       />
-    </>
+    </group>
   );
 }
