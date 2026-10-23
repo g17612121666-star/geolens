@@ -275,7 +275,7 @@ function LavaChannel({
     const g = new THREE.TubeGeometry(
       new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(...p))),
       Math.max(8, points.length * 2),
-      active ? 0.03 : 0.024,
+      active ? 0.04 : 0.024,
       8,
       false,
     );
@@ -455,7 +455,7 @@ export default function Volcanoes() {
               />
             )}
             <Tag
-              pos={[radius * 0.6, height * 0.55 + 0.3, 0]}
+              pos={[-radius * 0.5, height * 0.6 + 0.3, 0]}
               text={composite ? "Composite cone" : "Shield volcano"}
               note="A volcano’s shape builds up over many eruptions. Viscosity, eruption rate, gas, fragmentation and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative."
               occlude={false}
@@ -517,7 +517,7 @@ export default function Volcanoes() {
         )}
         {sliced && cut < 0.05 && (
           <Tag
-            pos={[fissure ? 0.9 : -0.5, fissure ? -0.42 : -0.3, cut]}
+            pos={[fissure ? -1 : -0.5, fissure ? -0.4 : -0.3, cut]}
             text={fissure ? "Feeder dyke" : "Conduit"}
             tone="magma"
             note={
