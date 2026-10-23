@@ -266,7 +266,7 @@ export default function PressureCentres() {
         />
         {!high && (
           <Tag
-            pos={south ? [3, 0.1, 0] : [2.6, 0.1, 1.8]}
+            pos={south ? [3, 0.1, -1.1] : [2.6, 0.1, 1.8]}
             text="Fronts · cold blue / warm coral"
             note="Example cold and warm fronts of a developing midlatitude depression, not a hurricane eyewall. The cold front trails towards the equator, so the pattern flips north–south in the Southern Hemisphere. Real fronts do not rotate rigidly like spokes. Open the Fronts lab to see their slopes."
             occlude={false}

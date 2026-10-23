@@ -180,7 +180,7 @@ export default function Fronts() {
         <Tag
           pos={[-2.4, 0.15, 0.98]}
           text="Cold air"
-          note="The advancing cold air pushes under the warmer air. The boundary rises 1 km for every 50 km across; the teaching view stretches heights ×20."
+          note={`The advancing cold air pushes under the warmer air. The boundary rises 1 km for every 50 km across${trueScale ? "." : "; the teaching view stretches heights ×20."}`}
           occlude={false}
         />
         <Tag

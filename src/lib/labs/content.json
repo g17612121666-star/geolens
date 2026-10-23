@@ -3950,12 +3950,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Drag the Day slider to local hour 15 and compare the sea and land temperatures. Trace the surface flow towards the warmer land and the return flow aloft."
+          "body": "Drag the Day slider until the readout shows local hour 15, then compare the sea and land temperatures. Trace the surface flow towards the warmer land and the return flow aloft."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Move to hour 3: has the surface flow reversed? Then turn on Urban heat and compare the city with the countryside around it."
+          "body": "Move to local hour 3: has the surface flow reversed? Then turn on Urban heat (it replaces the coast) and compare the city with the countryside around it."
         },
         {
           "id": "explain",
@@ -4016,7 +4016,7 @@
       ],
       "why": [
         "Unequal heating can create pressure differences and a circulation. Warm air expands and rises, and a return flow aloft completes the loop.",
-        "Move to hour 3: has the surface flow reversed? Then turn on Urban heat and compare the city with the countryside around it.",
+        "Land heats and cools faster than water, so by afternoon the land is warmer than the sea and surface air flows onshore; at night the land can become cooler and the loop reverses. A city stores heat in concrete and has less evaporative cooling, so it stays warmer than its countryside, most strongly at night, and draws surface air inwards.",
         "The model shows only the effect of uneven heating; real winds also depend on Earth’s rotation, friction and larger weather systems."
       ],
       "glossary": [
@@ -4194,7 +4194,7 @@
       ],
       "why": [
         "Air accelerates in response to pressure differences. Earth’s rotation deflects its motion, while surface friction changes both wind speed and the angle at which it crosses pressure contours.",
-        "Turn on Friction: does the wind now cross the isobars, and towards which side? Then turn on Release from rest and drag the Process slider to watch the wind develop.",
+        "Air released from rest starts moving towards lower pressure, but Coriolis turns it to the right in the Northern Hemisphere (left in the Southern) until the wind runs along the isobars, with Coriolis balancing the pressure-gradient force: the geostrophic wind. Friction slows the air, which weakens Coriolis, so the pressure-gradient force wins slightly and the wind crosses the isobars towards lower pressure.",
         "The fixed pressure field and simple drag isolate these forces; the model does not predict the wind at any real place."
       ],
       "glossary": [
@@ -4326,7 +4326,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Compare the Ferrel cell, kept going by weather systems, with the heat-driven Hadley and Polar cells. Play a year to shift the ITCZ, then explain why the real ITCZ moves less neatly."
+          "body": "Turn Three cells off to see a single heat-driven loop, then on again. Compare the Ferrel cell, kept going by weather systems, with the heat-driven Hadley and Polar cells. Press Play to move the ITCZ through a year, then explain why the real ITCZ moves less neatly."
         },
         {
           "id": "explain",
@@ -4387,7 +4387,7 @@
       ],
       "why": [
         "Unequal solar heating and Earth’s rotation organise broad atmospheric circulation. Rising and sinking regions help explain the trade winds, westerlies and major pressure belts.",
-        "Compare the Ferrel cell, kept going by weather systems, with the heat-driven Hadley and Polar cells. Play a year to shift the ITCZ, then explain why the real ITCZ moves less neatly.",
+        "Air rising at the ITCZ cools and condenses, giving heavy tropical rain; air sinking near 30° warms and dries, giving subtropical highs and deserts. Rising air near 60° brings frequent midlatitude rain. As Earth rotates, air moving across latitudes is turned, so equatorward surface flow becomes the easterly trades and polar easterlies, while poleward flow becomes the westerlies.",
         "The three-cell pattern is an average framework; actual circulation shifts with seasons, continents and changing weather."
       ],
       "glossary": [
@@ -4509,7 +4509,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Drag the Process slider to 0.70, where the warm sector disappears from the ground. Keep going and find the warm air lifted above the meeting point."
+          "body": "Drag the Process slider to 0.70, where the cold front catches the warm front and the warm sector disappears from the ground. Keep going and read in the results panel how high the warm air has been lifted."
         },
         {
           "id": "explain",
@@ -4570,7 +4570,7 @@
       ],
       "why": [
         "A weather front separates air masses with different temperature and density. A colder air mass can undercut warmer air, while a warm front rises more gradually over cold air ahead.",
-        "Drag the Process slider to 0.70, where the warm sector disappears from the ground. Keep going and find the warm air lifted above the meeting point.",
+        "The cold front moves faster than the warm front, so the warm sector narrows. When the cold air catches the cool air ahead, the warm air is squeezed upwards and no longer touches the ground: this is an occlusion. The occluded front on a chart marks where the two colder air masses meet at the surface.",
         "The front slopes and speeds are set to show the geometry; the clouds do not predict rainfall."
       ],
       "glossary": [
@@ -4616,7 +4616,7 @@
       ],
       "cases": [],
       "teacher": {
-        "script": "Find the cold air, the warm sector and the cool air ahead. Compare the slopes of the cold front and the warm front.\n\nDrag the Process slider to 0.70, where the warm sector disappears from the ground. Keep going and find the warm air lifted above the meeting point.",
+        "script": "Find the cold air, the warm sector and the cool air ahead. Compare the slopes of the cold front and the warm front.\n\nDrag the Process slider to 0.70, where the cold front catches the warm front and the warm sector disappears from the ground. Keep going and read in the results panel how high the warm air has been lifted.",
         "pitfalls": [
           "Use the three-dimensional slope of a front to explain cloud and rainfall patterns beyond its line on a map.",
           "Compare the slopes of warm and cold fronts without drawing either as a perfectly vertical wall.",
@@ -4726,7 +4726,7 @@
       ],
       "why": [
         "Around a low-pressure system, air tends to converge near the surface; around a high it tends to diverge. Rotation and friction determine the circulation direction and cross-isobar flow.",
-        "Turn on Anticyclone. How is air spreading out (divergence) different from air spinning (rotation)? Name the vertical motion shown by the exaggerated centre arrow.",
+        "Air cannot pile up or empty out at the surface. Where surface air converges on a low it must rise, cooling and often forming cloud; where it diverges from a high, air sinks from above to replace it and warms, which tends to clear the skies. Rotation is a separate property: the spin direction depends on the hemisphere, but convergence and divergence do not.",
         "These idealised pressure systems show circulation patterns; cloud and rainfall depend on moisture and stability as well as pressure."
       ],
       "glossary": [
@@ -4755,7 +4755,7 @@
           "def": "A curved, comma-like cloud pattern often seen in satellite views of developing or mature extratropical cyclones."
         },
         {
-          "term": "Extra-tropical",
+          "term": "Extratropical",
           "def": "Outside the tropics. An extratropical cyclone is a storm system usually associated with fronts and horizontal temperature contrasts."
         }
       ],
@@ -4896,7 +4896,7 @@
       ],
       "why": [
         "Köppen–Geiger groups climates using long-term monthly temperature and rainfall. Tropical, dry, temperate, continental and polar families describe different combinations of warmth, seasonality and moisture.",
-        "Select a family below the globe, then rotate Earth to compare where it occurs. The marked city gives one local example; nearby coasts and highlands may have a different class.",
+        "The families form a pattern because heat and moisture are delivered unevenly. Tropical climates sit near the equator, where it is warm all year. Dry climates cluster under the sinking air of the subtropics, in continental interiors and in rain shadows. Temperate, cold continental and polar climates follow as winters become colder towards the poles; cold continental climates are almost absent from the Southern Hemisphere because little land lies at those latitudes. High mountains can be polar even in the tropics.",
         "The colours summarise the 1991–2020 reference period; a location’s climate class does not determine its current weather or exact vegetation."
       ],
       "glossary": [
@@ -5038,7 +5038,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Follow a tributary to its confluence with the main river. Hide the labels and ask a partner to find the source, confluence and outlet."
+          "body": "Set Feature to Tributary and press Play to follow water down a tributary to its confluence with the main river. Then hide the labels and ask a partner to find the source, confluence and outlet."
         },
         {
           "id": "explain",
@@ -5099,7 +5099,7 @@
       ],
       "why": [
         "A drainage basin collects water that flows towards a common outlet. The watershed separates it from neighbouring basins; tributaries connect hillslope inputs to the main river.",
-        "Follow a tributary to its confluence with the main river. Hide the labels and ask a partner to find the source, confluence and outlet.",
+        "Rain falling anywhere inside the divide runs downslope into the nearest channel. Tributaries collect water from their own side slopes and deliver it to the main river at a confluence, so discharge increases downstream until all of it leaves at the outlet.",
         "The terrain is an invented teaching catchment, and the moving traces show routes, not measured travel times."
       ],
       "glossary": [
@@ -5304,8 +5304,8 @@
         }
       ],
       "why": [
-        "A storm hydrograph shows how river discharge changes after rainfall. Infiltration, storage and routing delay the response; a greater runoff fraction can produce a higher and earlier peak.",
-        "Increase Urban cover and compare peak discharge and lag time. Return to a less urban catchment and explain how infiltration and storage change the response.",
+        "A storm hydrograph shows how river discharge changes after rainfall. Infiltration, storage and routing delay the response. A greater runoff fraction raises the peak, and faster routing through drains and channels brings it earlier.",
+        "Paved surfaces let less rain soak into the soil, so more of it becomes surface runoff, and drains carry it straight to the river. More water arrives in less time, so the peak is higher and the lag time shorter. Soil, vegetation and groundwater store water and release it slowly, which flattens the peak and lengthens the falling limb.",
         "The model uses an invented catchment and a set storm, so it compares processes; it is not a forecast for a real river."
       ],
       "glossary": [
@@ -5364,7 +5364,7 @@
         }
       ],
       "teacher": {
-        "script": "Play the storm and compare rainfall with the rising and falling limbs of river discharge. Locate the rainfall and discharge peaks.\n\nIncrease Urban cover and compare peak discharge and lag time. Return to a less urban catchment and explain how infiltration and storage change the response.",
+        "script": "Play the storm and pause at the dashed lines that mark the rainfall peak (2 h) and the discharge peak; the gap between them is the lag time shown in the readout.\n\nSet Urban cover to 0 and then 1 with Rain unchanged, and record peak discharge and lag time each time. Then change Rain alone: the peak scales with rainfall but the lag stays the same, because in this model timing depends on the catchment, not on how much rain falls.",
         "pitfalls": [
           "Distinguish river stage, which is a water level, from discharge, which is a volume passing per unit time.",
           "Compare the rainfall peak with the discharge peak and explain the processes that produce a time lag.",
@@ -5407,7 +5407,7 @@
       "modelNotes": [
         "A four-hour triangular storm peaks at 20 mm/h multiplied by the Rain setting.",
         "Urban cover raises the runoff fraction from 0.25 to 0.85 and shortens the delay and storage time. These are teaching assumptions, not values measured at a real site.",
-        "The graph shows 24 hours and so cuts off part of the long recession; the model keeps that water in storage."
+        "The graph shows 24 hours and so cuts off part of the long recession; the model keeps that water in storage. A constant baseflow of 0.05 m³/s stands for groundwater that keeps the river flowing between storms."
       ]
     },
     {
@@ -5434,7 +5434,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Follow the spring melt and compare its flow peak with the rain-fed river's winter peak. Turn on Dam on snow-fed river and compare the peak and the delayed release."
+          "body": "Follow the spring melt and compare its flow peak with the rain-fed river's winter peak (the readout gives both dates). Turn on Dam on snow-fed river and compare the new peak with the dashed curve without the dam."
         },
         {
           "id": "explain",
@@ -5495,7 +5495,7 @@
       ],
       "why": [
         "A river regime describes the seasonal pattern of discharge. Rain may reach the river quickly, while snow stores water until melting; a reservoir can smooth and delay the resulting flow.",
-        "Follow the spring melt and compare its flow peak with the rain-fed river's winter peak. Turn on Dam on snow-fed river and compare the peak and the delayed release.",
+        "In the snow-fed catchment, winter precipitation falls below 0 °C and builds a snowpack, so discharge stays very low even though water is arriving. When temperatures rise above freezing the stored snow melts in a few weeks, giving a sharp late-spring peak. The rain-fed river instead peaks in winter, when rainfall is highest and evaporation lowest. A reservoir stores part of the melt peak and releases it over the following months, so the peak is lower, later and longer.",
         "Both catchments repeat the same invented year, and the dam shows storage behaviour, not a real operating rule."
       ],
       "glossary": [
@@ -5577,7 +5577,7 @@
       "modelNotes": [
         "Two invented 100 km² catchments repeat the same 365-day weather every year.",
         "The snow-fed case stores precipitation below 0 °C and melts up to 3 mm water equivalent per positive degree Celsius per day.",
-        "A fixed share of rain and meltwater is lost (40% for the rain-fed river, 25% for the snow-fed one); evapotranspiration and groundwater are not modelled in detail.",
+        "A fixed share of rain and meltwater is lost (40% for the rain-fed river, 25% for the snow-fed one). Of the rest, 70% reaches the river within days and 30% seeps into groundwater that drains slowly over months as baseflow, so both rivers keep flowing between peaks.",
         "The 3D terrain is illustrative: relief is enlarged ten times unless you switch to Physical scale (T), and the channel width and dam are symbols."
       ]
     },
@@ -5668,7 +5668,7 @@
       ],
       "why": [
         "Surface winds and Earth’s rotation help organise subtropical ocean gyres. Warm western boundary currents generally carry water poleward, while cooler eastern boundary currents carry it towards the equator.",
-        "Switch to South Atlantic and explain why it turns the opposite way. Then visit all five subtropical gyres.",
+        "Earth’s rotation deflects moving water to the right in the Northern Hemisphere and to the left in the Southern Hemisphere. Together with the trade winds and westerlies, this turns northern gyres clockwise and southern gyres anticlockwise, and squeezes each gyre’s poleward return flow into a narrow, fast western boundary current.",
         "The globe shows the broad routes and directions of currents; their width and tracer speed are exaggerated so they are easy to read."
       ],
       "glossary": [

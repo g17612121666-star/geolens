@@ -19,3 +19,7 @@ test('annual catchment budget closes across snow, losses, routing and optional d
 test('snowfall is delayed into melt and reservoir attenuates the annual discharge peak',()=>{
  const snow=annualRiverRegime(true,false),dam=annualRiverRegime(true,true);assert.ok(snow.series.some(s=>s.snowfall>0&&s.melt===0));assert.ok(snow.series.some(s=>s.snowfall===0&&s.melt>s.precipitation));assert.ok(Math.max(...dam.series.map(s=>s.flow))<Math.max(...snow.series.map(s=>s.flow)));assert.ok(Math.abs(dam.outflowTotal-snow.outflowTotal)<1e-6);
 });
+test('groundwater baseflow keeps a snow-fed river flowing through winter',()=>{
+ const snow=annualRiverRegime(true,false);const winter=snow.series.filter(s=>s.day<90);
+ assert.ok(winter.every(s=>s.flow>0.05));assert.ok(Math.max(...winter.map(s=>s.flow))<Math.max(...snow.series.map(s=>s.flow))/4);
+});

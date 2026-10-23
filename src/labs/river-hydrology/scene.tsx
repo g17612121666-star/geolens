@@ -109,7 +109,10 @@ function Basin({
       />
       <Buildings items={houses} ground={relief} />
       {dam && (
-        <mesh position={[0.73, relief(0.9, 0) + 0.07, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <mesh
+          position={[0.73, relief(0.9, 0) + 0.01 + 0.06 * vertical, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
           <planeGeometry args={[0.48, 0.7]} />
           <FlowWaterMaterial color="#518da4" opacity={0.8} flow={[0.15, 0]} speed={0.1} />
         </mesh>

@@ -1,7 +1,11 @@
 import { landscapeNoise as noise } from "./landscape-noise";
 
+/** The main channel heads at x = -1.8, inside the divide, so the valley closes upstream. */
 export const streamDistance = (x: number, z: number) =>
-  Math.min(Math.abs(z), x >= -1.7 && x <= 0 ? Math.abs(Math.abs(z) + (x * 1.2) / 1.7) : 10);
+  Math.min(
+    x >= -1.8 ? Math.abs(z) : Math.hypot(z, x + 1.8),
+    x >= -1.7 && x <= 0 ? Math.abs(Math.abs(z) + (x * 1.2) / 1.7) : 10,
+  );
 export const catchmentHeight = (x: number, z: number) =>
   0.08 +
   0.52 * ((2 - x) / 4) ** 2 +
