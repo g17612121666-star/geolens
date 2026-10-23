@@ -35,7 +35,12 @@ export default function SunEarth() {
         <EarthMesh radius={1.3} sunDirection={sun} />
         <Atmosphere radius={1.345} />
         <Graticule radius={1.307} />
-        <SunBeam point={point} normal={n} sun={sun} />
+        <SunBeam
+          point={point}
+          normal={n}
+          sun={sun}
+          labelShift={poleward.clone().multiplyScalar(-0.35)}
+        />
         <Line
           points={Array.from({ length: 121 }, (_, i) => {
             const a = (((i / 120) * 180 - 90) * Math.PI) / 180;
@@ -90,7 +95,7 @@ export default function SunEarth() {
           ))}
         <Tag
           pos={
-            point.clone().addScaledVector(n, 0.7).addScaledVector(poleward, 0.3).toArray() as [
+            point.clone().addScaledVector(n, 0.7).addScaledVector(poleward, 0.35).toArray() as [
               number,
               number,
               number,
@@ -163,10 +168,13 @@ function SunBeam({
   point,
   normal,
   sun,
+  labelShift,
 }: {
   point: THREE.Vector3;
   normal: THREE.Vector3;
   sun: THREE.Vector3;
+  /** Moves the label off the beam, away from the surface-normal label. */
+  labelShift: THREE.Vector3;
 }) {
   const width = 0.24,
     length = 1.7,
@@ -221,6 +229,7 @@ function SunBeam({
           point
             .clone()
             .addScaledVector(sun, length + 0.15)
+            .add(labelShift)
             .toArray() as [number, number, number]
         }
         text={`Same beam · ${(1 / cosine).toFixed(2)}× area`}

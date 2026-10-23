@@ -58,7 +58,8 @@ function height(x: number, z: number) {
 }
 function ReservoirSurface({ abstraction }: { abstraction: number }) {
   const geometry = useMemo(() => {
-    const y = lakeCentre[1] - 0.1 * abstraction,
+    // A 0.08 drop leaves about 40% of the bowl volume, matching 4,000 of 10,000 m³.
+    const y = lakeCentre[1] - 0.08 * abstraction,
       p = [0.3, y, -0.65],
       indices: number[] = [];
     for (let i = 0; i <= 160; i++) {
