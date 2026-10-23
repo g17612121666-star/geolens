@@ -82,6 +82,17 @@ function GasLayer({
     return g;
   }, [inner, outer]);
   useEffect(() => () => geo.dispose(), [geo]);
+  const labels = useLabControls((s) => s.labels);
+  // Leader starts mid-layer on the cut face that faces the camera (the cut-away wedge is
+  // centred on +x, so a point at z = 0 would sit in empty space).
+  const mid = (inner + outer) / 2,
+    theta = 0.4 + i * 0.65,
+    phi = Math.PI * 0.31,
+    anchor: [number, number, number] = [
+      mid * Math.sin(theta) * Math.cos(phi),
+      mid * Math.cos(theta),
+      mid * Math.sin(theta) * Math.sin(phi),
+    ];
   const color =
     i === 0
       ? new THREE.Color("#b1d8e6").lerp(new THREE.Color("#658ebd"), (lapse - 4) / 6)
@@ -114,14 +125,13 @@ function GasLayer({
           depthWrite={false}
         />
       </mesh>
-      <Line
-        points={[
-          [outer * Math.sin(0.4 + i * 0.65), outer * Math.cos(0.4 + i * 0.65), 0],
-          [1.7, (1.5 - i) * 0.62, 0],
-        ]}
-        color={light ? new THREE.Color(l.color).multiplyScalar(0.55) : l.color}
-        lineWidth={1.8}
-      />
+      {labels && (
+        <Line
+          points={[anchor, [1.7, (1.5 - i) * 0.62, 0]]}
+          color={light ? new THREE.Color(l.color).multiplyScalar(0.55) : l.color}
+          lineWidth={1.8}
+        />
+      )}
       <Tag
         pos={[1.7, (1.5 - i) * 0.62, 0]}
         text={`${i + 1}`}
@@ -206,7 +216,34 @@ export default function AtmosphereLayers() {
               ]}
               color="#617677"
             />
-            {[0, 50, 100].map((h) => (
+            {[12, 50, 85].map((h, i) => (
+              <Line
+                key={h}
+                points={[
+                  [-1.15, h / 60, 0],
+                  [0.9, h / 60, 0],
+                ]}
+                color={layers[i].color}
+                dashed
+                dashSize={0.05}
+                gapSize={0.04}
+                lineWidth={1}
+              />
+            ))}
+            {layers.map((layer) => (
+              <Html
+                key={layer.name}
+                position={[1.05, (layer.lo + Math.min(layer.hi, 120)) / 120, 0]}
+              >
+                <span
+                  className="whitespace-nowrap font-mono text-xs"
+                  style={{ color: layer.color, display: "block", transform: "translateY(-50%)" }}
+                >
+                  {layer.name}
+                </span>
+              </Html>
+            ))}
+            {[0, 12, 50, 85, 120].map((h) => (
               <Html key={h} position={[-1.4, h / 60, 0]} center>
                 <span className="whitespace-nowrap font-mono text-xs text-mist">
                   {h} {"km"}
@@ -224,7 +261,7 @@ export default function AtmosphereLayers() {
             <Tag
               pos={[0, 2.2, 0]}
               text="Temperature profile"
-              note="The troposphere part follows your lapse rate. Above it the curve is a typical average profile, not a measured sounding."
+              note="The troposphere part follows your lapse rate. Above it the curve is a typical average profile, not a measured sounding. Dashed lines mark the model's layer boundaries at 12, 50 and 85 km, where the temperature trend reverses."
               occlude={false}
             />
           </group>
@@ -328,9 +365,9 @@ function AuroraOval({ factor }: { factor: number }) {
 /** The International Space Station orbits about 410 km up, inside the thermosphere. */
 function Satellite({ factor }: { factor: number }) {
   const r = 1 + (410 / 6371) * factor,
-    a = 0.55;
+    direction = new THREE.Vector3(Math.sin(1.05), Math.cos(1.05) * 0.2, 0.9).normalize();
   return (
-    <group position={[r * Math.sin(a + 0.5), r * Math.cos(a + 0.5) * 0.2, r * 0.9]}>
+    <group position={direction.multiplyScalar(r).toArray()}>
       <mesh>
         <boxGeometry args={[0.05, 0.018, 0.018]} />
         <meshStandardMaterial color="#d9d9d4" metalness={0.6} roughness={0.35} />

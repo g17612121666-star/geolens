@@ -148,7 +148,18 @@ vec3 sectionGlow(vec3 p,vec3 w){
   return mix(vec3(.55,.08,.01),vec3(1.,.42,.06),swirl)*t*(.6+.5*swirl);
 }`;
 
-function Track({ setting, z, t }: { setting: Setting; z: number; t: number }) {
+function Track({
+  setting,
+  z,
+  t,
+  lift = 0,
+}: {
+  setting: Setting;
+  z: number;
+  t: number;
+  /** Raises this section's labels so two stacked sections do not overlap. */
+  lift?: number;
+}) {
   const { continental, top, plateBase } = setting;
   const height = useMemo(() => plateHeight(setting), [setting]);
   const plate = useMemo(() => {
@@ -158,6 +169,10 @@ function Track({ setting, z, t }: { setting: Setting; z: number; t: number }) {
   }, [height, setting, plateBase]);
   useEffect(() => () => plate.dispose(), [plate]);
   const shift = t * 0.65;
+  // The old vent dies as the plate carries it off the plume; a new one starts above the plume.
+  const dying = 1 - THREE.MathUtils.smoothstep(shift, 0.18, 0.45),
+    newborn = THREE.MathUtils.smoothstep(shift, 0.3, 0.65),
+    tagLift = lift;
   const plateUniforms = useSectionUniforms({
     uContinental: continental ? 1 : 0,
     uTop: top,
@@ -246,17 +261,38 @@ function Track({ setting, z, t }: { setting: Setting; z: number; t: number }) {
       <pointLight
         position={[PLUME_X + shift, (continental ? top : SEA + 0.9) + 0.25, 0]}
         color="#ff8a3a"
-        intensity={continental ? 0 : 1.2}
+        intensity={continental ? 0 : 1.2 * dying}
         distance={1.4}
       />
-      {!continental && (
+      {!continental && dying > 0.02 && (
         <mesh
           position={[PLUME_X + shift, height(PLUME_X, 0) + 0.006, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
         >
           <circleGeometry args={[0.05, 24]} />
-          <meshStandardMaterial color="#d0461a" emissive="#ff6a1f" emissiveIntensity={1.6} />
+          <meshStandardMaterial
+            color="#d0461a"
+            emissive="#ff6a1f"
+            emissiveIntensity={1.6 * dying}
+          />
         </mesh>
+      )}
+      {/* A new submarine volcano grows over the plume once the old island has been carried off. */}
+      {!continental && newborn > 0.01 && (
+        <group
+          position={[PLUME_X, top, 0]}
+          scale={[0.5 + 0.5 * newborn, newborn, 0.5 + 0.5 * newborn]}
+        >
+          <mesh position={[0, 0.16, 0]} castShadow>
+            <coneGeometry args={[0.26, 0.32, 32]} />
+            <meshStandardMaterial
+              color="#2e2a28"
+              emissive="#ff6a1f"
+              emissiveIntensity={0.25 * newborn}
+              roughness={0.9}
+            />
+          </mesh>
+        </group>
       )}
       {continental && (
         <mesh
@@ -271,7 +307,12 @@ function Track({ setting, z, t }: { setting: Setting; z: number; t: number }) {
         [0, 1, 2].map((i) => (
           <CloudVolume
             key={i}
-            position={[PLUME_X + shift - 0.15 + i * 0.14, top + 0.12 + i * 0.04, 0.12 - i * 0.1]}
+            // Steam marks the hydrothermal area, which stays above the heat source.
+            position={[
+              PLUME_X + (shift < 0.4 ? shift : 0) - 0.15 + i * 0.14,
+              top + 0.12 + i * 0.04,
+              0.12 - i * 0.1,
+            ]}
             scale={[0.07, 0.12, 0.07]}
             seed={i * 5 + 1}
             opacity={0.55}
@@ -294,7 +335,17 @@ function Track({ setting, z, t }: { setting: Setting; z: number; t: number }) {
         color="#d7bc88"
       />
       <Tag
-        pos={[-2.2, (continental ? top : SEA) + 1.3, -0.6]}
+        pos={[0.1, (continental ? top : SEA) + 1.27 + tagLift, 0]}
+        text={continental ? "Plate moves SW" : "Plate moves NW"}
+        note={
+          continental
+            ? "The North American Plate moves southwest relative to the Yellowstone heat source, so the active centre appears to migrate northeast."
+            : "The Pacific Plate moves northwest relative to the Hawaiian heat source, carrying each volcano away from the place where it formed."
+        }
+        occlude={false}
+      />
+      <Tag
+        pos={[-2.2, (continental ? top : SEA) + 1.3 + tagLift, -0.6]}
         text={continental ? "Yellowstone · NE" : "Hawaiʻi · SE"}
         note={
           continental
@@ -304,7 +355,7 @@ function Track({ setting, z, t }: { setting: Setting; z: number; t: number }) {
         occlude={false}
       />
       <Tag
-        pos={[1.9, (continental ? top : SEA) + 0.85, 0.6]}
+        pos={[1.9, (continental ? top : SEA) + 0.85 + tagLift, 0.6]}
         text={continental ? "Older · SW" : "Older · NW"}
         note={
           continental
@@ -313,9 +364,18 @@ function Track({ setting, z, t }: { setting: Setting; z: number; t: number }) {
         }
         occlude={false}
       />
+      {!continental && newborn > 0.5 && (
+        <Tag
+          pos={[PLUME_X, top + 0.45 + tagLift * 0.5, 0]}
+          text="New seamount"
+          tone="magma"
+          note="Fresh eruptions build a new submarine volcano above the plume, as Kamaʻehuakanaloa (Lōʻihi) is doing southeast of the Island of Hawaiʻi today."
+          occlude={false}
+        />
+      )}
       {!continental && (
         <Tag
-          pos={[PLUME_X + 3 * SPACING + shift, SEA + 0.25, 0]}
+          pos={[PLUME_X + 3 * SPACING + shift, SEA + 0.25 + tagLift * 0.5, 0]}
           text="Atoll"
           tone="glacier"
           note="Coral reefs keep growing upwards at sea level while the extinct volcano beneath them subsides, leaving a ring of reef around a lagoon."
@@ -344,10 +404,10 @@ export default function Hotspots() {
       <ScienceStudio
         slug="hotspots"
         camera={[2.4, 3.6, 7.6]}
-        scale="Separate hotspot sections · compass directions are real · relief, plate and plume not to scale"
+        scale="Separate hotspot sections · track directions are real · relief, plate and plume not to scale"
         trueScale="No true depth or distance scale · plate thickness and plume are schematic"
       >
-        {hawaii && <Track setting={OCEAN} z={both ? -1.25 : 0} t={t} />}
+        {hawaii && <Track setting={OCEAN} z={both ? -1.25 : 0} t={t} lift={both ? 0.45 : 0} />}
         {yellowstone && <Track setting={LAND} z={both ? 1.25 : 0} t={t} />}
         {!hawaii && !yellowstone && (
           <Tag
@@ -360,17 +420,17 @@ export default function Hotspots() {
       </ScienceStudio>
       <ScienceReadout>
         {hawaii
-          ? "Hawaiʻi's volcanic islands become older towards the northwest; Kauaʻi’s rocks are about 5–5.5 million years old. "
+          ? "Hawaiʻi's volcanic islands become older towards the northwest; Kauaʻi's rocks are about 5–5.5 million years old. "
           : ""}
         {yellowstone
-          ? "Yellowstone's volcanic track extends about 17 Ma into the past, with older sites towards the southwest. "
+          ? "Yellowstone's volcanic track goes back about 17 million years, with older sites towards the southwest. "
           : ""}
         {!hawaii && !yellowstone
           ? "Select Hawaiʻi, Yellowstone or both to compare their volcanic tracks."
           : "Press Play to follow plate motion above each hotspot."}
         <br />
         {
-          "Here the plume is held still and the plate moves over it at no set speed. Right is northwest for Hawaiʻi and southwest for Yellowstone."
+          "Here the plume is held still and the plate moves over it at no set speed. The arrow shows plate motion: right is northwest for Hawaiʻi and southwest for Yellowstone."
         }
       </ScienceReadout>
     </>
