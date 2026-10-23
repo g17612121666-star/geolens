@@ -271,17 +271,18 @@ function LavaChannel({
   active?: boolean;
   clip: THREE.Plane[];
 }) {
-  const geometry = useMemo(() => {
-    const g = new THREE.TubeGeometry(
-      new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(...p))),
-      Math.max(8, points.length * 2),
-      active ? 0.04 : 0.024,
-      8,
-      false,
-    );
-    g.scale(1, 0.45, 1);
-    return g;
-  }, [points, active]);
+  // Not flattened with g.scale: that would also scale the points and bury the flow in the flank.
+  const geometry = useMemo(
+    () =>
+      new THREE.TubeGeometry(
+        new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(...p))),
+        Math.max(8, points.length * 2),
+        active ? 0.032 : 0.024,
+        8,
+        false,
+      ),
+    [points, active],
+  );
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry} castShadow>
@@ -406,7 +407,7 @@ export default function Volcanoes() {
         trueScale={
           fissure
             ? "Teaching view unchanged: the fissure plain is already low relief · fountains and trees not to scale"
-            : "Slopes reduced to about real proportions (shields roughly 5–10°, composite cones 15–30°) · magma chamber still schematic"
+            : "Slopes reduced to about real proportions (shields about 4–8°, composite cones about 13–25° on average) · magma chamber and trees still schematic"
         }
         camera={[2.4, 2.6, 6.2]}
       >
@@ -455,7 +456,7 @@ export default function Volcanoes() {
               />
             )}
             <Tag
-              pos={[-radius * 0.5, height * 0.6 + 0.3, 0]}
+              pos={[-radius * 0.9, height * 0.25 + 0.25, 0]}
               text={composite ? "Composite cone" : "Shield volcano"}
               note="A volcano’s shape builds up over many eruptions. Viscosity, eruption rate, gas, fragmentation and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative."
               occlude={false}

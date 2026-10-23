@@ -279,7 +279,7 @@ export default function Tsunami() {
               width={2}
             />
             <Tag
-              pos={[X0 + 0.32, toY(-4000) + 0.85, HALF]}
+              pos={[X0 + 0.32, 0.05, HALF]}
               text="Seafloor uplift (enlarged)"
               tone="sandstone"
               note="Sudden slip on the fault pushes the seafloor up by about 1 m in a few minutes. The whole water column above is lifted, making a broad hump on the sea surface. The gold block and arrow show this uplift, greatly enlarged."
