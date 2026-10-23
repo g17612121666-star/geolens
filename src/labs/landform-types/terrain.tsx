@@ -24,12 +24,12 @@ function height(kind: number, x: number, z: number) {
   }
   if (kind === 1)
     return 0.07 + 0.38 * Math.exp(-r / 1.6) + 0.012 * Math.sin(x * 3) * Math.cos(z * 2);
-  if (kind === 2)
-    return (
-      0.08 +
-      1.22 / (1 + Math.exp((Math.max(Math.abs(x), Math.abs(z)) - 1.25) * 12)) +
-      0.015 * Math.sin(x * 5 + z * 3)
-    );
+  if (kind === 2) {
+    // The high surface runs off the back and right of the sample, so it reads as the edge of an
+    // extensive plateau rather than an isolated flat-topped block (a mesa).
+    const edge = Math.max(-x, z) + 0.12 * Math.sin(x * 2.3 + 1) + 0.1 * Math.sin(z * 2.9);
+    return 0.08 + 1.22 / (1 + Math.exp((edge - 0.8) * 12)) + 0.015 * Math.sin(x * 5 + z * 3);
+  }
   if (kind === 3) return 0.08 + 0.014 * Math.sin(x * 1.5) + 0.01 * Math.cos(z * 2);
   return 0.06 + 0.62 * (1 - Math.exp(-r / 1.8)) + 0.015 * Math.cos(x * 3) * Math.sin(z * 4);
 }

@@ -6,8 +6,8 @@ export function classroomDensity(temperature:number,salinity:number){
 /** Prescribed teaching states, not ENSO-index regressions. */
 export function ensoSection(phase:number){
   const p=Math.max(-1,Math.min(1,phase));
-  return {westDepth:180-60*p,eastDepth:60+50*p,westTemperature:29-.5*p,eastTemperature:24+3*p,
-    tradeStrength:1-.65*p,upwelling:1-.7*p,ascentX:-1.7+1.4*Math.max(0,p),
+  return {westDepth:180-60*p,eastDepth:60+(p>0?50:40)*p,westTemperature:29-.5*p,eastTemperature:24+3*p,
+    tradeStrength:1-.65*p,upwelling:1-.7*p,ascentX:-1.7+1.4*Math.max(0,p)+.2*Math.min(0,p),
     phase:p<-.3?'La Niña':p>.3?'El Niño':'Neutral'};
 }
 export const SUBTROPICAL_GYRES = [

@@ -212,7 +212,7 @@ function Pothole({ t }: { t: number }) {
 }
 
 /** Widens the scene's gorge relative to the science model's cross-section. */
-const GORGE = 0.72;
+const GORGE = 0.5;
 
 const GORGE_GRASS = new THREE.Color("#6f8c4a"),
   GORGE_MOOR = new THREE.Color("#8a8a55"),
@@ -344,7 +344,7 @@ export default function RiverErosion() {
       <ScienceStudio
         horizon
         slug="river-erosion"
-        camera={mode === 1 ? [1.6, 2.6, 4.2] : mode === 0 ? [6.2, 4.6, 1.4] : [2.5, 6.2, 5.4]}
+        camera={mode === 1 ? [1.6, 2.6, 4.2] : mode === 0 ? [5.6, 5.0, 2.6] : [2.5, 6.2, 5.4]}
         scale={
           mode === 1
             ? "Pothole close-up · 1 unit = 1 m · block cut through the hollow · stones enlarged"
@@ -422,44 +422,39 @@ export default function RiverErosion() {
               {mode === 0 ? (
                 <>
                   <Tag
-                    pos={[lip - 0.35, 2.2, -1.15]}
+                    pos={[lip - 0.2, 2.15, -1.2]}
                     text="Lip and resistant cap"
                     note="In this example harder sandstone lies on top of weaker mudstone. The plunge pool and spray wear back the weaker rock, the cap is left overhanging, and it eventually collapses, so the waterfall retreats upstream. Not every waterfall forms this way."
                     occlude={false}
                   />
                   <Tag
-                    pos={[lip + 0.35, poolY + 0.62, 0.62]}
+                    pos={[lip + 0.35, poolY + 0.45, 0]}
                     text="Plunge pool"
                     note="Falling water, turbulence and swirling stones deepen a pool at the foot of the fall. The fallen blocks come from the collapsed cap. The pool depth and retreat distance are chosen, not calculated."
                     occlude={false}
                   />
                   <Tag
-                    pos={[Math.min(2.6, lip + 1.9), 1.2, 0]}
+                    pos={[2.5, 1.1, 0]}
                     text="Gorge"
                     note="As the waterfall retreats it leaves a steep-sided gorge downstream. Its walls expose the cap rock above the weaker beds."
                     occlude={false}
                   />
                   {/* Flow and retreat point in opposite directions: label both. */}
-                  <Arrow
-                    from={[lip - 1.3, 1.72, 0]}
-                    to={[lip - 0.55, 1.72, 0]}
-                    color="#7fd4ff"
-                    width={2}
-                  />
+                  <Arrow from={[-2.7, 1.72, 0]} to={[-1.9, 1.72, 0]} color="#7fd4ff" width={2} />
                   <Tag
-                    pos={[lip - 1.1, 1.95, 0]}
+                    pos={[-2.3, 1.95, 0]}
                     text="Flow downstream"
                     note="Water always flows downstream, from the upland reach, over the lip and down the gorge."
                     occlude={false}
                   />
                   <Arrow
-                    from={[Math.min(2.6, lip + 1.4), 2.0, -0.8]}
-                    to={[lip + 0.1, 2.0, -0.8]}
+                    from={[Math.min(2.7, lip + 1.4), 1.95, 1.3]}
+                    to={[lip + 0.1, 1.95, 1.3]}
                     color="#e4bd82"
                     width={2}
                   />
                   <Tag
-                    pos={[lip + 0.8, 2.25, -0.8]}
+                    pos={[Math.min(2.7, lip + 1.4), 2.15, 1.3]}
                     text="Retreat upstream"
                     note="The lip moves upstream, against the flow, as the cap collapses block by block. The gorge it leaves behind lengthens downstream of the new lip."
                     occlude={false}

@@ -173,11 +173,11 @@ export default function Karst() {
                 [
                   [-1.7, -0.6],
                   [-0.9, -0.75],
-                  [0.3, 1.2],
-                  [0.75, 0.95],
-                  [1.2, 1.3],
-                  [1.65, 1.05],
-                  [2.1, 1.25],
+                  [0.3, 1.35],
+                  [0.75, 1.3],
+                  [1.2, 1.38],
+                  [1.65, 1.3],
+                  [2.1, 1.36],
                   [2.55, -0.7],
                 ] as [number, number][]
               ).map(([x, z], i) => {
@@ -254,7 +254,7 @@ export default function Karst() {
             occlude={false}
           />
           <Tag
-            pos={[-1.2, 2.7, 0.2]}
+            pos={[-1.2, 2.35, 0.2]}
             text="Doline"
             note="This surface hollow is a solution doline (sinkhole). Other sinkholes form by subsidence or collapse. Water drains into connected fractures; not every hollow opens straight into a large cave."
             occlude={false}

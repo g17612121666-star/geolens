@@ -44,8 +44,8 @@ export default function Enso() {
       <ScienceStudio
         slug="enso"
         camera={[1.3, 2.1, 7]}
-        scale="Ocean depths ×10,000 · 15,000 km section · atmospheric loop schematic"
-        trueScale="Ocean uses 1 scene unit = 3000 km · atmospheric arrows remain schematic"
+        scale="Ocean depths ×10,000 · 15,000 km section · atmospheric loop and coastal relief schematic"
+        trueScale="Ocean uses 1 scene unit = 3000 km · atmospheric arrows and coastal relief remain schematic"
       >
         <RockPrism
           points={[
