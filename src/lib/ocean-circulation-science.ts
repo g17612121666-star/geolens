@@ -15,7 +15,7 @@ export const SUBTROPICAL_GYRES = [
   {name:'South Atlantic',centre:[-25,-15],western:'Brazil Current',eastern:'Benguela Current',points:[[-8,-34],[-20,-38],[-35,-45],[-40,-20],[-35,5],[-20,10],[-5,-5],[-8,-34]]},
   {name:'North Pacific',centre:[28,185],western:'Kuroshio',eastern:'California Current',points:[[15,150],[15,130],[25,130],[35,142],[40,160],[40,200],[32,230],[20,240],[15,220],[15,150]]},
   {name:'South Pacific',centre:[-25,220],western:'East Australian Current',eastern:'Peru / Humboldt Current',points:[[-10,165],[-18,158],[-30,155],[-40,170],[-40,210],[-35,260],[-15,277],[-8,250],[-10,165]]},
-  {name:'Indian Ocean',centre:[-25,75],western:'Agulhas Current',eastern:'West Australian Current',points:[[-10,65],[-15,50],[-25,45],[-35,30],[-40,60],[-35,100],[-20,108],[-10,100],[-10,65]]},
+  {name:'Indian Ocean',centre:[-25,75],western:'Agulhas Current',eastern:'West Australian Current',points:[[-10,65],[-17,53],[-30,46],[-35,30],[-40,60],[-35,100],[-20,108],[-10,100],[-10,65]]},
 ] as const;
 /** Segment indices are tied to the geographic branches, not array position. */
 export const GYRE_BRANCHES = [

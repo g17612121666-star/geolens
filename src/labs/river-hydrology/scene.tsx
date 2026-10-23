@@ -225,16 +225,15 @@ export default function RiverHydrology() {
             {"Dec"}
           </text>
         </svg>
-        {"Day "}
-        {day + 1} {`(${date(day)}) · rain-fed (gold) / snow-fed (blue). Snow store `}
-        {bv.snow.toFixed(1)} {"mm water equivalent; snowmelt "}
-        {bv.melt.toFixed(1)} {"mm/day."}
-        <br />
-        {`Annual peak: rain-fed ${pa.flow.toFixed(1)} m³/s on ${date(pa.day)}; snow-fed `}
-        {`${pb.flow.toFixed(1)} m³/s on ${date(pb.day)}. Dam `}
+        {`${date(day)} · snow store ${bv.snow.toFixed(0)} mm water equivalent, melt `}
+        {`${bv.melt.toFixed(1)} mm/day. Annual peak: rain-fed (gold) ${pa.flow.toFixed(1)} m³/s `}
+        {`on ${date(pa.day)}; snow-fed (blue) ${pb.flow.toFixed(1)} m³/s on ${date(pb.day)}`}
         {dam
-          ? `on: peak lowered from ${peak(free.series).flow.toFixed(1)} m³/s (dashed) and released later`
-          : "off"}
+          ? ` (${peak(free.series).flow.toFixed(1)} m³/s on ${date(peak(free.series).day)} without the dam, dashed).`
+          : "."}
+        <br />
+        {`Day ${day + 1} of a repeating year. Dam `}
+        {dam ? "on: the reservoir stores the melt peak and releases it more slowly" : "off"}
         {
           ". Both regimes are invented and repeat every year; they are not forecasts or records of real rivers."
         }

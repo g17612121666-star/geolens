@@ -207,7 +207,7 @@ export default function Wind() {
           width={2}
         />
         <Tag
-          pos={[WIND_X, 0.2, WIND_Z + 0.35]}
+          pos={[WIND_X - 0.3, 0.2, WIND_Z + 0.55]}
           text={`Wind ${w.speed.toFixed(1)} m/s`}
           note="The white arrow is velocity, not an additional force. It uses a different scale from the force arrows."
           occlude={false}

@@ -3,7 +3,16 @@ import { useLabTick } from "@/labs/tick";
 import { CatchmentLandscape } from "../shared/catchment-landscape";
 import { catchmentHeight } from "../shared/catchment-height";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
+import { Line } from "@react-three/drei";
 import { Tag } from "../shared/kit";
+
+// Drainage divide drawn just inside the block edge and lifted clear of the trees, so it reads as
+// a ridge-top line rather than the rim of the model. It is open at the outlet end.
+const divide: [number, number, number][] = [
+  ...Array.from({ length: 33 }, (_, i) => [2 - (i / 32) * 3.94, 1.55] as const),
+  ...Array.from({ length: 33 }, (_, i) => [-1.94, 1.55 - (i / 32) * 3.1] as const),
+  ...Array.from({ length: 33 }, (_, i) => [-1.94 + (i / 32) * 3.94, -1.55] as const),
+].map(([x, z]) => [x, catchmentHeight(x, z) + 0.06, z]);
 export default function DrainageBasin() {
   const { params, t } = useLabControls();
   useLabTick(1 / 20);
@@ -39,7 +48,8 @@ export default function DrainageBasin() {
         trueScale="Shows how the catchment fits together · not a surveyed elevation model"
         camera={[3, 3.8, 5]}
       >
-        <CatchmentLandscape divide={params.overlay > 0.5} />
+        <CatchmentLandscape />
+        {params.overlay > 0.5 && <Line points={divide} color="#ffc93c" lineWidth={4} />}
         <Tag
           pos={parts[focus].p}
           text={parts[focus].name}
