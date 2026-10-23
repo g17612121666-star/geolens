@@ -133,13 +133,13 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
         occlude={false}
       />
       <Tag
-        pos={[0.8, 1.3, 1.35]}
+        pos={[0.6, 1.75, 1.04]}
         text="Arête"
         note="A narrow ridge left between neighbouring cirques or glacial valleys. It is rock that remains, not a wall of deposited debris."
         occlude={false}
       />
       <Tag
-        pos={[1.5, 0.75, 0]}
+        pos={[1.9, 0.55, 0]}
         text="Cirque"
         note="A bowl-shaped hollow with a steep headwall and a gentler floor, eroded at the head of a glacier. The thin ice and moving symbols show only the flow direction, not ice thickness or speed."
         occlude={false}

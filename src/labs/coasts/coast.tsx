@@ -400,18 +400,18 @@ export default function Coasts() {
           />
         )}
 
-        <Arrow from={[-2, 0.55, 2]} to={[-1.3, 0.55, 0.8]} width={2} color="#a7d0d3" />
+        <Arrow from={[-2, 0.55, 2]} to={[-1.3, 0.55, 0.8]} width={5} color="#a7d0d3" />
         <Tag
-          pos={[-2.1, 0.75, 2.1]}
+          pos={[-2.7, 1.1, 2.4]}
           text="Wave approach"
           note="Waves reach the shore at an angle. The arrow is a symbol, not to scale."
           occlude={false}
         />
         {mode === 2 && drift && (
           <>
-            <Arrow from={[-2.8, 0.3, 0.45]} to={[-0.6, 0.3, 0.3]} width={2} color="#f0c889" />
+            <Arrow from={[-2.8, 0.3, 0.45]} to={[-0.6, 0.3, 0.3]} width={5} color="#f0c889" />
             <Tag
-              pos={[-1.7, 0.55, 0.4]}
+              pos={[-1.7, 0.05, 1.1]}
               text="Longshore drift"
               note="Sediment moved along the coast by oblique waves keeps travelling in the same direction where the coast turns inland, and is deposited to build the spit."
               occlude={false}

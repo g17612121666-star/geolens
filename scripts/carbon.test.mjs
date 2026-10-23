@@ -9,3 +9,6 @@ test('balanced natural transfers preserve the starting budget while emissions re
  const baseline=carbonBudget(100,0);baseline.stores.forEach((v,i)=>assert.ok(Math.abs(v-CARBON_INITIAL[i])<1e-8));
  const perturbed=carbonBudget(100,1);assert.ok(perturbed.stores[0]>CARBON_INITIAL[0]);assert.ok(perturbed.stores[1]>CARBON_INITIAL[1]);assert.ok(perturbed.stores[2]>CARBON_INITIAL[2]);assert.ok(perturbed.stores[0]-CARBON_INITIAL[0]<perturbed.emitted);
 });
+test('roughly half of the burned carbon stays in the air, as on Earth today',()=>{
+ for(const tap of [.2,1]){const b=carbonBudget(100,tap),airborne=(b.stores[0]-CARBON_INITIAL[0])/b.emitted;assert.ok(airborne>.35&&airborne<.55,String(airborne));}
+});

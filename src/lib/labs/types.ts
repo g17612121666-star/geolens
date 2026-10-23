@@ -32,8 +32,12 @@ export type LabStep = {
   body: string;
 };
 
+/** Show a control only while another control (key) has one of these values. */
+export type ShowWhen = { key: string; values: number[] };
+
 export type LabExtra = {
   options?: {value:number;label:string}[];
+  showWhen?: ShowWhen;
   key: string;
   label: string;
   min: number;
@@ -47,6 +51,7 @@ export type LabToggle = {
   key: string;
   label: string;
   defaultOn?: boolean;
+  showWhen?: ShowWhen;
 };
 
 export type LabMeta = {

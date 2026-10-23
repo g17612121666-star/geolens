@@ -5970,7 +5970,13 @@
             "max": 20,
             "step": 0.5,
             "unit": " °C",
-            "default": 4
+            "default": 4,
+            "showWhen": {
+              "key": "view",
+              "values": [
+                1
+              ]
+            }
           },
           {
             "key": "salinity",
@@ -5979,7 +5985,13 @@
             "max": 36,
             "step": 0.1,
             "unit": " g/kg",
-            "default": 35
+            "default": 35,
+            "showWhen": {
+              "key": "view",
+              "values": [
+                1
+              ]
+            }
           }
         ]
       },
@@ -6809,7 +6821,13 @@
             "min": 0,
             "max": 1,
             "step": 0.02,
-            "default": 0.36
+            "default": 0.36,
+            "showWhen": {
+              "key": "feature",
+              "values": [
+                0
+              ]
+            }
           }
         ]
       },
@@ -7021,7 +7039,13 @@
           {
             "key": "flood",
             "label": "Overbank water",
-            "defaultOn": true
+            "defaultOn": true,
+            "showWhen": {
+              "key": "feature",
+              "values": [
+                1
+              ]
+            }
           }
         ]
       },

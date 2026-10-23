@@ -187,7 +187,7 @@ export default function Glaciers() {
                 occlude={false}
               />
               <Tag
-                pos={[2.9, 0.35, -1.3]}
+                pos={[3.0, 0.15, -1.7]}
                 text="Earlier moraine"
                 note="This ridge marks an earlier ice margin, where unsorted debris built up while the snout stayed in roughly one place. Even while the glacier retreats, its ice still flows down-valley."
                 occlude={false}

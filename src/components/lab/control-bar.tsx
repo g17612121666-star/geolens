@@ -13,7 +13,7 @@ import {
   Focus,
   Keyboard,
 } from "lucide-react";
-import type { LabMeta } from "@/lib/labs/types";
+import type { LabMeta, ShowWhen } from "@/lib/labs/types";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { defaultParams } from "@/lib/labs/defaults";
 import { labShareUrl } from "@/labs/shared/url-state";
@@ -55,6 +55,12 @@ export function ControlBar({
   const [shareFailed, setShareFailed] = useState(false);
 
   const playback = hasPlayback(lab, params, explode);
+  // Hide controls that do nothing in the current view (for example a slider for one experiment).
+  const shown = (c: { showWhen?: ShowWhen }) => {
+    if (!c.showWhen) return true;
+    const ref = lab.controls.extra?.find((e) => e.key === c.showWhen!.key);
+    return c.showWhen.values.includes(params[c.showWhen.key] ?? ref?.default ?? ref?.min ?? 0);
+  };
   const timeLabel = !playback
     ? null
     : lab.slug === "groundwater"
@@ -67,8 +73,8 @@ export function ControlBar({
             ? lab.slug === "eclipses" && params.shadow > 0.5
               ? "Transit"
               : "Month"
-            : // In the energy budget, time only moves the flow arrows; nothing physical changes.
-              lab.slug === "energy-budget"
+            : // In these labs, time only animates the flow; nothing physical changes.
+              lab.slug === "energy-budget" || lab.slug === "river-erosion"
               ? "Animation"
               : "Process";
 
@@ -134,7 +140,7 @@ export function ControlBar({
         </label>
       )}
 
-      {lab.controls.extra?.map((ex) =>
+      {lab.controls.extra?.filter(shown).map((ex) =>
         ex.options ? (
           <label key={ex.key} className="flex shrink-0 items-center gap-2 text-[13px] text-mist">
             <span>{ex.label}</span>
@@ -175,7 +181,7 @@ export function ControlBar({
         ),
       )}
 
-      {lab.controls.toggles?.map((tg) => {
+      {lab.controls.toggles?.filter(shown).map((tg) => {
         const on = (params[tg.key] ?? (tg.defaultOn ? 1 : 0)) > 0.5;
         return (
           <button
