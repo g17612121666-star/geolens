@@ -67,9 +67,9 @@ export default function DrainageBasin() {
       </ScienceStudio>
       <ScienceReadout>
         <strong>{parts[focus].name}.</strong> {parts[focus].note}{" "}
-        {
-          "The gold line is the surface drainage divide: all the land inside it drains to the outlet, not just the blue channel. Groundwater divides can differ."
-        }
+        {params.overlay > 0.5
+          ? "The gold line is the surface drainage divide: all the land inside it drains to the outlet, not just the blue channel. Groundwater divides can differ."
+          : "Turn on Basin overlay to see the drainage divide. All the land inside it drains to the outlet, not just the blue channel."}
       </ScienceReadout>
     </>
   );

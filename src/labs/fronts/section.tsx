@@ -73,13 +73,7 @@ export default function Fronts() {
         camera={[0.2, 1.8, 8]}
       >
         <FrontGround />
-        <FrontSurface
-          height={s.cold}
-          from={-300}
-          to={s.occluded ? s.meeting : s.coldFront}
-          factor={f}
-          colour="#4f8fd0"
-        />
+        <FrontSurface height={s.cold} from={-300} to={s.coldFront} factor={f} colour="#4f8fd0" />
         {!s.occluded && (
           <FrontSurface height={s.cool} from={s.warmFront} to={300} factor={f} colour="#d0614f" />
         )}
@@ -179,10 +173,9 @@ export default function Fronts() {
             />
           </group>
         )}
-        <ChartFront
-          x={(s.occluded ? s.meeting : s.coldFront) / 100}
-          kind={s.occluded ? "occluded" : "cold"}
-        />
+        {/* After occlusion the surface trace is where the cold air meets the cool air at the ground;
+            the meeting point of the two frontal surfaces lies aloft, behind it. */}
+        <ChartFront x={s.coldFront / 100} kind={s.occluded ? "occluded" : "cold"} />
         {!s.occluded && <ChartFront x={s.warmFront / 100} kind="warm" />}
         <Tag
           pos={[-2.4, 0.15, 0.98]}
@@ -197,7 +190,11 @@ export default function Fronts() {
           occlude={false}
         />
         <Tag
-          pos={[2.5, 0.15, 0.98]}
+          pos={
+            s.occluded
+              ? [2.9, ((s.cold(290) + Math.max(s.cold(290), s.cool(290))) / 200) * f + 0.03, 0.98]
+              : [2.5, 0.15, 0.98]
+          }
           text="Cool air ahead"
           note="The warm-front boundary slopes 1:150. Clouds show where rising air can condense; they are not a calculated cloud base or rainfall rate."
           occlude={false}
@@ -206,7 +203,7 @@ export default function Fronts() {
       <ScienceReadout>
         {"Section spans 600 km. "}
         {s.occluded
-          ? `Cold occlusion: the warm layer is lifted at least ${s.liftAtMeeting.toFixed(2)} km above the meeting point.`
+          ? `Occluded: the cold front has caught the warm front, so the warm air no longer touches the ground. Its lowest point, where the two frontal surfaces meet, is ${s.liftAtMeeting.toFixed(2)} km above the ground.`
           : `Surface warm sector ${(s.warmFront - s.coldFront).toFixed(0)} km wide.`}
         <br />
         {

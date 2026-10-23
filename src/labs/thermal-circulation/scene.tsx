@@ -119,7 +119,11 @@ export default function ThermalCirculation() {
   const urban = params.urban > 0.5,
     coast = (params.landsea ?? 1) > 0.5 && !urban,
     c = coastalContrast(t * 24, urban, coast),
-    direction = Math.sign(c.contrast),
+    // A contrast below 0.05 °C reads as 0.0 °C, so treat it as no circulation.
+    direction = Math.abs(c.contrast) < 0.05 ? 0 : Math.sign(c.contrast),
+    // Drawn strength of the loop, relative to the largest coastal contrast (4.3 °C).
+    strength = Math.min(1, Math.abs(c.contrast) / 4.3),
+    weak = Math.abs(c.contrast) < 1.5,
     f = trueScale ? 0.25 : 1,
     hour = t * 24;
   const height = useMemo(() => heightFn(coast), [coast]);
@@ -154,7 +158,7 @@ export default function ThermalCirculation() {
       Array.from({ length: 64 }, (_, i) => new THREE.Vector3(...path((i / 64) * Math.PI * 2))),
       true,
     );
-    return new THREE.TubeGeometry(curve, 160, 0.09, 12, true);
+    return new THREE.TubeGeometry(curve, 160, 0.05, 12, true);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- path is redefined each render and reads only f, which is listed
   }, [f]);
   useEffect(() => () => loop.dispose(), [loop]);
@@ -220,7 +224,7 @@ export default function ThermalCirculation() {
               <meshPhysicalMaterial
                 color="#dce9ee"
                 transparent
-                opacity={0.18}
+                opacity={0.08 + 0.14 * strength}
                 roughness={0.3}
                 depthWrite={false}
               />
@@ -229,9 +233,9 @@ export default function ThermalCirculation() {
               <Arrow
                 key={a}
                 from={path(a)}
-                to={path(a + direction * 0.24)}
+                to={path(a + direction * 0.6)}
                 color={Math.cos(a) * direction > 0 ? "#e3aa82" : "#83c6d9"}
-                width={1}
+                width={0.8 + 1.6 * strength}
               />
             ))}
             <Tracers path={path} direction={direction} />
@@ -273,11 +277,13 @@ export default function ThermalCirculation() {
         <Tag
           pos={[0, 2.4 * f + 0.75, 0]}
           text={
-            direction > 0
-              ? "Surface flow → warmer right"
-              : direction < 0
-                ? "Surface flow → warmer left"
-                : "Equal heating · no loop"
+            direction === 0
+              ? "Equal heating · no loop"
+              : urban
+                ? "Surface flow → towards the warmer city"
+                : direction > 0
+                  ? "Sea breeze · surface flow → onshore"
+                  : "Land breeze · surface flow ← offshore"
           }
           note="The surface branch flows towards the warmer side, ascent occurs there, and flow returns aloft. Loop height and speed are illustrative."
           occlude={false}
@@ -288,12 +294,14 @@ export default function ThermalCirculation() {
         {hour.toFixed(1)} {"· right minus left "}
         {c.contrast.toFixed(1)} {"°C. "}
         {urban
-          ? "Urban heat compares a city with its rural surroundings."
-          : coast
-            ? direction > 0
-              ? "Sea breeze: surface flow onshore."
-              : "Land breeze: surface flow offshore."
-            : "Both settings are off: equal temperature gives no thermal circulation."}
+          ? "Urban heat island: surface air flows from the cooler countryside towards the warmer city, where it rises. (Urban heat replaces the coast while it is on.)"
+          : !coast
+            ? "Both settings are off: equal temperature gives no thermal circulation."
+            : direction === 0
+              ? "Sea and land are equally warm: no thermal circulation while the breeze changes direction."
+              : direction > 0
+                ? `${weak ? "Weak sea breeze" : "Sea breeze"}: land warmer than sea, surface flow onshore.`
+                : `${weak ? "Weak land breeze" : "Land breeze"}: land cooler than sea, surface flow offshore.`}
         <br />
         {
           "Play runs through a daily heating cycle; the Sun marks the hour. In real weather the night-time reversal does not always happen."

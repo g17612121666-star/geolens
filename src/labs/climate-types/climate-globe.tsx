@@ -95,7 +95,7 @@ export default function ClimateTypes() {
       >
         <group rotation={[sample.lat * d, Math.PI - sample.lon * d, 0]}>
           <EarthMesh radius={1.2} lighting="viewer" />
-          <Classification family={family} />
+          {null}
           <Graticule radius={1.222} />
           <mesh position={point}>
             <sphereGeometry args={[0.025, 24, 20]} />

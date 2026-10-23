@@ -1,4 +1,4 @@
-import { InstancedMesh, Object3D } from "three";
+import { InstancedMesh, Object3D, Quaternion, Vector3 } from "three";
 import { useRef, useLayoutEffect } from "react";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { EarthMesh, Graticule } from "@/components/globe/earth";
@@ -6,7 +6,7 @@ import { latLonToXYZ } from "@/lib/geo";
 import { circulationCell } from "@/lib/circulation-science";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
-import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
+import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 function CondensationBelt({ latitude, radius }: { latitude: number; radius: number }) {
   const ref = useRef<InstancedMesh>(null);
@@ -32,6 +32,54 @@ function CondensationBelt({ latitude, radius }: { latitude: number; radius: numb
       <sphereGeometry args={[1, 10, 6]} />
       <meshBasicMaterial color="#d4e5e6" transparent opacity={0.43} depthWrite={false} />
     </instancedMesh>
+  );
+}
+/** A cone on a cell path pointing along the flow, large enough to read the direction. */
+function FlowCone({
+  at,
+  next,
+  color,
+}: {
+  at: [number, number, number];
+  next: [number, number, number];
+  color: string;
+}) {
+  const a = new Vector3(...at),
+    d = new Vector3(...next).sub(a).normalize(),
+    q = new Quaternion().setFromUnitVectors(new Vector3(0, 1, 0), d);
+  return (
+    <mesh position={a} quaternion={q}>
+      <coneGeometry args={[0.045, 0.12, 16]} />
+      <meshBasicMaterial color={color} />
+    </mesh>
+  );
+}
+/** Unlit surface-wind arrow so its colour matches the legend on the night side too. */
+function WindArrow({
+  from,
+  to,
+  color,
+}: {
+  from: [number, number, number];
+  to: [number, number, number];
+  color: string;
+}) {
+  const a = new Vector3(...from),
+    v = new Vector3(...to).sub(a),
+    length = v.length(),
+    q = new Quaternion().setFromUnitVectors(new Vector3(0, 1, 0), v.normalize()),
+    head = 0.13;
+  return (
+    <group position={a} quaternion={q}>
+      <mesh position={[0, (length - head) / 2, 0]}>
+        <cylinderGeometry args={[0.011, 0.011, length - head, 8]} />
+        <meshBasicMaterial color={color} />
+      </mesh>
+      <mesh position={[0, length - head / 2, 0]}>
+        <coneGeometry args={[0.04, head, 16]} />
+        <meshBasicMaterial color={color} />
+      </mesh>
+    </group>
   );
 }
 export default function ThreeCell() {
@@ -85,13 +133,7 @@ export default function ThreeCell() {
                     lineWidth={2}
                   />
                   {[0, 0.25, 0.5, 0.75].map((u) => (
-                    <Arrow
-                      key={u}
-                      from={point(u)}
-                      to={point(u + 0.025)}
-                      color={band.color}
-                      width={0.38}
-                    />
+                    <FlowCone key={u} at={point(u)} next={point(u + 0.01)} color={band.color} />
                   ))}
                   {[0, 0.33, 0.66].map((n) => (
                     <mesh key={n} position={point((t * 10 + n) % 1)}>
@@ -103,44 +145,41 @@ export default function ThreeCell() {
               );
             }),
           )}
-          {[-75, -45, -15, 15, 45, 75].map((lat) => {
-            const eastward = Math.abs(lat) > 30 && Math.abs(lat) < 60,
-              from = latLonToXYZ(lat, 35, radius * 1.009),
-              to = latLonToXYZ(
-                lat +
-                  (Math.abs(lat) < 30
-                    ? -Math.sign(lat)
-                    : Math.abs(lat) < 60
-                      ? Math.sign(lat)
-                      : -Math.sign(lat)) *
-                    5,
-                35 + (eastward ? 15 : -15),
-                radius * 1.009,
-              );
-            return three ? (
-              <Arrow
-                key={lat}
-                from={from}
-                to={to}
-                color={eastward ? "#94c6c5" : "#dbb986"}
-                width={0.4}
+          {three &&
+            [5, 45].flatMap((lon0) =>
+              [-75, -45, -15, 15, 45, 75].map((lat) => {
+                const eastward = Math.abs(lat) > 30 && Math.abs(lat) < 60,
+                  poleward = eastward ? Math.sign(lat) : -Math.sign(lat),
+                  from = latLonToXYZ(lat, lon0, radius * 1.03),
+                  to = latLonToXYZ(lat + poleward * 7, lon0 + (eastward ? 18 : -18), radius * 1.03);
+                return (
+                  <WindArrow
+                    key={`${lon0}-${lat}`}
+                    from={from}
+                    to={to}
+                    color={eastward ? "#94c6c5" : "#dbb986"}
+                  />
+                );
+              }),
+            )}
+          {bands.map((b, i) => {
+            const inner = i === 0 ? itcz : b.a,
+              mid = (inner + b.b) / 2;
+            return (
+              <Tag
+                key={b.name}
+                pos={latLonToXYZ(mid, -80, radius + height + 0.12)}
+                text={b.name}
+                note={
+                  b.name === "Ferrel"
+                    ? "The Ferrel cell is an average, ‘indirect’ circulation kept going mainly by heat and momentum carried by midlatitude weather systems. Real air follows those systems, not a neat permanent loop."
+                    : `${b.name}: air rises at the lower-latitude end, flows poleward aloft, sinks farther poleward and returns towards the equator near the surface. Real boundaries vary.`
+                }
+                occlude={false}
               />
-            ) : null;
+            );
           })}
         </group>
-        {bands.map((b, i) => (
-          <Tag
-            key={b.name}
-            pos={[-2.6, 0.25 + i * 0.63, 0]}
-            text={b.name}
-            note={
-              b.name === "Ferrel"
-                ? "The Ferrel cell is an average, ‘indirect’ circulation kept going mainly by heat and momentum carried by midlatitude weather systems. Real air follows those systems, not a neat permanent loop."
-                : `${b.name}: air rises at the lower-latitude end, flows poleward aloft, sinks farther poleward and returns towards the equator near the surface. Real boundaries vary.`
-            }
-            occlude={false}
-          />
-        ))}
         <Tag
           pos={[2.1, Math.sin((itcz * Math.PI) / 180) * radius + 0.1, 0]}
           text={`ITCZ ${Math.abs(itcz).toFixed(1)}°${itcz < 0 ? "S" : "N"}`}

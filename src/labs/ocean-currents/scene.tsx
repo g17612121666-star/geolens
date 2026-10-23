@@ -81,11 +81,30 @@ function Gyre({ index, t }: { index: number; t: number }) {
           }
         />
       ))}
-      {segments
-        .filter((_, i) => i % 2 === 0)
-        .map((p, i) => (
-          <Arrow key={i} from={p[4]} to={p[11]} color="#cbdcd5" width={0.7} />
-        ))}
+      {/* Dark arrowheads lifted just above the bands, so the flow direction reads in a still view. */}
+      {segments.map((p, i) => (
+        <Arrow
+          key={i}
+          from={lift(p[6], 1.705)}
+          to={lift(p[18], 1.705)}
+          color="#13222c"
+          width={1.5}
+        />
+      ))}
+      <Tag
+        pos={lift(segments[branches.warm[Math.floor(branches.warm.length / 2)]][12], 1.8)}
+        text={g.western}
+        tone="magma"
+        note="Western boundary current: narrow, fast and warm, carrying water poleward."
+        occlude={false}
+      />
+      <Tag
+        pos={lift(segments[branches.cool[Math.floor(branches.cool.length / 2)]][12], 1.8)}
+        text={g.eastern}
+        tone="glacier"
+        note="Eastern boundary current: broader, slower and cooler, carrying water towards the equator."
+        occlude={false}
+      />
       <FlowFilaments
         paths={[-0.014, 0, 0.014].map((offset) =>
           path.map((p) => {
@@ -115,6 +134,9 @@ function Gyre({ index, t }: { index: number; t: number }) {
     </group>
   );
 }
+function lift(p: [number, number, number], radius: number) {
+  return new THREE.Vector3(...p).setLength(radius).toArray() as [number, number, number];
+}
 export default function OceanCurrents() {
   const { params, t } = useLabControls();
   useLabTick(1 / 50);
@@ -141,8 +163,11 @@ export default function OceanCurrents() {
         {": warmer western boundary current flowing poleward (orange). "}
         {g.eastern}
         {
-          ": cooler eastern boundary current flowing towards the equator (blue). Grey links the branches."
+          ": cooler eastern boundary current flowing towards the equator (blue). Grey links the branches. "
         }
+        {g.centre[0] > 0
+          ? "This northern gyre turns clockwise, as Earth’s rotation deflects moving water to the right."
+          : "This southern gyre turns anticlockwise, as Earth’s rotation deflects moving water to the left."}
         <br />
         {
           "Viewed on a map, northern subtropical gyres turn clockwise and southern ones anticlockwise. Play shows direction only. UK winters reflect westerlies, ocean heat and geography together; the Gulf Stream is one contribution."
