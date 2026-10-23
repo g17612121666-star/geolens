@@ -184,7 +184,7 @@ export default function RiverCapture() {
             width={2.4}
           />
           <Tag
-            pos={[-2, 1.25, -1.7]}
+            pos={[-2.4, 1.25, -1.7]}
             text={stage === 2 ? "Captured headwaters" : "Neighbouring river"}
             note="Before capture these headwaters flow east across the scene. After capture they turn into the lower captor valley. Channel widths and tracer speeds do not show discharge."
             occlude={false}
@@ -204,13 +204,13 @@ export default function RiverCapture() {
                 occlude={false}
               />
               <Tag
-                pos={[0, 1.05, -0.9]}
+                pos={[-0.25, 0.95, -0.55]}
                 text="Elbow of capture"
                 note="The sharp bend where the captured river now turns into the captor valley."
                 occlude={false}
               />
               <Tag
-                pos={[0.45, 0.95, -0.95]}
+                pos={[0.65, 1.2, -1.2]}
                 text="Wind gap"
                 note="A low, dry col in the old valley floor between the elbow and the beheaded stream. No river flows through it now, but its shape shows that a larger river once did."
                 occlude={false}

@@ -121,7 +121,7 @@ export default function Karst() {
       <ScienceStudio
         horizon
         slug="karst"
-        camera={[4.5, 3.8, 7]}
+        camera={[4.6, 3.0, 7.4]}
         scale="60 × 30 m limestone block · relief ×1.3 · joints enlarged"
         trueScale="1 scene unit = 10 m · common geometric scale · joints, tracers and vegetation enlarged"
       >
@@ -144,12 +144,10 @@ export default function Karst() {
               <Line
                 points={inRock}
                 color="#85bdc5"
-                lineWidth={1.4}
+                lineWidth={2}
                 dashed
                 dashSize={0.08}
                 gapSize={0.07}
-                transparent
-                opacity={0.8}
                 depthTest={false}
                 depthWrite={false}
                 renderOrder={5}
@@ -234,7 +232,7 @@ export default function Karst() {
                 occlude={false}
               />
               <Tag
-                pos={[1.3, 0.1, 1.7]}
+                pos={[0.5, -0.05, 1.7]}
                 text="Stalactites and stalagmites"
                 note="Stalactites hang from the roof and stalagmites grow up from the floor. Dripping water loses carbon dioxide into the cave air, so calcite precipitates. Real ones typically grow only about a centimetre per century; the falling drops are enlarged."
                 occlude={false}
@@ -256,7 +254,7 @@ export default function Karst() {
             occlude={false}
           />
           <Tag
-            pos={[-0.6, 2.2, 0.8]}
+            pos={[-1.2, 2.7, 0.2]}
             text="Doline"
             note="This surface hollow is a solution doline (sinkhole). Other sinkholes form by subsidence or collapse. Water drains into connected fractures; not every hollow opens straight into a large cave."
             occlude={false}
