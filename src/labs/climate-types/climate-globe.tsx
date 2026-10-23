@@ -85,6 +85,8 @@ export default function ClimateTypes() {
     selected = FAMILIES[family],
     d = Math.PI / 180;
   const point = latLonToXYZ(sample.lat, sample.lon, 1.23);
+  // The tag sits a few degrees north so it does not hide the city marker or its colour.
+  const tagPoint = latLonToXYZ(sample.lat + 7, sample.lon, 1.23);
   return (
     <>
       <ScienceStudio
@@ -95,14 +97,19 @@ export default function ClimateTypes() {
       >
         <group rotation={[sample.lat * d, Math.PI - sample.lon * d, 0]}>
           <EarthMesh radius={1.2} lighting="viewer" />
-          {null}
+          <Classification family={family} />
           <Graticule radius={1.222} />
+          {/* Dark rim keeps the white marker visible on the near-white polar class. */}
           <mesh position={point}>
-            <sphereGeometry args={[0.025, 24, 20]} />
+            <sphereGeometry args={[0.034, 24, 20]} />
+            <meshBasicMaterial color="#10161a" />
+          </mesh>
+          <mesh position={point.map((v) => v * 1.012) as [number, number, number]}>
+            <sphereGeometry args={[0.022, 24, 20]} />
             <meshBasicMaterial color="#ffffff" />
           </mesh>
           <Tag
-            pos={point}
+            pos={tagPoint}
             text={`${sample.name} (${sample.code})`}
             note={`${sample.name} is a reference point for ${selected.name.toLowerCase()} climate. The code describes long-term temperature and rainfall at this location; nearby highlands and coasts may differ.`}
             occlude={false}

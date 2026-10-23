@@ -168,7 +168,7 @@ export default function ThreeCell() {
             return (
               <Tag
                 key={b.name}
-                pos={latLonToXYZ(mid, -80, radius + height + 0.12)}
+                pos={latLonToXYZ(mid, -80, radius * 1.004 + height * 0.5)}
                 text={b.name}
                 note={
                   b.name === "Ferrel"
