@@ -115,7 +115,7 @@ export default function PressureCentres() {
           k % 2 ? null : (
             <Tag
               key={`p-${r}`}
-              pos={[r * Math.cos(2.75 + k * 0.1), 0.05, -r * Math.sin(2.75 + k * 0.1)]}
+              pos={[r * Math.cos(-2.1), 0.05, -r * Math.sin(-2.1)]}
               text={`${high ? 1036 - k * 6 : 976 + k * 8} hPa`}
               note={`Isobar: a line joining places with the same surface pressure (${high ? 1036 - k * 6 : 976 + k * 8} hPa in this example pattern). ${high ? "Pressure is highest at the centre of the anticyclone." : "Pressure is lowest at the centre of the depression."}`}
               occlude={false}
@@ -259,14 +259,14 @@ export default function PressureCentres() {
           occlude={false}
         />
         <Tag
-          pos={[-2.5, 0.1, 2.6]}
+          pos={[-2.5, 0.1, -2.6]}
           text={`${south ? "SH" : "NH"} · ${spin > 0 ? "anticlockwise" : "clockwise"}`}
           note="Viewed from above. Switching hemisphere reverses the spin, but a low still converges and a high still diverges near the surface."
           occlude={false}
         />
         {!high && (
           <Tag
-            pos={[2.6, 0.1, 1.8 * ns]}
+            pos={south ? [3, 0.1, 0] : [2.6, 0.1, 1.8]}
             text="Fronts · cold blue / warm coral"
             note="Example cold and warm fronts of a developing midlatitude depression, not a hurricane eyewall. The cold front trails towards the equator, so the pattern flips north–south in the Southern Hemisphere. Real fronts do not rotate rigidly like spokes. Open the Fronts lab to see their slopes."
             occlude={false}
