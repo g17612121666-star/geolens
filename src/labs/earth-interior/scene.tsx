@@ -182,8 +182,8 @@ const GEOTHERM: [number, number][] = [
   [410, 1500],
   [660, 1900],
   [2700, 2500],
-  [2891, 3700],
-  [2892, 4000],
+  [2891, 3800],
+  [2892, 3800],
   [5150, 5300],
   [6371, 5400],
 ];
@@ -272,6 +272,9 @@ function Layer({
   const g = useMemo(() => shellSection(inner, outer, opening), [inner, outer, opening]);
   useEffect(() => () => g.dispose(), [g]);
   const compact = useIsCompact();
+  const labels = useLabControls((s) => s.labels);
+  // A closed globe shows only the crust, so interior tags would point at the surface.
+  const showTag = labels && (index === 0 || opening > 0.15);
   const l = layers[index],
     middle = (inner + outer) / 2,
     theta = [0.7, 1.08, 1.55, 2.05][index];
@@ -329,30 +332,35 @@ function Layer({
           )}
         </mesh>
       </InspectHotspot>
-      <Line
-        points={[
-          [
-            middle * Math.sin(theta) * Math.cos(opening / 2),
-            middle * Math.cos(theta),
-            middle * Math.sin(theta) * Math.sin(opening / 2),
-          ],
-          [1.05, (1.5 - index) * 0.48, -1.2],
-        ]}
-        color={l.color}
-        lineWidth={1}
-      />
-      <Tag
-        pos={[1.05, (1.5 - index) * 0.48, -1.2]}
-        text={compact ? String(index + 1) : l.name}
-        title={`${index + 1} · ${l.name}`}
-        note={l.note}
-        occlude={false}
-      />
+      {showTag && (
+        <>
+          <Line
+            points={[
+              [
+                middle * Math.sin(theta) * Math.cos(opening / 2),
+                middle * Math.cos(theta),
+                -middle * Math.sin(theta) * Math.sin(opening / 2),
+              ],
+              [1.05, (1.5 - index) * 0.48, -1.2],
+            ]}
+            color={l.color}
+            lineWidth={1}
+          />
+          <Tag
+            pos={[1.05, (1.5 - index) * 0.48, -1.2]}
+            text={compact ? String(index + 1) : l.name}
+            title={`${index + 1} · ${l.name}`}
+            note={l.note}
+            occlude={false}
+          />
+        </>
+      )}
     </group>
   );
 }
 function DepthRuler({ opening }: { opening: number }) {
-  const phi = opening / 2 + 0.001,
+  // Drawn just in front of the cut face that faces the default camera.
+  const phi = -opening / 2 + 0.003,
     theta = 2.52,
     p = (r: number): [number, number, number] => [
       r * Math.sin(theta) * Math.cos(phi),
@@ -402,7 +410,7 @@ function DepthRuler({ opening }: { opening: number }) {
 }
 function WavePaths({ opening }: { opening: number }) {
   const t = useLabControls((s) => s.t),
-    phi = opening / 2 - 0.012;
+    phi = -opening / 2 + 0.012;
   // Two radial transmission illustrations lie just above the exposed cut face.
   // They show permitted wave types, not refraction, travel times or shadow zones.
   const point = (r: number, theta: number): [number, number, number] => [
@@ -476,7 +484,7 @@ export default function EarthInterior() {
             />
           ))}
           {slice > 0.05 && explode <= 0.01 && <DepthRuler opening={opening} />}{" "}
-          {waves && explode <= 0.01 && <WavePaths opening={opening} />}
+          {waves && slice > 0.05 && explode <= 0.01 && <WavePaths opening={opening} />}
         </group>
       </ScienceStudio>
       <ScienceReadout>
@@ -526,7 +534,7 @@ export default function EarthInterior() {
         <br />
         {waves
           ? "The radial paths illustrate transmission through different materials; they do not calculate the curved paths of seismic rays."
-          : "Dashed mantle interfaces mark phase transitions at depths of 410 and 660 km. Colours and textures distinguish materials in the cutaway."}
+          : "Dashed mantle interfaces mark phase transitions at depths of 410 and 660 km. Colours and textures distinguish materials; the mottled mantle pattern is illustrative, not mapped plumes or slabs."}
       </ScienceReadout>
     </>
   );

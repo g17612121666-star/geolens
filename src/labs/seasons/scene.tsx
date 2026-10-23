@@ -89,7 +89,8 @@ export default function Seasons() {
             );
           })}
         <group position={centre} rotation={[(tilt * Math.PI) / 180, 0, 0]}>
-          <group rotation={[0, t * Math.PI * 2 * 365.2422, 0]}>
+          {/* 366.2422 turns relative to the stars give 365.2422 solar days. */}
+          <group rotation={[0, t * Math.PI * 2 * 366.2422, 0]}>
             <EarthMesh radius={radius} sunDirection={sun} />
             {!trueScale && <Atmosphere radius={radius * 1.035} />}
             <Graticule radius={radius * 1.004} />
@@ -125,11 +126,16 @@ export default function Seasons() {
         )}
         {!close &&
           [0, 0.25, 0.5, 0.75].map((v, i) => {
-            const p = orbitPosition(v, 0, 2.65);
+            // Each label sits outside the orbit, clear of Earth when it reaches that direction.
+            const r = [2.65 * (1 - ecc), 2.65 * (1 - ecc * ecc), 2.65 * (1 + ecc)][
+              i % 2 ? 1 : i / 2
+            ];
+            const out = r + [2.2, 1.1, 2.6, 1.0][i];
+            const dir = orbitPosition(v, 0, 1);
             return (
               <Tag
                 key={i}
-                pos={[p[0] * 1.2, -0.25, p[2] * 1.2]}
+                pos={[dir[0] * out, i === 3 ? -0.25 : 0, dir[2] * out]}
                 text={
                   ["March equinox", "June solstice", "September equinox", "December solstice"][i]
                 }
@@ -170,7 +176,9 @@ export default function Seasons() {
         {(new THREE.Vector3(...position).length() / 2.65).toFixed(3)} {"AU. "}
         {ecc > 0.001
           ? "Stretched orbit: labels mark directions, not equal time intervals."
-          : "Set Axial tilt to 0° to see 12-hour days all year."}
+          : tilt < 0.05
+            ? "No tilt: 12-hour days everywhere except at the poles."
+            : "Set Axial tilt to 0° to see 12-hour days all year."}
       </ScienceReadout>
     </>
   );
