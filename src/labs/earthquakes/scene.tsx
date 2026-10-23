@@ -387,7 +387,7 @@ export default function Earthquakes() {
           occlude={false}
         />
         <Tag
-          pos={[station[0] + 0.85, station[1] + 0.95, station[2]]}
+          pos={[station[0] + 1.5, station[1] + 0.55, station[2]]}
           text="Seismometer · 50 km"
           note="The station is 50 km horizontally from the epicentre, so the straight-line distance from the focus is √(depth² + 50²) km. Its drum record shows the P-wave arrival, then the larger S-wave, then the slower, larger surface wave."
           occlude={false}

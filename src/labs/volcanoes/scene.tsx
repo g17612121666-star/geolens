@@ -455,7 +455,7 @@ export default function Volcanoes() {
               />
             )}
             <Tag
-              pos={[0, height + 0.45, 0]}
+              pos={[-radius * 0.55, height * 0.45 + 0.35, 0]}
               text={composite ? "Composite cone" : "Shield volcano"}
               note="A volcano’s shape builds up over many eruptions. Viscosity, eruption rate, gas, fragmentation and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative."
               occlude={false}
