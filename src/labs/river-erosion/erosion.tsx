@@ -164,17 +164,15 @@ function Pothole({ t }: { t: number }) {
         />
       </mesh>
       {Array.from({ length: 6 }, (_, i) => {
-        const a = t * 4 * Math.PI + i * 1.047,
+        // Stones circle one way round the back half of the bowl; on reaching the cut face they
+        // re-enter at the other side, as if continuing through the removed front half.
+        const a = Math.PI + THREE.MathUtils.euclideanModulo(-t * 4 * Math.PI + i * 0.524, Math.PI),
           r = 0.36 + 0.12 * Math.sin(i * 4),
           y = -POT_D + 0.07 + 0.05 * (i % 3);
         return (
           <mesh
             key={i}
-            position={[
-              POT_CX + r * Math.cos(a),
-              y + 0.02 * Math.sin(a * 2),
-              -Math.abs(r * Math.sin(a)),
-            ]}
+            position={[POT_CX + r * Math.cos(a), y + 0.02 * Math.sin(a * 2), r * Math.sin(a)]}
             rotation={[a, i, a / 2]}
             castShadow
           >
@@ -346,7 +344,7 @@ export default function RiverErosion() {
       <ScienceStudio
         horizon
         slug="river-erosion"
-        camera={mode === 1 ? [1.6, 2.6, 4.2] : mode === 0 ? [6.4, 3.1, 2.3] : [2.5, 6.2, 5.4]}
+        camera={mode === 1 ? [1.6, 2.6, 4.2] : mode === 0 ? [6.2, 4.6, 1.4] : [2.5, 6.2, 5.4]}
         scale={
           mode === 1
             ? "Pothole close-up · 1 unit = 1 m · block cut through the hollow · stones enlarged"
@@ -425,7 +423,7 @@ export default function RiverErosion() {
                 <>
                   <Tag
                     pos={[lip - 0.35, 2.2, -1.15]}
-                    text="Resistant cap"
+                    text="Lip and resistant cap"
                     note="In this example harder sandstone lies on top of weaker mudstone. The plunge pool and spray wear back the weaker rock, the cap is left overhanging, and it eventually collapses, so the waterfall retreats upstream. Not every waterfall forms this way."
                     occlude={false}
                   />
@@ -436,16 +434,35 @@ export default function RiverErosion() {
                     occlude={false}
                   />
                   <Tag
-                    pos={[Math.min(2.4, lip + 1.6), 1.95, -1]}
+                    pos={[Math.min(2.6, lip + 1.9), 1.2, 0]}
                     text="Gorge"
                     note="As the waterfall retreats it leaves a steep-sided gorge downstream. Its walls expose the cap rock above the weaker beds."
                     occlude={false}
                   />
+                  {/* Flow and retreat point in opposite directions: label both. */}
                   <Arrow
-                    from={[Math.min(2.4, lip + 1.2), 2.1, 1.25]}
-                    to={[lip, 2.1, 1.25]}
+                    from={[lip - 1.3, 1.72, 0]}
+                    to={[lip - 0.55, 1.72, 0]}
+                    color="#7fd4ff"
+                    width={2}
+                  />
+                  <Tag
+                    pos={[lip - 1.1, 1.95, 0]}
+                    text="Flow downstream"
+                    note="Water always flows downstream, from the upland reach, over the lip and down the gorge."
+                    occlude={false}
+                  />
+                  <Arrow
+                    from={[Math.min(2.6, lip + 1.4), 2.0, -0.8]}
+                    to={[lip + 0.1, 2.0, -0.8]}
                     color="#e4bd82"
-                    width={0.8}
+                    width={2}
+                  />
+                  <Tag
+                    pos={[lip + 0.8, 2.25, -0.8]}
+                    text="Retreat upstream"
+                    note="The lip moves upstream, against the flow, as the cap collapses block by block. The gorge it leaves behind lengthens downstream of the new lip."
+                    occlude={false}
                   />
                 </>
               ) : (

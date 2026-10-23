@@ -103,6 +103,11 @@ export default function Karst() {
         .map((a) => a.toArray() as [number, number, number]),
     [],
   );
+  // The route through solid rock from the doline to the passage roof is drawn through the rock
+  // (an X-ray line) so students can follow it; inside the open passage it is depth-tested.
+  const enter = flow.findIndex(([x, y, z]) => y < caveCeiling(x, z));
+  const inRock = flow.slice(0, enter + 1),
+    inCave = flow.slice(enter);
   const river = useMemo(
     () =>
       Array.from({ length: 101 }, (_, i) => {
@@ -137,7 +142,20 @@ export default function Karst() {
           {cut && (
             <>
               <Line
-                points={flow}
+                points={inRock}
+                color="#85bdc5"
+                lineWidth={1.4}
+                dashed
+                dashSize={0.08}
+                gapSize={0.07}
+                transparent
+                opacity={0.8}
+                depthTest={false}
+                depthWrite={false}
+                renderOrder={5}
+              />
+              <Line
+                points={inCave}
                 color="#85bdc5"
                 lineWidth={1.4}
                 dashed
@@ -157,11 +175,11 @@ export default function Karst() {
                 [
                   [-1.7, -0.6],
                   [-0.9, -0.75],
-                  [0.3, -0.42],
-                  [0.75, -0.9],
-                  [1.2, -0.42],
-                  [1.65, -0.8],
-                  [2.1, -0.42],
+                  [0.3, 1.2],
+                  [0.75, 0.95],
+                  [1.2, 1.3],
+                  [1.65, 1.05],
+                  [2.1, 1.25],
                   [2.55, -0.7],
                 ] as [number, number][]
               ).map(([x, z], i) => {
@@ -210,9 +228,15 @@ export default function Karst() {
                 color="#969a8a"
               />
               <Tag
-                pos={[0.8, 0.5, 1.7]}
+                pos={[-1.5, 0.55, 1.7]}
                 text="Cave passage"
                 note="One open passage in soluble limestone. Dissolution widens joints and bedding planes into passages. Most of the block is still solid rock, not a hollow underground lake; real cave networks are far more complex."
+                occlude={false}
+              />
+              <Tag
+                pos={[1.3, 0.1, 1.7]}
+                text="Stalactites and stalagmites"
+                note="Stalactites hang from the roof and stalagmites grow up from the floor. Dripping water loses carbon dioxide into the cave air, so calcite precipitates. Real ones typically grow only about a centimetre per century; the falling drops are enlarged."
                 occlude={false}
               />
             </>
@@ -226,7 +250,7 @@ export default function Karst() {
             height={0.07}
           />
           <Tag
-            pos={[-2.1, 2.25, -0.9]}
+            pos={[1.5, 2.2, -0.5]}
             text="Clints and grykes"
             note="Clints are limestone blocks; grykes are the widened joints between them. Joint opening exaggerates the gryke width so you can see it; it is not a calculated dissolution rate."
             occlude={false}
@@ -250,7 +274,7 @@ export default function Karst() {
         {"Water containing dissolved CO₂ can dissolve calcite and enlarge connected openings."}
         <br />
         {cut
-          ? "Cutaway reveals the cave passage; flow tracers are enlarged."
+          ? "Cutaway reveals the cave passage; the dashed water route is schematic and tracers are enlarged."
           : "The front rock face hides the passage; switch on Cutaway to see it."}{" "}
         {"Calcite can precipitate from cave water where carbon dioxide escapes."}
       </ScienceReadout>

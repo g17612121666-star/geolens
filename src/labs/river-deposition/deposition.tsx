@@ -305,13 +305,13 @@ export default function RiverDeposition() {
           {mode === 0 ? (
             <>
               <Tag
-                pos={[-0.3, 0.16, -0.25]}
+                pos={[-0.7, 0.16, -0.1]}
                 text="Point bar"
                 note="Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonised by grass and trees. Spiralling (helicoidal) flow and sediment supply also shape the bar, so surface speed alone does not explain it."
                 occlude={false}
               />
               <Tag
-                pos={[0.7, 0.2, -0.95]}
+                pos={[0.9, 0.26, -1.05]}
                 text="River cliff"
                 note="On the outside of the bend the deepest, fastest flow undercuts the bank, which collapses to leave a steep cliff exposing the floodplain sediments."
                 occlude={false}

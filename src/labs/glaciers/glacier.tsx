@@ -54,8 +54,12 @@ export default function Glaciers() {
         c.lerp(SHATTERED, THREE.MathUtils.smoothstep(above, TRIM - 0.04, TRIM + 0.06));
         c.lerp(SNOW, THREE.MathUtils.smoothstep(y, 1.75 + 0.2 * n, 1.95));
         // Valley floor: outwash gravels beyond the ice, and till on the moraine.
-        if (Math.abs(z) < 0.45 && x > 1.2)
-          c.lerp(OUTWASH, 1 - THREE.MathUtils.smoothstep(above, 0.03, 0.12));
+        c.lerp(
+          OUTWASH,
+          (1 - THREE.MathUtils.smoothstep(above, 0.03, 0.12)) *
+            (1 - THREE.MathUtils.smoothstep(Math.abs(z), 0.3, 0.5)) *
+            THREE.MathUtils.smoothstep(x, 1.0, 1.4),
+        );
         if (moraine(x, z) > 0.02) c.lerp(TILL, 0.8);
         return c.getStyle();
       },
@@ -105,8 +109,8 @@ export default function Glaciers() {
                     a = icePosition(s, 0.15 * Math.sin(i * 7), length);
                   return (
                     <mesh key={i} position={[a[0], a[1] + 0.018, a[2]]}>
-                      <sphereGeometry args={[0.018, 8, 6]} />
-                      <meshBasicMaterial color="#f5efe0" />
+                      <sphereGeometry args={[0.024, 8, 6]} />
+                      <meshBasicMaterial color="#c0602a" />
                     </mesh>
                   );
                 })}
@@ -136,7 +140,7 @@ export default function Glaciers() {
                 size={0.035}
                 color="#948c7e"
               />
-              <Arrow from={[-1.8, 1.6, 0]} to={[-0.2, 1.1, 0]} color="#e1bc84" width={1} />
+              <Arrow from={[-1.8, 1.6, 0]} to={[-0.2, 1.1, 0]} color="#e1bc84" width={2.5} />
               {showIce && (
                 <>
                   <Line
@@ -156,7 +160,16 @@ export default function Glaciers() {
                       return [p[0], p[1] + 0.35, p[2] + 0.2] as [number, number, number];
                     })()}
                     text="Equilibrium line"
-                    note="Above this line more snow accumulates each year than melts (accumulation zone); below it melting and calving exceed snowfall (ablation zone). The balance between the two decides whether the snout advances or retreats."
+                    note="Above this line more snow accumulates each year than melts (accumulation zone); below it melting exceeds snowfall (ablation zone). The balance between the two decides whether the snout advances or retreats."
+                    occlude={false}
+                  />
+                  <Tag
+                    pos={(() => {
+                      const p = icePosition(0.97, 0, length);
+                      return [p[0], p[1] + 0.3, p[2] + 0.45] as [number, number, number];
+                    })()}
+                    text="Snout"
+                    note="The lower end of the glacier, also called the terminus. Ice keeps arriving here from up-valley; the snout retreats when melting removes ice faster than it arrives."
                     occlude={false}
                   />
                 </>
@@ -168,13 +181,13 @@ export default function Glaciers() {
                 occlude={false}
               />
               <Tag
-                pos={[-0.5, 2.0, 2.0]}
+                pos={[0.6, 2.0, -2.0]}
                 text="U-shaped trough"
                 note="Abrasion and plucking by debris-laden ice widen and deepen the valley. Switch off Ice to see the bed; the model does not simulate how fast the valley was eroded."
                 occlude={false}
               />
               <Tag
-                pos={[2.8, 0.3, 0.7]}
+                pos={[2.75, 0.45, -0.95]}
                 text="Earlier moraine"
                 note="This ridge marks an earlier ice margin, where unsorted debris built up while the snout stayed in roughly one place. Even while the glacier retreats, its ice still flows down-valley."
                 occlude={false}
