@@ -7978,7 +7978,7 @@
       ],
       "why": [
         "Rock layers may bend into folds or break and move along faults. Layer age, orientation and relative movement help distinguish structures that can look similar from one viewing angle.",
-        "Choose Normal fault and name the hanging wall before pressing Play. Choose Reverse fault to see the opposite slip, then Strike-slip fault to see sideways movement.",
+        "The type of stress decides the structure. Compression shortens the crust: rock that deforms slowly, often when warm and deeply buried, bends into folds, while colder, brittle rock breaks along reverse faults where the hanging wall moves up. Tension stretches the crust, so the hanging wall slides down a normal fault. Where blocks are pushed past each other sideways, a strike-slip fault forms with mostly horizontal movement.",
         "The deformation is set in advance to show the structure; the model does not calculate stresses or when rocks break."
       ],
       "glossary": [
@@ -8136,10 +8136,10 @@
         {
           "prompt": "A barchan’s horns point…",
           "choices": [
-            "Upwind",
-            "Downwind",
-            "Always north",
-            "To the sea only"
+            "Upwind, into the oncoming wind",
+            "Downwind, the way the wind blows",
+            "Across the wind, at right angles",
+            "Towards the nearest supply of sand"
           ],
           "answer": 1,
           "explain": "A barchan forms under a dominant wind direction with a limited sand supply. Its thinner margins move faster than the thicker centre, extending the horns downwind."
@@ -8180,7 +8180,7 @@
       ],
       "why": [
         "Wind transports particles by suspension, saltation and surface creep. Where sand supply and wind conditions allow accumulation, deposition builds dunes whose shapes reflect transport and local obstacles.",
-        "Change Dune position, then compare Barchan dune with Yardang ridges. Play shows enlarged grains moving downwind.",
+        "Erosion and deposition make different landforms. Where loose sand is plentiful but limited, saltating grains climb the gentle windward slope, cross the crest and avalanche down the steep slip face, so the whole dune creeps downwind and its thinner horns move fastest. Where the ground is rock, sand-laden wind abrades it and deflation removes the loosened debris, carving streamlined yardang ridges aligned with the wind.",
         "The examples show selected forms and transport directions; dune migration speed requires additional wind and sediment evidence."
       ],
       "glossary": [
@@ -8280,7 +8280,13 @@
             "min": 0,
             "max": 1,
             "step": 0.02,
-            "default": 0.4
+            "default": 0.4,
+            "showWhen": {
+              "key": "feature",
+              "values": [
+                0
+              ]
+            }
           }
         ]
       },
@@ -8313,7 +8319,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Choose several pathways, including a metamorphism path (no melting) and a melting path."
+          "body": "Use Material pathway (or click a bead on an arc) to try several routes, including a metamorphism path (no melting) and a melting path. Then move Selected temperature and Selected pressure and read whether those conditions suit the route."
         },
         {
           "id": "explain",
@@ -8374,7 +8380,7 @@
       ],
       "why": [
         "Rocks can change through melting, crystallisation, weathering, deposition, burial and metamorphism. These processes form a network of possible routes rather than a compulsory journey through every rock type.",
-        "Choose several pathways, including a metamorphism path (no melting) and a melting path.",
+        "Each route needs its own conditions. Weathering and deposition happen at the surface; burial compacts and cements sediment; deeper and hotter rock recrystallises while still solid (metamorphism); only when it is hot enough for part of the rock to melt does a route lead to magma, which must cool to become igneous rock again.",
         "The pathways connect processes at different depths and timescales; the animation does not assign one duration to the whole cycle."
       ],
       "glossary": [
@@ -8428,7 +8434,7 @@
         }
       ],
       "teacher": {
-        "script": "Identify three rock groups, loose sediment and magma.\n\nChoose several pathways, including a metamorphism path (no melting) and a melting path.",
+        "script": "Ask students to identify the three rock groups, loose sediment and magma, and to follow the arrow on each arc to see which way a change runs.\n\nCompare a metamorphism route with a melting route, then set temperature and pressure for each. Students should find that metamorphism needs heat and pressure below melting, while the melting routes need roughly 650 °C or more, depending on the rock and its water content.",
         "pitfalls": [
           "Distinguish molten material from igneous rock, which forms after the melt cools and solidifies.",
           "Explain that some metamorphic rocks are foliated while others are not.",
@@ -8507,7 +8513,7 @@
             "max": 1200,
             "step": 20,
             "unit": " °C",
-            "default": 500
+            "default": 900
           },
           {
             "key": "pressure",
@@ -8611,7 +8617,7 @@
       ],
       "why": [
         "A soil profile exposes horizons formed by organic inputs, weathering and material movement. Their colours and textures can provide clues, but not every soil contains every horizon.",
-        "Choose Mollisol example and compare its thick, dark topsoil. Then choose Oxisol example and discuss its gradual boundaries and intense weathering.",
+        "Under grassland, dense roots grow and die deep in the soil and soil organisms mix their remains with mineral grains, so a Mollisol builds a thick, dark A horizon. In an Oxisol, long and intense chemical weathering in warm, wet conditions has broken down most minerals and leached nutrients, leaving a thick red subsoil rich in iron and aluminium oxides with gradual boundaries.",
         "The selected profiles are examples; identifying a soil order also requires diagnostic properties beyond a colour match."
       ],
       "glossary": [
@@ -8646,6 +8652,14 @@
         {
           "term": "Oxisol",
           "def": "A deeply weathered soil order common in humid tropical regions, typically rich in iron and aluminium oxides. Long weathering and leaching can leave a low supply of readily available nutrients. A red colour alone is insufficient for classification."
+        },
+        {
+          "term": "Bw / Bo horizon",
+          "def": "A subsoil (B) horizon. Bw is weathered in place, changed in colour or structure but with little added material; Bo is a deeply weathered oxic horizon rich in iron and aluminium oxides, typical of old tropical soils."
+        },
+        {
+          "term": "C horizon",
+          "def": "Loose or partly weathered parent material below the soil, little changed by soil-forming processes. Hard bedrock beneath it is called R."
         }
       ],
       "misconception": {
@@ -8742,7 +8756,7 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Read the sand, silt and clay axes and locate the selected mixture in the texture triangle. Check that its fractions add to 100%."
+          "body": "Read the sand, silt and clay axes (sand along the base, clay up the left edge, silt down the right edge) and locate the selected mixture in the texture triangle. Check that its fractions add to 100%."
         },
         {
           "id": "tinker",
@@ -8752,7 +8766,7 @@
         {
           "id": "explain",
           "title": "Explain",
-          "body": "Explain why changing one particle-size fraction requires at least one of the other fractions to change."
+          "body": "Explain why changing one particle-size fraction requires at least one of the other fractions to change. Then predict whether a sand or a clay soil drains faster, and explain why using particle and pore size."
         },
         {
           "id": "check",
@@ -8808,7 +8822,7 @@
       ],
       "why": [
         "Soil texture describes the proportions of sand, silt and clay. These fractions sum to 100%, and their mixture influences properties such as water retention and drainage.",
-        "Change Sand % and Clay % and follow the point between texture classes; silt makes up the rest. Explain how the particle sizes differ, then distinguish texture from soil structure.",
+        "Sand grains are far larger than clay plates, so sandy soils have large pores that drain quickly and hold little water, while clay-rich soils have tiny pores that hold water tightly and drain slowly. Because the fractions must total 100%, raising one fraction always lowers another and moves the point towards that fraction's corner.",
         "Texture is one influence on soil behaviour; structure, organic matter and compaction also affect water movement."
       ],
       "glossary": [
@@ -8987,8 +9001,8 @@
       ],
       "why": [
         "Weathering changes rock in place. Freezing water, chemical dissolution and biological activity can weaken it through different mechanisms, often acting together before erosion transports the material.",
-        "Choose Carbonate dissolution and read the reaction and the mass totals. Then choose Root growth and name its mechanical and chemical effects.",
-        "The masses and volumes shown are conserved, but the animations do not calculate how fast weathering happens."
+        "Freezing water and growing roots push joint walls apart, breaking rock physically without changing its minerals. Carbonic acid instead reacts with calcite, so the solid shrinks while the same mass of calcium carbonate is carried away in solution as dissolved ions.",
+        "The water and calcite masses shown are conserved, but the volume of water grows by about 9% as it freezes. The animations do not calculate how fast weathering happens."
       ],
       "glossary": [
         {
@@ -9146,11 +9160,11 @@
           "explain": "Detachment releases sediment from the soil, but that sediment may remain in motion or settle within the plot. Export counts only the material that crosses the plot boundary."
         },
         {
-          "prompt": "The 85% reduction in this covered example is…",
+          "prompt": "The 85% reduction in detachment on the covered plot is…",
           "choices": [
             "A universal vegetation constant.",
             "A measured Dust Bowl value.",
-            "An invented coefficient for a controlled comparison.",
+            "A value chosen for this model.",
             "A guaranteed erosion-control outcome."
           ],
           "answer": 2,
@@ -9170,7 +9184,7 @@
       ],
       "why": [
         "Raindrops and flowing water can detach and carry soil. Ground cover reduces exposure and can slow transport, while deposited sediment remains within the catchment until it moves again.",
-        "Press Play or drag Process and compare the two plots. Then switch on Dry wind transport.",
+        "Detachment and export are separate steps. Raindrop impact, runoff or wind first loosens soil; that sediment then spends time in transport, moving downslope or settling for a while, before some of it crosses the plot edge. Export therefore lags behind detachment, and the in-transport store holds the difference.",
         "The selected sediment budget is a classroom comparison; local erosion rates require evidence about rainfall, soil and land management."
       ],
       "glossary": [
@@ -9359,7 +9373,7 @@
       ],
       "why": [
         "An earthquake releases energy when rock slips along a fault. The focus is the source at depth and the epicentre lies above it; different seismic waves transmit the disturbance through and along Earth.",
-        "Drag the Process slider past both arrivals and read the times. Increase Focus depth, then explain why the ray path gets longer.",
+        "P-waves travel faster than S-waves (about 6 km/s against 3.5 km/s here), so the P-wave always reaches a seismometer first and the gap between the two arrivals grows with distance. A deeper focus makes the path from focus to station longer, so both waves arrive later and the S–P gap widens.",
         "The model shows how each wave type travels; real shaking and damage also depend on the source, distance, ground and buildings."
       ],
       "glossary": [
@@ -9450,7 +9464,7 @@
       },
       "modelNotes": [
         "P-wave fronts spread at 6 km/s and S-wave fronts at 3.5 km/s.",
-        "The Process slider covers 25 seconds; play it or drag it, and change Focus depth.",
+        "The Process slider covers 30 seconds; play it or drag it, and change Focus depth.",
         "Compare P and S arrivals at the station 50 km horizontally from the epicentre; the straight-ray distance is √(depth² + 50²).",
         "The violet surface-wave ring is simplified: it starts when the S-wave first reaches the epicentre and then travels at 3.2 km/s."
       ]
@@ -9543,7 +9557,7 @@
       ],
       "why": [
         "Magma composition, gas content and the conditions of ascent influence eruption style. Comparing volcano shapes links these processes to lava flows, ash layers and how a volcano is built up over time.",
-        "Use the Cutaway slider to find the conduit and magma chamber. Then turn on Fissure vents: a fissure is a crack in the ground, not a type of magma.",
+        "Magma collects in a chamber in the crust and rises through a conduit or crack because it is less dense than the rock around it. As it nears the surface the pressure falls and dissolved gas forms bubbles. In runny basalt the bubbles escape easily, so lava flows or fountains; in sticky, silica-rich magma they are trapped until the magma shatters into ash. A large gas supply can make even basalt erupt explosively.",
         "The eruptions shown illustrate a few processes; a volcano’s shape alone cannot predict its next eruption."
       ],
       "glossary": [
@@ -9716,7 +9730,7 @@
             "The Moon’s pull is stronger near land",
             "Its speed increases in shallow water",
             "Onshore winds push it higher",
-            "Shoaling: it slows and grows in shallow water"
+            "Slowing bunches its energy into a taller wave"
           ],
           "answer": 3,
           "explain": "As a tsunami enters shallower water, it slows and its wavelength shortens. Its height can increase through shoaling, with the final coastal response also shaped by refraction, seabed geometry and energy loss."
@@ -9735,7 +9749,7 @@
       ],
       "why": [
         "A tsunami has a long wavelength and travels faster in deeper water. As it crosses into shallower water, it slows and its amplitude can increase as energy is concentrated into a smaller depth.",
-        "Read the wave’s speed in deep water and again in shallow water. Use the chart, drawn in metres, to compare wave heights.",
+        "Long-wave speed depends only on water depth: c = √(g h). In 4000 m of water a tsunami travels at about 200 m/s, as fast as a jet airliner; on a 100 m shelf it slows to about 30 m/s. The back of the wave, still in deeper water, catches up with the front, so the wavelength shortens and the same energy is squeezed into a shorter wave, which grows taller.",
         "This long-wave calculation ends offshore and excludes breaking, run-up and inundation on land."
       ],
       "glossary": [
@@ -9804,15 +9818,15 @@
           "label": "USGS"
         },
         {
-          "label": "NOAA tsunami propagation",
+          "label": "NOAA NCEI historical tsunami database",
           "href": "https://www.ncei.noaa.gov/products/natural-hazards/tsunamis-earthquakes-volcanoes/tsunamis/global-historical-data"
         }
       ],
       "controls": {},
       "modelNotes": [
         "The travelling stage starts with a set 20-minute wave packet with a 0.5 m amplitude in deep water.",
-        "Along a 500 km transect, depth declines gradually from 4000 m to 100 m.",
-        "In the first 15% of Process the seafloor rises by up to 1 m and lifts the water above it; the gold arrow shows the direction, enlarged.",
+        "Along a 500 km transect, depth stays at 4000 m for the first 180 km, then declines smoothly to 100 m.",
+        "In the first 15% of Process the seafloor rises by up to 1 m and lifts the water above it; the gold block and arrow show the uplift, enlarged. The hump then splits into two waves of about half its height, and the model follows the one heading for the coast (0.5 m).",
         "In the teaching view depth is enlarged ×20 and wave height a further ×600; Physical scale shows both at true scale.",
         "Gradually varying depth, no reflection and no lateral spreading are strong assumptions; the transect ends in 100 m water before the coast."
       ]

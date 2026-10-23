@@ -2,6 +2,14 @@ import { useEffect, useLayoutEffect, useMemo } from "react";
 import * as THREE from "three";
 import { cloudVertex, cloudFragment } from "../shared/cloud-material";
 
+// The same volume with a multiplying tint, e.g. grey-brown for volcanic ash instead of water cloud.
+const tintedFragment = cloudFragment
+  .replace("uniform float seed;", "uniform float seed; uniform vec3 tint;")
+  .replace(
+    "gl_FragColor=vec4(colour/max(alpha,.001),alpha);",
+    "gl_FragColor=vec4(colour/max(alpha,.001)*tint,alpha);",
+  );
+
 const random = (n: number) => {
   const value = Math.sin(n * 127.1 + 311.7) * 43758.5453;
   return value - Math.floor(value);
@@ -13,16 +21,23 @@ export function CloudVolume({
   seed = 1,
   density: _density = 64,
   opacity = 0.62,
+  tint = "#ffffff",
 }: {
   position?: [number, number, number];
   scale?: [number, number, number];
   seed?: number;
   density?: number;
   opacity?: number;
+  /** Multiplies the cloud colour; white keeps condensed-water cloud. */
+  tint?: string;
 }) {
   const uniforms = useMemo(
-    () => ({ seed: { value: seed }, opacity: { value: opacity } }),
-    [seed, opacity],
+    () => ({
+      seed: { value: seed },
+      opacity: { value: opacity },
+      tint: { value: new THREE.Color(tint) },
+    }),
+    [seed, opacity, tint],
   );
   // Integrate density through a bounded volume: cloud droplets scatter light,
   // with a flatter condensation base and brighter sun-facing billows.
@@ -32,7 +47,7 @@ export function CloudVolume({
         <boxGeometry args={[2, 1.4, 1.5]} />
         <shaderMaterial
           vertexShader={cloudVertex}
-          fragmentShader={cloudFragment}
+          fragmentShader={tintedFragment}
           uniforms={uniforms}
           transparent
           depthWrite={false}
