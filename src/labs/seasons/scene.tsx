@@ -129,10 +129,8 @@ export default function Seasons() {
         {!close &&
           [0, 0.25, 0.5, 0.75].map((v, i) => {
             // Each label sits outside the orbit, clear of Earth when it reaches that direction.
-            const r = [2.65 * (1 - ecc), 2.65 * (1 - ecc * ecc), 2.65 * (1 + ecc)][
-              i % 2 ? 1 : i / 2
-            ];
-            const out = r + (compact ? [1.2, 1.0, 1.2, 1.15] : [2.2, 1.1, 2.6, 1.25])[i];
+            const r = 2.65 * [1 - ecc, 1 - ecc * ecc, 1 + ecc, 1 - ecc * ecc][i];
+            const out = r + (compact ? [1.55, 1.4, 1.55, 1.4] : [2.2, 1.1, 2.6, 1.25])[i];
             const dir = orbitPosition(v, 0, 1);
             const names = [
               "March equinox",

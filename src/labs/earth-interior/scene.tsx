@@ -345,6 +345,8 @@ function Layer({
             ]}
             color={l.color}
             lineWidth={1}
+            depthTest={false}
+            renderOrder={5}
           />
           <Tag
             pos={[1.05, (1.5 - index) * 0.48, -1.2]}
@@ -527,6 +529,7 @@ export default function EarthInterior() {
             ))}
           </div>
         )}
+        {waves && slice <= 0.05 && "Open the Cutaway to see the wave paths. "}
         {waves
           ? "Blue P waves pass through solid and liquid layers; amber S waves stop at the liquid outer core. Press Play to follow their motion."
           : "Earth's radius is 6,371 km. The outer-core boundary lies 3,480 km from the centre, and the inner core has a radius of 1,221 km."}

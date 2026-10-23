@@ -57,8 +57,10 @@ export default function Contours() {
     () =>
       lines
         .filter((l) => l.height % labelStep === 0 && l.height < hillHeight(...SUMMIT))
-        .map((l, i) => ({ height: l.height, at: alongLabelRay(l.height, LABEL_RAYS[i % 2]) })),
-    [lines, labelStep],
+        .map((l, i) => ({ height: l.height, at: alongLabelRay(l.height, LABEL_RAYS[i % 2]) }))
+        // Leave room for the clicked-height tag.
+        .filter((l) => Math.hypot(l.at[0] - spot[0], l.at[1] - spot[1]) > 0.35),
+    [lines, labelStep, spot],
   );
   const sampled = hillHeight(...spot);
   const profile = useMemo(
@@ -225,12 +227,12 @@ export default function Contours() {
 const VALLEY: [number, number] = [-0.2, 1.25];
 const SPUR: [number, number] = [1.4, -0.8];
 /**
- * Contour labels alternate between two smooth slopes west of the summit where height falls
- * steadily, so neighbouring labels never sit on top of each other.
+ * Contour labels alternate between two smooth slopes east and west of the summit where height
+ * falls steadily, so neighbouring labels do not sit on top of each other.
  */
 const LABEL_RAYS: [number, number][] = [
+  [0.95, 0.3],
   [-0.82, 0.56],
-  [-0.6, -0.8],
 ];
 function alongLabelRay(level: number, dir: [number, number]): [number, number] {
   const len = Math.hypot(dir[0], dir[1]),
