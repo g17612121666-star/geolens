@@ -189,7 +189,8 @@ function SurfaceRing({
 export default function Earthquakes() {
   const { t, params, trueScale } = useLabControls();
   useLabTick(1 / 45);
-  const seconds = t * 25,
+  // 30 s lets the surface wave reach the station even from the deepest focus (about 27 s at 40 km).
+  const seconds = t * 30,
     depth = params.depth ?? 20,
     d = depth * KM,
     w = waveExperiment(seconds, depth),
