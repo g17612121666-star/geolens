@@ -152,13 +152,13 @@ function Track({
   setting,
   z,
   t,
-  lift = 0,
+  stacked = false,
 }: {
   setting: Setting;
   z: number;
   t: number;
-  /** Raises this section's labels so two stacked sections do not overlap. */
-  lift?: number;
+  /** Both sections are shown: spread the labels so they do not overlap. */
+  stacked?: boolean;
 }) {
   const { continental, top, plateBase } = setting;
   const height = useMemo(() => plateHeight(setting), [setting]);
@@ -172,7 +172,7 @@ function Track({
   // The old vent dies as the plate carries it off the plume; a new one starts above the plume.
   const dying = 1 - THREE.MathUtils.smoothstep(shift, 0.18, 0.45),
     newborn = THREE.MathUtils.smoothstep(shift, 0.3, 0.65),
-    tagLift = lift;
+    tagLift = stacked && !continental ? 0.45 : 0;
   const plateUniforms = useSectionUniforms({
     uContinental: continental ? 1 : 0,
     uTop: top,
@@ -334,16 +334,18 @@ function Track({
         to={[1.6, (continental ? top : SEA) + 1.15, 0]}
         color="#d7bc88"
       />
-      <Tag
-        pos={[0.1, (continental ? top : SEA) + 1.27 + tagLift, 0]}
-        text={continental ? "Plate moves SW" : "Plate moves NW"}
-        note={
-          continental
-            ? "The North American Plate moves southwest relative to the Yellowstone heat source, so the active centre appears to migrate northeast."
-            : "The Pacific Plate moves northwest relative to the Hawaiian heat source, carrying each volcano away from the place where it formed."
-        }
-        occlude={false}
-      />
+      {!stacked && (
+        <Tag
+          pos={[0.1, (continental ? top : SEA) + 1.27 + tagLift, 0]}
+          text={continental ? "Plate moves SW" : "Plate moves NW"}
+          note={
+            continental
+              ? "The North American Plate moves southwest relative to the Yellowstone heat source, so the active centre appears to migrate northeast."
+              : "The Pacific Plate moves northwest relative to the Hawaiian heat source, carrying each volcano away from the place where it formed."
+          }
+          occlude={false}
+        />
+      )}
       <Tag
         pos={[-2.2, (continental ? top : SEA) + 1.3 + tagLift, -0.6]}
         text={continental ? "Yellowstone · NE" : "Hawaiʻi · SE"}
@@ -364,7 +366,7 @@ function Track({
         }
         occlude={false}
       />
-      {!continental && newborn > 0.5 && (
+      {!continental && !stacked && newborn > 0.5 && (
         <Tag
           pos={[PLUME_X, top + 0.45 + tagLift * 0.5, 0]}
           text="New seamount"
@@ -373,7 +375,7 @@ function Track({
           occlude={false}
         />
       )}
-      {!continental && (
+      {!continental && !stacked && (
         <Tag
           pos={[PLUME_X + 3 * SPACING + shift, SEA + 0.25 + tagLift * 0.5, 0]}
           text="Atoll"
@@ -407,8 +409,8 @@ export default function Hotspots() {
         scale="Separate hotspot sections · track directions are real · relief, plate and plume not to scale"
         trueScale="No true depth or distance scale · plate thickness and plume are schematic"
       >
-        {hawaii && <Track setting={OCEAN} z={both ? -1.25 : 0} t={t} lift={both ? 0.45 : 0} />}
-        {yellowstone && <Track setting={LAND} z={both ? 1.25 : 0} t={t} />}
+        {hawaii && <Track setting={OCEAN} z={both ? -1.25 : 0} t={t} stacked={both} />}
+        {yellowstone && <Track setting={LAND} z={both ? 1.25 : 0} t={t} stacked={both} />}
         {!hawaii && !yellowstone && (
           <Tag
             pos={[0, 0, 0]}

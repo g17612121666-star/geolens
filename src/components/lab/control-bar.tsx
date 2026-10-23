@@ -67,8 +67,9 @@ export function ControlBar({
             ? lab.slug === "eclipses" && params.shadow > 0.5
               ? "Transit"
               : "Month"
-            : lab.controls.time === "none"
-              ? "Process"
+            : // In the energy budget, time only moves the flow arrows; nothing physical changes.
+              lab.slug === "energy-budget"
+              ? "Animation"
               : "Process";
 
   return (

@@ -271,7 +271,7 @@ export default function SeafloorSpreading() {
           occlude={false}
         />
         <Tag
-          pos={[vents[0][0] + 0.95, vents[0][1] + 0.05, vents[0][2] - 0.1]}
+          pos={[vents[0][0] + 1.5, vents[0][1] + 0.45, vents[0][2]]}
           text="Black smokers"
           note="Seawater circulates through hot new crust and vents as mineral-rich fluid at up to about 400 °C. Chimney size is exaggerated."
           occlude={false}

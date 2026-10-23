@@ -99,8 +99,9 @@ export default function EnergyBudget() {
           phase={t}
         />
         <Flux
-          from={[0.65, -0.55, 0.3]}
-          to={[0.65, greenhouse ? 0.8 : 2.3, 0.3]}
+          // Starts on the globe's surface (x = 0.65 lies beyond the globe's edge).
+          from={[0.45, -0.74, 0.3]}
+          to={[0.45, greenhouse ? 0.8 : 2.3, 0.3]}
           value={b.surfaceUp}
           color="#e6a085"
           phase={t}

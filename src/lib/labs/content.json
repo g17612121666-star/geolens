@@ -2110,8 +2110,8 @@
       ],
       "why": [
         "Distances within the Solar System are commonly measured in astronomical units; distances between stars are more conveniently measured in light-years. Changing scale helps separate an object’s size from its distance away.",
-        "Switch to physical scale, then use Distance comparison to jump to the Sun–Earth reference and the nearest stellar neighbour.",
-        "A logarithmic view makes large ranges readable, but equal screen distances in that view do not represent equal physical distances."
+        "Light crosses the mean Earth–Moon distance in about 1.28 seconds and 1 AU in about 499 seconds (8.3 minutes), but takes about 4.24 years to reach Proxima Centauri. Because light travels at a fixed speed in a vacuum, each travel time is a direct measure of distance.",
+        "Each comparison uses its own straight-line (linear) scale, so the same screen gap stands for 384,400 km in one view and about 40 trillion km in another. In teaching scale the bodies are enlarged so they can be seen; in physical scale they shrink to dots, showing that the gaps between bodies are far larger than the bodies themselves."
       ],
       "glossary": [
         {
@@ -2145,13 +2145,13 @@
         }
       ],
       "misconception": {
-        "claim": "Equal gaps on a logarithmic distance display represent equal physical distances.",
-        "truth": "On a logarithmic scale, equal displayed intervals represent equal ratios rather than equal additions. Moving one interval might multiply the distance by ten. Read the distance labels and distinguish the size of a displayed object from the much larger separation between objects."
+        "claim": "A light-year is a length of time, so a star 4.24 light-years away is about time rather than distance.",
+        "truth": "A light-year is a distance: how far light travels in one Julian year, about 9.46 trillion km. Proxima Centauri is about 4.24 light-years away, so its light takes about 4.24 years to reach us; the travel time is how the distance is defined, not the quantity being measured."
       },
       "misconceptions": [
         {
-          "claim": "Equal gaps on a logarithmic distance display represent equal physical distances.",
-          "truth": "On a logarithmic scale, equal displayed intervals represent equal ratios rather than equal additions. Moving one interval might multiply the distance by ten. Read the distance labels and distinguish the size of a displayed object from the much larger separation between objects."
+          "claim": "A light-year is a length of time, so a star 4.24 light-years away is about time rather than distance.",
+          "truth": "A light-year is a distance: how far light travels in one Julian year, about 9.46 trillion km. Proxima Centauri is about 4.24 light-years away, so its light takes about 4.24 years to reach us; the travel time is how the distance is defined, not the quantity being measured."
         }
       ],
       "cases": [
@@ -2287,7 +2287,7 @@
           "explain": "Pangaea assembled during the late Palaeozoic and began breaking apart during the Mesozoic. These events occurred billions of years after Earth formed."
         },
         {
-          "prompt": "Human history on this spiral is…",
+          "prompt": "Human history on this coil is…",
           "choices": [
             "About half the spiral",
             "The whole final coil",
@@ -2311,7 +2311,7 @@
       ],
       "why": [
         "Earth’s history spans about 4.54 billion years. Placing events on a proportional timeline shows how recent human history is and why a short interval near the present can hide much older events.",
-        "Move towards the present, then switch Time window to Phanerozoic or Quaternary.",
+        "Equal distance along the coil always stands for equal time, so the long Precambrian fills most of the full window. Choosing a shorter window stretches recent time along the coil and reveals events that are crowded together near the present; it does not change how long any interval lasted.",
         "The timeline is a scale for comparing ages; event dates have different uncertainties and should not all be read as equally precise."
       ],
       "glossary": [
@@ -2342,8 +2342,8 @@
           "def": "The Cretaceous–Palaeogene boundary, about 66 million years ago, marking a major mass extinction associated with the Chicxulub impact and wider environmental change."
         },
         {
-          "term": "Log spiral",
-          "def": "A spiral whose radius grows exponentially with angle. A geological-time display can use such a layout, but its labels must state how time is mapped to distance."
+          "term": "Time coil",
+          "def": "A timeline wound into a helix to save space. In this lab every turn has the same radius and equal distance along the coil means equal time; turns that sit next to each other are not close in time."
         },
         {
           "term": "Precambrian",
@@ -2457,7 +2457,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "With Shadow close-up on, set Eclipse close-up to Lunar and Node direction to 0°. Drag the Transit slider through the shadow. Then choose Solar and compare the nearest and farthest Moon distance."
+          "body": "With Shadow close-up on, set Eclipse close-up to Lunar — full Moon and Node direction to 0°. Drag the Transit slider through the shadow. Then choose Solar — new Moon and compare the nearest and farthest Moon distance: is the Moon's umbra long enough to reach Earth?"
         },
         {
           "id": "explain",
@@ -2496,10 +2496,10 @@
         {
           "prompt": "A lunar eclipse needs…",
           "choices": [
-            "New Moon plus a node",
-            "Any crescent",
-            "Full Moon plus a node",
-            "Perihelion only"
+            "New Moon close to an orbital node",
+            "Any full Moon, wherever the Moon is",
+            "Full Moon close to an orbital node",
+            "First quarter close to an orbital node"
           ],
           "answer": 2,
           "explain": "At full Moon, Earth lies between the Sun and Moon. A lunar eclipse also requires the Moon to pass near a node so that it enters Earth's shadow."
@@ -2507,9 +2507,9 @@
         {
           "prompt": "At full Moon away from an orbital node, what normally happens?",
           "choices": [
-            "A lunar eclipse every time",
-            "A solar eclipse instead of a lunar one",
-            "A partial lunar eclipse every time",
+            "A lunar eclipse, because the Moon is full",
+            "A solar eclipse, because the Moon is aligned",
+            "A partial lunar eclipse, because the orbit is tilted",
             "Usually a miss: the Moon passes above or below the shadow"
           ],
           "answer": 3,
@@ -2518,7 +2518,7 @@
       ],
       "why": [
         "An eclipse requires the Sun, Earth and Moon to align closely enough for one body to enter another’s shadow. The Moon’s orbital tilt usually carries it above or below the necessary alignment.",
-        "With Shadow close-up on, set Eclipse close-up to Lunar and Node direction to 0°. Drag the Transit slider through the shadow. Then choose Solar and compare the nearest and farthest Moon distance.",
+        "Distance matters for solar eclipses. Near its closest point the Moon looks slightly larger than the Sun, so its umbra reaches Earth and the eclipse can be total. Near its farthest point the Moon looks slightly smaller than the Sun, the umbra ends before reaching Earth, and a ring of Sun stays visible: an annular eclipse.",
         "The shadow experiment isolates alignment and angular size; it is not a calendar of future eclipses."
       ],
       "glossary": [
@@ -2674,7 +2674,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Pause at New Moon or Full Moon, then at Quarter Moon, and compare the blue tidal lobes. Describe the difference between spring and neap tides."
+          "body": "Drag the Month slider to New Moon or Full Moon, then to Quarter Moon. Compare the blue tidal lobes and the relative range in the readout, then describe the difference between spring and neap tides."
         },
         {
           "id": "explain",
@@ -2713,7 +2713,7 @@
         {
           "prompt": "Neap tides are…",
           "choices": [
-            "The largest tidal range",
+            "The smallest range, occurring only in winter",
             "The largest range, at new and full Moon",
             "The smallest range, Sun and Moon at right angles",
             "Tides caused by onshore winds"
@@ -2735,7 +2735,7 @@
       ],
       "why": [
         "The Moon’s gravitational attraction varies across Earth, creating a tide-generating effect with two broad bulges. The Sun also contributes: aligned effects produce spring tides, while roughly perpendicular effects produce neap tides.",
-        "Pause at New Moon or Full Moon, then at Quarter Moon, and compare the blue tidal lobes. Describe the difference between spring and neap tides.",
+        "At new and full Moon the Sun and Moon lie on one line, so their tidal lobes point the same way and add: the range is large (spring tides). At the quarters they are at right angles, so the Sun's lobes fill the Moon's lows: the range is smaller (neap tides), but never zero, because the Moon's effect is about twice the Sun's.",
         "These are equilibrium tides; coastlines, ocean depth and basin resonance strongly affect actual tidal heights and timing."
       ],
       "glossary": [
@@ -2898,7 +2898,7 @@
       ],
       "why": [
         "Solar altitude is the Sun’s angle above the horizon. It changes through the day and year, while latitude determines how high the Sun can climb and whether it rises or sets at all.",
-        "Change Latitude and the Year slider, then compare the highest solar altitude and length of daylight. Find the longest and shortest days the model allows.",
+        "Earth’s axis is tilted by about 23.4°, so the Sun’s declination moves between about 23.4° N and 23.4° S during the year. When the Sun is over your own hemisphere its path is higher and longer, giving longer days; in your winter the path is lower and shorter. The further a place is from the equator, the larger this seasonal swing.",
         "The model shows geometric solar directions; local terrain and atmospheric refraction can change an observed sunrise or sunset."
       ],
       "glossary": [
@@ -3032,7 +3032,7 @@
         {
           "id": "explain",
           "title": "Explain",
-          "body": "Set 250 Ma and turn on Fossil evidence. Where do Mesosaurus, Glossopteris and Lystrosaurus sites sit, and which other evidence would you use to test this arrangement?"
+          "body": "Set 250 Ma and turn on Fossil evidence. Where do the Mesosaurus, Glossopteris, Lystrosaurus and Cynognathus sites sit, and which other evidence would you use to test this arrangement?"
         },
         {
           "id": "check",
@@ -3088,7 +3088,7 @@
       ],
       "why": [
         "Continents move with tectonic plates. Matching geological evidence across oceans helped establish continental drift, and plate reconstructions combine evidence to estimate earlier continental positions.",
-        "Move Ma before present towards 0 and follow India northwards. Use geological evidence as well as coastlines when explaining how earlier positions are reconstructed.",
+        "Plates move only a few centimetres a year, but over tens of millions of years that adds up to thousands of kilometres: India crossed the Tethys Ocean and collided with Eurasia, and the Atlantic opened as the Americas separated from Europe and Africa.",
         "Modern coastlines are moved by a reconstruction model; ancient coastlines also depended on sea level, erosion and sedimentation."
       ],
       "glossary": [
@@ -3214,7 +3214,7 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Find the young and old ends of the Hawaiian track."
+          "body": "Find the young and old ends of the Hawaiian track. Then press Play and watch the plate carry the active volcano away from the plume while a new seamount starts to grow."
         },
         {
           "id": "tinker",
@@ -3269,7 +3269,7 @@
       ],
       "why": [
         "A moving plate can carry older volcanoes away from a long-lived region of melting. Comparing the direction of increasing age along a volcanic track helps explain relative plate motion.",
-        "Turn on Yellowstone and compare the direction in which its volcanoes get older.",
+        "The active volcano sits above the region of melting. As the plate moves, it carries that volcano away, the volcano becomes extinct, cools, subsides and erodes, and a new one forms above the melting region. Volcanoes therefore get older in the direction the plate is moving.",
         "The sections illustrate motion and age direction; they do not calculate eruption dates or reproduce the full structure of a mantle plume."
       ],
       "glossary": [
@@ -3328,7 +3328,7 @@
         }
       ],
       "teacher": {
-        "script": "Find the young and old ends of the Hawaiian track.\n\nTurn on Yellowstone and compare the direction in which its volcanoes get older.",
+        "script": "Start with Hawaiʻi only. Ask students to find the youngest (black, glowing) and oldest (atoll, drowned seamount) ends, then press Play: the plate carries the active volcano away and a new seamount begins over the plume.\n\nTurn on Yellowstone. In both sections the arrow points the way the plate moves, so ask which compass direction that is in each case (northwest for the Pacific Plate, southwest for the North American Plate) and why the older centres lie in that direction.",
         "pitfalls": [
           "Treat the selected hotspot examples as separate volcanic systems rather than one continuous plume.",
           "Describe the warm mantle region as mostly solid material that can produce partial melting.",
@@ -3456,7 +3456,7 @@
       ],
       "why": [
         "New oceanic crust forms at a spreading ridge and moves away on both sides. Its age generally increases with distance, while magnetic stripes record changes in Earth’s magnetic polarity.",
-        "Press Play to run the reversal sequence and follow the paired markers. Compare wide and narrow stripes; reversals do not happen at regular intervals.",
+        "Each strip of new crust keeps the magnetic polarity it had when it cooled at the axis, so the same sequence of stripes is carried out on both flanks. Reversals happen at irregular intervals, so stripe widths vary even when the spreading rate stays the same.",
         "The experiment uses a selected spreading history; real ridges change speed and can spread asymmetrically."
       ],
       "glossary": [
@@ -3640,7 +3640,7 @@
       ],
       "why": [
         "Atmospheric layers are distinguished mainly by how temperature changes with altitude. Most weather occurs in the troposphere, while absorption of ultraviolet radiation helps warm the stratosphere above it.",
-        "Open Temperature profile. At a lapse rate of 6.5 °C/km, the air at 12 km is 15 − 12 × 6.5 = −63 °C. Set the lapse rate to 4 °C/km and check that it becomes 15 − 12 × 4 = −33 °C.",
+        "The troposphere is warmed mainly from the ground below, so its temperature usually falls with height, by about 6.5 °C per kilometre on average. Each layer boundary is where that trend reverses: temperature stops falling at the tropopause, rises through the stratosphere, falls again in the mesosphere and rises in the thermosphere.",
         "Layer boundaries vary with place and season; the atmosphere is drawn thicker so its vertical structure can be inspected."
       ],
       "glossary": [
@@ -3666,7 +3666,7 @@
         },
         {
           "term": "Thermosphere",
-          "def": "The very thin layer above roughly 85 km. Its temperature rises with height as the sparse gas absorbs energetic solar radiation. Much auroral activity occurs here."
+          "def": "The layer of very thin air above roughly 85 km, extending hundreds of kilometres up. Its temperature rises with height as the sparse gas absorbs energetic solar radiation. Much auroral activity occurs here."
         },
         {
           "term": "Radiosonde",
@@ -3828,7 +3828,7 @@
       ],
       "why": [
         "Earth reflects some incoming sunlight and absorbs the rest. Its temperature adjusts as outgoing thermal radiation balances absorbed energy; greenhouse gases change the exchange of thermal radiation.",
-        "Turn Greenhouse return on. Compare what the surface emits with what leaves to space at the top of the atmosphere. Is the top-of-atmosphere balance still zero?",
+        "With Greenhouse return on, the surface receives sunlight plus infrared emitted back down by the layer, so it must emit more, and be warmer, than without the layer. Only part of the surface infrared escapes directly, yet once balance is reached the infrared leaving to space still equals the sunlight absorbed.",
         "This simple model includes only radiation; it leaves out convection, evaporation and weather."
       ],
       "glossary": [

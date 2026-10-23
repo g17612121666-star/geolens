@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Line as PlainLine } from "@react-three/drei";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
 import { EarthMesh, Graticule, CityMarker } from "@/components/globe/earth";
@@ -143,7 +144,11 @@ export function SolarAltitudeScene() {
       selected[1] > 0.005
         ? Math.min(1.72, (0.22 * Math.hypot(selected[0], selected[2])) / selected[1])
         : 0,
-    azimuth = Math.atan2(selected[2], selected[0]);
+    azimuth = Math.atan2(selected[2], selected[0]),
+    altitude = (Math.asin(selected[1] / 1.8) * 180) / Math.PI,
+    noonAltitude = 90 - Math.abs(lat - (declination * 180) / Math.PI),
+    minutes = Math.round(hour * 60) % 1440,
+    clock = `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
   return (
     <>
       <ScienceStudio
@@ -151,7 +156,9 @@ export function SolarAltitudeScene() {
         horizon
         scale="Local sky sphere · horizon and solar path use true angles"
         trueScale="Sky directions are angular · the Sun is drawn larger than its angular diameter"
-        camera={[4, 2.8, 5]}
+        // Look from the poleward side, so the noon Sun is beyond the dial in both hemispheres.
+        key={lat < 0 ? "south" : "north"}
+        camera={[4, 2.8, lat < 0 ? -5 : 5]}
       >
         <SunLight position={selected} />
         <SolarGround />
@@ -185,10 +192,11 @@ export function SolarAltitudeScene() {
           )}
         </group>
         {shadowLength > 0 && (
-          <Line
+          // A plain line: GuideLine lightens dark colours in dark mode, which would make the shadow pale.
+          <PlainLine
             points={[
-              [0, 0.006, 0],
-              [-Math.cos(azimuth) * shadowLength, 0.006, -Math.sin(azimuth) * shadowLength],
+              [0, 0.014, 0],
+              [-Math.cos(azimuth) * shadowLength, 0.014, -Math.sin(azimuth) * shadowLength],
             ]}
             color="#20322b"
             lineWidth={5}
@@ -206,8 +214,8 @@ export function SolarAltitudeScene() {
         <Tag pos={[-2.1, 0, 0]} text="East" occlude={false} />
         <Tag pos={[2.1, 0, 0]} text="West" occlude={false} />
         <Tag
-          pos={[noon[0], noon[1] + 0.3, noon[2]]}
-          text={`Noon ${(90 - Math.abs(lat - (declination * 180) / Math.PI)).toFixed(1)}°`}
+          pos={[noon[0], noon[1] + (noonAltitude < 12 ? 0.55 : 0.3), noon[2]]}
+          text={`Noon ${noonAltitude.toFixed(1)}°`}
           occlude={false}
         />
       </ScienceStudio>
@@ -216,11 +224,12 @@ export function SolarAltitudeScene() {
         {lat.toFixed(1)}
         {"° · daylight "}
         {length.hours.toFixed(2)} {"h at a geometric horizon. Selected local solar time "}
-        {hour.toFixed(1)} {"h; altitude "}
-        {((Math.asin(selected[1] / 1.8) * 180) / Math.PI).toFixed(1)}
-        {
-          "°. The pin's shadow points away from the Sun and is cut off at the edge of the ground. Refraction is ignored."
-        }
+        {clock}
+        {"; altitude "}
+        {altitude.toFixed(1)}
+        {altitude > 0
+          ? "°. The pin's shadow points away from the Sun and is cut off at the edge of the ground. Refraction is ignored."
+          : "°. The Sun is below the horizon, so there is no shadow. Refraction is ignored."}
       </ScienceReadout>
     </>
   );
@@ -361,7 +370,8 @@ function SolarGround() {
   );
 }
 
-/** A stone pedestal with an hour-marked dial plate and a vertical pin gnomon. */
+/** A stone pedestal with a plain dial plate and a vertical pin gnomon. A flat dial with a
+ * vertical pin needs unevenly spaced hour lines, so none are drawn. */
 function Sundial() {
   return (
     <group>
@@ -369,19 +379,6 @@ function Sundial() {
         <cylinderGeometry args={[0.2, 0.2, 0.012, 64]} />
         <meshStandardMaterial color="#c9c0aa" roughness={0.85} />
       </mesh>
-      {Array.from({ length: 24 }, (_, h) => {
-        const a = (h / 24) * Math.PI * 2;
-        return (
-          <mesh
-            key={h}
-            position={[0.17 * Math.cos(a), 0.0135, 0.17 * Math.sin(a)]}
-            rotation={[-Math.PI / 2, 0, -a]}
-          >
-            <planeGeometry args={[h % 6 === 0 ? 0.05 : 0.03, 0.006]} />
-            <meshBasicMaterial color="#5b4f3e" />
-          </mesh>
-        );
-      })}
       <mesh position={[0, 0.12, 0]} castShadow>
         <cylinderGeometry args={[0.012, 0.018, 0.22, 24]} />
         <meshStandardMaterial color="#b08d4a" metalness={0.6} roughness={0.35} />
