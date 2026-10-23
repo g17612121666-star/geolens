@@ -26,10 +26,12 @@ const OLD_FLOWS = [
   { start: 5.3, reach: 0.88, wiggle: 0.05, color: "#4d3d33", width: 0.065 },
 ];
 
-const dims = (v: number) => ({ radius: 2.1 - v * 0.65, height: 0.36 + v * 1.3 });
+/** Teaching heights are about 2.5× the real slopes; "Compare physical scale" removes this. */
+const TRUE_RELIEF = 0.4;
+const dims = (v: number, k = 1) => ({ radius: 2.1 - v * 0.65, height: (0.36 + v * 1.3) * k });
 
 /** Landscape heights: the edifice profile from geometry.ts on a gently rolling plain. */
-function landscape(v: number, fissure: boolean) {
+function landscape(v: number, fissure: boolean, k = 1) {
   const plain = (x: number, z: number) =>
     0.05 * (fbm(x * 0.6 + 4, z * 0.6 - 2) - 0.5) + 0.015 * (fbm(x * 3, z * 3) - 0.5);
   if (fissure)
@@ -48,7 +50,7 @@ function landscape(v: number, fissure: boolean) {
     if (phi < 0) phi += Math.PI * 2;
     const { radius } = dims(v),
       blend = THREE.MathUtils.smoothstep(r, radius * 0.9, radius * 1.15);
-    return Math.max(0, volcanoHeight(v, r, phi, 0)) + blend * plain(x, z) + 0.004;
+    return Math.max(0, volcanoHeight(v, r, phi, 0)) * k + blend * plain(x, z) + 0.004;
   };
 }
 
@@ -75,10 +77,11 @@ function paint(
   h: (x: number, z: number) => number,
   v: number,
   fissure: boolean,
+  k: number,
 ) {
   const p = g.attributes.position,
     c = new Float32Array(p.count * 3),
-    { radius, height } = dims(v),
+    { radius, height } = dims(v, k),
     composite = v >= 0.5;
   const flows = fissure
     ? []
@@ -347,27 +350,30 @@ function LocalClipping() {
 }
 
 export default function Volcanoes() {
-  const { params, slice, t } = useLabControls();
+  const { params, slice, t, trueScale } = useLabControls();
   useLabTick(1 / 9);
   const v = params.visc ?? 0.25,
     gas = params.gas ?? 0.45,
     fissure = params.fissure > 0.5,
     composite = v >= 0.5,
-    { radius, height } = dims(v);
-  const h = useMemo(() => landscape(v, fissure), [v, fissure]);
+    k = trueScale ? TRUE_RELIEF : 1,
+    { radius, height } = dims(v, k);
+  const h = useMemo(() => landscape(v, fissure, k), [v, fissure, k]);
   const cut = slice > 0.001 ? (DEPTH / 2 + 0.1) * (1 - slice) ** 1.5 : SIZE;
   const clip = useMemo(() => [new THREE.Plane(new THREE.Vector3(0, 0, -1), SIZE)], []);
   clip[0].constant = cut;
   const geometry = useMemo(() => {
     const g = terrainBlockGeometry(h, SIZE, DEPTH, 176, BASE);
-    paint(g, h, v, fissure);
+    paint(g, h, v, fissure, k);
     return g;
-  }, [h, v, fissure]);
+  }, [h, v, fissure, k]);
   useEffect(() => () => geometry.dispose(), [geometry]);
-  const energetic = gas * (0.35 + 0.65 * v),
+  // Gas alone can fragment even runny basalt; viscosity lowers the gas needed for an ash plume.
+  const energetic = gas * (0.5 + 0.5 * v),
     plume = energetic > 0.48,
     fountaining = !plume && gas > 0.25 && v < 0.5;
-  const flow = useMemo(() => flowLine(h, radius, 1.6, 1, 0.035), [h, radius]);
+  // Viscous lava cools and stops closer to the vent.
+  const flow = useMemo(() => flowLine(h, radius, 1.6, 1 - 0.5 * v, 0.035), [h, radius, v]);
   const activeFlow = useMemo(
     () => flow.slice(0, Math.max(3, Math.round(3 + t * (flow.length - 3)))),
     [flow, t],
@@ -395,9 +401,13 @@ export default function Volcanoes() {
         scale={
           fissure
             ? "Idealised linear vents · relative geometry · fountains and trees not to scale"
-            : "Idealised forms · relative geometry · cut-away exposes the conduit and magma chamber"
+            : "Idealised forms · heights exaggerated about 2.5× · cut-away exposes the conduit and magma chamber"
         }
-        trueScale="Slope and aspect ratio unchanged · this model has no single real-world size"
+        trueScale={
+          fissure
+            ? "Teaching view unchanged: the fissure plain is already low relief · fountains and trees not to scale"
+            : "Slopes reduced to about real proportions (shields roughly 5–10°, composite cones 15–30°) · magma chamber still schematic"
+        }
         camera={[2.4, 2.6, 6.2]}
       >
         <LocalClipping />
@@ -502,6 +512,19 @@ export default function Volcanoes() {
             text="Magma chamber"
             tone="magma"
             note="Molten and partly crystalline rock collects in the crust below the volcano. Its size and depth here are schematic."
+            occlude={false}
+          />
+        )}
+        {sliced && cut < 0.05 && (
+          <Tag
+            pos={[fissure ? 0.9 : 0.12, -0.42, cut]}
+            text={fissure ? "Feeder dyke" : "Conduit"}
+            tone="magma"
+            note={
+              fissure
+                ? "Below a fissure, magma rises through a long, thin sheet-like crack called a dyke. Its width here is exaggerated."
+                : "Magma and gas rise from the chamber to the vent through this pipe. Its width here is exaggerated."
+            }
             occlude={false}
           />
         )}

@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
-import { waveExperiment } from "@/lib/seismic-science";
+import { SEISMIC_SPEEDS, waveExperiment } from "@/lib/seismic-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { TerrainMaterial } from "../shared/natural-world";
@@ -146,11 +146,13 @@ vec3 waveGlow(vec3 w){
 
 function Wavefront({ radius, depth, color }: { radius: number; depth: number; color: string }) {
   if (radius < 0.001) return null;
-  const start = radius > depth ? Math.acos(depth / radius) : 0;
+  const start = radius > depth ? Math.acos(depth / radius) : 0,
+    // Stop the shell at the base of the block so it never hangs below the model.
+    end = Math.acos(Math.max(-1, (BASE + depth) / radius));
   // Faint shells show the same fronts in the cut-away half (z > 0) of the block.
   return (
     <mesh position={[0, -depth, 0]}>
-      <sphereGeometry args={[radius, 96, 48, 0, Math.PI, start, Math.PI - start]} />
+      <sphereGeometry args={[radius, 96, 48, 0, Math.PI, start, end - start]} />
       <meshBasicMaterial
         color={color}
         transparent
@@ -193,7 +195,9 @@ export default function Earthquakes() {
     w = waveExperiment(seconds, depth),
     faultX = -d / TAN_DIP,
     relief = trueScale ? 0.1 : 1,
-    motionScale = trueScale ? 0 : 1;
+    motionScale = trueScale ? 0 : 1,
+    rayKm = Math.hypot(depth, 50),
+    surfaceArrival = depth / SEISMIC_SPEEDS.s + 50 / SEISMIC_SPEEDS.surface;
   const ground = useMemo(
     () => (x: number, z: number) => surface(x, z, faultX, relief),
     [faultX, relief],
@@ -284,9 +288,11 @@ export default function Earthquakes() {
     const time = seconds - 8 + (i / 160) * 8,
       pt = time - w.pArrival,
       st = time - w.sArrival,
+      rt = time - surfaceArrival,
       amp =
         (pt > 0 ? 0.05 * Math.exp(-pt / 4) * Math.sin(pt * 10) : 0) +
-        (st > 0 ? 0.11 * Math.exp(-st / 5) * Math.sin(st * 6) : 0);
+        (st > 0 ? 0.11 * Math.exp(-st / 5) * Math.sin(st * 6) : 0) +
+        (rt > 0 ? 0.17 * Math.min(1, rt / 0.6) * Math.exp(-rt / 6) * Math.sin(rt * 3.2) : 0);
     return [-0.56 + (i / 160) * 1.12, amp, 0.02];
   });
   return (
@@ -368,13 +374,13 @@ export default function Earthquakes() {
           </group>
         </group>
         <Tag
-          pos={[-0.75, ground(0, 0) + 0.35, 0.25]}
+          pos={[0, ground(0, 0) + 0.3, 0.1]}
           text="Epicentre"
           note="The epicentre is the point on the surface vertically above the hypocentre. It is not necessarily where the inclined fault reaches the surface."
           occlude={false}
         />
         <Tag
-          pos={[-0.55, -d - 0.12, 0.05]}
+          pos={[0, -d - 0.3, 0.05]}
           text={`Hypocentre · ${depth.toFixed(0)} km`}
           tone="magma"
           note="Rupture starts at the focus (hypocentre); the red patch shows part of the fault slipping. Here the waves spread as spheres from one point through uniform rock; real ruptures spread across a whole fault surface."
@@ -383,7 +389,7 @@ export default function Earthquakes() {
         <Tag
           pos={[station[0] + 0.85, station[1] + 0.95, station[2]]}
           text="Seismometer · 50 km"
-          note="The station is 50 km horizontally from the epicentre, so the straight-line distance from the focus is √(depth² + 50²) km. Its drum record shows the P-wave arrival, then the larger S-wave."
+          note="The station is 50 km horizontally from the epicentre, so the straight-line distance from the focus is √(depth² + 50²) km. Its drum record shows the P-wave arrival, then the larger S-wave, then the slower, larger surface wave."
           occlude={false}
         />
         <Tag
@@ -411,12 +417,14 @@ export default function Earthquakes() {
           {"S: "}
           {w.sRadius.toFixed(1)} {"km"}
         </span>
-        {". Station arrivals: P "}
+        {". Ray path to station: "}
+        {rayKm.toFixed(1)} {"km. Arrivals: P "}
         {w.pArrival.toFixed(2)} {"s; S "}
-        {w.sArrival.toFixed(2)} {"s."}
+        {w.sArrival.toFixed(2)} {"s; surface wave "}
+        {surfaceArrival.toFixed(1)} {"s."}
         <br />
         {
-          "The cut face shows each wave front where it crosses the rock; faint shells show the cut-away half. The violet ring is the slower surface wave, which causes most of the shaking that sways the buildings."
+          "The cut face shows each wave front where it crosses the rock; faint shells show the cut-away half. The violet ring is the slower surface wave, which often brings the strongest, longest shaking; here it is what sways the buildings."
         }
       </ScienceReadout>
     </>

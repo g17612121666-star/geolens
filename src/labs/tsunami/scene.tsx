@@ -61,6 +61,9 @@ export default function Tsunami() {
     toY = (m: number) => (m / 100000) * f,
     floorY = (m: number) => toY(m > 0 ? m * LAND_RELIEF : m),
     waveY = (m: number) => (m / 100000) * f * lift;
+  // Drawn rise of the uplifted seafloor block: enlarged, but always well below the sea surface.
+  const rise = uplift * 0.15 * Math.abs(toY(-4000)),
+    sunk = 0.04 * Math.abs(toY(-4000));
   const sourceShape = (x: number) => Math.exp((-x * x) / (2 * 50000 ** 2));
   const elevation = (p: (typeof TRANSECT.points)[number]) =>
     source ? uplift * sourceShape(p.x) : longWaveElevation(p, seconds);
@@ -263,12 +266,26 @@ export default function Tsunami() {
         <PlantStand kind="palm" positions={trees} scale={0.06} seed={3} />
         <Buildings items={town} ground={ground} />
         {source ? (
-          <Arrow
-            from={[X0 + 0.1, toY(-4000), HALF + 0.05]}
-            to={[X0 + 0.1, toY(-4000) + 0.08 + uplift * 0.5, HALF + 0.05]}
-            color="#ddbb7f"
-            width={1.2}
-          />
+          <>
+            {/* Uplifted block of seafloor under the source; its rise is enlarged to be visible. */}
+            <mesh position={[X0 + 0.32, toY(-4000) - sunk + (sunk + rise) / 2, 0]}>
+              <boxGeometry args={[0.6, sunk + rise, HALF * 2 - 0.01]} />
+              <meshStandardMaterial color="#ddbb7f" roughness={0.8} />
+            </mesh>
+            <Arrow
+              from={[X0 + 0.32, toY(-4000) + 0.02, HALF + 0.06]}
+              to={[X0 + 0.32, toY(-4000) + 0.2 + uplift * 0.45, HALF + 0.06]}
+              color="#ddbb7f"
+              width={2}
+            />
+            <Tag
+              pos={[X0 + 0.32, toY(-4000) + 0.85, HALF]}
+              text="Seafloor uplift (enlarged)"
+              tone="sandstone"
+              note="Sudden slip on the fault pushes the seafloor up by about 1 m in a few minutes. The whole water column above is lifted, making a broad hump on the sea surface. The gold block and arrow show this uplift, greatly enlarged."
+              occlude={false}
+            />
+          </>
         ) : (
           <>
             <Line
@@ -305,12 +322,12 @@ export default function Tsunami() {
         />
         <Tag
           pos={[1.8, 0.45, -0.4]}
-          text="Shelf · 100 m"
+          text="Shelf · 100–200 m"
           note="Wave speed is √(g h), so it falls as the water shallows. Green’s law makes the amplitude grow as depth to the power −1/4, which keeps the wave’s energy flux constant while depth changes slowly."
           occlude={false}
         />
         <Tag
-          pos={[3.05, 0.4, 0.55]}
+          pos={[3.15, -0.2, HALF]}
           text="Coast · run-up not modelled"
           note="The coastal town shows what is at risk. This model stops at 100 m depth; breaking, run-up and inundation are not calculated."
           occlude={false}
@@ -358,8 +375,8 @@ export default function Tsunami() {
           </text>
         </svg>
         {source
-          ? `Source stage: the seafloor rises ${uplift.toFixed(2)} m and lifts the water above it. The gold arrow shows the direction of motion (enlarged).`
-          : `Propagation stage: ${(seconds / 60).toFixed(1)} min · front ${crest.speed.toFixed(1)} m/s at ${crest.depth.toFixed(0)} m depth. The central crest reaches 100 m depth at ${(TRANSECT.totalTravel / 60).toFixed(1)} min.`}
+          ? `Source stage: the seafloor rises ${uplift.toFixed(2)} m and lifts the water above it by the same amount. The gold block and arrow show the uplift (enlarged). The hump then splits into two waves of about half its height; this transect follows the one heading for the coast.`
+          : `Propagation stage: ${(seconds / 60).toFixed(1)} min · crest ${crest.speed.toFixed(1)} m/s at ${crest.depth.toFixed(0)} m depth. The central crest reaches 100 m depth at ${(TRANSECT.totalTravel / 60).toFixed(1)} min.`}
         <br />
         {
           "Two stages: a set seafloor uplift, then a simple long-wave model. The gold line follows the crest; the chart shows the true sea-surface height in metres. Fault rupture, breaking, run-up and inundation are not modelled."

@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from "react";
 import * as THREE from "three";
-import { Line } from "@react-three/drei";
+import { Html, Line } from "@react-three/drei";
 import { SOIL_PROFILES } from "@/lib/soil-profile-science";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
@@ -59,9 +59,9 @@ vec3 sectionColour(vec3 p,vec3 w){
     // Crumb structure.
     c*=.84+.3*sNoise(q*55.);
   }else if(kind==2){
-    // Blocky peds separated by darker cracks and clay coatings.
+    // Blocky peds separated by darker cracks; oxic subsoils have only weak, faint structure.
     float e=cellEdge(q*vec2(8.,6.));
-    c*=mix(.74,1.,smoothstep(0.,.06,e));
+    c*=mix(${index === 2 ? ".9" : ".74"},1.,smoothstep(0.,.06,e));
     ${index === 2 ? "c=mix(c,vec3(.36,.16,.10),smoothstep(.84,.9,sNoise(q*44.))*.6);" : ""}
   }else{
     // Weathered parent material: angular stones that become larger and commoner with depth.
@@ -74,7 +74,7 @@ vec3 sectionColour(vec3 p,vec3 w){
   }
   // Roots: fine pale threads, thinning out with depth.
   float col=floor(h*28.),rf=fract((h+.012*sin(d*25.+col))*28.);
-  float root=(1.-smoothstep(.0,.06,abs(rf-.5)-.42))*step(.55,sHash(vec2(col,3.)))*(1.-smoothstep(${(rootDepth * 0.5).toFixed(2)},${rootDepth.toFixed(2)},d*(1.+sHash(vec2(col,5.)))));
+  float root=(1.-smoothstep(.07,.11,abs(rf-.5)))*step(.55,sHash(vec2(col,3.)))*(1.-smoothstep(${(rootDepth * 0.5).toFixed(2)},${rootDepth.toFixed(2)},d*(1.+sHash(vec2(col,5.)))));
   c=mix(c,vec3(.80,.72,.58),root*.7);
   // Earthworm and animal burrows, back-filled with darker topsoil.
   float burrow=smoothstep(.86,.89,sNoise(q*vec2(26.,12.)+3.))*step(d,${index === 1 ? "1.2" : "0.8"});
@@ -87,7 +87,8 @@ vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 export default function SoilProfile() {
   const { params } = useLabControls(),
     index = Math.round(params.profile ?? 0),
-    profile = SOIL_PROFILES[index];
+    profile = SOIL_PROFILES[index],
+    labels = useLabControls((s) => s.labels);
   const geometry = useMemo(() => {
     const g = new THREE.BoxGeometry(1.6, 2, 1, 2, 2, 2);
     g.translate(0, -1, 0);
@@ -149,14 +150,16 @@ export default function SoilProfile() {
             labelY = -0.05 - i * 0.58;
           return (
             <group key={h.code}>
-              <Line
-                points={[
-                  [0.81, actualY, 0.51],
-                  [1.18, labelY, 0.51],
-                  [1.35, labelY, 0.51],
-                ]}
-                color="#a6b4a8"
-              />
+              {labels && (
+                <Line
+                  points={[
+                    [0.81, actualY, 0.51],
+                    [1.18, labelY, 0.51],
+                    [1.35, labelY, 0.51],
+                  ]}
+                  color="#a6b4a8"
+                />
+              )}
               <Tag
                 pos={[1.85, labelY, 0.51]}
                 text={`${h.code} · ${(top * 100).toFixed(0)}–${(h.bottom * 100).toFixed(0)} cm`}
@@ -174,14 +177,23 @@ export default function SoilProfile() {
           color="#d6c6a7"
         />
         {[0, 0.5, 1, 1.5, 2].map((d) => (
-          <Line
-            key={d}
-            points={[
-              [-1, -d, 0.55],
-              [-0.9, -d, 0.55],
-            ]}
-            color="#d6c6a7"
-          />
+          <group key={d}>
+            <Line
+              points={[
+                [-1, -d, 0.55],
+                [-0.9, -d, 0.55],
+              ]}
+              color="#d6c6a7"
+            />
+            <Html position={[-1.04, -d, 0.55]}>
+              <span
+                className="block whitespace-nowrap font-mono text-xs text-mist"
+                style={{ transform: "translate(-100%, -50%)" }}
+              >
+                {`${d} m`}
+              </span>
+            </Html>
+          </group>
         ))}
       </ScienceStudio>
       <ScienceReadout>

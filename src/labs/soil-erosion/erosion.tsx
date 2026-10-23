@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
@@ -77,7 +77,7 @@ function Plot({
           : "#7a5c3e",
     [covered, q],
   );
-  const exported = result.exported / 6000;
+  const fill = wind ? 0 : Math.min(1, (result.exported / 6000) * 4);
   return (
     <group position={[x, 0, 0]}>
       <GeomorphicTerrain
@@ -107,14 +107,26 @@ function Plot({
         <boxGeometry args={[0.025, 0.12, 2.05]} />
         <meshStandardMaterial color="#b9a17c" roughness={0.85} />
       </mesh>
+      {/* Open trough: floor, two long walls and two end walls, so the sediment inside shows. */}
       <group position={[2.12, 0.22, 0]}>
-        <mesh castShadow receiveShadow>
-          <boxGeometry args={[0.22, 0.14, 2.05]} />
-          <meshStandardMaterial color="#9aa0a3" metalness={0.5} roughness={0.4} />
-        </mesh>
-        {/* Sediment collected in the trough, filling as more soil is exported. */}
-        <mesh position={[0, -0.06 + 0.06 * Math.min(1, exported * 4), 0]}>
-          <boxGeometry args={[0.18, 0.12 * Math.min(1, exported * 4) + 0.002, 1.98]} />
+        {(
+          [
+            [0, -0.06, 0, 0.22, 0.02, 2.05],
+            [-0.1, 0, 0, 0.02, 0.14, 2.05],
+            [0.1, 0, 0, 0.02, 0.14, 2.05],
+            [0, 0, -1.015, 0.22, 0.14, 0.02],
+            [0, 0, 1.015, 0.22, 0.14, 0.02],
+          ] as const
+        ).map(([px, py, pz, sx, sy, sz], i) => (
+          <mesh key={i} position={[px, py, pz]} castShadow receiveShadow>
+            <boxGeometry args={[sx, sy, sz]} />
+            <meshStandardMaterial color="#8d9499" metalness={0.3} roughness={0.5} />
+          </mesh>
+        ))}
+        {/* Water-borne sediment collected in the trough, filling as more soil is exported.
+            Wind-blown soil leaves through the air instead, so the trough stays empty then. */}
+        <mesh position={[0, -0.05 + 0.06 * fill, 0]}>
+          <boxGeometry args={[0.18, 0.12 * fill + 0.002, 1.98]} />
           <meshStandardMaterial color="#6f5236" roughness={0.95} />
         </mesh>
       </group>
@@ -170,7 +182,7 @@ function Plot({
                 <meshBasicMaterial
                   color="#c7a46e"
                   transparent
-                  opacity={(covered ? 0.12 : 0.35) * (1 - rise)}
+                  opacity={(covered ? 0.2 : 0.6) * (1 - rise)}
                   depthWrite={false}
                 />
               </mesh>
@@ -209,7 +221,7 @@ function Plot({
       <Tag
         pos={[0, 0.9, -1.35]}
         text={covered ? "Covered plot" : "Bare plot"}
-        note={`Model soil budget: ${result.remaining.toFixed(1)} kg in place, ${result.moving.toFixed(1)} kg in transport and ${result.exported.toFixed(1)} kg exported, always totalling 6000 kg. Cover multiplies detachment by 0.15, a chosen value, not a measured reduction. Exported soil collects in the trough; the dark topsoil in the cut face thins as the surface lowers.`}
+        note={`Model soil budget: ${result.remaining.toFixed(1)} kg in place, ${result.moving.toFixed(1)} kg in transport and ${result.exported.toFixed(1)} kg exported, always totalling 6000 kg. Cover multiplies detachment by 0.15, a chosen value, not a measured reduction. ${wind ? "Wind carries exported soil off through the air, so the trough stays empty" : "Exported soil collects in the trough"}; the dark topsoil in the cut face thins as the surface lowers.`}
         occlude={false}
       />
     </group>
@@ -239,24 +251,32 @@ export default function SoilErosion() {
           {"Model minute "}
           {(t * 60).toFixed(1)}
         </p>
-        <dl className="mt-1 grid w-fit grid-cols-[auto_auto_auto] gap-x-6 gap-y-0.5 text-left tabular-nums">
+        <dl className="mt-1 grid w-fit grid-cols-[auto_auto_auto_auto_auto] gap-x-5 gap-y-0.5 text-left tabular-nums">
           <dt />
-          <dd className="text-mist">{"Soil carried off"}</dd>
+          <dd className="text-mist">{"Still in place"}</dd>
+          <dd className="text-mist">{"In transport"}</dd>
+          <dd className="text-mist">{"Carried off (exported)"}</dd>
           <dd className="text-mist">{"Ground lowered (average)"}</dd>
-          <dt className="text-mist">{"Bare plot (left)"}</dt>
-          <dd>{a.exported.toFixed(0)} kg</dd>
-          <dd>{a.meanLossMm.toFixed(2)} mm</dd>
-          <dt className="text-mist">{covered ? "Covered plot (right)" : "Bare plot (right)"}</dt>
-          <dd>{b.exported.toFixed(0)} kg</dd>
-          <dd>{b.meanLossMm.toFixed(2)} mm</dd>
+          {[
+            { name: "Bare plot (left)", r: a },
+            { name: covered ? "Covered plot (right)" : "Bare plot (right)", r: b },
+          ].map(({ name, r }) => (
+            <Fragment key={name}>
+              <dt className="text-mist">{name}</dt>
+              <dd>{r.remaining.toFixed(0)} kg</dd>
+              <dd>{r.moving.toFixed(0)} kg</dd>
+              <dd>{r.exported.toFixed(0)} kg</dd>
+              <dd>{r.meanLossMm.toFixed(2)} mm</dd>
+            </Fragment>
+          ))}
         </dl>
         <p className="mt-2">
           {
-            "Each plot starts with 6000 kg of loose surface soil. Ground lowering counts all soil loosened so far, including soil still moving downslope. "
+            "Each plot starts with 6000 kg of loose surface soil; the three stores always add up to 6000 kg. Ground lowering counts all soil loosened so far, including soil still in transport. "
           }
           {wind
             ? "Dry wind-transport example."
-            : "Rain splash and runoff example; blue lines show where flow concentrates, not calculated rill depths."}{" "}
+            : "Rain splash and runoff example; the lines down each plot show where runoff concentrates (muddy on bare soil), and the rill depths are schematic, not calculated."}{" "}
           {"Model values for comparison only, not predictions for a real field."}
         </p>
       </ScienceReadout>

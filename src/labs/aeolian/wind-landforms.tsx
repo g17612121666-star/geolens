@@ -16,14 +16,16 @@ function onStoss(f: (x: number, z: number) => number, x: number, z: number) {
 function barchanField(x: number, z: number, shift: number) {
   const small = (x0: number, z0: number, s: number) =>
     duneHeight((x - shift - x0) / s, (z - z0) / s) * s;
-  return Math.max(duneHeight(x - shift, z), small(1.95, -1.25, 0.38), small(-2.15, 1.25, 0.32));
+  return Math.max(duneHeight(x - shift, z), small(1.75, -1.25, 0.38), small(-1.95, 1.25, 0.32));
 }
 export default function Aeolian() {
   const { params, t, trueScale } = useLabControls();
   useLabTick(1 / 40);
   const mode = Math.round(params.feature ?? 0),
     v = trueScale ? 1 : 2,
-    shift = mode === 0 ? (params.migration ?? 0.4) - 0.4 : 0;
+    shift = mode === 0 ? (params.migration ?? 0.4) - 0.4 : 0,
+    // Above the yardang crests (0.76) so the ridges do not hide the arrow.
+    windY = mode === 0 ? 0.75 : 1.0;
   const height = useMemo(
     () => (x: number, z: number) => {
       if (mode === 1) return 0.04 + yardangHeight(x, z) + 0.01 * (noise(x * 5, z * 5) - 0.5);
@@ -54,7 +56,7 @@ export default function Aeolian() {
       <ScienceStudio
         horizon
         slug="aeolian"
-        camera={[4.2, 4, 7]}
+        camera={[-1.6, 4, 7]}
         scale="60 × 40 m example · relief ×2 · wind follows the arrow"
         trueScale="1 scene unit = 10 m · equal distances · sand grains enlarged"
       >
@@ -117,9 +119,21 @@ export default function Aeolian() {
               </mesh>
             );
           })}
-          <Arrow from={[-2.5, 1.45, 1.55]} to={[-0.7, 1.45, 1.55]} width={1} color="#bad4d1" />
+          {/* Low over the upwind edge so it reads as the wind over the sand, not a floating mark. */}
+          <Arrow
+            from={[-2.9, windY, -1.45]}
+            to={[-1.3, windY, -1.45]}
+            width={2.2}
+            color="#bad4d1"
+          />
           <Tag
-            pos={[-1.3, 1.3, -1.7]}
+            pos={[-2.1, windY + 0.17, -1.45]}
+            text="Wind"
+            note="The prevailing wind blows along this arrow. Sand moves downwind, the steep slip face forms on the downwind side and the barchan's horns trail downwind."
+            occlude={false}
+          />
+          <Tag
+            pos={mode === 0 ? [-1.25 + shift, 0.42, 0.1] : [-0.9, 0.78, 0.95]}
             text={mode === 0 ? "Gentler stoss slope" : "Wind-eroded ridges"}
             note={
               mode === 0
@@ -129,12 +143,12 @@ export default function Aeolian() {
             occlude={false}
           />
           <Tag
-            pos={[1.6, 0.7, 1.4]}
+            pos={mode === 0 ? [1.2 + shift, 0.22, 1.2] : [2.15, 0.3, 0.95]}
             text={mode === 0 ? "Horns point downwind" : "Tapered downwind ends"}
             note={
               mode === 0
                 ? "The crescent tips lie downwind of the central crest. The slip face is 32° at true scale; doubled relief makes it look steeper. Real angles of repose vary."
-                : "These invented ridges taper downwind. Their shapes do not give a wind speed or erosion rate."
+                : "These illustrative ridges taper downwind. Their shapes do not give a wind speed or erosion rate."
             }
             occlude={false}
           />
