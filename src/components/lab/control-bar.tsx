@@ -122,7 +122,15 @@ export function ControlBar({
             aria-label={timeLabel}
             suppressHydrationWarning
           />
-          <span className="w-9 shrink-0 text-[13px] tabular-nums text-chalk">{t.toFixed(2)}</span>
+          <span
+            className={cn(
+              "shrink-0 text-[13px] tabular-nums text-chalk",
+              lab.controls.time === "day" ? "w-12" : "w-9",
+            )}
+          >
+            {/* A day runs from 0 to 24 hours, so show hours rather than a 0–1 fraction. */}
+            {lab.controls.time === "day" ? `${(t * 24).toFixed(1)} h` : t.toFixed(2)}
+          </span>
         </label>
       )}
 

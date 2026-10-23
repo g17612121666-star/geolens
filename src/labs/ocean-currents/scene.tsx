@@ -92,14 +92,14 @@ function Gyre({ index, t }: { index: number; t: number }) {
         />
       ))}
       <Tag
-        pos={lift(segments[branches.warm[Math.floor(branches.warm.length / 2)]][12], 1.8)}
+        pos={outside(segments[branches.warm[Math.floor(branches.warm.length / 2)]][12], path)}
         text={g.western}
         tone="magma"
         note="Western boundary current: narrow, fast and warm, carrying water poleward."
         occlude={false}
       />
       <Tag
-        pos={lift(segments[branches.cool[Math.floor(branches.cool.length / 2)]][12], 1.8)}
+        pos={outside(segments[branches.cool[Math.floor(branches.cool.length / 2)]][12], path)}
         text={g.eastern}
         tone="glacier"
         note="Eastern boundary current: broader, slower and cooler, carrying water towards the equator."
@@ -136,6 +136,15 @@ function Gyre({ index, t }: { index: number; t: number }) {
 }
 function lift(p: [number, number, number], radius: number) {
   return new THREE.Vector3(...p).setLength(radius).toArray() as [number, number, number];
+}
+/** Place a current's label just outside the loop, so it names the branch without covering it. */
+function outside(p: [number, number, number], path: [number, number, number][]) {
+  const centre = path
+    .reduce((sum, q) => sum.add(new THREE.Vector3(...q)), new THREE.Vector3())
+    .divideScalar(path.length);
+  const point = new THREE.Vector3(...p),
+    away = point.clone().sub(centre).setLength(0.8);
+  return point.add(away).setLength(1.78).toArray() as [number, number, number];
 }
 export default function OceanCurrents() {
   const { params, t } = useLabControls();
