@@ -7,6 +7,35 @@ import { Graticule, CityMarker } from "@/components/globe/earth";
 import { Tag } from "../shared/kit";
 import { latLonToXYZ } from "@/lib/geo";
 import * as THREE from "three";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { useThree } from "@react-three/fiber";
+
+const HAWAII = { lat: 19.4, lon: -155.3 };
+
+/**
+ * Turns the globe about its axis so Hawaiʻi faces the current camera when the hotspot is shown;
+ * otherwise the marker would usually sit on the far side, out of view.
+ */
+function GlobeSpin({ faceHawaii, children }: { faceHawaii: boolean; children: ReactNode }) {
+  const group = useRef<THREE.Group>(null);
+  const camera = useThree((s) => s.camera),
+    invalidate = useThree((s) => s.invalidate);
+  useLayoutEffect(() => {
+    if (!group.current) return;
+    // latLonToXYZ places longitude L at azimuth atan2(x, z) = L + 180°; rotation.y adds to it.
+    group.current.rotation.y = faceHawaii
+      ? Math.atan2(camera.position.x, camera.position.z) -
+        THREE.MathUtils.degToRad(HAWAII.lon + 180)
+      : Math.PI;
+    invalidate();
+  }, [faceHawaii, camera, invalidate]);
+  return (
+    <group ref={group} rotation-y={Math.PI}>
+      {children}
+    </group>
+  );
+}
+
 export default function Plates() {
   const { params } = useLabControls();
   useLabTick(1 / 16);
@@ -33,22 +62,22 @@ export default function Plates() {
         {section ? (
           <PlateSection kind={kind} />
         ) : (
-          <group rotation={[0, Math.PI, 0]}>
+          <GlobeSpin faceHawaii={hotspot && age < 5}>
             <ReconstructionGlobe age={age} />
             <Graticule radius={1.255} />
             {age < 5 && <PlateLines />}
             {age < 5 && <PlateMotion />}
             {hotspot && age < 5 && (
               <>
-                <CityMarker lat={19.4} lon={-155.3} radius={1.26} color="#f99c75" />
+                <CityMarker lat={HAWAII.lat} lon={HAWAII.lon} radius={1.26} color="#f99c75" />
                 <Tag
-                  pos={latLonToXYZ(19.4, -155.3, 1.4)}
+                  pos={latLonToXYZ(HAWAII.lat, HAWAII.lon, 1.4)}
                   text="Hawaiʻi hotspot"
                   note="Young volcanism at the southeastern end of the Hawaiian chain. Older islands extend northwest as the Pacific plate moves relative to the hotspot."
                 />
               </>
             )}
-          </group>
+          </GlobeSpin>
         )}
       </ScienceStudio>
       <ScienceReadout>
@@ -60,7 +89,11 @@ export default function Plates() {
           ][kind]
         ) : age < 5 ? (
           <>
-            <p>Present-day plate boundaries</p>
+            <p>
+              Present-day plate boundaries. White arrows show the direction each plate moves
+              relative to the hotspots; arrow length is not speed. A boundary&apos;s type depends on
+              how the two plates move relative to each other.
+            </p>
             <div className="mt-2 grid grid-cols-3 gap-2 text-sm">
               {[
                 { name: "Divergent", colour: "#69dfce" },

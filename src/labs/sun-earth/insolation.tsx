@@ -16,6 +16,9 @@ export default function SunEarth() {
     sun = useMemo(() => new THREE.Vector3(0, Math.sin(d), -Math.cos(d)), [d]),
     point = new THREE.Vector3(0, Math.sin(p), -Math.cos(p)).multiplyScalar(1.3),
     n = point.clone().normalize(),
+    // In-plane direction along the meridian, pointing away from the subsolar latitude.
+    poleward = new THREE.Vector3(0, Math.cos(p), Math.sin(p)).multiplyScalar(lat >= decl ? 1 : -1),
+    across = new THREE.Vector3(0, Math.cos(d), Math.sin(d)),
     flux = noonIrradiance(lat, decl),
     photo = VERIFIED_PHOTOS["sdo-visible-sunspots"];
   const latitudes = [-90, -60, -30, 0, 30, 60, 90];
@@ -25,7 +28,7 @@ export default function SunEarth() {
         slug="sun-earth"
         lights={false}
         space
-        camera={[3.8, 2.3, -5.5]}
+        camera={[6.2, 1.3, -2.4]}
         scale="Parallel sunlight at 1 AU · 1361 W/m² normal to the beam · local noon meridian"
         trueScale="Earth sphere at one scale · arrows and selected patch enlarged"
       >
@@ -73,31 +76,33 @@ export default function SunEarth() {
           color="#c7ded9"
           width={0.7}
         />
-        {[-0.6, 0, 0.6].map((x) => (
-          <Arrow
-            key={x}
-            from={[x, sun.y * 3.3, sun.z * 3.3]}
-            to={[x, sun.y * 1.5, sun.z * 1.5]}
-            color="#e2bd7b"
-            width={0.85}
-          />
-        ))}
-        <Line
-          points={[
-            point.clone().addScaledVector(n, 0.65).toArray() as [number, number, number],
-            [-1.25, 1.55, -0.5],
-          ]}
-          color="#a1bbb8"
-          lineWidth={0.8}
-        />
+        {[-1.2, -0.6, 0, 0.6, 1.2]
+          // Skip rays that would sit inside the highlighted beam or under its label.
+          .filter((o) => Math.abs(o - point.dot(across)) > 0.35)
+          .map((o) => (
+            <Arrow
+              key={o}
+              from={across.clone().multiplyScalar(o).addScaledVector(sun, 3.3).toArray()}
+              to={across.clone().multiplyScalar(o).addScaledVector(sun, 1.7).toArray()}
+              color="#e2bd7b"
+              width={0.85}
+            />
+          ))}
         <Tag
-          pos={[-1.25, 1.55, -0.5]}
+          pos={
+            point.clone().addScaledVector(n, 0.7).addScaledVector(poleward, 0.3).toArray() as [
+              number,
+              number,
+              number,
+            ]
+          }
           text={`Normal at ${Math.abs(lat).toFixed(1)}°${lat < 0 ? "S" : "N"}`}
           note="The arrow points straight out from the ground at the gold noon patch (the surface normal). Its angle to the sunlight sets the energy per square metre above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere."
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
+        <div className="text-center text-xs">Daily mean by latitude (W/m²)</div>
         <div
           className="mx-auto flex max-w-xl items-end justify-center gap-2"
           aria-label={"Daily mean top-of-atmosphere flux by latitude"}
@@ -117,7 +122,9 @@ export default function SunEarth() {
         {flux.toFixed(0)} {"W/m² · daily mean "}
         {dailyMeanIrradiance(lat, decl).toFixed(0)} {"W/m². Incidence angle "}
         {Math.abs(lat - decl).toFixed(1)}
-        {"° from the surface normal. Declination "}
+        {"° from the surface normal"}
+        {Math.abs(lat - decl) > 90 ? " (Sun below the horizon at noon)" : ""}
+        {". Declination "}
         {decl.toFixed(2)}
         {"°. These are horizontal top-of-atmosphere values at fixed 1 AU."}
         {params.spots > 0.5 ? (
@@ -216,7 +223,7 @@ function SunBeam({
             .addScaledVector(sun, length + 0.15)
             .toArray() as [number, number, number]
         }
-        text={`Same beam · ${stretch.toFixed(2)}× area`}
+        text={`Same beam · ${(1 / cosine).toFixed(2)}× area`}
         note="Each beam carries the same power. Where sunlight meets the ground at a low angle, that power is spread over a larger patch, so each square metre receives less."
         occlude={false}
       />

@@ -50,6 +50,16 @@ export default function Contours() {
   }, [factor]);
   useEffect(() => () => g.dispose(), [g]);
   const lines = useMemo(() => contours(interval), [interval]);
+  // Index contours: every contour that is a multiple of the label step is drawn bold and labelled,
+  // as on a printed map, so students can tell uphill from downhill.
+  const labelStep = Math.ceil(20 / interval) * interval;
+  const labelled = useMemo(
+    () =>
+      lines
+        .filter((l) => l.height % labelStep === 0 && l.height < hillHeight(...SUMMIT))
+        .map((l) => ({ height: l.height, at: alongLabelRay(l.height) })),
+    [lines, labelStep],
+  );
   const sampled = hillHeight(...spot);
   const profile = useMemo(
     () =>
@@ -92,10 +102,31 @@ export default function Contours() {
               key={l.height}
               segments
               points={l.points.map((p) => [p[0], (l.height / 100) * factor + 0.008, p[1]])}
-              color={l.height % 50 === 0 ? "#6b3f1d" : "#8c5a33"}
-              lineWidth={l.height % 50 === 0 ? 2 : 1}
+              color={l.height % labelStep === 0 ? "#6b3f1d" : "#8c5a33"}
+              lineWidth={l.height % labelStep === 0 ? 2 : 1}
             />
           ))}
+          {labelled.map((l) => (
+            <Tag
+              key={`h${l.height}`}
+              pos={[l.at[0], (l.height / 100) * factor + 0.03, l.at[1]]}
+              text={`${l.height} m`}
+              note="Index contours are drawn bold and labelled with their height, so you can tell which way is uphill."
+              tone="sandstone"
+            />
+          ))}
+          <Tag
+            pos={[VALLEY[0], (hillHeight(...VALLEY) / 100) * factor + 0.12, VALLEY[1]]}
+            text="Valley"
+            note="Low ground between two slopes. Where contours cross it, their V points uphill (upstream)."
+            tone="glacier"
+          />
+          <Tag
+            pos={[SPUR[0], (hillHeight(...SPUR) / 100) * factor + 0.12, SPUR[1]]}
+            text="Spur"
+            note="A ridge of high ground sticking out from the hill. Its contours bend into a V or U that points downhill."
+            tone="moss"
+          />
           {mode && (
             <Line
               points={[
@@ -151,7 +182,7 @@ export default function Contours() {
             color="#f4efe6"
             lineWidth={3}
           />
-          <Tag pos={[-2.5, 0.01, 2.45]} text="100 m" occlude={false} />
+          <Tag pos={[-1.55, 0.01, 2.2]} text="100 m" occlude={false} />
         </group>
       </ScienceStudio>
       <ScienceReadout>
@@ -172,6 +203,9 @@ export default function Contours() {
           <text x="2" y="60" fontSize="9" fill="currentColor">
             A
           </text>
+          <text x="232" y="9" fontSize="8" fill="currentColor" fillOpacity="0.7" textAnchor="end">
+            Height exaggerated ×1.3
+          </text>
           <text x="234" y="60" fontSize="9" fill="currentColor">
             B
           </text>
@@ -185,6 +219,27 @@ export default function Contours() {
       </ScienceReadout>
     </>
   );
+}
+
+/** Feature labels, placed on the carved valley axis and the spur ridge in geometry.ts. */
+const VALLEY: [number, number] = [-0.2, 1.25];
+const SPUR: [number, number] = [1.4, -0.8];
+/** Contour labels sit along a smooth slope that falls steadily from the summit (checked monotonic). */
+function alongLabelRay(level: number): [number, number] {
+  const dir = [-0.5, 0.85],
+    len = Math.hypot(dir[0], dir[1]),
+    at = (t: number): [number, number] => [
+      SUMMIT[0] + (dir[0] / len) * t,
+      SUMMIT[1] + (dir[1] / len) * t,
+    ];
+  let lo = 0,
+    hi = 2;
+  for (let i = 0; i < 30; i++) {
+    const mid = (lo + hi) / 2;
+    if (hillHeight(...at(mid)) > level) lo = mid;
+    else hi = mid;
+  }
+  return at((lo + hi) / 2);
 }
 
 const TINT = [
