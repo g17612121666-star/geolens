@@ -305,20 +305,20 @@ export default function RiverDeposition() {
           {mode === 0 ? (
             <>
               <Tag
-                pos={[0, 0.3, -0.3]}
+                pos={[-0.3, 0.16, -0.25]}
                 text="Point bar"
                 note="Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonised by grass and trees. Spiralling (helicoidal) flow and sediment supply also shape the bar, so surface speed alone does not explain it."
                 occlude={false}
               />
               <Tag
-                pos={[0.1, 0.32, -1.2]}
+                pos={[0.7, 0.2, -0.95]}
                 text="River cliff"
                 note="On the outside of the bend the deepest, fastest flow undercuts the bank, which collapses to leave a steep cliff exposing the floodplain sediments."
                 occlude={false}
               />
               <Arrow
-                from={[-0.7, 0.2, -0.62]}
-                to={[0.6, 0.2, -0.72]}
+                from={[-0.7, 0.14, -0.62]}
+                to={[0.6, 0.14, -0.72]}
                 color="#a2ced3"
                 width={0.65}
               />
@@ -326,13 +326,13 @@ export default function RiverDeposition() {
           ) : mode === 1 ? (
             <>
               <Tag
-                pos={[0.2, 0.32, 0.45]}
+                pos={[0.2, 0.24, 0.32]}
                 text="Natural levee"
                 note="When the river overtops its banks the flow slows at once, so the coarsest sediment drops beside the channel. Repeated floods build these low ridges. They are sedimentary landforms, not constructed flood defences."
                 occlude={false}
               />
               <Tag
-                pos={[1.7, 0.25, -1.55]}
+                pos={[1.7, 0.2, -1.4]}
                 text="Floodplain"
                 note="Finer silt and clay travel farther in overbank flow and settle in the lower, wetter backswamp. The cut face shows the flood layers thinning away from the channel."
                 occlude={false}
@@ -341,13 +341,13 @@ export default function RiverDeposition() {
           ) : (
             <>
               <Tag
-                pos={[0.5, 0.2, 0.75]}
+                pos={[0.5, 0.1, 0.75]}
                 text="Distributaries"
                 note="A delta grows where the river supplies sediment faster than waves and tides remove it. Channels split and shift; the three branches here are illustrative. The cut face shows flat topsets over seaward-sloping foresets."
                 occlude={false}
               />
               <Tag
-                pos={[1.7, 0.2, -1.1]}
+                pos={[1.7, 0.1, -1.1]}
                 text="River mouth"
                 note="Not every river mouth builds a delta. Tides, waves, sea-level history and sediment supply can maintain an estuary instead. The brown plume shows sediment carried out into the sea."
                 occlude={false}
@@ -373,7 +373,8 @@ export default function RiverDeposition() {
             color="#b5a187"
           />
         )}
-        <group position={[-2.3, 0.55, -2.4]}>
+        {/* Stand the tube on the block top so the grain is not hidden behind the landscape. */}
+        <group position={[-2.3, 0.18 * v + 0.45, -2.4]}>
           <mesh>
             <cylinderGeometry args={[0.19, 0.19, 0.9, 32, 1, true]} />
             <meshPhysicalMaterial
@@ -392,7 +393,7 @@ export default function RiverDeposition() {
               0,
             ]}
           >
-            <icosahedronGeometry args={[0.035, 1]} />
+            <icosahedronGeometry args={[0.05, 1]} />
             <meshStandardMaterial color="#d2be93" roughness={0.9} />
           </mesh>
           <Tag

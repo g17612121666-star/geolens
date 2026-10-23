@@ -167,6 +167,18 @@ export default function Enso() {
           occlude={false}
         />
         <Tag
+          pos={[centre, 0.3, 0.3]}
+          text="← Trade winds"
+          note="The lower branch of the schematic Walker loop: easterly surface trade winds blow from east to west and push warm surface water towards the west. They weaken in El Niño and strengthen in La Niña."
+          occlude={false}
+        />
+        <Tag
+          pos={[-0.9, west + ((east - west) * 1.6) / 5, 0.85]}
+          text="Thermocline"
+          note="The gold line marks an idealised thermocline, the sharp boundary between warm upper water and colder deep water. Its depth is enlarged ×10,000 unless Physical scale is on."
+          occlude={false}
+        />
+        <Tag
           pos={[-2.1, 0.06, 1.15]}
           text={`West · ${c.westTemperature.toFixed(1)} °C`}
           note="Idealised western equatorial Pacific, towards Indonesia. Temperatures are set teaching values, not observations."

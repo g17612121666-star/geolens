@@ -35,14 +35,20 @@ export default function RiverCapture() {
   const height = useMemo(
     () => (x: number, z: number) => {
       const top = upland(x, z),
-        a = valley(donor(x), top, Math.abs(z - donorZ(x)), x, 0.95);
+        // After capture a low col (the wind gap) separates the elbow from the beheaded reach.
+        sill = stage === 2 ? 0.045 * Math.exp(-(((x - 0.38) / 0.17) ** 2)) : 0,
+        a = valley(donor(x) + sill, top, Math.abs(z - donorZ(x)), x, 0.95);
       // The captor valley ends at its head; headward erosion moves the head north (towards -z).
-      const reach = THREE.MathUtils.smoothstep(z, head - 0.05, head + 0.55),
+      // After capture the valley is cut right through the old divide into the neighbouring floor.
+      const reach =
+          stage === 2
+            ? THREE.MathUtils.smoothstep(z, -1.15, -0.85)
+            : THREE.MathUtils.smoothstep(z, head - 0.05, head + 0.55),
         b = valley(captor(z), top, Math.abs(x - captorX(z)), z, 0.85),
         c = THREE.MathUtils.lerp(top, b, reach);
       return Math.min(top, a, c) + 0.012 * (noise(x * 6, z * 6) - 0.5);
     },
-    [head],
+    [head, stage],
   );
   const colour = useMemo(
     () => (x: number, y: number, z: number) => {
@@ -80,10 +86,12 @@ export default function RiverCapture() {
   const captured = useMemo(
     () =>
       Array.from({ length: 81 }, (_, i) => {
-        const z = head + 0.15 + ((1.85 - head) * i) / 80;
+        // Start where the captor valley floor is fully cut, so the channel is never buried.
+        const start = stage === 2 ? -0.9 : head + 0.45,
+          z = start + ((1.85 - start) * i) / 80;
         return [captorX(z), captor(z) + 0.03, z] as [number, number, number];
       }),
-    [head],
+    [head, stage],
   );
   // At capture the donor water turns south along the captor valley: the elbow of capture.
   const route = useMemo(
@@ -134,18 +142,12 @@ export default function RiverCapture() {
             section={{ rock: "sandstone", soil: 0.05, regolith: 0.1, beds: 5 }}
           />
           <WaterRibbon path={incoming} width={0.075} color="#4a8daa" />
-          <WaterRibbon path={old} width={stage === 2 ? 0.02 : 0.07} color="#4a8daa" />
+          <WaterRibbon
+            path={stage === 2 ? old.filter((p) => p[0] > 0.65) : old}
+            width={stage === 2 ? 0.02 : 0.07}
+            color="#4a8daa"
+          />
           <WaterRibbon path={captured} width={stage === 2 ? 0.075 : 0.04} color="#4a8daa" />
-          {stage === 2 && (
-            <WaterRibbon
-              path={Array.from({ length: 30 }, (_, i) => {
-                const z = -0.9 + ((head + 0.15 + 0.9) * i) / 29;
-                return [captorX(z), captor(z) + 0.03, z] as [number, number, number];
-              })}
-              width={0.075}
-              color="#4a8daa"
-            />
-          )}
           {stage === 2 && (
             <DebrisField
               points={Array.from({ length: 50 }, (_, i) => {
@@ -179,7 +181,7 @@ export default function RiverCapture() {
             from={[0.35, 1.5, Math.max(head + 0.5, 0.1)]}
             to={[0.35, 1.5, head - 0.1]}
             color="#dfb880"
-            width={0.9}
+            width={2.4}
           />
           <Tag
             pos={[-2, 1.25, -1.7]}
@@ -188,7 +190,7 @@ export default function RiverCapture() {
             occlude={false}
           />
           <Tag
-            pos={[-0.9, 0.75, 1.75]}
+            pos={[-0.45, 0.6, 1.5]}
             text="Captor stream"
             note="Headward erosion extends this lower valley towards the divide. When the divide is breached, the lower route can divert the neighbouring river. Base level, rock type and structure all affect how fast it cuts back."
             occlude={false}
@@ -196,15 +198,21 @@ export default function RiverCapture() {
           {stage === 2 && (
             <>
               <Tag
-                pos={[2, 1.3, 0.15]}
+                pos={[2, 0.85, -0.95]}
                 text="Beheaded reach"
-                note="A smaller stream may now occupy the former valley, which looks too large for it (a misfit stream). An elbow of capture and a misfit stream are clues, but proving capture needs other geological evidence."
+                note="A smaller stream may now occupy the former valley, which looks too large for it (a misfit stream). An elbow of capture and a misfit stream are clues, but proving capture needs other geological evidence. The dashed line traces the former course."
                 occlude={false}
               />
               <Tag
                 pos={[0, 1.05, -0.9]}
                 text="Elbow of capture"
                 note="The sharp bend where the captured river now turns into the captor valley."
+                occlude={false}
+              />
+              <Tag
+                pos={[0.45, 0.95, -0.95]}
+                text="Wind gap"
+                note="A low, dry col in the old valley floor between the elbow and the beheaded stream. No river flows through it now, but its shape shows that a larger river once did."
                 occlude={false}
               />
             </>
