@@ -9,8 +9,10 @@ import { orbitPosition } from "../shared/science-geometry";
 import { Tag } from "../shared/kit";
 import { StarMesh } from "@/components/globe/star";
 import { latLonToXYZ } from "@/lib/geo";
+import { useIsCompact } from "@/hooks/use-media";
 export default function Seasons() {
   const [close, setClose] = useState(false);
+  const compact = useIsCompact();
   const { t, params, trueScale } = useLabControls();
   useLabTick(1 / 36);
   const tilt = params.tilt ?? 23.44,
@@ -130,15 +132,20 @@ export default function Seasons() {
             const r = [2.65 * (1 - ecc), 2.65 * (1 - ecc * ecc), 2.65 * (1 + ecc)][
               i % 2 ? 1 : i / 2
             ];
-            const out = r + [2.2, 1.1, 2.6, 1.0][i];
+            const out = r + (compact ? [1.2, 1.0, 1.2, 1.15] : [2.2, 1.1, 2.6, 1.25])[i];
             const dir = orbitPosition(v, 0, 1);
+            const names = [
+              "March equinox",
+              "June solstice",
+              "September equinox",
+              "December solstice",
+            ];
             return (
               <Tag
                 key={i}
                 pos={[dir[0] * out, i === 3 ? -0.25 : 0, dir[2] * out]}
-                text={
-                  ["March equinox", "June solstice", "September equinox", "December solstice"][i]
-                }
+                text={compact ? ["Mar", "Jun", "Sep", "Dec"][i] : names[i]}
+                title={names[i]}
                 occlude={false}
               />
             );

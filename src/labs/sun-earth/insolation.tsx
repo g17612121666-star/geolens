@@ -16,8 +16,8 @@ export default function SunEarth() {
     sun = useMemo(() => new THREE.Vector3(0, Math.sin(d), -Math.cos(d)), [d]),
     point = new THREE.Vector3(0, Math.sin(p), -Math.cos(p)).multiplyScalar(1.3),
     n = point.clone().normalize(),
-    // In-plane direction along the meridian, pointing away from the subsolar latitude.
-    poleward = new THREE.Vector3(0, Math.cos(p), Math.sin(p)).multiplyScalar(lat >= decl ? 1 : -1),
+    // Separate the two labels vertically: the beam label goes the way the beam end lies.
+    labelSide = Math.sign(1.85 * sun.y - 0.7 * n.y) || 1,
     across = new THREE.Vector3(0, Math.cos(d), Math.sin(d)),
     flux = noonIrradiance(lat, decl),
     photo = VERIFIED_PHOTOS["sdo-visible-sunspots"];
@@ -39,7 +39,7 @@ export default function SunEarth() {
           point={point}
           normal={n}
           sun={sun}
-          labelShift={poleward.clone().multiplyScalar(-0.35)}
+          labelShift={new THREE.Vector3(0, 0.3 * labelSide, 0)}
         />
         <Line
           points={Array.from({ length: 121 }, (_, i) => {
@@ -95,11 +95,11 @@ export default function SunEarth() {
           ))}
         <Tag
           pos={
-            point.clone().addScaledVector(n, 0.7).addScaledVector(poleward, 0.35).toArray() as [
-              number,
-              number,
-              number,
-            ]
+            point
+              .clone()
+              .addScaledVector(n, 0.7)
+              .add(new THREE.Vector3(0, -0.3 * labelSide, 0))
+              .toArray() as [number, number, number]
           }
           text={`Normal at ${Math.abs(lat).toFixed(1)}°${lat < 0 ? "S" : "N"}`}
           note="The arrow points straight out from the ground at the gold noon patch (the surface normal). Its angle to the sunlight sets the energy per square metre above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere."

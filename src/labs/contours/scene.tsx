@@ -57,7 +57,7 @@ export default function Contours() {
     () =>
       lines
         .filter((l) => l.height % labelStep === 0 && l.height < hillHeight(...SUMMIT))
-        .map((l) => ({ height: l.height, at: alongLabelRay(l.height) })),
+        .map((l, i) => ({ height: l.height, at: alongLabelRay(l.height, LABEL_RAYS[i % 2]) })),
     [lines, labelStep],
   );
   const sampled = hillHeight(...spot);
@@ -224,16 +224,22 @@ export default function Contours() {
 /** Feature labels, placed on the carved valley axis and the spur ridge in geometry.ts. */
 const VALLEY: [number, number] = [-0.2, 1.25];
 const SPUR: [number, number] = [1.4, -0.8];
-/** Contour labels sit along a smooth slope that falls steadily from the summit (checked monotonic). */
-function alongLabelRay(level: number): [number, number] {
-  const dir = [-0.5, 0.85],
-    len = Math.hypot(dir[0], dir[1]),
+/**
+ * Contour labels alternate between two smooth slopes west of the summit where height falls
+ * steadily, so neighbouring labels never sit on top of each other.
+ */
+const LABEL_RAYS: [number, number][] = [
+  [-0.82, 0.56],
+  [-0.6, -0.8],
+];
+function alongLabelRay(level: number, dir: [number, number]): [number, number] {
+  const len = Math.hypot(dir[0], dir[1]),
     at = (t: number): [number, number] => [
       SUMMIT[0] + (dir[0] / len) * t,
       SUMMIT[1] + (dir[1] / len) * t,
     ];
   let lo = 0,
-    hi = 2;
+    hi = 2.5;
   for (let i = 0; i < 30; i++) {
     const mid = (lo + hi) / 2;
     if (hillHeight(...at(mid)) > level) lo = mid;
