@@ -181,7 +181,8 @@ export function Arrow({
     q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), d);
   const head = Math.min(length * 0.3, 0.105 * width),
     radius = Math.min(length * 0.065, 0.028 * width),
-    shaft = Math.max(0.002, radius * 0.26);
+    // A thicker shaft keeps arrows readable when the camera fits a large scene from far away.
+    shaft = Math.max(0.002, radius * 0.4);
   return (
     <group position={a} quaternion={q}>
       <mesh position={[0, (length - head) / 2, 0]}>
