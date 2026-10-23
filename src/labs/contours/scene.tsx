@@ -59,7 +59,7 @@ export default function Contours() {
         .filter((l) => l.height % labelStep === 0 && l.height < hillHeight(...SUMMIT))
         .map((l, i) => ({ height: l.height, at: alongLabelRay(l.height, LABEL_RAYS[i % 2]) }))
         // Leave room for the clicked-height tag.
-        .filter((l) => Math.hypot(l.at[0] - spot[0], l.at[1] - spot[1]) > 0.35),
+        .filter((l) => Math.hypot(l.at[0] - spot[0], l.at[1] - spot[1]) > 0.8),
     [lines, labelStep, spot],
   );
   const sampled = hillHeight(...spot);
@@ -231,8 +231,8 @@ const SPUR: [number, number] = [1.4, -0.8];
  * falls steadily, so neighbouring labels do not sit on top of each other.
  */
 const LABEL_RAYS: [number, number][] = [
-  [0.95, 0.3],
   [-0.82, 0.56],
+  [0.95, 0.3],
 ];
 function alongLabelRay(level: number, dir: [number, number]): [number, number] {
   const len = Math.hypot(dir[0], dir[1]),

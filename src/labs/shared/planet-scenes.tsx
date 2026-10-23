@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
-import { EarthMesh, AxisLine, Graticule, CityMarker, Atmosphere } from "@/components/globe/earth";
+import { EarthMesh, Graticule, CityMarker } from "@/components/globe/earth";
 import { StarMesh } from "@/components/globe/star";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
@@ -11,76 +11,6 @@ import { latLonToXYZ } from "@/lib/geo";
 import { solarEphemeris, daylight } from "@/lib/solar";
 import { TerrainMaterial, PlantStand } from "./natural-world";
 import { skyPosition } from "../solar-altitude/sky";
-
-export function RotationScene() {
-  const { t, params } = useLabControls();
-  useLabTick(1 / 28);
-  return (
-    <>
-      <ScienceStudio
-        slug="rotation"
-        lights={false}
-        space
-        camera={[0, 1, 4.8]}
-        scale="Earth rotates eastward · 15° per mean solar hour · Sun direction held fixed"
-        trueScale="Spherical Earth · time-zone lines are ideal 15° meridians, not real borders"
-      >
-        {/* Sun direction marker: same direction as the shader's light, well outside Earth. */}
-        <group position={ROTATION_SUN.clone().multiplyScalar(2.45).toArray()}>
-          <StarMesh radius={0.17} />
-          <Tag
-            pos={[0, 0.38, 0]}
-            text="Sunlight"
-            note="The Sun is drawn much closer and smaller than reality. Its light arrives as almost parallel rays, lighting one half of Earth at a time."
-            occlude={false}
-          />
-        </group>
-        <Atmosphere radius={1.3} />
-        <group rotation={[0, t * Math.PI * 2, 0]}>
-          <EarthMesh radius={1.25} sunDirection={ROTATION_SUN} />
-          <AxisLine radius={1.48} tiltDeg={0} />
-          <CityMarker lat={51.5} lon={-0.1} radius={1.27} />
-          {params.zones > 0.5 ? (
-            Array.from({ length: 24 }, (_, i) => (
-              <Line
-                key={i}
-                points={Array.from({ length: 65 }, (_, j) =>
-                  latLonToXYZ(-90 + (j / 64) * 180, i * 15, 1.255),
-                )}
-                color={i === 0 ? "#f1c994" : "#91a9ac"}
-                lineWidth={i === 0 ? 2 : 1}
-              />
-            ))
-          ) : (
-            <Graticule radius={1.255} />
-          )}
-        </group>
-        <Line
-          points={Array.from({ length: 161 }, (_, i): [number, number, number] => {
-            const a = (i / 160) * Math.PI * 2;
-            return [
-              (-Math.sin(a) / Math.sqrt(10)) * 1.257,
-              Math.cos(a) * 1.257,
-              ((3 * Math.sin(a)) / Math.sqrt(10)) * 1.257,
-            ];
-          })}
-          color="#d9c397"
-          lineWidth={1.25}
-        />
-      </ScienceStudio>
-      <ScienceReadout>
-        {(t * 24).toFixed(2)} {"hours of rotation · "}
-        {(t * 360).toFixed(1)}
-        {"°. West-to-east rotation brings successive places into sunlight. "}
-        {params.zones > 0.5
-          ? "Civil time zones may depart from these ideal meridians."
-          : "Day and night come from geometry, not time-zone boundaries."}
-      </ScienceReadout>
-    </>
-  );
-}
-
-const ROTATION_SUN = new THREE.Vector3(3, 0, 1).normalize();
 
 export function GraticuleScene() {
   const { params } = useLabControls(),

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {riverBanks,riverStage,riverGround,riverSurface,riverTerrain} from '../src/labs/shared/river-terrain.ts';
+import {riverBanks,riverStage,riverGround,riverSurface,riverTerrain,riverBed,riverSection} from '../src/labs/shared/river-terrain.ts';
 
 test('shoreline height sampling agrees with the actual indexed terrain triangles',()=>{
  const g=riverTerrain(),p=g.attributes.position,index=g.index;
@@ -43,4 +43,18 @@ test('river water has finite depth, upward faces and identical footprint at true
   }
   a.dispose();b.dispose();
  }
+});
+
+test('the channel and the water both deepen downstream, as in real rivers', () => {
+  for (const q of [0.2, 0.7, 1.6]) {
+    let previousWater = 0, previousDepth = 0;
+    for (let i = 0; i <= 12; i++) {
+      const x = -3 + i * 0.5;
+      const water = riverStage(x, q) - riverBed(x), depth = riverSection(x, 1).depth;
+      assert.ok(water > previousWater, `water depth grows downstream at q=${q}, x=${x}`);
+      assert.ok(depth > previousDepth, `channel depth grows downstream at x=${x}`);
+      assert.ok(water < depth, `water stays within the banks at q=${q}, x=${x}`);
+      previousWater = water; previousDepth = depth;
+    }
+  }
 });

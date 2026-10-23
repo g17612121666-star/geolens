@@ -206,7 +206,7 @@ export default function Rivers() {
         {"Relative discharge "}
         {q.toFixed(2)}
         {
-          "×, the same along the whole model river (real rivers usually gain discharge and deepen downstream). Increasing discharge raises the water level within the fixed channel. Play to follow the downstream flow."
+          "× at the source. Tributaries add water downstream, so the channel is wider and deeper there and the water is deeper. Increasing discharge raises the water level; at the highest setting the lower river nearly fills its channel. Play to follow the downstream flow."
         }
       </ScienceReadout>
     </>

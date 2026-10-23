@@ -137,8 +137,8 @@
         }
       ],
       "why": [
-        "Earth’s tilted axis changes the angle of sunlight and the length of the day as Earth travels around the Sun. When one hemisphere tilts towards the Sun, the other experiences winter.",
-        "Set Axial tilt to 23.44° and pause at the June solstice, then the December solstice. Compare London with Sydney and trace the fixed axis direction.",
+        "Earth’s tilted axis changes the angle of sunlight and the length of the day as Earth travels around the Sun. The hemisphere tilted towards the Sun has summer while the other has winter.",
+        "The axis keeps pointing the same way in space. At the June solstice the Northern Hemisphere leans towards the Sun, so its noon Sun is higher, the same sunlight is concentrated on less ground, and days are longer. Six months later Earth is on the other side of the Sun and the Southern Hemisphere leans towards it.",
         "Orbit stretch is a what-if setting for separating tilt from distance; its dates do not match Earth’s real orbit."
       ],
       "glossary": [
@@ -324,8 +324,8 @@
       ],
       "why": [
         "Earth turns eastward, carrying each location into sunlight and then darkness. The boundary between day and night is called the terminator; it separates the illuminated and unilluminated halves of Earth.",
-        "Pause and move the Day slider. Check that a quarter-turn takes six hours, then explain why time zones do not cause day and night.",
-        "The time-zone bands divide longitude into ideal 15° intervals; actual civil time zones follow local decisions and borders."
+        "Relative to the Sun, Earth turns 360° in about 24 hours, so each place moves through 15° of longitude every hour. A quarter-turn of 90° therefore takes six hours: in the model, London goes from sunrise to solar noon. Time zones only label clock times; they do not cause day and night.",
+        "The time-zone bands divide longitude into ideal 15° intervals; actual civil time zones follow local decisions and borders. The model shows equinox geometry, with Earth's axis upright to the sunlight, so the terminator passes through both poles and every place gets about 12 hours of daylight. At other times of year the tilted axis tilts the terminator and day length changes with latitude."
       ],
       "glossary": [
         {
@@ -424,12 +424,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Play a month in Orbit geometry and watch the Moon’s sunlit half. Then switch to Moon close-up to see the phase as it looks from Earth."
+          "body": "Play a month in Orbit geometry and watch the Moon’s sunlit half. Then switch to Moon close-up to see the phase as it looks from Earth’s Northern Hemisphere."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Pause at first quarter and full Moon. Turn on Eclipse alignment and explain why the tilted orbit usually prevents an eclipse."
+          "body": "Pause at first quarter and full Moon. Compare the solid orbit with the dashed line (Earth’s orbital plane): at most full Moons the Moon sits above or below it. Turn on Eclipse alignment to flatten the orbit, then explain why the 5° tilt usually prevents an eclipse."
         },
         {
           "id": "explain",
@@ -490,8 +490,8 @@
       ],
       "why": [
         "Sunlight illuminates half the Moon. As the Moon orbits Earth, we see different proportions of that illuminated half, producing the phases; Earth’s shadow is involved only in a lunar eclipse.",
-        "Pause at first quarter and full Moon. Turn on Eclipse alignment and explain why the tilted orbit usually prevents an eclipse.",
-        "Sizes and separations are enlarged for inspection; compare physical scale to see how widely separated Earth and Moon really are."
+        "Because the Moon’s orbit is tilted about 5° to Earth’s orbital plane, most new and full Moons pass just above or below the Sun–Earth line. An eclipse happens only when a new or full Moon falls near a node, where the two planes cross.",
+        "Sizes and separations are enlarged for inspection, and the Sun is drawn small and close only to show where sunlight comes from. Switch to Physical scale to see how widely separated Earth and Moon really are."
       ],
       "glossary": [
         {
@@ -548,7 +548,7 @@
         }
       ],
       "teacher": {
-        "script": "Play a month in Orbit geometry and watch the Moon’s sunlit half. Then switch to Moon close-up to see the phase as it looks from Earth.\n\nPause at first quarter and full Moon. Turn on Eclipse alignment and explain why the tilted orbit usually prevents an eclipse.",
+        "script": "Play a month in Orbit geometry and watch the Moon’s sunlit half. Then switch to Moon close-up to see the phase as it looks from Earth’s Northern Hemisphere.\n\nPause at first quarter and full Moon. Compare the solid orbit with the dashed line (Earth’s orbital plane): at most full Moons the Moon sits above or below it. Turn on Eclipse alignment to flatten the orbit, then explain why the 5° tilt usually prevents an eclipse.",
         "pitfalls": [
           "Explain phases as changing views of the Moon’s sunlit half; Earth’s shadow is involved in a lunar eclipse.",
           "Remind students that the average Earth–Moon separation is about 30 Earth diameters, much larger than a compact classroom display suggests.",
@@ -576,9 +576,9 @@
         "The Moon’s orbit is tilted about 5° to the ecliptic, so most months it misses Earth’s shadow.",
         "Sizes are exaggerated so the model reads from the back of the room; the real Moon is about 30 Earth diameters away.",
         "Synodic month, new to new, is about 29.53 days, longer than the sidereal month because Earth has moved.",
-        "Turn on Eclipse alignment (it sets the 5° tilt to zero), then ask why next month’s full Moon will not be an eclipse.",
+        "Turn on Eclipse alignment (it sets the 5° tilt to zero, so every full Moon would line up with Earth’s shadow), then ask why real full Moons are usually not eclipses.",
         "Without the 3D view: half the Moon is always sunlit; phases are the viewing angle from Earth; eclipses need the Moon near a node of its tilted orbit.",
-        "A synodic month is new to new, about 29.5 days."
+        "The Moon close-up shows the phase as seen from the Northern Hemisphere. From the Southern Hemisphere the view is rotated, so a waxing Moon is lit on the left."
       ]
     },
     {
@@ -606,12 +606,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Rotate the cutaway, then change Slice and Explode. Identify the four layers and read their material states."
+          "body": "Rotate the cutaway, then change Cutaway and Separate layers. Identify the four layers and read their material states."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Set Explode back to zero, then turn on P/S waves. Compare how the waves travel through the solid mantle and the liquid outer core."
+          "body": "Set Separate layers back to 0%, then turn on P/S waves and press Play. Compare how the waves travel through the solid mantle and the liquid outer core."
         },
         {
           "id": "explain",
@@ -659,12 +659,12 @@
           "explain": "Convection in the electrically conducting liquid outer core generates and maintains electric currents. Those currents sustain much of Earth's magnetic field through the geodynamo."
         },
         {
-          "prompt": "About how thick is continental crust compared with Earth’s radius (~6371 km)?",
+          "prompt": "About how thick is continental crust compared with Earth’s radius (~6,371 km)?",
           "choices": [
-            "About 35 km — a thin shell.",
-            "About 2000 km.",
-            "Half the radius.",
-            "The same as the outer core."
+            "About 35 km",
+            "About 2,000 km",
+            "About 3,200 km",
+            "About 2,260 km"
           ],
           "answer": 0,
           "explain": "A typical continental crust thickness of about 35 km is well under 1% of Earth's 6371 km radius. Crustal thickness varies considerably, particularly beneath mountain belts."
@@ -672,7 +672,7 @@
       ],
       "why": [
         "Seismic waves reveal an Earth with layers that differ in composition and physical state. The mantle is mainly solid rock, the outer core is liquid, and the inner core is solid.",
-        "Set Explode back to zero, then turn on P/S waves. Compare how the waves travel through the solid mantle and the liquid outer core.",
+        "P waves are compressional and pass through both solids and liquids. S waves are shear waves, and a liquid cannot resist shearing, so S waves recorded on the far side of Earth cannot have crossed the outer core. This S-wave shadow is the main evidence that the outer core is liquid.",
         "The cutaway shows a reference structure. Its wave paths show which layers carry each wave; they do not calculate earthquake travel times."
       ],
       "glossary": [
@@ -732,7 +732,7 @@
         }
       ],
       "teacher": {
-        "script": "Rotate the cutaway, then change Slice and Explode. Identify the four layers and read their material states.\n\nSet Explode back to zero, then turn on P/S waves. Compare how the waves travel through the solid mantle and the liquid outer core.",
+        "script": "Rotate the cutaway, then change Cutaway and Separate layers. Identify the four layers and read their material states.\n\nSet Separate layers back to 0%, then turn on P/S waves and press Play. Compare how the waves travel through the solid mantle and the liquid outer core.",
         "pitfalls": [
           "Describe the mantle as predominantly solid rock that can deform slowly, rather than as a global magma ocean.",
           "Use the wave illustration to discuss transmission through materials; it does not calculate seismic shadow zones.",
@@ -859,7 +859,7 @@
       ],
       "why": [
         "At divergent boundaries plates separate, at convergent boundaries they approach, and at transform boundaries they slide past. These relative motions help explain the distribution of ridges, trenches and earthquakes.",
-        "Increase Time before present to step back towards Pangaea in 10 Ma snapshots. Return to 0 Ma and turn on Hawaiʻi hotspot to find Hawaiʻi.",
+        "Plates move only a few centimetres a year, but over tens of millions of years that rearranges the continents. About 200 million years ago most continental crust was joined in Pangaea; spreading at ridges such as the Mid-Atlantic Ridge has since opened new oceans between the pieces.",
         "Past views move modern coastlines using a plate model, so they show continental positions rather than ancient shorelines."
       ],
       "glossary": [
@@ -1076,7 +1076,7 @@
       ],
       "why": [
         "A contour joins places at the same elevation. Closely spaced contours indicate a steep slope, while wider spacing indicates a gentler slope; their patterns reveal valleys, ridges and summits.",
-        "Change Contour interval while keeping the terrain fixed. Compare tightly spaced and widely spaced contours and explain the difference in slope.",
+        "Where a contour crosses a valley, it has to travel uphill along the valley floor before it finds ground of the same height, so its V points uphill. Around a spur the higher ground sticks out, so the contour's V or U points downhill.",
         "The same constructed terrain appears in both views, so changing the contour interval changes the map’s detail, not the hill."
       ],
       "glossary": [
@@ -1265,7 +1265,7 @@
       "why": [
         "A river’s long profile usually becomes gentler downstream. Channel shape, water supply and sediment change along its course, helping explain why steep valleys and broad floodplains occur in different reaches.",
         "Raise Discharge and compare the water level and the width of the wet channel. Play follows the water downstream; the channel itself does not erode.",
-        "The channel shape stays fixed while the water level changes; the displayed wet margins are an illustration rather than a mapped flood extent."
+        "The channel shape stays fixed while the water level changes; the displayed wet margins are an illustration rather than a mapped flood extent. As in real rivers, the model channel becomes wider and deeper downstream and carries deeper water there, because tributaries add discharge along the way."
       ],
       "glossary": [
         {
@@ -1287,7 +1287,7 @@
         {
           "term": "Levee",
           "exam": "Levee",
-          "def": "A raised bank beside a river, either built naturally by overbank sediment deposition or constructed to reduce flooding. Also written levee."
+          "def": "A raised bank beside a river, either built naturally by overbank sediment deposition or constructed to reduce flooding."
         },
         {
           "term": "Delta",
@@ -1369,12 +1369,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Identify the ocean, atmosphere, ice, soil and groundwater stores. Select a transfer and follow the highlighted route between stores."
+          "body": "Identify the ocean, atmosphere, snow and ice, soil and groundwater stores. Choose a process in Follow a transfer and trace the highlighted route between stores."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Show the drainage basin, then increase Abstraction. Explain how taking water from a local store changes the water available in the catchment."
+          "body": "Turn on Drainage basin, then increase Abstraction. Watch the reservoir level and the budget in the readout, and explain how taking water from a local store changes the water available in the catchment."
         },
         {
           "id": "explain",
@@ -1435,7 +1435,7 @@
       ],
       "why": [
         "Water moves between the atmosphere, land and ocean through evaporation, precipitation and flows at and below the surface. Naming the stores first makes it easier to trace where water comes from and where it goes.",
-        "Show the drainage basin, then increase Abstraction. Explain how taking water from a local store changes the water available in the catchment.",
+        "A reservoir is a local store. Its volume rises or falls with the balance between inputs (precipitation and inflow) and outputs (evaporation, releases and abstraction). When outputs exceed inputs the store shrinks, even though the total amount of water on Earth does not change.",
         "The tracers show transfer routes; their size and spacing do not show how much water moves along each route."
       ],
       "glossary": [
@@ -1491,7 +1491,7 @@
         }
       ],
       "teacher": {
-        "script": "Identify the ocean, atmosphere, ice, soil and groundwater stores. Select a transfer and follow the highlighted route between stores.\n\nShow the drainage basin, then increase Abstraction. Explain how taking water from a local store changes the water available in the catchment.",
+        "script": "Identify the ocean, atmosphere, snow and ice, soil and groundwater stores. Choose a process in Follow a transfer and trace the highlighted route between stores.\n\nTurn on Drainage basin, then increase Abstraction. Watch the reservoir level and the budget in the readout, and explain how taking water from a local store changes the water available in the catchment.",
         "pitfalls": [
           "Name each water store before tracing the transfers between them.",
           "Distinguish the amount of water stored in a river from the volume passing through it over time.",
@@ -1598,7 +1598,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Turn on All eight orbits, then switch to physical scale and compare planet radii with the distances between their orbits."
+          "body": "Turn on All eight orbits, then switch to Physical scale (the ×N button, or press T) and compare planet radii with the distances between their orbits."
         },
         {
           "id": "explain",
@@ -1659,7 +1659,7 @@
       ],
       "why": [
         "Planets differ enormously in size, orbital distance and period. Kepler’s laws connect distance with orbital period and explain why a planet moves faster near the Sun than farther away.",
-        "Turn on All eight orbits, then switch to physical scale and compare planet radii with the distances between their orbits.",
+        "Kepler’s third law (T² ∝ a³) means period grows faster than distance: Mars, at about 1.5 au, takes about 1.9 years, while Neptune, at about 30 au, takes about 165 years. Farther planets travel a longer path and also move more slowly.",
         "The orbital experiment uses fixed reference elements and chosen starting positions, so it does not show the planets’ locations today."
       ],
       "glossary": [
@@ -1721,7 +1721,7 @@
       "teacher": {
         "script": "Play the inner orbits and compare periods and speed around each ellipse.\n\nTurn on All eight orbits, then switch to physical scale and compare planet radii with the distances between their orbits.",
         "pitfalls": [
-          "Use the distance readings when comparing orbits because display spacing is adjusted for visibility.",
+          "Orbit spacing in the orbital view uses one au scale, but in teaching scale the Sun and planets are enlarged by different amounts; in the radius comparison the spacing is only a display arrangement.",
           "Describe planetary rings as collections of particles rather than solid discs.",
           "Distinguish a model’s surface or cloud colours from measurements made by an observing instrument."
         ]
@@ -1928,7 +1928,7 @@
       ],
       "why": [
         "The same sunlight spreads across a larger area when it strikes a surface at a shallow angle. Latitude, solar declination and day length therefore affect the energy received by a horizontal surface.",
-        "Move Solar declination to ±23.44° (the solstices) and compare the noon and daily-mean values.",
+        "When the solar declination is +23.44°, the noon Sun is overhead at the Tropic of Cancer. Northern latitudes then receive more energy per square metre at noon, and long or continuous daylight raises their daily mean further, while the southern hemisphere receives less.",
         "The calculation describes sunlight above the atmosphere; clouds and atmospheric absorption would change the energy reaching the ground."
       ],
       "glossary": [

@@ -23,11 +23,17 @@ export function LunarSurface({
   angle = 0,
   dim = false,
   shadow,
+  photometry = false,
 }: {
   position?: [number, number, number];
   radius: number;
   angle?: number;
   dim?: boolean;
+  /**
+   * Lunar photometry (Lommel–Seeliger): the real Moon stays bright right up to the terminator
+   * instead of darkening like a matte ball, so thin crescents look as wide as they really are.
+   */
+  photometry?: boolean;
   /** Earth's shadow along the x axis (Sun towards +x): umbra and penumbra radii at x0 and x1. */
   shadow?: { x0: number; x1: number; u0: number; u1: number; p0: number; p1: number };
 }) {
@@ -84,8 +90,22 @@ export function LunarSurface({
    totalEmissiveRadiance+=vec3(.42,.12,.04)*inUmbra*diffuseColor.rgb*1.6;}`,
                 );
           }
-        : undefined,
-    [hasShadow, shadowUniforms],
+        : photometry
+          ? (sh: THREE.WebGLProgramParametersWithUniforms) => {
+              sh.fragmentShader = sh.fragmentShader.replace(
+                "#include <lights_fragment_end>",
+                `#include <lights_fragment_end>
+  #if NUM_DIR_LIGHTS > 0
+  {
+    float mu0 = max(dot(normal, directionalLights[0].direction), 0.0);
+    float mu = max(dot(normal, normalize(vViewPosition)), 1e-3);
+    reflectedLight.directDiffuse *= 2.0 / (mu0 + mu + 1e-3);
+  }
+  #endif`,
+              );
+            }
+          : undefined,
+    [hasShadow, shadowUniforms, photometry],
   );
   // NASA LOLA height encodes -12..+12 km about the 1737.4 km reference sphere.
   // LROC albedo never substitutes for height; relief has no vertical exaggeration.
@@ -102,7 +122,9 @@ export function LunarSurface({
         color={dim && !shadow ? "#945b41" : "#ffffff"}
         roughness={0.96}
         onBeforeCompile={eclipse}
-        customProgramCacheKey={() => (shadow ? "moon-eclipse" : "moon")}
+        customProgramCacheKey={() =>
+          shadow ? "moon-eclipse" : photometry ? "moon-photometry" : "moon"
+        }
       />
     </mesh>
   );
@@ -349,7 +371,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
           <>
             <directionalLight position={discSun} intensity={3} />
             <ambientLight intensity={0.015} />
-            <LunarSurface radius={1.2} angle={Math.PI / 2} />
+            <LunarSurface radius={1.2} angle={Math.PI / 2} photometry />
           </>
         ) : focus ? (
           solar ? (
@@ -368,6 +390,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               position={position}
               radius={(radius * LUNAR.moon) / LUNAR.earth}
               angle={t * 2 * Math.PI}
+              dim={slug === "moon-phases" && lunarEclipse(p) === "Total lunar eclipse"}
             />
             <Line
               points={Array.from({ length: 129 }, (_, i): [number, number, number] => [
@@ -391,7 +414,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               <Tag
                 pos={[0, 0.5, 0]}
                 text="Sunlight"
-                note="The Sun is far beyond this view: about 390 times farther than the Moon. Its light reaches Earth and Moon as parallel rays from this side."
+                note="Not to scale: the real Sun is about 109 times Earth's diameter and about 390 times farther away than the Moon. Its light reaches Earth and Moon as parallel rays from this side."
                 occlude={false}
               />
             </group>
@@ -422,7 +445,10 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
         )}
         {focus
           ? `${solar ? "Solar shadow view" : lunarEclipse(shadowPoint)} at ${((t - 0.5) * 0.012 * 29.53059 * 24).toFixed(2)} h from ${solar ? "new" : "full"} Moon.`
-          : `At day ${(t * 29.53059).toFixed(1)} of the model month, the Moon is ${(fraction * 100).toFixed(1)}% illuminated as seen from Earth (${phaseName.toLowerCase()}).`}{" "}
+          : `At day ${(t * 29.53059).toFixed(1)} of the model month, the Moon is ${(fraction * 100).toFixed(1)}% illuminated as seen from Earth (${phaseName.replace(/^\w/, (c) => c.toLowerCase())}).`}{" "}
+        {slug === "moon-phases" && !focus && /lunar eclipse/i.test(lunarEclipse(p))
+          ? `Earth's shadow now falls on the Moon: ${lunarEclipse(p).toLowerCase()}. `
+          : ""}
         {slug === "eclipses" && !focus
           ? lunarEclipse(p) + ". Turn on Shadow close-up for a closer view."
           : slug === "tides"
