@@ -17,6 +17,17 @@ import { landscapeNoise as noise, landscapeRandom as random } from "../shared/la
 const SAMPLES = 81;
 
 /**
+ * Hillslope surface (scene units). A smoothstep profile gives a gently sloping crest, a steeper
+ * backslope and a concave footslope, so the backslope (where the model thins the soil) is the
+ * steepest ground. Total relief matches catenaProfile (1.7 × slope).
+ */
+function hillSurface(x: number, slope: number) {
+  const s = THREE.MathUtils.clamp(slope, 0.2, 1),
+    v = THREE.MathUtils.clamp((x + 3) / 6 / 0.95, 0, 1);
+  return 1.7 * s * (1 - v * v * (3 - 2 * v));
+}
+
+/**
  * Catena cut faces. Soil thickness along the slope comes from the model (uThick), so the soil
  * thins on the backslope and thickens at the toe. The lower slope is wetter: its subsoil is
  * grey with rusty mottles (gleying). Below the soil lies weathered and then solid sandstone.
@@ -60,8 +71,7 @@ export default function SoilCatena() {
     slope = params.slope ?? 0.55,
     thicknessScale = (trueScale ? 1 : 20) / 20;
   const height = useMemo(
-    () => (x: number, z: number) =>
-      catenaProfile(x, slope).surface + 0.02 * (noise(x * 2 + 1, z * 2) - 0.5),
+    () => (x: number, z: number) => hillSurface(x, slope) + 0.02 * (noise(x * 2 + 1, z * 2) - 0.5),
     [slope],
   );
   const colour = useMemo(
@@ -139,7 +149,7 @@ export default function SoilCatena() {
           <RootNetwork
             key={i}
             x={x}
-            y={catenaProfile(x, slope).surface - 0.015}
+            y={hillSurface(x, slope) - 0.015}
             z={1.008}
             depth={Math.min(0.45, catenaProfile(x, slope).thicknessM * thicknessScale * 0.8)}
             spread={0.15}
@@ -148,7 +158,7 @@ export default function SoilCatena() {
         ))}
         {positions.map((x, i) => {
           const c = catenaProfile(x, slope),
-            end: [number, number, number] = [x, c.surface + 0.35, 1.1];
+            end: [number, number, number] = [x, hillSurface(x, slope) + 0.35, 1.1];
           return (
             <Tag
               key={i}
@@ -168,20 +178,26 @@ export default function SoilCatena() {
         {[-1.8, 0, 1.5].map((x) => (
           <Arrow
             key={x}
-            from={[x, catenaProfile(x, slope).surface + 0.45, 0]}
-            to={[x + 0.65, catenaProfile(x + 0.65, slope).surface + 0.45, 0]}
+            from={[x, hillSurface(x, slope) + 0.45, 0]}
+            to={[x + 0.65, hillSurface(x + 0.65, slope) + 0.45, 0]}
             color="#87c9d7"
             width={1}
           />
         ))}
       </ScienceStudio>
       <ScienceReadout>
+        {`Soil thickness: ${positions
+          .map(
+            (x, i) =>
+              `${names[i].toLowerCase()} ${catenaProfile(x, slope).thicknessM.toFixed(2)} m`,
+          )
+          .join(" · ")}. `}
         {
           "Soils share the same parent material, but their position on the slope changes drainage and sediment movement: the crest and backslope lose material, while the toe receives water and sediment."
         }
         <br />
         {
-          "Change Slope to compare the soil thicknesses. Only soil thickness is exaggerated in the teaching view, and the model does not calculate rates of soil formation, erosion or deposition."
+          "Pale blue arrows show water and sediment moving downslope. Change Slope to compare the soil thicknesses. Only soil thickness is exaggerated in the teaching view, and the model does not calculate rates of soil formation, erosion or deposition."
         }
       </ScienceReadout>
     </>

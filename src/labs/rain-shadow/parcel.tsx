@@ -17,6 +17,8 @@ export default function RainShadow() {
   const crest = params.ridge ?? 2100,
     humidity = (params.wind ?? 70) / 100,
     f = trueScale ? 1 : 2.5;
+  // How much water the air loses on the way up sets how strongly the lee side dries out.
+  const dryness = Math.min(1, mountainParcel(0, crest, humidity, true).condensedGrams / 3);
   const h = (x: number) => crest * Math.exp((-x * x) / 1.05);
   const surface = (x: number, z: number) =>
     (h(x) / 3000) *
@@ -35,7 +37,7 @@ export default function RainShadow() {
       const x = p.getX(i),
         y = p.getY(i),
         z = p.getZ(i),
-        mix = Math.min(1, Math.max(0, (x + 0.25) / 1.2)),
+        mix = dryness * Math.min(1, Math.max(0, (x + 0.25) / 1.2)),
         colour = green
           .clone()
           .lerp(dry, mix)
@@ -46,7 +48,7 @@ export default function RainShadow() {
     g.setAttribute("color", new THREE.BufferAttribute(colours, 3));
     return g;
     // eslint-disable-next-line react-hooks/exhaustive-deps -- surface is redefined each render from crest and f, which are listed
-  }, [crest, f]);
+  }, [crest, f, dryness]);
   useEffect(() => () => terrain.dispose(), [terrain]);
   const x = -3 + t * 6,
     height = h(x),
@@ -69,12 +71,7 @@ export default function RainShadow() {
           <RockMaterial attach="material-1" color="#82715d" />
         </mesh>
         <Line points={path} color="#dfc58f" lineWidth={2} />
-        <Arrow
-          from={[-2.9, 0.22, 0.05]}
-          to={[-2.2, (h(-2.2) / 3000) * f + 0.2, 0.05]}
-          color="#8fd2de"
-          width={0.7}
-        />
+        <Arrow from={[-2.95, 0.75, 0.05]} to={[-2.05, 0.75, 0.05]} color="#8fd2de" width={1.4} />
         <mesh position={[x, (height / 3000) * f + 0.2, 0.05]}>
           <sphereGeometry args={[0.09, 32, 24]} />
           <meshStandardMaterial
@@ -83,11 +80,14 @@ export default function RainShadow() {
           />
         </mesh>
         <PlantStand
-          positions={Array.from({ length: 44 }, (_, i) => {
-            const tx = -2.8 + random(i + 475) * 1.9,
+          positions={Array.from({ length: 70 }, (_, i) => {
+            const lee = i >= 44,
+              tx = lee ? 0.9 + random(i + 475) * 1.9 : -2.8 + random(i + 475) * 1.9,
               tz = -1.12 + random(i + 491) * 2.24;
+            // Lee-side trees thin out as the rain shadow strengthens.
+            if (lee && random(i + 523) < dryness) return null;
             return [tx, surface(tx, tz), tz] as [number, number, number];
-          }).filter(([, , z]) => Math.abs(z) > 0.2)}
+          }).filter((p): p is [number, number, number] => p !== null && Math.abs(p[2]) > 0.2)}
           scale={0.08}
           kind="conifer"
           seed={5}
@@ -116,13 +116,13 @@ export default function RainShadow() {
           );
         })}
         <Tag
-          pos={[-2, 0.5, 0.8]}
-          text="Windward · rising"
+          pos={[-2.3, 1.05, 0.05]}
+          text="Wind · windward side rising"
           note="Unsaturated air cools at about 9.8 °C/km. Above cloud base the model uses 6 °C/km; real saturated rates vary with temperature and pressure."
           occlude={false}
         />
         <Tag
-          pos={[2, 0.5, 0.8]}
+          pos={[2, 1.05, 0.05]}
           text="Leeward · descending"
           note="Once its condensed water has rained out, the sinking air warms at about 9.8 °C/km. The model ignores mixing with other air and radiative heating or cooling."
           occlude={false}
@@ -134,13 +134,13 @@ export default function RainShadow() {
         {parcel.temperature.toFixed(1)} {"°C · RH "}
         {(parcel.relativeHumidity * 100).toFixed(0)}
         {"%. Cloud base ≈ "}
-        {parcel.lcl.toFixed(0)} {"m."}
-        <br />
-        {"Start: 20 °C, "}
-        {(humidity * 100).toFixed(0)}
-        {"% RH. Leeward sea-level air: "}
+        {Math.max(0, parcel.lcl).toFixed(0)} {"m. Leeward foot: "}
         {downstream.temperature.toFixed(1)} {"°C, "}
         {(downstream.relativeHumidity * 100).toFixed(0)}
+        {"% RH."}
+        <br />
+        {"Windward foot (start): 20 °C, "}
+        {(humidity * 100).toFixed(0)}
         {"% RH. "}
         {crest <= parcel.lcl
           ? "This ridge is too low for the air to reach cloud base."

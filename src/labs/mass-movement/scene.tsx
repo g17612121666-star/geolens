@@ -140,11 +140,13 @@ export default function MassMovement() {
             return [p[0], p[1]];
           })}
         />
-        {/* Water table from the model's pore-pressure heads; it rises with rainfall. */}
+        {/* Water table from the model's pore-pressure heads; it rises with rainfall and moves with the
+            displaced block so it never floats in the head-scarp gap. */}
         <Line
-          points={result.slices.map(
-            (sl) => [sl.x, slumpBase(sl.x) + (rain * sl.h) / 10, 1.122] as [number, number, number],
-          )}
+          points={result.slices.map((sl) => [
+            ...rotateSlump(sl.x, slumpBase(sl.x) + (rain * sl.h) / 10, angle),
+            1.122,
+          ])}
           color="#3d8fd0"
           lineWidth={2.5}
           dashed
@@ -203,8 +205,8 @@ export default function MassMovement() {
             <Line
               key={i}
               points={[
-                [s.x, slumpBase(s.x), 1.12],
-                [s.x, slumpBase(s.x) + (rain * s.h) / 10, 1.12],
+                [...rotateSlump(s.x, slumpBase(s.x), angle), 1.12],
+                [...rotateSlump(s.x, slumpBase(s.x) + (rain * s.h) / 10, angle), 1.12],
               ]}
               color="#83b9d0"
               transparent
@@ -224,7 +226,7 @@ export default function MassMovement() {
           occlude={false}
         />
         <Tag
-          pos={[0, -0.55, 1.12]}
+          pos={[0, -0.2, 1.12]}
           text="Curved shear surface"
           note="The model tests one chosen slip circle; it does not search for the weakest possible surface. Strength is calculated for the slope before it moves. Blue lines show water-pressure levels in the soil, not an underground lake."
           occlude={false}

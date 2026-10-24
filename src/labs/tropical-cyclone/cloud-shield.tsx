@@ -131,7 +131,8 @@ void main(){
   float r=length(vP),a=atan(-vP.y,vP.x);
   float w=windAt(r,uVmax)/80.;
   float spiral=a+uSpin*.36*log(max(r,.05))*3.;
-  float streak=smoothstep(.62,.95,shNoise(vec2(spiral*46.,r*1.6-uTime*3.)))*smoothstep(.35,.8,shNoise(vec2(spiral*9.,r*14.)));
+  // Adding time moves each streak to smaller r along its spiral: surface inflow.
+  float streak=smoothstep(.62,.95,shNoise(vec2(spiral*46.,r*1.6+uTime*3.)))*smoothstep(.35,.8,shNoise(vec2(spiral*9.,r*14.)));
   float foam=streak*smoothstep(.08,.7,w)*(1.-smoothstep(4.8,5.8,r));
   gl_FragColor=vec4(vec3(.93,.96,.97),foam*.6);
 }`}

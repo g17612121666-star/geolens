@@ -58,7 +58,7 @@ export default function Groundwater() {
             <meshPhysicalMaterial
               color={confined ? "#dfc17d" : "#4eb2d0"}
               transparent
-              opacity={confined ? 0.22 : 0.3}
+              opacity={confined ? 0.38 : 0.3}
               clippingPlanes={CUT}
               clipIntersection
               roughness={0.25}
@@ -79,6 +79,19 @@ export default function Groundwater() {
               })}
               color={confined ? "#dfc17d" : "#77d0dd"}
               lineWidth={1}
+            />
+          ))}
+          {/* Head profile drawn on both cut faces so the cone of depression reads in section. */}
+          {[0, 1].map((face) => (
+            <Line
+              key={`profile-${face}`}
+              points={Array.from({ length: 120 }, (_, i): [number, number, number] => {
+                const s = 0.001 + (face ? 2 : 2.5) * (i / 119) ** 2,
+                  y = (wellHead(s * 200, pump, H, confined) / 10) * f;
+                return face ? [0.006, y, s] : [s, y, 0.006];
+              })}
+              color={confined ? "#f0cf7a" : "#9be3f2"}
+              lineWidth={2.5}
             />
           ))}
           {pump > 0 &&
@@ -130,7 +143,7 @@ export default function Groundwater() {
           )}
           <Tag
             pos={[-2.7, (H / 10) * f + 0.2, 1.9]}
-            text={confined ? "Pressure head" : "Water table"}
+            text={confined ? "Potentiometric surface" : "Water table"}
             note={
               confined
                 ? "The potentiometric surface is the level water rises to in a well. The confined aquifer stays fully saturated beneath the clay layer."
@@ -156,7 +169,7 @@ export default function Groundwater() {
         </span>
         <br />
         {confined
-          ? "Confined: 12 m saturated thickness; gold is pressure head."
+          ? "Confined: the 12 m aquifer stays saturated; gold is the potentiometric surface (level water would rise to in a well)."
           : "Unconfined: blue marks the top of saturated pores."}{" "}
         {
           "K = 10 m/day, fixed head at 500 m, well radius 0.2 m. Steady Thiem / Dupuit approximation. "

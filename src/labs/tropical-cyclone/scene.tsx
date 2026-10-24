@@ -55,29 +55,32 @@ export default function TropicalCyclone() {
               </mesh>
             );
           })}
-          {[0, (Math.PI * 2) / 3, (Math.PI * 4) / 3].map((a) => (
-            <group key={a}>
-              <Arrow
-                from={[2.8 * Math.cos(a), 0.08, 2.8 * Math.sin(a)]}
-                to={[1.2 * Math.cos(a), 0.08, 1.2 * Math.sin(a)]}
-                color="#e2b17c"
-                width={0.8}
-              />
-              <Arrow
-                from={[0.82 * Math.cos(a), 0.1, 0.82 * Math.sin(a)]}
-                to={[0.9 * Math.cos(a), 1.2, 0.9 * Math.sin(a)]}
-                color="#a8d0d8"
-                width={0.8}
-              />
-              <Arrow
-                from={[1.3 * Math.cos(a), 1.35, 1.3 * Math.sin(a)]}
-                to={[3.3 * Math.cos(a), 1.35, 3.3 * Math.sin(a)]}
-                color="#a8d0d8"
-                width={0.8}
-              />
-            </group>
-          ))}
-          <Arrow from={[0, 1.1, 0]} to={[0, 0.2, 0]} color="#debfb0" width={0.65} />
+          {/* One set faces the camera, inside the Cutaway gap, so the full circulation shows. */}
+          {[Math.PI / 2, Math.PI / 2 + (Math.PI * 2) / 3, Math.PI / 2 + (Math.PI * 4) / 3].map(
+            (a) => (
+              <group key={a}>
+                <Arrow
+                  from={[2.8 * Math.cos(a), 0.08, 2.8 * Math.sin(a)]}
+                  to={[1.2 * Math.cos(a), 0.08, 1.2 * Math.sin(a)]}
+                  color="#e2b17c"
+                  width={1.8}
+                />
+                <Arrow
+                  from={[0.82 * Math.cos(a), 0.1, 0.82 * Math.sin(a)]}
+                  to={[0.9 * Math.cos(a), 1.2, 0.9 * Math.sin(a)]}
+                  color="#a8d0d8"
+                  width={1.8}
+                />
+                <Arrow
+                  from={[1.3 * Math.cos(a), 1.35, 1.3 * Math.sin(a)]}
+                  to={[3.3 * Math.cos(a), 1.35, 3.3 * Math.sin(a)]}
+                  color="#a8d0d8"
+                  width={1.8}
+                />
+              </group>
+            ),
+          )}
+          <Arrow from={[0, 1.1, 0]} to={[0, 0.2, 0]} color="#debfb0" width={1.5} />
         </group>
         <Line
           points={[
@@ -93,13 +96,13 @@ export default function TropicalCyclone() {
           occlude={false}
         />
         <Tag
-          pos={[2.0, 1.65 * vertical, -0.5]}
+          pos={[0.75, 1.55 * vertical, -0.45]}
           text="Eyewall"
           note="In this model the wind peaks 30 km from the centre. In real storms, rising moist air releases latent heat that powers the eyewall; that heat is not calculated here."
           occlude={false}
         />
         <Tag
-          pos={[-3.7, 0.7, -1.4]}
+          pos={[-1.23, 0.9 * vertical, -3.38]}
           text="Rainbands"
           note="Cloud shapes are a 3D structural illustration, not satellite data or simulated rainfall. Actual bands, eye size and symmetry vary considerably."
           occlude={false}
