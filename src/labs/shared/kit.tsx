@@ -1,7 +1,7 @@
 import { ScientificText } from "@/components/scientific-text";
 import { Environment, Html, OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useMemo, useRef, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { cn } from "@/lib/utils";
@@ -30,6 +30,16 @@ export function Tag({
   const layout = useLabControls((s) => s.layout);
   const inspect = useLabControls((s) => s.inspect);
   const setInspect = useLabControls((s) => s.setInspect);
+  const projector = layout === "projector";
+  const hideBehind = occlude && !projector;
+  // drei only re-checks occlusion when a label moves on screen. A label mounted before the
+  // scene's meshes finish loading could stay visible through a globe, so check once more.
+  const [recheck, setRecheck] = useState(0);
+  useEffect(() => {
+    if (!hideBehind) return;
+    const id = window.setTimeout(() => setRecheck(1), 900);
+    return () => window.clearTimeout(id);
+  }, [hideBehind]);
   if (!labels) return null;
   const tones: Record<string, string> = {
     chalk: "text-chalk",
@@ -43,10 +53,9 @@ export function Tag({
   const name = title ?? text.split(" · ")[0] ?? text;
   const inspectNote = note ?? "";
   const active = inspect?.name === name;
-  const projector = layout === "projector";
-  const hideBehind = occlude && !projector;
   return (
     <Html
+      key={recheck}
       position={pos}
       userData={{
         fitLabelWidth: text.length * (projector ? 9 : 8) + 28,

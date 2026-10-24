@@ -1,4 +1,6 @@
-/** Illustrative 1 km² catchment. Explicit losses + delay + a mass-conserving linear reservoir. */
+/** Steady groundwater-fed flow between storms (m³/s); kept out of the storm water balance. */
+export const BASEFLOW=.05;
+/** Illustrative 1 km² catchment. Explicit losses + delay + a mass-conserving linear reservoir, on top of a constant baseflow. */
 export function stormHydrograph(urban:number,rainMultiplier:number){
   const c=.25+.6*Math.max(0,Math.min(1,urban)),tau=6-4.8*urban,delay=2-1.7*urban,dt=.05,area=1e6;
   const rain=(h:number)=>h>=0&&h<4?Math.max(0,20*(1-Math.abs(h-2)/2))*rainMultiplier:0;
@@ -8,7 +10,7 @@ export function stormHydrograph(urban:number,rainMultiplier:number){
     precipitation+=precip;loss+=precip*(1-c);translated+=input*dt;
     const next=storage*Math.exp(-dt/tau)+input*tau*(1-Math.exp(-dt/tau));
     const volume=storage+input*dt-next;outflow+=volume;storage=next;
-    rows.push({hour:(i+1)*dt,rain:rain(h),q:volume/(dt*3600),storage,outflow,precipitation,loss});
+    rows.push({hour:(i+1)*dt,rain:rain(h),q:BASEFLOW+volume/(dt*3600),stormflow:volume/(dt*3600),storage,outflow,precipitation,loss});
   }
   const peak=rows.reduce((a,b)=>a.q>b.q?a:b),queued=precipitation*c-translated;
   return {rows,peak,lag:peak.hour-2,tau,delay,coefficient:c,precipitation,loss,outflow,storage,queued};

@@ -143,7 +143,9 @@ export default function Isostasy() {
     [ice],
   );
   const centre = ground(0, D / 2),
-    iceTop = centre + ice * exaggeration * SCALE;
+    iceTop = centre + ice * exaggeration * SCALE,
+    mohoX = -0.9,
+    mohoAt = topBare - crust - iceAt(mohoX, D / 2, ice) * depressPerMetre;
   return (
     <>
       <ScienceStudio
@@ -212,31 +214,37 @@ export default function Isostasy() {
         {ice > 0 && (
           <>
             <Arrow
-              from={[0.35, topBare + 0.02, D / 2 + 0.06]}
-              to={[0.35, centre, D / 2 + 0.06]}
-              color="#e4b77c"
-              width={0.6}
+              from={[0, topBare + 0.02, D / 2 + 0.06]}
+              to={[0, centre, D / 2 + 0.06]}
+              color="#f0a640"
+              width={1.6}
             />
             {[-1, 1].map((side) => (
               <Arrow
                 key={side}
-                from={[side * 0.4, topBare - crust - 0.35, D / 2 + 0.06]}
-                to={[side * 1.5, topBare - crust - 0.35, D / 2 + 0.06]}
-                color="#c9d6a2"
-                width={0.7}
+                from={[side * 0.4, topBare - crust - 0.5, D / 2 + 0.06]}
+                to={[side * 1.5, topBare - crust - 0.5, D / 2 + 0.06]}
+                color="#f6efc8"
+                width={1.6}
               />
             ))}
           </>
         )}
         <Tag
-          pos={[-2.2, topBare - crust - 0.55, D / 2 + 0.05]}
+          pos={[2.1, topBare - crust - 1.05, D / 2 + 0.05]}
           text="Mantle · solid, creeping"
           note="Under the extra weight the mantle slowly flows aside while remaining solid. The arrows show the direction of that creep, not its speed."
           occlude={false}
         />
         <Tag
-          pos={[2.2, topBare - crust + 0.12, D / 2 + 0.05]}
-          text="Moho bends down"
+          pos={[-2.2, topBare - crust * 0.5, D / 2 + 0.05]}
+          text="Crust · 35 km thick"
+          note="Continental crust, less dense (2800 kg/m³) than the mantle below it. Its upper and lower layers are shown in different colours; its total thickness does not change when ice is added."
+          occlude={false}
+        />
+        <Tag
+          pos={[mohoX, mohoAt + 0.15, D / 2 + 0.05]}
+          text={ice > 0 ? "Moho bends down" : "Moho"}
           note="The crust keeps its thickness, so its base (the Moho) is pushed down by the same amount as the surface. Dashed lines show both levels without ice."
           occlude={false}
         />
@@ -251,7 +259,7 @@ export default function Isostasy() {
             pos={[lakes[0][0], ground(lakes[0][0], lakes[0][1]) + 0.3, lakes[0][1]]}
             text="Meltwater lake"
             tone="glacier"
-            note="Meltwater collects in the depressed ground near the ice margin, behind moraines. When the ice melts the land slowly rebounds."
+            note="Meltwater collects in hollows beyond the ice margin, here just outside the terminal moraine. Schematic: this local model does not bend the ground beyond the ice edge, although the real lithosphere does."
             occlude={false}
           />
         )}

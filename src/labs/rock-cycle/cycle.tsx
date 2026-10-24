@@ -19,14 +19,37 @@ const ROCK_ROUTES = [
   { from: 1, to: 4, name: "Melting of sedimentary rock" },
   { from: 2, to: 4, name: "Melting of metamorphic rock" },
 ];
+
+/**
+ * Broad, rounded condition bands. Melting starts near 650 °C only for water-bearing granitic
+ * rock; dry basalt needs about 1100 °C or more, so these are guides, not boundaries.
+ */
+const REGIMES = [
+  "surface conditions, where weathering, erosion and deposition happen",
+  "shallow burial, where sediment can compact and cement but most rock is too cool to metamorphose",
+  "metamorphic conditions, where rock can recrystallise while staying solid but is too cool for crustal rock to melt",
+  "the range where some rocks are partly molten, especially granitic rock containing water; drier rock stays solid",
+  "hot enough for many crustal rocks, including dry basalt, to be partly or largely molten",
+];
+function regimeFor(temp: number, pressure: number) {
+  if (temp >= 1100) return 4;
+  if (temp >= 650) return 3;
+  if (temp <= 60 && pressure <= 0.05) return 0;
+  if (temp < 200 && pressure < 0.3) return 1;
+  return 2;
+}
+/** Condition bands in which each route in ROCK_ROUTES normally happens. */
+const ROUTE_REGIMES = [[3, 4], [0], [0], [0], [0, 1], [2], [2], [3, 4], [3, 4], [3, 4]];
 export default function RockCycle() {
   const { params, t, setParam } = useLabControls();
   useLabTick(1 / 40);
   const selectedRoute = Math.round(params.process ?? 0);
   const mobile = useIsCompact(),
-    route = ROCK_ROUTES[Math.round(params.process ?? 0)],
+    route = ROCK_ROUTES[selectedRoute],
     temp = params.temp ?? 500,
     pressure = params.pressure ?? 0.6,
+    regime = regimeFor(temp, pressure),
+    suits = ROUTE_REGIMES[selectedRoute].includes(regime),
     positions: [number, number, number][] = mobile
       ? [
           [-1.6, 2, 0],
@@ -70,7 +93,7 @@ export default function RockCycle() {
           <group key={i} position={p}>
             <Specimen kind={i} plinth />
             <Tag
-              pos={[0, 0.85, 0]}
+              pos={[0, i === 3 ? 0.15 : 0.85, 0]}
               text={NAMES[i]}
               note={
                 i === 0
@@ -105,6 +128,13 @@ export default function RockCycle() {
           return (
             <group key={k}>
               <Line points={pts} color="#a7a294" transparent opacity={0.35} lineWidth={1} />
+              {/* Arrowhead just past the bead, clear of the labels at each end. */}
+              <Arrow
+                from={c.getPoint(0.6).toArray()}
+                to={c.getPoint(0.68).toArray()}
+                color="#9a958a"
+                width={1.6}
+              />
               <mesh
                 position={c.getPoint(0.5)}
                 onClick={(e) => {
@@ -121,12 +151,10 @@ export default function RockCycle() {
           );
         })}
         <Line points={path} color="#d8b989" lineWidth={2} />
-        <Arrow
-          from={path[path.length - 5]}
-          to={path[path.length - 1]}
-          color="#d8b989"
-          width={0.9}
-        />
+        {/* Arrowheads at the middle and end make the direction readable without animation. */}
+        {[Math.floor(path.length / 2) + 4, path.length - 1].map((end) => (
+          <Arrow key={end} from={path[end - 8]} to={path[end]} color="#d8b989" width={2.4} />
+        ))}
         <group position={curve.getPoint(0.15 + t * 0.7)} scale={0.16}>
           <Specimen kind={t < 0.5 ? route.from : route.to} />
         </group>
@@ -138,15 +166,18 @@ export default function RockCycle() {
         ))}
       </ScienceStudio>
       <ScienceReadout>
-        {route.name}: {NAMES[route.from]} → {NAMES[route.to]}
-        {". Select another path; the cycle has branches and loops, with no compulsory order."}
-        <br />
-        {"Selected conditions: "}
+        {route.name}: {NAMES[route.from]} → {NAMES[route.to]}.{" At "}
         {temp.toFixed(0)} {"°C and "}
-        {pressure.toFixed(2)} {"GPa. That pressure equals roughly "}
-        {((pressure * 1e9) / (2800 * 9.81) / 1000).toFixed(1)}{" "}
+        {pressure.toFixed(2)} {"GPa (about "}
+        {((pressure * 1e9) / (2800 * 9.81) / 1000).toFixed(1)}
+        {" km deep): "}
+        {REGIMES[regime]}.{" "}
+        {suits
+          ? "These conditions suit this pathway."
+          : "This pathway does not normally happen under these conditions."}
+        <br />
         {
-          "km of rock with a uniform density of 2800 kg/m³. Temperature and pressure alone do not identify a rock or how much of it melts; composition, fluids, time and history also matter. The moving specimen changes type halfway along the route; it shows the route, not a reaction rate."
+          "Select another path; the cycle has branches and loops, with no compulsory order. Depth assumes a uniform rock density of 2800 kg/m³. The condition bands are broad guides: temperature and pressure alone do not identify a rock or how much of it melts; composition, fluids, time and history also matter. Melting begins near 650 °C only for granitic rock containing water, while dry basalt needs about 1100 °C or more. The moving specimen changes type halfway along the route; it shows the route, not a reaction rate."
         }
       </ScienceReadout>
     </>

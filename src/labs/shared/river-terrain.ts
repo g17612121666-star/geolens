@@ -11,12 +11,20 @@ export function riverSection(x: number, side: number) {
     inner = -side * bend;
   return {
     width: (0.135 + 0.2 * s) * (1 + 0.23 * inner),
-    depth: 0.16 + 0.035 * (1 - s),
+    // Channels deepen as well as widen downstream (Bradshaw model).
+    depth: 0.15 + 0.05 * s,
     exponent: 2.2 - 0.75 * inner,
   };
 }
-export const riverStage = (x: number, discharge: number) =>
-  riverBed(x) + 0.055 + 0.075 * Math.sqrt(THREE.MathUtils.clamp(discharge, 0.2, 1.6));
+/** Water surface: deeper downstream for the same discharge setting, as discharge grows downstream. */
+export function riverStage(x: number, discharge: number) {
+  const s = progress(x);
+  return (
+    riverBed(x) +
+    (0.045 + 0.03 * s) +
+    (0.06 + 0.035 * s) * Math.sqrt(THREE.MathUtils.clamp(discharge, 0.2, 1.6))
+  );
+}
 export function riverLand(x: number, z: number) {
   const offset = z - riverZ(x),
     d = Math.abs(offset),

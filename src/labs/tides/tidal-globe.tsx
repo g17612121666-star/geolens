@@ -12,6 +12,13 @@ import { FlowWaterMaterial } from "../shared/flow-water";
 import { Tag } from "../shared/kit";
 import { tidalPotential } from "./tidal-potential";
 
+/** Display only: the tidal surface is drawn at radius × (BASE + GAIN × potential), hugely exaggerated. */
+const BASE = 1.12,
+  GAIN = 0.14,
+  /** Equatorial potential range at spring (Sun–Moon aligned) and neap (at right angles). */
+  SPRING_RANGE = 2.19,
+  NEAP_RANGE = 0.81;
+
 function PotentialEnvelope({ radius, moon }: { radius: number; moon: [number, number, number] }) {
   const geometry = useMemo(() => new THREE.SphereGeometry(radius, 128, 96), [radius]),
     rest = useMemo(() => Float32Array.from(geometry.attributes.position.array), [geometry]);
@@ -19,7 +26,7 @@ function PotentialEnvelope({ radius, moon }: { radius: number; moon: [number, nu
     const p = geometry.attributes.position;
     for (let i = 0; i < p.count; i++) {
       const n: [number, number, number] = [rest[i * 3], rest[i * 3 + 1], rest[i * 3 + 2]],
-        scale = 1.14 + 0.07 * tidalPotential(n, moon);
+        scale = BASE + GAIN * tidalPotential(n, moon);
       p.setXYZ(i, n[0] * scale, n[1] * scale, n[2] * scale);
     }
     p.needsUpdate = true;
@@ -29,7 +36,7 @@ function PotentialEnvelope({ radius, moon }: { radius: number; moon: [number, nu
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry}>
-      <FlowWaterMaterial color="#7cc7e2" opacity={0.26} flow={[0, 0]} roughness={0.23} />
+      <FlowWaterMaterial color="#7cc7e2" opacity={0.4} flow={[0, 0]} roughness={0.23} />
     </mesh>
   );
 }
@@ -56,14 +63,29 @@ export default function Tides() {
   const trace = Array.from({ length: 193 }, (_, i) => {
     const a = (i / 192) * Math.PI * 2,
       n: [number, number, number] = [Math.cos(a), 0, Math.sin(a)],
-      r = radius * (1.14 + 0.07 * tidalPotential(n, moon));
+      r = radius * (BASE + GAIN * tidalPotential(n, moon));
     return [n[0] * r, 0, n[2] * r] as [number, number, number];
   });
+  const potentials = trace.map((p) => tidalPotential([p[0], 0, p[2]], moon)),
+    range = Math.max(...potentials) - Math.min(...potentials),
+    springness = (range - NEAP_RANGE) / (SPRING_RANGE - NEAP_RANGE),
+    tideState =
+      springness > 0.85
+        ? "spring tides (largest range)"
+        : springness < 0.15
+          ? "neap tides (smallest range)"
+          : "between spring and neap";
+  const moonLength = Math.hypot(...moon),
+    farLobe = moon.map((v) => (-v / moonLength) * radius * (BASE + GAIN * 1.2)) as [
+      number,
+      number,
+      number,
+    ];
   return (
     <>
       <ScienceStudio
         slug="tides"
-        camera={[2.6, 4.3, 7]}
+        camera={[2, 6.6, 5]}
         lights={false}
         space
         scale="Earth and Moon enlarged · blue surface shows the tidal effect, greatly exaggerated"
@@ -111,7 +133,7 @@ export default function Tides() {
           occlude={false}
         />
         <Tag
-          pos={[-1.4, -1.35, 0]}
+          pos={[farLobe[0], farLobe[1] - radius * 0.35, farLobe[2]]}
           text="Two tidal lobes"
           note="The blue surface is an enlarged picture of the tide-raising effect, not a layer of ocean or a predicted water height. Ocean basins, friction and coastlines set real tide times and ranges."
           occlude={false}
@@ -130,7 +152,10 @@ export default function Tides() {
         {"Day "}
         {(t * 29.53059).toFixed(1)} {"of an ideal synodic month · "}
         {(fraction * 100).toFixed(1)}
-        {"% illuminated · Moon "}
+        {"% illuminated · "}
+        {tideState}
+        {" · relative equatorial range "}
+        {range.toFixed(2)} {"(spring 2.19, neap 0.81) · Moon "}
         {(distance / 1000).toFixed(1)} {"thousand km away."}
         <br />
         <span className="formula">{"Lunar tidal strength ∝ 1/r³"}</span>

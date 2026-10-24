@@ -178,6 +178,14 @@ export default function FoldsFaults() {
     }
     return out;
   }, [fold, shortening, foldTop, separation, slipX, slipY, slipZ]);
+  // Centre of the conglomerate at the left edge of the front face, so its label stays on it.
+  const oldestTag: [number, number, number] = fold
+    ? [
+        -2.6 * shortening - 0.35,
+        -0.925 / shortening + (syncline ? -1 : 1) * amount * Math.exp(-6.76 / 1.9),
+        1.15,
+      ]
+    : [-2.95 - separation, -0.925, 1.15];
   const faultX = (y: number) => (kind === 4 ? 0 : (0.65 - y) / Math.tan(Math.PI / 3));
   return (
     <>
@@ -274,8 +282,8 @@ export default function FoldsFaults() {
         ) : (
           <>
             <Arrow
-              from={[1.6, 1.2, 0]}
-              to={[1.6 + slip[0], 1.2 + slip[1], slip[2]]}
+              from={[0.8 + separation, 1.2, 0]}
+              to={[0.8 + separation + slip[0], 1.2 + slip[1], slip[2]]}
               color="#ddac83"
               width={1.4}
             />
@@ -289,13 +297,13 @@ export default function FoldsFaults() {
             ) : (
               <>
                 <Tag
-                  pos={[-1.7, 1.15, 0]}
+                  pos={[-1.7 - separation, 1.15, 0]}
                   text="Footwall"
                   note="The footwall lies below the inclined fault plane. It is held fixed here so the hanging-wall displacement is easy to compare."
                   occlude={false}
                 />
                 <Tag
-                  pos={[1.8, 1.6, 0]}
+                  pos={[2.2 + separation + slipX, 1.15 + slipY, 0]}
                   text={kind === 2 ? "Hanging wall · down" : "Hanging wall · up"}
                   note="The hanging wall lies above the 60° dipping fault. Motion is parallel to that plane: down for normal faulting, up for reverse faulting. Match the beds across the fault to measure the throw."
                   occlude={false}
@@ -305,7 +313,7 @@ export default function FoldsFaults() {
           </>
         )}
         <Tag
-          pos={[-2.95, -0.9, 1.15]}
+          pos={oldestTag}
           text="Oldest · conglomerate"
           note={`Beds from oldest to youngest: ${LITHOLOGY.join(", ")}. Soil and grass cap the top. Patterns are illustrative textures, not mapped rock units.`}
           occlude={false}

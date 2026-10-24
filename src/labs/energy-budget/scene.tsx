@@ -23,7 +23,9 @@ function Flux({
   phase: number;
 }) {
   if (value < 0.01) return null;
-  const direction = new Vector3(...to).sub(new Vector3(...from)).normalize(),
+  // Band half-width is proportional to the flux (340 W/m² ≈ 0.12), so wider bands carry more energy.
+  const half = Math.max(0.02, (value / 340) * 0.12),
+    direction = new Vector3(...to).sub(new Vector3(...from)).normalize(),
     normal = new Vector3(-direction.y, direction.x, 0);
   return (
     <group>
@@ -36,7 +38,7 @@ function Flux({
               wave =
                 Math.sin(u * Math.PI * 16 - phase * Math.PI * 8) * 0.045 * Math.sin(u * Math.PI);
             return from.map(
-              (a, k) => a + (to[k] - a) * u + normal.getComponent(k) * (side * 0.095 + wave),
+              (a, k) => a + (to[k] - a) * u + normal.getComponent(k) * (side * half + wave),
             ) as Point;
           })}
           color={color}
@@ -97,8 +99,9 @@ export default function EnergyBudget() {
           phase={t}
         />
         <Flux
-          from={[0.65, -0.55, 0.3]}
-          to={[0.65, 0.8, 0.3]}
+          // Starts on the globe's surface (x = 0.65 lies beyond the globe's edge).
+          from={[0.45, -0.74, 0.3]}
+          to={[0.45, greenhouse ? 0.8 : 2.3, 0.3]}
           value={b.surfaceUp}
           color="#e6a085"
           phase={t}
@@ -106,7 +109,7 @@ export default function EnergyBudget() {
         <Flux
           from={[0.85, 0.9, 0.3]}
           to={[0.85, 2.3, 0.3]}
-          value={b.window}
+          value={greenhouse ? b.window : 0}
           color="#e6a085"
           phase={t}
         />
@@ -132,7 +135,7 @@ export default function EnergyBudget() {
         />
         <Tag
           pos={[-2.05, 1.5, 0.4]}
-          text={`Reflected ${b.reflected.toFixed(0)}`}
+          text={`Reflected ${b.reflected.toFixed(0)} W/m²`}
           note="Planetary albedo is the fraction of incoming sunlight reflected to space by air, clouds and the surface."
           occlude={false}
         />
@@ -143,7 +146,7 @@ export default function EnergyBudget() {
           occlude={false}
         />
         <Tag
-          pos={[2, 0.4, 0.3]}
+          pos={[greenhouse ? 2 : 2.3, 0.4, 0.3]}
           text={greenhouse ? "IR layer · ε = 0.78" : "No infrared absorption"}
           note="One layer absorbs and emits the same share of infrared at every wavelength but lets sunlight through. The hugely enlarged molecules stand for greenhouse gases: carbon dioxide (linear), water vapour (bent) and methane; their vibrations absorb infrared. Convection, evaporation and wavelength detail are left out."
           occlude={false}
@@ -164,12 +167,16 @@ export default function EnergyBudget() {
           {"Back radiation "}
           {b.backRadiation.toFixed(1)}
         </span>{" "}
+        {"W/m². Equilibrium surface temperature "}
+        {(b.surfaceK - 273.15).toFixed(1)} {"°C · top-of-atmosphere balance "}
+        {Math.abs(b.absorbed - b.outgoing) < 0.05
+          ? "0.0"
+          : (b.absorbed - b.outgoing).toFixed(1)}{" "}
         {"W/m²."}
         <br />
-        {"Equilibrium surface temperature "}
-        {(b.surfaceK - 273.15).toFixed(1)} {"°C · top-of-atmosphere balance "}
-        {(b.absorbed - b.outgoing).toFixed(1)}{" "}
-        {"W/m². Follow the wave symbols to trace the exchange of energy."}
+        {
+          "Yellow: sunlight in and reflected. Orange: infrared from the surface. Blue: infrared emitted by the layer, up to space and back down to the surface. Each band’s width is proportional to its flux. Top-of-atmosphere balance is sunlight absorbed minus infrared to space; zero means equilibrium."
+        }
       </ScienceReadout>
     </>
   );

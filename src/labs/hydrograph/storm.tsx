@@ -14,7 +14,11 @@ export default function Hydrograph() {
   const hour = t * 24,
     row = data.rows[Math.min(959, Math.floor(hour / 0.05))],
     display = data.rows.filter((_, i) => i % 4 === 0 && i < 480),
-    max = Math.max(1, data.peak.q * 1.15);
+    max = Math.max(1, data.peak.q * 1.15),
+    // The 3D river and gauge use one fixed reference (just above the largest possible peak,
+    // 4.86 m³/s), so a bigger flood looks bigger. Channel width grows roughly with √Q.
+    flow = Math.min(1, row.q / 5),
+    gauge = 0.72 * flow;
   const x = (h: number) => 40 + (h / 24) * 640,
     y = (q: number) => 92 - (q / max) * 76,
     path = display
@@ -28,20 +32,20 @@ export default function Hydrograph() {
         trueScale="Storm model uses SI volumes and time · land geometry is conceptual"
         camera={[3, 2.8, 5]}
       >
-        <CatchmentLandscape urban={urban} rain={row.rain / 32} flow={row.q / max} divide />
+        <CatchmentLandscape urban={urban} rain={row.rain / 32} flow={Math.sqrt(flow)} divide />
         <group position={[2.25, 0.08, 0]}>
           <mesh position={[0, 0.36, 0]}>
             <boxGeometry args={[0.1, 0.72, 0.1]} />
             <meshStandardMaterial color="#a7aba1" roughness={0.85} />
           </mesh>
-          <mesh position={[0, (0.72 * row.q) / max / 2, 0.065]}>
-            <boxGeometry args={[0.11, Math.max(0.004, (0.72 * row.q) / max), 0.025]} />
+          <mesh position={[0, gauge / 2, 0.065]}>
+            <boxGeometry args={[0.11, Math.max(0.004, gauge), 0.025]} />
             <meshStandardMaterial color="#85c7d8" roughness={0.35} />
           </mesh>
           <Tag
             pos={[0.12, 0.98, 0]}
             text={`${row.q.toFixed(2)} m³/s`}
-            note="The bar shows discharge at the selected hour, not water depth. The river width and rain in the landscape match the same hour on the graph."
+            note="The bar shows discharge at the selected hour on a fixed 0–5 m³/s scale, not water depth. The river width and rain in the landscape match the same hour on the graph."
             occlude={false}
           />
         </group>
@@ -88,6 +92,22 @@ export default function Hydrograph() {
                   opacity=".6"
                 />
               ))}
+            {[
+              [2, "var(--color-sandstone)"],
+              [data.peak.hour, "var(--color-ice)"],
+            ].map(([h, c]) => (
+              <line
+                key={String(c)}
+                x1={x(Number(h))}
+                x2={x(Number(h))}
+                y1="44"
+                y2="92"
+                stroke={String(c)}
+                strokeDasharray="2 3"
+                opacity=".8"
+              />
+            ))}
+            <circle cx={x(data.peak.hour)} cy={y(data.peak.q)} r="3.5" fill="var(--color-ice)" />
             <path d={path} fill="none" stroke="var(--color-ice)" strokeWidth="2.5" />
             <line x1={x(hour)} x2={x(hour)} y1="4" y2="94" stroke="var(--color-chalk)" />
             {[0, 6, 12, 18, 24].map((h) => (
@@ -102,11 +122,11 @@ export default function Hydrograph() {
                 {h} {"h"}
               </text>
             ))}
-            <text x="44" y="13" fill="var(--color-ice)" fontSize="11">
+            <text x="4" y="9" fill="var(--color-ice)" fontSize="11">
               {"m³/s"}
             </text>
             <text x="680" y="13" textAnchor="end" fill="var(--color-sandstone)" fontSize="11">
-              {"Rain: 0–32 mm/h (gold); Q (blue)"}
+              {"Rain: 0–32 mm/h (gold); Q (blue); dashed: rain and Q peaks"}
             </text>
           </svg>
           <input

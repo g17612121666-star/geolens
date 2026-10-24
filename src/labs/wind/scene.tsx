@@ -16,6 +16,13 @@ import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 
 /** Isobar spacing implied by 0.001 m/s² over 150 km at 1.2 kg/m³, in hPa. */
 const ISOBAR_HPA = (1.2 * 0.001 * 150000) / 100;
+/** Force arrows start from the parcel west of centre; the wind arrow sits between isobars. */
+const FORCE_X = -0.6,
+  WIND_X = 1.2,
+  WIND_Z = 0.5;
+const COMPASS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+const towards = (u: number, v: number) =>
+  COMPASS[Math.round((((Math.atan2(u, v) * 180) / Math.PI + 360) % 360) / 45) % 8];
 const ss = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 /** Regional landscape under the f-plane: a coast to the south-west, hills to the north-east.
  * Relief is hugely exaggerated beside the 150 km grid and plays no part in the wind model. */
@@ -123,8 +130,11 @@ export default function Wind() {
     south = params.sh > 0.5,
     transient = params.transient > 0.5;
   const w = pressureWind(t * 86400, coriolis, friction, south, !transient),
-    velocityScale = 0.05,
-    forceScale = 850;
+    velocityScale = 0.07,
+    forceScale = 1100,
+    // Without Coriolis or friction the wind grows without limit; cap the drawn arrow.
+    shown = Math.min(1, 40 / Math.max(w.speed, 1e-9)),
+    across = (Math.atan2(w.v, Math.abs(w.u)) * 180) / Math.PI;
   const displacement = useMemo(
     () => airDisplacement(t * 86400, coriolis, friction, south, !transient),
     [t, coriolis, friction, south, transient],
@@ -140,7 +150,7 @@ export default function Wind() {
         slug="wind"
         camera={[1.5, 7, 5]}
         scale="East–north plane · forces share one scale, wind another · relief, trees and towns not to scale"
-        trueScale="Forces: 0.001 m/s² per 0.85 units · wind: 10 m/s per 0.5 units"
+        trueScale="Forces: 0.001 m/s² per 1.1 units · wind: 10 m/s per 0.7 units"
       >
         <Landscape />
         <PressureField />
@@ -175,24 +185,29 @@ export default function Wind() {
           note="The pressure-gradient force is 0.001 m/s² (force per kilogram of air). All force arrows show force per unit mass."
           occlude={false}
         />
-        <CloudVolume position={[0, 0.2, 0]} scale={[0.16, 0.11, 0.16]} seed={4} opacity={0.85} />
+        <CloudVolume
+          position={[FORCE_X, 0.2, 0]}
+          scale={[0.16, 0.11, 0.16]}
+          seed={4}
+          opacity={0.85}
+        />
         {forces.map((force) => (
           <Arrow
             key={force.name}
-            from={[0, 0.15, 0]}
-            to={[force.vector[0] * forceScale, 0.15, -force.vector[1] * forceScale]}
+            from={[FORCE_X, 0.15, 0]}
+            to={[FORCE_X + force.vector[0] * forceScale, 0.15, -force.vector[1] * forceScale]}
             color={force.color}
-            width={1.3}
+            width={2}
           />
         ))}
         <Arrow
-          from={[1.6, 0.22, 1]}
-          to={[1.6 + w.u * velocityScale, 0.22, 1 - w.v * velocityScale]}
+          from={[WIND_X, 0.22, WIND_Z]}
+          to={[WIND_X + w.u * velocityScale * shown, 0.22, WIND_Z - w.v * velocityScale * shown]}
           color="#d8eee3"
           width={2}
         />
         <Tag
-          pos={[2, 0.2, 1.65]}
+          pos={[WIND_X - 0.3, 0.2, WIND_Z + 0.55]}
           text={`Wind ${w.speed.toFixed(1)} m/s`}
           note="The white arrow is velocity, not an additional force. It uses a different scale from the force arrows."
           occlude={false}
@@ -201,7 +216,7 @@ export default function Wind() {
           <Line
             points={Array.from({ length: 121 }, (_, i) => {
               const v = pressureWind((i / 120) * t * 86400, coriolis, friction, south, false);
-              return [1.6 + v.u * velocityScale, 0.04, 1 - v.v * velocityScale] as [
+              return [WIND_X + v.u * velocityScale, 0.04, WIND_Z - v.v * velocityScale] as [
                 number,
                 number,
                 number,
@@ -215,21 +230,35 @@ export default function Wind() {
         )}
       </ScienceStudio>
       <ScienceReadout>
+        {south ? "Southern" : "Northern"} {"hemisphere: wind "}
+        {w.speed.toFixed(1)} {"m/s"}
+        {w.speed < 0.05
+          ? " (air at rest)"
+          : ` blowing from the ${towards(-w.u, -w.v)} towards the ${towards(w.u, w.v)}, ${
+              Math.abs(across) < 1
+                ? "along the isobars"
+                : `crossing the isobars at ${Math.abs(across).toFixed(0)}° towards ${
+                    across > 0 ? "lower" : "higher"
+                  } pressure`
+            }`}
+        {". "}
+        {w.steady
+          ? "Steady force balance."
+          : `${(t * 24).toFixed(1)} h after release from rest.`}{" "}
         <span className="text-sandstone">{"Gold: pressure gradient"}</span> ·{" "}
         <span className="text-glacier">{"Blue: Coriolis"}</span> ·{" "}
         <span className="text-magma">{"Coral: friction"}</span> {"· White: wind velocity."}
         <br />
-        {south ? "Southern" : "Northern"} {"hemisphere · eastward "}
+        {w.steady ? "" : "The pale curve traces the wind since release. "}
+        {"Eastward "}
         {w.u.toFixed(2)}
         {", northward "}
         {w.v.toFixed(2)} {"m/s. "}
-        {w.steady
-          ? "Steady force balance; the pale streaks drift with the wind."
-          : `${(t * 24).toFixed(2)} h after release from rest.`}{" "}
+        {w.steady ? "The pale streaks drift with the wind. " : ""}
         {!coriolis && !friction
-          ? "Without Coriolis or friction, this constant gradient keeps accelerating the air."
+          ? "Without Coriolis or friction, this constant gradient keeps accelerating the air (the arrow is capped at 40 m/s)."
           : !friction && transient
-            ? "Without friction the wind keeps oscillating and never settles."
+            ? "Without friction the wind keeps oscillating about the geostrophic wind and never settles."
             : "Constant-Coriolis (f-plane) model with a fixed pressure gradient. Streaks leaving one edge reappear at the other (150 km per scene unit)."}
       </ScienceReadout>
     </>

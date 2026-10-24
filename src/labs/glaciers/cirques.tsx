@@ -19,7 +19,7 @@ function CirqueIce({ angle }: { angle: number }) {
           q = w * v,
           x = r * Math.cos(angle) - q * Math.sin(angle),
           z = r * Math.sin(angle) + q * Math.cos(angle);
-        p.push(x, cirqueHeight(x, z) + 0.009 + 0.09 * Math.sin(Math.PI * u) * (1 - v * v), z);
+        p.push(x, cirqueHeight(x, z) + 0.009 + 0.15 * Math.sin(Math.PI * u) * (1 - v * v), z);
         uv.push(u, k / 20);
         if (j < 48 && k < 20) {
           const n = j * 21 + k;
@@ -38,7 +38,7 @@ function CirqueIce({ angle }: { angle: number }) {
   return (
     <mesh geometry={geometry} receiveShadow>
       <meshPhysicalMaterial
-        color="#c7dfe3"
+        color="#acd6e4"
         roughness={0.43}
         clearcoat={0.12}
         side={THREE.DoubleSide}
@@ -87,8 +87,9 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
     },
     [],
   );
+  // Turned so the default camera looks along one arête, with a cirque on either side of it.
   return (
-    <>
+    <group rotation={[0, 0.61, 0]}>
       <GeomorphicTerrain
         height={cirqueHeight}
         colour={colour}
@@ -104,8 +105,10 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
         const path = Array.from({ length: 41 }, (_, j) => {
           const r = 0.8 + (j / 40) * 0.95,
             x = r * Math.cos(a),
-            z = r * Math.sin(a);
-          return [x, cirqueHeight(x, z) + 0.11, z] as [number, number, number];
+            z = r * Math.sin(a),
+            // Sit just on the ice surface (see CirqueIce: u runs from r = 0.72 to 1.98).
+            top = 0.15 * Math.sin((Math.PI * (r - 0.72)) / 1.26);
+          return [x, cirqueHeight(x, z) + 0.035 + top, z] as [number, number, number];
         });
         return (
           <group key={i}>
@@ -116,7 +119,7 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
                 return (
                   <mesh key={k} position={p}>
                     <sphereGeometry args={[0.025, 12, 8]} />
-                    <meshBasicMaterial color="#e7ccb1" />
+                    <meshBasicMaterial color="#c0602a" />
                   </mesh>
                 );
               })}
@@ -130,17 +133,17 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
         occlude={false}
       />
       <Tag
-        pos={[-1.55, 1.7, 0]}
+        pos={[0.6, 1.75, 1.04]}
         text="Arête"
         note="A narrow ridge left between neighbouring cirques or glacial valleys. It is rock that remains, not a wall of deposited debris."
         occlude={false}
       />
       <Tag
-        pos={[1.5, 0.75, 0.5]}
+        pos={[1.9, 0.55, 0]}
         text="Cirque"
         note="A bowl-shaped hollow with a steep headwall and a gentler floor, eroded at the head of a glacier. The thin ice and moving symbols show only the flow direction, not ice thickness or speed."
         occlude={false}
       />
-    </>
+    </group>
   );
 }

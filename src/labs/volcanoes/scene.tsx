@@ -26,10 +26,12 @@ const OLD_FLOWS = [
   { start: 5.3, reach: 0.88, wiggle: 0.05, color: "#4d3d33", width: 0.065 },
 ];
 
-const dims = (v: number) => ({ radius: 2.1 - v * 0.65, height: 0.36 + v * 1.3 });
+/** Teaching heights are about 2.5× the real slopes; "Compare physical scale" removes this. */
+const TRUE_RELIEF = 0.4;
+const dims = (v: number, k = 1) => ({ radius: 2.1 - v * 0.65, height: (0.36 + v * 1.3) * k });
 
 /** Landscape heights: the edifice profile from geometry.ts on a gently rolling plain. */
-function landscape(v: number, fissure: boolean) {
+function landscape(v: number, fissure: boolean, k = 1) {
   const plain = (x: number, z: number) =>
     0.05 * (fbm(x * 0.6 + 4, z * 0.6 - 2) - 0.5) + 0.015 * (fbm(x * 3, z * 3) - 0.5);
   if (fissure)
@@ -48,7 +50,7 @@ function landscape(v: number, fissure: boolean) {
     if (phi < 0) phi += Math.PI * 2;
     const { radius } = dims(v),
       blend = THREE.MathUtils.smoothstep(r, radius * 0.9, radius * 1.15);
-    return Math.max(0, volcanoHeight(v, r, phi, 0)) + blend * plain(x, z) + 0.004;
+    return Math.max(0, volcanoHeight(v, r, phi, 0)) * k + blend * plain(x, z) + 0.004;
   };
 }
 
@@ -75,10 +77,11 @@ function paint(
   h: (x: number, z: number) => number,
   v: number,
   fissure: boolean,
+  k: number,
 ) {
   const p = g.attributes.position,
     c = new Float32Array(p.count * 3),
-    { radius, height } = dims(v),
+    { radius, height } = dims(v, k),
     composite = v >= 0.5;
   const flows = fissure
     ? []
@@ -268,17 +271,18 @@ function LavaChannel({
   active?: boolean;
   clip: THREE.Plane[];
 }) {
-  const geometry = useMemo(() => {
-    const g = new THREE.TubeGeometry(
-      new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(...p))),
-      Math.max(8, points.length * 2),
-      active ? 0.03 : 0.024,
-      8,
-      false,
-    );
-    g.scale(1, 0.45, 1);
-    return g;
-  }, [points, active]);
+  // Not flattened with g.scale: that would also scale the points and bury the flow in the flank.
+  const geometry = useMemo(
+    () =>
+      new THREE.TubeGeometry(
+        new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(...p))),
+        Math.max(8, points.length * 2),
+        active ? 0.032 : 0.024,
+        8,
+        false,
+      ),
+    [points, active],
+  );
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry} castShadow>
@@ -347,27 +351,30 @@ function LocalClipping() {
 }
 
 export default function Volcanoes() {
-  const { params, slice, t } = useLabControls();
+  const { params, slice, t, trueScale } = useLabControls();
   useLabTick(1 / 9);
   const v = params.visc ?? 0.25,
     gas = params.gas ?? 0.45,
     fissure = params.fissure > 0.5,
     composite = v >= 0.5,
-    { radius, height } = dims(v);
-  const h = useMemo(() => landscape(v, fissure), [v, fissure]);
+    k = trueScale ? TRUE_RELIEF : 1,
+    { radius, height } = dims(v, k);
+  const h = useMemo(() => landscape(v, fissure, k), [v, fissure, k]);
   const cut = slice > 0.001 ? (DEPTH / 2 + 0.1) * (1 - slice) ** 1.5 : SIZE;
   const clip = useMemo(() => [new THREE.Plane(new THREE.Vector3(0, 0, -1), SIZE)], []);
   clip[0].constant = cut;
   const geometry = useMemo(() => {
     const g = terrainBlockGeometry(h, SIZE, DEPTH, 176, BASE);
-    paint(g, h, v, fissure);
+    paint(g, h, v, fissure, k);
     return g;
-  }, [h, v, fissure]);
+  }, [h, v, fissure, k]);
   useEffect(() => () => geometry.dispose(), [geometry]);
-  const energetic = gas * (0.35 + 0.65 * v),
+  // Gas alone can fragment even runny basalt; viscosity lowers the gas needed for an ash plume.
+  const energetic = gas * (0.5 + 0.5 * v),
     plume = energetic > 0.48,
     fountaining = !plume && gas > 0.25 && v < 0.5;
-  const flow = useMemo(() => flowLine(h, radius, 1.6, 1, 0.035), [h, radius]);
+  // Viscous lava cools and stops closer to the vent.
+  const flow = useMemo(() => flowLine(h, radius, 1.6, 1 - 0.5 * v, 0.035), [h, radius, v]);
   const activeFlow = useMemo(
     () => flow.slice(0, Math.max(3, Math.round(3 + t * (flow.length - 3)))),
     [flow, t],
@@ -395,9 +402,13 @@ export default function Volcanoes() {
         scale={
           fissure
             ? "Idealised linear vents · relative geometry · fountains and trees not to scale"
-            : "Idealised forms · relative geometry · cut-away exposes the conduit and magma chamber"
+            : "Idealised forms · heights exaggerated about 2.5× · cut-away exposes the conduit and magma chamber"
         }
-        trueScale="Slope and aspect ratio unchanged · this model has no single real-world size"
+        trueScale={
+          fissure
+            ? "Teaching view unchanged: the fissure plain is already low relief · fountains and trees not to scale"
+            : "Slopes reduced to about real proportions (shields about 4–8°, composite cones about 13–25° on average) · magma chamber and trees still schematic"
+        }
         camera={[2.4, 2.6, 6.2]}
       >
         <LocalClipping />
@@ -445,7 +456,11 @@ export default function Volcanoes() {
               />
             )}
             <Tag
-              pos={[0, height + 0.45, 0]}
+              pos={
+                sliced && cut < 0.05
+                  ? [radius * 0.8, height * 0.6 + 0.3, 0]
+                  : [-radius * 0.9, height * 0.25 + 0.25, 0]
+              }
               text={composite ? "Composite cone" : "Shield volcano"}
               note="A volcano’s shape builds up over many eruptions. Viscosity, eruption rate, gas, fragmentation and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative."
               occlude={false}
@@ -505,9 +520,22 @@ export default function Volcanoes() {
             occlude={false}
           />
         )}
+        {sliced && cut < 0.05 && (
+          <Tag
+            pos={[fissure ? -1 : -0.5, fissure ? -0.4 : -0.3, cut]}
+            text={fissure ? "Feeder dyke" : "Conduit"}
+            tone="magma"
+            note={
+              fissure
+                ? "Below a fissure, magma rises through a long, thin sheet-like crack called a dyke. Its width here is exaggerated."
+                : "Magma and gas rise from the chamber to the vent through this pipe. Its width here is exaggerated."
+            }
+            occlude={false}
+          />
+        )}
         {sliced && cut < 0.05 && !fissure && (
           <Tag
-            pos={[-0.55, height * 0.35, cut]}
+            pos={[-0.7, height * 0.2, cut]}
             text={composite ? "Ash and lava layers" : "Thin basalt flows"}
             note={
               composite
@@ -534,6 +562,7 @@ export default function Volcanoes() {
                 scale={[width, 0.28 + rise * 0.12, width]}
                 seed={i * 7 + 3}
                 opacity={0.7 * (1 - u * 0.55)}
+                tint="#8a8075"
               />
             );
           })}

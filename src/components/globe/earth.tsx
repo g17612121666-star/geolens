@@ -69,7 +69,10 @@ const earthFrag = /* glsl */ `
     float dayF = smoothstep(-0.03, 0.06, ndl);
     vec3 day = texture2D(dayMap, vUv).rgb;
     // The day map stores oceans as near-black navy; lift them to the deep blue seen from orbit.
-    float sea = smoothstep(.002, .005, day.b - max(day.r, day.g)) * (1. - smoothstep(.03, .08, max(day.r, day.g)));
+    // Shallow seas (Baltic, Black Sea) are near-black but not bluish, so very dark pixels count too.
+    float sea = max(
+      smoothstep(.002, .005, day.b - max(day.r, day.g)) * (1. - smoothstep(.03, .08, max(day.r, day.g))),
+      1. - smoothstep(.03, .06, max(day.r, max(day.g, day.b))));
     day = mix(day, vec3(.008, .035, .1), sea);
     vec3 night = texture2D(nightMap, vUv).rgb * vec3(1.45, 1.2, 0.85);
     // Perturb the lighting normal from the actual terrain map; keep the
@@ -410,7 +413,10 @@ export function Graticule({ radius = 1.004 }: { radius?: number }) {
       transparent: true,
       opacity: 0.32,
     });
-    return new THREE.LineSegments(g, m);
+    const lines = new THREE.LineSegments(g, m);
+    // Grid lines are decoration: a raycast hit (1-unit line threshold) would hide nearby labels.
+    lines.raycast = () => {};
+    return lines;
   }, [radius]);
   useEffect(
     () => () => {

@@ -112,7 +112,7 @@ export default function ContinentalDrift() {
     <>
       <ScienceStudio
         slug="continental-drift"
-        scale="GPlates MULLER2019 · 10 Ma snapshots · modern coastlines moved back in time"
+        scale="GPlates MULLER2019 · 10 Ma snapshots · modern coastlines moved back in time · land relief and colours illustrative"
         trueScale="Globe to scale · positions shown only at reconstructed 10 Ma steps"
         camera={[2.8, 1.2, 3.8]}
       >
@@ -126,8 +126,8 @@ export default function ContinentalDrift() {
         <div className="pointer-events-auto mb-2 flex flex-wrap justify-center gap-1">
           {[
             { ma: 0, label: "Today" },
-            { ma: 66, label: "66 Ma · K–Pg" },
-            { ma: 150, label: "150 Ma · Atlantic opens" },
+            { ma: 70, label: "70 Ma · Late Cretaceous" },
+            { ma: 120, label: "120 Ma · South Atlantic opens" },
             { ma: 200, label: "200 Ma · break-up" },
             { ma: 250, label: "250 Ma · Pangaea" },
           ].map((step) => (
@@ -142,7 +142,11 @@ export default function ContinentalDrift() {
             </button>
           ))}
         </div>
-        <p>Continental positions {Math.round(age / 10) * 10} million years ago.</p>
+        <p>
+          {Math.round(age / 10) * 10 === 0
+            ? "Present-day continental positions."
+            : `Reconstructed continental positions ${Math.round(age / 10) * 10} million years ago.`}
+        </p>
         {params.fossils > 0.5 ? (
           <>
             <ul className="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1">

@@ -1,5 +1,5 @@
 import { useMemo, useEffect } from "react";
-import { Line } from "@react-three/drei";
+import { Html, Line } from "@react-three/drei";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { soilFractions, soilTexture, TEXTURE_COLOURS } from "@/lib/soil-science";
@@ -129,17 +129,32 @@ export default function SoilTexture() {
           <group key={v}>
             <Line points={[xyz(0, v), xyz(100 - v, v)]} color="#f4efe6" transparent opacity={0.3} />
             <Line points={[xyz(v, 0), xyz(v, 100 - v)]} color="#f4efe6" transparent opacity={0.3} />
+            <Line
+              points={[xyz(100 - v, 0), xyz(0, 100 - v)]}
+              color="#f4efe6"
+              transparent
+              opacity={0.3}
+            />
           </group>
         ))}
+        {/* Axis numbers: sand along the base, clay up the left edge, silt down the right edge. */}
+        {[20, 40, 60, 80].flatMap((v) => [
+          <AxisNumber key={`sn${v}`} pos={xyz(v, 0)} offset={[0, 0.2]} text={`${v}`} />,
+          <AxisNumber key={`cn${v}`} pos={xyz(100 - v, v)} offset={[-0.2, -0.1]} text={`${v}`} />,
+          <AxisNumber key={`tn${v}`} pos={xyz(0, 100 - v)} offset={[0.2, -0.1]} text={`${v}`} />,
+        ])}
+        <AxisNumber pos={xyz(50, 0)} offset={[0, 0.36]} text="← sand %" />
+        <AxisNumber pos={xyz(50, 50)} offset={[-0.62, -0.3]} text="clay % ↑" />
+        <AxisNumber pos={xyz(0, 50)} offset={[0.62, -0.3]} text="silt % ↓" />
         <mesh position={xyz(sand, clay)}>
           <sphereGeometry args={[0.055, 24, 16]} />
           <meshStandardMaterial color="#fff2d2" metalness={0.2} roughness={0.3} />
         </mesh>
-        <group position={[0, 0, 1.75]}>
+        <group position={[0, 0, 2.0]}>
           {[
-            { label: "Sand · grains", fraction: sand, x: -1.15 },
-            { label: "Silt · grains", fraction: silt, x: 0 },
-            { label: "Clay · plates", fraction: clay, x: 1.15 },
+            { label: "sand", fraction: sand, x: -1.3 },
+            { label: "silt", fraction: silt, x: 0 },
+            { label: "clay", fraction: clay, x: 1.3 },
           ].map((sample, k) => (
             <group key={k} position={[sample.x, 0, 0]}>
               <mesh position={[0, -0.03, 0]} receiveShadow>
@@ -181,16 +196,16 @@ export default function SoilTexture() {
                       ]}
                       rotation={[0.08 * Math.sin(i), i * 0.6, 0.08 * Math.cos(i)]}
                     >
-                      <cylinderGeometry args={[0.038, 0.038, 0.006, 6]} />
+                      <cylinderGeometry args={[0.02, 0.02, 0.004, 6]} />
                       <meshStandardMaterial color="#aa8d70" roughness={0.85} />
                     </mesh>
                   );
                 })
               )}
               <Tag
-                pos={[0, 0.25, 0.4]}
+                pos={[0, 0.02, 0.55]}
                 text={`${sample.fraction.toFixed(0)}% ${sample.label}`}
-                note="Enlarged samples show angular sand and silt grains and flat clay plates. Each tray uses a different magnification, so grain counts and sizes are not measurements. The percentage is by mass of the fine earth."
+                note="Enlarged samples show angular sand and silt grains and flat clay plates, drawn in size order (sand largest, clay smallest). Real sand grains can be over 1,000 times wider than clay plates, so sizes are not to scale and grain counts are not measurements. The percentage is by mass of the fine earth."
                 occlude={false}
               />
             </group>
@@ -222,6 +237,25 @@ export default function SoilTexture() {
         }
       </ScienceReadout>
     </>
+  );
+}
+
+/** A small number or axis name beside the triangle, pushed outwards by `offset` (x, z). */
+function AxisNumber({
+  pos,
+  offset,
+  text,
+}: {
+  pos: [number, number, number];
+  offset: [number, number];
+  text: string;
+}) {
+  return (
+    <Html position={[pos[0] + offset[0], 0.03, pos[2] + offset[1]]} center>
+      <span className="pointer-events-none block whitespace-nowrap font-mono text-[11px] text-mist">
+        {text}
+      </span>
+    </Html>
   );
 }
 

@@ -109,7 +109,10 @@ function Basin({
       />
       <Buildings items={houses} ground={relief} />
       {dam && (
-        <mesh position={[0.73, relief(0.9, 0) + 0.07, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <mesh
+          position={[0.73, relief(0.9, 0) + 0.01 + 0.06 * vertical, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
           <planeGeometry args={[0.48, 0.7]} />
           <FlowWaterMaterial color="#518da4" opacity={0.8} flow={[0.15, 0]} speed={0.1} />
         </mesh>
@@ -129,11 +132,23 @@ export default function RiverHydrology() {
   const dam = params.dam > 0.5,
     a = useMemo(() => annualRiverRegime(false, false), []),
     b = useMemo(() => annualRiverRegime(true, dam), [dam]),
+    free = useMemo(() => annualRiverRegime(true, false), []),
     day = Math.min(364, Math.floor(t * 365)),
     av = a.series[day],
     bv = b.series[day],
     f = trueScale ? 0.1 : 1,
-    max = Math.max(...a.series.map((s) => s.flow), ...b.series.map((s) => s.flow)) * 1.1;
+    // Fixed axis (undammed snow-fed peak) so switching the dam on visibly lowers the peak.
+    max = Math.max(...a.series.map((s) => s.flow), ...free.series.map((s) => s.flow)) * 1.1,
+    date = (d: number) =>
+      new Date(Date.UTC(2001, 0, d + 1)).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        timeZone: "UTC",
+      }),
+    peak = (series: typeof a.series) =>
+      series.reduce((p, s) => (s.flow > p.flow ? s : p), series[0]),
+    pa = peak(a.series),
+    pb = peak(b.series);
   const poly = (series: typeof a.series) =>
     series
       .map(
@@ -169,7 +184,7 @@ export default function RiverHydrology() {
           className="mx-auto h-28 w-full"
           role="img"
           aria-label={
-            "Annual daily discharge: rain-fed in gold and snow-fed in blue, linked to the selected day"
+            "Annual daily discharge: rain-fed in gold and snow-fed in blue (dashed: snow-fed without the dam), linked to the selected day"
           }
         >
           <line x1="35" x2="565" y1="78" y2="78" stroke="#718a84" />
@@ -179,6 +194,16 @@ export default function RiverHydrology() {
             stroke="var(--color-sandstone)"
             strokeWidth="2"
           />
+          {dam && (
+            <polyline
+              points={poly(free.series)}
+              fill="none"
+              stroke="var(--color-ice)"
+              strokeWidth="1.5"
+              strokeDasharray="4 4"
+              opacity="0.6"
+            />
+          )}
           <polyline points={poly(b.series)} fill="none" stroke="var(--color-ice)" strokeWidth="2" />
           <line
             x1={35 + (day / 364) * 530}
@@ -203,13 +228,15 @@ export default function RiverHydrology() {
             {"Dec"}
           </text>
         </svg>
-        {"Day "}
-        {day + 1} {"· rain-fed (gold) / snow-fed (blue). Snow store "}
-        {bv.snow.toFixed(1)} {"mm water equivalent; snowmelt "}
-        {bv.melt.toFixed(1)} {"mm/day."}
+        {`${date(day)} · snow store ${bv.snow.toFixed(0)} mm water equivalent, melt `}
+        {`${bv.melt.toFixed(1)} mm/day. Annual peak: rain-fed (gold) ${pa.flow.toFixed(1)} m³/s `}
+        {`on ${date(pa.day)}; snow-fed (blue) ${pb.flow.toFixed(1)} m³/s on ${date(pb.day)}`}
+        {dam
+          ? ` (${peak(free.series).flow.toFixed(1)} m³/s on ${date(peak(free.series).day)} without the dam, dashed).`
+          : "."}
         <br />
-        {"Dam "}
-        {dam ? "on: storage smooths and delays outflow" : "off"}
+        {`Day ${day + 1} of a repeating year. Dam `}
+        {dam ? "on: the reservoir stores the melt peak and releases it more slowly" : "off"}
         {
           ". Both regimes are invented and repeat every year; they are not forecasts or records of real rivers."
         }

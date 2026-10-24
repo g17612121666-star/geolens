@@ -80,7 +80,13 @@ function PittedLimestone({ radius, pitting }: { radius: number; pitting: number 
   }, [pitting]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
-    <mesh geometry={geometry} position={[0, 0.7, 0]} scale={radius} castShadow receiveShadow>
+    <mesh
+      geometry={geometry}
+      position={[0, radius * 0.86, 0]}
+      scale={radius}
+      castShadow
+      receiveShadow
+    >
       <SectionMaterial glsl={LIMESTONE} cacheKey="weathering-limestone" roughness={0.9} />
     </mesh>
   );
@@ -121,7 +127,13 @@ export default function Weathering() {
               ? "Calcite sphere starts with a 0.3 m radius · dissolution is shown, not a calculated rate"
               : "Root thickening in an existing joint is drawn, not calculated · 1 scene unit = 0.5 m"
         }
-        trueScale="Everything at one scale · 1 scene unit = 0.5 m · particles enlarged"
+        trueScale={
+          mode === 0
+            ? "Joint widening at true scale · 1 scene unit = 0.5 m · joint starts 20 mm wide"
+            : mode === 1
+              ? "This view has no exaggeration · 1 scene unit = 0.5 m · ion dots are symbols, not real sizes"
+              : "This view has no exaggeration · 1 scene unit = 0.5 m · root growth is drawn, not calculated"
+        }
       >
         {mode === 1 ? (
           <>
@@ -200,7 +212,7 @@ export default function Weathering() {
                 <NaturalTree position={[0.015, 1.7, 0]} kind="broadleaf" scale={0.32} seed={8} />
                 <RootNetwork x={0} y={1.25} z={0.03} depth={1.15} spread={gap * 0.36} seed={7} />
                 <Tag
-                  pos={[1.1, 2.05, 0]}
+                  pos={[0, 3, 0]}
                   text="Root growth can widen an existing joint"
                   note="The root and the moving walls are drawn, not calculated from growth rates or forces. Roots, microbes and lichens also weather rock chemically."
                   occlude={false}
@@ -234,10 +246,10 @@ export default function Weathering() {
       <ScienceReadout>
         {MODES[mode]}.{" "}
         {mode === 0
-          ? `Actual joint ${(ice.jointWidth * 1000).toFixed(2)} mm · liquid ${(ice.liquidVolume * 1000).toFixed(2)} L + ice ${(ice.iceVolume * 1000).toFixed(2)} L, from 7.00 kg water.`
+          ? `Actual joint ${(ice.jointWidth * 1000).toFixed(2)} mm · liquid ${(ice.liquidVolume * 1000).toFixed(2)} L + ice ${(ice.iceVolume * 1000).toFixed(2)} L = ${((ice.liquidVolume + ice.iceVolume) * 1000).toFixed(2)} L, from 7.00 kg water (7.00 L as liquid).`
           : mode === 1
             ? `Solid calcite ${dissolve.remainingMass.toFixed(1)} kg · dissolved calcite equivalent ${dissolve.dissolvedMass.toFixed(1)} kg.`
-            : "As Process runs, the root thickens and widens the existing joint. Both rock pieces stay in place."}
+            : "Mechanical: as Process runs, the root thickens and widens the existing joint; both rock pieces stay in place. Chemical (not drawn): acids from roots, microbes and lichens alter minerals on the joint walls."}
         {mode === 1 && (
           <>
             {" "}

@@ -60,7 +60,7 @@ TAXA = {
     },
     "cynognathus": {
         "name": "Cynognathus",
-        "kind": "Land reptile · Middle Triassic",
+        "kind": "Land reptile · Early–Middle Triassic",
         "sites": [
             ("Burgersdorp Formation, South Africa", -31.0, 26.3),
             ("Puesto Viejo Group, Argentina", -34.8, -68.5),

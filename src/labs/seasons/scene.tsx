@@ -9,8 +9,10 @@ import { orbitPosition } from "../shared/science-geometry";
 import { Tag } from "../shared/kit";
 import { StarMesh } from "@/components/globe/star";
 import { latLonToXYZ } from "@/lib/geo";
+import { useIsCompact } from "@/hooks/use-media";
 export default function Seasons() {
   const [close, setClose] = useState(false);
+  const compact = useIsCompact();
   const { t, params, trueScale } = useLabControls();
   useLabTick(1 / 36);
   const tilt = params.tilt ?? 23.44,
@@ -24,6 +26,12 @@ export default function Seasons() {
     Math.sin((tilt * Math.PI) / 180),
   );
   const declination = (Math.asin(axis.dot(sun)) * 180) / Math.PI;
+  // Close-up: turn the whole Earth–sunlight system about the vertical so sunlight always comes
+  // from the right of the default view. The geometry relative to the Sun is unchanged; the
+  // tilted axis then visibly leans towards the Sun in June and away from it in December.
+  const viewSun = new THREE.Vector3(0.993, 0, -0.121);
+  const viewTurn = close ? Math.atan2(viewSun.x, viewSun.z) - Math.atan2(sun.x, sun.z) : 0;
+  const shownSun = close ? viewSun : sun;
   const orbit = useMemo(
     () => Array.from({ length: 193 }, (_, i) => orbitPosition(i / 192, ecc, 2.65)),
     [ecc],
@@ -75,45 +83,48 @@ export default function Seasons() {
             />
           </>
         )}
-        {close &&
-          [-0.45, 0, 0.45].map((offset, i) => {
-            const shift = new THREE.Vector3(-sun.z, 0, sun.x).multiplyScalar(offset);
-            return (
-              <Arrow
-                key={i}
-                from={sun.clone().multiplyScalar(2.1).add(shift).toArray()}
-                to={sun.clone().multiplyScalar(1.25).add(shift).toArray()}
-                color="#edd3a4"
-                width={1}
-              />
-            );
-          })}
-        <group position={centre} rotation={[(tilt * Math.PI) / 180, 0, 0]}>
-          <group rotation={[0, t * Math.PI * 2 * 365.2422, 0]}>
-            <EarthMesh radius={radius} sunDirection={sun} />
-            {!trueScale && <Atmosphere radius={radius * 1.035} />}
-            <Graticule radius={radius * 1.004} />
-            {!trueScale &&
-              [-tilt, tilt, -(90 - tilt), 90 - tilt].map((lat, i) => (
-                <Line
+        <group rotation={[0, viewTurn, 0]}>
+          {close &&
+            [-0.45, 0, 0.45].map((offset, i) => {
+              const shift = new THREE.Vector3(-sun.z, 0, sun.x).multiplyScalar(offset);
+              return (
+                <Arrow
                   key={i}
-                  points={Array.from({ length: 161 }, (_, j) =>
-                    latLonToXYZ(lat, -180 + (j / 160) * 360, radius * 1.008),
-                  )}
-                  color={i < 2 ? "#d9bb87" : "#82bed4"}
-                  transparent
-                  opacity={0.65}
-                  lineWidth={0.9}
+                  from={sun.clone().multiplyScalar(2.1).add(shift).toArray()}
+                  to={sun.clone().multiplyScalar(1.25).add(shift).toArray()}
+                  color="#edd3a4"
+                  width={1}
                 />
-              ))}
-            {!trueScale && (
-              <>
-                <CityMarker lat={51.5} lon={-0.1} radius={radius * 1.02} />
-                <CityMarker lat={-33.87} lon={151.21} radius={radius * 1.02} color="#efb474" />
-              </>
-            )}
+              );
+            })}
+          <group position={centre} rotation={[(tilt * Math.PI) / 180, 0, 0]}>
+            {/* 366.2422 turns relative to the stars give 365.2422 solar days. */}
+            <group rotation={[0, t * Math.PI * 2 * 366.2422, 0]}>
+              <EarthMesh radius={radius} sunDirection={shownSun} />
+              {!trueScale && <Atmosphere radius={radius * 1.035} />}
+              <Graticule radius={radius * 1.004} />
+              {!trueScale &&
+                [-tilt, tilt, -(90 - tilt), 90 - tilt].map((lat, i) => (
+                  <Line
+                    key={i}
+                    points={Array.from({ length: 161 }, (_, j) =>
+                      latLonToXYZ(lat, -180 + (j / 160) * 360, radius * 1.008),
+                    )}
+                    color={i < 2 ? "#d9bb87" : "#82bed4"}
+                    transparent
+                    opacity={0.65}
+                    lineWidth={0.9}
+                  />
+                ))}
+              {!trueScale && (
+                <>
+                  <CityMarker lat={51.5} lon={-0.1} radius={radius * 1.02} />
+                  <CityMarker lat={-33.87} lon={151.21} radius={radius * 1.02} color="#efb474" />
+                </>
+              )}
+            </group>
+            <AxisLine radius={radius * 1.4} markerRadius={radius * 0.035} tiltDeg={0} />
           </group>
-          <AxisLine radius={radius * 1.4} markerRadius={radius * 0.035} tiltDeg={0} />
         </group>
         {close && (
           <Tag
@@ -125,14 +136,22 @@ export default function Seasons() {
         )}
         {!close &&
           [0, 0.25, 0.5, 0.75].map((v, i) => {
-            const p = orbitPosition(v, 0, 2.65);
+            // Each label sits outside the orbit, clear of Earth when it reaches that direction.
+            const r = 2.65 * [1 - ecc, 1 - ecc * ecc, 1 + ecc, 1 - ecc * ecc][i];
+            const out = r + (compact ? [1.55, 1.4, 1.55, 1.4] : [2.2, 1.1, 2.6, 1.25])[i];
+            const dir = orbitPosition(v, 0, 1);
+            const names = [
+              "March equinox",
+              "June solstice",
+              "September equinox",
+              "December solstice",
+            ];
             return (
               <Tag
                 key={i}
-                pos={[p[0] * 1.2, -0.25, p[2] * 1.2]}
-                text={
-                  ["March equinox", "June solstice", "September equinox", "December solstice"][i]
-                }
+                pos={[dir[0] * out, i === 3 ? -0.25 : 0, dir[2] * out]}
+                text={compact ? ["Mar", "Jun", "Sep", "Dec"][i] : names[i]}
+                title={names[i]}
                 occlude={false}
               />
             );
@@ -170,7 +189,9 @@ export default function Seasons() {
         {(new THREE.Vector3(...position).length() / 2.65).toFixed(3)} {"AU. "}
         {ecc > 0.001
           ? "Stretched orbit: labels mark directions, not equal time intervals."
-          : "Set Axial tilt to 0° to see 12-hour days all year."}
+          : tilt < 0.05
+            ? "No tilt: 12-hour days everywhere except at the poles."
+            : "Set Axial tilt to 0° to see 12-hour days all year."}
       </ScienceReadout>
     </>
   );

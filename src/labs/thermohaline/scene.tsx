@@ -23,11 +23,11 @@ export default function Thermohaline() {
     difference = rho - reference;
   const f = trueScale ? 1 : 500,
     y = (depth: number) => (-depth / 1500000) * f;
-  const path = (u: number): [number, number, number] => [
-    1.8 * Math.cos(u),
-    y(2000 - 1700 * Math.sin(u)),
-    0.86,
-  ];
+  const loop = useMemo(() => overturningLoop(f), [f]);
+  const path = (s: number, z = 0.86): [number, number, number] => {
+    const [x, py] = loop.at(s);
+    return [x, py, z];
+  };
   const pelletY = densityParcelHeight(t, difference);
   return (
     <>
@@ -72,39 +72,34 @@ export default function Thermohaline() {
             ))}
             <FlowFilaments
               paths={Array.from({ length: 7 }, (_, k) =>
-                Array.from({ length: 97 }, (_, i) => {
-                  const p = path((-i / 96) * Math.PI * 2);
-                  return [p[0], p[1], -0.6 + k * 0.2] as [number, number, number];
-                }),
+                Array.from({ length: 97 }, (_, i) => path(i / 96, -0.6 + k * 0.2)),
               )}
               t={t}
               color="#95cbd5"
             />
-            {[0, 1].map((half) => (
+            {[loop.upper, loop.lower].map((half, i) => (
               <Line
-                key={half}
-                points={Array.from({ length: 65 }, (_, i) =>
-                  path(half * Math.PI + (i / 64) * Math.PI),
-                )}
-                color={half === 0 ? "#d7a679" : "#82bbd4"}
+                key={i}
+                points={half.map(([x, py]) => [x, py, 0.86] as [number, number, number])}
+                color={i === 0 ? "#d7a679" : "#82bbd4"}
                 lineWidth={3}
               />
             ))}
-            {[0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2].map((u) => (
+            {[0.985, 0.25, 0.485, 0.75].map((s) => (
               <Arrow
-                key={u}
-                from={path(u)}
-                to={path(u - 0.2)}
-                color={Math.sin(u) > 0 ? "#d7a679" : "#82bbd4"}
+                key={s}
+                from={path(s)}
+                to={path(s + 0.03)}
+                color={loop.at(s)[1] > loop.mid ? "#d7a679" : "#82bbd4"}
                 width={1}
               />
             ))}
             {Array.from({ length: 18 }, (_, i) => {
-              const u = -(t + i / 18) * Math.PI * 2;
+              const p = path(t + i / 18);
               return (
-                <mesh key={i} position={path(u)}>
+                <mesh key={i} position={p}>
                   <sphereGeometry args={[0.035, 12, 10]} />
-                  <meshBasicMaterial color={Math.sin(u) > 0 ? "#e1b286" : "#8bc9df"} />
+                  <meshBasicMaterial color={p[1] > loop.mid ? "#e1b286" : "#8bc9df"} />
                 </mesh>
               );
             })}
@@ -217,6 +212,61 @@ function seabed(x: number, bottom: number) {
         0.04 * Math.sin(x * 9) * Math.exp(-((x / 0.6) ** 2))) *
       (1 - 0.93 * THREE.MathUtils.smoothstep(ax, 1.55, 1.92));
   return THREE.MathUtils.lerp(depth * bottom, 0.07, THREE.MathUtils.smoothstep(ax, 1.95, 2.08));
+}
+
+/**
+ * Schematic overturning loop in the section plane: a rounded rectangle with the upper limb at
+ * about 250 m, sinking over the deep basin before the polar shelf, and the deep limb at about
+ * 3300 m that rises to stay 300 m above the ridge crest. Each half is resampled evenly by
+ * distance so tracers move at a steady pace. `f` is the vertical exaggeration.
+ */
+function overturningLoop(f: number) {
+  const y = (depth: number) => (-depth / 1500000) * f,
+    bottom = y(4000),
+    mid = y(1775);
+  const half = (from: number) => {
+    const raw: [number, number][] = [];
+    for (let i = 0; i <= 400; i++) {
+      const u = from - (i / 400) * Math.PI,
+        c = Math.cos(u),
+        s = Math.sin(u),
+        x = 1.5 * Math.sign(c) * Math.abs(c) ** 0.3,
+        py = y(1775 - 1525 * Math.sign(s) * Math.abs(s) ** 0.3);
+      raw.push([x, Math.max(py, seabed(x, bottom) - y(300))]);
+    }
+    const lengths = [0];
+    for (let i = 1; i < raw.length; i++)
+      lengths.push(
+        lengths[i - 1] + Math.hypot(raw[i][0] - raw[i - 1][0], raw[i][1] - raw[i - 1][1]),
+      );
+    const total = lengths[lengths.length - 1],
+      out: [number, number][] = [];
+    for (let k = 0, j = 0; k <= 96; k++) {
+      const target = (k / 96) * total;
+      while (j < raw.length - 2 && lengths[j + 1] < target) j++;
+      const v = (target - lengths[j]) / Math.max(1e-9, lengths[j + 1] - lengths[j]);
+      out.push([
+        THREE.MathUtils.lerp(raw[j][0], raw[j + 1][0], v),
+        THREE.MathUtils.lerp(raw[j][1], raw[j + 1][1], v),
+      ]);
+    }
+    return out;
+  };
+  // Upper limb from the low-latitude side (left) to the polar side; deep limb back again.
+  const upper = half(Math.PI),
+    lower = half(0),
+    ring = [...upper.slice(0, -1), ...lower.slice(0, -1)];
+  const at = (s: number): [number, number] => {
+    const u = (((s % 1) + 1) % 1) * ring.length,
+      a = Math.floor(u) % ring.length,
+      b = (a + 1) % ring.length,
+      v = u - Math.floor(u);
+    return [
+      THREE.MathUtils.lerp(ring[a][0], ring[b][0], v),
+      THREE.MathUtils.lerp(ring[a][1], ring[b][1], v),
+    ];
+  };
+  return { upper, lower, mid, at };
 }
 const TROPIC = new THREE.Color("#e39a5c"),
   POLAR = new THREE.Color("#8cc0d6"),

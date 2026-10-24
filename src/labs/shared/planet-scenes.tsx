@@ -1,198 +1,15 @@
 import { useMemo } from "react";
+import { Line as PlainLine } from "@react-three/drei";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
-import { EarthMesh, AxisLine, Graticule, CityMarker, Atmosphere } from "@/components/globe/earth";
 import { StarMesh } from "@/components/globe/star";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "./science-kit";
 import { Tag } from "./kit";
-import { latLonToXYZ } from "@/lib/geo";
 import { solarEphemeris, daylight } from "@/lib/solar";
 import { TerrainMaterial, PlantStand } from "./natural-world";
 import { skyPosition } from "../solar-altitude/sky";
-
-export function RotationScene() {
-  const { t, params } = useLabControls();
-  useLabTick(1 / 28);
-  return (
-    <>
-      <ScienceStudio
-        slug="rotation"
-        lights={false}
-        space
-        camera={[0, 1, 4.8]}
-        scale="Earth rotates eastward · 15° per mean solar hour · Sun direction held fixed"
-        trueScale="Spherical Earth · time-zone lines are ideal 15° meridians, not real borders"
-      >
-        {/* Sun direction marker: same direction as the shader's light, well outside Earth. */}
-        <group position={ROTATION_SUN.clone().multiplyScalar(2.45).toArray()}>
-          <StarMesh radius={0.17} />
-          <Tag
-            pos={[0, 0.38, 0]}
-            text="Sunlight"
-            note="The Sun is drawn much closer and smaller than reality. Its light arrives as almost parallel rays, lighting one half of Earth at a time."
-            occlude={false}
-          />
-        </group>
-        <Atmosphere radius={1.3} />
-        <group rotation={[0, t * Math.PI * 2, 0]}>
-          <EarthMesh radius={1.25} sunDirection={ROTATION_SUN} />
-          <AxisLine radius={1.48} tiltDeg={0} />
-          <CityMarker lat={51.5} lon={-0.1} radius={1.27} />
-          {params.zones > 0.5 ? (
-            Array.from({ length: 24 }, (_, i) => (
-              <Line
-                key={i}
-                points={Array.from({ length: 65 }, (_, j) =>
-                  latLonToXYZ(-90 + (j / 64) * 180, i * 15, 1.255),
-                )}
-                color={i === 0 ? "#f1c994" : "#91a9ac"}
-                lineWidth={i === 0 ? 2 : 1}
-              />
-            ))
-          ) : (
-            <Graticule radius={1.255} />
-          )}
-        </group>
-        <Line
-          points={Array.from({ length: 161 }, (_, i): [number, number, number] => {
-            const a = (i / 160) * Math.PI * 2;
-            return [
-              (-Math.sin(a) / Math.sqrt(10)) * 1.257,
-              Math.cos(a) * 1.257,
-              ((3 * Math.sin(a)) / Math.sqrt(10)) * 1.257,
-            ];
-          })}
-          color="#d9c397"
-          lineWidth={1.25}
-        />
-      </ScienceStudio>
-      <ScienceReadout>
-        {(t * 24).toFixed(2)} {"hours of rotation · "}
-        {(t * 360).toFixed(1)}
-        {"°. West-to-east rotation brings successive places into sunlight. "}
-        {params.zones > 0.5
-          ? "Civil time zones may depart from these ideal meridians."
-          : "Day and night come from geometry, not time-zone boundaries."}
-      </ScienceReadout>
-    </>
-  );
-}
-
-const ROTATION_SUN = new THREE.Vector3(3, 0, 1).normalize();
-
-export function GraticuleScene() {
-  const { params } = useLabControls(),
-    lat = params.lat ?? 51.5,
-    lon = params.lon ?? -0.1;
-  const latitude = useMemo(
-    () => Array.from({ length: 129 }, (_, i) => latLonToXYZ(lat, -180 + (i / 128) * 360, 1.265)),
-    [lat],
-  );
-  const longitude = useMemo(
-    () => Array.from({ length: 97 }, (_, i) => latLonToXYZ(-90 + (i / 96) * 180, lon, 1.27)),
-    [lon],
-  );
-  return (
-    <>
-      <ScienceStudio
-        slug="graticule"
-        space
-        scale="Spherical coordinates · lines and marker enlarged for clarity"
-        trueScale="Latitude and longitude angles are true; Earth represented as a sphere"
-        lights={false}
-        camera={[0, 1, 4.8]}
-      >
-        <group rotation={[0, Math.PI - (lon * Math.PI) / 180, 0]}>
-          <EarthMesh radius={1.25} lighting="viewer" />
-          <Graticule radius={1.26} />
-          <Line
-            points={Array.from({ length: 129 }, (_, i) =>
-              latLonToXYZ(0, -180 + (i / 128) * 360, 1.262),
-            )}
-            color="#e9d9b4"
-            lineWidth={1.4}
-          />
-          <Line
-            points={Array.from({ length: 97 }, (_, i) =>
-              latLonToXYZ(-90 + (i / 96) * 180, 0, 1.262),
-            )}
-            color="#e9d9b4"
-            lineWidth={1.4}
-          />
-          <Tag
-            pos={latLonToXYZ(0, -25, 1.36)}
-            text="Equator 0°"
-            note="The equator is the 0° line of latitude, halfway between the poles."
-          />
-          <Tag
-            pos={latLonToXYZ(38, 0, 1.36)}
-            text="Prime meridian 0°"
-            note="The prime meridian through Greenwich is the agreed 0° line of longitude; east and west are measured from it."
-          />
-          {/* Tropics and polar circles, at the latitudes set by Earth's axial tilt. */}
-          {[23.44, -23.44, 66.56, -66.56].map((l) => (
-            <Line
-              key={l}
-              points={Array.from({ length: 129 }, (_, i) =>
-                latLonToXYZ(l, -180 + (i / 128) * 360, 1.262),
-              )}
-              color={Math.abs(l) < 30 ? "#f1d38a" : "#cfe6f2"}
-              lineWidth={1}
-              dashed
-              dashSize={0.05}
-              gapSize={0.035}
-              transparent
-              opacity={0.8}
-            />
-          ))}
-          <Tag
-            pos={latLonToXYZ(23.44, -55, 1.34)}
-            text="Tropic of Cancer 23.4°N"
-            note="The furthest north the Sun is ever directly overhead, at the June solstice. Its latitude equals Earth's axial tilt."
-          />
-          <Tag
-            pos={latLonToXYZ(66.56, -40, 1.34)}
-            text="Arctic Circle 66.6°N"
-            note="North of this line there is at least one day each year when the Sun does not set, and one when it does not rise."
-          />
-          <Line points={latitude} color="#7fd4ff" lineWidth={2} />
-          <Line points={longitude} color="#edb777" lineWidth={2} />
-          <CityMarker lat={lat} lon={lon} radius={1.28} />
-          <Line
-            points={Array.from({ length: 65 }, (_, i) => latLonToXYZ((lat * i) / 64, lon, 1.285))}
-            color="#f4bc81"
-            lineWidth={3}
-          />
-          <Line
-            points={Array.from({ length: 97 }, (_, i) => latLonToXYZ(0, (lon * i) / 96, 1.285))}
-            color="#92dce8"
-            lineWidth={3}
-          />
-          <Tag
-            pos={latLonToXYZ(lat, lon, 1.42)}
-            text={`${Math.abs(lat).toFixed(1)}°${lat < 0 ? "S" : "N"} ${Math.abs(lon).toFixed(1)}°${lon < 0 ? "W" : "E"}`}
-            note="Latitude is north or south of the equator. Longitude is east or west of Greenwich. Poles are shared by every meridian."
-            occlude={false}
-          />
-        </group>
-      </ScienceStudio>
-      <ScienceReadout>
-        {"Latitude "}
-        {lat.toFixed(1)}
-        {"° · longitude "}
-        {lon.toFixed(1)}
-        {"° · local mean solar-time difference "}
-        {lon / 15 >= 0 ? "+" : ""}
-        {(lon / 15).toFixed(2)}{" "}
-        {
-          "h from Greenwich. Gold arc measures latitude from the equator; blue arc measures longitude from Greenwich. This does not select a civil time zone."
-        }
-      </ScienceReadout>
-    </>
-  );
-}
 
 export { LunarModel as LunarScene } from "./lunar-model";
 
@@ -213,7 +30,11 @@ export function SolarAltitudeScene() {
       selected[1] > 0.005
         ? Math.min(1.72, (0.22 * Math.hypot(selected[0], selected[2])) / selected[1])
         : 0,
-    azimuth = Math.atan2(selected[2], selected[0]);
+    azimuth = Math.atan2(selected[2], selected[0]),
+    altitude = (Math.asin(selected[1] / 1.8) * 180) / Math.PI,
+    noonAltitude = 90 - Math.abs(lat - (declination * 180) / Math.PI),
+    minutes = Math.round(hour * 60) % 1440,
+    clock = `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`;
   return (
     <>
       <ScienceStudio
@@ -221,7 +42,9 @@ export function SolarAltitudeScene() {
         horizon
         scale="Local sky sphere · horizon and solar path use true angles"
         trueScale="Sky directions are angular · the Sun is drawn larger than its angular diameter"
-        camera={[4, 2.8, 5]}
+        // Look from the poleward side, so the noon Sun is beyond the dial in both hemispheres.
+        key={lat < 0 ? "south" : "north"}
+        camera={[4, 2.8, lat < 0 ? -5 : 5]}
       >
         <SunLight position={selected} />
         <SolarGround />
@@ -255,10 +78,11 @@ export function SolarAltitudeScene() {
           )}
         </group>
         {shadowLength > 0 && (
-          <Line
+          // A plain line: GuideLine lightens dark colours in dark mode, which would make the shadow pale.
+          <PlainLine
             points={[
-              [0, 0.006, 0],
-              [-Math.cos(azimuth) * shadowLength, 0.006, -Math.sin(azimuth) * shadowLength],
+              [0, 0.014, 0],
+              [-Math.cos(azimuth) * shadowLength, 0.014, -Math.sin(azimuth) * shadowLength],
             ]}
             color="#20322b"
             lineWidth={5}
@@ -276,8 +100,8 @@ export function SolarAltitudeScene() {
         <Tag pos={[-2.1, 0, 0]} text="East" occlude={false} />
         <Tag pos={[2.1, 0, 0]} text="West" occlude={false} />
         <Tag
-          pos={[noon[0], noon[1] + 0.3, noon[2]]}
-          text={`Noon ${(90 - Math.abs(lat - (declination * 180) / Math.PI)).toFixed(1)}°`}
+          pos={[noon[0], noon[1] + (noonAltitude < 12 ? 0.55 : 0.3), noon[2]]}
+          text={`Noon ${noonAltitude.toFixed(1)}°`}
           occlude={false}
         />
       </ScienceStudio>
@@ -286,11 +110,12 @@ export function SolarAltitudeScene() {
         {lat.toFixed(1)}
         {"° · daylight "}
         {length.hours.toFixed(2)} {"h at a geometric horizon. Selected local solar time "}
-        {hour.toFixed(1)} {"h; altitude "}
-        {((Math.asin(selected[1] / 1.8) * 180) / Math.PI).toFixed(1)}
-        {
-          "°. The pin's shadow points away from the Sun and is cut off at the edge of the ground. Refraction is ignored."
-        }
+        {clock}
+        {"; altitude "}
+        {altitude.toFixed(1)}
+        {altitude > 0
+          ? "°. The pin's shadow points away from the Sun and is cut off at the edge of the ground. Refraction is ignored."
+          : "°. The Sun is below the horizon, so there is no shadow. Refraction is ignored."}
       </ScienceReadout>
     </>
   );
@@ -431,7 +256,8 @@ function SolarGround() {
   );
 }
 
-/** A stone pedestal with an hour-marked dial plate and a vertical pin gnomon. */
+/** A stone pedestal with a plain dial plate and a vertical pin gnomon. A flat dial with a
+ * vertical pin needs unevenly spaced hour lines, so none are drawn. */
 function Sundial() {
   return (
     <group>
@@ -439,19 +265,6 @@ function Sundial() {
         <cylinderGeometry args={[0.2, 0.2, 0.012, 64]} />
         <meshStandardMaterial color="#c9c0aa" roughness={0.85} />
       </mesh>
-      {Array.from({ length: 24 }, (_, h) => {
-        const a = (h / 24) * Math.PI * 2;
-        return (
-          <mesh
-            key={h}
-            position={[0.17 * Math.cos(a), 0.0135, 0.17 * Math.sin(a)]}
-            rotation={[-Math.PI / 2, 0, -a]}
-          >
-            <planeGeometry args={[h % 6 === 0 ? 0.05 : 0.03, 0.006]} />
-            <meshBasicMaterial color="#5b4f3e" />
-          </mesh>
-        );
-      })}
       <mesh position={[0, 0.12, 0]} castShadow>
         <cylinderGeometry args={[0.012, 0.018, 0.22, 24]} />
         <meshStandardMaterial color="#b08d4a" metalness={0.6} roughness={0.35} />

@@ -13,7 +13,8 @@ import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { FlowWaterMaterial } from "../shared/flow-water";
 
-/** Clouds along the example cold front (towering) and warm front (layered): [x, z, height 0–1]. */
+/** Clouds along the example cold front (towering) and warm front (layered): [x, z, height 0–1].
+ * Northern Hemisphere layout (z is south); z is mirrored for the Southern Hemisphere. */
 const FRONT_CLOUDS: [number, number, number][] = [
   [0.5, 0.7, 0.9],
   [0.85, 1.3, 0.8],
@@ -98,7 +99,8 @@ export default function PressureCentres() {
   useLabTick(1 / 30);
   const high = params.anti > 0.5,
     south = params.sh > 0.5,
-    spin = (high ? -1 : 1) * (south ? -1 : 1);
+    spin = (high ? -1 : 1) * (south ? -1 : 1),
+    ns = south ? -1 : 1;
   return (
     <>
       <ScienceStudio
@@ -113,7 +115,7 @@ export default function PressureCentres() {
           k % 2 ? null : (
             <Tag
               key={`p-${r}`}
-              pos={[r * Math.cos(0.6 + k * 0.5), 0.05, -r * Math.sin(0.6 + k * 0.5)]}
+              pos={[r * Math.cos(-2.1), 0.05, -r * Math.sin(-2.1)]}
               text={`${high ? 1036 - k * 6 : 976 + k * 8} hPa`}
               note={`Isobar: a line joining places with the same surface pressure (${high ? 1036 - k * 6 : 976 + k * 8} hPa in this example pattern). ${high ? "Pressure is highest at the centre of the anticyclone." : "Pressure is lowest at the centre of the depression."}`}
               occlude={false}
@@ -151,10 +153,10 @@ export default function PressureCentres() {
           return (
             <Arrow
               key={i}
-              from={[e, 0.12, -n]}
-              to={[e + v.east * 0.25, 0.12, -n - v.north * 0.25]}
+              from={[e, 0.15, -n]}
+              to={[e + v.east * 0.4, 0.15, -n - v.north * 0.4]}
               color={high ? "#dfbf85" : "#8ed0df"}
-              width={1}
+              width={1.6}
             />
           );
         })}
@@ -164,7 +166,7 @@ export default function PressureCentres() {
             a = spin * (u * 5 + i * 2.4);
           return (
             <mesh key={i} position={[r * Math.cos(a), 0.14, -r * Math.sin(a)]}>
-              <sphereGeometry args={[0.035, 12, 8]} />
+              <sphereGeometry args={[0.05, 12, 8]} />
               <meshBasicMaterial color={high ? "#dfbf85" : "#8ed0df"} />
             </mesh>
           );
@@ -189,7 +191,7 @@ export default function PressureCentres() {
           FRONT_CLOUDS.map(([x, z, tall], i) => (
             <group key={`f-${i}`}>
               <CloudVolume
-                position={[x, 0.42 + tall * 0.35, z]}
+                position={[x, 0.42 + tall * 0.35, z * ns]}
                 scale={[0.32, 0.18 + tall * 0.32, 0.32]}
                 density={32}
                 seed={i + 40}
@@ -197,7 +199,7 @@ export default function PressureCentres() {
               />
               <RainStreaks
                 t={t}
-                position={[x, 0.3, z]}
+                position={[x, 0.3, z * ns]}
                 width={0.22}
                 depth={0.22}
                 height={0.28}
@@ -224,26 +226,26 @@ export default function PressureCentres() {
           from={[0, high ? 1.8 : 0.2, 0]}
           to={[0, high ? 0.2 : 1.8, 0]}
           color={high ? "#dfbf85" : "#8ed0df"}
-          width={2}
+          width={3}
         />
         {!high && (
           <>
             <Line
               points={[
-                [0.2, 0.04, 0.3],
-                [0.8, 0.04, 1.1],
-                [0.9, 0.04, 2],
-                [0.6, 0.04, 2.9],
+                [0.2, 0.15, 0.3 * ns],
+                [0.8, 0.15, 1.1 * ns],
+                [0.9, 0.15, 2 * ns],
+                [0.6, 0.15, 2.9 * ns],
               ]}
               color="#76bacd"
               lineWidth={3}
             />
             <Line
               points={[
-                [0.2, 0.04, 0.3],
-                [1, 0.04, 0.2],
-                [1.9, 0.04, -0.05],
-                [2.8, 0.04, -0.65],
+                [0.2, 0.15, 0.3 * ns],
+                [1, 0.15, 0.2 * ns],
+                [1.9, 0.15, -0.05 * ns],
+                [2.8, 0.15, -0.65 * ns],
               ]}
               color="#d59486"
               lineWidth={3}
@@ -257,16 +259,16 @@ export default function PressureCentres() {
           occlude={false}
         />
         <Tag
-          pos={[-2.5, 0.1, 2.6]}
+          pos={[-2.5, 0.1, -2.6]}
           text={`${south ? "SH" : "NH"} · ${spin > 0 ? "anticlockwise" : "clockwise"}`}
           note="Viewed from above. Switching hemisphere reverses the spin, but a low still converges and a high still diverges near the surface."
           occlude={false}
         />
         {!high && (
           <Tag
-            pos={[2.6, 0.1, 1.8]}
+            pos={south ? [3, 0.1, -1.1] : [2.6, 0.1, 1.8]}
             text="Fronts · cold blue / warm coral"
-            note="Example cold and warm fronts of a developing midlatitude depression, not a hurricane eyewall. Real fronts do not rotate rigidly like spokes. Open the Fronts lab to see their slopes."
+            note="Example cold and warm fronts of a developing midlatitude depression, not a hurricane eyewall. The cold front trails towards the equator, so the pattern flips north–south in the Southern Hemisphere. Real fronts do not rotate rigidly like spokes. Open the Fronts lab to see their slopes."
             occlude={false}
           />
         )}

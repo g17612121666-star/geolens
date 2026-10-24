@@ -1,10 +1,12 @@
 /** Invented closed classroom budget. Pg C; NOT measured global reservoir sizes. */
 export const CARBON_INITIAL=[600,1200,3000,6000,1200] as const;
 export const CARBON_STORES=['Atmosphere','Biosphere','Ocean','Sediment / rock','Fossil fuel'] as const;
+/** Extra CO₂ only partly speeds uptake: plants respond weakly (CO₂ fertilisation) and seawater
+ * chemistry limits how much more the ocean dissolves (buffer factor), so near half of emissions stay airborne. */
 export function carbonFluxes(s:readonly number[],tap:number){return [
-  {name:'Photosynthesis',from:0,to:1,rate:60*s[0]/600},
+  {name:'Photosynthesis',from:0,to:1,rate:60*(1+.3*(s[0]-600)/600)},
   {name:'Respiration / decay',from:1,to:0,rate:60*s[1]/1200},
-  {name:'Air to ocean',from:0,to:2,rate:40*s[0]/600},
+  {name:'Air to ocean',from:0,to:2,rate:40*(1+.25*(s[0]-600)/600)},
   {name:'Ocean to air',from:2,to:0,rate:40*s[2]/3000},
   {name:'Silicate-weathering pathway',from:0,to:2,rate:.2*s[0]/600},
   {name:'Burial / sedimentation',from:2,to:3,rate:.2*s[2]/3000},

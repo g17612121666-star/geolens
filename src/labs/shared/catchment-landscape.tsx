@@ -92,10 +92,10 @@ export function CatchmentLandscape({
         <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
         <SectionMaterial attach="material-1" glsl={BEDROCK_GLSL} cacheKey="catchment-bedrock-v1" />
       </mesh>
-      <WaterRibbon path={line(-2, 2, 0)} width={0.045 + flow * 0.11} color="#4c97a4" />
+      <WaterRibbon path={line(-1.8, 2, 0)} width={0.045 + flow * 0.11} color="#4c97a4" />
       <DebrisField
         points={Array.from({ length: 60 }, (_, i) => {
-          const x = -1.9 + ((i % 30) / 29) * 3.8,
+          const x = -1.75 + ((i % 30) / 29) * 3.7,
             z = (i < 30 ? -1 : 1) * (0.08 + flow * 0.11);
           return [x, catchmentHeight(x, z) + 0.014, z];
         })}

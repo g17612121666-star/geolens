@@ -497,7 +497,7 @@ export const LAB_COVER: Record<string, PhotoSlot> = {
   "karst": { ...VERIFIED_PHOTOS["malham-limestone-pavement"] },
   "landform-types": { ...VERIFIED_PHOTOS["grand-canyon-hopi-point"] },
   "map-projections": { ...VERIFIED_PHOTOS["nasa-blue-marble-july"] },
-  "mass-movement": { ...VERIFIED_PHOTOS["oso-landslide"] },
+  "mass-movement": { ...VERIFIED_PHOTOS["redcliff-coastal-slump"] },
   "moon-phases": { ...VERIFIED_PHOTOS["artemis-crescent-moon"] },
   "ocean-currents": { ...VERIFIED_PHOTOS["gulf-stream-modis"] },
   "periglacial": { ...VERIFIED_PHOTOS["noatak-patterned-ground"] },

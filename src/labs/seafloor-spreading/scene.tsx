@@ -31,9 +31,9 @@ function floorHeight(x: number, z: number, rate: number, exaggeration: number) {
     slow = 1 - smooth(rate, 30, 50);
   const subsidence = ((350 * Math.sqrt((a * 20) / half)) / 20000) * exaggeration;
   const valley =
-    slow * (-0.1 * Math.exp(-((d / 0.07) ** 2)) + 0.05 * Math.exp(-(((a - 0.13) / 0.05) ** 2)));
-  const high = (1 - slow) * 0.04 * Math.exp(-((d / 0.1) ** 2));
-  const hills = 0.018 * Math.sin(a * 55 + 0.6 * Math.sin(z * 3)) * smooth(a, 0.1, 0.3);
+    slow * (-0.4 * Math.exp(-((d / 0.2) ** 2)) + 0.12 * Math.exp(-(((a - 0.45) / 0.15) ** 2)));
+  const high = (1 - slow) * 0.1 * Math.exp(-((d / 0.2) ** 2));
+  const hills = 0.018 * Math.sin(a * 55 + 0.6 * Math.sin(z * 3)) * smooth(a, 0.3, 0.6);
   const fracture = -0.045 * Math.exp(-(((z - TRANSFORM_Z) / 0.05) ** 2));
   return -subsidence + k * (valley + high + hills + fracture);
 }
@@ -43,9 +43,9 @@ float axisAt(float z){return z>${TRANSFORM_Z.toFixed(2)}?${OFFSET.toFixed(2)}:0.
 float floorTop(float x,float z){
   float half_=uRate*.5,k=uExag/12.,d=x-axisAt(z),a=abs(d),slow=1.-smoothstep(30.,50.,uRate);
   float subs=350.*sqrt(a*20./half_)/20000.*uExag;
-  float valley=slow*(-.1*exp(-sq(d/.07))+.05*exp(-sq((a-.13)/.05)));
-  float high=(1.-slow)*.04*exp(-sq(d/.1));
-  float hills=.018*sin(a*55.+.6*sin(z*3.))*smoothstep(.1,.3,a);
+  float valley=slow*(-.4*exp(-sq(d/.2))+.12*exp(-sq((a-.45)/.15)));
+  float high=(1.-slow)*.1*exp(-sq(d/.2));
+  float hills=.018*sin(a*55.+.6*sin(z*3.))*smoothstep(.3,.6,a);
   float fracture=-.045*exp(-sq((z-${TRANSFORM_Z.toFixed(2)})/.05));
   return -subs+k*(valley+high+hills+fracture);
 }
@@ -202,7 +202,7 @@ export default function SeafloorSpreading() {
             attach="material-1"
             glsl={CRUST_GLSL}
             uniforms={uniforms}
-            cacheKey="spreading-crust-v1"
+            cacheKey="spreading-crust-v2"
           />
         </mesh>
         {[
@@ -255,11 +255,11 @@ export default function SeafloorSpreading() {
         })}
         <Tag
           pos={[-0.15, 0.85, -1.25]}
-          text={slowRidge ? "Ridge axis · rift valley" : "Ridge axis · axial high"}
+          text={slowRidge ? "Ridge axis · rift valley" : "Ridge axis · axial rise"}
           note={
             slowRidge
               ? "At slow spreading rates the ridge crest is a faulted rift valley. Basalt forms at the axis and moves away on each flank. Decompression makes only a small fraction of the mantle melt."
-              : "At fast spreading rates more magma reaches the axis and the crest is a smooth, broad rise instead of a rift valley. Basalt forms at the axis and moves away on each flank."
+              : "At faster spreading rates more magma reaches the axis and the crest becomes a smoother rise instead of a rift valley; the broadest axial highs are found at fast ridges such as the East Pacific Rise. Basalt forms at the axis and moves away on each flank."
           }
           occlude={false}
         />
@@ -271,7 +271,7 @@ export default function SeafloorSpreading() {
           occlude={false}
         />
         <Tag
-          pos={[vents[0][0] + 0.75, vents[0][1] + 0.5, vents[0][2]]}
+          pos={[vents[0][0] + 1.5, vents[0][1] + 0.45, vents[0][2]]}
           text="Black smokers"
           note="Seawater circulates through hot new crust and vents as mineral-rich fluid at up to about 400 °C. Chimney size is exaggerated."
           occlude={false}
@@ -292,7 +292,7 @@ export default function SeafloorSpreading() {
           pos={[OFFSET + 0.6, height(OFFSET, D / 2) - 0.25, D / 2 + 0.05]}
           text="Melt lens"
           tone="magma"
-          note="A thin, partly molten lens sits a few kilometres below many ridge axes and feeds the dykes and pillow lavas above it. Beneath it, a small fraction of the mostly solid mantle melts as it rises."
+          note="A thin, partly molten lens sits a few kilometres below many ridge axes and feeds the dykes and pillow lavas above it. At slow ridges such as the Mid-Atlantic Ridge it is usually small or short-lived. Beneath it, a small fraction of the mostly solid mantle melts as it rises."
           occlude={false}
         />
         <Tag
@@ -311,7 +311,7 @@ export default function SeafloorSpreading() {
         }
         <br />
         {
-          "Play runs a made-up reversal record through 1 Ma to show the symmetry; it is not the real reversal timescale. The seafloor deepens with the square root of its age; above 40 mm/year the rift valley gives way to an axial high."
+          "Play runs a made-up reversal record through 1 Ma to show the symmetry; it is not the real reversal timescale. The seafloor deepens with the square root of its age. In this model the rift valley gives way to a smoother axial rise above about 40 mm/year; real ridges change more gradually, and broad axial highs are typical of fast ridges (above about 80 mm/year)."
         }
       </ScienceReadout>
     </>

@@ -113,13 +113,15 @@ export default function GeologicTime() {
           const mid = (Math.min(u.old, span) + Math.max(u.young, 0)) / 2,
             f = 1 - mid / span;
           if ((Math.min(u.old, span) - Math.max(u.young, 0)) / span < 0.1) return null;
-          const p = timeHelix(f),
+          const p = timeHelix(
+              labelFraction(1 - Math.min(u.old, span) / span, 1 - Math.max(u.young, 0) / span, f),
+            ),
             out = new THREE.Vector3(p[0], 0, p[2]).normalize().multiplyScalar(0.32);
           return (
             <Tag
               key={u.name}
-              pos={[p[0] + out.x, p[1] + 0.2, p[2] + out.z]}
-              text={u.name}
+              pos={[p[0] + out.x, p[1] - 0.22, p[2] + out.z]}
+              text={u.old > span && span === TIME_WINDOWS[2] ? `Quaternary (${u.name})` : u.name}
               note={`${u.name}: ${u.old.toLocaleString("en-GB")}–${u.young.toLocaleString("en-GB")} Ma, about ${(((u.old - u.young) / 4540) * 100).toFixed(1)}% of Earth history.`}
             />
           );
@@ -197,7 +199,7 @@ export default function GeologicTime() {
           occlude={false}
         />
         <Tag
-          pos={[1.8, -1.6, -0.4]}
+          pos={[2.3, -1.55, -0.9]}
           text={`${span} Ma`}
           note={
             span === 4540
@@ -221,13 +223,12 @@ export default function GeologicTime() {
             </span>
           ))}
         </div>
-        {age < 2.58 ? "Quaternary · within the Cenozoic" : unit.name} · {age.toFixed(3)}{" "}
-        {"Ma before present. One turn spans "}
+        {age < 2.58 ? "Quaternary · within the Cenozoic" : unit.name} ·{" "}
+        {age < 10 ? age.toFixed(3) : age.toFixed(1)}
+        {" Ma before present. One turn spans "}
         {(span / 3).toFixed(2)} {"million years."}
         <br />
-        {
-          "Pale collars mark eon and era boundaries in their true positions (ICS chart, 2026/06 edition). The Phanerozoic begins at 538.8 Ma, and its eras differ greatly in length. Choose a shorter window to inspect recent time. The coil is a time axis, not a thickness of rock layers or an evolutionary ladder."
-        }
+        {`${span > 3 ? "Pale collars mark eon and era boundaries in their true positions (ICS chart, 2026/06 edition). " : "No era boundary falls in this window: all of it lies in the Quaternary Period of the Cenozoic Era. "}Thin dark rings mark every ${span > 1000 ? 500 : span > 100 ? 50 : 0.25} million years, and grey beads split the window into twelve equal parts of ${(span / 12).toFixed(span > 10 ? 1 : 3)} million years. The central column shows the same window unrolled, so each unit's height is its duration. The Phanerozoic begins at 538.8 Ma, and its eras differ greatly in length. Choose a shorter window to inspect recent time. The coil is a time axis, not a thickness of rock layers or an evolutionary ladder.`}
         <div className="pointer-events-auto mt-1 flex flex-wrap justify-center gap-2">
           {[
             { age: 3500, label: "Evidence of life ≥3.5 Ga" },
@@ -251,6 +252,25 @@ export default function GeologicTime() {
       </ScienceReadout>
     </>
   );
+}
+
+/** Default camera azimuth: unit labels prefer the front of the coil so the column cannot hide them. */
+const FRONT = Math.atan2(5.7, 4);
+/** A label position inside the unit (middle 80%), near its midpoint but on the side facing the viewer. */
+function labelFraction(from: number, to: number, mid: number) {
+  const a = from + 0.1 * (to - from),
+    b = to - 0.1 * (to - from);
+  let best = mid,
+    score = -Infinity;
+  for (let i = 0; i <= 200; i++) {
+    const f = a + ((b - a) * i) / 200,
+      s = Math.cos(f * 6 * Math.PI - FRONT) - (1.5 * Math.abs(f - mid)) / (to - from);
+    if (s > score) {
+      score = s;
+      best = f;
+    }
+  }
+  return best;
 }
 
 /** Thin dark rings at round ages so time can be read off the coil like a ruler. */

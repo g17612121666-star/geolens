@@ -44,8 +44,8 @@ export default function Enso() {
       <ScienceStudio
         slug="enso"
         camera={[1.3, 2.1, 7]}
-        scale="Ocean depths ×10,000 · 15,000 km section · atmospheric loop schematic"
-        trueScale="Ocean uses 1 scene unit = 3000 km · atmospheric arrows remain schematic"
+        scale="Ocean depths ×10,000 · 15,000 km section · atmospheric loop and coastal relief schematic"
+        trueScale="Ocean uses 1 scene unit = 3000 km · atmospheric arrows and coastal relief remain schematic"
       >
         <RockPrism
           points={[
@@ -164,6 +164,18 @@ export default function Enso() {
           pos={[left, 1.95, 0]}
           text="Convection shifts with warm water"
           note="A schematic Walker circulation. In El Niño the main rising air shifts towards the central Pacific and the easterly trade winds weaken. Real events differ in strength and location."
+          occlude={false}
+        />
+        <Tag
+          pos={[centre, 0.3, 0.3]}
+          text="← Trade winds"
+          note="The lower branch of the schematic Walker loop: easterly surface trade winds blow from east to west and push warm surface water towards the west. They weaken in El Niño and strengthen in La Niña."
+          occlude={false}
+        />
+        <Tag
+          pos={[-0.9, west + ((east - west) * 1.6) / 5, 0.85]}
+          text="Thermocline"
+          note="The gold line marks an idealised thermocline, the sharp boundary between warm upper water and colder deep water. Its depth is enlarged ×10,000 unless Physical scale is on."
           occlude={false}
         />
         <Tag

@@ -437,7 +437,7 @@ export const CASES: CaseStudy[] = [
     title: "Dust Bowl",
     place: "Southern Great Plains",
     region: "US",
-    labs: ["soil-erosion", "weathering", "aeolian"],
+    labs: ["soil-erosion", "weathering", "aeolian", "groundwater"],
     lat: 36.68,
     lon: -101.48,
     zoom: 5,
@@ -445,6 +445,7 @@ export const CASES: CaseStudy[] = [
     body: [
       "During the Dust Bowl, severe drought coincided with exposed and disturbed soils across parts of the Great Plains. Wind detached and transported particles, sometimes carrying fine dust far from its source. Vegetation loss reduced protection from direct wind and removed roots that helped hold soil together.",
       "Use the soil-erosion model to compare bare ground with covered ground. Ask students to separate the climatic trigger (drought) from the land use that made soils vulnerable, then compare wind erosion with the water-cut gullies of the Loess Plateau.",
+      "The same plains lie above the High Plains (Ogallala) aquifer. After the 1930s, irrigation wells drawing on it helped farms through later droughts, but in parts of western Kansas and the Texas Panhandle pumping has far exceeded recharge and the water table has fallen by tens of metres. Use the groundwater model to see how pumping draws the water table down around a well.",
     ],
     exam: {
       prompt: "Explain how vegetation removal made Great Plains soils vulnerable to wind erosion in the 1930s.",
@@ -453,6 +454,7 @@ export const CASES: CaseStudy[] = [
     sources: [
       { label: "NOAA / NCEI drought and Dust Bowl" },
       { label: "USDA NRCS soil erosion history" },
+      { label: "USGS High Plains aquifer water-level monitoring" },
     ],
   },
   {

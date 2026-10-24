@@ -24,15 +24,44 @@ function height(kind: number, x: number, z: number) {
   }
   if (kind === 1)
     return 0.07 + 0.38 * Math.exp(-r / 1.6) + 0.012 * Math.sin(x * 3) * Math.cos(z * 2);
-  if (kind === 2)
-    return (
-      0.08 +
-      1.22 / (1 + Math.exp((Math.max(Math.abs(x), Math.abs(z)) - 1.25) * 12)) +
-      0.015 * Math.sin(x * 5 + z * 3)
-    );
+  if (kind === 2) {
+    // The high surface runs off the back and right of the sample, so it reads as the edge of an
+    // extensive plateau rather than an isolated flat-topped block (a mesa).
+    const edge = Math.max(-x, z) + 0.12 * Math.sin(x * 2.3 + 1) + 0.1 * Math.sin(z * 2.9);
+    return 0.08 + 1.22 / (1 + Math.exp((edge - 0.8) * 12)) + 0.015 * Math.sin(x * 5 + z * 3);
+  }
   if (kind === 3) return 0.08 + 0.014 * Math.sin(x * 1.5) + 0.01 * Math.cos(z * 2);
   return 0.06 + 0.62 * (1 - Math.exp(-r / 1.8)) + 0.015 * Math.cos(x * 3) * Math.sin(z * 4);
 }
+/** Readout numbers for each form at true scale (1 unit = 1 km), sampled on a 50 m grid. */
+const STATS = NAMES.map((_, kind) => {
+  const n = 80,
+    d = 4 / n,
+    slopes: number[] = [];
+  let hi = -Infinity,
+    lo = Infinity;
+  for (let i = 0; i <= n; i++)
+    for (let j = 0; j <= n; j++) {
+      const x = -2 + i * d,
+        z = -2 + j * d,
+        h = height(kind, x, z);
+      hi = Math.max(hi, h);
+      lo = Math.min(lo, h);
+      if (i < n && j < n) {
+        const gx = (height(kind, x + d, z) - h) / d,
+          gz = (height(kind, x, z + d) - h) / d;
+        slopes.push((Math.atan(Math.hypot(gx, gz)) * 180) / Math.PI);
+      }
+    }
+  slopes.sort((p, q) => p - q);
+  return {
+    hi: Math.round(hi * 100) * 10,
+    lo: Math.round(lo * 100) * 10,
+    relief: Math.round((hi - lo) * 100) * 10,
+    typical: Math.round(slopes[Math.floor(slopes.length / 2)]),
+    steepest: Math.round(slopes[slopes.length - 1]),
+  };
+});
 const SECTIONS: LandSection[] = [
   { rock: "granite", soil: 0.02, regolith: 0.05 },
   { rock: "sandstone", soil: 0.05, regolith: 0.09, beds: 7 },
@@ -203,8 +232,8 @@ export default function LandformTypes() {
         horizon
         slug="landform-types"
         camera={[3.5, 5.5, 8]}
-        scale="Both samples: 4 × 4 km · relief ×2 · identical comparison scale"
-        trueScale="Both samples: 1 scene unit = 1 km · common horizontal and vertical scale · trees and boulders enlarged"
+        scale="Both samples: 4 × 4 km · relief ×2 · identical comparison scale · trees and buildings enlarged"
+        trueScale="Both samples: 1 scene unit = 1 km · common horizontal and vertical scale · trees, buildings and boulders enlarged"
       >
         <Tile kind={a} x={-2.5} vertical={f} />
         <Tile kind={b} x={2.5} vertical={f} />
@@ -215,9 +244,25 @@ export default function LandformTypes() {
         {
           "at the same scale. Compare elevation, local relief, slope and the shape of the surface separately."
         }
+        <span className="mt-2 grid grid-cols-2 gap-3">
+          {[a, b].map((kind, i) => (
+            <span key={i}>
+              <strong>
+                {i === 0 ? "Left" : "Right"}: {NAMES[kind]}
+              </strong>
+              <br />
+              Highest point {STATS[kind].hi.toLocaleString("en-GB")} m · lowest{" "}
+              {STATS[kind].lo.toLocaleString("en-GB")} m
+              <br />
+              Local relief <strong>{STATS[kind].relief.toLocaleString("en-GB")} m</strong>
+              <br />
+              Typical slope {STATS[kind].typical}° · steepest {STATS[kind].steepest}°
+            </span>
+          ))}
+        </span>
         <br />
         {
-          "Choose any two of the five forms. These are invented surfaces, not real places. Colour and texture help you read them; they do not show origin, climate or rock type."
+          "Choose any two of the five forms. These are invented surfaces, not real places. Heights are measured from the scene's zero level, taken as sea level; local relief is highest minus lowest point in the 4 × 4 km sample. Slopes are true-scale values, whatever the relief setting. Colour and texture help you read them; they do not show origin, climate or rock type."
         }
       </ScienceReadout>
     </>

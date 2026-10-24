@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { PLANETS, planetPosition, planetRadiusAtOrbitScale } from "@/lib/planet-science";
@@ -41,6 +41,19 @@ export default function SolarSystem() {
     scale = all ? 0.16 : 2.5,
     mobile = useIsCompact(),
     selectedPosition = planetPosition(selected, years);
+  // Keep the selected planet in the scene: picking an outer planet turns on All eight orbits,
+  // and turning All eight orbits off while an outer planet is selected returns to Earth.
+  const previous = useRef({ all, selected });
+  useEffect(() => {
+    const was = previous.current;
+    previous.current = { all, selected };
+    if (all || selected <= 3) return;
+    if (was.all && was.selected === selected) setParam("planet", 2);
+    else setParam("outer", 1);
+  }, [all, selected, setParam]);
+  // In the whole-system view the inner orbits fit inside a small cluster, so the selected
+  // planet's label is raised on a leader line instead of covering the Sun and inner planets.
+  const lift = all ? 0.75 : 0;
   const radiusUnit = all ? 69911 : 6371.0084;
   const extents = indices.map((i) => (PLANETS[i].radius / radiusUnit) * (i === 5 ? 2.45 : 1));
   const offsets: number[] = [];
@@ -65,7 +78,9 @@ export default function SolarSystem() {
         space
         scale={
           mode === 0
-            ? `Orbits use one AU scale · bodies ${trueScale ? "at the same scale" : "enlarged for visibility"}`
+            ? trueScale
+              ? "Orbits use one AU scale · Sun and planets at the same scale"
+              : "Orbits use one AU scale · planets enlarged far more than the Sun, so the Sun looks too small beside them"
             : mode === 1
               ? "Mean-radius comparison · one size scale · spacing is a display arrangement"
               : "Selected body close-up · radius shown below · comparison Earth shares its size scale"
@@ -80,7 +95,7 @@ export default function SolarSystem() {
           <>
             <ambientLight intensity={0.16} />
             <pointLight position={[0, 0, 0]} intensity={3.2} decay={0} />
-            <StarMesh radius={trueScale ? (695700 / AU_KM) * scale : all ? 0.12 : 0.3} />
+            <StarMesh radius={trueScale ? (695700 / AU_KM) * scale : all ? 0.04 : 0.3} />
             {all && <AsteroidBelt scale={scale} />}
             {indices.map((i) => {
               const pos = planetPosition(i, years).map((v) => v * scale) as [
@@ -105,9 +120,21 @@ export default function SolarSystem() {
                       radius={r}
                       sun={new THREE.Vector3(...pos).negate()}
                     />
+                    {i === selected && lift > 0 && (
+                      <Line
+                        points={[
+                          [0, r, 0],
+                          [0, r + lift, 0],
+                        ]}
+                        color={PLANETS[i].color}
+                        transparent
+                        opacity={0.7}
+                        lineWidth={1}
+                      />
+                    )}
                     {i === selected && (
                       <Tag
-                        pos={[0, r + 0.18, 0]}
+                        pos={[0, r + 0.18 + lift, 0]}
                         text={PLANETS[i].name}
                         note={`Mean radius ${PLANETS[i].radius.toLocaleString("en-GB")} km; orbital period ${PLANETS[i].period.toFixed(3)} Earth years. Positions come from a fixed model, not today's sky.`}
                         occlude={false}
@@ -120,11 +147,12 @@ export default function SolarSystem() {
           </>
         ) : mode === 1 ? (
           <>
-            {sizes.map((v) => (
+            {sizes.map((v, k) => (
               <group key={v.i} position={[v.x, v.y, 0]}>
                 <PlanetBody years={years} index={v.i} radius={v.r} />
                 <Tag
-                  pos={[0, v.r + 0.35, 0]}
+                  // Stagger the closely packed inner-planet labels in the eight-planet row.
+                  pos={[0, v.r + 0.35 + (all && !mobile && k < 4 && k % 2 ? 0.6 : 0), 0]}
                   text={PLANETS[v.i].name}
                   note={`Mean radius ${PLANETS[v.i].radius.toLocaleString("en-GB")} km; ${(PLANETS[v.i].radius / 6371.0084).toFixed(2)} Earth radii. The spacing here does not show distance.`}
                   occlude={false}

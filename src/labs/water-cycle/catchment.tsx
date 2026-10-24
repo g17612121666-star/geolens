@@ -13,8 +13,9 @@ import { WaterRibbon, GrassPatch, RootNetwork, PoreMarkers } from "../shared/geo
 import { SectionMaterial } from "../shared/section-material";
 import { farmland } from "../shared/hazard-utils";
 
-/** Cut faces: dry soil and sand above the water table, wet saturated ground (the
- * groundwater store) below it, then bedrock; a sandy seabed under the ocean. Schematic. */
+/** Cut faces: dry soil above the water table, a thin capillary fringe, wet saturated ground (the
+ * groundwater store) below it, then bedrock; a sandy seabed under the ocean. The water table
+ * rises inland and meets sea level at the coast, so groundwater can drain to the sea. Schematic. */
 const GROUND_GLSL = `
 vec3 sectionColour(vec3 p,vec3 w){
   float y=w.y+.5,g=grain(w.xy+w.zy);
@@ -22,13 +23,18 @@ vec3 sectionColour(vec3 p,vec3 w){
   float pore=smoothstep(.35,.15,length(fract(q)-.5));
   if(y<-.55)return mix(vec3(.46,.44,.44),vec3(.36,.35,.36),g);
   if(w.x>1.12)return mix(vec3(.82,.74,.56),vec3(.72,.64,.47),step(.5,fract(y*30.)))*(.9+.2*g);
-  if(y<-.3)return mix(mix(vec3(.46,.58,.62),vec3(.36,.47,.52),g),vec3(.52,.72,.80),pore*.35);
-  if(y<-.24)return mix(vec3(.62,.62,.55),vec3(.52,.55,.50),g);
+  float wt=.12*clamp((1.1-w.x)/3.8,0.,1.);
+  if(y<wt)return mix(mix(vec3(.46,.58,.62),vec3(.36,.47,.52),g),vec3(.52,.72,.80),pore*.35);
+  if(y<wt+.06)return mix(vec3(.62,.62,.55),vec3(.52,.55,.50),g);
   return mix(vec3(.74,.62,.44),vec3(.60,.48,.33),g);
 }
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 import { landscapeRandom as random } from "../shared/landscape-noise";
 type Point = [number, number, number];
+/** Water-table height (group space): 0 at the coast (sea level), rising gently inland. */
+function waterTable(x: number) {
+  return 0.12 * Math.max(0, Math.min(1, (1.1 - x) / 3.8));
+}
 // The valley falls towards +x; transverse slopes are zero on the bounding ridges.
 function originalHeight(x: number, z: number) {
   const u = Math.max(0, Math.min(1, (1.1 - x) / 3.8));
@@ -41,15 +47,19 @@ function lakeRadius(a: number) {
 function height(x: number, z: number) {
   const dx = (x - 0.3) / 0.43,
     dz = (z + 0.65) / 0.32,
-    r = Math.hypot(dx, dz) / lakeRadius(Math.atan2(dz, dx));
-  if (r >= 1.25) return originalHeight(x, z);
+    r = Math.hypot(dx, dz) / lakeRadius(Math.atan2(dz, dx)),
+    // Embankment ring: the reservoir sits on a valley side, so its downhill rim is built up
+    // above the water line (like the bunded reservoirs of the Thames valley).
+    bund = lakeCentre[1] + 0.025 - 0.6 * Math.max(0, Math.abs(r - 1.2) - 0.04);
+  if (r >= 1.25) return Math.max(originalHeight(x, z), bund);
   const edge = Math.max(0, Math.min(1, (r - 0.3) / 0.95)),
     blend = edge * edge * (3 - 2 * edge);
-  return THREE.MathUtils.lerp(lakeCentre[1] - 0.18, originalHeight(x, z), blend);
+  return Math.max(THREE.MathUtils.lerp(lakeCentre[1] - 0.18, originalHeight(x, z), blend), bund);
 }
 function ReservoirSurface({ abstraction }: { abstraction: number }) {
   const geometry = useMemo(() => {
-    const y = lakeCentre[1] - 0.1 * abstraction,
+    // A 0.08 drop leaves about 40% of the bowl volume, matching 4,000 of 10,000 m³.
+    const y = lakeCentre[1] - 0.08 * abstraction,
       p = [0.3, y, -0.65],
       indices: number[] = [];
     for (let i = 0; i <= 160; i++) {
@@ -85,6 +95,7 @@ function ReservoirSurface({ abstraction }: { abstraction: number }) {
     </mesh>
   );
 }
+const fmt = (n: number) => Math.round(n).toLocaleString("en-GB");
 const paths: { name: string; points: Point[]; color: string; note: string }[] = [
   {
     name: "Evaporation",
@@ -127,20 +138,22 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
   },
   {
     name: "Infiltration",
+    // Drawn on the front cut face so it stays visible: surface down to the water table.
     points: [
-      [-0.7, height(-0.7, 0.5), 0.5],
-      [-0.7, 0, 0.5],
-      [-0.7, -0.42, 0.5],
+      [-1.6, height(-1.6, 1.7) + 0.01, 1.72],
+      [-1.6, 0.5, 1.72],
+      [-1.6, waterTable(-1.6), 1.72],
     ],
     color: "#72bcce",
     note: "Water soaks into the soil. Percolation then carries it down through the unsaturated zone to the water table.",
   },
   {
     name: "Groundwater flow",
+    // Below the water table on the front cut face, draining towards the coast.
     points: [
-      [-0.7, -0.42, 1.6],
-      [0.1, -0.3, 1.6],
-      [1.1, -0.02, 1.6],
+      [-1.6, waterTable(-1.6) - 0.12, 1.72],
+      [-0.3, -0.1, 1.72],
+      [1.1, -0.08, 1.72],
     ],
     color: "#509ca9",
     note: "Groundwater flows slowly from high to low hydraulic head through pores and fractures, not through open caverns.",
@@ -234,6 +247,16 @@ export default function WaterCycle() {
     return g;
   }, []);
   useEffect(() => () => terrain.dispose(), [terrain]);
+  // Pore-water dots fill the saturated zone, up to the water table.
+  const pores = useMemo(
+    () =>
+      Array.from({ length: 88 }, (_, i): Point => [
+        -2.5 + (i % 11) * 0.32,
+        -0.51 + Math.floor(i / 11) * 0.08,
+        1.71,
+      ]).filter(([x, y]) => y < waterTable(x) - 0.02),
+    [],
+  );
   const remaining = 10000 - 6000 * abstraction,
     withdrawn = 6000 * abstraction;
   const divide = useMemo(
@@ -285,7 +308,7 @@ export default function WaterCycle() {
           </mesh>
           <InspectHotspot
             name="Reservoir"
-            note="An invented reservoir that starts with 10,000 m³. Abstraction moves water into the human-use store, so the combined total stays the same. The shoreline retreats as the level falls; its shape is illustrative."
+            note="An invented embanked reservoir that starts with 10,000 m³. Abstraction moves water into the human-use store, so the combined total stays the same. The shoreline retreats as the level falls; its shape is illustrative."
           >
             <ReservoirSurface abstraction={abstraction} />
           </InspectHotspot>
@@ -301,14 +324,7 @@ export default function WaterCycle() {
               width={0.7}
             />
           )}
-          <PoreMarkers
-            positions={Array.from({ length: 55 }, (_, i) => [
-              -2.5 + (i % 11) * 0.32,
-              -0.51 + Math.floor(i / 11) * 0.08,
-              1.71,
-            ])}
-            colours={Array(55).fill("#7bd0d8")}
-          />
+          <PoreMarkers positions={pores} colours={Array(pores.length).fill("#7bd0d8")} />
           <InspectHotspot
             name="Vegetation and soil water"
             note="Water is held on leaves, in living plants and in soil pores. Transpiration returns some to the atmosphere."
@@ -398,9 +414,21 @@ export default function WaterCycle() {
           />
           <Tag
             pos={[-1, -0.8, 1.7]}
-            text="Pore water"
+            text="Groundwater"
             occlude={false}
-            note="Blue dots mark water held in pores and fractures in this cut face."
+            note="Below the water table every pore and fracture is full of water. Blue dots mark this pore water in the cut face."
+          />
+          <Tag
+            pos={[-2.35, height(-2.35, 1.2) + 0.15, 1.2]}
+            text="Snow and ice"
+            occlude={false}
+            note="A frozen store. Melting releases liquid water that can infiltrate or run off."
+          />
+          <Tag
+            pos={[0.8, height(0.8, -1.1) + 0.45, -1.1]}
+            text="Human use"
+            occlude={false}
+            note="Water abstracted for homes, farms and industry. It has moved to another store; it has not left the cycle."
           />
           {paths.map((p, i) => (
             <Transfer key={p.name} path={p} index={i} selected={i === focus} />
@@ -418,14 +446,15 @@ export default function WaterCycle() {
         </group>
       </ScienceStudio>
       <ScienceReadout>
-        <strong className="text-chalk">{path.name}.</strong> {path.note}
-        <br />
+        <strong className="text-chalk">{path.name}.</strong> {path.note}{" "}
         <span className="formula">
-          {"Reservoir "}
-          {remaining.toFixed(0)} {"+ human use "}
-          {withdrawn.toFixed(0)} {"= 10,000 m³"}
-        </span>{" "}
-        {"(closed teaching budget). "}
+          {`Reservoir ${fmt(remaining)} + human use ${fmt(withdrawn)} = 10,000 m³`}
+        </span>
+        <br />
+        {
+          "Closed teaching budget: abstraction moves water from the reservoir to the human-use store, "
+        }
+        {"so the local store shrinks while the total stays the same. "}
         {basin
           ? "The gold dashed line follows the drainage divide; the outlet faces the ocean."
           : ""}

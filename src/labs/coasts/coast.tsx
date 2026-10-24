@@ -170,17 +170,19 @@ function Headland({ stage }: { stage: number }) {
                 : [
                     [0.2, -0.2],
                     [0.94, -0.2],
-                    [0.82, 0.27],
-                    [0.65, 0.33],
-                    [0.4, 0.35],
+                    [0.86, 0.1],
+                    [0.66, 0.16],
+                    [0.4, 0.17],
+                    [0.26, 0.08],
                   ]
             }
             depth={1.05}
+            top={stage === 3 ? "#9c9b88" : undefined}
           />
         </>
       )}
       <Tag
-        pos={[0.35, 2.2, -0.6]}
+        pos={stage === 3 ? [0.57, 0.6, 0] : stage === 2 ? [0.6, 2.05, 0] : [0.35, 2.2, -0.6]}
         text={["Sea cave", "Sea arch", "Sea stack", "Stump"][stage]}
         note="Waves exploit joints in the chalk to enlarge a cave. It can break through to form an arch; the roof collapses to leave a stack, and erosion lowers the stack to a stump. Rock structure controls the details, and the stages are not dated."
         occlude={false}
@@ -205,8 +207,11 @@ export default function Coasts() {
         return (
           base +
           (constructive ? 0.13 : 0) * Math.exp(-(((z + 0.9) / 0.32) ** 2)) +
-          (groyne && x < 0
-            ? 0.13 * Math.exp((-x * x) / 0.5) * Math.exp(-(((z + 0.1) / 0.7) ** 2))
+          (groyne
+            ? (x < 0
+                ? 0.13 * Math.exp((-x * x) / 0.5)
+                : -0.06 * THREE.MathUtils.smoothstep(x, 0, 0.8)) *
+              Math.exp(-(((z + 0.1) / 0.7) ** 2))
             : 0)
         );
       }
@@ -241,8 +246,8 @@ export default function Coasts() {
         const x = -2.8 + Math.floor(i / 2) * 0.7 + (i % 2) * 0.7,
           z = i % 2 ? -0.5 : 0.6;
         return [x, height(x, z) + 0.055, z] as [number, number, number];
-      }).filter((p) => p[0] <= 3),
-    [height],
+      }).filter((p) => p[0] <= (groyne ? 0.05 : 3)),
+    [height, groyne],
   );
   return (
     <>
@@ -337,8 +342,26 @@ export default function Coasts() {
               }
               occlude={false}
             />
+            {mode === 1 && groyne && (
+              <Tag
+                pos={[-0.55, 0.42, -0.2]}
+                text="Sand trapped up-drift"
+                note="The groyne interrupts longshore drift, so sand accumulates on the up-drift side and the beach there widens."
+                occlude={false}
+              />
+            )}
             <Tag
-              pos={[1.7, 0.55, 0.8]}
+              pos={
+                mode === 1
+                  ? groyne
+                    ? [2.2, 0.35, -0.3]
+                    : [1.7, 0.55, 0.8]
+                  : [
+                      Math.max(0.5, spitTip(progress) - 0.6),
+                      0.35,
+                      spitCentre(Math.max(0.5, spitTip(progress) - 0.6), spitTip(progress)),
+                    ]
+              }
               text={
                 mode === 1 ? (groyne ? "Down-drift supply reduced" : "Longshore transport") : "Spit"
               }
@@ -377,7 +400,24 @@ export default function Coasts() {
           />
         )}
 
-        <Arrow from={[-2, 0.55, 2]} to={[-1.3, 0.55, 0.8]} width={0.7} color="#a7d0d3" />
+        <Arrow from={[-2, 0.55, 2]} to={[-1.3, 0.55, 0.8]} width={5} color="#a7d0d3" />
+        <Tag
+          pos={[-2.7, 1.1, 2.4]}
+          text="Wave approach"
+          note="Waves reach the shore at an angle. The arrow is a symbol, not to scale."
+          occlude={false}
+        />
+        {mode === 2 && drift && (
+          <>
+            <Arrow from={[-2.8, 0.3, 0.45]} to={[-0.6, 0.3, 0.3]} width={5} color="#f0c889" />
+            <Tag
+              pos={[-1.7, 0.05, 1.1]}
+              text="Longshore drift"
+              note="Sediment moved along the coast by oblique waves keeps travelling in the same direction where the coast turns inland, and is deposited to build the spit."
+              occlude={false}
+            />
+          </>
+        )}
       </ScienceStudio>
       <ScienceReadout>
         {mode === 0

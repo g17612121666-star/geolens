@@ -190,10 +190,12 @@ export function PlateSection({ kind = 0 }: { kind?: number }) {
               <FlowWaterMaterial color="#3f86a2" opacity={0.92} speed={0.4} />
             </mesh>
           ))}
-          <Arrow from={[-1.4, 0.7, 0.35]} to={[-1.4, 0.7, -0.35]} color="#8ec8d1" width={1.3} />
-          <Arrow from={[1.4, 0.7, -0.35]} to={[1.4, 0.7, 0.35]} color="#8ec8d1" width={1.3} />
+          {/* Long, wide arrows above each block: they run along the fault, nearly towards the
+              camera, so they need extra length to read clearly. */}
+          <Arrow from={[-1.2, 0.55, 0.7]} to={[-1.2, 0.55, -0.7]} color="#8ec8d1" width={2.2} />
+          <Arrow from={[1.2, 0.55, -0.7]} to={[1.2, 0.55, 0.7]} color="#8ec8d1" width={2.2} />
           <Tag
-            pos={[0, 0.9, 0]}
+            pos={[0, 1.15, -0.6]}
             text="Transform · offset stream"
             note="The stream once flowed straight across the fault. The right block slides sideways along the vertical fault, so the stream and every rock layer are offset. Crust is neither created nor consumed."
             occlude={false}
@@ -245,14 +247,14 @@ export function PlateSection({ kind = 0 }: { kind?: number }) {
               );
             })}
           <Arrow
-            from={[kind === 0 ? -0.5 : -2, 0.75, 0]}
-            to={[kind === 0 ? -1.5 : -1.1, 0.75, 0]}
+            from={[kind === 0 ? -0.5 : -2, kind === 0 ? 0.75 : 1.05, 0]}
+            to={[kind === 0 ? -1.5 : -1.1, kind === 0 ? 0.75 : 1.05, 0]}
             color="#8ec8d1"
             width={1.3}
           />
           <Arrow
-            from={[kind === 0 ? 0.5 : 1.9, 0.75, 0]}
-            to={[kind === 0 ? 1.5 : 1.3, 0.75, 0]}
+            from={[kind === 0 ? 0.5 : 1.9, kind === 0 ? 0.75 : 1.05, 0]}
+            to={[kind === 0 ? 1.5 : 1.3, kind === 0 ? 0.75 : 1.05, 0]}
             color="#8ec8d1"
             width={1.3}
           />

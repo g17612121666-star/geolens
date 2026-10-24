@@ -48,7 +48,9 @@ float edgeDistance(vec2 xz){
 }`;
 
 /** Frozen ground in section: active layer, permafrost with ice lenses, and wedges of foliated ice. */
-const frozenGround = (wedge: string) => `uniform float uThaw,uWedge,uActive,uDepth,uWinter;
+const frozenGround = (
+  wedge: string,
+) => `uniform float uThaw,uFreeze,uWedge,uActive,uDepth,uWinter,uCrack;
 ${EDGE_GLSL}
 vec3 sectionColour(vec3 p,vec3 w){
   float d=-w.y,g=grain(vec2(w.x+w.z,w.y));
@@ -57,18 +59,20 @@ vec3 sectionColour(vec3 p,vec3 w){
   // Beds are dragged upwards beside each wedge as it grows.
   float lift=.35*uWedge*exp(-max(e,0.)/.25);
   float lam=fract((d-lift)*9.);
+  // Winter contraction crack: through the active layer and down the middle of the wedge.
+  if(uWinter>.5&&d<1.9*uActive/.7&&abs(e)<uCrack)return vec3(.08,.1,.12);
   if(d>uActive-.02&&e<hw){
     float vein=fract(e*90./max(uWedge,.05));
     vec3 ice=mix(vec3(.80,.89,.92),vec3(.62,.78,.86),smoothstep(.3,.7,vein));
     return mix(ice,vec3(.55,.52,.48),smoothstep(.85,1.,vein)*.4);
   }
-  if(uWinter>.5&&d<1.9*uActive/.7&&abs(e)<.006)return vec3(.08,.1,.12);
   vec3 c;
   if(d<.05)c=mix(vec3(.27,.23,.17),vec3(.33,.28,.20),g);
   else if(d<uActive){
     c=mix(vec3(.55,.46,.34),vec3(.50,.42,.31),g);
-    // Thawed ground is darker and wetter than seasonally frozen ground.
-    c*=d<uThaw?.78:1.;
+    // Thawed ground is darker and wetter than seasonally frozen ground. In autumn the
+    // layer refreezes from the surface downwards, leaving a thawed band beneath.
+    c*=d<uThaw&&d>uFreeze?.78:1.;
   }else{
     c=mix(vec3(.50,.48,.44),vec3(.44,.42,.39),step(.5,lam))*mix(.93,1.06,g);
     float lens=smoothstep(.86,.93,sNoise(vec2((w.x+w.z)*4.,(d-lift)*30.)));
@@ -104,22 +108,29 @@ export default function Periglacial() {
   const growth = params.cycles ?? 0.45,
     view = Math.round(params.view ?? 0),
     width = 0.1 + 0.8 * growth,
-    thaw = 0.7 * Math.max(0, Math.sin(t * 2 * Math.PI)),
-    winter = t > 0.55;
-  // Section view: metres. Network view: the same layering at a reduced, illustrative depth.
+    // Thaw deepens quickly at first, then more slowly (roughly with the square root of time),
+    // reaching 0.7 m in late summer. In autumn the active layer refreezes from the surface down.
+    thaw = t < 0.4 ? 0.7 * Math.sqrt(t / 0.4) : t < 0.55 ? 0.7 : 0,
+    freeze = t < 0.4 || t >= 0.55 ? 0 : (0.7 * (t - 0.4)) / 0.15,
+    winter = t >= 0.55;
+  // Section view: metres. Network view: the same layering scaled down with the polygons.
   const sectionUniforms = useSectionUniforms({
     uThaw: thaw,
+    uFreeze: freeze,
     uWedge: width / 2,
     uActive: 0.7,
     uDepth: 3.05,
     uWinter: winter ? 1 : 0,
+    uCrack: 0.025,
   });
   const networkUniforms = useSectionUniforms({
     uThaw: thaw * 0.17,
+    uFreeze: freeze * 0.17,
     uWedge: 0.03 + 0.1 * growth,
     uActive: 0.12,
     uDepth: 0.42,
     uWinter: winter ? 1 : 0,
+    uCrack: 0.006,
   });
   const ground = useMemo(() => (x: number, z: number) => polygonHeight(x, z, growth), [growth]);
   const colour = useMemo(
@@ -152,11 +163,11 @@ export default function Periglacial() {
         scale={
           view === 0
             ? "10 m wide, 5 m deep · 0.7 m active layer · common scale"
-            : "Ice-wedge polygon network · idealised pattern, not a field survey · depths exaggerated"
+            : "Ice-wedge polygon network · idealised pattern, not a field survey · relief exaggerated"
         }
         trueScale={
           view === 0
-            ? "1 scene unit = 1 m · no vertical exaggeration"
+            ? "1 scene unit = 1 m · no vertical exaggeration · winter crack drawn wider"
             : "Polygon spacing is illustrative · cracks enlarged for clarity"
         }
       >
@@ -193,10 +204,24 @@ export default function Periglacial() {
             />
             <Tag
               pos={[-2.7, 0.65, 0]}
-              text={thaw > 0.002 ? `Seasonal thaw · ${thaw.toFixed(2)} m` : "Seasonal layer frozen"}
-              note="Seasonal thaw reaches a maximum depth of 0.7 m, marked by the dashed line. Thawed ground is shown darker and wetter."
+              text={
+                freeze > 0
+                  ? `Refreezing from surface · ${freeze.toFixed(2)} m`
+                  : thaw > 0.002
+                    ? `Seasonal thaw · ${thaw.toFixed(2)} m`
+                    : "Active layer frozen"
+              }
+              note="Seasonal thaw deepens through the summer to a maximum of 0.7 m, marked by the dashed line. In autumn the active layer refreezes from the surface downwards. Thawed ground is shown darker and wetter."
               occlude={false}
             />
+            {winter && (
+              <Tag
+                pos={[0.6, 0.25, 1.2]}
+                text="Winter crack"
+                note="In intense winter cold the frozen ground contracts and cracks, usually along the same line through the wedge each year. Real cracks are only millimetres to a centimetre or two wide; the crack is drawn wider here so it can be seen. Next spring, meltwater runs into it and freezes as a new vein of ice."
+                occlude={false}
+              />
+            )}
             <Tag
               pos={[2.7, -2, 1.2]}
               text="Permafrost"
@@ -246,10 +271,10 @@ export default function Periglacial() {
       </ScienceStudio>
       <ScienceReadout>
         {winter
-          ? "Winter phase: frozen ground can contract and crack."
-          : thaw > 0.002
-            ? "Thaw-season phase: the active layer thaws above permafrost."
-            : "Seasonal transition."}{" "}
+          ? "Winter: the active layer is frozen; intense cold makes the ground contract and crack."
+          : freeze > 0
+            ? `Autumn freeze-back: the active layer refreezes from the surface down (${freeze.toFixed(2)} m frozen).`
+            : `Thaw season: the active layer has thawed to ${thaw.toFixed(2)} m of its 0.70 m maximum; the permafrost below stays frozen.`}{" "}
         {"Long-term wedge development "}
         {(growth * 100).toFixed(0)}%.
         <br />

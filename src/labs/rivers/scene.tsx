@@ -26,7 +26,7 @@ import {
 const SIDES = landSectionGlsl({ rock: "sandstone", soil: 0.035, regolith: 0.07, beds: 9 });
 const BRIDGE_X = 2.25;
 
-/** A stone road bridge where a lane crosses the lower river; the deck clears flood stage. */
+/** A stone road bridge where a lane crosses the lower river; the deck clears the highest stage. */
 function Bridge({ f }: { f: number }) {
   const [left, right] = riverBanks(BRIDGE_X, 1.6),
     deck = (riverStage(BRIDGE_X, 1.6) + 0.07) * f,
@@ -206,7 +206,7 @@ export default function Rivers() {
         {"Relative discharge "}
         {q.toFixed(2)}
         {
-          "×. Increasing discharge raises the water level within the fixed channel. Play to follow the downstream flow."
+          "× at the source. Tributaries add water downstream, so the channel is wider and deeper there and the water is deeper. Increasing discharge raises the water level; at the highest setting the lower river nearly fills its channel. Play to follow the downstream flow."
         }
       </ScienceReadout>
     </>

@@ -7,15 +7,9 @@ import { cliffFaceGlsl } from "../shared/land-section";
 const CHALK = cliffFaceGlsl({ rock: "chalk", beds: 3.2, bedOffset: 0.3 });
 
 /** Chalk with flint bands on the cliff faces and arch roofs; grass on the upward-facing tops. */
-export function CoastalRockMaterial() {
+export function CoastalRockMaterial({ top = "#7d9a57" }: { top?: string }) {
   return (
-    <SectionMaterial
-      glsl={CHALK}
-      cliff={0.62}
-      cacheKey="coast-chalk"
-      color="#7d9a57"
-      roughness={0.9}
-    />
+    <SectionMaterial glsl={CHALK} cliff={0.62} cacheKey="coast-chalk" color={top} roughness={0.9} />
   );
 }
 
@@ -23,10 +17,13 @@ export function CoastalRock({
   points,
   depth = 1.8,
   position = [0, 0, 0],
+  top,
 }: {
   points: [number, number][];
   depth?: number;
   position?: [number, number, number];
+  /** Colour of upward-facing surfaces; grass by default, bare wave-washed rock for a stump. */
+  top?: string;
 }) {
   const signature = JSON.stringify(points);
   const geometry = useMemo(() => {
@@ -39,7 +36,7 @@ export function CoastalRock({
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry} position={position} castShadow receiveShadow>
-      <CoastalRockMaterial />
+      <CoastalRockMaterial top={top} />
     </mesh>
   );
 }

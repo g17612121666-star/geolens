@@ -175,24 +175,61 @@ export function GridReferenceScene() {
               transparent
               opacity={0.55}
             />
-            {i % 2 === 0 && (
-              <>
-                <Tag
-                  pos={[-2 + i * 0.4, 0.03, 2.25]}
-                  text={String(i * 10).padStart(2, "0")}
-                  occlude={false}
-                />
-                {i > 0 && (
-                  <Tag
-                    pos={[-2.3, 0.03, 2 - i * 0.4]}
-                    text={String(i * 10).padStart(2, "0")}
-                    occlude={false}
-                  />
-                )}
-              </>
+            {/* Every line is labelled; the last one is 00 of the next 100 km square. */}
+            <Tag
+              pos={[-2 + i * 0.4, 0.03, 2.25]}
+              text={String((i * 10) % 100).padStart(2, "0")}
+              occlude={false}
+            />
+            {i > 0 && (
+              <Tag
+                pos={[-2.3, 0.03, 2 - i * 0.4]}
+                text={String((i * 10) % 100).padStart(2, "0")}
+                occlude={false}
+              />
             )}
           </group>
         ))}
+        {/* Faint 1 km lines inside the 10 km square holding the pin, and its 1 km (four-figure) square. */}
+        {Array.from({ length: 9 }, (_, k) => {
+          const x0 = -2 + Math.floor(e / 100) * 0.4,
+            z0 = 2 - Math.floor(n / 100) * 0.4,
+            o = (k + 1) * 0.04;
+          return (
+            <group key={`km-${k}`}>
+              <Line
+                points={drape([x0 + o, z0], [x0 + o, z0 - 0.4])}
+                color="#3d6fa1"
+                transparent
+                opacity={0.3}
+                lineWidth={0.6}
+              />
+              <Line
+                points={drape([x0, z0 - o], [x0 + 0.4, z0 - o])}
+                color="#3d6fa1"
+                transparent
+                opacity={0.3}
+                lineWidth={0.6}
+              />
+            </group>
+          );
+        })}
+        {(() => {
+          const x1 = -2 + Math.floor(e / 10) * 0.04,
+            z1 = 2 - Math.floor(n / 10) * 0.04;
+          return (
+            <Line
+              points={[
+                ...drape([x1, z1], [x1 + 0.04, z1], 0.02),
+                ...drape([x1 + 0.04, z1], [x1 + 0.04, z1 - 0.04], 0.02),
+                ...drape([x1 + 0.04, z1 - 0.04], [x1, z1 - 0.04], 0.02),
+                ...drape([x1, z1 - 0.04], [x1, z1], 0.02),
+              ]}
+              color="#e8613a"
+              lineWidth={1.6}
+            />
+          );
+        })()}
         <Line
           points={[...drape([-2, 2], [x, 2], 0.03), ...drape([x, 2], [x, z], 0.03)]}
           color="#e8613a"
@@ -217,7 +254,7 @@ export function GridReferenceScene() {
         <group position={[2.45, 0.02, -1.6]}>
           <mesh rotation={[-Math.PI / 2, 0, 0]}>
             <coneGeometry args={[0.12, 0.42, 3]} />
-            <meshStandardMaterial color="#2d2a26" />
+            <meshStandardMaterial color="#d9d4ca" />
           </mesh>
           <Tag pos={[0, 0.05, -0.42]} text="N" occlude={false} />
         </group>
@@ -237,9 +274,11 @@ export function GridReferenceScene() {
           color="#9b958b"
           lineWidth={4}
         />
-        <Tag pos={[1.2, 0.02, 2.75]} text="10 km" occlude={false} />
+        {/* Two 10 km segments (dark, then grey), so each segment matches one grid square. */}
+        <Tag pos={[0.8, 0.02, 2.75]} text="0" occlude={false} />
+        <Tag pos={[1.6, 0.02, 2.75]} text="20 km" occlude={false} />
         <Tag
-          pos={[x, y + 0.55, z]}
+          pos={[x, y + 0.75, z]}
           text={`${String(e).padStart(3, "0")} ${String(n).padStart(3, "0")}`}
           note="Six figures identify a 100 m grid square. The marker shows its southwest corner; it is not a surveyed point accurate to one metre."
           occlude={false}
@@ -292,8 +331,12 @@ function ProjectionSurface({ morph, kind }: { morph: number; kind: number }) {
       <meshBasicMaterial
         map={map}
         side={THREE.DoubleSide}
-        onBeforeCompile={atlasColours}
-        customProgramCacheKey={() => "projection-atlas-v2"}
+        onBeforeCompile={(shader) => {
+          // Bind the morph so the globe shading fades out as the map flattens.
+          shader.uniforms.uMorph = morphUniform;
+          atlasColours(shader);
+        }}
+        customProgramCacheKey={() => "projection-atlas-v3"}
       />
     </mesh>
   );
@@ -325,7 +368,7 @@ diffuseColor.rgb=mix(day*1.3,sea,ocean)*vShade;`,
 function MapSheet({ morph, kind }: { morph: number; kind: number }) {
   const w = projectedPosition(0, 180, 1, kind)[0],
     h = projectedPosition(85, 0, 1, kind)[1],
-    opacity = THREE.MathUtils.smoothstep(morph, 0.75, 1);
+    opacity = THREE.MathUtils.smoothstep(morph, 0.95, 1);
   if (opacity <= 0) return null;
   const frame: [number, number, number][] = [
     [-w - 0.04, -h - 0.04, 0.002],
@@ -344,6 +387,16 @@ function MapSheet({ morph, kind }: { morph: number; kind: number }) {
     </>
   );
 }
+/** Area on the flat map per unit area on the globe at a latitude, relative to the equator. */
+function areaScale(lat: number, kind: number) {
+  const local = (phi: number) => {
+    const d = 0.01,
+      east = projectedPosition(phi, d, 1, kind)[0] - projectedPosition(phi, -d, 1, kind)[0],
+      north = projectedPosition(phi + d, 0, 1, kind)[1] - projectedPosition(phi - d, 0, 1, kind)[1];
+    return (east * north) / Math.cos((phi * Math.PI) / 180);
+  };
+  return local(lat) / local(0);
+}
 export function ProjectionScene() {
   const { params } = useLabControls(),
     morph = params.morph ?? 0,
@@ -355,7 +408,8 @@ export function ProjectionScene() {
         slug="map-projections"
         scale="Globe → flat map · shown to 85° N and S · every flat map distorts distance, shape or area"
         trueScale="No flat world map preserves all distances, shapes and areas"
-        camera={[0, 1, 6]}
+        // Level with the map centre, so the flat map is not foreshortened into a trapezoid.
+        camera={[0, 0, 6]}
       >
         <ProjectionSurface morph={morph} kind={kind} />
         <MapSheet morph={morph} kind={kind} />
@@ -432,8 +486,10 @@ export function ProjectionScene() {
             ? "When fully flat, this map keeps true relative areas; shapes are distorted."
             : "This compromise spreads distortion between area and shape; it keeps neither exactly."}{" "}
         {
-          "The gold circles are the same size on the globe; compare their shape and area on the flat map. In-between stages are a visual transition, not a projection."
+          "The gold circles are the same size on the globe; compare their shape and area on the flat map. "
         }
+        {`At 60° a circle's map area is ×${areaScale(60, kind).toFixed(2)} its area at the equator. `}
+        {"In-between stages are a visual transition, not a projection."}
       </ScienceReadout>
     </>
   );
