@@ -79,7 +79,7 @@ export default function GraticuleScene() {
               note="The equator is the 0° line of latitude, halfway between the poles."
             />
             {/* Only label the prime meridian while it is on the visible face of the globe. */}
-            {Math.abs(lon) <= 60 && (
+            {Math.abs(lon) <= 60 && (Math.abs(lon) > 15 || clear(-38)) && (
               <Tag
                 pos={latLonToXYZ(-38, 0, 1.36)}
                 text="Prime meridian 0°"
