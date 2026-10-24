@@ -45,7 +45,7 @@ function surface(stage: number, gap: number) {
         stage >= 3 && x > gap
           ? [-0.35, 0.5].reduce(
               (h, vz) =>
-                h + 0.06 * Math.exp(-(((x - gap - ARC) / 0.11) ** 2) - ((z - vz) / 0.2) ** 2),
+                h + 0.075 * Math.exp(-(((x - gap - ARC) / 0.11) ** 2) - ((z - vz) / 0.2) ** 2),
               0.025 * Math.exp(-(((x - gap - ARC) / 0.3) ** 2)),
             )
           : 0;
@@ -162,7 +162,7 @@ export default function WilsonCycle() {
       const x = -2.9 + 5.8 * ((i * 0.618034) % 1),
         z = -0.85 + 1.7 * ((i * 0.7548777) % 1),
         y = height(x, z);
-      if (y > 0.015 && y < 0.09 && fbm(x * 3, z * 3) > 0.5) out.push([x, y * f - 0.004, z]);
+      if (y > 0.015 && y < 0.04 && fbm(x * 3, z * 3) > 0.5) out.push([x, y * f - 0.004, z]);
     }
     return out;
   }, [height, f]);

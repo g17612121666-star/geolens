@@ -144,7 +144,7 @@ export default function Isostasy() {
   );
   const centre = ground(0, D / 2),
     iceTop = centre + ice * exaggeration * SCALE,
-    mohoX = 0.9,
+    mohoX = -0.9,
     mohoAt = topBare - crust - iceAt(mohoX, D / 2, ice) * depressPerMetre;
   return (
     <>
@@ -222,8 +222,8 @@ export default function Isostasy() {
             {[-1, 1].map((side) => (
               <Arrow
                 key={side}
-                from={[side * 0.4, topBare - crust - 0.35, D / 2 + 0.06]}
-                to={[side * 1.5, topBare - crust - 0.35, D / 2 + 0.06]}
+                from={[side * 0.4, topBare - crust - 0.5, D / 2 + 0.06]}
+                to={[side * 1.5, topBare - crust - 0.5, D / 2 + 0.06]}
                 color="#f6efc8"
                 width={1.6}
               />
@@ -231,7 +231,7 @@ export default function Isostasy() {
           </>
         )}
         <Tag
-          pos={[-2.2, topBare - crust - 0.55, D / 2 + 0.05]}
+          pos={[2.1, topBare - crust - 1.05, D / 2 + 0.05]}
           text="Mantle · solid, creeping"
           note="Under the extra weight the mantle slowly flows aside while remaining solid. The arrows show the direction of that creep, not its speed."
           occlude={false}
