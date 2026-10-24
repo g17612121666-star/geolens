@@ -11796,7 +11796,7 @@
             "The years needed for growth",
             "The rate of yearly growth",
             "The ground temperature",
-            "A set wedge width, with no rate"
+            "How wide the wedge has grown"
           ],
           "answer": 3,
           "explain": "Wedge development sets the wedge width so that different stages of growth can be compared. It does not assign a growth rate or a number of years."
@@ -11815,7 +11815,7 @@
       ],
       "why": [
         "Permafrost is ground that remains at or below 0 °C for at least two consecutive years. Seasonal thaw affects its active layer, while repeated thermal cracking and refreezing can build ice wedges.",
-        "Increase Wedge development and trace the tapering wedge of ice. Explain how winter cracking, meltwater and refreezing make it grow, then set View to Polygon network.",
+        "Each winter, intense cold makes frozen ground contract and crack, usually along the same line. In spring, meltwater trickles into the crack and freezes in the permafrost as a thin vertical vein of ice. Repeated over hundreds of years, the veins build a wedge that is widest at the top, and the cracks join up into a network of polygons with troughs above the wedges.",
         "The annual cycle and accumulated wedge width are separate comparisons; the width slider does not specify a growth rate."
       ],
       "glossary": [
@@ -11952,7 +11952,7 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Set Onshore wind and Pressure drop to zero and find the reference sea level (dashed line). Raise Onshore wind, then compare two values of Shelf depth."
+          "body": "Set Onshore wind and Pressure drop to zero: the water lies on the reference sea level (dashed line). Raise Onshore wind, then compare the setup at the coast for two values of Shelf depth."
         },
         {
           "id": "tinker",
@@ -12018,7 +12018,7 @@
       ],
       "why": [
         "Onshore winds push water towards the coast, while lower atmospheric pressure also raises the water surface. Shallow shelves can produce a larger setup for the same forcing.",
-        "Set Onshore wind to zero and Pressure drop to 3000 Pa to see the pressure effect alone. Then combine both, and switch to Physical scale (1:1) to see how small the rise is beside the shelf.",
+        "Wind drags the surface water towards the coast. At the coast the water cannot escape, so it piles up until the sloping sea surface pushes back as hard as the wind pushes forward. The slope needed is larger in shallow water, so a shallow shelf builds a bigger rise. Falling pressure adds about 1 cm of rise for every hectopascal.",
         "This steady shelf experiment excludes tides, waves and inundation, which are needed to assess a real coastal flood."
       ],
       "glossary": [
@@ -12125,7 +12125,7 @@
         "playback": false
       },
       "modelNotes": [
-        "This steady experiment has a flat 100 km shelf, an offshore sea level held at zero and a closed coast.",
+        "This steady experiment has a flat 100 km shelf, an offshore sea level held at zero and a closed coast. The pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.",
         "Wind stress uses air density 1.225 kg/m³ and a constant drag coefficient of 0.0015."
       ]
     }

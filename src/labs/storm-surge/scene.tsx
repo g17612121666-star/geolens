@@ -280,10 +280,10 @@ export default function StormSurge() {
           occlude={false}
         />
         <Tag
-          pos={[gauge[0] - 0.15, Math.max(setupY, gaugeTop) + 0.2, gauge[1]]}
+          pos={[gauge[0] - 0.45, Math.max(setupY, gaugeTop) + 0.2, gauge[1]]}
           text={`Setup ${result.coastalSetup.toFixed(2)} m`}
           tone="sandstone"
-          note="Read the tide-gauge post: each red or white band is 1 m. The gold ring marks the modelled water level at the coast. The offshore end is held at mean sea level (dashed line) and the coast is closed."
+          note={`${trueScale ? "At Physical scale the tide-gauge post is enlarged so it stays visible, and its bands are not to scale." : "Read the tide-gauge post: each red or white band is 1 m."} The gold ring marks the modelled water level at the coast. The offshore end is held at mean sea level (dashed line), the coast is closed, and the pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.`}
           occlude={false}
         />
         <Tag
@@ -293,23 +293,22 @@ export default function StormSurge() {
           occlude={false}
         />
         <Tag
-          pos={[3.1, 0.55, -0.6]}
+          pos={[3.3, 0.85, -0.7]}
           text="Low-lying coast"
           note="The town and dunes show what is exposed. The model holds the water at the coastline; it does not calculate flooding inland."
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Wind stress "}
-        {result.stress.toFixed(2)} {"Pa · imposed pressure drop "}
+        {"Combined steady setup at the coast "}
+        {result.coastalSetup.toFixed(2)} {"m · wind stress "}
+        {result.stress.toFixed(2)} {"Pa · pressure drop "}
         {pressure} {"Pa ("}
-        {(pressure / 100).toFixed(0)} {"hPa). Pressure-only rise "}
+        {(pressure / 100).toFixed(0)} {"hPa), pressure-only rise "}
         {result.inverseBarometer.toFixed(2)} {"m."}
         <br />
-        {"Combined steady setup "}
-        {result.coastalSetup.toFixed(2)}{" "}
         {
-          "m at the coast; read it on the striped gauge (1 m bands). Tides, waves and inland flooding are left out, so this is not a flood forecast."
+          "Read the combined setup on the striped tide-gauge post at the coast. Tides, waves and inland flooding are left out, so this is not a flood forecast."
         }
       </ScienceReadout>
     </>
