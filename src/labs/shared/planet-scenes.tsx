@@ -2,128 +2,14 @@ import { useMemo } from "react";
 import { Line as PlainLine } from "@react-three/drei";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
-import { EarthMesh, Graticule, CityMarker } from "@/components/globe/earth";
 import { StarMesh } from "@/components/globe/star";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "./science-kit";
 import { Tag } from "./kit";
-import { latLonToXYZ } from "@/lib/geo";
 import { solarEphemeris, daylight } from "@/lib/solar";
 import { TerrainMaterial, PlantStand } from "./natural-world";
 import { skyPosition } from "../solar-altitude/sky";
-
-export function GraticuleScene() {
-  const { params } = useLabControls(),
-    lat = params.lat ?? 51.5,
-    lon = params.lon ?? -0.1;
-  const latitude = useMemo(
-    () => Array.from({ length: 129 }, (_, i) => latLonToXYZ(lat, -180 + (i / 128) * 360, 1.265)),
-    [lat],
-  );
-  const longitude = useMemo(
-    () => Array.from({ length: 97 }, (_, i) => latLonToXYZ(-90 + (i / 96) * 180, lon, 1.27)),
-    [lon],
-  );
-  return (
-    <>
-      <ScienceStudio
-        slug="graticule"
-        space
-        scale="Spherical coordinates · lines and marker enlarged for clarity"
-        trueScale="Latitude and longitude angles are true; Earth represented as a sphere"
-        lights={false}
-        camera={[0, 1, 4.8]}
-      >
-        <group rotation={[0, Math.PI - (lon * Math.PI) / 180, 0]}>
-          <EarthMesh radius={1.25} lighting="viewer" />
-          <Graticule radius={1.26} />
-          <Line
-            points={Array.from({ length: 129 }, (_, i) =>
-              latLonToXYZ(0, -180 + (i / 128) * 360, 1.262),
-            )}
-            color="#e9d9b4"
-            lineWidth={1.4}
-          />
-          <Line
-            points={Array.from({ length: 97 }, (_, i) =>
-              latLonToXYZ(-90 + (i / 96) * 180, 0, 1.262),
-            )}
-            color="#e9d9b4"
-            lineWidth={1.4}
-          />
-          <Tag
-            pos={latLonToXYZ(0, -25, 1.36)}
-            text="Equator 0°"
-            note="The equator is the 0° line of latitude, halfway between the poles."
-          />
-          <Tag
-            pos={latLonToXYZ(38, 0, 1.36)}
-            text="Prime meridian 0°"
-            note="The prime meridian through Greenwich is the agreed 0° line of longitude; east and west are measured from it."
-          />
-          {/* Tropics and polar circles, at the latitudes set by Earth's axial tilt. */}
-          {[23.44, -23.44, 66.56, -66.56].map((l) => (
-            <Line
-              key={l}
-              points={Array.from({ length: 129 }, (_, i) =>
-                latLonToXYZ(l, -180 + (i / 128) * 360, 1.262),
-              )}
-              color={Math.abs(l) < 30 ? "#f1d38a" : "#cfe6f2"}
-              lineWidth={1}
-              dashed
-              dashSize={0.05}
-              gapSize={0.035}
-              transparent
-              opacity={0.8}
-            />
-          ))}
-          <Tag
-            pos={latLonToXYZ(23.44, -55, 1.34)}
-            text="Tropic of Cancer 23.4°N"
-            note="The furthest north the Sun is ever directly overhead, at the June solstice. Its latitude equals Earth's axial tilt."
-          />
-          <Tag
-            pos={latLonToXYZ(66.56, -40, 1.34)}
-            text="Arctic Circle 66.6°N"
-            note="North of this line there is at least one day each year when the Sun does not set, and one when it does not rise."
-          />
-          <Line points={latitude} color="#7fd4ff" lineWidth={2} />
-          <Line points={longitude} color="#edb777" lineWidth={2} />
-          <CityMarker lat={lat} lon={lon} radius={1.28} />
-          <Line
-            points={Array.from({ length: 65 }, (_, i) => latLonToXYZ((lat * i) / 64, lon, 1.285))}
-            color="#f4bc81"
-            lineWidth={3}
-          />
-          <Line
-            points={Array.from({ length: 97 }, (_, i) => latLonToXYZ(0, (lon * i) / 96, 1.285))}
-            color="#92dce8"
-            lineWidth={3}
-          />
-          <Tag
-            pos={latLonToXYZ(lat, lon, 1.42)}
-            text={`${Math.abs(lat).toFixed(1)}°${lat < 0 ? "S" : "N"} ${Math.abs(lon).toFixed(1)}°${lon < 0 ? "W" : "E"}`}
-            note="Latitude is north or south of the equator. Longitude is east or west of Greenwich. Poles are shared by every meridian."
-            occlude={false}
-          />
-        </group>
-      </ScienceStudio>
-      <ScienceReadout>
-        {"Latitude "}
-        {lat.toFixed(1)}
-        {"° · longitude "}
-        {lon.toFixed(1)}
-        {"° · local mean solar-time difference "}
-        {lon / 15 >= 0 ? "+" : ""}
-        {(lon / 15).toFixed(2)}{" "}
-        {
-          "h from Greenwich. Gold arc measures latitude from the equator; blue arc measures longitude from Greenwich. This does not select a civil time zone."
-        }
-      </ScienceReadout>
-    </>
-  );
-}
 
 export { LunarModel as LunarScene } from "./lunar-model";
 

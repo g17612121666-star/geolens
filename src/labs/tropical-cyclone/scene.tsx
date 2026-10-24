@@ -85,24 +85,24 @@ export default function TropicalCyclone() {
         <Line
           points={[
             [0, 0.05, 0],
-            [-1.3, 0.7, 1.4],
+            [0.9, 0.3, 2.0],
           ]}
           color="#c9d9d8"
         />
         <Tag
-          pos={[-2.4, 0.85, 2.3]}
+          pos={[1.2, 0.35, 2.6]}
           text="Eye"
           note="The eye has relatively light winds, sinking air and often little cloud. It is surrounded by the strong winds and deep convection of the eyewall; it is not a funnel touching the sea."
           occlude={false}
         />
         <Tag
-          pos={[0.75, 1.55 * vertical, -0.45]}
+          pos={[1.05, 1.25 * vertical, -0.2]}
           text="Eyewall"
           note="In this model the wind peaks 30 km from the centre. In real storms, rising moist air releases latent heat that powers the eyewall; that heat is not calculated here."
           occlude={false}
         />
         <Tag
-          pos={[-1.23, 0.9 * vertical, -3.38]}
+          pos={[-4.3, 0.7 * vertical, -0.4]}
           text="Rainbands"
           note="Cloud shapes are a 3D structural illustration, not satellite data or simulated rainfall. Actual bands, eye size and symmetry vary considerably."
           occlude={false}

@@ -16,15 +16,9 @@ import { landscapeNoise as noise, landscapeRandom as random } from "../shared/la
 
 const SAMPLES = 81;
 
-/**
- * Hillslope surface (scene units). A smoothstep profile gives a gently sloping crest, a steeper
- * backslope and a concave footslope, so the backslope (where the model thins the soil) is the
- * steepest ground. Total relief matches catenaProfile (1.7 × slope).
- */
+/** Hillslope surface (scene units): the shared catena profile's smoothstep hill. */
 function hillSurface(x: number, slope: number) {
-  const s = THREE.MathUtils.clamp(slope, 0.2, 1),
-    v = THREE.MathUtils.clamp((x + 3) / 6 / 0.95, 0, 1);
-  return 1.7 * s * (1 - v * v * (3 - 2 * v));
+  return catenaProfile(x, slope).surface;
 }
 
 /**

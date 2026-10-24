@@ -413,7 +413,10 @@ export function Graticule({ radius = 1.004 }: { radius?: number }) {
       transparent: true,
       opacity: 0.32,
     });
-    return new THREE.LineSegments(g, m);
+    const lines = new THREE.LineSegments(g, m);
+    // Grid lines are decoration: a raycast hit (1-unit line threshold) would hide nearby labels.
+    lines.raycast = () => {};
+    return lines;
   }, [radius]);
   useEffect(
     () => () => {

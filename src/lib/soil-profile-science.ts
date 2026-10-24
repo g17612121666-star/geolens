@@ -17,7 +17,8 @@ export const SOIL_PROFILES:{name:string;context:string;horizons:SoilHorizon[]}[]
 /** Illustrative catena on uniform parent material, not a predictive soil-erosion model. */
 export function catenaProfile(x:number,slope:number){
  const u=(x+3)/6,s=Math.max(.2,Math.min(1,slope));
- const surface=1.7*s*(1-u)**1.25;
+ // Smoothstep hill: gentle crest, steepest backslope (where soil is thinnest), concave foot.
+ const v=Math.min(1,Math.max(0,u/.95)),surface=1.7*s*(1-v*v*(3-2*v));
  const thicknessM=.55-.35*s*Math.exp(-(((u-.38)/.2)**2))+(.4+.3*s)*Math.exp(-(((u-.9)/.18)**2));
  return {surface,thicknessM};
 }
