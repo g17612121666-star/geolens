@@ -9923,7 +9923,7 @@
       ],
       "why": [
         "A tropical cyclone draws moist air inward near the surface, with strong ascent in the eyewall and outflow aloft. Its eye has weaker winds and often descending air, distinct from a tornado funnel.",
-        "Read the wind profile and find its peak at 30 km. Change Intensity and watch the centre pressure: why is that number only a model estimate?",
+        "Air turns faster as it moves towards the centre, so the wind is strongest at the eyewall and falls away outside it. To keep fast-moving air on a tight circular path, pressure must drop steeply towards the centre: a stronger maximum wind needs a deeper low, which is why the model's centre pressure falls as Intensity rises.",
         "The ideal vortex links wind and pressure through stated assumptions; it does not calculate storm development, rainfall or a track."
       ],
       "glossary": [
@@ -10054,12 +10054,12 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Change Latitude first, then Longitude. Read the hemisphere letters and explain why each slider moves the marker in a different direction."
+          "body": "Change Latitude first: the marker slides north or south along its meridian and the gold arc grows from the equator. Then change Longitude: the globe turns to carry the marker east or west, and the blue arc grows along the equator from the prime meridian. Read the hemisphere letters and the local solar-time difference."
         },
         {
           "id": "explain",
           "title": "Explain",
-          "body": "Why does one degree of longitude cover less ground near the poles than near the equator?"
+          "body": "Move Latitude from 0° towards 80° and watch the readout for the length of 1° of longitude. Why does one degree of longitude cover less ground near the poles than near the equator?"
         },
         {
           "id": "check",
@@ -10115,8 +10115,8 @@
       ],
       "why": [
         "Latitude measures an angle north or south of the equator, while longitude measures an angle east or west of the prime meridian. Parallels and meridians form the coordinate grid called the graticule.",
-        "Change Latitude first, then Longitude. Read the hemisphere letters and explain why each slider moves the marker in a different direction.",
-        "These are angular coordinates on a sphere; a degree of longitude covers less ground as latitude increases."
+        "Latitude is measured along a meridian, from the equator towards a pole, so it can only reach 90°. Longitude is measured along the equator, east or west from the prime meridian, up to 180°. Because Earth turns 360° in about 24 hours, every 15° of longitude east puts local solar time about one hour ahead of Greenwich.",
+        "These are angular coordinates on a sphere. Every meridian meets at the poles, so the ground covered by 1° of longitude shrinks with latitude: about 111 km at the equator, 69 km at 51.5° N and 56 km at 60°, falling to zero at the poles. A degree of latitude stays close to 111 km everywhere."
       ],
       "glossary": [
         {
@@ -10174,7 +10174,7 @@
         }
       ],
       "teacher": {
-        "script": "Locate the equator and prime meridian, then follow a parallel and a meridian around the globe.\n\nChange Latitude first, then Longitude. Read the hemisphere letters and explain why each slider moves the marker in a different direction.",
+        "script": "Locate the equator and prime meridian, then follow a parallel and a meridian around the globe.\n\nChange Latitude first, then Longitude. Ask students which arc grows with each slider (gold for latitude, blue for longitude), then set Latitude to 0°, 51.5° and 80° and compare the readout's length of 1° of longitude.",
         "pitfalls": [
           "Check the east–west convention using a known location; New York is west of Greenwich.",
           "Distinguish the prime meridian from the International Date Line, and place 0° latitude, 0° longitude on the equator.",
@@ -10248,7 +10248,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Flatten each projection fully. Compare the equal-sized circles at low and high latitudes, then describe the trade-off between area and shape."
+          "body": "Drag Flatten to 1.00 for each choice in Projection. Compare the equal-sized gold circles at the equator and at 60° N and S, then describe the trade-off between area and shape."
         },
         {
           "id": "explain",
@@ -10309,7 +10309,7 @@
       ],
       "why": [
         "A map projection transfers positions from a curved surface to a plane. Every projection distorts some combination of area, shape, distance and direction, so the right choice depends on the map’s purpose.",
-        "Flatten each projection fully. Compare the equal-sized circles at low and high latitudes, then describe the trade-off between area and shape.",
+        "On a cylindrical map every parallel is drawn as long as the equator, so at 60° N or S the map is stretched east–west to twice its true length. Mercator stretches north–south by the same amount to keep local shapes and angles, so areas there appear four times too large. The equal-area map squashes north–south by half instead, which keeps areas true but flattens shapes.",
         "Judge each projection when it is fully flat; intermediate shapes are a visual transition rather than a separate projection."
       ],
       "glossary": [
@@ -10443,7 +10443,7 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Read the map’s scale and locate its eastings and northings. Distinguish the full 100 km square from a selected 100 m square."
+          "body": "Read the map’s scale and locate its eastings and northings. Distinguish the full 100 km square from the selected 100 m square: the pin marks its southwest corner, because at this scale a 100 m square is far too small to see."
         },
         {
           "id": "tinker",
@@ -10509,7 +10509,7 @@
       ],
       "why": [
         "A grid reference locates a square using eastings followed by northings. More digits identify a smaller square, while the two-letter code identifies the 100 km square it lies in.",
-        "Set Easting, then Northing, and read the six-figure reference. Then explain how adding the two-letter code (such as SH) identifies which 100 km square it lies in.",
+        "The easting measures how far east of the square’s western edge you are, and the northing how far north of its southern edge, so you go along before you go up. Each extra pair of figures divides the square by ten: within a 100 km square, two figures give a 10 km square, four give 1 km and six give 100 m. The same numbers repeat in every 100 km square, so the letter pair (such as SH) is needed to say which one.",
         "The map is fictional, and a more precise reference does not by itself make a measurement more accurate."
       ],
       "glossary": [
@@ -10638,7 +10638,7 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Find the crown, the curved shear surface and the toe. Read the soil strength values and the starting factor of safety."
+          "body": "Find the crown, the curved shear surface and the toe. Read the starting factor of safety, then open How to read these results for the soil strength values."
         },
         {
           "id": "tinker",
@@ -10693,10 +10693,10 @@
         {
           "prompt": "Before comparing a real coastal slide with this model, check…",
           "choices": [
-            "Only whether both are coastal",
-            "Only the height of the cliff",
+            "Whether both slopes face the sea",
+            "Whether the cliffs are equally high",
             "Its material, pore pressure and slip shape",
-            "Only how much it rained that year"
+            "How much rain fell that year"
           ],
           "answer": 2,
           "explain": "Material strength, pore pressure and the geometry of the failure surface determine whether a rotational mechanism is plausible. Two coastal slopes can fail differently despite sharing a similar setting."
@@ -10704,7 +10704,7 @@
       ],
       "why": [
         "Gravity drives a slope downhill while friction and cohesion resist movement. Rising pore-water pressure can reduce effective stress and resistance, making a chosen slip surface less stable.",
-        "Increase Pore pressure and explain why resistance falls as effective stress drops. Once the factor of safety is below 1, press Play to watch the slump rotate.",
+        "Water in the pores pushes soil grains apart, so less of the soil's weight presses the grains together along the slip surface. Friction depends on that effective stress, so resistance falls while the driving weight stays almost the same; when resistance drops below the driving force, the factor of safety falls below 1.",
         "The factor of safety applies to the starting slope and its chosen slip surface; the rotation that follows is illustrative, not a calculated runout."
       ],
       "glossary": [
@@ -10759,7 +10759,7 @@
         }
       ],
       "teacher": {
-        "script": "Find the crown, the curved shear surface and the toe. Read the soil strength values and the starting factor of safety.\n\nIncrease Pore pressure and explain why resistance falls as effective stress drops. Once the factor of safety is below 1, press Play to watch the slump rotate.",
+        "script": "Find the crown, the curved shear surface and the toe. Read the starting factor of safety, then open How to read these results for the soil strength values.\n\nIncrease Pore pressure and explain why resistance falls as effective stress drops. Once the factor of safety is below 1, press Play to watch the slump rotate.",
         "pitfalls": [
           "Consider slope material, gravity and water pressure together rather than attributing every failure to wave erosion.",
           "Distinguish a rockfall from a slide or flow by describing how the material moves.",
@@ -10886,7 +10886,7 @@
       ],
       "why": [
         "Rising air expands and cools. If it reaches saturation, condensation can occur; after moisture is lost, descent on the far side of a ridge can bring warmer, drier air to the same elevation.",
-        "Set Initial humidity to 70% and Ridge height to 2100 m, and follow the parcel through cloud base. Compare the temperatures at the windward and leeward feet and explain the difference.",
+        "Below cloud base the rising air cools at the dry rate, about 9.8 °C per kilometre. Above it, condensation releases latent heat, so the saturated air cools more slowly (6 °C/km in this model). Once that water has fallen as rain, the sinking air warms at the faster dry rate all the way down, so it reaches the leeward foot warmer and with lower relative humidity than when it started.",
         "The parcel uses fixed lapse rates and assumes all condensed water rains out; it compares temperatures but does not calculate rainfall."
       ],
       "glossary": [
@@ -10985,7 +10985,7 @@
       "modelNotes": [
         "Unsaturated air cools at about 9.8 °C per kilometre as it rises.",
         "Above cloud base, the model uses a fixed saturated lapse rate of 6 °C/km; real values vary with temperature and pressure.",
-        "Relief is drawn 2.5 times taller than true; Physical scale uses the same scale in every direction."
+        "Relief is drawn 2.5 times taller than true; Physical scale uses the same scale in every direction. Ground colour and trees are schematic: the lee side is drawn drier only in proportion to the water the air loses on the way up."
       ]
     },
     {
@@ -11015,7 +11015,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Turn on Confined aquifer and explain why the gold surface shows pressure head, not a lake."
+          "body": "Turn on Confined aquifer. Explain why the gold Potentiometric surface sits above the clay layer, and why it shows the level water would rise to in a well, not a lake."
         },
         {
           "id": "explain",
@@ -11063,20 +11063,20 @@
           "explain": "Pumping lowers hydraulic head near the well, creating a gradient that draws groundwater towards it. This steady model balances that inflow against pumping and does not track long-term exhaustion of a finite store."
         },
         {
-          "prompt": "Yorkshire Chalk and the Ogallala are paired in this lab because…",
+          "prompt": "In the confined model, pumping lowers the gold surface. What happens to the sand beneath the clay layer?",
           "choices": [
-            "Both are lava-tube aquifers",
-            "Both are confined by the same clay",
-            "Both are recharged by glaciers",
-            "Both are heavily pumped water supplies"
+            "It drains and fills with air near the well",
+            "It turns into an empty cone below the well",
+            "It refills at once, so its pressure is unchanged",
+            "It stays saturated while the water pressure falls"
           ],
           "answer": 3,
-          "explain": "Both aquifers store groundwater that is pumped heavily for supply, but water moves differently: mainly through fractures in the Chalk and through pores in the Ogallala's sands and gravels."
+          "explain": "A confined aquifer stays fully saturated under its aquitard. Pumping lowers the pressure, so the potentiometric surface (the level water would rise to in a well) falls, but the pores remain full of water."
         }
       ],
       "why": [
         "Groundwater fills connected pores and fractures below the water table. Pumping lowers hydraulic head near a well, creating a gradient that draws water towards it.",
-        "Turn on Confined aquifer and explain why the gold surface shows pressure head, not a lake.",
+        "In a confined aquifer the sand stays fully saturated beneath the clay aquitard, so pumping does not drain the pores. Instead it lowers the water pressure, and the potentiometric surface (the level water would rise to in a well) falls into a cone around the well.",
         "The steady-flow calculation holds the outer head fixed; it does not determine recharge, long-term depletion or sustainable abstraction."
       ],
       "glossary": [
@@ -11122,15 +11122,15 @@
       "cases": [
         {
           "slug": "yorkshire-dales",
-          "label": "Yorkshire Chalk / limestone water"
+          "label": "Yorkshire Dales limestone drainage"
         },
         {
           "slug": "dust-bowl",
-          "label": "Ogallala under the High Plains"
+          "label": "Dust Bowl and the Ogallala aquifer"
         }
       ],
       "teacher": {
-        "script": "Before pumping, find the saturated pores and the water table. Raise Pump and compare the well head with the Boundary head.\n\nTurn on Confined aquifer and explain why the gold surface shows pressure head, not a lake.",
+        "script": "Before pumping, find the saturated pores and the water table. Raise Pump and compare the well head with the Boundary head: the difference is the drawdown shown in the readout.\n\nTurn on Confined aquifer. The gold potentiometric surface is the level water would rise to in a well; the aquifer below the clay stays saturated even when that level falls.",
         "pitfalls": [
           "Show groundwater occupying pores and fractures rather than presenting underground rivers as the usual arrangement.",
           "Explain that pumping removes water from an existing store and can lower the water table.",
@@ -11206,7 +11206,7 @@
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Calculate 3000 × 917/3300 and compare it with the displayed depression. Switch to Physical scale to see vertical and horizontal distances at the same scale."
+          "body": "Calculate 3000 × 917/3300 and compare it with the depression shown in the readout. Switch to Physical scale to remove the ×5 vertical exaggeration; the width of the ice sheet stays schematic."
         },
         {
           "id": "explain",
@@ -11267,7 +11267,7 @@
       ],
       "why": [
         "Adding an ice load changes the equilibrium height of the crust. In the local Airy model, a denser mantle supports a less dense crustal column, and unloading raises its equilibrium position.",
-        "Calculate 3000 × 917/3300 and compare it with the displayed depression. Switch to Physical scale to see vertical and horizontal distances at the same scale.",
+        "At equilibrium every column must have the same mass above a deep compensation level. Ice adds mass, so the column sinks until it has pushed aside an equal mass of mantle: 1 m of ice (917 kg/m³) displaces about 0.28 m of mantle (3300 kg/m³). Because ice is far less dense than mantle rock, even 3000 m of ice lowers the land by only about 830 m.",
         "The experiment calculates an equilibrium displacement; actual rebound takes time as the solid mantle deforms."
       ],
       "glossary": [
@@ -11318,7 +11318,7 @@
         }
       ],
       "teacher": {
-        "script": "Identify the crust, the Moho and the solid mantle. Set Ice thickness to 0 m, predict which way the crust will move, then set it to 3000 m.\n\nCalculate 3000 × 917/3300 and compare it with the displayed depression. Switch to Physical scale to see vertical and horizontal distances at the same scale.",
+        "script": "Identify the crust, the Moho and the solid mantle. Set Ice thickness to 0 m, predict which way the crust will move, then set it to 3000 m.\n\nCalculate 3000 × 917/3300 and compare it with the depression shown in the readout. Switch to Physical scale to remove the ×5 vertical exaggeration; the width of the ice sheet stays schematic.",
         "pitfalls": [
           "Explain how the lithosphere responds to loading rather than treating the crust as resting on a rigid floor.",
           "Describe the mantle as predominantly solid material that can flow slowly over long timescales.",
@@ -11442,7 +11442,7 @@
       ],
       "why": [
         "Continental rifting can open an ocean basin, while subduction can later consume oceanic lithosphere and bring continents together. Mountain belts can preserve evidence of oceans that have closed.",
-        "Switch to Subduction begins and follow the slab. Compare Ocean closes with Continental collision and find the mountain root.",
+        "Old oceanic lithosphere is cold and dense, so it can sink beneath a continent at a trench. Once subduction consumes plate faster than the ridge makes it, the basin narrows. Continental crust is too buoyant to sink far, so when the continents meet the crust crumples and thickens into a mountain belt with a deep root.",
         "The six stages organise possible tectonic changes; they are not a fixed schedule followed by every ocean basin."
       ],
       "glossary": [
@@ -11552,7 +11552,7 @@
         "playback": false
       },
       "modelNotes": [
-        "The unstretched reference continent is 35 km thick and the oceanic crust about 7 km thick; both overlie solid mantle.",
+        "The unstretched reference continent is 35 km thick and the oceanic crust about 7 km thick; both overlie solid mantle. Collision thickens the crust to about 65 km beneath peaks about 5–6 km high. Lithosphere and slab thicknesses are simplified to fit the section.",
         "Physical scale removes the ×2 vertical exaggeration. The 300 km section shows only part of a basin."
       ]
     },
@@ -11642,7 +11642,7 @@
       ],
       "why": [
         "Soils along a slope are linked by movement of water and sediment. Upper slopes may lose material while lower slopes receive it, creating differences even where parent material is similar.",
-        "Increase Slope and watch the backslope soil thin while the toe soil thickens. Use Compare physical scale to tell soil thickness apart from the height of the slope.",
+        "On the steeper backslope, soil creep, rainsplash and surface wash move soil downslope faster than weathering can replace it, so the soil stays thin. At the toe this colluvium builds up, and water draining from upslope keeps the subsoil saturated for long periods, so it becomes grey and mottled (gleyed).",
         "The selected thickness pattern is one example; climate, drainage and land use can produce a different catena."
       ],
       "glossary": [
