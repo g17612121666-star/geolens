@@ -33,7 +33,7 @@ export default function TropicalCyclone() {
           <FlowWaterMaterial
             color="#123d55"
             opacity={1}
-            roughness={0.28}
+            roughness={0.6}
             speed={0.25}
             flow={[spin, 0.2]}
           />
