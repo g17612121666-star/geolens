@@ -33,6 +33,8 @@ import { Route as ToolsLiveWeatherRouteImport } from './routes/tools.live-weathe
 import { Route as ToolsMapRouteImport } from './routes/tools.map'
 import { Route as ToolsWeatherRouteImport } from './routes/tools.weather'
 import { Route as TopicSlugRouteImport } from './routes/topic.$slug'
+import { Route as TripsIndexRouteImport } from './routes/trips.index'
+import { Route as TripsSlugRouteImport } from './routes/trips.$slug'
 import { Route as WorksheetSlugRouteImport } from './routes/worksheet.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -155,6 +157,16 @@ const TopicSlugRoute = TopicSlugRouteImport.update({
   path: '/topic/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TripsIndexRoute = TripsIndexRouteImport.update({
+  id: '/trips/',
+  path: '/trips/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TripsSlugRoute = TripsSlugRouteImport.update({
+  id: '/trips/$slug',
+  path: '/trips/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorksheetSlugRoute = WorksheetSlugRouteImport.update({
   id: '/worksheet/$slug',
   path: '/worksheet/$slug',
@@ -184,9 +196,11 @@ export interface FileRoutesByFullPath {
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
+  '/trips/$slug': typeof TripsSlugRoute
   '/worksheet/$slug': typeof WorksheetSlugRoute
   '/teachers/': typeof TeachersIndexRoute
   '/tools/': typeof ToolsIndexRoute
+  '/trips/': typeof TripsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -210,9 +224,11 @@ export interface FileRoutesByTo {
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
+  '/trips/$slug': typeof TripsSlugRoute
   '/worksheet/$slug': typeof WorksheetSlugRoute
   '/teachers': typeof TeachersIndexRoute
   '/tools': typeof ToolsIndexRoute
+  '/trips': typeof TripsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -238,9 +254,11 @@ export interface FileRoutesById {
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
+  '/trips/$slug': typeof TripsSlugRoute
   '/worksheet/$slug': typeof WorksheetSlugRoute
   '/teachers/': typeof TeachersIndexRoute
   '/tools/': typeof ToolsIndexRoute
+  '/trips/': typeof TripsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -267,9 +285,11 @@ export interface FileRouteTypes {
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
+    | '/trips/$slug'
     | '/worksheet/$slug'
     | '/teachers/'
     | '/tools/'
+    | '/trips/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -293,9 +313,11 @@ export interface FileRouteTypes {
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
+    | '/trips/$slug'
     | '/worksheet/$slug'
     | '/teachers'
     | '/tools'
+    | '/trips'
   id:
     | '__root__'
     | '/'
@@ -320,9 +342,11 @@ export interface FileRouteTypes {
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
+    | '/trips/$slug'
     | '/worksheet/$slug'
     | '/teachers/'
     | '/tools/'
+    | '/trips/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -347,8 +371,10 @@ export interface RootRouteChildren {
   ToolsMapRoute: typeof ToolsMapRoute
   ToolsWeatherRoute: typeof ToolsWeatherRoute
   TopicSlugRoute: typeof TopicSlugRoute
+  TripsSlugRoute: typeof TripsSlugRoute
   WorksheetSlugRoute: typeof WorksheetSlugRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
+  TripsIndexRoute: typeof TripsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -521,6 +547,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TopicSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trips/': {
+      id: '/trips/'
+      path: '/trips'
+      fullPath: '/trips/'
+      preLoaderRoute: typeof TripsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trips/$slug': {
+      id: '/trips/$slug'
+      path: '/trips/$slug'
+      fullPath: '/trips/$slug'
+      preLoaderRoute: typeof TripsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/worksheet/$slug': {
       id: '/worksheet/$slug'
       path: '/worksheet/$slug'
@@ -567,8 +607,10 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsMapRoute: ToolsMapRoute,
   ToolsWeatherRoute: ToolsWeatherRoute,
   TopicSlugRoute: TopicSlugRoute,
+  TripsSlugRoute: TripsSlugRoute,
   WorksheetSlugRoute: WorksheetSlugRoute,
   ToolsIndexRoute: ToolsIndexRoute,
+  TripsIndexRoute: TripsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
