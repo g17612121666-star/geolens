@@ -99,6 +99,8 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                   ))}
                 </HoverMenu>
                 <NavLink to="/explore">{"Explore"}</NavLink>
+                <NavLink to="/trips">{"Field trips"}</NavLink>
+                <NavLink to="/practice">{"Practice"}</NavLink>
                 <NavLink to="/atlas">{"Atlas"}</NavLink>
                 <HoverMenu label={"Tools"} open={toolsOpen} setOpen={setToolsOpen} width="w-80">
                   {TOOLS.map((t) => (
@@ -153,6 +155,12 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
             ))}
             <Link to="/explore" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
               {"Explore"}
+            </Link>
+            <Link to="/trips" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
+              {"Field trips"}
+            </Link>
+            <Link to="/practice" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
+              {"Practice"}
             </Link>
             <Link to="/atlas" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
               {"Atlas"}

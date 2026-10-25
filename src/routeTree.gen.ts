@@ -22,6 +22,10 @@ import { Route as SkillsRouteImport } from './routes/skills'
 import { Route as TeachersRouteImport } from './routes/teachers'
 import { Route as CaseSlugRouteImport } from './routes/case.$slug'
 import { Route as LabSlugRouteImport } from './routes/lab.$slug'
+import { Route as PracticeIndexRouteImport } from './routes/practice.index'
+import { Route as PracticeDailyRouteImport } from './routes/practice.daily'
+import { Route as PracticeLandformsRouteImport } from './routes/practice.landforms'
+import { Route as PracticeWhereRouteImport } from './routes/practice.where'
 import { Route as RealmsRealmRouteImport } from './routes/realms.$realm'
 import { Route as TeachersIndexRouteImport } from './routes/teachers.index'
 import { Route as TeachersSlugRouteImport } from './routes/teachers.$slug'
@@ -33,6 +37,8 @@ import { Route as ToolsLiveWeatherRouteImport } from './routes/tools.live-weathe
 import { Route as ToolsMapRouteImport } from './routes/tools.map'
 import { Route as ToolsWeatherRouteImport } from './routes/tools.weather'
 import { Route as TopicSlugRouteImport } from './routes/topic.$slug'
+import { Route as TripsIndexRouteImport } from './routes/trips.index'
+import { Route as TripsSlugRouteImport } from './routes/trips.$slug'
 import { Route as WorksheetSlugRouteImport } from './routes/worksheet.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -100,6 +106,26 @@ const LabSlugRoute = LabSlugRouteImport.update({
   path: '/lab/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PracticeIndexRoute = PracticeIndexRouteImport.update({
+  id: '/practice/',
+  path: '/practice/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticeDailyRoute = PracticeDailyRouteImport.update({
+  id: '/practice/daily',
+  path: '/practice/daily',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticeLandformsRoute = PracticeLandformsRouteImport.update({
+  id: '/practice/landforms',
+  path: '/practice/landforms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PracticeWhereRoute = PracticeWhereRouteImport.update({
+  id: '/practice/where',
+  path: '/practice/where',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RealmsRealmRoute = RealmsRealmRouteImport.update({
   id: '/realms/$realm',
   path: '/realms/$realm',
@@ -155,6 +181,16 @@ const TopicSlugRoute = TopicSlugRouteImport.update({
   path: '/topic/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TripsIndexRoute = TripsIndexRouteImport.update({
+  id: '/trips/',
+  path: '/trips/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TripsSlugRoute = TripsSlugRouteImport.update({
+  id: '/trips/$slug',
+  path: '/trips/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorksheetSlugRoute = WorksheetSlugRouteImport.update({
   id: '/worksheet/$slug',
   path: '/worksheet/$slug',
@@ -175,6 +211,9 @@ export interface FileRoutesByFullPath {
   '/teachers': typeof TeachersRouteWithChildren
   '/case/$slug': typeof CaseSlugRoute
   '/lab/$slug': typeof LabSlugRoute
+  '/practice/daily': typeof PracticeDailyRoute
+  '/practice/landforms': typeof PracticeLandformsRoute
+  '/practice/where': typeof PracticeWhereRoute
   '/realms/$realm': typeof RealmsRealmRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
@@ -184,9 +223,12 @@ export interface FileRoutesByFullPath {
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
+  '/trips/$slug': typeof TripsSlugRoute
   '/worksheet/$slug': typeof WorksheetSlugRoute
+  '/practice/': typeof PracticeIndexRoute
   '/teachers/': typeof TeachersIndexRoute
   '/tools/': typeof ToolsIndexRoute
+  '/trips/': typeof TripsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -201,6 +243,9 @@ export interface FileRoutesByTo {
   '/skills': typeof SkillsRoute
   '/case/$slug': typeof CaseSlugRoute
   '/lab/$slug': typeof LabSlugRoute
+  '/practice/daily': typeof PracticeDailyRoute
+  '/practice/landforms': typeof PracticeLandformsRoute
+  '/practice/where': typeof PracticeWhereRoute
   '/realms/$realm': typeof RealmsRealmRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
@@ -210,9 +255,12 @@ export interface FileRoutesByTo {
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
+  '/trips/$slug': typeof TripsSlugRoute
   '/worksheet/$slug': typeof WorksheetSlugRoute
+  '/practice': typeof PracticeIndexRoute
   '/teachers': typeof TeachersIndexRoute
   '/tools': typeof ToolsIndexRoute
+  '/trips': typeof TripsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -229,6 +277,9 @@ export interface FileRoutesById {
   '/teachers': typeof TeachersRouteWithChildren
   '/case/$slug': typeof CaseSlugRoute
   '/lab/$slug': typeof LabSlugRoute
+  '/practice/daily': typeof PracticeDailyRoute
+  '/practice/landforms': typeof PracticeLandformsRoute
+  '/practice/where': typeof PracticeWhereRoute
   '/realms/$realm': typeof RealmsRealmRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/tools/atlas': typeof ToolsAtlasRoute
@@ -238,9 +289,12 @@ export interface FileRoutesById {
   '/tools/map': typeof ToolsMapRoute
   '/tools/weather': typeof ToolsWeatherRoute
   '/topic/$slug': typeof TopicSlugRoute
+  '/trips/$slug': typeof TripsSlugRoute
   '/worksheet/$slug': typeof WorksheetSlugRoute
+  '/practice/': typeof PracticeIndexRoute
   '/teachers/': typeof TeachersIndexRoute
   '/tools/': typeof ToolsIndexRoute
+  '/trips/': typeof TripsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -258,6 +312,9 @@ export interface FileRouteTypes {
     | '/teachers'
     | '/case/$slug'
     | '/lab/$slug'
+    | '/practice/daily'
+    | '/practice/landforms'
+    | '/practice/where'
     | '/realms/$realm'
     | '/teachers/$slug'
     | '/tools/atlas'
@@ -267,9 +324,12 @@ export interface FileRouteTypes {
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
+    | '/trips/$slug'
     | '/worksheet/$slug'
+    | '/practice/'
     | '/teachers/'
     | '/tools/'
+    | '/trips/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -284,6 +344,9 @@ export interface FileRouteTypes {
     | '/skills'
     | '/case/$slug'
     | '/lab/$slug'
+    | '/practice/daily'
+    | '/practice/landforms'
+    | '/practice/where'
     | '/realms/$realm'
     | '/teachers/$slug'
     | '/tools/atlas'
@@ -293,9 +356,12 @@ export interface FileRouteTypes {
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
+    | '/trips/$slug'
     | '/worksheet/$slug'
+    | '/practice'
     | '/teachers'
     | '/tools'
+    | '/trips'
   id:
     | '__root__'
     | '/'
@@ -311,6 +377,9 @@ export interface FileRouteTypes {
     | '/teachers'
     | '/case/$slug'
     | '/lab/$slug'
+    | '/practice/daily'
+    | '/practice/landforms'
+    | '/practice/where'
     | '/realms/$realm'
     | '/teachers/$slug'
     | '/tools/atlas'
@@ -320,9 +389,12 @@ export interface FileRouteTypes {
     | '/tools/map'
     | '/tools/weather'
     | '/topic/$slug'
+    | '/trips/$slug'
     | '/worksheet/$slug'
+    | '/practice/'
     | '/teachers/'
     | '/tools/'
+    | '/trips/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -339,6 +411,9 @@ export interface RootRouteChildren {
   TeachersRoute: typeof TeachersRouteWithChildren
   CaseSlugRoute: typeof CaseSlugRoute
   LabSlugRoute: typeof LabSlugRoute
+  PracticeDailyRoute: typeof PracticeDailyRoute
+  PracticeLandformsRoute: typeof PracticeLandformsRoute
+  PracticeWhereRoute: typeof PracticeWhereRoute
   RealmsRealmRoute: typeof RealmsRealmRoute
   ToolsAtlasRoute: typeof ToolsAtlasRoute
   ToolsEarthMotionRoute: typeof ToolsEarthMotionRoute
@@ -347,8 +422,11 @@ export interface RootRouteChildren {
   ToolsMapRoute: typeof ToolsMapRoute
   ToolsWeatherRoute: typeof ToolsWeatherRoute
   TopicSlugRoute: typeof TopicSlugRoute
+  TripsSlugRoute: typeof TripsSlugRoute
   WorksheetSlugRoute: typeof WorksheetSlugRoute
+  PracticeIndexRoute: typeof PracticeIndexRoute
   ToolsIndexRoute: typeof ToolsIndexRoute
+  TripsIndexRoute: typeof TripsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -444,6 +522,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LabSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/practice/': {
+      id: '/practice/'
+      path: '/practice'
+      fullPath: '/practice/'
+      preLoaderRoute: typeof PracticeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practice/daily': {
+      id: '/practice/daily'
+      path: '/practice/daily'
+      fullPath: '/practice/daily'
+      preLoaderRoute: typeof PracticeDailyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practice/landforms': {
+      id: '/practice/landforms'
+      path: '/practice/landforms'
+      fullPath: '/practice/landforms'
+      preLoaderRoute: typeof PracticeLandformsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/practice/where': {
+      id: '/practice/where'
+      path: '/practice/where'
+      fullPath: '/practice/where'
+      preLoaderRoute: typeof PracticeWhereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/realms/$realm': {
       id: '/realms/$realm'
       path: '/realms/$realm'
@@ -521,6 +627,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TopicSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trips/': {
+      id: '/trips/'
+      path: '/trips'
+      fullPath: '/trips/'
+      preLoaderRoute: typeof TripsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trips/$slug': {
+      id: '/trips/$slug'
+      path: '/trips/$slug'
+      fullPath: '/trips/$slug'
+      preLoaderRoute: typeof TripsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/worksheet/$slug': {
       id: '/worksheet/$slug'
       path: '/worksheet/$slug'
@@ -559,6 +679,9 @@ const rootRouteChildren: RootRouteChildren = {
   TeachersRoute: TeachersRouteWithChildren,
   CaseSlugRoute: CaseSlugRoute,
   LabSlugRoute: LabSlugRoute,
+  PracticeDailyRoute: PracticeDailyRoute,
+  PracticeLandformsRoute: PracticeLandformsRoute,
+  PracticeWhereRoute: PracticeWhereRoute,
   RealmsRealmRoute: RealmsRealmRoute,
   ToolsAtlasRoute: ToolsAtlasRoute,
   ToolsEarthMotionRoute: ToolsEarthMotionRoute,
@@ -567,8 +690,11 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsMapRoute: ToolsMapRoute,
   ToolsWeatherRoute: ToolsWeatherRoute,
   TopicSlugRoute: TopicSlugRoute,
+  TripsSlugRoute: TripsSlugRoute,
   WorksheetSlugRoute: WorksheetSlugRoute,
+  PracticeIndexRoute: PracticeIndexRoute,
   ToolsIndexRoute: ToolsIndexRoute,
+  TripsIndexRoute: TripsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

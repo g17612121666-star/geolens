@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import { Header } from "./header";
 import { Footer } from "./footer";
+import { PageHelp } from "./page-help";
 import { initialisePreferences } from "@/lib/preferences";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -56,6 +57,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         {children}
       </div>
       {!isLab && <Footer />}
+      {!isLab && <PageHelp pathname={pathname} />}
     </div>
   );
 }

@@ -11,6 +11,7 @@ import { caseFigure } from "@/lib/case-figures";
 import { headFor } from "@/lib/seo";
 import { LabCard } from "@/components/lab-card";
 import { useRecentLabs } from "@/lib/recent-labs";
+import { TodayStrip } from "@/components/today-strip";
 export const Route = createFileRoute("/")({
   component: Home,
   head: () =>
@@ -67,6 +68,7 @@ function Home() {
           <HomeHero />
         </div>
       </section>
+      <TodayStrip />
       <RecentLabs />
       <section className="mx-auto max-w-[1280px] border-t border-white/10 px-5 py-12 md:py-16">
         <div className="flex items-end justify-between gap-4">

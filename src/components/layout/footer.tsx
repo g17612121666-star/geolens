@@ -24,6 +24,8 @@ export function Footer() {
           <p className="section-label mb-3">Learn</p>
           <div className="flex flex-col gap-2 text-sm">
             <Link to="/explore">Explore</Link>
+            <Link to="/trips">Field trips</Link>
+            <Link to="/practice">Practice</Link>
             <Link to="/atlas">Atlas</Link>
             <Link to="/glossary">Glossary</Link>
             <Link to="/teachers">Teachers</Link>
