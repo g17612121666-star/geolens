@@ -66,3 +66,23 @@ test("field-trip lab links name real labs and real controls", async () => {
         assert.ok(keys.includes(k), `${s.lab}: no control ${k}`);
     }
 });
+
+test("the night polygon contains the antisolar point, not the subsolar point", async () => {
+  const { subsolarPoint, nightPolygon } = await import("../src/lib/solar.ts");
+  const inside = (ring, [x, y]) => {
+    let c = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i], [xj, yj] = ring[j];
+      if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c;
+    }
+    return c;
+  };
+  for (const iso of ["2026-06-21T12:00:00Z", "2026-12-21T03:00:00Z", "2026-03-20T18:30:00Z"]) {
+    const d = new Date(iso), s = subsolarPoint(d), ring = nightPolygon(d).features[0].geometry.coordinates[0];
+    const anti = [s.lon > 0 ? s.lon - 180 : s.lon + 180, Math.max(-80, Math.min(80, -s.lat))];
+    assert.equal(inside(ring, [s.lon, s.lat]), false, iso);
+    assert.equal(inside(ring, anti), true, iso);
+  }
+  const noon = subsolarPoint(new Date("2026-06-21T12:00:00Z"));
+  assert.ok(Math.abs(noon.lat - 23.4) < 0.2 && Math.abs(noon.lon) < 1);
+});

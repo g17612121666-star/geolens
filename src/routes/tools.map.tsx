@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils";
 import { fmtLatLon, haversineKm } from "@/lib/geo";
 import { sphericalAreaKm2, geodesicCoordinates } from "@/lib/map-measure";
 import { headFor } from "@/lib/seo";
+import { nightPolygon, subsolarPoint } from "@/lib/solar";
 
 export const Route = createFileRoute("/tools/map")({
   component: MapStudio,
@@ -62,6 +63,7 @@ type Layers = {
   trenches: boolean;
   ridges: boolean;
   arrows: boolean;
+  night: boolean;
 };
 
 const LAYER_OFF: Layers = {
@@ -79,6 +81,7 @@ const LAYER_OFF: Layers = {
   trenches: false,
   ridges: false,
   arrows: false,
+  night: false,
 };
 
 function MapStudio() {
@@ -207,6 +210,14 @@ function MapStudio() {
     }
   }
   const [cursor, setCursor] = useState<{ lat: number; lon: number } | null>(null);
+  // Live day and night: redraw the shadow every minute while the layer is on.
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    if (!layers.night) return;
+    setNow(new Date());
+    const id = window.setInterval(() => setNow(new Date()), 60_000);
+    return () => window.clearInterval(id);
+  }, [layers.night]);
 
   const overlays = useMemo(() => {
     const o: {
@@ -221,6 +232,15 @@ function MapStudio() {
       polygon?: boolean;
       labels?: boolean;
     }[] = [];
+    if (layers.night)
+      o.push({
+        id: "night",
+        labels: false,
+        data: nightPolygon(now),
+        color: "#04070d",
+        polygon: true,
+        opacity: 0.55 * opacity,
+      });
     if (layers.plateFill && dataset)
       o.push({
         id: "platefill",
@@ -325,7 +345,7 @@ function MapStudio() {
       });
     }
     return o;
-  }, [layers, opacity, path, measuring, dataset]);
+  }, [layers, opacity, path, measuring, dataset, now]);
 
   const searchHits = useMemo(() => {
     const needle = q.trim().toLowerCase();
@@ -501,6 +521,11 @@ function MapStudio() {
             label={"Plate polygons"}
           />
           <Toggle on={layers.arrows} set={(v) => setLayer("arrows", v)} label={"Motion sketches"} />
+          <Toggle
+            on={layers.night}
+            set={(v) => setLayer("night", v)}
+            label={"Day and night (now)"}
+          />
           <Toggle on={layers.trenches} set={(v) => setLayer("trenches", v)} label={"Trenches"} />
           <Toggle on={layers.ridges} set={(v) => setLayer("ridges", v)} label={"Ridges"} />
           <Toggle on={layers.volcanoes} set={(v) => setLayer("volcanoes", v)} label={"Volcanoes"} />
@@ -786,6 +811,12 @@ function MapStudio() {
           </span>
         )}
         {layers.graticule && <span>{"Graticule at 30° longitude and 15° latitude"}</span>}
+        {layers.night && (
+          <span>
+            <b className="text-slate">▰</b>
+            {` Night side at ${now.toISOString().slice(11, 16)} UTC · Sun overhead at ${Math.abs(subsolarPoint(now).lat).toFixed(1)}°${subsolarPoint(now).lat >= 0 ? "N" : "S"}, updated each minute; twilight not shown`}
+          </span>
+        )}
       </div>
       {cursor && (
         <p className="mt-2 font-mono text-xs text-mist">
