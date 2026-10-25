@@ -3,7 +3,7 @@
  * photograph, states one key fact, explains it briefly and opens the matching lab, set up for
  * that place. Coordinates locate the photographed area approximately, not a surveyed point.
  */
-import { VERIFIED_PHOTOS } from "./verified-photos";
+import { VERIFIED_PHOTOS } from "./verified-photos.ts";
 
 export type TripStop = {
   title: string;
