@@ -94,10 +94,10 @@
         {
           "prompt": "What would happen to seasons if axial tilt were 0°?",
           "choices": [
-            "Seasons would reverse: June would be winter in London.",
-            "Seasons would get stronger because the orbit would become more elliptical.",
-            "The equator would freeze and the poles would heat up.",
-            "Almost no seasons: day length and noon Sun height would stay nearly constant at each latitude."
+            "Seasons would reverse, so June would become winter in London.",
+            "Seasons would grow stronger because the orbit would stretch.",
+            "The equator would freeze while the poles warmed up.",
+            "Almost no seasons: day length and noon Sun would barely change."
           ],
           "answer": 3,
           "explain": "With zero axial tilt, solar declination would stay at the equator, so each latitude would have nearly constant day length and noon solar altitude. Earth's varying orbital distance would still cause a smaller annual change in incoming sunlight."
@@ -105,9 +105,9 @@
         {
           "prompt": "Why is December summer in Sydney?",
           "choices": [
-            "The southern hemisphere is tilted towards the Sun in December.",
-            "Australia is closer to the Sun in December.",
-            "Ocean currents reverse in December.",
+            "The Southern Hemisphere is tilted towards the Sun in December.",
+            "Australia is closer to the Sun in December than in June.",
+            "Ocean currents reverse their direction every December.",
             "The Moon pulls the southern oceans towards the Sun."
           ],
           "answer": 0,
@@ -134,6 +134,17 @@
           ],
           "answer": 2,
           "explain": "Near the equator, the day–night boundary divides each daily path into almost equal halves throughout the year. London's higher latitude produces much larger seasonal changes in day length and noon solar altitude."
+        },
+        {
+          "prompt": "On the June solstice, which places have 24 hours of daylight?",
+          "choices": [
+            "Places on the equator, such as Quito",
+            "Every place in the Northern Hemisphere",
+            "Places south of the Antarctic Circle",
+            "Places north of the Arctic Circle"
+          ],
+          "answer": 3,
+          "explain": "In June the Northern Hemisphere tilts towards the Sun, so places north of the Arctic Circle (about 66.6° N) turn all the way round without leaving the sunlit half. South of the Antarctic Circle it is dark all day."
         }
       ],
       "why": [
@@ -180,6 +191,10 @@
         {
           "claim": "Summer happens because Earth is closer to the Sun.",
           "truth": "Earth’s axial tilt changes both the angle of sunlight and the length of daylight. The hemisphere tilted towards the Sun has summer while the other has winter. Earth is closest to the Sun in early January, so orbital distance cannot explain their opposite seasons."
+        },
+        {
+          "claim": "In a British summer the Sun is directly overhead at midday.",
+          "truth": "The Sun is never directly overhead anywhere in the UK. It can only be overhead between the Tropics of Cancer and Capricorn. Even at the June solstice, London’s noon Sun reaches only about 62° above the horizon."
         }
       ],
       "cases": [
@@ -320,6 +335,17 @@
           ],
           "answer": 2,
           "explain": "A location 30° east reaches solar noon about two hours earlier because Earth turns through 15° each hour. Its local solar time is therefore about 14:00 when London's is noon."
+        },
+        {
+          "prompt": "Why does the Sun rise earlier in Norwich than in Cardiff on the same day?",
+          "choices": [
+            "Earth turns eastwards, so Norwich rotates into sunlight first.",
+            "Norwich is closer to the Sun because it is further north.",
+            "Time zones move the sunrise earlier in eastern England.",
+            "Norwich has a higher altitude, so it sees the Sun sooner."
+          ],
+          "answer": 0,
+          "explain": "Norwich is about 4.5° east of Cardiff. Because Earth rotates from west to east, places further east turn into sunlight first, by about 4 minutes for every degree of longitude."
         }
       ],
       "why": [
@@ -361,6 +387,10 @@
         {
           "claim": "Time zones determine where day and night occur.",
           "truth": "Earth’s rotation carries places into and out of sunlight. Time zones assign civil clock times to regions; their boundaries reflect political and practical choices. Changing a time-zone boundary would change the clock label, while sunrise and sunset would still follow Earth’s rotation and the Sun’s direction."
+        },
+        {
+          "claim": "The Sun moves across the sky because it travels around Earth each day.",
+          "truth": "Earth spins from west to east once a day, so the Sun appears to rise in the east and set in the west. The Sun does not orbit Earth; Earth orbits the Sun once a year."
         }
       ],
       "cases": [
@@ -486,6 +516,17 @@
           ],
           "answer": 1,
           "explain": "A synodic month measures the return to the same Sun–Earth–Moon phase geometry. It exceeds the Moon's orbital period relative to the stars because Earth also moves around the Sun."
+        },
+        {
+          "prompt": "A waxing crescent is low in the west just after sunset. Where is the Moon in its orbit?",
+          "choices": [
+            "Directly behind Earth, opposite the Sun",
+            "A little way past the Sun–Earth line after new Moon",
+            "At right angles to the Sun, at last quarter",
+            "Inside Earth’s shadow, as in a partial eclipse"
+          ],
+          "answer": 1,
+          "explain": "A few days after new Moon the Moon has moved only a small angle away from the Sun in our sky, so it sets soon after the Sun and shows a thin sunlit crescent."
         }
       ],
       "why": [
@@ -535,6 +576,10 @@
         {
           "claim": "A crescent Moon forms when Earth’s shadow covers part of the Moon.",
           "truth": "Sunlight normally illuminates half the Moon. A crescent occurs when we see only a narrow part of that illuminated half from Earth; the rest of the visible disc is the Moon’s night side. Earth’s shadow darkens the Moon during a lunar eclipse."
+        },
+        {
+          "claim": "The Moon can only be seen at night.",
+          "truth": "The Moon is above the horizon for about half of each day, so it is often visible in daylight. A first-quarter Moon, for example, rises around midday and can be seen in the afternoon sky."
         }
       ],
       "cases": [
@@ -668,6 +713,17 @@
           ],
           "answer": 0,
           "explain": "A typical continental crust thickness of about 35 km is well under 1% of Earth's 6371 km radius. Crustal thickness varies considerably, particularly beneath mountain belts."
+        },
+        {
+          "prompt": "How do scientists know what Earth’s core is like?",
+          "choices": [
+            "Drill cores have reached the core–mantle boundary.",
+            "Lava from volcanoes comes straight from the core.",
+            "Seismic waves change speed and path inside Earth.",
+            "Satellites photograph the core through the crust."
+          ],
+          "answer": 2,
+          "explain": "No borehole has passed through the crust. Seismic waves from earthquakes speed up, slow down and bend at boundaries, and S-waves cannot cross the liquid outer core; these patterns reveal the layers."
         }
       ],
       "why": [
@@ -719,6 +775,10 @@
         {
           "claim": "The mantle is a continuous layer of liquid magma.",
           "truth": "The mantle is predominantly solid rock that can deform slowly over geological time. Partial melting occurs in particular settings and supplies magma, but it does not make the whole mantle liquid. Earth’s liquid outer core is a separate layer composed mainly of metal."
+        },
+        {
+          "claim": "Earth’s interior is hot because heat from the Sun soaks down into it.",
+          "truth": "Sunlight warms only the top few metres of ground. Earth’s internal heat comes from its formation and from the decay of radioactive elements in rocks, and it flows outwards towards the surface."
         }
       ],
       "cases": [
@@ -826,10 +886,10 @@
         {
           "prompt": "The Himalaya form at a…",
           "choices": [
-            "Ocean–ocean transform.",
-            "Mantle hotspot only.",
+            "An ocean–ocean transform fault.",
+            "A mantle hotspot beneath a plate.",
             "Continent–continent convergence.",
-            "Passive margin."
+            "A passive continental margin."
           ],
           "answer": 2,
           "explain": "India's collision with Eurasia shortened and thickened continental crust. This crustal thickening and continuing convergence helped raise the Himalaya."
@@ -848,13 +908,24 @@
         {
           "prompt": "A hotspot track like Hawaiʻi is evidence that…",
           "choices": [
-            "A plate has moved over a long-lived plume, leaving older volcanoes behind.",
-            "Plates stay still while mantle plumes migrate beneath them.",
-            "Volcanoes form only where plates pull apart at ridges.",
-            "Each island formed at a separate subduction zone."
+            "A plate has moved over a long-lived plume, leaving older volcanoes.",
+            "Plates stay still while mantle plumes migrate steadily beneath them.",
+            "Volcanoes form only where plates pull apart at mid-ocean ridges.",
+            "Each island formed above its own separate subduction zone."
           ],
           "answer": 0,
           "explain": "As a plate moves relative to a persistent melting region, new volcanoes form while older ones move away from the active source. An age progression therefore records relative plate motion, although hotspots need not remain perfectly fixed."
+        },
+        {
+          "prompt": "Why are there no volcanoes along the Himalaya, even though plates are converging?",
+          "choices": [
+            "The mountains are too cold for magma to form.",
+            "Neither continent subducts deeply enough to melt the mantle.",
+            "Volcanoes there were all eroded away by glaciers.",
+            "Convergent boundaries never produce volcanoes."
+          ],
+          "answer": 1,
+          "explain": "Continental crust is too buoyant to sink far into the mantle. Without a descending oceanic plate releasing water, little magma forms, so a continental collision builds mountains rather than a volcanic arc."
         }
       ],
       "why": [
@@ -900,6 +971,10 @@
         {
           "claim": "Continents move through an ocean floor that stays still.",
           "truth": "Both continents and ocean floor are carried by lithospheric plates. A plate may include continental and oceanic crust, and its boundary need not follow a coastline. Relative plate motion produces spreading, convergence or sideways slip, with different landforms and geological activity at each type of boundary."
+        },
+        {
+          "claim": "Earthquakes and volcanoes can happen anywhere with equal likelihood.",
+          "truth": "Most earthquakes and volcanoes occur in narrow belts along plate boundaries, such as the Pacific Ring of Fire. Some happen within plates, for example above hotspots like Hawaiʻi, but these are the exception."
         }
       ],
       "cases": [
@@ -910,6 +985,10 @@
         {
           "slug": "iceland",
           "label": "Iceland / Mid-Atlantic Ridge"
+        },
+        {
+          "slug": "east-african-rift",
+          "label": "East African Rift"
         }
       ],
       "teacher": {
@@ -1032,10 +1111,10 @@
         {
           "prompt": "Contour lines that form a V pointing uphill usually mark a…",
           "choices": [
-            "Spur",
-            "Cliff",
+            "Spur of high ground",
+            "Steep cliff face",
             "Valley or stream",
-            "Spot height"
+            "Spot height marker"
           ],
           "answer": 2,
           "explain": "A contour crosses a valley farther uphill near the stream than on the adjacent slopes, making its V point upstream. Water flows downhill in the opposite direction."
@@ -1067,11 +1146,22 @@
           "choices": [
             "A steep slope",
             "A gentle slope",
-            "A cliff",
-            "Sea level"
+            "A cliff face",
+            "Land at sea level"
           ],
           "answer": 1,
           "explain": "Widely spaced contours show that a given rise in elevation occurs over a long horizontal distance. That smaller rise-to-distance ratio means a gentler slope."
+        },
+        {
+          "prompt": "On a map, contour rings get higher towards a small closed loop in the middle. What is it?",
+          "choices": [
+            "A hollow with water in it",
+            "A hilltop or summit",
+            "A river valley",
+            "A cliff edge"
+          ],
+          "answer": 1,
+          "explain": "Closed contours that increase in height towards the centre mark a hill or summit. If the heights decreased inwards instead, the loop would mark a hollow."
         }
       ],
       "why": [
@@ -1113,6 +1203,10 @@
         {
           "claim": "The V-shaped bend of a contour always points downhill.",
           "truth": "Where a contour crosses a stream valley, its bend generally points uphill and upstream. Around a projecting spur, the bend points downhill. Follow the height labels and nearby drainage to distinguish the two; the shape of a single line without context can be misleading."
+        },
+        {
+          "claim": "Contour lines are paths or boundaries you could see on the ground.",
+          "truth": "Contours are imaginary lines joining points of equal height above sea level. You cannot see them in the landscape, but walking along one would keep you at the same height."
         }
       ],
       "cases": [
@@ -1220,10 +1314,10 @@
         {
           "prompt": "Where is vertical erosion most important?",
           "choices": [
-            "Delta",
-            "Floodplain",
+            "The delta",
+            "The floodplain",
             "Upper course",
-            "Estuary only"
+            "The estuary"
           ],
           "answer": 2,
           "explain": "In the upper course, steep gradients commonly favour channel incision into the bed. Weathering and slope movement then help shape the sides of a V-shaped valley."
@@ -1253,13 +1347,24 @@
         {
           "prompt": "A delta needs…",
           "choices": [
-            "A steep waterfall just before the river reaches the sea.",
+            "A steep waterfall just before the river finally reaches the sea.",
             "Sediment deposited at the mouth faster than waves and tides remove it.",
-            "Strong tides that carry sediment back upstream.",
-            "A coastline that is sinking faster than sediment arrives."
+            "Strong tides that carry most of the sediment back upstream.",
+            "A coastline sinking faster than the river’s sediment arrives."
           ],
           "answer": 1,
           "explain": "A delta grows when sediment supplied at a river mouth accumulates faster than waves, tides and currents remove it. Slower flow on entering a lake or sea encourages deposition."
+        },
+        {
+          "prompt": "How does a river channel usually change from upper to lower course?",
+          "choices": [
+            "It becomes narrower, shallower and rockier.",
+            "It stays the same width but becomes steeper.",
+            "It becomes wider and deeper, with more discharge.",
+            "It loses water, so the channel gets smaller."
+          ],
+          "answer": 2,
+          "explain": "Tributaries add water downstream, so discharge increases. The channel usually becomes wider and deeper, while the gradient becomes gentler."
         }
       ],
       "why": [
@@ -1302,6 +1407,10 @@
         {
           "claim": "A river’s upper, middle and lower courses are separate kinds of river.",
           "truth": "These terms describe reaches along one river system. Gradient, channel form, discharge and sediment can change downstream, often gradually and with local interruptions. They help compare patterns along a long profile, but they do not divide every river into three sharply bounded sections."
+        },
+        {
+          "claim": "A river flows fastest near its source because the slope is steepest there.",
+          "truth": "Mountain streams look fast, but rocks and shallow water create a lot of friction. Further downstream the channel is deeper and smoother, so average velocity often stays the same or increases even though the gradient is gentler."
         }
       ],
       "cases": [
@@ -1391,10 +1500,10 @@
         {
           "prompt": "The largest store of fresh water is…",
           "choices": [
-            "Rivers and lakes",
-            "Groundwater",
+            "Rivers and freshwater lakes",
+            "Groundwater in aquifers",
             "Ice sheets and glaciers",
-            "Soil moisture"
+            "Moisture held in soil"
           ],
           "answer": 2,
           "explain": "Ice sheets and glaciers hold the largest share of Earth's fresh water. Groundwater is another major fresh-water store, while rivers contain a much smaller fraction."
@@ -1402,9 +1511,9 @@
         {
           "prompt": "Infiltration is…",
           "choices": [
-            "Water vapour becoming cloud.",
-            "A river entering the sea.",
-            "Trees intercepting rain.",
+            "Water vapour condensing into cloud.",
+            "A river flowing out into the sea.",
+            "Tree leaves intercepting falling rain.",
             "Water soaking into the soil surface."
           ],
           "answer": 3,
@@ -1431,6 +1540,17 @@
           ],
           "answer": 1,
           "explain": "A drainage divide separates land whose surface runoff reaches different river systems. The basin includes all the land contributing water to the selected river and its tributaries."
+        },
+        {
+          "prompt": "Which change would most increase surface runoff after a storm?",
+          "choices": [
+            "Paving over fields with tarmac and roofs",
+            "Planting trees across the catchment",
+            "A long dry spell that leaves soils unsaturated",
+            "Light drizzle falling over several days"
+          ],
+          "answer": 0,
+          "explain": "Impermeable surfaces stop rain soaking in, so more of it runs straight off into drains and rivers. Trees and dry soils increase interception and infiltration, while gentle rain gives water time to soak in."
         }
       ],
       "why": [
@@ -1478,6 +1598,10 @@
         {
           "claim": "Because the global water cycle conserves water, a local reservoir cannot run out.",
           "truth": "Water can leave a local store faster than it is replenished. Withdrawals, evaporation and downstream releases may exceed inflow, so the stored volume falls even though the water still exists elsewhere on Earth. A regional water balance therefore needs both the amounts and the timing of inputs and outputs."
+        },
+        {
+          "claim": "Clouds are made of water vapour.",
+          "truth": "Water vapour is an invisible gas. Clouds are made of tiny liquid droplets or ice crystals that form when moist air cools and the vapour condenses."
         }
       ],
       "cases": [
@@ -1615,10 +1739,10 @@
         {
           "prompt": "Why does a planet speed up near perihelion?",
           "choices": [
-            "The solar wind pushes it along near the Sun.",
-            "Its angular momentum is conserved, so it moves faster when closer.",
-            "The Sun’s gravity switches on only near perihelion.",
-            "The Sun sits at the centre of the ellipse."
+            "The solar wind pushes it along whenever it is near the Sun.",
+            "Angular momentum is conserved, so it moves faster when closer.",
+            "The Sun’s gravity only acts strongly close to perihelion.",
+            "It is heated more near the Sun, which gives it extra speed."
           ],
           "answer": 1,
           "explain": "In a two-body orbit, angular momentum is conserved and the planet sweeps out equal areas in equal times. It must therefore travel faster near perihelion, where its distance from the Sun is smaller."
@@ -1626,10 +1750,10 @@
         {
           "prompt": "In the orbital view, physical scale means…",
           "choices": [
-            "Orbits become logarithmic.",
-            "Planets are made equally large.",
+            "Orbits are drawn on a logarithmic scale.",
+            "Every planet is drawn the same size.",
             "Bodies and orbit distances share one scale.",
-            "Orbits shrink, but planets stay enlarged."
+            "Orbits shrink but planets stay enlarged."
           ],
           "answer": 2,
           "explain": "Physical scale applies the same distance conversion to planetary radii and orbital separations. Because radii are tiny compared with those separations, most planets become difficult to see in a whole-system view."
@@ -1655,6 +1779,17 @@
           ],
           "answer": 0,
           "explain": "Saturn's rings consist of many separate orbiting particles, mostly water ice with some rocky material. A continuous rendered disc represents particles too small to resolve individually."
+        },
+        {
+          "prompt": "Which planets are the rocky, terrestrial planets?",
+          "choices": [
+            "Jupiter, Saturn, Uranus and Neptune",
+            "Mercury, Venus, Earth and Mars",
+            "Earth, Mars, Jupiter and Saturn",
+            "Venus, Earth, Uranus and Neptune"
+          ],
+          "answer": 1,
+          "explain": "The four inner planets are small and rocky. Jupiter and Saturn are gas giants, while Uranus and Neptune are ice giants."
         }
       ],
       "why": [
@@ -1706,6 +1841,10 @@
         {
           "claim": "A picture comparing planet sizes also shows their correct spacing.",
           "truth": "Planet radii and orbital distances differ across such large ranges that many illustrations use separate scales for them. A size-comparison view may preserve relative radii while arranging planets close together. Check the stated scale before using a displayed gap as a physical distance."
+        },
+        {
+          "claim": "Outer planets take longer to orbit only because their orbits are bigger.",
+          "truth": "Their orbits are longer, but they also move more slowly because the Sun’s gravity is weaker far away. Both effects together explain Kepler’s third law: Neptune takes about 165 years to orbit, far more than 30 times Earth’s year."
         }
       ],
       "cases": [
@@ -1884,10 +2023,10 @@
         {
           "prompt": "The 1361 W/m² reference applies to…",
           "choices": [
-            "Any horizontal surface on Earth at noon.",
-            "A surface facing the Sun at 1 AU, above the atmosphere.",
-            "The ground at the poles in summer.",
-            "The surface of the Sun itself."
+            "Any horizontal patch of ground on Earth at noon.",
+            "A surface facing the Sun at 1 AU, above the air.",
+            "The ground at either pole in midsummer.",
+            "The glowing surface of the Sun itself."
           ],
           "answer": 1,
           "explain": "The solar irradiance reference measures incoming power per unit area on a surface perpendicular to the beam at 1 AU. A tilted surface receives less per unit area, and Earth's atmosphere further alters surface sunlight."
@@ -1917,13 +2056,24 @@
         {
           "prompt": "Turning on Sunspot observation changes…",
           "choices": [
-            "The photograph shown, but not the fixed irradiance calculation.",
-            "Earth’s axial tilt in the model.",
+            "Only the photograph, not the fixed irradiance calculation.",
+            "Earth’s axial tilt, which the model then recalculates.",
             "The calculation, which turns into a solar forecast.",
-            "The irradiance value, which doubles with sunspots."
+            "The irradiance value, which doubles when spots appear."
           ],
           "answer": 0,
           "explain": "The photograph is an observation selected for comparison, while this calculation keeps its reference solar irradiance fixed. Selecting another image therefore does not change the calculated energy input."
+        },
+        {
+          "prompt": "Why is it usually colder at the poles than at the equator, averaged over a year?",
+          "choices": [
+            "The poles are further from the Sun than the equator.",
+            "Sunlight arrives at a low angle and spreads over more ground.",
+            "The poles have no daylight for half of every year.",
+            "Snow at the poles creates cold air on its own."
+          ],
+          "answer": 1,
+          "explain": "At high latitudes the Sun is low, so each beam of sunlight is spread over a larger area and passes through more atmosphere. Bright snow and ice then reflect much of what does arrive."
         }
       ],
       "why": [
@@ -1972,6 +2122,10 @@
         {
           "claim": "Sunlight above the atmosphere supplies the same energy to every square metre of ground.",
           "truth": "The angle of the rays changes how incoming energy is spread over a horizontal surface. At a lower Sun angle the same beam covers more ground, and day length also changes daily energy receipt. Clouds, reflection and atmospheric absorption further modify the energy reaching the surface."
+        },
+        {
+          "claim": "The Sun is a huge ball of burning fire.",
+          "truth": "Nothing is burning in the Sun: there is no oxygen fire. Its energy comes from nuclear fusion in the core, where hydrogen nuclei join to form helium and release energy."
         }
       ],
       "cases": [
@@ -2106,6 +2260,28 @@
           ],
           "answer": 0,
           "explain": "The astronomical unit is a defined length of exactly 149597870.7 km. Earth's actual distance from the Sun changes around its elliptical orbit, so it is not always exactly 1 AU."
+        },
+        {
+          "prompt": "Light from the Sun takes about 8 minutes to reach Earth. What does this tell us?",
+          "choices": [
+            "We see the Sun as it was about 8 minutes ago.",
+            "The Sun is 8 light-years away from Earth.",
+            "Sunlight slows down as it passes through space.",
+            "The Sun rises 8 minutes before we can see it."
+          ],
+          "answer": 0,
+          "explain": "Light travels at about 300,000 km per second, and the Sun is about 150 million km away. The light we see left the Sun about 8 minutes earlier, so we always see it slightly in the past."
+        },
+        {
+          "prompt": "Which list is in order from smallest to largest?",
+          "choices": [
+            "Galaxy, Solar System, star, planet",
+            "Planet, star, galaxy, Solar System",
+            "Solar System, planet, galaxy, star",
+            "Planet, star, Solar System, galaxy"
+          ],
+          "answer": 3,
+          "explain": "A planet orbits a star; a star and everything orbiting it form a planetary system such as the Solar System; and a galaxy contains billions of stars and their systems."
         }
       ],
       "why": [
@@ -2152,6 +2328,10 @@
         {
           "claim": "A light-year is a length of time, so a star 4.24 light-years away is about time rather than distance.",
           "truth": "A light-year is a distance: how far light travels in one Julian year, about 9.46 trillion km. Proxima Centauri is about 4.24 light-years away, so its light takes about 4.24 years to reach us; the travel time is how the distance is defined, not the quantity being measured."
+        },
+        {
+          "claim": "The stars in a constellation are close together in space.",
+          "truth": "Stars in a constellation only appear close in our sky. They can lie at very different distances: in Orion, Betelgeuse is roughly 500–600 light-years away, while Rigel is around 860."
         }
       ],
       "cases": [
@@ -2289,9 +2469,9 @@
         {
           "prompt": "Human history on this coil is…",
           "choices": [
-            "About half the spiral",
-            "The whole final coil",
-            "Before the first life",
+            "About half of the whole spiral",
+            "The whole of the final coil",
+            "A section before the first life",
             "A thin mark at the very end"
           ],
           "answer": 3,
@@ -2307,6 +2487,17 @@
           ],
           "answer": 0,
           "explain": "The 4540 Ma window approximates Earth's age, based on radiometric evidence. Pangaea assembled much later, within the last few hundred million years."
+        },
+        {
+          "prompt": "Which happened first?",
+          "choices": [
+            "The extinction of the non-bird dinosaurs",
+            "The formation of the first oceans",
+            "The assembly of Pangaea",
+            "The appearance of the first trilobites"
+          ],
+          "answer": 1,
+          "explain": "Oceans existed on early Earth more than 4 billion years ago. Trilobites appeared about 520 million years ago, Pangaea assembled around 335 million years ago and the dinosaurs died out 66 million years ago."
         }
       ],
       "why": [
@@ -2358,6 +2549,10 @@
         {
           "claim": "The Grand Canyon is as old as the rocks exposed in its walls.",
           "truth": "The rocks formed before erosion exposed them in the canyon. Rock formation, deformation, uplift and river incision belong to different parts of the geological history and require different evidence to date. An old rock can therefore form the wall of a much younger landform."
+        },
+        {
+          "claim": "Dinosaurs and early humans lived at the same time.",
+          "truth": "Non-bird dinosaurs died out about 66 million years ago. Our species appeared only about 300,000 years ago, so tens of millions of years separate them. Birds are the dinosaurs’ living descendants."
         }
       ],
       "cases": [
@@ -2475,9 +2670,9 @@
           "prompt": "The umbra is…",
           "choices": [
             "The dark core of the shadow",
-            "The faint outer shadow",
-            "The Moon’s lit half",
-            "Earth’s night side"
+            "The faint outer part of a shadow",
+            "The half of the Moon lit by the Sun",
+            "The night side of Earth"
           ],
           "answer": 0,
           "explain": "Inside the umbra, the eclipsing body blocks the entire solar disc. In the surrounding penumbra, only part of the Sun is obscured."
@@ -2514,6 +2709,17 @@
           ],
           "answer": 3,
           "explain": "Away from an orbital node, the Moon's tilted orbit carries it above or below Earth's shadow at full Moon. The full phase alone is therefore insufficient to produce a lunar eclipse."
+        },
+        {
+          "prompt": "Why can a total solar eclipse only be seen from a narrow path on Earth?",
+          "choices": [
+            "The Moon’s umbra is small where it reaches Earth.",
+            "Clouds hide the eclipse from most other places.",
+            "Only people on the equator can see the Sun at noon.",
+            "Earth’s shadow covers everywhere else at that time."
+          ],
+          "answer": 0,
+          "explain": "The Moon’s dark umbra narrows to at most a few hundred kilometres across by the time it reaches Earth. Outside this path observers are in the penumbra and see only a partial eclipse."
         }
       ],
       "why": [
@@ -2563,6 +2769,10 @@
         {
           "claim": "Every full Moon produces a lunar eclipse.",
           "truth": "A lunar eclipse requires the full Moon to pass through Earth’s shadow. The Moon’s orbital plane is tilted by about five degrees relative to Earth’s orbital plane, so it usually passes above or below that shadow. An eclipse occurs only when the alignment is sufficiently close to an orbital node."
+        },
+        {
+          "claim": "It is safe to look at the Sun during a partial solar eclipse because most of it is covered.",
+          "truth": "Even a thin crescent of the Sun is bright enough to damage your eyes. Use certified eclipse glasses or project the Sun’s image through a pinhole. Only during totality, when the Moon covers the whole disc, is it briefly safe without protection."
         }
       ],
       "cases": [
@@ -2731,6 +2941,17 @@
           ],
           "answer": 3,
           "explain": "At this right-angle arrangement, the solar contribution partly reduces the lunar tidal range. The resulting neap range is smaller rather than zero, and the term does not refer to a season."
+        },
+        {
+          "prompt": "Why is high tide about 50 minutes later each day?",
+          "choices": [
+            "Earth’s rotation is slowing down each day.",
+            "The Sun pulls the tide back by 50 minutes.",
+            "The Moon moves along its orbit, so Earth must turn further.",
+            "Ocean water takes 50 minutes to cross each basin."
+          ],
+          "answer": 2,
+          "explain": "While Earth spins once, the Moon moves about 13° along its orbit in the same direction. Earth has to rotate a little further, roughly 50 minutes, to bring a place back under the Moon."
         }
       ],
       "why": [
@@ -2778,6 +2999,10 @@
         {
           "claim": "Spring tides occur only during the spring season.",
           "truth": "Spring tides are periods of relatively large tidal range around new and full Moon, when solar and lunar tide-generating effects reinforce each other. They occur throughout the year. The height and timing at an actual coast also depend on water depth, basin shape and local conditions."
+        },
+        {
+          "claim": "Every coast has two high tides a day at the same times each day.",
+          "truth": "Many coasts, including most of Britain, have two highs and two lows a day, but some places have only one, or two unequal highs. High tide also arrives about 50 minutes later each day, because the Moon moves along its orbit."
         }
       ],
       "cases": [
@@ -2894,6 +3119,17 @@
           ],
           "answer": 0,
           "explain": "Moving from London towards the equator reduces the seasonal variation in daylight and raises the noon Sun in winter. Equatorial day length remains near 12 hours, while the noon Sun still changes with solar declination."
+        },
+        {
+          "prompt": "London is at about 51.5° N. What is its noon solar altitude at an equinox?",
+          "choices": [
+            "About 90°",
+            "About 23.5°",
+            "About 51.5°",
+            "About 38.5°"
+          ],
+          "answer": 3,
+          "explain": "At an equinox the Sun is overhead at the equator, so noon altitude equals 90° minus latitude: 90° − 51.5° = 38.5°."
         }
       ],
       "why": [
@@ -2945,6 +3181,10 @@
         {
           "claim": "The Sun is directly overhead at local noon everywhere on Earth.",
           "truth": "Local solar noon is when the Sun reaches its daily highest position, but that position need not be overhead. Noon altitude depends on latitude and solar declination. The Sun can be directly overhead only between the tropics, and only on dates appropriate to the latitude."
+        },
+        {
+          "claim": "The Sun always rises due east and sets due west.",
+          "truth": "That happens only near the equinoxes. In a British summer the Sun rises in the north-east and sets in the north-west, giving a long, high path; in winter it rises in the south-east and sets in the south-west."
         }
       ],
       "cases": [
@@ -3084,6 +3324,17 @@
           ],
           "answer": 3,
           "explain": "India moved north as part of its plate and eventually collided with Eurasia. Continued convergence shortened and thickened the crust, building the Himalayan mountain belt."
+        },
+        {
+          "prompt": "Fossils of the reptile Mesosaurus are found in both southern Africa and South America. What do they suggest?",
+          "choices": [
+            "It swam thousands of kilometres across the open Atlantic.",
+            "The two continents were once joined together.",
+            "The same species evolved separately on each continent.",
+            "Birds carried its eggs across the ocean."
+          ],
+          "answer": 1,
+          "explain": "Mesosaurus lived in fresh or brackish water and could not cross a wide ocean. Its fossils on both continents, together with matching rocks, support the idea that Africa and South America were once joined."
         }
       ],
       "why": [
@@ -3134,6 +3385,10 @@
         {
           "claim": "Matching modern coastlines is enough to prove how the continents once fitted together.",
           "truth": "Coastlines change with sea level, erosion and deposition, so their fit is approximate. Reconstructions also use continental margins, matching rock sequences and structures, fossils, and magnetic evidence. Agreement among different kinds of evidence provides a stronger basis for estimating past continental positions."
+        },
+        {
+          "claim": "Continents moved apart quickly, over a few thousand years.",
+          "truth": "Plates move only a few centimetres a year, about as fast as fingernails grow. Opening the Atlantic Ocean took around 180 million years."
         }
       ],
       "cases": [
@@ -3144,6 +3399,10 @@
         {
           "slug": "san-andreas",
           "label": "San Andreas"
+        },
+        {
+          "slug": "himalaya",
+          "label": "Himalaya and Tibet"
         }
       ],
       "teacher": {
@@ -3236,9 +3495,9 @@
         {
           "prompt": "Older volcanoes in the main Hawaiian chain generally lie…",
           "choices": [
-            "Southeast of the active island.",
-            "Next to a subduction trench.",
-            "Randomly along the chain.",
+            "Southeast of the youngest active island.",
+            "Next to a deep subduction trench.",
+            "Scattered randomly along the chain.",
             "Northwest of the active southeastern end."
           ],
           "answer": 3,
@@ -3265,6 +3524,28 @@
           ],
           "answer": 1,
           "explain": "Mantle rock can rise slowly while remaining mostly solid. As pressure falls during ascent, some of that hot rock may cross its melting threshold and generate magma."
+        },
+        {
+          "prompt": "Where does Yellowstone sit relative to plate boundaries?",
+          "choices": [
+            "On a subduction zone",
+            "On a mid-ocean ridge",
+            "On a transform fault",
+            "Inside the North American Plate"
+          ],
+          "answer": 3,
+          "explain": "Yellowstone is far from any plate boundary. Like Hawaiʻi it is an intraplate volcanic system, fed by a long-lived source of heat beneath the moving plate."
+        },
+        {
+          "prompt": "Volcanoes on Hawaiʻi’s Big Island are active, but those on Kauaʻi are not. Why?",
+          "choices": [
+            "Kauaʻi’s magma froze when the climate cooled.",
+            "Kauaʻi lies over a cooler part of the ocean.",
+            "Kauaʻi has been carried away from the hotspot.",
+            "Kauaʻi’s volcanoes are blocked by coral reefs."
+          ],
+          "answer": 2,
+          "explain": "Kauaʻi formed over the hotspot about 5 million years ago. The Pacific Plate has since carried it north-west, away from its magma supply, so its volcanoes are extinct and eroding."
         }
       ],
       "why": [
@@ -3315,6 +3596,10 @@
         {
           "claim": "A hotspot must remain perfectly fixed while its plate moves.",
           "truth": "A volcanic age track records motion of a plate relative to a region of melting. Plate motion is important, but the source can also shift as the mantle moves. Track direction and age therefore constrain relative motion without requiring an exactly stationary source."
+        },
+        {
+          "claim": "Hawaiian volcanoes form above a subduction zone, like the volcanoes of Japan.",
+          "truth": "Hawaiʻi lies near the middle of the Pacific Plate, thousands of kilometres from the nearest plate boundary. Its magma comes from melting of hot mantle beneath the plate, not from a sinking oceanic plate."
         }
       ],
       "cases": [
@@ -3452,6 +3737,17 @@
           ],
           "answer": 2,
           "explain": "At a subduction trench, oceanic lithosphere bends and descends into the mantle. Transform boundaries mainly accommodate sideways motion and do not perform that recycling process."
+        },
+        {
+          "prompt": "Where is the oldest oceanic crust usually found?",
+          "choices": [
+            "At the crest of a mid-ocean ridge",
+            "Close to the ridge, under thin sediment",
+            "Spread evenly across every ocean floor",
+            "Far from ridges, near some trenches and margins"
+          ],
+          "answer": 3,
+          "explain": "Crust forms at the ridge and is carried away on both sides, so it gets older with distance. The oldest crust lies furthest from the ridge, often near trenches where it will eventually be subducted."
         }
       ],
       "why": [
@@ -3502,6 +3798,10 @@
         {
           "claim": "Every magnetic stripe on the ocean floor represents the same amount of time.",
           "truth": "Geomagnetic reversals occur at irregular intervals, and spreading rates can change. A stripe’s width depends on both the duration of its polarity interval and the rate at which crust moved away from the ridge. Matching sequences are stronger evidence than an assumption of equally spaced reversals."
+        },
+        {
+          "claim": "The ocean floor is the oldest part of Earth’s surface.",
+          "truth": "The oldest ocean floor is less than about 200 million years old, because oceanic crust is recycled at subduction zones. Some continental rocks are over 4 billion years old."
         }
       ],
       "cases": [
@@ -3619,9 +3919,9 @@
           "prompt": "Why is the stratosphere warmer as you go up?",
           "choices": [
             "Ozone absorbs ultraviolet and heats that layer.",
-            "Heat rises from the ground and collects there.",
-            "Clouds trap heat there.",
-            "It is closer to the Sun."
+            "Heat rising from the ground collects there.",
+            "Clouds high up trap heat in that layer.",
+            "It is closer to the Sun than the ground."
           ],
           "answer": 0,
           "explain": "Ozone absorbs ultraviolet radiation and converts part of that energy into heat. This absorption produces the characteristic temperature increase with height through much of the stratosphere."
@@ -3636,6 +3936,17 @@
           ],
           "answer": 1,
           "explain": "Denver is about 1.6 km above sea level, but the tropopause there is usually more than 10 km up. Its weather is still troposphere weather."
+        },
+        {
+          "prompt": "About how much of the atmosphere’s mass is in the troposphere?",
+          "choices": [
+            "About 10%",
+            "About 33%",
+            "About 75–80%",
+            "All of it"
+          ],
+          "answer": 2,
+          "explain": "Air is compressed by the weight above it, so it is densest near the ground. Although the troposphere is only about 8–17 km deep, it holds roughly three-quarters or more of the atmosphere’s mass."
         }
       ],
       "why": [
@@ -3685,6 +3996,10 @@
         {
           "claim": "The tropopause is the top of the atmosphere.",
           "truth": "The tropopause is only the boundary between the troposphere and the stratosphere. Air continues far above it, getting steadily thinner. Its height changes with latitude, season and weather."
+        },
+        {
+          "claim": "The higher you climb, the warmer it gets, because you are closer to the Sun.",
+          "truth": "In the troposphere temperature usually falls with height, by about 6.5 °C per kilometre on average. The air is heated mainly from the ground, and a few kilometres makes no real difference to the distance from the Sun."
         }
       ],
       "cases": [
@@ -3824,6 +4139,17 @@
           ],
           "answer": 2,
           "explain": "Greenhouse gases and clouds absorb infrared and emit it in all directions, including back down. This downward infrared adds energy to the surface, which also emits its own infrared upwards."
+        },
+        {
+          "prompt": "As Arctic sea ice shrinks in summer, what happens to the region’s albedo?",
+          "choices": [
+            "It rises, so more sunlight is reflected.",
+            "It is unchanged because water is blue.",
+            "It stops mattering because water is cold.",
+            "It falls, so more sunlight is absorbed."
+          ],
+          "answer": 3,
+          "explain": "Ice and snow reflect much of the sunlight that reaches them, while dark open water absorbs most of it. Less ice means a lower albedo and more absorbed energy, which can cause further melting."
         }
       ],
       "why": [
@@ -3873,6 +4199,10 @@
         {
           "claim": "Greenhouse gases mainly warm Earth by trapping incoming visible sunlight.",
           "truth": "Greenhouse gases let most visible sunlight through, and much of it is absorbed at the surface. The warmed surface emits infrared, which greenhouse gases and clouds absorb and re-emit, partly back downwards. The surface therefore has to be warmer before enough energy escapes to space to balance the sunlight absorbed."
+        },
+        {
+          "claim": "The greenhouse effect is caused by the hole in the ozone layer.",
+          "truth": "They are separate issues. The ozone hole is a thinning of stratospheric ozone that lets more ultraviolet reach the ground. The greenhouse effect is the absorption and re-emission of infrared by gases such as carbon dioxide and water vapour."
         }
       ],
       "cases": [
@@ -4006,12 +4336,23 @@
           "prompt": "Why does this lab leave out the Coriolis effect?",
           "choices": [
             "To focus on heating; rotation can still turn real breezes.",
-            "Coriolis is exactly zero over all coasts.",
-            "The sea does not rotate with Earth.",
-            "Pressure differences are impossible near the coast."
+            "Coriolis is exactly zero along every coastline.",
+            "The sea does not rotate along with Earth.",
+            "Pressure differences cannot form near a coast."
           ],
           "answer": 0,
           "explain": "Leaving out the Coriolis effect lets the lab show only the circulation driven by local heating. Real breezes are also turned by Earth’s rotation and shaped by background winds and terrain."
+        },
+        {
+          "prompt": "Why does warm air rise?",
+          "choices": [
+            "Heat always moves upwards on its own.",
+            "The Sun pulls warm air towards it.",
+            "Warm air contains less water vapour.",
+            "It is less dense than the cooler air around it."
+          ],
+          "answer": 3,
+          "explain": "Heating makes air expand, so a given volume has less mass. Surrounded by denser, cooler air, it is buoyant and rises."
         }
       ],
       "why": [
@@ -4057,6 +4398,10 @@
         {
           "claim": "A sea breeze always blows from sea to land, by day and by night.",
           "truth": "A sea breeze blows onshore by day, when the land is warmer than the sea. At night the land can cool below the sea’s temperature, and a land breeze may blow offshore instead. Background winds, cloud and coastal hills can weaken or stop either breeze."
+        },
+        {
+          "claim": "Hot air rises because heat itself rises.",
+          "truth": "Warm air rises because it is less dense than the cooler air around it. The denser cooler air sinks and pushes the warm air upwards, just as a cork floats up in water."
         }
       ],
       "cases": [
@@ -4190,6 +4535,17 @@
           ],
           "answer": 2,
           "explain": "For horizontal motion, the Coriolis parameter is proportional to the sine of latitude. It is zero at the equator and changes sign between the two hemispheres."
+        },
+        {
+          "prompt": "A westerly wind blows…",
+          "choices": [
+            "From the east towards the west",
+            "Towards the west, out to sea",
+            "From the west towards the east",
+            "Only along a country’s west coast"
+          ],
+          "answer": 2,
+          "explain": "Wind direction always names where the air comes from. The UK’s prevailing south-westerlies blow from the Atlantic towards the land."
         }
       ],
       "why": [
@@ -4236,6 +4592,10 @@
         {
           "claim": "Wind always blows straight from high pressure to low pressure.",
           "truth": "The pressure-gradient force pushes air towards lower pressure, but Earth’s rotation deflects moving air and friction slows it near the ground. Above the surface layer, winds blow almost along the isobars; near the ground they cross them at an angle towards lower pressure."
+        },
+        {
+          "claim": "A wind is named after the direction it is blowing towards.",
+          "truth": "Winds are named after the direction they come from. A westerly wind blows from the west towards the east, and a north wind comes from the north."
         }
       ],
       "cases": [
@@ -4383,6 +4743,17 @@
           ],
           "answer": 1,
           "explain": "Earth's rotation constrains large-scale motion, while weather systems redistribute heat and momentum. Their combined effects produce a circulation more complex than a single direct equator-to-pole loop."
+        },
+        {
+          "prompt": "Why are many of the world’s hot deserts near 30° N and 30° S?",
+          "choices": [
+            "The Sun is overhead there all year.",
+            "Trade winds bring rain there from the sea.",
+            "They are the furthest places from oceans.",
+            "Air sinks there, warming and drying."
+          ],
+          "answer": 3,
+          "explain": "Air that rose at the ITCZ descends in the subtropics. Sinking air warms by compression and its relative humidity falls, so clouds struggle to form."
         }
       ],
       "why": [
@@ -4433,6 +4804,10 @@
         {
           "claim": "The three atmospheric cells are fixed loops followed by individual air parcels.",
           "truth": "The three-cell model shows average circulation across latitudes. Real air moves through changing weather systems and mixes between regions. Continents, seasons and oceans disturb the pattern, and the Ferrel cell is kept going mainly by midlatitude weather systems, not by a simple convection loop."
+        },
+        {
+          "claim": "The biggest hot deserts lie on the equator because it is the hottest place.",
+          "truth": "The equator is mostly wet, because air rises there and forms heavy rain. The Sahara, Arabian and Australian deserts lie near 30° N and S, where air sinks in the Hadley cell, warms and dries out."
         }
       ],
       "cases": [
@@ -4443,6 +4818,10 @@
         {
           "slug": "uk-daylength",
           "label": "ITCZ and seasons"
+        },
+        {
+          "slug": "atacama",
+          "label": "Atacama Desert"
         }
       ],
       "teacher": {
@@ -4548,10 +4927,10 @@
         {
           "prompt": "Occlusion means…",
           "choices": [
-            "The warm front catches the cold front",
+            "The warm front catches up with the cold front ahead",
             "The cold front lifts the warm sector off the ground",
-            "Two warm air masses merge at the surface",
-            "The front stops moving and dissolves"
+            "Two warm air masses merge together at the surface",
+            "The front stops moving and slowly dissolves away"
           ],
           "answer": 1,
           "explain": "An occlusion develops when a cold front catches a warm front and lifts the warm sector away from the ground. The resulting structure depends on the temperatures of the two colder air masses."
@@ -4566,6 +4945,17 @@
           ],
           "answer": 2,
           "explain": "A weather-map front marks where the sloping boundary between air masses meets Earth's surface. Cloud and precipitation can extend well away from that line because air is lifted along the boundary above it."
+        },
+        {
+          "prompt": "After a cold front passes over the UK, the weather usually becomes…",
+          "choices": [
+            "Warmer and more humid, with drizzle",
+            "Calm and foggy for several days",
+            "Cooler and clearer, with showers",
+            "Unchanged until the next warm front"
+          ],
+          "answer": 2,
+          "explain": "Behind a cold front, colder and drier air arrives. Skies often clear, with bright spells and scattered showers, and the wind usually veers."
         }
       ],
       "why": [
@@ -4612,9 +5002,18 @@
         {
           "claim": "A front is a solid wall that keeps two air masses completely separate.",
           "truth": "A front is a transition zone across which properties such as temperature and humidity change. Its slope and movement affect how air is lifted, with cloud and precipitation depending on moisture and stability. Mixing occurs, and real fronts have more complex shapes than a single dividing line."
+        },
+        {
+          "claim": "A warm front brings warm, sunny weather.",
+          "truth": "A warm front usually brings thickening cloud and a long spell of steady rain as warm air rises gently over cold air. Temperatures rise once the front has passed, but the warm sector is often cloudy too."
         }
       ],
-      "cases": [],
+      "cases": [
+        {
+          "slug": "storm-desmond",
+          "label": "Storm Desmond, Cumbria"
+        }
+      ],
       "teacher": {
         "script": "Find the cold air, the warm sector and the cool air ahead. Compare the slopes of the cold front and the warm front.\n\nDrag the Process slider to 0.70, where the cold front catches the warm front and the warm sector disappears from the ground. Keep going and read in the results panel how high the warm air has been lifted.",
         "pitfalls": [
@@ -4693,10 +5092,10 @@
         {
           "prompt": "An anticyclone is associated with…",
           "choices": [
-            "A surface low and rising air",
+            "A surface low with rising air and cloud",
             "High pressure, sinking air, clearer skies",
-            "A surface high with rising air",
-            "Low pressure and strong fronts"
+            "A surface high with strongly rising air",
+            "Low pressure with strong fronts and rain"
           ],
           "answer": 1,
           "explain": "Air commonly descends within an anticyclone and warms as it is compressed, reducing relative humidity. Clearer skies are common, although low cloud or fog can persist beneath an inversion."
@@ -4704,10 +5103,10 @@
         {
           "prompt": "A UK winter depression is…",
           "choices": [
-            "A tropical cyclone",
-            "An anticyclone with fronts",
+            "A tropical cyclone from warm seas",
+            "An anticyclone with weather fronts",
             "A midlatitude cyclone with fronts",
-            "A thermal low over land"
+            "A thermal low over heated land"
           ],
           "answer": 2,
           "explain": "Most UK winter depressions develop in midlatitudes along strong horizontal temperature contrasts and have fronts. Tropical cyclones draw much of their energy from warm-ocean heat and moisture and have a different structure."
@@ -4722,6 +5121,17 @@
           ],
           "answer": 3,
           "explain": "In the Northern Hemisphere, the pressure-gradient force points away from a high and Coriolis deflects the moving air to its right. The resulting anticyclonic circulation is clockwise, with outward flow near the surface."
+        },
+        {
+          "prompt": "On a weather chart, isobars packed closely around a low pressure centre mean…",
+          "choices": [
+            "Light, calm winds",
+            "High pressure building",
+            "Strong winds near the low",
+            "Clear, settled skies"
+          ],
+          "answer": 2,
+          "explain": "Closely spaced isobars show a steep pressure gradient, which drives strong winds. Widely spaced isobars, common in anticyclones, mean light winds."
         }
       ],
       "why": [
@@ -4767,6 +5177,10 @@
         {
           "claim": "High pressure always brings hot, sunny weather.",
           "truth": "High pressure usually means sinking air and settled weather, but what that feels like depends on the season and moisture. An anticyclone can bring clear skies or days of fog and low cloud, and in winter its calm, clear nights can bring hard frost."
+        },
+        {
+          "claim": "Water always drains the opposite way down plugholes in the Southern Hemisphere, because of the Coriolis effect.",
+          "truth": "The Coriolis effect matters for systems hundreds of kilometres across that last for days, such as depressions. In a sink it is far too weak; the shape of the basin and how the water was moving decide which way it swirls."
         }
       ],
       "cases": [
@@ -4892,6 +5306,17 @@
           ],
           "answer": 1,
           "explain": "Both tundra and ice-cap climates have a warmest-month mean below 10 °C. Tundra reaches at least 0 °C in its warmest month, while an ice-cap climate remains below 0 °C."
+        },
+        {
+          "prompt": "Which statement describes climate rather than weather?",
+          "choices": [
+            "It is raining heavily in Leeds today.",
+            "Tomorrow will be windy in Cardiff.",
+            "Last night was the coldest of the week.",
+            "Manchester averages around 800 mm of rain a year."
+          ],
+          "answer": 3,
+          "explain": "An average over many years describes climate. The other statements describe conditions on particular days, which is weather."
         }
       ],
       "why": [
@@ -4937,6 +5362,10 @@
         {
           "claim": "One unusual day of weather can change a place’s climate classification.",
           "truth": "Climate classes come from long-term statistics, such as 30 years of monthly temperature and rainfall. A heatwave or a very wet day is one event within that record. Only a lasting shift in those statistics can eventually change a place’s class."
+        },
+        {
+          "claim": "Weather and climate mean the same thing.",
+          "truth": "Weather is the state of the atmosphere over hours or days. Climate is the long-term pattern of weather, usually averaged over 30 years: as the saying goes, climate is what you expect, weather is what you get."
         }
       ],
       "cases": [
@@ -5077,10 +5506,10 @@
         {
           "prompt": "The mouth is…",
           "choices": [
-            "Where the river begins",
+            "The spring or bog where the river begins",
             "Where it enters the sea, a lake or a larger river",
-            "Always a delta at the coast",
-            "The steepest stretch of the river"
+            "Always a delta built out into the sea",
+            "The steepest, fastest stretch of the river"
           ],
           "answer": 1,
           "explain": "The mouth is the downstream end where a river enters another body of water. Whether a delta forms there depends on how much sediment arrives and how quickly waves, tides or currents carry it away."
@@ -5095,6 +5524,17 @@
           ],
           "answer": 2,
           "explain": "Rain falling on basin slopes can reach the river by surface runoff, soil flow or groundwater flow. The drainage basin therefore includes the contributing land as well as the visible channels."
+        },
+        {
+          "prompt": "Rain falls just beyond a basin’s watershed. Where does its runoff go?",
+          "choices": [
+            "Into this river, but more slowly",
+            "Nowhere, because it all evaporates",
+            "Straight into this river’s main channel",
+            "Into a neighbouring river system"
+          ],
+          "answer": 3,
+          "explain": "The watershed is the boundary of the basin. Rain falling on the other side drains towards a different river, even if the two places are very close."
         }
       ],
       "why": [
@@ -5142,6 +5582,10 @@
         {
           "claim": "All rain falling within a drainage basin reaches its river immediately.",
           "truth": "Rainfall can be intercepted, infiltrate soil, replenish groundwater, evaporate or enter surface runoff. These pathways have different travel times, and some water remains stored or leaves through evapotranspiration. The river’s response depends on both rainfall and the basin’s existing conditions."
+        },
+        {
+          "claim": "Rivers flow from north to south.",
+          "truth": "Rivers flow downhill, in whatever direction the land slopes. The Nile flows north to the Mediterranean, and the River Tay flows east; ‘north’ is only the top of the map."
         }
       ],
       "cases": [
@@ -5273,9 +5717,9 @@
           "prompt": "Urban land use typically…",
           "choices": [
             "Shortens lag and raises peak",
-            "Lengthens lag time",
-            "Lowers the flood peak",
-            "Has no effect on runoff"
+            "Lengthens lag and lowers peak",
+            "Lowers the peak but keeps lag",
+            "Has no effect on runoff at all"
           ],
           "answer": 0,
           "explain": "Paved surfaces reduce infiltration, while drains can carry runoff rapidly to channels. Under comparable rainfall, these changes commonly raise the flood peak and shorten its lag."
@@ -5295,12 +5739,23 @@
           "prompt": "Stage and discharge are…",
           "choices": [
             "The same number with two names",
-            "Flow speed versus channel width",
+            "Flow speed versus the channel’s width",
             "Water height versus flow volume per second",
-            "Rainfall versus runoff"
+            "Rainfall total versus surface runoff"
           ],
           "answer": 2,
           "explain": "Stage is the height of the water surface above a reference level, whereas discharge is the volume passing a cross-section each second. The link between them (a rating curve) is different at every site."
+        },
+        {
+          "prompt": "Why might the same storm give a higher peak after a wet week?",
+          "choices": [
+            "Rain falls faster on wet ground.",
+            "Rivers are always deeper in winter.",
+            "Saturated soil lets less water infiltrate.",
+            "Wet weather lowers the river’s bed."
+          ],
+          "answer": 2,
+          "explain": "When the soil is already full of water, little more can infiltrate. More of the rain becomes overland flow, reaching the river quickly and raising the peak."
         }
       ],
       "why": [
@@ -5351,6 +5806,10 @@
         {
           "claim": "Peak river discharge occurs at exactly the same time as peak rainfall.",
           "truth": "Water takes time to move through a catchment and its stores, so the discharge peak commonly follows the rainfall peak. The delay depends on rainfall location and duration, catchment size, slopes, soil conditions and drainage. State which rainfall reference is used when measuring lag time."
+        },
+        {
+          "claim": "The same amount of rain always produces the same flood.",
+          "truth": "The response depends on the catchment’s condition. Rain on soil that is already saturated or frozen runs off quickly and gives a higher, sharper peak than the same rain falling on dry ground."
         }
       ],
       "cases": [
@@ -5361,6 +5820,10 @@
         {
           "slug": "shanghai-huangpu",
           "label": "Shanghai / Huangpu"
+        },
+        {
+          "slug": "storm-desmond",
+          "label": "Storm Desmond, Cumbria"
         }
       ],
       "teacher": {
@@ -5474,9 +5937,9 @@
           "prompt": "The Mississippi’s year is…",
           "choices": [
             "A huge basin of snowmelt and rain, managed by dams",
-            "A small upland stream’s regime",
-            "A spring-fed flow that barely varies",
-            "A regime set mainly by glacier melt"
+            "A small upland stream’s flashy regime",
+            "A spring-fed flow that barely varies all year",
+            "A regime set mainly by glacier melt in summer"
           ],
           "answer": 0,
           "explain": "The Mississippi integrates runoff from a very large basin with contrasting rainfall and snowmelt patterns. Reservoirs, water use and river engineering also modify its seasonal flow."
@@ -5491,6 +5954,17 @@
           ],
           "answer": 1,
           "explain": "A storm hydrograph follows discharge during and after an individual rainfall event, often over hours or days. A regime graph summarises the recurring seasonal pattern, usually using monthly values."
+        },
+        {
+          "prompt": "What usually happens to a river’s flow below a large dam?",
+          "choices": [
+            "The river stops flowing completely.",
+            "Peaks are lowered and low flows raised.",
+            "Floods become larger and more frequent.",
+            "The yearly pattern is left unchanged."
+          ],
+          "answer": 1,
+          "explain": "The reservoir stores water during high flows and releases it later. Downstream, flood peaks are reduced and dry-season flows are often higher, smoothing the regime."
         }
       ],
       "why": [
@@ -5537,6 +6011,10 @@
         {
           "claim": "A river’s seasonal flow pattern depends only on the amount of rain each month.",
           "truth": "Rainfall matters, but snow accumulation and melt, evaporation, groundwater storage and reservoir operation can shift the timing of discharge. Water received in one season may reach the river in another. Explaining a regime therefore requires both the inputs and the processes that delay or remove water."
+        },
+        {
+          "claim": "A dam stops a river flowing.",
+          "truth": "A dam stores water in a reservoir and releases it through the year. It usually lowers flood peaks and raises low flows, changing the river’s regime, but water still flows downstream."
         }
       ],
       "cases": [
@@ -5664,6 +6142,17 @@
           ],
           "answer": 2,
           "explain": "Because the Coriolis effect strengthens with latitude, the return flow of a subtropical gyre is squeezed against its western boundary. This produces narrow, fast currents such as the Gulf Stream and Kuroshio."
+        },
+        {
+          "prompt": "Why are the Atacama and Namib deserts beside cold ocean currents?",
+          "choices": [
+            "Cold currents bring heavy rain to the coast.",
+            "Cold water evaporates faster than warm water.",
+            "Cold currents cool the air, keeping it stable and dry.",
+            "The currents wash desert sand onto the coast."
+          ],
+          "answer": 2,
+          "explain": "Air cooled from below by cold water is stable and does not rise to form rain clouds. Little rain falls, although sea fog is common."
         }
       ],
       "why": [
@@ -5709,6 +6198,10 @@
         {
           "claim": "Ocean currents are driven only by differences in water temperature.",
           "truth": "Winds and pressure gradients drive much upper-ocean circulation, with Earth’s rotation and coastlines shaping the flow. Temperature and salinity affect density and contribute to overturning, while mixing connects different depths. Surface gyres and deep circulation are related but cannot be explained by temperature alone."
+        },
+        {
+          "claim": "Cold ocean currents make the coasts beside them wet and rainy.",
+          "truth": "Cold currents cool the air above them, making it stable so it does not rise to form rain clouds. Coasts beside cold currents, such as the Atacama and Namib, are among the driest places on Earth, though often foggy."
         }
       ],
       "cases": [
@@ -5820,9 +6313,9 @@
         {
           "prompt": "Thermohaline means…",
           "choices": [
-            "Driven by wind alone",
-            "Driven by tides alone",
-            "Circulation set by sea ice cover",
+            "Circulation driven by wind alone",
+            "Circulation driven by tides alone",
+            "Circulation set by sea-ice cover",
             "Density set by temperature and salt"
           ],
           "answer": 3,
@@ -5832,9 +6325,9 @@
           "prompt": "Deep water forms in…",
           "choices": [
             "Cold, often salty high-latitude seas",
-            "The equatorial shallows only",
-            "The warm tropical Pacific",
-            "Shallow coastal lagoons"
+            "The shallow seas along the equator",
+            "The warm tropical western Pacific",
+            "Shallow, sheltered coastal lagoons"
           ],
           "answer": 0,
           "explain": "Strong cooling at high latitudes can make surface seawater dense enough to sink, especially where salinity is high. Sea-ice formation can further increase the salinity of nearby seawater by rejecting salt."
@@ -5860,6 +6353,17 @@
           ],
           "answer": 2,
           "explain": "Freshwater lowers surface salinity and usually lowers density, which can strengthen stratification and inhibit deep mixing. The overall circulation response also depends on temperature, winds and where the freshwater enters."
+        },
+        {
+          "prompt": "Which water would sink beneath the others?",
+          "choices": [
+            "Warm, fresh water",
+            "Warm, salty water",
+            "Cold, fresh water",
+            "Cold, salty water"
+          ],
+          "answer": 3,
+          "explain": "Cold water is denser than warm water, and salty water is denser than fresh water. Cold, salty water is the densest, which is why it sinks in high-latitude seas."
         }
       ],
       "why": [
@@ -5906,6 +6410,10 @@
         {
           "claim": "The ocean conveyor is one continuous pipe carrying water along a fixed route.",
           "truth": "The conveyor image simplifies a network of branching currents, mixing and exchanges between depths. Temperature and salinity influence density, while winds and mixing also help drive circulation. A parcel can follow many routes and take a range of times to move between ocean regions."
+        },
+        {
+          "claim": "Melting sea ice raises sea level as much as melting ice sheets.",
+          "truth": "Sea ice already floats, displacing its own weight of water, so its melting changes sea level very little. Melting ice on land, such as the Greenland and Antarctic ice sheets, adds new water to the ocean and raises sea level."
         }
       ],
       "cases": [
@@ -6086,6 +6594,17 @@
           ],
           "answer": 1,
           "explain": "Combustion combines carbon in the fuel with oxygen, releasing carbon dioxide. The carbon atoms are transferred from the fuel store into the atmosphere rather than being newly created."
+        },
+        {
+          "prompt": "Where does most of a tree’s dry mass come from?",
+          "choices": [
+            "Minerals taken up from the soil",
+            "Water drawn up through the roots",
+            "Carbon dioxide taken in from the air",
+            "Sunlight turned into solid material"
+          ],
+          "answer": 2,
+          "explain": "Photosynthesis uses light energy to combine carbon dioxide from the air with water, building sugars and then wood. Light supplies energy, not mass."
         }
       ],
       "why": [
@@ -6136,6 +6655,10 @@
         {
           "claim": "Carbon released by burning fossil fuels is immediately removed by the natural carbon cycle.",
           "truth": "Burning fossil fuels transfers carbon from long-term geological stores into the atmosphere. Land and oceans absorb some of it, but uptake does not instantly match all emissions. Atmospheric carbon increases when inputs exceed removals, and different stores exchange carbon over very different timescales."
+        },
+        {
+          "claim": "Plants get most of their mass from the soil.",
+          "truth": "Most of a plant’s dry mass is carbon compounds made from carbon dioxide taken from the air during photosynthesis. Soil supplies water and small amounts of minerals."
         }
       ],
       "cases": [
@@ -6146,6 +6669,10 @@
         {
           "slug": "dust-bowl",
           "label": "Land-use carbon"
+        },
+        {
+          "slug": "alaska-permafrost",
+          "label": "Arctic Alaska permafrost"
         }
       ],
       "teacher": {
@@ -6306,12 +6833,23 @@
           "prompt": "La Niña in this lab is…",
           "choices": [
             "Cooler east Pacific, stronger Walker cell",
-            "Warmer water in the east Pacific",
-            "Weaker trade winds than normal",
-            "A shift of warm water eastwards"
+            "Warmer water across the east Pacific",
+            "Weaker trade winds than in normal years",
+            "A shift of the warm pool eastwards"
           ],
           "answer": 0,
           "explain": "La Niña is associated with cooler-than-average central and eastern equatorial Pacific surface water and often stronger trade winds. These changes strengthen aspects of the usual east–west tropical Pacific contrast."
+        },
+        {
+          "prompt": "During a strong El Niño, which region often gets much more rain than usual?",
+          "choices": [
+            "Coastal Peru and Ecuador",
+            "Indonesia and northern Australia",
+            "The central Sahara",
+            "Central Siberia"
+          ],
+          "answer": 0,
+          "explain": "Warm water and rising air shift east during El Niño, bringing heavy rain and floods to the normally dry coasts of Peru and Ecuador, while Indonesia and Australia often turn drier."
         }
       ],
       "why": [
@@ -6358,9 +6896,18 @@
         {
           "claim": "El Niño causes the same weather in every affected place during every event.",
           "truth": "ENSO changes tropical Pacific ocean and atmospheric conditions, influencing weather probabilities in many regions. The response depends on season, event strength and other climate conditions. A regional tendency towards wetter or drier weather is not a guarantee for every location, day or event."
+        },
+        {
+          "claim": "El Niño is a single storm that hits South America.",
+          "truth": "El Niño is a pattern of ocean warming and changed winds across the tropical Pacific. It lasts many months, returns every few years and shifts rainfall and temperature patterns far from the Pacific."
         }
       ],
-      "cases": [],
+      "cases": [
+        {
+          "slug": "el-nino-2015",
+          "label": "The 2015–16 El Niño"
+        }
+      ],
       "teacher": {
         "script": "Start at ENSO 0 (neutral) and find the west, the east and the thermocline. Trace the rising air in the west and the surface trade winds blowing towards it.\n\nMove ENSO towards +1 (El Niño) and compare the eastern temperature and thermocline depth. Then try −1 (La Niña) and explain the stronger west–east contrast.",
         "pitfalls": [
@@ -6453,9 +7000,9 @@
           "prompt": "A basin is…",
           "choices": [
             "A lower area surrounded by higher land",
-            "A high, isolated peak",
-            "A flat raised tableland",
-            "A narrow ridge between valleys"
+            "A high, isolated mountain peak",
+            "A flat, raised tableland",
+            "A narrow ridge between two valleys"
           ],
           "answer": 0,
           "explain": "A basin is a lower area relative to the land around it. Water may converge towards its floor, although not every basin is completely enclosed or internally drained."
@@ -6463,10 +7010,10 @@
         {
           "prompt": "Mountains and hills differ mainly in…",
           "choices": [
-            "A fixed height of 600 m",
+            "A fixed height of exactly 600 m",
             "Relief and slope, along a continuum",
-            "The rock type underneath",
-            "Whether the summit has snow"
+            "The type of rock underneath them",
+            "Whether the summit holds snow"
           ],
           "answer": 1,
           "explain": "Mountains and hills differ in relative height, slope and relief, but those properties vary continuously. No single height threshold is used consistently in every country and context."
@@ -6474,13 +7021,24 @@
         {
           "prompt": "The Grand Canyon is best described as…",
           "choices": [
-            "A mountain range",
-            "A glacial U-trough",
+            "A folded mountain range",
+            "A glacial U-shaped trough",
             "A canyon cut into a plateau",
-            "A basin with no river"
+            "A basin with no river in it"
           ],
           "answer": 2,
           "explain": "The Colorado River and its tributaries incised the elevated Colorado Plateau. The canyon is therefore a deeply cut valley within a plateau, rather than a glacial trough or an isolated mountain."
+        },
+        {
+          "prompt": "Which landform is built mainly by deposition?",
+          "choices": [
+            "A broad river floodplain",
+            "A deep river canyon",
+            "A glacial cirque",
+            "A wave-cut sea cliff"
+          ],
+          "answer": 0,
+          "explain": "A floodplain is built from sediment that a river drops during floods and as its meanders migrate. Canyons, cirques and cliffs are carved mainly by erosion."
         }
       ],
       "why": [
@@ -6526,6 +7084,10 @@
         {
           "claim": "A landform’s shape tells us which single process created it.",
           "truth": "A landscape can record several processes acting at different times. A river may occupy a valley widened by ice, while rock structure influences both erosion and slope failure. Shape provides clues, but interpreting the history also needs evidence such as sediments, rock relationships and chronology."
+        },
+        {
+          "claim": "Mountains stay the same height for ever.",
+          "truth": "Mountains are raised by tectonic uplift and worn down by weathering and erosion. The Himalaya are still rising, while older ranges such as the Scottish Highlands were once much higher than they are today."
         }
       ],
       "cases": [
@@ -6667,9 +7229,9 @@
         {
           "prompt": "As a waterfall (a nick point) retreats, it leaves…",
           "choices": [
-            "A plunge pool downstream",
-            "A delta at the river mouth",
-            "A meander below the fall",
+            "A delta at the river’s mouth",
+            "A meander just below the fall",
+            "A wide plunge pool far downstream",
             "A gorge downstream of the new fall"
           ],
           "answer": 3,
@@ -6707,6 +7269,17 @@
           ],
           "answer": 2,
           "explain": "The Colorado River cut down through rock layers as the regional landscape evolved and the plateau rose. The exposed rocks are much older than the canyon carved through them."
+        },
+        {
+          "prompt": "What is attrition?",
+          "choices": [
+            "Water forcing air into cracks in the bank",
+            "Stones knocking together, becoming smaller and rounder",
+            "Sediment scraping the bed and banks",
+            "Weak acids in the water dissolving rock"
+          ],
+          "answer": 1,
+          "explain": "Attrition wears down the load itself. As pebbles collide they chip and round each other, so sediment usually becomes smaller and smoother downstream."
         }
       ],
       "why": [
@@ -6758,6 +7331,10 @@
         {
           "claim": "Weathering and river erosion describe the same process.",
           "truth": "Weathering breaks down or alters rock in place, while erosion wears away and removes material. A river can exploit rock weakened by weathering and use transported sediment to abrade its bed. The processes can work together without being interchangeable."
+        },
+        {
+          "claim": "Rivers cut their valleys with water alone.",
+          "truth": "Clear water erodes hard rock only slowly. Most river erosion of bedrock is abrasion by the sand, pebbles and boulders the river carries, helped by hydraulic action on weak or cracked rock."
         }
       ],
       "cases": [
@@ -6903,9 +7480,9 @@
         {
           "prompt": "Many UK rivers end in estuaries because…",
           "choices": [
-            "UK rivers carry no sediment at all",
-            "UK rivers flow too slowly to deposit",
-            "Waves are too weak to move sediment",
+            "UK rivers carry no sediment at all to the sea",
+            "UK rivers flow too slowly to drop any load",
+            "Waves are too weak to move sediment there",
             "Tides and drowned valleys outpace delta building"
           ],
           "answer": 3,
@@ -6921,6 +7498,17 @@
           ],
           "answer": 0,
           "explain": "Faster flow and greater shear stress commonly occur near a meander's outer bank. Undercutting and bank collapse then help the bend migrate outward."
+        },
+        {
+          "prompt": "Why does a river drop much of its load where it enters the sea or a lake?",
+          "choices": [
+            "It slows down and loses energy.",
+            "Salt water dissolves the sediment.",
+            "Waves push the sediment back upstream.",
+            "The bed suddenly becomes much steeper."
+          ],
+          "answer": 0,
+          "explain": "When river water enters a large, still body of water it spreads out and slows down. It can no longer carry as much sediment, so deposition builds features such as deltas."
         }
       ],
       "why": [
@@ -6968,6 +7556,10 @@
         {
           "claim": "A river deposits all its sediment as soon as the water slows down.",
           "truth": "Deposition depends on the ability of the flow to keep particular particles moving. Coarser material often settles or stops first as transport capacity falls, while finer particles may remain suspended farther downstream. Sediment size, turbulence, water depth and incoming supply all affect the result."
+        },
+        {
+          "claim": "Floodplains are flat because people levelled them for farming.",
+          "truth": "Floodplains are built naturally. Each flood spreads a thin layer of fine sediment across the valley floor, and migrating meanders rework the deposits, producing a wide, flat surface."
         }
       ],
       "cases": [
@@ -6978,6 +7570,10 @@
         {
           "slug": "somerset-levels",
           "label": "Somerset Levels"
+        },
+        {
+          "slug": "bangladesh-delta",
+          "label": "Ganges–Brahmaputra delta"
         }
       ],
       "teacher": {
@@ -7135,6 +7731,17 @@
           ],
           "answer": 1,
           "explain": "The Old River Control Structure regulates how Mississippi flow divides towards the Atchafalaya. This is an example of managing potential river diversion, which differs from the headward erosion shown in the capture model."
+        },
+        {
+          "prompt": "What is a wind gap?",
+          "choices": [
+            "A notch in a ridge carved by strong winds",
+            "A dry notch left after a river was captured",
+            "A waterfall at the point of capture",
+            "A pass cut through a ridge by a glacier"
+          ],
+          "answer": 1,
+          "explain": "A wind gap is a valley notch through a ridge that no longer has a river flowing through it, usually because the stream that cut it was captured upstream. The ‘wind’ is just a name: wind did not carve it."
         }
       ],
       "why": [
@@ -7181,6 +7788,10 @@
         {
           "claim": "A drainage divide is permanent, so one river cannot gain another river’s headwaters.",
           "truth": "Erosion, tectonic change or other landscape adjustment can shift a divide and divert flow into a neighbouring basin. The capturing river gains drainage area while the former channel may carry a smaller stream. Landforms such as wind gaps can help reconstruct the change."
+        },
+        {
+          "claim": "River capture happens suddenly, during a single storm.",
+          "truth": "Capture usually follows thousands of years of headward erosion as one stream cuts back into its neighbour’s basin. The final breach of the divide can be quick, but the build-up is slow."
         }
       ],
       "cases": [
@@ -7324,6 +7935,17 @@
           ],
           "answer": 2,
           "explain": "A sea wall protects a particular frontage but can alter wave reflection, local scour and sediment exchanges. Its effects should therefore be assessed within the connected coastal sediment system."
+        },
+        {
+          "prompt": "Where does a spit form?",
+          "choices": [
+            "Where longshore drift carries sand past a bend in the coast",
+            "Where waves erode a cave right through a headland",
+            "Where a river drops its load into a lake",
+            "Where two neighbouring arches collapse into the sea"
+          ],
+          "answer": 0,
+          "explain": "Where the coastline changes direction, for example at a river mouth, longshore drift keeps carrying sand out into open water. It builds a narrow ridge of sand or shingle, such as Spurn Point."
         }
       ],
       "why": [
@@ -7373,6 +7995,10 @@
         {
           "claim": "Groynes create new beach sediment without affecting nearby coasts.",
           "truth": "Groynes interrupt alongshore sediment movement and can retain material on one side. They redistribute an existing supply rather than create it, potentially reducing delivery farther along the coast. Their effects therefore need to be considered within the wider sediment budget."
+        },
+        {
+          "claim": "Longshore drift always moves sand in the direction the wind is blowing that day.",
+          "truth": "Sediment moves in the direction set by the angle of the waves, which mainly reflects the prevailing wind and distant storms over weeks and seasons. On any single day, drift can run the opposite way."
         }
       ],
       "cases": [
@@ -7534,10 +8160,10 @@
         {
           "prompt": "An arête is…",
           "choices": [
-            "A bowl-shaped hollow",
+            "A bowl-shaped hollow below a peak",
             "A knife-edge ridge between cirques",
-            "A pointed peak",
-            "A ridge of glacial debris"
+            "A pointed peak with three faces",
+            "A ridge of debris left by ice"
           ],
           "answer": 1,
           "explain": "Glaciers eroding neighbouring cirques can steepen the valley walls on both sides of an intervening ridge. The narrow ridge left between them is an arête."
@@ -7574,6 +8200,17 @@
           ],
           "answer": 0,
           "explain": "Glaciers repeatedly enlarged an earlier river valley in Yosemite's granitic bedrock. Their erosion produced the broad floor and steep walls characteristic of its glacial trough."
+        },
+        {
+          "prompt": "How fast do valley glaciers typically move?",
+          "choices": [
+            "Not at all, because ice is solid",
+            "Metres to hundreds of metres a year",
+            "Several kilometres every hour",
+            "Only on days when the ice is melting"
+          ],
+          "answer": 1,
+          "explain": "Ice can deform slowly like a very stiff fluid, and meltwater at the base helps it slide. Most valley glaciers move from a few metres to a few hundred metres a year."
         }
       ],
       "why": [
@@ -7625,6 +8262,10 @@
         {
           "claim": "A retreating glacier must be flowing uphill.",
           "truth": "Glacier ice generally moves downslope under gravity even when its terminus retreats. The front moves back when local ice loss exceeds the supply of ice moving towards it. Ice velocity and the change in the terminus position describe different aspects of glacier behaviour."
+        },
+        {
+          "claim": "Glaciers are frozen in place and do not move.",
+          "truth": "Glaciers flow downhill under their own weight, deforming internally and sliding on their beds. Valley glaciers typically move metres to hundreds of metres a year, and some outlet glaciers move several kilometres a year."
         }
       ],
       "cases": [
@@ -7745,9 +8386,9 @@
           "prompt": "Grykes are…",
           "choices": [
             "Dissolved fissures in limestone pavement",
-            "Blocks between the fissures",
-            "Caves beneath the pavement",
-            "Hollows formed by collapse"
+            "Flat blocks between pavement fissures",
+            "Caves running beneath the pavement",
+            "Hollows formed when roofs collapse"
           ],
           "answer": 0,
           "explain": "Weakly acidic water dissolves limestone along joints, widening them into grykes. The remaining blocks between those fissures are called clints."
@@ -7766,10 +8407,10 @@
         {
           "prompt": "Karst develops mainly on carbonate rocks because…",
           "choices": [
-            "Carbonate rocks are very soft",
-            "Carbonate rocks have no joints",
+            "Carbonate rocks are especially soft",
+            "Carbonate rocks have no joints at all",
             "Carbonic acid dissolves calcium carbonate",
-            "Carbonate rocks freeze easily"
+            "Carbonate rocks freeze more easily"
           ],
           "answer": 2,
           "explain": "Rainwater containing dissolved carbon dioxide forms weak carbonic acid, which reacts with calcium carbonate. Flow through joints gradually enlarges openings in carbonate rocks and develops karst drainage."
@@ -7784,6 +8425,17 @@
           ],
           "answer": 3,
           "explain": "These caves form as flowing water dissolves carbonate rock along fractures and other openings. Their origin is chemically distinct from a lava tube left by flowing molten rock."
+        },
+        {
+          "prompt": "Why do streams often disappear into the ground on limestone?",
+          "choices": [
+            "The water soaks into tiny pores, like a sponge.",
+            "It sinks through joints widened by dissolving.",
+            "It evaporates quickly from the pale rock.",
+            "It freezes inside the rock and stays there."
+          ],
+          "answer": 1,
+          "explain": "Limestone itself has few pores, but its joints and bedding planes are enlarged by solution. Streams sink through swallow holes into these passages and flow underground."
         }
       ],
       "why": [
@@ -7831,6 +8483,10 @@
         {
           "claim": "An underground drainage basin must have exactly the same boundary as the surface basin.",
           "truth": "Water in soluble rock can follow connected fractures and passages beneath a surface divide. Its underground route may therefore lead to a different outlet from the one suggested by topography. Dye tracing and other observations can help establish the actual groundwater connections."
+        },
+        {
+          "claim": "Limestone dissolves quickly, so caves form within a few years.",
+          "truth": "Rainwater is only weakly acidic, so dissolving a cave passage usually takes tens to hundreds of thousands of years. A limestone pavement surface may be lowered by only a few centimetres in a thousand years."
         }
       ],
       "cases": [
@@ -7974,6 +8630,17 @@
           ],
           "answer": 1,
           "explain": "The hanging wall is the rock block above an inclined fault plane, while the footwall lies below it. These names identify geometry and do not depend on which block moved upwards."
+        },
+        {
+          "prompt": "What kind of force folds rock layers into anticlines and synclines?",
+          "choices": [
+            "Compression squeezing the layers",
+            "Tension pulling the crust apart",
+            "Erosion removing the top layers",
+            "Rain soaking into the layers"
+          ],
+          "answer": 0,
+          "explain": "Folds form when rock is squeezed, for example where plates converge. Tension instead tends to produce normal faults, and erosion only exposes folds that already exist."
         }
       ],
       "why": [
@@ -8023,6 +8690,10 @@
         {
           "claim": "The hanging wall is always the side of a fault that moves down.",
           "truth": "The hanging wall is defined by its position above an inclined fault plane. It moves down relative to the footwall in a normal fault and up in a reverse fault. Identify the plane and blocks before using their displacement to name the fault type."
+        },
+        {
+          "claim": "Rock is too rigid to bend, so folded layers must really be broken pieces.",
+          "truth": "Deep in the crust, high temperature and pressure acting over millions of years let rock deform slowly without breaking. Near the surface, where rock is cold and brittle, the same stresses are more likely to cause faults."
         }
       ],
       "cases": [
@@ -8147,10 +8818,10 @@
         {
           "prompt": "A yardang is…",
           "choices": [
-            "A crescent-shaped dune",
-            "A sand sheet",
+            "A crescent-shaped sand dune",
+            "A flat sheet of loose sand",
             "A wind-carved rock ridge",
-            "A desert depression"
+            "A hollow scoured in a desert"
           ],
           "answer": 2,
           "explain": "Wind-driven abrasion and the removal of loose material can carve elongated ridges from susceptible ground. These streamlined erosional landforms are called yardangs."
@@ -8158,9 +8829,9 @@
         {
           "prompt": "Wind erosion and transport need…",
           "choices": [
-            "Dense vegetation and moist soil",
-            "Steep slopes and frequent rain",
-            "Frozen ground and snow",
+            "Dense vegetation and moist soil cover",
+            "Steep slopes and frequent heavy rain",
+            "Frozen ground under a snow cover",
             "Loose sediment, strong wind, little vegetation"
           ],
           "answer": 3,
@@ -8170,12 +8841,23 @@
           "prompt": "The main process in the Dust Bowl was…",
           "choices": [
             "Deflation of bare, ploughed topsoil in drought",
-            "A barchan dune sea covering the plains",
-            "Gullying by heavy rain",
-            "Flooding of the river valleys"
+            "A barchan dune sea spreading over the plains",
+            "Gullying by heavy summer thunderstorms",
+            "Flooding of the big river valleys"
           ],
           "answer": 0,
           "explain": "Drought and cultivation left extensive areas of soil exposed during the Dust Bowl. Strong winds removed and transported the vulnerable topsoil, rather than simply building desert dune fields."
+        },
+        {
+          "prompt": "How do most sand grains move during a desert sandstorm?",
+          "choices": [
+            "High in the air for hundreds of kilometres",
+            "By bouncing along within about a metre of the ground",
+            "By rolling uphill against the wind",
+            "Dissolved in the occasional rain"
+          ],
+          "answer": 1,
+          "explain": "Sand moves mainly by saltation: grains are lifted briefly, then fall back and knock other grains into motion. This is why wind abrasion is strongest close to the ground."
         }
       ],
       "why": [
@@ -8221,6 +8903,10 @@
         {
           "claim": "Every desert is covered by dunes.",
           "truth": "Many deserts expose bedrock, gravel or other surfaces with little loose sand. Dunes require a suitable sediment supply and wind conditions that allow accumulation. Wind can erode one area while depositing material elsewhere, so aridity alone does not determine the landform."
+        },
+        {
+          "claim": "Wind lifts sand grains high into the air and carries them across continents.",
+          "truth": "Sand grains are too heavy to stay up for long, so most bounce along within about a metre of the ground by saltation. The fine dust that travels thousands of kilometres is silt and clay carried in suspension."
         }
       ],
       "cases": [
@@ -8337,9 +9023,9 @@
           "prompt": "Metamorphism normally means…",
           "choices": [
             "Change in solid rock’s minerals or texture.",
-            "Complete melting of rock.",
-            "Laying down of new sediment.",
-            "Cooling of lava at the surface."
+            "Complete melting of rock into magma.",
+            "Laying down of new layers of sediment.",
+            "Cooling of lava flows at the surface."
           ],
           "answer": 0,
           "explain": "Metamorphism changes minerals or rock texture in response to conditions such as heat, pressure and fluids while the rock remains largely solid. Melting produces magma and begins a different transformation pathway."
@@ -8369,13 +9055,24 @@
         {
           "prompt": "Temperature and pressure on their own…",
           "choices": [
-            "Fix the exact amount of melting.",
-            "Fix the final minerals in every rock.",
-            "Tell you the age of the rock.",
+            "Fix the exact amount of melting that occurs.",
+            "Fix the final minerals found in every rock.",
+            "Tell you exactly how old the rock is.",
             "Are not enough without composition and fluids."
           ],
           "answer": 3,
           "explain": "Temperature and pressure help constrain the possible changes, but the starting composition, fluids and duration also matter. Two rocks at the same temperature and pressure need not develop identical minerals or textures."
+        },
+        {
+          "prompt": "Which rock forms from layers of sediment that are pressed and cemented together?",
+          "choices": [
+            "Granite",
+            "Sandstone",
+            "Marble",
+            "Basalt"
+          ],
+          "answer": 1,
+          "explain": "Sandstone is a sedimentary rock made of sand grains that were buried, compacted and cemented. Granite and basalt are igneous, and marble is metamorphic."
         }
       ],
       "why": [
@@ -8421,6 +9118,10 @@
         {
           "claim": "Metamorphic rock forms when an existing rock melts completely.",
           "truth": "Metamorphism changes a rock’s minerals or texture while it remains largely solid, under changed temperature, pressure or fluid conditions. Complete melting produces magma; subsequent crystallisation forms igneous rock. The rock cycle includes different possible pathways rather than one compulsory sequence."
+        },
+        {
+          "claim": "Rocks never change once they have formed.",
+          "truth": "Rocks are constantly being changed, but usually very slowly. They are weathered and eroded at the surface, buried and squeezed into metamorphic rock, or melted and recrystallised, over thousands to millions of years."
         }
       ],
       "cases": [
@@ -8613,6 +9314,17 @@
           ],
           "answer": 1,
           "explain": "Eluviation removes materials such as clay, iron compounds or organic matter from the E horizon, often leaving it paler. An E horizon is not present in every soil profile."
+        },
+        {
+          "prompt": "Roughly how long can it take to form a few centimetres of soil?",
+          "choices": [
+            "Hundreds of years or more",
+            "A few days after heavy rain",
+            "One wet winter",
+            "Exactly ten years"
+          ],
+          "answer": 0,
+          "explain": "Soil forms slowly as parent material weathers and organic matter builds up. A few centimetres can take hundreds of years, which is why eroded soil is hard to replace."
         }
       ],
       "why": [
@@ -8670,6 +9382,10 @@
         {
           "claim": "Every soil contains the same sequence and thickness of horizons.",
           "truth": "Soil profiles develop through interactions among parent material, climate, organisms, relief and time. Some horizons may be absent, weakly developed or altered by erosion and land use. Colour helps describe a profile, but classification also depends on diagnostic properties and processes."
+        },
+        {
+          "claim": "Soil is just ground-up rock.",
+          "truth": "Soil is a mixture of mineral particles, organic matter, water, air and living organisms. It develops slowly as rock weathers and plants, animals and microbes add and mix organic material."
         }
       ],
       "cases": [
@@ -8818,6 +9534,17 @@
           ],
           "answer": 3,
           "explain": "Sand, silt and clay represent the complete mineral fine-earth sample classified by the triangle. Their percentages must total 100%, so increasing one fraction requires reducing one or both of the others."
+        },
+        {
+          "prompt": "Which soil usually drains fastest after heavy rain?",
+          "choices": [
+            "Sandy soil with large pores",
+            "Clay soil with tiny pores",
+            "Silty clay soil",
+            "Clay loam soil"
+          ],
+          "answer": 0,
+          "explain": "Water moves easily through the large spaces between sand grains. Soils with more clay have much smaller pores, so water drains through them slowly."
         }
       ],
       "why": [
@@ -8863,6 +9590,10 @@
         {
           "claim": "A soil’s colour determines whether it is sand, silt or clay.",
           "truth": "Texture depends on the proportions of mineral particles in defined size classes. Colour reflects other properties, including organic matter, iron compounds and drainage conditions. Two soils can therefore look similar while having different textures, and texture differs from the way particles are grouped into structure."
+        },
+        {
+          "claim": "Clay soils drain quickly because their particles are so small.",
+          "truth": "Small particles leave tiny pores that hold water tightly, so clay soils drain slowly and can become waterlogged. Sandy soils, with larger pores, drain quickly."
         }
       ],
       "cases": [
@@ -8979,10 +9710,10 @@
         {
           "prompt": "Biological weathering includes…",
           "choices": [
-            "Only animals digging burrows",
+            "Only animals digging their burrows",
             "Roots, lichens and burrowing animals",
-            "Only plant roots in cracks",
-            "Rain dissolving limestone"
+            "Only plant roots growing in cracks",
+            "Rain dissolving limestone pavements"
           ],
           "answer": 1,
           "explain": "Organisms can disrupt rock physically, for example through root growth, or chemically through acids and other compounds. Biological weathering therefore includes more than one breakdown mechanism."
@@ -8990,13 +9721,24 @@
         {
           "prompt": "Weathering versus erosion…",
           "choices": [
-            "Two words for the same process",
-            "Erosion breaks rock; weathering moves it",
+            "Two words for exactly the same process",
+            "Erosion breaks rock; weathering moves it away",
             "Weathering breaks rock in place; erosion moves it",
-            "Weathering happens only in deserts"
+            "Weathering happens only in hot deserts"
           ],
           "answer": 2,
           "explain": "Weathering alters or breaks down material where it is exposed. Erosion removes material from its original position through agents such as water, wind, ice or gravity."
+        },
+        {
+          "prompt": "Which of these is chemical weathering?",
+          "choices": [
+            "Ice expanding in a crack",
+            "Rain slowly dissolving limestone",
+            "Roots prising rock apart",
+            "Rock flaking as it heats and cools"
+          ],
+          "answer": 1,
+          "explain": "Chemical weathering changes the minerals themselves. Rainwater containing carbon dioxide reacts with calcium carbonate and carries it away in solution."
         }
       ],
       "why": [
@@ -9044,6 +9786,10 @@
         {
           "claim": "Chemical and mechanical weathering are separate alternatives that cannot act together.",
           "truth": "Several weathering processes can affect the same rock. Mechanical cracking exposes new surfaces to chemical reactions, while chemical alteration can weaken material for later breakage. Temperature, water, organisms and rock properties influence which processes are most effective in a particular setting."
+        },
+        {
+          "claim": "Weathering is too slow to see within a human lifetime.",
+          "truth": "Some weathering is visible within decades. Old limestone gravestones lose their lettering, sandstone buildings flake and crumble, and frost can split rock in a single winter."
         }
       ],
       "cases": [
@@ -9173,13 +9919,35 @@
         {
           "prompt": "Compare physical scale (the T key) changes…",
           "choices": [
-            "The calculated mass loss.",
-            "The size of the plot.",
-            "How soil is detached.",
+            "The calculated mass of soil lost.",
+            "The physical size of the plot.",
+            "How the soil is detached by rain.",
             "How much surface lowering is exaggerated."
           ],
           "answer": 3,
           "explain": "The scale control changes how strongly the vertical surface lowering is exaggerated on screen. It leaves the calculated sediment transfers and their total unchanged."
+        },
+        {
+          "prompt": "Which method reduces soil erosion on a sloping field?",
+          "choices": [
+            "Ploughing up and down the slope",
+            "Ploughing along the contours",
+            "Removing hedgerows around the field",
+            "Leaving the soil bare through winter"
+          ],
+          "answer": 1,
+          "explain": "Furrows that follow the contours slow water running downhill and trap soil. Ploughing up and down the slope makes channels that speed runoff and erosion."
+        },
+        {
+          "prompt": "Why does bare soil lose more particles in heavy rain than soil under crops?",
+          "choices": [
+            "Raindrops hit it directly and splash particles loose.",
+            "Bare soil is always made only of sand.",
+            "Crops attract the rain away from the soil.",
+            "Bare soil is warmer, so it dissolves faster."
+          ],
+          "answer": 0,
+          "explain": "Plant leaves and litter absorb the impact of raindrops. On bare ground each drop strikes the soil and splashes particles loose, ready to be carried away by runoff."
         }
       ],
       "why": [
@@ -9225,6 +9993,10 @@
         {
           "claim": "Vegetation prevents all soil erosion.",
           "truth": "Plant cover can intercept raindrops, protect the soil and slow surface flow, reducing erosion. Its effectiveness depends on cover density, roots, soil condition, slope and the event itself. Even a vegetated slope can lose sediment during intense runoff or other disturbances."
+        },
+        {
+          "claim": "Soil forms as quickly as it is eroded, so losses are always replaced.",
+          "truth": "Soil usually forms at a fraction of a millimetre a year. Bare farmland on a slope can lose soil many times faster than that, so erosion can strip in decades what took centuries to form."
         }
       ],
       "cases": [
@@ -9340,10 +10112,10 @@
         {
           "prompt": "P-waves…",
           "choices": [
-            "Are the slowest seismic waves",
+            "Are the slowest of the seismic waves",
             "Are fastest and cross solids and liquids",
-            "Travel only through solid rock",
-            "Travel only along the surface"
+            "Travel only through solid rock layers",
+            "Travel only along Earth’s surface"
           ],
           "answer": 1,
           "explain": "P-waves transmit alternating compression and expansion, which both solids and liquids can support. They are the fastest major seismic wave type and usually arrive first."
@@ -9351,10 +10123,10 @@
         {
           "prompt": "Surface waves…",
           "choices": [
-            "Arrive first, before P-waves",
+            "Arrive first, well before P-waves",
             "Travel through the liquid outer core",
             "Arrive later and often cause most damage",
-            "Are the same as S-waves"
+            "Are just another name for S-waves"
           ],
           "answer": 2,
           "explain": "Love and Rayleigh waves travel along Earth's surface and can produce large, sustained ground motion. They arrive after the faster body waves and can contribute substantially to damage."
@@ -9362,13 +10134,24 @@
         {
           "prompt": "Magnitude versus intensity…",
           "choices": [
-            "They are the same number",
+            "They are the same number in different units",
             "Intensity is source size; magnitude is local shaking",
             "Intensity is measured only at the epicentre",
             "Magnitude is source size; intensity is local shaking"
           ],
           "answer": 3,
           "explain": "Magnitude measures the size of the earthquake source, while intensity describes shaking and effects at a particular location. One earthquake can therefore produce different intensities at different sites."
+        },
+        {
+          "prompt": "Where do the world’s largest earthquakes usually happen?",
+          "choices": [
+            "In the middle of stable continents",
+            "Along mid-ocean spreading ridges",
+            "On subduction-zone megathrust faults",
+            "Close to the North and South Poles"
+          ],
+          "answer": 2,
+          "explain": "The largest earthquakes, above magnitude 9, have all occurred on megathrusts where one plate sinks beneath another, such as off Chile in 1960 and Japan in 2011. The faults there are long and wide, so they can slip over huge areas."
         }
       ],
       "why": [
@@ -9417,6 +10200,10 @@
         {
           "claim": "Earthquake magnitude and shaking intensity are the same measurement.",
           "truth": "Magnitude describes the earthquake’s size at its source. Intensity describes shaking and effects at a particular place, so it varies with distance, local ground and buildings. One earthquake can therefore have a single reported magnitude but many different local intensities."
+        },
+        {
+          "claim": "Most earthquake deaths happen when the ground opens up and swallows people.",
+          "truth": "The ground rarely opens wide. Most deaths and injuries come from collapsing buildings, and from landslides, tsunamis and fires that earthquakes trigger. This is why building design matters so much."
         }
       ],
       "cases": [
@@ -9427,6 +10214,10 @@
         {
           "slug": "cascadia",
           "label": "Cascadia"
+        },
+        {
+          "slug": "tohoku-2011",
+          "label": "Tōhoku 2011"
         }
       ],
       "teacher": {
@@ -9553,6 +10344,17 @@
           ],
           "answer": 3,
           "explain": "Viscous magma can impede gas escape as pressure falls during ascent. Expanding trapped gas can then fragment the magma and drive an explosive eruption, although viscosity is only one control."
+        },
+        {
+          "prompt": "Which volcanic hazards have caused the most deaths in history?",
+          "choices": [
+            "Slow-moving lava flows",
+            "Falling volcanic bombs near the vent",
+            "Pyroclastic flows and volcanic mudflows",
+            "Sulphur smells from fumaroles"
+          ],
+          "answer": 2,
+          "explain": "Pyroclastic flows are fast, hot clouds of gas and rock, and lahars are mudflows that can travel tens of kilometres down valleys. Both move too fast to escape, unlike most lava flows."
         }
       ],
       "why": [
@@ -9599,6 +10401,10 @@
         {
           "claim": "A volcano’s size alone predicts how explosive its next eruption will be.",
           "truth": "Eruption behaviour depends on magma properties, gas, ascent conditions and possible interaction with water or ice. Large shield volcanoes often produce fluid lava flows, but basaltic eruptions can also be explosive. The existing landform records earlier activity without determining every future event."
+        },
+        {
+          "claim": "Lava flows are the deadliest volcanic hazard.",
+          "truth": "Most lava moves slowly enough for people to walk away, although it destroys property. Pyroclastic flows, volcanic mudflows (lahars), ash and gases have caused far more deaths."
         }
       ],
       "cases": [
@@ -9727,9 +10533,9 @@
         {
           "prompt": "It grows at the coast because…",
           "choices": [
-            "The Moon’s pull is stronger near land",
+            "The Moon’s pull is stronger near the land",
             "Its speed increases in shallow water",
-            "Onshore winds push it higher",
+            "Onshore winds push it higher and higher",
             "Slowing bunches its energy into a taller wave"
           ],
           "answer": 3,
@@ -9745,6 +10551,17 @@
           ],
           "answer": 0,
           "explain": "Katrina and Sandy raised coastal water levels through storm winds and atmospheric pressure, combined with tides and waves. That storm-surge mechanism differs from the rapid water-column displacement that generates a tsunami."
+        },
+        {
+          "prompt": "Why should people stay away from the beach after the first tsunami wave?",
+          "choices": [
+            "The first wave is always the largest one.",
+            "The sea is calm once one wave has passed.",
+            "More waves can follow for several hours.",
+            "Tsunami water drains away almost instantly."
+          ],
+          "answer": 2,
+          "explain": "A tsunami is a series of waves that can be tens of minutes apart, and a later wave may be the biggest. People should stay on high ground until officials say it is safe."
         }
       ],
       "why": [
@@ -9790,6 +10607,10 @@
         {
           "claim": "A tsunami and a storm surge are the same kind of coastal wave.",
           "truth": "A tsunami is a sequence of long waves generated by rapid water displacement, such as seafloor movement or a landslide. Storm surge is an abnormal water-level rise driven mainly by storm winds and atmospheric pressure. Their causes, propagation and warning evidence differ."
+        },
+        {
+          "claim": "A tsunami is a single giant breaking wave, like a surfing wave.",
+          "truth": "A tsunami is a series of very long waves that can keep arriving for hours. Often it comes ashore as a fast, rising flood of water rather than a curling breaker, and the first wave is not always the largest."
         }
       ],
       "cases": [
@@ -9800,6 +10621,10 @@
         {
           "slug": "katrina-sandy",
           "label": "Surge is not tsunami"
+        },
+        {
+          "slug": "tohoku-2011",
+          "label": "Tōhoku 2011"
         }
       ],
       "teacher": {
@@ -9879,9 +10704,9 @@
         {
           "prompt": "The eyewall is…",
           "choices": [
-            "The calm, clear centre",
-            "The outer bands of showers",
-            "The cold front behind the storm",
+            "The calm, clear centre of the storm",
+            "The outer bands of heavy showers",
+            "The cold front trailing behind it",
             "The ring of strongest wind and rain"
           ],
           "answer": 3,
@@ -9919,6 +10744,17 @@
           ],
           "answer": 2,
           "explain": "The Saffir–Simpson scale assigns hurricane categories using maximum sustained wind speed. It does not classify ordinary UK extratropical gales or represent a storm's rainfall and surge hazards."
+        },
+        {
+          "prompt": "Why does a tropical cyclone usually weaken after it moves over land?",
+          "choices": [
+            "Mountains reflect its winds back out to sea.",
+            "Land is too dry to make the air spin.",
+            "It loses its supply of warm, moist ocean air.",
+            "Daylight heats the storm until it evaporates."
+          ],
+          "answer": 2,
+          "explain": "A tropical cyclone is powered by heat and moisture from warm sea water. Over land that supply is cut off and friction slows the winds, although heavy rain and flooding can continue far inland."
         }
       ],
       "why": [
@@ -9966,6 +10802,10 @@
         {
           "claim": "The calm eye means a tropical cyclone has passed and the danger is over.",
           "truth": "The eye is surrounded by the eyewall, where winds and convection are strong. If the eye crosses a location, the opposite eyewall may arrive after a temporary lull, with a changed wind direction. Rainfall, flooding and coastal water levels can also remain hazardous beyond the strongest winds."
+        },
+        {
+          "claim": "Hurricanes, typhoons and cyclones are different kinds of storm.",
+          "truth": "They are all tropical cyclones. The name depends on the ocean: hurricane in the Atlantic and north-east Pacific, typhoon in the north-west Pacific, and cyclone in the Indian Ocean and South Pacific."
         }
       ],
       "cases": [
@@ -10104,13 +10944,24 @@
         {
           "prompt": "A point at 0°, 0° sits…",
           "choices": [
-            "In London, at Greenwich",
+            "In London, at the Greenwich meridian",
             "In the Gulf of Guinea, south of Ghana",
-            "At the North Pole",
+            "At the North Pole, where lines meet",
             "In the Pacific, near the date line"
           ],
           "answer": 1,
           "explain": "Zero latitude identifies the equator and zero longitude identifies the prime meridian. Their intersection lies in the Gulf of Guinea in the Atlantic Ocean, south of Ghana."
+        },
+        {
+          "prompt": "Why do lines of longitude get closer together towards the poles?",
+          "choices": [
+            "Earth is wider at the poles than at the equator.",
+            "Map makers draw them closer on purpose.",
+            "Longitude is measured in kilometres, not degrees.",
+            "All meridians meet at the two poles."
+          ],
+          "answer": 3,
+          "explain": "Every meridian runs from the North Pole to the South Pole, so they converge there. The distance represented by one degree of longitude therefore shrinks with latitude."
         }
       ],
       "why": [
@@ -10161,6 +11012,10 @@
         {
           "claim": "The coordinates 0 degrees latitude and 0 degrees longitude locate Greenwich.",
           "truth": "Greenwich is close to zero longitude but about 51.5 degrees north of the equator. Zero latitude lies on the equator, so the two zero coordinates meet in the Gulf of Guinea. Latitude and longitude identify separate angular directions and must both be specified."
+        },
+        {
+          "claim": "Lines of longitude are the same distance apart everywhere.",
+          "truth": "Meridians meet at the poles. One degree of longitude is about 111 km wide at the equator, about 69 km at London’s latitude and zero at the poles. Lines of latitude, by contrast, stay roughly 111 km apart."
         }
       ],
       "cases": [
@@ -10268,7 +11123,7 @@
             "Much smaller than it really is",
             "Its true size compared with Africa",
             "About as large as Africa, which is far bigger",
-            "Squashed flat near the equator"
+            "Squashed flat, as if near the equator"
           ],
           "answer": 2,
           "explain": "Mercator's scale increases strongly towards the poles, enlarging high-latitude areas on the map. Greenland therefore appears far larger relative to Africa than its actual area warrants."
@@ -10305,6 +11160,17 @@
           ],
           "answer": 1,
           "explain": "A globe represents positions on a curved surface without first flattening them onto a plane. Comparing it with a flat map reveals the distortions introduced by the projection."
+        },
+        {
+          "prompt": "Which property does the Mercator projection distort most?",
+          "choices": [
+            "Local angles between lines",
+            "Compass bearings",
+            "Area at high latitudes",
+            "Shapes of small areas"
+          ],
+          "answer": 2,
+          "explain": "Mercator keeps local angles and bearings correct, so small shapes look right. The price is that scale grows towards the poles, so high-latitude areas such as Greenland and Antarctica look far too large."
         }
       ],
       "why": [
@@ -10357,6 +11223,10 @@
         {
           "claim": "One flat world map can preserve every area, shape, distance and direction.",
           "truth": "Flattening Earth’s curved surface necessarily introduces distortion. A projection may preserve a selected property, such as area, while changing others. Compare a map with a globe and choose its projection according to the task, rather than assuming all visual comparisons are equally reliable."
+        },
+        {
+          "claim": "North has to be at the top of a map because that is how Earth really is.",
+          "truth": "Putting north at the top is a convention. Earth has no up or down in space, and some maps are drawn with south at the top or with the Pacific in the centre. What matters is that the map shows its orientation clearly."
         }
       ],
       "cases": [
@@ -10500,11 +11370,22 @@
           "choices": [
             "The same as latitude and longitude",
             "A flat kilometre grid over Great Britain",
-            "A grid of 1° squares",
-            "A grid used only at sea"
+            "A worldwide grid of 1° squares",
+            "A grid used only for navigation at sea"
           ],
           "answer": 1,
           "explain": "The British National Grid projects positions onto a flat coordinate system expressed in metres. It supports grid distances and references, while latitude and longitude describe angular position on Earth."
+        },
+        {
+          "prompt": "A church lies 3 tenths of the way east from easting 45 and 7 tenths of the way north from northing 23. What is its six-figure grid reference?",
+          "choices": [
+            "234537",
+            "457233",
+            "453237",
+            "452337"
+          ],
+          "answer": 2,
+          "explain": "Write the easting first: 45 plus 3 tenths gives 453. Then the northing: 23 plus 7 tenths gives 237. Together they make 453237."
         }
       ],
       "why": [
@@ -10555,6 +11436,10 @@
         {
           "claim": "A six-figure British National Grid reference identifies an exact point.",
           "truth": "A six-figure reference identifies a 100-metre square within the relevant lettered grid square. More digits specify a smaller area, but extra precision does not guarantee an accurate observation. Read eastings before northings and include the letter pair when the wider location is needed."
+        },
+        {
+          "claim": "Grid north on an OS map is exactly the same as true north.",
+          "truth": "OS grid lines point to true north only along the grid’s central meridian at 2° W. Elsewhere grid north differs slightly from true north, and magnetic north, shown by a compass, differs again and changes over time."
         }
       ],
       "cases": [
@@ -10660,9 +11545,9 @@
         {
           "prompt": "A rotational slump moves on…",
           "choices": [
-            "A straight, flat slip plane",
-            "A vertical cliff face",
-            "Loose rock falling freely",
+            "A straight, flat slip plane underground",
+            "The vertical face of the cliff",
+            "Nothing: loose rock falls freely",
             "A curved, spoon-shaped slip surface"
           ],
           "answer": 3,
@@ -10693,13 +11578,24 @@
         {
           "prompt": "Before comparing a real coastal slide with this model, check…",
           "choices": [
-            "Whether both slopes face the sea",
-            "Whether the cliffs are equally high",
+            "Whether both slopes face the open sea",
+            "Whether the two cliffs are equally high",
             "Its material, pore pressure and slip shape",
-            "How much rain fell that year"
+            "How much rain fell in that whole year"
           ],
           "answer": 2,
           "explain": "Material strength, pore pressure and the geometry of the failure surface determine whether a rotational mechanism is plausible. Two coastal slopes can fail differently despite sharing a similar setting."
+        },
+        {
+          "prompt": "Which change would most improve the stability of a wet clay slope?",
+          "choices": [
+            "Building heavy houses along the top",
+            "Cutting into the toe to widen a road",
+            "Removing the trees and shrubs",
+            "Installing drains to lower pore pressure"
+          ],
+          "answer": 3,
+          "explain": "Drains lower the water pressure in the slope, which increases the friction resisting movement. Loading the top, cutting the toe and removing vegetation all make failure more likely."
         }
       ],
       "why": [
@@ -10746,6 +11642,10 @@
         {
           "claim": "Rain can destabilise a slope only by making the material heavier.",
           "truth": "Added water can increase weight, but rising pore-water pressure can also reduce effective stress and frictional resistance along a potential slip surface. Drainage, cohesion, slope geometry and material properties influence stability, so the effect is not explained by added mass alone."
+        },
+        {
+          "claim": "Landslides always happen without any warning signs.",
+          "truth": "Many landslides are preceded by signs such as new cracks at the top of a slope, bulging ground near the toe, tilting trees or posts, and springs appearing. Monitoring these signs helps warn people, although some failures are very sudden."
         }
       ],
       "cases": [
@@ -10854,8 +11754,8 @@
           "prompt": "A rain shadow sits…",
           "choices": [
             "On the leeward side of the barrier",
-            "On the windward side",
-            "On the summit itself",
+            "On the windward side of the barrier",
+            "On the very summit of the ridge",
             "Anywhere at the same height"
           ],
           "answer": 0,
@@ -10864,10 +11764,10 @@
         {
           "prompt": "If the ridge is higher than the parcel’s condensation level…",
           "choices": [
-            "Both sides get equally wet",
+            "Both sides get equally wet from the cloud",
             "Cloud forms; the leeward air arrives warmer and drier",
             "The leeward air arrives colder and wetter",
-            "No cloud forms on either side"
+            "No cloud forms on either side of it"
           ],
           "answer": 1,
           "explain": "Above its condensation level, the parcel cools more slowly because condensation releases latent heat. Once the moisture has rained out, it descends at the faster dry rate, so it reaches the same height warmer and drier. The model does not calculate rainfall totals."
@@ -10882,6 +11782,17 @@
           ],
           "answer": 2,
           "explain": "Both examples involve moist air rising over a barrier and descending on its sheltered side. Their rainfall contrasts also depend on prevailing winds, moisture supply and the wider regional climate."
+        },
+        {
+          "prompt": "Why is eastern England usually drier than western Scotland or Wales?",
+          "choices": [
+            "Westerly winds lose much of their rain over the western hills.",
+            "The east is closer to the hot, dry Sahara.",
+            "The North Sea is much warmer than the Atlantic.",
+            "Eastern England is higher above sea level."
+          ],
+          "answer": 0,
+          "explain": "The prevailing winds come from the Atlantic. Moist air rises over the hills and mountains of the west, giving heavy rain there, and much less is left by the time the air reaches the lowlands of the east."
         }
       ],
       "why": [
@@ -10928,6 +11839,10 @@
         {
           "claim": "A mountain creates the moisture that falls as rain on its windward side.",
           "truth": "The approaching air already carries water vapour. Forced uplift makes it expand and cool; if it becomes saturated, cloud and rain can form. Having lost moisture, the air warms as it descends, so the leeward side is often warmer and drier."
+        },
+        {
+          "claim": "The leeward side is dry because the mountain blocks the wind completely.",
+          "truth": "The wind still blows over the mountain. The leeward side is drier because the air has already lost moisture as rain on the windward side, and it warms as it sinks, so clouds evaporate."
         }
       ],
       "cases": [
@@ -10938,6 +11853,10 @@
         {
           "slug": "colorado",
           "label": "Sierra / Owens rain shadow"
+        },
+        {
+          "slug": "atacama",
+          "label": "Atacama Desert"
         }
       ],
       "teacher": {
@@ -11043,10 +11962,10 @@
         {
           "prompt": "An aquifer is…",
           "choices": [
-            "Any rock that holds water",
+            "Any rock that contains some water",
             "Rock that stores and yields useful water",
-            "Rock that water cannot pass through",
-            "An underground lake or river"
+            "Rock that water cannot flow through",
+            "An open underground lake or river"
           ],
           "answer": 1,
           "explain": "An aquifer must both store groundwater and transmit it readily enough to supply useful quantities. High water content alone is insufficient if pore connections or fractures do not allow water to flow."
@@ -11072,6 +11991,17 @@
           ],
           "answer": 3,
           "explain": "A confined aquifer stays fully saturated under its aquitard. Pumping lowers the pressure, so the potentiometric surface (the level water would rise to in a well) falls, but the pores remain full of water."
+        },
+        {
+          "prompt": "What is recharge?",
+          "choices": [
+            "Water pumped out of a well",
+            "Water flowing out at a spring",
+            "Water entering an aquifer from above",
+            "Water evaporating from the soil"
+          ],
+          "answer": 2,
+          "explain": "Recharge is water that soaks down from rain, rivers or lakes and reaches the saturated zone. If pumping takes more than recharge replaces, the water table falls."
         }
       ],
       "why": [
@@ -11117,6 +12047,10 @@
         {
           "claim": "Groundwater usually occupies a single underground lake.",
           "truth": "Most groundwater occupies connected pores and fractures in rock or sediment. In an unconfined aquifer, the water table marks the top of the saturated zone. In a confined aquifer, water in a well may rise above the aquifer because of pressure rather than an underground open lake."
+        },
+        {
+          "claim": "Groundwater is always clean and safe to drink.",
+          "truth": "Soil and rock filter some pollution, but groundwater can be contaminated by fertiliser nitrates, leaking sewage, industrial chemicals or natural arsenic. Once polluted, an aquifer can take decades to recover."
         }
       ],
       "cases": [
@@ -11263,6 +12197,17 @@
           ],
           "answer": 0,
           "explain": "Both regions carried thick ice sheets whose removal initiated ongoing crustal uplift. Raised shorelines record the resulting change in land level relative to the sea, together with any sea-level changes."
+        },
+        {
+          "prompt": "The land around the Gulf of Bothnia, between Sweden and Finland, is still rising by nearly 1 cm a year. Why?",
+          "choices": [
+            "Mantle rock is still flowing back after the ice sheet melted.",
+            "A new volcano is forming beneath the gulf.",
+            "River sediment is pushing the land upwards.",
+            "The Baltic Sea is drying up and becoming lighter."
+          ],
+          "answer": 0,
+          "explain": "A thick ice sheet pushed the land down during the last glaciation. It melted around 10,000 years ago, and the slow flow of mantle rock back beneath the region is still lifting the land."
         }
       ],
       "why": [
@@ -11309,12 +12254,24 @@
         {
           "claim": "Postglacial rebound shows that the mantle beneath the crust is liquid lava.",
           "truth": "The mantle is mostly solid rock that can deform slowly over long timescales. When an ice load is removed, the land rises towards a new balance as mantle rock slowly flows back. This lab calculates the final balance, not how fast rebound happens."
+        },
+        {
+          "claim": "Since the last ice age, coastlines have changed only because sea level rose.",
+          "truth": "Land levels changed too. Areas that were under thick ice, such as Scotland and Scandinavia, are still rising, while some areas beyond the old ice margin, including parts of southern England, are slowly sinking. Coastlines record the combination."
         }
       ],
       "cases": [
         {
           "slug": "lake-district",
           "label": "Scottish / Lake District rebound"
+        },
+        {
+          "slug": "scotland-rebound",
+          "label": "Scotland’s rising coast"
+        },
+        {
+          "slug": "himalaya",
+          "label": "Himalaya and Tibet"
         }
       ],
       "teacher": {
@@ -11409,10 +12366,10 @@
         {
           "prompt": "The Caledonides and Appalachians record…",
           "choices": [
-            "A hotspot track like Hawaiʻi",
+            "A hotspot track like Hawaiʻi’s islands",
             "An older ocean that opened and then closed",
             "A rift that never became an ocean",
-            "A transform fault like San Andreas"
+            "A transform fault like the San Andreas"
           ],
           "answer": 1,
           "explain": "Parts of the Caledonian and Appalachian mountain belts preserve evidence of convergence and collisions associated with closure of the Iapetus Ocean. Later Atlantic opening separated sections of that older mountain system."
@@ -11438,6 +12395,17 @@
           ],
           "answer": 3,
           "explain": "Iceland lies on the active Mid-Atlantic spreading ridge, where plates separate and new oceanic crust forms. It therefore represents ongoing ocean-basin opening rather than closure by continental collision."
+        },
+        {
+          "prompt": "Which stage comes first in the Wilson cycle?",
+          "choices": [
+            "Continental collision",
+            "Subduction at a trench",
+            "Rifting of a continent",
+            "A mountain belt eroding"
+          ],
+          "answer": 2,
+          "explain": "The cycle begins when a continent is stretched and splits apart in a rift. Spreading then opens an ocean, which may later close by subduction and end in collision."
         }
       ],
       "why": [
@@ -11483,6 +12451,10 @@
         {
           "claim": "Every ocean basin follows the same fixed timetable from opening to closure.",
           "truth": "The Wilson cycle organises possible stages of rifting, ocean spreading, subduction and collision. Real basins differ in geometry, plate motions and duration, and some rifts stop developing. The framework helps interpret geological evidence without prescribing one schedule for every ocean."
+        },
+        {
+          "claim": "The Atlantic Ocean has always existed.",
+          "truth": "The Atlantic began opening around 180 million years ago as Pangaea broke apart. Before that, an older ocean called Iapetus closed, joining the rocks that now form parts of Scotland, England and North America."
         }
       ],
       "cases": [
@@ -11493,6 +12465,10 @@
         {
           "slug": "san-andreas",
           "label": "San Andreas — a transform boundary"
+        },
+        {
+          "slug": "east-african-rift",
+          "label": "East African Rift"
         }
       ],
       "teacher": {
@@ -11598,8 +12574,8 @@
         {
           "prompt": "A catena is…",
           "choices": [
-            "A single soil horizon",
-            "A soil texture class",
+            "A single horizon within one soil",
+            "A class on the soil texture triangle",
             "The same soil across a whole region",
             "A sequence of linked soils down one slope"
           ],
@@ -11631,13 +12607,24 @@
         {
           "prompt": "A Yorkshire valley side and an Iowa loess hill are paired in this lab because…",
           "choices": [
-            "Both have the same climate",
-            "Both are formed from loess",
+            "Both have exactly the same climate",
+            "Both are formed entirely from loess",
             "Both show soils changing down a slope",
-            "Both are glacial till slopes"
+            "Both are slopes made of glacial till"
           ],
           "answer": 2,
           "explain": "Both examples compare soils at different positions along a slope rather than assuming a whole region has one profile. Keeping parent material similar helps reveal the effects of drainage and downslope transport."
+        },
+        {
+          "prompt": "Where on a hillslope are soils most likely to be waterlogged?",
+          "choices": [
+            "On the crest of the hill",
+            "On the steepest backslope",
+            "At the foot, where water collects",
+            "Equally everywhere on the slope"
+          ],
+          "answer": 2,
+          "explain": "Water drains downslope through and over the soil and collects near the foot. Poor drainage there can produce grey, gleyed soils, while the crest and backslope drain freely."
         }
       ],
       "why": [
@@ -11684,6 +12671,10 @@
         {
           "claim": "Soils on one hillside must be identical because they share a climate.",
           "truth": "Position on a slope affects drainage, erosion, deposition and the movement of dissolved material. These differences can produce contrasting soils even on similar parent material under the same regional climate. The pattern depends on local conditions rather than a universal sequence of thicknesses."
+        },
+        {
+          "claim": "The thickest soil is always found on the top of a hill.",
+          "truth": "Hilltops and steep slopes often have thinner soils, because material is washed and moved downslope. The deepest soils frequently build up at the foot of a slope, where eroded material collects."
         }
       ],
       "cases": [
@@ -11771,10 +12762,10 @@
         {
           "prompt": "Periglacial means…",
           "choices": [
-            "Always under glacier ice",
+            "Land that is always under glacier ice",
             "Cold-climate processes without glacier ice",
-            "Areas once covered by glaciers",
-            "Only land with permanent snow"
+            "Areas that glaciers once covered",
+            "Only land with permanent snow cover"
           ],
           "answer": 1,
           "explain": "Periglacial environments are dominated by cold-ground processes such as seasonal freezing and, in some settings, permafrost. They do not require a glacier to occupy the site."
@@ -11782,10 +12773,10 @@
         {
           "prompt": "An ice wedge grows because…",
           "choices": [
-            "Meltwater erodes a channel",
-            "Frost heave pushes stones upwards",
+            "Meltwater erodes a channel downwards",
+            "Frost heave pushes stones to the top",
             "Frozen cracks refill with ice each year",
-            "The ground thaws and slumps"
+            "The ground thaws and then slumps"
           ],
           "answer": 2,
           "explain": "Strong winter cooling can crack frozen ground, and meltwater entering the cracks can freeze. Repeated cracking and ice addition over many years can build a wedge of ground ice."
@@ -11806,11 +12797,22 @@
           "choices": [
             "Both are linked to cold ground, not glacier ice",
             "Both were carved by valley glaciers",
-            "Both formed under thick ice sheets",
-            "Both are active only in summer"
+            "Both formed beneath thick ice sheets",
+            "Both are active only during summer"
           ],
           "answer": 0,
           "explain": "Blockfields and ice-wedge polygons illustrate different processes associated with cold ground. Neither requires the local landscape to have been carved by an actively flowing valley glacier."
+        },
+        {
+          "prompt": "What is the active layer?",
+          "choices": [
+            "Permanently frozen ground far below",
+            "Snow that falls each winter",
+            "A layer of glacier ice under the soil",
+            "Ground above permafrost that thaws each summer"
+          ],
+          "answer": 3,
+          "explain": "The active layer sits on top of the permafrost and thaws and refreezes every year. Because water cannot drain down into the frozen ground below, it is often waterlogged in summer."
         }
       ],
       "why": [
@@ -11857,12 +12859,20 @@
         {
           "claim": "Permafrost is simply a glacier buried beneath the soil.",
           "truth": "Permafrost is ground that remains at or below zero degrees Celsius for at least two consecutive years. It may contain ground ice, but it need not be entirely frozen water. Seasonal thaw can affect the active layer above it, while glaciers are separate bodies of accumulated, flowing ice."
+        },
+        {
+          "claim": "Permafrost exists only in the Arctic.",
+          "truth": "Permafrost is also found in Antarctica and in high mountains such as the Tibetan Plateau, the Andes and the Alps. Britain has none today, but features such as blockfields record colder periglacial conditions in the past."
         }
       ],
       "cases": [
         {
           "slug": "cairngorms-albedo",
           "label": "Cairngorm freeze–thaw"
+        },
+        {
+          "slug": "alaska-permafrost",
+          "label": "Arctic Alaska permafrost"
         }
       ],
       "teacher": {
@@ -11975,7 +12985,7 @@
           "prompt": "A storm surge is…",
           "choices": [
             "A wave from a seafloor earthquake",
-            "A very high spring tide",
+            "An unusually high spring tide",
             "Water piled up by wind and low pressure",
             "A wave from a coastal landslide"
           ],
@@ -12007,13 +13017,24 @@
         {
           "prompt": "The 1953 North Sea flood and Hurricane Katrina are paired because…",
           "choices": [
-            "Both were tsunamis",
+            "Both were tsunamis from earthquakes",
             "Both were surges from wind and low pressure",
             "Both were caused by river floods",
             "Both were caused by spring tides alone"
           ],
           "answer": 1,
           "explain": "Both events involved storm winds and low pressure raising coastal water levels over shallow margins. Their different storm types and coastlines affected the timing, extent and severity of the flooding."
+        },
+        {
+          "prompt": "Why is a storm surge often higher over a wide, shallow continental shelf?",
+          "choices": [
+            "Shallow water is warmer than deep water.",
+            "Deep water has much stronger tides.",
+            "Wind piles water up more where it is shallow.",
+            "Shallow seas have no waves at all."
+          ],
+          "answer": 2,
+          "explain": "In deep water, water pushed by the wind can return at depth. Over a shallow shelf it has nowhere to go but up against the coast, so the surge builds higher, as in the southern North Sea and the Bay of Bengal."
         }
       ],
       "why": [
@@ -12059,6 +13080,10 @@
         {
           "claim": "A hurricane’s wind category fully describes its coastal flood threat.",
           "truth": "Coastal water rise also depends on storm size, track, duration, atmospheric pressure and the shape and depth of the coast. Tide, waves and river flow further affect flooding. A wind category therefore cannot specify the water level or inundation at a particular location."
+        },
+        {
+          "claim": "A storm surge is just a set of very big waves.",
+          "truth": "A surge raises the whole sea surface, sometimes by several metres, for hours. Storm waves ride on top of that higher water, which is why surges can flood land that waves alone would never reach."
         }
       ],
       "cases": [
@@ -12069,6 +13094,10 @@
         {
           "slug": "katrina-sandy",
           "label": "Katrina / Sandy surge"
+        },
+        {
+          "slug": "bangladesh-delta",
+          "label": "Ganges–Brahmaputra delta"
         }
       ],
       "teacher": {

@@ -14,6 +14,15 @@ const FRONT_TRACE_PHOTO: PhotoSlot = {
 };
 
 export const CASE_COVER_EXTRA: Record<string, PhotoSlot> = {
+  "alaska-permafrost": { ...VERIFIED_PHOTOS["noatak-patterned-ground"] },
+  "atacama": { ...VERIFIED_PHOTOS["place-cl"], caption: "Salar de Tara in the high Atacama, northern Chile. Sinking subtropical air, the cold Humboldt Current and the Andes rain shadow together keep this landscape extremely dry." },
+  "bangladesh-delta": { ...VERIFIED_PHOTOS["bangladesh-modis-2011"] },
+  "east-african-rift": { ...VERIFIED_PHOTOS["east-african-rift"], caption: "The East African Rift in Kenya, photographed from the ISS. Faults and long rift valleys mark where eastern Africa is slowly being pulled apart." },
+  "el-nino-2015": { ...VERIFIED_PHOTOS["noaa-el-nino-2015"] },
+  "himalaya": { ...VERIFIED_PHOTOS["himalaya-iss"], caption: "The Himalaya photographed from the ISS, looking south from over the Tibetan Plateau. India’s collision with Asia thickened the crust and raised these mountains." },
+  "scotland-rebound": { ...VERIFIED_PHOTOS["northbank-raised-beach"], caption: "A raised beach near West Kilbride on the Firth of Clyde. This former shoreline now stands above the sea because the land has risen since the ice sheet melted." },
+  "storm-desmond": { ...VERIFIED_PHOTOS["place-uk-cma"], caption: "Honister Pass, Cumbria, where 341.4 mm of rain fell in 24 hours during Storm Desmond in December 2015, a UK record. The photograph shows the fells in calm weather, not the storm." },
+  "tohoku-2011": { ...VERIFIED_PHOTOS["tohoku-tsunami-aftermath"], caption: "Kesennuma, Japan, after the 2011 Tōhoku tsunami. The photograph shows damage left by the inundation, not the wave itself." },
   "cairngorms-albedo": { ...VERIFIED_PHOTOS["cairngorms-winter-snow"] },
   "cascadia": { ...VERIFIED_PHOTOS["cascadia-mount-adams"] },
   "colorado": { ...VERIFIED_PHOTOS["glen-canyon-dam"] },
