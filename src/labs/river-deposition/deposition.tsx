@@ -15,7 +15,7 @@ import type { LandSection } from "../shared/land-section";
 
 // The bend's apex lies away from the default camera, so the point bar faces the viewer.
 const bend = (x: number) => -0.75 * Math.cos(x * 0.9);
-/** Signed distance across the channel, positive towards the inside of the bend. */
+/** Signed distance across the channel, positive toward the inside of the bend. */
 const across = (x: number, z: number) => {
   const inner = Math.cos(x * 0.9) >= 0 ? 1 : -1;
   return (z - bend(x)) * inner;
@@ -153,14 +153,14 @@ export default function RiverDeposition() {
     () => (mode === 0 ? pointBarHeight : mode === 1 ? leveeHeight : deltaHeight),
     [mode],
   );
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number, z: number) => {
       const c = new THREE.Color();
       if (mode === 0) {
         const q = across(x, z),
           h = pointBarHeight(x, z) - pointBarLevel(x);
         c.copy(farmland(x, z, 0.55)).lerp(MEADOW, 0.45);
-        // The bar: bare sand near the water, younger scroll ridges colonised by grass and willow.
+        // The bar: bare sand near the water, younger scroll ridges colonized by grass and willow.
         if (q > -0.06 && q < 0.15 + 0.6 * bendStrength(x)) {
           const age = THREE.MathUtils.smoothstep(q, 0.05, 0.12 + 0.6 * bendStrength(x));
           c.copy(SAND).lerp(MEADOW, age * 0.9);
@@ -275,7 +275,7 @@ export default function RiverDeposition() {
         <group scale={[1, v, 1]}>
           <GeomorphicTerrain
             height={height}
-            colour={colour}
+            color={color}
             base={-0.18}
             resolution={220}
             cliff={0.35}
@@ -307,7 +307,7 @@ export default function RiverDeposition() {
               <Tag
                 pos={[-0.7, 0.16, -0.1]}
                 text="Point bar"
-                note="Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonised by grass and trees. Spiralling (helicoidal) flow and sediment supply also shape the bar, so surface speed alone does not explain it."
+                note="Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonized by grass and trees. Spiraling (helicoidal) flow and sediment supply also shape the bar, so surface speed alone does not explain it."
                 occlude={false}
               />
               <Tag
@@ -328,7 +328,7 @@ export default function RiverDeposition() {
               <Tag
                 pos={[0.2, 0.24, 0.32]}
                 text="Natural levee"
-                note="When the river overtops its banks the flow slows at once, so the coarsest sediment drops beside the channel. Repeated floods build these low ridges. They are sedimentary landforms, not constructed flood defences."
+                note="When the river overtops its banks the flow slows at once, so the coarsest sediment drops beside the channel. Repeated floods build these low ridges. They are sedimentary landforms, not constructed flood defenses."
                 occlude={false}
               />
               <Tag

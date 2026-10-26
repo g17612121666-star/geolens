@@ -93,11 +93,11 @@ function useSection(samples: Sample[], top: "bed" | "surface", bottom: "bed" | n
 export function OceanSection({
   samples,
   base,
-  colour = "#448098",
+  color = "#448098",
 }: {
   samples: Sample[];
   base: number;
-  colour?: string;
+  color?: string;
 }) {
   const bed = useSection(samples, "bed", base),
     water = useSection(samples, "surface", "bed");
@@ -108,7 +108,7 @@ export function OceanSection({
       </mesh>
       <mesh geometry={water}>
         <meshPhysicalMaterial
-          color={colour}
+          color={color}
           transparent
           opacity={0.23}
           roughness={0.52}
@@ -116,13 +116,13 @@ export function OceanSection({
           depthWrite={false}
         />
       </mesh>
-      <OceanSurface points={samples.map((p) => [p.x, p.surface])} depth={1.8} color={colour} />
+      <OceanSurface points={samples.map((p) => [p.x, p.surface])} depth={1.8} color={color} />
       <Line points={samples.map((p) => [p.x, p.surface, 0.91])} color="#9cd3df" lineWidth={2} />
     </>
   );
 }
 
-/** Optical ripples sit on the modelled free surface; they do not add invented wave displacement. */
+/** Optical ripples sit on the modeled free surface; they do not add invented wave displacement. */
 export function OceanSurface({
   points,
   depth = 1.6,

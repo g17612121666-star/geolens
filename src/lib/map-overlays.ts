@@ -130,7 +130,7 @@ export const RIVERS: OverlayFC = {
     line(
       "Rhine",
       "river",
-      "The Rhine flows from the Alps towards the North Sea, linking mountain runoff with managed floodplains and delta channels.",
+      "The Rhine flows from the Alps toward the North Sea, linking mountain runoff with managed floodplains and delta channels.",
       [
         [8, 46.6],
         [7.6, 48],
@@ -196,7 +196,7 @@ export const RIVERS: OverlayFC = {
     line(
       "Mackenzie",
       "river",
-      "The Mackenzie flows north towards the Arctic Ocean, and seasonal freezing and thawing influence its flow.",
+      "The Mackenzie flows north toward the Arctic Ocean, and seasonal freezing and thawing influence its flow.",
       [
         [-125, 60],
         [-128, 64],
@@ -287,7 +287,7 @@ export const SETTLEMENTS: OverlayFC = {
         40.71,
         -74.01,
         "city",
-        "New York stands beside a harbour shaped by glaciation and rising sea level on North America’s Atlantic coast.",
+        "New York stands beside a harbor shaped by glaciation and rising sea level on North America’s Atlantic coast.",
       ],
       [
         "Washington, D.C.",
@@ -399,7 +399,7 @@ export const SETTLEMENTS: OverlayFC = {
         21.31,
         -157.86,
         "city",
-        "Honolulu lies on Oʻahu in the Hawaiian hotspot chain, whose main islands generally become older towards the northwest.",
+        "Honolulu lies on Oʻahu in the Hawaiian hotspot chain, whose main islands generally become older toward the northwest.",
       ],
       [
         "Moscow",
@@ -895,7 +895,7 @@ export const CURRENTS: OverlayFC = {
     line(
       "Agulhas",
       "current",
-      "The Agulhas Current carries warm water southward along Africa and turns back towards the Indian Ocean.",
+      "The Agulhas Current carries warm water southward along Africa and turns back toward the Indian Ocean.",
       [
         [32, -28],
         [32, -34],
@@ -926,7 +926,7 @@ export const PLATE_ARROWS: OverlayFC = {
     line(
       "Pacific → trench (Japan)",
       "arrow",
-      "The Pacific plate moves towards the trench and subducts beneath the margin near Japan.",
+      "The Pacific plate moves toward the trench and subducts beneath the margin near Japan.",
       [
         [155, 34],
         [143, 35],
@@ -1066,7 +1066,7 @@ export const TEACHING_PRESETS: {
     lat: 19.6,
     lon: -155.5,
     zoom: 7,
-    note: "Hawaiian shield volcanoes form a hotspot chain whose main islands generally become older towards the northwest.",
+    note: "Hawaiian shield volcanoes form a hotspot chain whose main islands generally become older toward the northwest.",
   },
   {
     name: "Yellowstone",

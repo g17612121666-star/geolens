@@ -31,7 +31,7 @@ export function useRockPbr(repeat = 2) {
   };
 }
 
-/** PBR presets. Colours encode mechanism, not decoration. */
+/** PBR presets. Colors encode mechanism, not decoration. */
 export const PBR = {
   rock: { color: "#5c564c", roughness: 0.92, metalness: 0.04 },
   crust: { color: "#7C9A6A", roughness: 0.88, metalness: 0.02 },

@@ -11,7 +11,7 @@ import { cliffFaceGlsl } from "../shared/land-section";
 import { landscapeNoise as noise } from "../shared/landscape-noise";
 import { karstRoof, karstSlab, karstTop, caveFloor, caveCeiling } from "./geometry";
 
-/** Bedded limestone on every cut, wall and roof; upward-facing ground keeps its own colour. */
+/** Bedded limestone on every cut, wall and roof; upward-facing ground keeps its own color. */
 const LIMESTONE = cliffFaceGlsl({ rock: "limestone", beds: 3.4, bedOffset: 0.15 });
 function Limestone({ ground = "#c8c4b8", vertexColors = false }) {
   return (
@@ -234,7 +234,7 @@ export default function Karst() {
               <Tag
                 pos={[0.5, -0.05, 1.7]}
                 text="Stalactites and stalagmites"
-                note="Stalactites hang from the roof and stalagmites grow up from the floor. Dripping water loses carbon dioxide into the cave air, so calcite precipitates. Real ones typically grow only about a centimetre per century; the falling drops are enlarged."
+                note="Stalactites hang from the roof and stalagmites grow up from the floor. Dripping water loses carbon dioxide into the cave air, so calcite precipitates. Real ones typically grow only about a centimeter per century; the falling drops are enlarged."
                 occlude={false}
               />
             </>

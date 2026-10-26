@@ -11,34 +11,34 @@ const FAMILIES = [
   {
     code: "A",
     name: "Tropical",
-    colour: "#449d80",
+    color: "#449d80",
     description:
-      "Warm throughout the year; rainfall separates rainforest, monsoon and savannah climates.",
+      "Warm throughout the year; rainfall separates rainforest, monsoon and savanna climates.",
   },
   {
     code: "B",
     name: "Dry",
-    colour: "#d5ac6a",
+    color: "#d5ac6a",
     description:
       "Rainfall is below a dryness threshold that rises with temperature; dry climates can be hot or cold.",
   },
   {
     code: "C",
     name: "Temperate",
-    colour: "#93ba74",
+    color: "#93ba74",
     description:
       "Mild winters and warm or hot summers; subclasses describe summer warmth and when rain falls.",
   },
   {
     code: "D",
     name: "Cold continental",
-    colour: "#859fc9",
+    color: "#859fc9",
     description: "Cold winters and warm summers create a marked annual temperature range.",
   },
   {
     code: "E",
     name: "Polar",
-    colour: "#dddce3",
+    color: "#dddce3",
     description:
       "Even the warmest month averages below 10 °C; tundra and ice-cap climates belong to this family.",
   },
@@ -46,8 +46,8 @@ const FAMILIES = [
 const EXAMPLES = [
   { name: "Singapore", lat: 1.35, lon: 103.82, code: "Af", atlas: "sg" },
   { name: "Cairo", lat: 30.04, lon: 31.24, code: "BWh", atlas: "eg" },
-  { name: "London", lat: 51.51, lon: -0.13, code: "Cfb", atlas: "uk" },
-  { name: "Helsinki", lat: 60.17, lon: 24.94, code: "Dfb", atlas: "fi" },
+  { name: "Washington, DC", lat: 38.91, lon: -77.04, code: "Cfa", atlas: "us" },
+  { name: "Saint Paul", lat: 44.95, lon: -93.09, code: "Dfa", atlas: "us-mn" },
   { name: "Nuuk", lat: 64.18, lon: -51.72, code: "ET", atlas: null },
 ];
 
@@ -85,14 +85,14 @@ export default function ClimateTypes() {
     selected = FAMILIES[family],
     d = Math.PI / 180;
   const point = latLonToXYZ(sample.lat, sample.lon, 1.23);
-  // The tag sits a few degrees north so it does not hide the city marker or its colour.
+  // The tag sits a few degrees north so it does not hide the city marker or its color.
   const tagPoint = latLonToXYZ(sample.lat + 7, sample.lon, 1.23);
   return (
     <>
       <ScienceStudio
         slug="climate-types"
         camera={[0, 0.15, 5]}
-        scale="Globe to scale · colours show 1991–2020 climate averages"
+        scale="Globe to scale · colors show 1991–2020 climate averages"
         trueScale="The globe uses the same geographic scale in both views"
       >
         <group rotation={[sample.lat * d, Math.PI - sample.lon * d, 0]}>
@@ -132,7 +132,7 @@ export default function ClimateTypes() {
             >
               <span
                 className="mx-auto mb-1 block size-2 rounded-full"
-                style={{ backgroundColor: item.colour }}
+                style={{ backgroundColor: item.color }}
               />
               <span className="font-semibold">{item.code}</span>
               <span className="mt-1 hidden text-xs sm:block">{item.name}</span>

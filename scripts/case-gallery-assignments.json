@@ -12,7 +12,7 @@
   "florida-insolation": [
     {
       "id": "meteosat-december-solstice",
-      "caption": "Meteosat-9 satellite image, 21 December 2010. At the solstice northern latitudes such as London's are tilted away from the Sun, while places nearer the tropics, such as Miami, still receive a much higher noon Sun."
+      "caption": "Meteosat-9 satellite image, 21 December 2010. At the solstice the Northern Hemisphere is tilted away from the Sun, so high northern latitudes receive weak, low-angle sunlight while places nearer the tropics still receive a much higher noon Sun."
     },
     {
       "id": "ceres-net-2000-2015",
@@ -81,7 +81,7 @@
   "thames": [
     {
       "id": "thames-estuary-landsat",
-      "caption": "Landsat image of the Thames estuary. The tidal river widens towards the North Sea; pale water carries suspended sediment."
+      "caption": "Landsat image of the Thames estuary. The tidal river widens toward the North Sea; pale water carries suspended sediment."
     },
     {
       "id": "naze-london-clay",
@@ -91,11 +91,11 @@
   "iceland": [
     {
       "id": "noaa-south-atlantic-bathymetry",
-      "caption": "NOAA bathymetry of the South Atlantic showing the Mid-Atlantic Ridge. This is the same ridge that crosses Iceland, seen here thousands of kilometres to the south, mostly under deep water."
+      "caption": "NOAA bathymetry of the South Atlantic showing the Mid-Atlantic Ridge. This is the same ridge that crosses Iceland, seen here thousands of kilometers to the south, mostly under deep water."
     },
     {
       "id": "galapagos-pillow-lava",
-      "caption": "Pillow lava at the Galápagos Rift, Pacific Ocean. It shows the process rather than Iceland: basalt erupting at a spreading centre, as it does along the submarine Mid-Atlantic Ridge."
+      "caption": "Pillow lava at the Galápagos Rift, Pacific Ocean. It shows the process rather than Iceland: basalt erupting at a spreading center, as it does along the submarine Mid-Atlantic Ridge."
     },
     {
       "id": "kamoamoa-fissure-2011",
@@ -105,7 +105,7 @@
   "san-andreas": [
     {
       "id": "usgs-haiti-intensity",
-      "caption": "USGS ShakeMap for the 2021 Haiti earthquake, not California. The same method maps how shaking intensity spreads out from the epicentre after Californian earthquakes."
+      "caption": "USGS ShakeMap for the 2021 Haiti earthquake, not California. The same method maps how shaking intensity spreads out from the epicenter after Californian earthquakes."
     },
     {
       "id": "puerto-rico-seismometer",
@@ -129,7 +129,7 @@
   "yellowstone": [
     {
       "id": "hawaiian-chain-iss",
-      "caption": "The Hawaiian islands from the ISS: an oceanic hotspot chain to compare with Yellowstone's track of older volcanic centres across the Snake River Plain."
+      "caption": "The Hawaiian islands from the ISS: an oceanic hotspot chain to compare with Yellowstone's track of older volcanic centers across the Snake River Plain."
     },
     {
       "id": "crater-lake-caldera",
@@ -139,7 +139,7 @@
   "hawaii": [
     {
       "id": "hawaiian-chain-iss",
-      "caption": "The main Hawaiian islands from the ISS. The youngest, largest island is at the southeastern end; the islands become older and more eroded towards the northwest."
+      "caption": "The main Hawaiian islands from the ISS. The youngest, largest island is at the southeastern end; the islands become older and more eroded toward the northwest."
     },
     {
       "id": "kamoamoa-fissure-2011",
@@ -167,7 +167,7 @@
     },
     {
       "id": "place-us-la",
-      "caption": "Landsat image of the northern Gulf coast (colours enhanced). The faint curved arc at lower left is the Chandeleur Islands, remnants of an abandoned Mississippi delta lobe, now eroding because the river's sediment goes elsewhere. Delta marshes lie to their left; the coast across the top is Mississippi and Alabama."
+      "caption": "Landsat image of the northern Gulf coast (colors enhanced). The faint curved arc at lower left is the Chandeleur Islands, remnants of an abandoned Mississippi delta lobe, now eroding because the river's sediment goes elsewhere. Delta marshes lie to their left; the coast across the top is Mississippi and Alabama."
     },
     {
       "id": "mississippi-delta-sts062"
@@ -186,7 +186,7 @@
   "katrina-sandy": [
     {
       "id": "place-us-ny",
-      "caption": "Lower Manhattan and the Battery beside New York Harbour. Sandy's 2012 storm surge flooded low ground at this tip of the island."
+      "caption": "Lower Manhattan and the Battery beside New York Harbor. Sandy's 2012 storm surge flooded low ground at this tip of the island."
     },
     {
       "id": "ike-bolivar-surge",
@@ -196,7 +196,7 @@
   "dust-bowl": [
     {
       "id": "place-us-ks",
-      "caption": "Grassland in Kansas, part of the Great Plains affected in the 1930s. Undisturbed grass cover holds the soil that ploughing exposed to the wind."
+      "caption": "Grassland in Kansas, part of the Great Plains affected in the 1930s. Undisturbed grass cover holds the soil that plowing exposed to the wind."
     },
     {
       "id": "shanxi-loess-hills",
@@ -266,7 +266,7 @@
   "outer-banks": [
     {
       "id": "place-us-la",
-      "caption": "Landsat image of the northern Gulf coast (colours enhanced). Like the Outer Banks, the narrow barrier islands off Mississippi and Alabama (top) and Louisiana's Chandeleur Islands (faint arc, lower left) are reshaped by storms. This image illustrates the process, not North Carolina."
+      "caption": "Landsat image of the northern Gulf coast (colors enhanced). Like the Outer Banks, the narrow barrier islands off Mississippi and Alabama (top) and Louisiana's Chandeleur Islands (faint arc, lower left) are reshaped by storms. This image illustrates the process, not North Carolina."
     },
     {
       "id": "ike-bolivar-surge",
@@ -318,7 +318,7 @@
   "hong-kong-landslide": [
     {
       "id": "place-hk",
-      "caption": "Hong Kong in 2005. Dense development climbs steep hillsides above the harbour, which is why slope stability matters so much here."
+      "caption": "Hong Kong in 2005. Dense development climbs steep hillsides above the harbor, which is why slope stability matters so much here."
     },
     {
       "id": "weathered-granite",
@@ -338,10 +338,10 @@
   "typhoon-mangkhut": [
     {
       "id": "place-hk",
-      "caption": "Hong Kong's harbour and high-rise waterfront, which Mangkhut's winds and storm surge struck in September 2018."
+      "caption": "Hong Kong's harbor and high-rise waterfront, which Mangkhut's winds and storm surge struck in September 2018."
     },
     {
-      "id": "macau-inner-harbour"
+      "id": "macau-inner-harbor"
     },
     {
       "id": "isabel-hurricane-eye",

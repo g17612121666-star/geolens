@@ -11,7 +11,7 @@ export function treeGeometry(kind: TreeKind = "conifer", seed = 1) {
   };
   const wood: THREE.BufferGeometry[] = [],
     positions: number[] = [],
-    colours: number[] = [],
+    colors: number[] = [],
     uvs: number[] = [];
   const up = new THREE.Vector3(0, 1, 0);
   const branch = (a: THREE.Vector3, b: THREE.Vector3, r: number) => {
@@ -61,7 +61,7 @@ export function treeGeometry(kind: TreeKind = "conifer", seed = 1) {
         ])
       for (const p of tri) {
         positions.push(...p.toArray());
-        colours.push(c.r, c.g, c.b);
+        colors.push(c.r, c.g, c.b);
         uvs.push(
           p === root ? 0.5 : p === tip ? 0.5 : p === a ? 0 : 1,
           p === root ? 0 : p === tip ? 1 : 0.5,
@@ -170,7 +170,7 @@ export function treeGeometry(kind: TreeKind = "conifer", seed = 1) {
   wood.forEach((g) => g.dispose());
   const foliage = new THREE.BufferGeometry();
   foliage.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
-  foliage.setAttribute("color", new THREE.Float32BufferAttribute(colours, 3));
+  foliage.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
   foliage.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
   foliage.computeVertexNormals();
   foliage.computeBoundingSphere();

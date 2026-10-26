@@ -44,21 +44,21 @@ export const CASES: CaseStudy[] = [
   },
   {
     slug: "florida-insolation",
-    title: "Winter sunlight in Miami and London",
-    place: "Miami, Florida and London, England",
-    region: "Shared",
+    title: "Winter sunlight in Miami and Minneapolis",
+    place: "Miami, Florida and Minneapolis, Minnesota",
+    region: "US",
     labs: ["solar-altitude", "seasons", "energy-budget"],
     lat: 25.76,
     lon: -80.19,
     zoom: 5,
-    lede: "Miami receives a higher midday Sun than London in December. Comparing their solar angles helps explain why the same season brings different amounts of solar energy.",
+    lede: "Miami receives a higher midday Sun than Minneapolis in December. Comparing their solar angles helps explain why the same season brings different amounts of solar energy.",
     body: [
-      "Near the December solstice, the noon Sun is about 40° above the horizon in Miami and about 15° in London. A steeper beam spreads its energy across a smaller horizontal area. Miami also has a longer winter day, extending the time during which sunlight is received.",
+      "Near the December solstice, the noon Sun is about 41° above the horizon in Miami and about 22° in Minneapolis, which lies about 19° farther north. A steeper beam spreads its energy across a smaller horizontal area. Miami also has a longer winter day, about 10½ hours against fewer than 9, extending the time during which sunlight is received. London, at 51.5° N, gets a noon Sun of only about 15°.",
       "Compare the two cities in the solar-altitude model, then use the energy-budget model to introduce reflection by clouds and the ground. Solar angle explains much of the contrast, but the energy reaching the surface also depends on cloud, haze and the type of ground.",
     ],
     exam: {
       prompt:
-        "Using noon solar altitude, explain why Miami receives more solar energy than London in December, even on a cloudless day.",
+        "Using noon solar altitude, explain why Miami receives more solar energy than Minneapolis in December, even on a cloudless day.",
       hint: "Compare the solar angle and length of daylight. A higher Sun spreads the incoming beam over less ground.",
     },
     sources: [
@@ -76,10 +76,10 @@ export const CASES: CaseStudy[] = [
     lon: -0.05,
     zoom: 9,
     state: "step=2",
-    lede: "Waves erode the soft glacial till cliffs of Holderness, while longshore drift carries sediment south towards Spurn. Coastal defences change how that sediment is shared along the shore.",
+    lede: "Waves erode the soft glacial till cliffs of Holderness, while longshore drift carries sediment south toward Spurn. Coastal defenses change how that sediment is shared along the shore.",
     body: [
       "Holderness cliffs are largely made of glacial till rather than hard, well-cemented rock. Wave erosion at the foot combines with weathering and slope failure above. Retreat varies along the coast and from year to year, so a single average rate does not describe every cliff or every winter.",
-      "Waves approaching obliquely move sediment alongshore. Groynes trap material on their up-drift side and reduce the supply farther down the coast. Use the coasts model to trace this transfer, then locate Mappleton and Spurn to discuss how a local defence affects the wider sediment budget.",
+      "Waves approaching obliquely move sediment alongshore. Groynes trap material on their up-drift side and reduce the supply farther down the coast. Use the coasts model to trace this transfer, then locate Mappleton and Spurn to discuss how a local defense affects the wider sediment budget.",
     ],
     exam: {
       prompt:
@@ -306,15 +306,15 @@ export const CASES: CaseStudy[] = [
     lat: 44.6,
     lon: -110.5,
     zoom: 7,
-    lede: "Yellowstone’s hot springs and caldera sit above a long-lived volcanic system. Older volcanic centres across the Snake River Plain help trace its relationship with plate movement.",
+    lede: "Yellowstone’s hot springs and caldera sit above a long-lived volcanic system. Older volcanic centers across the Snake River Plain help trace its relationship with plate movement.",
     body: [
-      "Yellowstone lies within the North American Plate rather than on its edge. Heat drives a large hydrothermal system, while older volcanic centres extend southwest along the Snake River Plain. Their ages and positions record how the plate has moved over the heat source beneath.",
+      "Yellowstone lies within the North American Plate rather than on its edge. Heat drives a large hydrothermal system, while older volcanic centers extend southwest along the Snake River Plain. Their ages and positions record how the plate has moved over the heat source beneath.",
       "Use the hotspots model to compare an age-progressive continental track with Hawaiʻi’s oceanic island chain. A hot spring shows that the system is active, but the magma stored deeper down can only be studied with geophysical and geological measurements.",
     ],
     exam: {
       prompt:
         "How does the age pattern of calderas in the Snake River Plain support a hotspot under a moving plate?",
-      hint: "Relate the southwestward increase in volcanic age to plate movement over a long-lived source, while recognising that the source can also move.",
+      hint: "Relate the southwestward increase in volcanic age to plate movement over a long-lived source, while recognizing that the source can also move.",
     },
     sources: [{ label: "USGS Yellowstone Volcano Observatory" }, { label: "USGS hotspot track" }],
   },
@@ -330,7 +330,7 @@ export const CASES: CaseStudy[] = [
     lede: "The Hawaiian island and seamount chain becomes older away from its active southeastern end. It provides evidence of oceanic plate movement over a long-lived volcanic source.",
     body: [
       "Repeated basaltic eruptions build broad shield volcanoes in Hawaiʻi. As the Pacific Plate moves over the hotspot, older volcanoes are carried away and die out, and new ones form above the active source. The extinct volcanoes then sink and erode.",
-      "Compare position and age along the chain in the hotspots model. Discuss why the bend towards the Emperor seamounts cannot be explained simply by a fixed hotspot and a plate moving in one unchanging direction.",
+      "Compare position and age along the chain in the hotspots model. Discuss why the bend toward the Emperor seamounts cannot be explained simply by a fixed hotspot and a plate moving in one unchanging direction.",
     ],
     exam: {
       prompt:
@@ -417,7 +417,7 @@ export const CASES: CaseStudy[] = [
     lat: 29.95,
     lon: -90.07,
     zoom: 5,
-    lede: "Katrina and Sandy struck different coasts, but both show how storm winds can raise the sea. Coastal shape, tides and defences shaped the floods that followed.",
+    lede: "Katrina and Sandy struck different coasts, but both show how storm winds can raise the sea. Coastal shape, tides and defenses shaped the floods that followed.",
     body: [
       "Storm surge is the rise in sea level above the expected tide, caused mainly by wind pushing water onshore and partly by low air pressure. Water levels at the shore also depend on waves, the timing of high tide and the shape and depth of the coast, so a storm’s wind category alone does not describe the flood threat.",
       "Katrina (2005) flooded New Orleans; Sandy (2012) flooded parts of New York and New Jersey after losing its tropical characteristics just before landfall. Use the storm-surge model to see how wind and shelf depth change surge, but study each event in its own setting.",
@@ -425,7 +425,7 @@ export const CASES: CaseStudy[] = [
     exam: {
       prompt:
         "Explain why the flooding of New Orleans during Hurricane Katrina cannot be explained by the storm’s wind category alone.",
-      hint: "Separate storm surge, waves and tide, then explain how shallow coastal water, low-lying land and failed flood defences increased the flooding.",
+      hint: "Separate storm surge, waves and tide, then explain how shallow coastal water, low-lying land and failed flood defenses increased the flooding.",
     },
     sources: [
       { label: "NOAA / NHC Katrina and Sandy reports" },
@@ -445,7 +445,7 @@ export const CASES: CaseStudy[] = [
     body: [
       "During the Dust Bowl, severe drought coincided with exposed and disturbed soils across parts of the Great Plains. Wind detached and transported particles, sometimes carrying fine dust far from its source. Vegetation loss reduced protection from direct wind and removed roots that helped hold soil together.",
       "Use the soil-erosion model to compare bare ground with covered ground. Ask students to separate the climatic trigger (drought) from the land use that made soils vulnerable, then compare wind erosion with the water-cut gullies of the Loess Plateau.",
-      "The same plains lie above the High Plains (Ogallala) aquifer. After the 1930s, irrigation wells drawing on it helped farms through later droughts, but in parts of western Kansas and the Texas Panhandle pumping has far exceeded recharge and the water table has fallen by tens of metres. Use the groundwater model to see how pumping draws the water table down around a well.",
+      "The same plains lie above the High Plains (Ogallala) aquifer. After the 1930s, irrigation wells drawing on it helped farms through later droughts, but in parts of western Kansas and the Texas Panhandle pumping has far exceeded recharge and the water table has fallen by tens of meters. Use the groundwater model to see how pumping draws the water table down around a well.",
     ],
     exam: {
       prompt:
@@ -654,7 +654,7 @@ export const CASES: CaseStudy[] = [
     zoom: 7,
     lede: "A sunny afternoon can bring cooler air inland from the sea as the land warms faster than nearby water. The sea breeze is a local response to unequal heating.",
     body: [
-      "As the land heats, the air above it warms and rises, and lower pressure near the surface draws cooler sea air inland. A return flow towards the sea higher up completes the circulation.",
+      "As the land heats, the air above it warms and rises, and lower pressure near the surface draws cooler sea air inland. A return flow toward the sea higher up completes the circulation.",
       "Use the thermal-circulation model to compare daytime and night-time heating. Then consider why a strong prevailing wind, cloud or an irregular coastline may spoil the neat circulation shown in the model.",
     ],
     exam: {
@@ -696,7 +696,7 @@ export const CASES: CaseStudy[] = [
     zoom: 7,
     lede: "Denver’s height above sea level makes it a good place to discuss air pressure and altitude, but the city is still well inside the troposphere, with most of the weather layer above it.",
     body: [
-      "Denver stands roughly 1.6 km above sea level. Atmospheric pressure is lower there than at sea level because less air lies above the city. The tropopause is still several kilometres higher, with its altitude varying by latitude and weather.",
+      "Denver stands roughly 1.6 km above sea level. Atmospheric pressure is lower there than at sea level because less air lies above the city. The tropopause is still several kilometers higher, with its altitude varying by latitude and weather.",
       "Find Denver’s height in the atmosphere-layers model: it sits near the bottom, not near the top. Compare pressure with altitude, and separate this change from the day-to-day pressure changes caused by weather systems.",
     ],
     exam: {
@@ -715,7 +715,7 @@ export const CASES: CaseStudy[] = [
     lat: 22.28,
     lon: 114.16,
     zoom: 11,
-    lede: "Intense rainfall can destabilise Hong Kong’s steep slopes, including those underlain by deeply weathered rock. The role of groundwater differs from wave erosion at the foot of a Holderness cliff.",
+    lede: "Intense rainfall can destabilize Hong Kong’s steep slopes, including those underlain by deeply weathered rock. The role of groundwater differs from wave erosion at the foot of a Holderness cliff.",
     body: [
       "Weathering can turn granite and other rocks into thick, weak material called saprolite. Rain soaking into a slope raises the pore-water pressure, which reduces the friction holding the material in place. Slope angle, drainage, vegetation and engineering all affect stability.",
       "Compare this setting with coastal slumping at Holderness. Both involve gravity-driven movement, but their materials and triggers differ. Use the mass-movement model’s pore-pressure slider to see how water affects stability before discussing a particular landslide.",
@@ -760,7 +760,7 @@ export const CASES: CaseStudy[] = [
     state: "t=0.4",
     lede: "Typhoon Mangkhut (2018) shows the combined effects of wind, heavy rain and storm surge. A typhoon is the same kind of storm as an Atlantic hurricane.",
     body: [
-      "Names differ by region, but a typhoon is a tropical cyclone with a warm core. Its winds drive water towards the coast, while low pressure, tides and waves add to the water level. Heavy rain adds a second source of flooding.",
+      "Names differ by region, but a typhoon is a tropical cyclone with a warm core. Its winds drive water toward the coast, while low pressure, tides and waves add to the water level. Heavy rain adds a second source of flooding.",
       "Compare the tropical-cyclone and surge models, then locate the Pearl River Delta’s low-lying coasts. Mangkhut and Katrina share the same physics, but their tracks, coasts and impacts must be studied separately.",
     ],
     exam: {
@@ -828,7 +828,7 @@ export const CASES: CaseStudy[] = [
     zoom: 2,
     lede: "The 2015–16 El Niño was one of the strongest on record. Warm water spread across the central and eastern tropical Pacific, and rainfall patterns shifted around the world.",
     body: [
-      "During El Niño the Pacific trade winds weaken, so warm surface water that usually piles up in the west spreads eastwards. Rising air and heavy rain follow the warm water. In 2015–16 this brought floods to parts of Peru and Ecuador, while Indonesia and parts of Australia became drier, and fires in Indonesia sent smoke across south-east Asia.",
+      "During El Niño the Pacific trade winds weaken, so warm surface water that usually piles up in the west spreads eastward. Rising air and heavy rain follow the warm water. In 2015–16 this brought floods to parts of Peru and Ecuador, while Indonesia and parts of Australia became drier, and fires in Indonesia sent smoke across south-east Asia.",
       "Use the ENSO model to compare normal conditions with El Niño, then the ocean-currents model to see how winds drive surface water. Remember that ENSO changes the odds of particular weather: no two El Niño events, and no two places, respond in exactly the same way.",
     ],
     exam: {
@@ -852,7 +852,7 @@ export const CASES: CaseStudy[] = [
     zoom: 5,
     lede: "On 11 March 2011 a magnitude 9.1 earthquake on the Japan Trench megathrust lifted the seafloor and sent a tsunami onto the coast of north-east Japan. Around 18,000 people died or are still missing.",
     body: [
-      "The Pacific Plate sinks westwards beneath north-east Japan at the Japan Trench. Friction had locked part of the plate boundary, and in 2011 it slipped by tens of metres over an area hundreds of kilometres long. The sudden uplift of the seafloor raised the whole depth of the ocean above it.",
+      "The Pacific Plate sinks westward beneath north-east Japan at the Japan Trench. Friction had locked part of the plate boundary, and in 2011 it slipped by tens of meters over an area hundreds of kilometers long. The sudden uplift of the seafloor raised the whole depth of the ocean above it.",
       "The tsunami crossed the deep ocean as a low, fast wave, then slowed and grew in shallow water. Run-up reached around 40 m in some narrow bays. Use the plate-boundaries model to locate the subduction zone, the earthquakes model to compare seismic waves, and the tsunami model to see why the wave grows at the coast.",
     ],
     exam: {
@@ -878,7 +878,7 @@ export const CASES: CaseStudy[] = [
     zoom: 5,
     lede: "Eastern Africa is slowly splitting apart. The East African Rift shows the first stage of a possible new ocean, with faulted valleys, rift lakes and volcanoes.",
     body: [
-      "The Somali Plate and the Nubian part of the African Plate are moving apart by a few millimetres a year. As the crust stretches, blocks drop down between normal faults to form a rift valley, and magma rises to feed volcanoes such as Kilimanjaro and Ol Doinyo Lengai.",
+      "The Somali Plate and the Nubian part of the African Plate are moving apart by a few millimeters a year. As the crust stretches, blocks drop down between normal faults to form a rift valley, and magma rises to feed volcanoes such as Kilimanjaro and Ol Doinyo Lengai.",
       "In the Afar region of Ethiopia the rift meets the Red Sea and Gulf of Aden, where the sea has already flooded in. Use the plate-boundaries model to compare continental rifting with an ocean ridge, then the Wilson-cycle model to discuss whether this rift will become an ocean. Many rifts stop before they get that far.",
     ],
     exam: {
@@ -930,7 +930,7 @@ export const CASES: CaseStudy[] = [
     zoom: 6,
     lede: "The Ganges, Brahmaputra and Meghna rivers have built the world’s largest delta. Its low, flat land is fertile, but it is exposed to monsoon floods and cyclone storm surges from the Bay of Bengal.",
     body: [
-      "The rivers drain the Himalaya and carry an enormous load of sediment, much of it deposited on the delta and in the Bay of Bengal. Much of Bangladesh lies only a few metres above sea level, and parts of the delta are sinking as sediments compact.",
+      "The rivers drain the Himalaya and carry an enormous load of sediment, much of it deposited on the delta and in the Bay of Bengal. Much of Bangladesh lies only a few meters above sea level, and parts of the delta are sinking as sediments compact.",
       "The shallow, funnel-shaped Bay of Bengal can pile up very large storm surges when tropical cyclones make landfall; the 1970 Bhola cyclone was one of the deadliest natural disasters on record. Cyclone shelters and early warnings have since greatly reduced deaths. Use the river-deposition, storm-surge and tropical-cyclone models to connect the delta’s formation with its hazards.",
     ],
     exam: {
@@ -958,11 +958,11 @@ export const CASES: CaseStudy[] = [
     lede: "The Atacama is one of the driest places on Earth outside the polar regions. Three separate processes keep its rain away.",
     body: [
       "First, the region lies under the subtropical high, where air sinking in the Hadley cell warms and dries. Second, the cold Humboldt Current offshore cools the air from below, making it stable, so coastal fog forms but rain clouds rarely do. Third, the Andes block moist air from the east, leaving the desert in a rain shadow.",
-      "Some weather stations in the Atacama have recorded only a few millimetres of rain a year on average, with many years of none at all. Use the three-cell, ocean-currents and rain-shadow models to build a three-part explanation, and test each part against a map.",
+      "Some weather stations in the Atacama have recorded only a few millimeters of rain a year on average, with many years of none at all. Use the three-cell, ocean-currents and rain-shadow models to build a three-part explanation, and test each part against a map.",
     ],
     exam: {
       prompt: "Explain three reasons why the Atacama Desert receives so little rainfall.",
-      hint: "Use sinking air in the subtropical high, the stabilising effect of the cold Humboldt Current, and the rain shadow of the Andes.",
+      hint: "Use sinking air in the subtropical high, the stabilizing effect of the cold Humboldt Current, and the rain shadow of the Andes.",
     },
     sources: [
       { label: "NASA Earth Observatory — Atacama Desert" },
@@ -978,9 +978,9 @@ export const CASES: CaseStudy[] = [
     lat: 55.75,
     lon: -4.9,
     zoom: 7,
-    lede: "Old shorelines now stand several metres above the sea along the coasts of western Scotland. The land is still slowly rising after the weight of the last ice sheet was removed.",
+    lede: "Old shorelines now stand several meters above the sea along the coasts of western Scotland. The land is still slowly rising after the weight of the last ice sheet was removed.",
     body: [
-      "During the last glaciation a thick ice sheet covered Scotland and pressed the crust down into the mantle. When the ice melted, the land began to rise again, but the mantle flows so slowly that the rebound continues today, by around a millimetre or two a year in parts of western Scotland.",
+      "During the last glaciation a thick ice sheet covered Scotland and pressed the crust down into the mantle. When the ice melted, the land began to rise again, but the mantle flows so slowly that the rebound continues today, by around a millimeter or two a year in parts of western Scotland.",
       "Raised beaches, with flat terraces and old cliff lines above today’s shore, record former sea levels relative to the land. Parts of southern England, beyond the old ice margin, are slowly sinking instead. Use the isostasy model to load and unload a crustal block, then compare raised beaches with the glaciers model.",
     ],
     exam: {
@@ -1019,6 +1019,23 @@ export const CASES: CaseStudy[] = [
     ],
   },
 ];
+
+// Geolens is written mainly for US students, so US cases lead and UK cases follow as a secondary set.
+export const REGIONS: CaseStudy["region"][] = [
+  "US",
+  "Shared",
+  "UK",
+  "East Asia",
+  "South Asia",
+  "Africa",
+  "South America",
+  "Pacific",
+];
+
+/** Cases ordered by region (US first), keeping the source order within a region. */
+export const CASES_BY_REGION = [...CASES].sort(
+  (a, b) => REGIONS.indexOf(a.region) - REGIONS.indexOf(b.region),
+);
 
 export const CASE_BY_SLUG: Record<string, CaseStudy> = Object.fromEntries(
   CASES.map((c) => [c.slug, c]),

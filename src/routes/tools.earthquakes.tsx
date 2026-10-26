@@ -265,7 +265,7 @@ function EarthquakesTool() {
           </ul>
           <p className="mt-2 text-xs leading-5 text-mist">
             {
-              "Dots mark epicentres and are enlarged to be visible; they are not to scale. Drag to rotate the globe and select a dot or a row in the list to focus on it."
+              "Dots mark epicenters and are enlarged to be visible; they are not to scale. Drag to rotate the globe and select a dot or a row in the list to focus on it."
             }
           </p>
         </section>

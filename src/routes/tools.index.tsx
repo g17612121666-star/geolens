@@ -26,7 +26,7 @@ const TOOLS = [
     icon: CloudSun,
     title: "Live weather",
     blurb:
-      "Compare current modelled weather in two places, then follow both forecasts along the same 72-hour timeline. Investigate differences in temperature, rain, wind and cloud cover.",
+      "Compare current modeled weather in two places, then follow both forecasts along the same 72-hour timeline. Investigate differences in temperature, rain, wind and cloud cover.",
   },
   {
     to: "/tools/earthquakes",

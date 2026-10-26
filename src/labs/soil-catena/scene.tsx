@@ -24,7 +24,7 @@ function hillSurface(x: number, slope: number) {
 /**
  * Catena cut faces. Soil thickness along the slope comes from the model (uThick), so the soil
  * thins on the backslope and thickens at the toe. The lower slope is wetter: its subsoil is
- * grey with rusty mottles (gleying). Below the soil lies weathered and then solid sandstone.
+ * gray with rusty mottles (gleying). Below the soil lies weathered and then solid sandstone.
  */
 const CATENA_GLSL = `uniform float uThick[${SAMPLES}];
 vec3 sectionColour(vec3 p,vec3 w){
@@ -68,7 +68,7 @@ export default function SoilCatena() {
     () => (x: number, z: number) => hillSurface(x, slope) + 0.02 * (noise(x * 2 + 1, z * 2) - 0.5),
     [slope],
   );
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number, z: number) => {
       const u = (x + 3) / 6,
         c = CREST.clone()
@@ -125,7 +125,7 @@ export default function SoilCatena() {
       >
         <GeomorphicTerrain
           height={height}
-          colour={colour}
+          color={color}
           width={6}
           depth={2}
           base={-1.5}
@@ -163,7 +163,7 @@ export default function SoilCatena() {
                   ? "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one example."
                   : i === 1
                     ? "In this model, a steeper slope gives a thinner backslope soil; bare patches show where soil is thinnest. It is not an erosion-rate law, and not every steep slope has thin soil."
-                    : "The lower slope receives water and sediment, so the soil is thicker. It is often waterlogged: the grey subsoil with rusty mottles shows gleying, where iron is reduced and moved by standing water."
+                    : "The lower slope receives water and sediment, so the soil is thicker. It is often waterlogged: the gray subsoil with rusty mottles shows gleying, where iron is reduced and moved by standing water."
               }
               occlude={false}
             />

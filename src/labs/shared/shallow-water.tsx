@@ -27,7 +27,7 @@ export function ShallowWater({
   width?: number;
   depth?: number;
   resolution?: number;
-  /** Water depth at which the deep colour is reached. */
+  /** Water depth at which the deep color is reached. */
   deep?: number;
   shallowColour?: string;
   deepColour?: string;
@@ -112,7 +112,7 @@ normal=normalize(normal+normalize(dFdx(vViewPosition))*ra+normalize(dFdy(vViewPo
   );
   return (
     <>
-      <WaterSides land={land} level={level} width={width} depth={depth} colour={deepColour} />
+      <WaterSides land={land} level={level} width={width} depth={depth} color={deepColour} />
       <mesh geometry={geometry} receiveShadow renderOrder={2}>
         <meshPhysicalMaterial
           color="white"
@@ -136,14 +136,14 @@ export function WaterSides({
   level,
   width = 6,
   depth = 4,
-  colour = "#1f566b",
+  color = "#1f566b",
   opacity = 0.62,
 }: {
   land: (x: number, z: number) => number;
   level: (x: number, z: number) => number;
   width?: number;
   depth?: number;
-  colour?: string;
+  color?: string;
   opacity?: number;
 }) {
   const sides = useMemo(() => {
@@ -182,7 +182,7 @@ export function WaterSides({
   return (
     <mesh geometry={sides} renderOrder={1}>
       <meshStandardMaterial
-        color={colour}
+        color={color}
         roughness={0.2}
         transparent
         opacity={opacity}

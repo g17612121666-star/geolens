@@ -43,8 +43,8 @@ const hemi = (v: number, pos: string, neg: string) =>
 
 export default function GraticuleScene() {
   const { params } = useLabControls(),
-    lat = params.lat ?? 51.5,
-    lon = params.lon ?? -0.1;
+    lat = params.lat ?? 40.7,
+    lon = params.lon ?? -74;
   const parallel = useMemo(() => ring(lat, 1.265), [lat]);
   const localMeridian = useMemo(() => meridian(lon, 1.27), [lon]);
   const equator = useMemo(() => ring(0, 1.262), []);
@@ -65,7 +65,7 @@ export default function GraticuleScene() {
         lights={false}
         camera={[0, 1, 4.8]}
       >
-        {/* Tip the globe towards the viewer by half the latitude so high-latitude markers stay
+        {/* Tip the globe toward the viewer by half the latitude so high-latitude markers stay
             on the visible face; turn it so the marker's meridian faces the camera. */}
         <group rotation={[(lat * 0.5 * Math.PI) / 180, 0, 0]}>
           <group rotation={[0, Math.PI - (lon * Math.PI) / 180, 0]}>

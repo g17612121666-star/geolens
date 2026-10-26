@@ -107,7 +107,7 @@ export function CloudShield({
   );
 }
 
-/** Wind-driven foam streaks on the sea, strongest under the eyewall, spiralling inwards. */
+/** Wind-driven foam streaks on the sea, strongest under the eyewall, spiraling inward. */
 export function WindSea({ spin, maximum, t }: { spin: number; maximum: number; t: number }) {
   const uniforms = useMemo(
     () => ({ uSpin: { value: 1 }, uVmax: { value: 60 }, uTime: { value: 0 } }),

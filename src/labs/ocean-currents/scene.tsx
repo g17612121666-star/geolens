@@ -44,8 +44,8 @@ function Gyre({ index, t }: { index: number; t: number }) {
   const path = segments.flat(),
     rotation = new THREE.Quaternion().setFromEuler(
       new THREE.Euler(
-        (g.centre[0] * Math.PI) / 180,
-        Math.PI - (g.centre[1] * Math.PI) / 180,
+        (g.center[0] * Math.PI) / 180,
+        Math.PI - (g.center[1] * Math.PI) / 180,
         0,
         "XYZ",
       ),
@@ -102,7 +102,7 @@ function Gyre({ index, t }: { index: number; t: number }) {
         pos={outside(segments[branches.cool[Math.floor(branches.cool.length / 2)]][12], path)}
         text={g.eastern}
         tone="glacier"
-        note="Eastern boundary current: broader, slower and cooler, carrying water towards the equator."
+        note="Eastern boundary current: broader, slower and cooler, carrying water toward the equator."
         occlude={false}
       />
       <FlowFilaments
@@ -139,11 +139,11 @@ function lift(p: [number, number, number], radius: number) {
 }
 /** Place a current's label just outside the loop, so it names the branch without covering it. */
 function outside(p: [number, number, number], path: [number, number, number][]) {
-  const centre = path
+  const center = path
     .reduce((sum, q) => sum.add(new THREE.Vector3(...q)), new THREE.Vector3())
     .divideScalar(path.length);
   const point = new THREE.Vector3(...p),
-    away = point.clone().sub(centre).setLength(0.8);
+    away = point.clone().sub(center).setLength(0.8);
   return point.add(away).setLength(1.78).toArray() as [number, number, number];
 }
 export default function OceanCurrents() {
@@ -163,7 +163,7 @@ export default function OceanCurrents() {
         <Tag
           pos={[0, 2.05, 0]}
           text={`${g.name} subtropical gyre`}
-          note="The routes show the broad direction of the surface currents. Trace the western branch flowing poleward and the eastern branch flowing towards the equator."
+          note="The routes show the broad direction of the surface currents. Trace the western branch flowing poleward and the eastern branch flowing toward the equator."
           occlude={false}
         />
       </ScienceStudio>
@@ -172,14 +172,14 @@ export default function OceanCurrents() {
         {": warmer western boundary current flowing poleward (orange). "}
         {g.eastern}
         {
-          ": cooler eastern boundary current flowing towards the equator (blue). Grey links the branches. "
+          ": cooler eastern boundary current flowing toward the equator (blue). Gray links the branches. "
         }
-        {g.centre[0] > 0
+        {g.center[0] > 0
           ? "This northern gyre turns clockwise, as Earth’s rotation deflects moving water to the right."
-          : "This southern gyre turns anticlockwise, as Earth’s rotation deflects moving water to the left."}
+          : "This southern gyre turns counterclockwise, as Earth’s rotation deflects moving water to the left."}
         <br />
         {
-          "Viewed on a map, northern subtropical gyres turn clockwise and southern ones anticlockwise. Play shows direction only. UK winters reflect westerlies, ocean heat and geography together; the Gulf Stream is one contribution."
+          "Viewed on a map, northern subtropical gyres turn clockwise and southern ones counterclockwise. Play shows direction only. UK winters reflect westerlies, ocean heat and geography together; the Gulf Stream is one contribution."
         }
       </ScienceReadout>
     </>

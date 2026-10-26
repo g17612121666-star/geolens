@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { GeomorphicTerrain } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
 import { glacialNoise } from "./geometry";
-const centres = [0, (2 * Math.PI) / 3, (4 * Math.PI) / 3];
+const centers = [0, (2 * Math.PI) / 3, (4 * Math.PI) / 3];
 /** Tapered, convex ice veneer follows the cirque floor; no rectangular ribbon ends. */
 function CirqueIce({ angle }: { angle: number }) {
   const geometry = useMemo(() => {
@@ -50,7 +50,7 @@ function cirqueHeight(x: number, z: number) {
   const radius = Math.hypot(x, z),
     angle = Math.atan2(z, x);
   let h = 0.25 + Math.max(0, 2.9 - radius) * (0.73 + 0.12 * Math.cos(angle * 3 + 0.25));
-  for (const a of centres) {
+  for (const a of centers) {
     const along = x * Math.cos(a) + z * Math.sin(a),
       across = -x * Math.sin(a) + z * Math.cos(a);
     if (along > 0.15) {
@@ -72,7 +72,7 @@ function cirqueHeight(x: number, z: number) {
   return Math.max(0.25 + apron, h + ribs * Math.min(1, Math.max(0, h - 0.55) * 2));
 }
 export function Cirques({ ice, t }: { ice: boolean; t: number }) {
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number, z: number) => {
       const n = glacialNoise(x * 3, z * 3),
         c = new THREE.Color("#7a8f58").lerp(
@@ -92,7 +92,7 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
     <group rotation={[0, 0.61, 0]}>
       <GeomorphicTerrain
         height={cirqueHeight}
-        colour={colour}
+        color={color}
         width={6}
         depth={6}
         resolution={220}
@@ -101,7 +101,7 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
         mottle={0.08}
         section={{ rock: "granite", soil: 0.015, regolith: 0.05, soilTone: "thin" }}
       />
-      {centres.map((a, i) => {
+      {centers.map((a, i) => {
         const path = Array.from({ length: 41 }, (_, j) => {
           const r = 0.8 + (j / 40) * 0.95,
             x = r * Math.cos(a),
@@ -135,7 +135,7 @@ export function Cirques({ ice, t }: { ice: boolean; t: number }) {
       <Tag
         pos={[0.6, 1.75, 1.04]}
         text="Arête"
-        note="A narrow ridge left between neighbouring cirques or glacial valleys. It is rock that remains, not a wall of deposited debris."
+        note="A narrow ridge left between neighboring cirques or glacial valleys. It is rock that remains, not a wall of deposited debris."
         occlude={false}
       />
       <Tag

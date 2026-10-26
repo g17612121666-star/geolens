@@ -23,8 +23,8 @@ export function GraniteMaterial() {
    vec3 gp=grainPosition*52., cell=floor(gp), fraction=fract(gp), mineral=vec3(0.);
    float nearest=10.,second=10.;
    for(int gx=-1;gx<=1;gx++)for(int gy=-1;gy<=1;gy++)for(int gz=-1;gz<=1;gz++){
-    vec3 neighbour=vec3(float(gx),float(gy),float(gz)), seed=mineralHash(cell+neighbour);
-    float distanceToGrain=length(neighbour+seed-fraction);
+    vec3 neighbor=vec3(float(gx),float(gy),float(gz)), seed=mineralHash(cell+neighbor);
+    float distanceToGrain=length(neighbor+seed-fraction);
     if(distanceToGrain<nearest){second=nearest;nearest=distanceToGrain;mineral=seed;}else second=min(second,distanceToGrain);
    }
    vec3 gc=mineral.x<.15?vec3(.13,.16,.16):mineral.x<.49?vec3(.60,.64,.63):mineral.x<.76?vec3(.85,.76,.67):vec3(.87,.87,.80);

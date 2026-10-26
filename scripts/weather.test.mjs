@@ -36,9 +36,9 @@ test('429 Retry-After suppresses further requests until the service permits them
   await assert.rejects(client(point),e=>e.retryAt===120000);await assert.rejects(client({lat:0,lon:0}),/rate-limited/);assert.equal(calls,1);
   time=120001;await assert.rejects(client(point),/rate-limited/);assert.equal(calls,2);
 });
-test('superseded requests remain cancelled and cannot become classroom samples',async()=>{
+test('superseded requests remain canceled and cannot become classroom samples',async()=>{
   const controller=new AbortController();let started;
   const ready=new Promise(r=>started=r);
-  const client=createWeatherClient((_url,{signal})=>new Promise((_resolve,reject)=>{started();signal.addEventListener('abort',()=>reject(new DOMException('Cancelled','AbortError')));}));
+  const client=createWeatherClient((_url,{signal})=>new Promise((_resolve,reject)=>{started();signal.addEventListener('abort',()=>reject(new DOMException('Canceled','AbortError')));}));
   const pending=client(point,controller.signal);await ready;controller.abort();await assert.rejects(pending,e=>e.name==='AbortError');
 });

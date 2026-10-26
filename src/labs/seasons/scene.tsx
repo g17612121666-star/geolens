@@ -28,7 +28,7 @@ export default function Seasons() {
   const declination = (Math.asin(axis.dot(sun)) * 180) / Math.PI;
   // Close-up: turn the whole Earth–sunlight system about the vertical so sunlight always comes
   // from the right of the default view. The geometry relative to the Sun is unchanged; the
-  // tilted axis then visibly leans towards the Sun in June and away from it in December.
+  // tilted axis then visibly leans toward the Sun in June and away from it in December.
   const viewSun = new THREE.Vector3(0.993, 0, -0.121);
   const viewTurn = close ? Math.atan2(viewSun.x, viewSun.z) - Math.atan2(sun.x, sun.z) : 0;
   const shownSun = close ? viewSun : sun;
@@ -37,7 +37,7 @@ export default function Seasons() {
     [ecc],
   );
   const radius = close ? 1 : trueScale ? (2.65 * 6371) / 149597870.7 : 0.65;
-  const centre: [number, number, number] = close ? [0, 0, 0] : position;
+  const center: [number, number, number] = close ? [0, 0, 0] : position;
   const daylight = (lat: number) => {
     const h = -Math.tan((lat * Math.PI) / 180) * Math.tan((declination * Math.PI) / 180);
     return h <= -1 ? 24 : h >= 1 ? 0 : (24 * Math.acos(h)) / Math.PI;
@@ -97,7 +97,7 @@ export default function Seasons() {
                 />
               );
             })}
-          <group position={centre} rotation={[(tilt * Math.PI) / 180, 0, 0]}>
+          <group position={center} rotation={[(tilt * Math.PI) / 180, 0, 0]}>
             {/* 366.2422 turns relative to the stars give 365.2422 solar days. */}
             <group rotation={[0, t * Math.PI * 2 * 366.2422, 0]}>
               <EarthMesh radius={radius} sunDirection={shownSun} />
@@ -118,7 +118,7 @@ export default function Seasons() {
                 ))}
               {!trueScale && (
                 <>
-                  <CityMarker lat={51.5} lon={-0.1} radius={radius * 1.02} />
+                  <CityMarker lat={40.7} lon={-74} radius={radius * 1.02} />
                   <CityMarker lat={-33.87} lon={151.21} radius={radius * 1.02} color="#efb474" />
                 </>
               )}
@@ -128,7 +128,7 @@ export default function Seasons() {
         </group>
         {close && (
           <Tag
-            pos={[centre[0], 1.6, centre[2]]}
+            pos={[center[0], 1.6, center[2]]}
             text={`Declination ${declination.toFixed(1)}°`}
             note="Latitude directly under the Sun. North keeps a fixed direction while Earth orbits."
             occlude={false}
@@ -180,8 +180,8 @@ export default function Seasons() {
         </div>
         {"Declination "}
         {declination.toFixed(1)}
-        {"° · London "}
-        {daylight(51.5).toFixed(1)} {"h daylight · Sydney "}
+        {"° · New York "}
+        {daylight(40.7).toFixed(1)} {"h daylight · Sydney "}
         {daylight(-33.87).toFixed(1)}{" "}
         {"h · geometric horizon. Gold: tropics · blue: polar circles. Tilt "}
         {tilt.toFixed(1)}

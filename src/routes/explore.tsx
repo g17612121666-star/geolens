@@ -4,7 +4,7 @@ import { ArrowUpRight, Search } from "lucide-react";
 import { LABS, REALMS } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
-import { CASES } from "@/lib/cases";
+import { CASES, CASES_BY_REGION, REGIONS } from "@/lib/cases";
 import { labFigure } from "@/lib/figures";
 import { caseFigure } from "@/lib/case-figures";
 import { ProgressImage } from "@/components/progress-media";
@@ -90,7 +90,7 @@ function Explore() {
       ),
     [realm, stage, selected, query],
   );
-  const cases = CASES.filter(
+  const cases = CASES_BY_REGION.filter(
     (c) =>
       (region === "all" || region === c.region) &&
       fold([c.title, c.place, c.lede].join(" ")).includes(fold(query.trim())),
@@ -192,7 +192,7 @@ function Explore() {
               className={field}
             >
               <option value="all">All curricula</option>
-              {["KS3", "GCSE", "A-level", "NGSS MS", "HS Earth Sci", "APES"].map((s) => (
+              {["NGSS MS", "HS Earth Sci", "APES", "KS3", "GCSE", "A-level"].map((s) => (
                 <option key={s}>{s}</option>
               ))}
             </select>
@@ -205,7 +205,7 @@ function Explore() {
             onChange={(e) => setRegion(e.target.value)}
           >
             <option value="all">All regions</option>
-            {[...new Set(CASES.map((c) => c.region))].map((r) => (
+            {REGIONS.map((r) => (
               <option key={r}>{r}</option>
             ))}
           </select>

@@ -1,16 +1,16 @@
 import { useMemo, useEffect } from "react";
 import * as THREE from "three";
-/** Closed scientific water volume; colours encode a stated variable. */
+/** Closed scientific water volume; colors encode a stated variable. */
 export function WaterPrism({
   points,
   depth = 1.6,
-  colour,
+  color,
   colour2,
   opacity = 0.68,
 }: {
   points: [number, number][];
   depth?: number;
-  colour: string;
+  color: string;
   colour2?: string;
   opacity?: number;
 }) {
@@ -24,7 +24,7 @@ export function WaterPrism({
         c = new Float32Array(p.count * 3),
         left = Math.min(...points.map((p) => p[0])),
         width = Math.max(...points.map((p) => p[0])) - left,
-        a = new THREE.Color(colour),
+        a = new THREE.Color(color),
         b = new THREE.Color(colour2);
       for (let i = 0; i < p.count; i++) {
         const v = a.clone().lerp(b, (p.getX(i) - left) / width);
@@ -34,12 +34,12 @@ export function WaterPrism({
     }
     return g;
     // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on signature (points as JSON) so a fresh points array with the same vertices does not rebuild the geometry
-  }, [signature, depth, colour, colour2]);
+  }, [signature, depth, color, colour2]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry}>
       <meshPhysicalMaterial
-        color={colour2 ? "#ffffff" : colour}
+        color={colour2 ? "#ffffff" : color}
         vertexColors={!!colour2}
         transparent={opacity < 1}
         opacity={opacity}

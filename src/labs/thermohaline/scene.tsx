@@ -37,7 +37,7 @@ export default function Thermohaline() {
         scale={
           view === 0
             ? "Overturning section · depth ×500 · routes and tracers illustrative"
-            : "Density experiment · one metre tank · parcel marker enlarged"
+            : "Density experiment · one meter tank · parcel marker enlarged"
         }
         trueScale={
           view === 0
@@ -112,7 +112,7 @@ export default function Thermohaline() {
             <Tag
               pos={[-2, 0.4, 0]}
               text="Return and upwelling"
-              note="Winds and mixing bring deep water back towards the surface. In the real ocean much of this happens in the Southern Ocean, not only at low latitudes as drawn here."
+              note="Winds and mixing bring deep water back toward the surface. In the real ocean much of this happens in the Southern Ocean, not only at low latitudes as drawn here."
               occlude={false}
             />
             <Tag
@@ -132,7 +132,7 @@ export default function Thermohaline() {
                 [-1.1, -2],
               ]}
               depth={1.6}
-              colour="#477888"
+              color="#477888"
               opacity={0.22}
             />
             <OceanSurface
@@ -187,7 +187,7 @@ export default function Thermohaline() {
       <ScienceReadout>
         {view === 0
           ? "Warm upper water (amber) flows from the tropical coast (left) to the icy polar coast (right), sinks and returns at depth (blue). Choose Density experiment to vary the parcel."
-          : `${temperature} °C · Absolute Salinity ${salinity.toFixed(1)} g/kg · density difference ${difference >= 0 ? "+" : ""}${difference.toFixed(2)} kg/m³: ${Math.abs(difference) < 0.005 ? "neutral" : difference > 0 ? "denser parcel tends to sink" : "lighter parcel rises towards the surface"}.`}
+          : `${temperature} °C · Absolute Salinity ${salinity.toFixed(1)} g/kg · density difference ${difference >= 0 ? "+" : ""}${difference.toFixed(2)} kg/m³: ${Math.abs(difference) < 0.005 ? "neutral" : difference > 0 ? "denser parcel tends to sink" : "lighter parcel rises toward the surface"}.`}
         <br />
         {view === 0 ? (
           "Overturning also needs winds and mixing. The parcel experiment does not calculate AMOC strength or a shutdown threshold."
@@ -283,7 +283,7 @@ function waterColour(x: number, y: number, bottom: number, out: THREE.Color) {
 
 /**
  * The ocean basin in section: bathymetry with shelves and a ridge, a tropical coast on the
- * left and an ice-covered polar coast on the right, and water faces coloured by temperature.
+ * left and an ice-covered polar coast on the right, and water faces colored by temperature.
  */
 function OceanBasin({ bottom }: { bottom: number }) {
   const ground = useMemo(() => (x: number) => seabed(x, bottom), [bottom]);
@@ -291,7 +291,7 @@ function OceanBasin({ bottom }: { bottom: number }) {
     () => (x: number, z: number) => ground(x) + 0.01 * Math.sin(z * 7 + x * 3),
     [ground],
   );
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number) =>
       y > 0.03 ? (x < 0 ? "#6f8f48" : "#eef3f5") : y > -0.05 ? "#cbb98e" : "#7e786c",
     [],
@@ -339,7 +339,7 @@ function OceanBasin({ bottom }: { bottom: number }) {
     <>
       <GeomorphicTerrain
         height={(x, z) => land(x, z)}
-        colour={(x, y) => colour(x, y)}
+        color={(x, y) => color(x, y)}
         width={4.3}
         depth={1.6}
         base={bottom - 0.12}

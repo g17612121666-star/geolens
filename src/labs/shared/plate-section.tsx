@@ -106,9 +106,9 @@ function Block({
   const height = useMemo(() => surface(kind), [kind]);
   const geometry = useMemo(() => {
     const width = to - from,
-      centre = (from + to) / 2,
-      g = terrainBlockGeometry((x, z) => height(x + centre, z), width, D, 180, BASE);
-    g.translate(centre, 0, 0);
+      center = (from + to) / 2,
+      g = terrainBlockGeometry((x, z) => height(x + center, z), width, D, 180, BASE);
+    g.translate(center, 0, 0);
     const p = g.attributes.position,
       c = new Float32Array(p.count * 3),
       col = new THREE.Color(),
@@ -190,7 +190,7 @@ export function PlateSection({ kind = 0 }: { kind?: number }) {
               <FlowWaterMaterial color="#3f86a2" opacity={0.92} speed={0.4} />
             </mesh>
           ))}
-          {/* Long, wide arrows above each block: they run along the fault, nearly towards the
+          {/* Long, wide arrows above each block: they run along the fault, nearly toward the
               camera, so they need extra length to read clearly. */}
           <Arrow from={[-1.2, 0.55, 0.7]} to={[-1.2, 0.55, -0.7]} color="#8ec8d1" width={2.2} />
           <Arrow from={[1.2, 0.55, -0.7]} to={[1.2, 0.55, 0.7]} color="#8ec8d1" width={2.2} />

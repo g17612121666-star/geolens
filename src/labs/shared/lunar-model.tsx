@@ -35,7 +35,7 @@ export function LunarSurface({
    * instead of darkening like a matte ball, so thin crescents look as wide as they really are.
    */
   photometry?: boolean;
-  /** Earth's shadow along the x axis (Sun towards +x): umbra and penumbra radii at x0 and x1. */
+  /** Earth's shadow along the x axis (Sun toward +x): umbra and penumbra radii at x0 and x1. */
   shadow?: { x0: number; x1: number; u0: number; u1: number; p0: number; p1: number };
 }) {
   const [map, height] = useTexture([
@@ -432,9 +432,9 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
         }
         scale={
           disc
-            ? "Moon near side · LROC colour + LOLA measured relief · no vertical exaggeration"
+            ? "Moon near side · LROC color + LOLA measured relief · no vertical exaggeration"
             : focus
-              ? `${solar ? "New" : "Full"}-Moon shadow close-up · kilometres share one scale`
+              ? `${solar ? "New" : "Full"}-Moon shadow close-up · kilometers share one scale`
               : physical
                 ? "Earth–Moon radii and separation share one scale"
                 : "Earth and Moon enlarged · correct size ratio · separation shortened"
@@ -541,9 +541,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
         {slug === "tides"
           ? "The equilibrium tidal deformation is enlarged. Coastlines, friction and inertia shape the tides at real coasts. "
           : "The orbit model illustrates phase and eclipse geometry without predicting a calendar date. "}
-        {
-          "Lunar terrain data come from NASA SVS, LROC and LOLA, with colours adapted for this view."
-        }
+        {"Lunar terrain data come from NASA SVS, LROC and LOLA, with colors adapted for this view."}
       </ScienceReadout>
     </>
   );

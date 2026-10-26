@@ -78,7 +78,7 @@ export function createHeadlandFront(cave = false) {
 }
 
 /** Subdivide every long edge consistently on both incident faces before weathering.
- * Extruded caps otherwise contain metre-wide triangle fans: displacing only their
+ * Extruded caps otherwise contain meter-wide triangle fans: displacing only their
  * boundary vertices creates the stretched fabric creases seen around the arch.
  */
 export function weatherCliff(source: THREE.BufferGeometry) {

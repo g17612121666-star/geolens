@@ -161,12 +161,12 @@ function Diorama({
 }
 
 /** Translucent store gauge: volume ∝ the store's carbon in this invented budget. */
-function StoreGauge({ radius, colour }: { radius: number; colour: string }) {
+function StoreGauge({ radius, color }: { radius: number; color: string }) {
   return (
     <mesh>
       <sphereGeometry args={[radius, 32, 24]} />
       <meshPhysicalMaterial
-        color={colour}
+        color={color}
         transparent
         opacity={0.42}
         roughness={0.3}
@@ -210,7 +210,7 @@ export default function CarbonCycle() {
         <Diorama biosphere={budget.stores[1]} atmosphere={budget.stores[0]} tap={tap} t={t} />
         {positions.map((pos, i) => (
           <group key={i} position={pos}>
-            <StoreGauge radius={radii[i] * 0.6} colour={COLOURS[i]} />
+            <StoreGauge radius={radii[i] * 0.6} color={COLOURS[i]} />
             <Tag
               pos={[0, radii[i] * 0.6 + 0.3, 0]}
               text={

@@ -74,9 +74,9 @@ function ModernGlobe({ radius, material, onReady }: { radius: number } & Fade) {
   );
 }
 /**
- * Reconstructed coastlines arrive as a flat two-colour map. The shader keeps those shapes exactly
+ * Reconstructed coastlines arrive as a flat two-color map. The shader keeps those shapes exactly
  * and adds a continental shelf, relief shading and land tones. Relief is illustrative noise, not
- * reconstructed palaeotopography.
+ * reconstructed paleotopography.
  */
 const PALAEO_SHADER = (s: THREE.WebGLProgramParametersWithUniforms) => {
   s.vertexShader =
@@ -155,13 +155,13 @@ function ReconstructedSnapshot({
         transparent={Boolean(material)}
         depthWrite={!material}
         onBeforeCompile={PALAEO_SHADER}
-        customProgramCacheKey={() => "palaeo-globe-v1"}
+        customProgramCacheKey={() => "paleo-globe-v1"}
       />
     </mesh>
   );
 }
 function Snapshot({ snapshot, radius, ...fade }: { snapshot: number; radius: number } & Fade) {
-  // Ancient snapshots need neither modern relief nor on-device GeoJSON rasterisation.
+  // Ancient snapshots need neither modern relief nor on-device GeoJSON rasterization.
   return snapshot === 0 ? (
     <ModernGlobe radius={radius} {...fade} />
   ) : (
@@ -171,7 +171,7 @@ function Snapshot({ snapshot, radius, ...fade }: { snapshot: number; radius: num
 /**
  * Shows the nearest 10 Ma snapshot. When the age changes, the previous snapshot stays on top
  * until the next one has loaded, then fades out, so stepping through time never flashes a
- * loading screen. Neighbouring snapshots are preloaded.
+ * loading screen. Neighboring snapshots are preloaded.
  */
 export function ReconstructionGlobe({ age, radius = 1.25 }: { age: number; radius?: number }) {
   const snapshot = Math.max(0, Math.min(250, Math.round(age / 10) * 10));

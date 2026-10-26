@@ -29,7 +29,7 @@ export default function RainShadow() {
   const terrain = useMemo(() => {
     const g = terrainBlockGeometry(surface, 6, 2.5, 160, -0.2),
       p = g.attributes.position,
-      colours = new Float32Array(p.count * 3),
+      colors = new Float32Array(p.count * 3),
       green = new THREE.Color("#7caa55"),
       dry = new THREE.Color("#b9a06e"),
       rock = new THREE.Color("#938974");
@@ -38,14 +38,14 @@ export default function RainShadow() {
         y = p.getY(i),
         z = p.getZ(i),
         mix = dryness * Math.min(1, Math.max(0, (x + 0.25) / 1.2)),
-        colour = green
+        color = green
           .clone()
           .lerp(dry, mix)
           .lerp(rock, Math.max(0, y / ((crest / 3000) * f) - 0.45) * 1.6);
-      colour.multiplyScalar(0.9 + 0.1 * Math.sin(x * 17 + z * 29) ** 2);
-      colours.set([colour.r, colour.g, colour.b], i * 3);
+      color.multiplyScalar(0.9 + 0.1 * Math.sin(x * 17 + z * 29) ** 2);
+      colors.set([color.r, color.g, color.b], i * 3);
     }
-    g.setAttribute("color", new THREE.BufferAttribute(colours, 3));
+    g.setAttribute("color", new THREE.BufferAttribute(colors, 3));
     return g;
     // eslint-disable-next-line react-hooks/exhaustive-deps -- surface is redefined each render from crest and f, which are listed
   }, [crest, f, dryness]);

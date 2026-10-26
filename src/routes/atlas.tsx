@@ -306,7 +306,7 @@ function AtlasPage() {
         <section className="atlas-observations" aria-label="Place observations">
           {search.place && !ATLAS.some((p) => p.id === search.place) && (
             <p role="status" className="field-notice">
-              This place link is not recognised. The United Kingdom is shown instead.
+              This place link is not recognized. The United Kingdom is shown instead.
             </p>
           )}
           {vs ? (

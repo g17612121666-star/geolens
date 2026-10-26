@@ -193,7 +193,7 @@ export default function SeafloorSpreading() {
       <ScienceStudio
         slug="seafloor-spreading"
         camera={[2.2, 3.2, 6.2]}
-        scale="Relief ×12 · ocean water removed · magnetic colours symbolic · crustal layers schematic"
+        scale="Relief ×12 · ocean water removed · magnetic colors symbolic · crustal layers schematic"
         trueScale="1 scene unit = 20 km · relief at true scale · crustal layers schematic"
       >
         <mesh geometry={geometry} castShadow receiveShadow>
@@ -292,7 +292,7 @@ export default function SeafloorSpreading() {
           pos={[OFFSET + 0.6, height(OFFSET, D / 2) - 0.25, D / 2 + 0.05]}
           text="Melt lens"
           tone="magma"
-          note="A thin, partly molten lens sits a few kilometres below many ridge axes and feeds the dykes and pillow lavas above it. At slow ridges such as the Mid-Atlantic Ridge it is usually small or short-lived. Beneath it, a small fraction of the mostly solid mantle melts as it rises."
+          note="A thin, partly molten lens sits a few kilometers below many ridge axes and feeds the dykes and pillow lavas above it. At slow ridges such as the Mid-Atlantic Ridge it is usually small or short-lived. Beneath it, a small fraction of the mostly solid mantle melts as it rises."
           occlude={false}
         />
         <Tag
@@ -307,7 +307,7 @@ export default function SeafloorSpreading() {
         {rate} {"mm/year · each flank "}
         {half.toFixed(1)}{" "}
         {
-          "mm/year. Teal and sand-coloured stripes record opposite magnetic polarities, mirrored on each flank."
+          "mm/year. Teal and sand-colored stripes record opposite magnetic polarities, mirrored on each flank."
         }
         <br />
         {

@@ -28,7 +28,7 @@ function environment(saved = {}, initialDark = false) {
   let dispose;
   return {
     root,
-    initialise() { dispose = pref.initialisePreferences(); },
+    initialize() { dispose = pref.initialisePreferences(); },
     get stored() { return JSON.parse(stored); },
     setSystemDark(value) { dark = value; systemListener(); },
     storage(value, key = KEY) { storageListener({ key, newValue: value === null ? null : typeof value === 'string' ? value : JSON.stringify(value) }); },
@@ -40,7 +40,7 @@ function environment(saved = {}, initialDark = false) {
 test('a saved theme is restored while a legacy locale cannot change the English interface', () => {
   const env = environment({ locale: 'zh', theme: 'dark' });
   try {
-    env.initialise();
+    env.initialize();
     assert.equal(env.root.lang, 'en');
     assert.equal(env.root.dataset.theme, 'dark');
     assert.equal(env.root.style.colorScheme, 'dark');
@@ -54,7 +54,7 @@ test('a saved theme is restored while a legacy locale cannot change the English 
 test('system theme follows the operating system while an explicit theme stays selected', () => {
   const env = environment({ theme: 'system' });
   try {
-    env.initialise();
+    env.initialize();
     assert.equal(env.root.dataset.theme, 'light');
     env.setSystemDark(true);
     assert.equal(env.root.dataset.theme, 'dark');
@@ -72,7 +72,7 @@ test('system theme follows the operating system while an explicit theme stays se
 test('cross-tab changes apply only the current storage key, retain English and clean up both listeners', () => {
   const env = environment({ theme: 'light' }, true);
   try {
-    env.initialise();
+    env.initialize();
     env.storage({ locale: 'zh', theme: 'dark' }, 'unrelated-preferences');
     assert.equal(env.root.dataset.theme, 'light');
     env.storage({ locale: 'zh', theme: 'dark' });
@@ -94,7 +94,7 @@ test('blocked browser storage still allows theme selection and an English interf
   const env = environment({}, true);
   try {
     globalThis.localStorage = { getItem() { throw new Error('Storage blocked'); }, setItem() { throw new Error('Storage blocked'); } };
-    env.initialise();
+    env.initialize();
     assert.equal(env.root.dataset.theme, 'dark');
     pref.usePreferences.getState().setTheme('light');
     assert.equal(env.root.dataset.theme, 'light');

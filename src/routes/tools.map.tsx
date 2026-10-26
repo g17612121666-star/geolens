@@ -34,8 +34,8 @@ export const Route = createFileRoute("/tools/map")({
 });
 
 const CITY_PRESETS = [
-  { name: "London", lat: 51.51, lon: -0.13, zoom: 6 },
   { name: "New York", lat: 40.71, lon: -74.01, zoom: 6 },
+  { name: "London", lat: 51.51, lon: -0.13, zoom: 6 },
   { name: "Nairobi", lat: -1.29, lon: 36.82, zoom: 6 },
   { name: "Sydney", lat: -33.87, lon: 151.21, zoom: 6 },
   { name: "Tokyo", lat: 35.68, lon: 139.69, zoom: 6 },
@@ -787,7 +787,7 @@ function MapStudio() {
         )}
         {layers.quakes && (
           <span>
-            <b className="text-[#E8B86D]">●</b> {"Historical epicentres"}
+            <b className="text-[#E8B86D]">●</b> {"Historical epicenters"}
           </span>
         )}
         {layers.currents && (

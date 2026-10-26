@@ -1,6 +1,6 @@
 import { pressureWind } from "../../lib/energy-wind-science.ts";
 
-/** Integrate the existing acceleration solution; coordinates are metres east/north. */
+/** Integrate the existing acceleration solution; coordinates are meters east/north. */
 export function airDisplacement(
   seconds: number,
   coriolis: boolean,

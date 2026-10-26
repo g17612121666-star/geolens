@@ -58,7 +58,7 @@ function Player({ trip }: { trip: FieldTrip }) {
     () => [
       {
         id: "trip-route",
-        color: trip.colour,
+        color: trip.color,
         width: 1.6,
         opacity: 0.6,
         labels: false,
@@ -78,7 +78,7 @@ function Player({ trip }: { trip: FieldTrip }) {
       },
       {
         id: "trip-stops",
-        color: trip.colour,
+        color: trip.color,
         circle: true,
         data: {
           type: "FeatureCollection",
@@ -134,13 +134,13 @@ function Player({ trip }: { trip: FieldTrip }) {
               )}
               <div className="flex-1 overflow-y-auto px-5 pb-4 pt-3">
                 <p className="inline-flex items-center gap-1.5 text-sm text-mist">
-                  <MapPin className="size-4" aria-hidden="true" style={{ color: trip.colour }} />
+                  <MapPin className="size-4" aria-hidden="true" style={{ color: trip.color }} />
                   {s.place}
                 </p>
                 <h2 className="mt-1 font-display text-2xl text-chalk">{s.title}</h2>
                 <p
                   className="mt-3 rounded-xl px-4 py-3 font-semibold leading-6 text-chalk"
-                  style={{ background: `${trip.colour}26`, borderLeft: `4px solid ${trip.colour}` }}
+                  style={{ background: `${trip.color}26`, borderLeft: `4px solid ${trip.color}` }}
                 >
                   {s.fact}
                 </p>
@@ -173,7 +173,7 @@ function Player({ trip }: { trip: FieldTrip }) {
                   type="button"
                   onClick={() => go(index + 1)}
                   className="inline-flex min-h-11 items-center gap-2 rounded-full px-5 font-semibold text-basalt"
-                  style={{ background: trip.colour }}
+                  style={{ background: trip.color }}
                 >
                   {index === n - 1 ? "Finish" : "Next"}
                   <ArrowRight className="size-4" aria-hidden="true" />

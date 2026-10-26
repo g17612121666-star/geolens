@@ -190,7 +190,7 @@ export function StudioEnvironment() {
 /**
  * Key + fill + rim + studio IBL so rock, ice, water and metal read as different substances.
  * The key and rim lights ride with the camera (above-left and behind), so whichever side a
- * student orbits to stays modelled instead of falling into an unlit back face.
+ * student orbits to stays modeled instead of falling into an unlit back face.
  */
 export function LabLights({
   ambient = 0.12,

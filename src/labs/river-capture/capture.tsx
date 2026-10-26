@@ -10,10 +10,10 @@ import { Tag } from "../shared/kit";
 import { fbm } from "../shared/hazard-utils";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 
-/** Floor of the neighbouring (donor) valley, which flows east along z ≈ -0.9. */
+/** Floor of the neighboring (donor) valley, which flows east along z ≈ -0.9. */
 const donor = (x: number) => 0.8 - 0.08 * x;
 const donorZ = (x: number) => -0.9 + 0.07 * Math.sin(x * 2.1);
-/** Floor of the lower captor valley, which flows south (towards +z). */
+/** Floor of the lower captor valley, which flows south (toward +z). */
 const captor = (z: number) => 0.775 - (0.64 * (z + 0.9)) / 2.9;
 const captorX = (z: number) => 0.1 * Math.sin(z * 2.4 + 0.6) - 0.1 * Math.sin(0.6 - 0.9 * 2.4);
 
@@ -38,8 +38,8 @@ export default function RiverCapture() {
         // After capture a low col (the wind gap) separates the elbow from the beheaded reach.
         sill = stage === 2 ? 0.045 * Math.exp(-(((x - 0.38) / 0.17) ** 2)) : 0,
         a = valley(donor(x) + sill, top, Math.abs(z - donorZ(x)), x, 0.95);
-      // The captor valley ends at its head; headward erosion moves the head north (towards -z).
-      // After capture the valley is cut right through the old divide into the neighbouring floor.
+      // The captor valley ends at its head; headward erosion moves the head north (toward -z).
+      // After capture the valley is cut right through the old divide into the neighboring floor.
       const reach =
           stage === 2
             ? THREE.MathUtils.smoothstep(z, -1.15, -0.85)
@@ -50,7 +50,7 @@ export default function RiverCapture() {
     },
     [head, stage],
   );
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number, z: number) => {
       const c = new THREE.Color("#7c9a52"),
         n = noise(x * 2.4 + 3, z * 2.4),
@@ -135,7 +135,7 @@ export default function RiverCapture() {
         <group scale={[1, v, 1]}>
           <GeomorphicTerrain
             height={height}
-            colour={colour}
+            color={color}
             resolution={200}
             base={-0.12}
             cliff={0.55}
@@ -185,14 +185,14 @@ export default function RiverCapture() {
           />
           <Tag
             pos={[-2.4, 1.25, -1.7]}
-            text={stage === 2 ? "Captured headwaters" : "Neighbouring river"}
+            text={stage === 2 ? "Captured headwaters" : "Neighboring river"}
             note="Before capture these headwaters flow east across the scene. After capture they turn into the lower captor valley. Channel widths and tracer speeds do not show discharge."
             occlude={false}
           />
           <Tag
             pos={[-0.45, 0.6, 1.5]}
             text="Captor stream"
-            note="Headward erosion extends this lower valley towards the divide. When the divide is breached, the lower route can divert the neighbouring river. Base level, rock type and structure all affect how fast it cuts back."
+            note="Headward erosion extends this lower valley toward the divide. When the divide is breached, the lower route can divert the neighboring river. Base level, rock type and structure all affect how fast it cuts back."
             occlude={false}
           />
           {stage === 2 && (

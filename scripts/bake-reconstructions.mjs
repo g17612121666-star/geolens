@@ -1,5 +1,5 @@
 // Scientific cartography, generated directly from the retained EarthByte GeoJSON.
-// No invented palaeotopography: these remain reconstructed modern coastlines.
+// No invented paleotopography: these remain reconstructed modern coastlines.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -25,5 +25,5 @@ for(let age=10;age<=250;age+=10){
  await fs.writeFile(path.join(root,`coastlines-${age}-4k.webp`),output);
  manifest.push({ageMa:age,width,height,source:`coastlines-${age}.json`,sourceSha256:crypto.createHash('sha256').update(source).digest('hex'),sourceBytes:source.length,texture:`coastlines-${age}-4k.webp`,textureBytes:output.length});
 }
-await fs.writeFile(path.join(root,'texture-manifest.json'),JSON.stringify({description:'Lossless 4K rasterisation of reconstructed modern coastlines. Same longitude unwrapping, polygon holes and colour key as the previous in-browser renderer. EarthByte / Müller 2019; see sources.json.',snapshots:manifest},null,2));
+await fs.writeFile(path.join(root,'texture-manifest.json'),JSON.stringify({description:'Lossless 4K rasterization of reconstructed modern coastlines. Same longitude unwrapping, polygon holes and color key as the previous in-browser renderer. EarthByte / Müller 2019; see sources.json.',snapshots:manifest},null,2));
 console.log(JSON.stringify({snapshots:manifest.length,sourceBytes:manifest.reduce((n,s)=>n+s.sourceBytes,0),textureBytes:manifest.reduce((n,s)=>n+s.textureBytes,0)},null,2));

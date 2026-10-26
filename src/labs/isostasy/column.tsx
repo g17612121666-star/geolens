@@ -18,7 +18,7 @@ const W = 6,
   RX = 1.75,
   RZ = 2.7;
 
-/** Ice thickness in metres: a dome whose cross-section follows a parabolic ice-sheet profile. */
+/** Ice thickness in meters: a dome whose cross-section follows a parabolic ice-sheet profile. */
 const iceAt = (x: number, z: number, peak: number) =>
   peak * Math.sqrt(Math.max(0, 1 - (x / RX) ** 2 - (z / RZ) ** 2));
 
@@ -142,8 +142,8 @@ export default function Isostasy() {
         : [],
     [ice],
   );
-  const centre = ground(0, D / 2),
-    iceTop = centre + ice * exaggeration * SCALE,
+  const center = ground(0, D / 2),
+    iceTop = center + ice * exaggeration * SCALE,
     mohoX = -0.9,
     mohoAt = topBare - crust - iceAt(mohoX, D / 2, ice) * depressPerMetre;
   return (
@@ -215,7 +215,7 @@ export default function Isostasy() {
           <>
             <Arrow
               from={[0, topBare + 0.02, D / 2 + 0.06]}
-              to={[0, centre, D / 2 + 0.06]}
+              to={[0, center, D / 2 + 0.06]}
               color="#f0a640"
               width={1.6}
             />
@@ -239,7 +239,7 @@ export default function Isostasy() {
         <Tag
           pos={[-2.2, topBare - crust * 0.5, D / 2 + 0.05]}
           text="Crust · 35 km thick"
-          note="Continental crust, less dense (2800 kg/m³) than the mantle below it. Its upper and lower layers are shown in different colours; its total thickness does not change when ice is added."
+          note="Continental crust, less dense (2800 kg/m³) than the mantle below it. Its upper and lower layers are shown in different colors; its total thickness does not change when ice is added."
           occlude={false}
         />
         <Tag
@@ -268,7 +268,7 @@ export default function Isostasy() {
         {"Ice "}
         {Math.round(ice)} {"m → equilibrium depression "}
         {result.depression.toFixed(0)}{" "}
-        {"m at the centre. Mantle / crust / ice densities: 3300 / 2800 / 917 kg/m³."}
+        {"m at the center. Mantle / crust / ice densities: 3300 / 2800 / 917 kg/m³."}
         <br />
         {
           "Each column keeps its rock thickness and mass, so thicker ice pushes it further down. Unloading raises the equilibrium position; this static experiment does not predict rebound timing or global sea level."

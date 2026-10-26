@@ -178,7 +178,7 @@ export default function FoldsFaults() {
     }
     return out;
   }, [fold, shortening, foldTop, separation, slipX, slipY, slipZ]);
-  // Centre of the conglomerate at the left edge of the front face, so its label stays on it.
+  // Center of the conglomerate at the left edge of the front face, so its label stays on it.
   const oldestTag: [number, number, number] = fold
     ? [
         -2.6 * shortening - 0.35,

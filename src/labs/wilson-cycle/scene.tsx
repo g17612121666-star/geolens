@@ -172,7 +172,7 @@ export default function WilsonCycle() {
       <ScienceStudio
         slug="wilson-cycle"
         camera={[2.4, 2.8, 7]}
-        scale="Vertical dimensions ×2 · idealised 300 km section through a basin · relief and layers schematic"
+        scale="Vertical dimensions ×2 · idealized 300 km section through a basin · relief and layers schematic"
         trueScale="1 scene unit = 50 km · section is not the full width of a real ocean"
       >
         <group scale={[1, f, 1]}>
@@ -208,13 +208,13 @@ export default function WilsonCycle() {
         <Tag
           pos={[0, 1.3, 0]}
           text={STAGES[stage]}
-          note="These are idealised stages of ocean-basin opening and closure. A real basin may skip stages or close along a different line from where it opened; this is not a forecast of the Atlantic’s future."
+          note="These are idealized stages of ocean-basin opening and closure. A real basin may skip stages or close along a different line from where it opened; this is not a forecast of the Atlantic’s future."
           occlude={false}
         />
         <Tag
           pos={[-2.3, -0.38 * f, D / 2 + 0.05]}
           text="Continental crust"
-          note="Pink upper and grey lower continental crust, about 35 km thick, thinning at rifted margins under a wedge of sediment. Collision thickens the crust into a deep root under the mountains."
+          note="Pink upper and gray lower continental crust, about 35 km thick, thinning at rifted margins under a wedge of sediment. Collision thickens the crust into a deep root under the mountains."
           occlude={false}
         />
         <Tag
@@ -228,7 +228,7 @@ export default function WilsonCycle() {
             pos={[0, 0.35, 0]}
             text="Rift valley and lake"
             tone="glacier"
-            note="Stretching thins the continent; the centre drops along normal faults and may fill with lakes and volcanic rock, as in East Africa today."
+            note="Stretching thins the continent; the center drops along normal faults and may fill with lakes and volcanic rock, as in East Africa today."
             occlude={false}
           />
         )}
@@ -237,7 +237,7 @@ export default function WilsonCycle() {
             pos={[0.3, 0.2, D / 2]}
             text="Mid-ocean ridge"
             tone="magma"
-            note="New oceanic crust (dark grey, about 7 km thick) forms at the ridge where rising mantle partly melts. The plate thickens and sinks as it ages away from the ridge."
+            note="New oceanic crust (dark gray, about 7 km thick) forms at the ridge where rising mantle partly melts. The plate thickens and sinks as it ages away from the ridge."
             occlude={false}
           />
         )}

@@ -15,7 +15,7 @@ function Body({ name, radius, stop }: { name: string; radius: number; stop: numb
   if (name === "Earth")
     return <EarthMesh radius={radius} sunDirection={stop === 1 ? SUN_LEFT : KEY_LIGHT} />;
   if (name === "Sun" || name === "Proxima Centauri")
-    return <StarMesh radius={radius} colour={name === "Sun" ? "#fff0d7" : "#efbd9c"} />;
+    return <StarMesh radius={radius} color={name === "Sun" ? "#fff0d7" : "#efbd9c"} />;
   return <LunarSurface radius={radius} />;
 }
 export default function UniverseScale() {
@@ -45,8 +45,8 @@ export default function UniverseScale() {
         camera={[0, 1.4, 8]}
         lights={false}
         space
-        scale={`${s.name} · centre separation ${s.value.toLocaleString("en-GB")} ${s.unit} · bodies enlarged${stop === 1 ? " · Sun and Earth not in proportion: the Sun's radius is about 109 times Earth's" : " · both bodies enlarged by the same factor"}`}
-        trueScale={`${s.name} · body radii and centre distance use one scale · locator rings enlarged`}
+        scale={`${s.name} · center separation ${s.value.toLocaleString("en-GB")} ${s.unit} · bodies enlarged${stop === 1 ? " · Sun and Earth not in proportion: the Sun's radius is about 109 times Earth's" : " · both bodies enlarged by the same factor"}`}
+        trueScale={`${s.name} · body radii and center distance use one scale · locator rings enlarged`}
       >
         <ambientLight intensity={0.06} />
         <directionalLight position={[-5, 3, 4]} intensity={2.8} />
@@ -129,7 +129,7 @@ export default function UniverseScale() {
         <Tag
           pos={[0, -1, 0]}
           text={`Light time · ${lightTime}`}
-          note="The moving dot is a light signal travelling at constant speed. At 1× speed, playback squeezes the whole journey into 24 seconds; the readout shows the matching real travel time."
+          note="The moving dot is a light signal traveling at constant speed. At 1× speed, playback squeezes the whole journey into 24 seconds; the readout shows the matching real travel time."
           occlude={false}
         />
       </ScienceStudio>
@@ -154,7 +154,7 @@ export default function UniverseScale() {
             "."}
         <br />
         {stop === 0
-          ? "384400 km is a mean centre distance, not a fixed lunar orbit."
+          ? "384400 km is a mean center distance, not a fixed lunar orbit."
           : stop === 1
             ? "1 AU is exactly 149597870.7 km; Earth–Sun distance varies during the year."
             : "4.24 light-years is a rounded distance to Proxima. The line is a distance comparison, not a sky direction or a map of other stars."}{" "}

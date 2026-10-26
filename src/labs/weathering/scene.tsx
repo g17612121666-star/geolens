@@ -9,7 +9,7 @@ import { cliffFaceGlsl } from "../shared/land-section";
 import { GeomorphicTerrain } from "../shared/geomorphic-terrain";
 import { landscapeNoise } from "../shared/landscape-noise";
 
-/** Bedded sandstone; upward-facing surfaces carry a grey-green lichen crust. */
+/** Bedded sandstone; upward-facing surfaces carry a gray-green lichen crust. */
 const SANDSTONE = cliffFaceGlsl({ rock: "sandstone", beds: 5.5, bedOffset: 0.2 });
 /** Fine-grained pale limestone with faint bedding and shell fragments, but no joints. */
 const LIMESTONE = cliffFaceGlsl({
@@ -234,7 +234,7 @@ export default function Weathering() {
         <group position={[0, -0.02, 0]}>
           <GeomorphicTerrain
             height={(x, z) => 0.012 * (landscapeNoise(x * 4 + 3, z * 4) - 0.5)}
-            colour={(x, y, z) => (landscapeNoise(x * 3, z * 3) > 0.55 ? "#6f8a49" : "#7f9752")}
+            color={(x, y, z) => (landscapeNoise(x * 3, z * 3) > 0.55 ? "#6f8a49" : "#7f9752")}
             width={2.6}
             depth={2}
             base={-0.5}

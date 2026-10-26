@@ -106,7 +106,7 @@ export default function PressureCentres() {
       <ScienceStudio
         slug="cyclone-anticyclone"
         camera={[1.4, 6.7, 6]}
-        scale="Idealised pressure centre · surface flow and vertical motion enlarged"
+        scale="Idealized pressure center · surface flow and vertical motion enlarged"
         trueScale="Arrows show the flow pattern, not measured wind speeds"
       >
         <RegionMap />
@@ -117,7 +117,7 @@ export default function PressureCentres() {
               key={`p-${r}`}
               pos={[r * Math.cos(-2.1), 0.05, -r * Math.sin(-2.1)]}
               text={`${high ? 1036 - k * 6 : 976 + k * 8} hPa`}
-              note={`Isobar: a line joining places with the same surface pressure (${high ? 1036 - k * 6 : 976 + k * 8} hPa in this example pattern). ${high ? "Pressure is highest at the centre of the anticyclone." : "Pressure is lowest at the centre of the depression."}`}
+              note={`Isobar: a line joining places with the same surface pressure (${high ? 1036 - k * 6 : 976 + k * 8} hPa in this example pattern). ${high ? "Pressure is highest at the center of the anticyclone." : "Pressure is lowest at the center of the depression."}`}
               occlude={false}
             />
           ),
@@ -260,7 +260,7 @@ export default function PressureCentres() {
         />
         <Tag
           pos={[-2.5, 0.1, -2.6]}
-          text={`${south ? "SH" : "NH"} · ${spin > 0 ? "anticlockwise" : "clockwise"}`}
+          text={`${south ? "SH" : "NH"} · ${spin > 0 ? "counterclockwise" : "clockwise"}`}
           note="Viewed from above. Switching hemisphere reverses the spin, but a low still converges and a high still diverges near the surface."
           occlude={false}
         />
@@ -268,7 +268,7 @@ export default function PressureCentres() {
           <Tag
             pos={south ? [3, 0.1, -1.1] : [2.6, 0.1, 1.8]}
             text="Fronts · cold blue / warm coral"
-            note="Example cold and warm fronts of a developing midlatitude depression, not a hurricane eyewall. The cold front trails towards the equator, so the pattern flips north–south in the Southern Hemisphere. Real fronts do not rotate rigidly like spokes. Open the Fronts lab to see their slopes."
+            note="Example cold and warm fronts of a developing midlatitude depression, not a hurricane eyewall. The cold front trails toward the equator, so the pattern flips north–south in the Southern Hemisphere. Real fronts do not rotate rigidly like spokes. Open the Fronts lab to see their slopes."
             occlude={false}
           />
         )}
@@ -281,27 +281,27 @@ export default function PressureCentres() {
         {". Spin is read from above."}
         <br />
         {high
-          ? "Sinking air usually stops deep cloud forming, but fog or low cloud may persist. Follow the parcels spiralling out from the centre."
-          : "Blue and coral lines mark example cold and warm fronts; this is a midlatitude depression, not a tropical cyclone. Follow the parcels spiralling in towards the rising centre."}
+          ? "Sinking air usually stops deep cloud forming, but fog or low cloud may persist. Follow the parcels spiraling out from the center."
+          : "Blue and coral lines mark example cold and warm fronts; this is a midlatitude depression, not a tropical cyclone. Follow the parcels spiraling in toward the rising center."}
       </ScienceReadout>
     </>
   );
 }
 
-/** Radial pressure shading: blue (low) or warm (high) at the centre, fading outwards. */
+/** Radial pressure shading: blue (low) or warm (high) at the center, fading outward. */
 function PressureDisc({ high }: { high: boolean }) {
   const geometry = useMemo(() => {
     const g = new THREE.CircleGeometry(3.38, 96, 0, Math.PI * 2),
       p = g.attributes.position,
-      colours = new Float32Array(p.count * 3),
-      centre = new THREE.Color(high ? "#e5994f" : "#3f7fd0"),
+      colors = new Float32Array(p.count * 3),
+      center = new THREE.Color(high ? "#e5994f" : "#3f7fd0"),
       edge = new THREE.Color(high ? "#e8d3a6" : "#a9c8e2"),
       c = new THREE.Color();
     for (let i = 0; i < p.count; i++) {
-      c.copy(centre).lerp(edge, Math.min(1, Math.hypot(p.getX(i), p.getY(i)) / 3.38));
-      colours.set([c.r, c.g, c.b], i * 3);
+      c.copy(center).lerp(edge, Math.min(1, Math.hypot(p.getX(i), p.getY(i)) / 3.38));
+      colors.set([c.r, c.g, c.b], i * 3);
     }
-    g.setAttribute("color", new THREE.BufferAttribute(colours, 3));
+    g.setAttribute("color", new THREE.BufferAttribute(colors, 3));
     return g;
   }, [high]);
   useEffect(() => () => geometry.dispose(), [geometry]);

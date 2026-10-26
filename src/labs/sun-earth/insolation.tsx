@@ -9,7 +9,7 @@ import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 export default function SunEarth() {
   const { params } = useLabControls(),
-    lat = params.latitude ?? 51.5,
+    lat = params.latitude ?? 40.7,
     decl = params.declination ?? 0,
     d = (decl * Math.PI) / 180,
     p = (lat * Math.PI) / 180,
@@ -102,7 +102,7 @@ export default function SunEarth() {
               .toArray() as [number, number, number]
           }
           text={`Normal at ${Math.abs(lat).toFixed(1)}°${lat < 0 ? "S" : "N"}`}
-          note="The arrow points straight out from the ground at the gold noon patch (the surface normal). Its angle to the sunlight sets the energy per square metre above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere."
+          note="The arrow points straight out from the ground at the gold noon patch (the surface normal). Its angle to the sunlight sets the energy per square meter above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere."
           occlude={false}
         />
       </ScienceStudio>
@@ -141,7 +141,7 @@ export default function SunEarth() {
             />
             <span>
               {
-                "Real SDO image of the Sun, coloured orange in processing. Sunspots are cooler, magnetic regions. This switch does not change the calculation, which uses a fixed solar irradiance. "
+                "Real SDO image of the Sun, colored orange in processing. Sunspots are cooler, magnetic regions. This switch does not change the calculation, which uses a fixed solar irradiance. "
               }
               <a
                 className="pointer-events-auto text-ice underline"
@@ -181,8 +181,8 @@ function SunBeam({
     cosine = normal.dot(sun);
   const beam = useMemo(() => {
     const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), sun);
-    const centre = point.clone().addScaledVector(sun, length / 2 + 0.01);
-    return { q, centre };
+    const center = point.clone().addScaledVector(sun, length / 2 + 0.01);
+    return { q, center };
   }, [point, sun]);
   const footprint = useMemo(() => {
     // Right-handed local frame: x across the meridian, y along it (north), z outward normal.
@@ -198,7 +198,7 @@ function SunBeam({
   const stretch = Math.min(1 / cosine, 8);
   return (
     <>
-      <mesh position={beam.centre} quaternion={beam.q} raycast={() => null}>
+      <mesh position={beam.center} quaternion={beam.q} raycast={() => null}>
         <boxGeometry args={[width, length, width]} />
         <meshBasicMaterial
           color="#ffd98f"
@@ -233,7 +233,7 @@ function SunBeam({
             .toArray() as [number, number, number]
         }
         text={`Same beam · ${(1 / cosine).toFixed(2)}× area`}
-        note="Each beam carries the same power. Where sunlight meets the ground at a low angle, that power is spread over a larger patch, so each square metre receives less."
+        note="Each beam carries the same power. Where sunlight meets the ground at a low angle, that power is spread over a larger patch, so each square meter receives less."
         occlude={false}
       />
     </>

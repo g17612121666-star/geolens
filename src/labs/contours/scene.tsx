@@ -37,23 +37,23 @@ export default function Contours() {
   const g = useMemo(() => {
     const surface = (x: number, z: number) => (hillHeight(x, z) / 100) * factor;
     const geometry = withSurfaceY(terrainBlockGeometry(surface, 6, 4, 128, -0.16), surface);
-    // Hypsometric tint: the colour depends only on true height, as on a printed map.
+    // Hypsometric tint: the color depends only on true height, as on a printed map.
     const p = geometry.attributes.position,
-      colours = new Float32Array(p.count * 3),
+      colors = new Float32Array(p.count * 3),
       c = new THREE.Color();
     for (let i = 0; i < p.count; i++) {
       tint(hillHeight(p.getX(i), p.getZ(i)), c);
-      colours.set([c.r, c.g, c.b], i * 3);
+      colors.set([c.r, c.g, c.b], i * 3);
     }
-    geometry.setAttribute("color", new THREE.BufferAttribute(colours, 3));
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
     return geometry;
   }, [factor]);
   useEffect(() => () => g.dispose(), [g]);
   const lines = useMemo(() => contours(interval), [interval]);
-  // Index contours: every contour that is a multiple of the label step is drawn bold and labelled,
+  // Index contours: every contour that is a multiple of the label step is drawn bold and labeled,
   // as on a printed map, so students can tell uphill from downhill.
   const labelStep = Math.ceil(20 / interval) * interval;
-  const labelled = useMemo(
+  const labeled = useMemo(
     () =>
       lines
         .filter((l) => l.height % labelStep === 0 && l.height < hillHeight(...SUMMIT))
@@ -108,12 +108,12 @@ export default function Contours() {
               lineWidth={l.height % labelStep === 0 ? 2 : 1}
             />
           ))}
-          {labelled.map((l) => (
+          {labeled.map((l) => (
             <Tag
               key={`h${l.height}`}
               pos={[l.at[0], (l.height / 100) * factor + 0.03, l.at[1]]}
               text={`${l.height} m`}
-              note="Index contours are drawn bold and labelled with their height, so you can tell which way is uphill."
+              note="Index contours are drawn bold and labeled with their height, so you can tell which way is uphill."
               tone="sandstone"
             />
           ))}
@@ -228,7 +228,7 @@ const VALLEY: [number, number] = [-0.2, 1.25];
 const SPUR: [number, number] = [1.4, -0.8];
 /**
  * Contour labels alternate between two smooth slopes east and west of the summit where height
- * falls steadily, so neighbouring labels do not sit on top of each other.
+ * falls steadily, so neighboring labels do not sit on top of each other.
  */
 const LABEL_RAYS: [number, number][] = [
   [-0.82, 0.56],

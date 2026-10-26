@@ -9,7 +9,7 @@ const candidates=new Set(),changed=[];
 const normalize=text=>{const lines=text.replace(/\r/g,'').split('\n').map((s,i,a)=>{s=s.replace(/\t/g,' ');if(i>0)s=s.replace(/^ +/,'');if(i<a.length-1)s=s.replace(/ +$/,'');return s;}).filter(Boolean);return lines.join(' ');};
 for(const file of files){
  if(file.includes('components\\ui\\')||file.includes('components/ui/')||/preferences-menu|preview-host-bridge|__root|auth/.test(file))continue;
- let source=fs.readFileSync(file,'utf8');if(source.includes('// Localised display text.'))continue;
+ let source=fs.readFileSync(file,'utf8');if(source.includes('// Localized display text.'))continue;
  const sf=ts.createSourceFile(file,source,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX),edits=[];
  const add=(start,end,value)=>edits.push({start,end,value});
  const jsxWithin=node=>{let found=false;const walk=n=>{if(ts.isJsxElement(n)||ts.isJsxSelfClosingElement(n)){found=true;return;}ts.forEachChild(n,walk);};walk(node);return found;};
@@ -34,7 +34,7 @@ for(const file of files){
   ts.forEachChild(node,hook);
  }hook(sf);
  edits.sort((a,b)=>b.start-a.start||b.end-a.end);for(const e of edits)source=source.slice(0,e.start)+e.value+source.slice(e.end);
- source=`// Localised display text.\nimport {tr${hooks?',useTranslate':''}} from '@/lib/i18n';\n`+source;
+ source=`// Localized display text.\nimport {tr${hooks?',useTranslate':''}} from '@/lib/i18n';\n`+source;
  fs.writeFileSync(file,source);changed.push(file);
 }
 fs.writeFileSync('reports/round4-static-ui-strings.json',JSON.stringify([...candidates].sort(),null,2));

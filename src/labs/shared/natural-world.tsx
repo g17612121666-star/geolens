@@ -52,8 +52,8 @@ export function TerrainMaterial({
             ? "sand"
             : "forest_ground_04",
   );
-  // Use the photograph as brightness detail only, normalised by its mean luminance, so the
-  // surface averages the scene's chosen colour instead of the photo's dark olive cast.
+  // Use the photograph as brightness detail only, normalized by its mean luminance, so the
+  // surface averages the scene's chosen color instead of the photo's dark olive cast.
   const textured = props.map !== null && kind !== "snow";
   const meanLuminance = MEAN_LUMINANCE[kind] ?? 0.1;
   const detail = useMemo(

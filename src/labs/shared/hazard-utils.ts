@@ -20,7 +20,7 @@ export type Building = {
 const WALLS = ["#e6dccb", "#d9cdb8", "#efe7da", "#cbbfae", "#ddd2c4"];
 const ROOFS = ["#9c4a35", "#7d3f31", "#5d5f63", "#8a5a3c", "#a8573d"];
 
-/** A loose settlement of small pitched-roof buildings around a centre. Deterministic. */
+/** A loose settlement of small pitched-roof buildings around a center. Deterministic. */
 export function settlement(
   cx: number,
   cz: number,
@@ -52,7 +52,7 @@ export function settlement(
   return out;
 }
 
-/** Field patchwork colour for lowland farmland, with hedgerow-darkened borders. */
+/** Field patchwork color for lowland farmland, with hedgerow-darkened borders. */
 export function farmland(x: number, z: number, cell = 0.42) {
   const u = (x + 0.3 * Math.sin(z * 1.3)) / cell,
     v = (z + 0.2 * Math.sin(x * 1.1)) / (cell * 0.8),
@@ -61,7 +61,7 @@ export function farmland(x: number, z: number, cell = 0.42) {
     k = landscapeRandom(i * 31.7 + j * 17.3),
     fields = ["#7f9b52", "#93a95c", "#b3a863", "#6f8a48", "#a2a35a", "#88a157"],
     edge = Math.min(u - i, 1 - (u - i), v - j, 1 - (v - j));
-  const colour = new THREE.Color(fields[Math.floor(k * fields.length)]);
-  if (edge < 0.05) colour.multiplyScalar(0.72);
-  return colour;
+  const color = new THREE.Color(fields[Math.floor(k * fields.length)]);
+  if (edge < 0.05) color.multiplyScalar(0.72);
+  return color;
 }

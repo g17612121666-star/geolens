@@ -35,7 +35,7 @@ type Point = [number, number, number];
 function waterTable(x: number) {
   return 0.12 * Math.max(0, Math.min(1, (1.1 - x) / 3.8));
 }
-// The valley falls towards +x; transverse slopes are zero on the bounding ridges.
+// The valley falls toward +x; transverse slopes are zero on the bounding ridges.
 function originalHeight(x: number, z: number) {
   const u = Math.max(0, Math.min(1, (1.1 - x) / 3.8));
   return 0.06 + 0.65 * u * (2 - u) + 0.55 * Math.sin((z * Math.PI) / 3.4) ** 2;
@@ -105,7 +105,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [1.5, 2, 0.4],
     ],
     color: "#e9c18a",
-    note: "Liquid water becomes invisible water vapour, mainly using energy from the Sun. Clouds are droplets or ice, not vapour.",
+    note: "Liquid water becomes invisible water vapor, mainly using energy from the Sun. Clouds are droplets or ice, not vapor.",
   },
   {
     name: "Atmospheric transport",
@@ -115,7 +115,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [-1.5, 2, 0.4],
     ],
     color: "#b9d8e6",
-    note: "Wind carries water vapour and cloud droplets. The arrow shows direction only, not a measured wind.",
+    note: "Wind carries water vapor and cloud droplets. The arrow shows direction only, not a measured wind.",
   },
   {
     name: "Precipitation",
@@ -134,7 +134,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       return [x, x > 1.1 ? 0.03 : height(x, 0) + 0.025, 0];
     }),
     color: "#86d6e9",
-    note: "Overland flow and rivers carry water downhill towards the outlet. Divides separate surface catchments.",
+    note: "Overland flow and rivers carry water downhill toward the outlet. Divides separate surface catchments.",
   },
   {
     name: "Infiltration",
@@ -149,7 +149,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
   },
   {
     name: "Groundwater flow",
-    // Below the water table on the front cut face, draining towards the coast.
+    // Below the water table on the front cut face, draining toward the coast.
     points: [
       [-1.6, waterTable(-1.6) - 0.12, 1.72],
       [-0.3, -0.1, 1.72],
@@ -166,7 +166,7 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [-0.2, 2, -0.8],
     ],
     color: "#9ac794",
-    note: "Roots take up soil water and leaves release it as water vapour through tiny pores called stomata.",
+    note: "Roots take up soil water and leaves release it as water vapor through tiny pores called stomata.",
   },
   {
     name: "Snowmelt",
@@ -324,7 +324,7 @@ export default function WaterCycle() {
               width={0.7}
             />
           )}
-          <PoreMarkers positions={pores} colours={Array(pores.length).fill("#7bd0d8")} />
+          <PoreMarkers positions={pores} colors={Array(pores.length).fill("#7bd0d8")} />
           <InspectHotspot
             name="Vegetation and soil water"
             note="Water is held on leaves, in living plants and in soil pores. Transpiration returns some to the atmosphere."
@@ -403,7 +403,7 @@ export default function WaterCycle() {
           <Tag
             pos={[0, 2.55, 0]}
             text="Atmosphere"
-            note="Invisible vapour is the main atmospheric water store; clouds contain droplets and ice."
+            note="Invisible vapor is the main atmospheric water store; clouds contain droplets and ice."
             occlude={false}
           />
           <Tag

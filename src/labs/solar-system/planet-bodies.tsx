@@ -28,7 +28,7 @@ function NasaBody({ name, radius }: { name: string; radius: number }) {
       }),
     [copy],
   );
-  // NASA assets have equatorial radius 500; convert to the catalogue's mean radius.
+  // NASA assets have equatorial radius 500; convert to the catalog's mean radius.
   const meanFactor =
     name === "saturn" ? Math.cbrt(451.019 / 500) : name === "mars" ? Math.cbrt(497.05557 / 500) : 1;
   return (
@@ -69,7 +69,7 @@ float cf(vec3 p){return .5*cn(p)+.25*cn(p*2.03)+.15*cn(p*4.1)+.1*cn(p*8.3);}
 vec3 cloudTop(vec3 q,float kind){
   float lat=q.y;
   if(kind<.5){
-    // Venus: sulphuric-acid haze with sheared, Y-shaped streaks.
+    // Venus: sulfuric-acid haze with sheared, Y-shaped streaks.
     float warp=cf(q*3.+vec3(0.,0.,lat*4.));
     float streak=cf(vec3(q.x*2.+warp*1.5,lat*9.,q.z*2.+warp*1.5));
     return mix(vec3(.80,.72,.52),vec3(.96,.90,.74),streak)*(1.-.12*abs(lat));

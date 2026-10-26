@@ -148,6 +148,9 @@ export function GridReferenceScene() {
   const { params } = useLabControls(),
     e = Math.round(params.easting ?? 246),
     n = Math.round(params.northing ?? 513),
+    // US National Grid (UTM) by default, as printed on USGS US Topo maps; the toggle shows Britain's.
+    bng = (params.bng ?? 0) > 0.5,
+    gridColor = bng ? "#3d6fa1" : "#2b3440",
     x = -2 + (e / 1000) * 4,
     z = 2 - (n / 1000) * 4,
     y = mapHeight(x, z);
@@ -155,7 +158,7 @@ export function GridReferenceScene() {
     <>
       <ScienceStudio
         slug="grid-references"
-        scale="Fictional 100 km square · eastings first, then northings · relief exaggerated"
+        scale={`Fictional 100 km square of the ${bng ? "British National Grid" : "US National Grid (UTM)"} · eastings first, then northings · relief exaggerated`}
         trueScale="Same grid scale east–west and north–south · relief is still exaggerated"
         camera={[0, 5.5, 3.8]}
         horizon
@@ -165,17 +168,17 @@ export function GridReferenceScene() {
           <group key={i}>
             <Line
               points={drape([-2 + i * 0.4, -2], [-2 + i * 0.4, 2])}
-              color="#3d6fa1"
+              color={gridColor}
               transparent
               opacity={0.55}
             />
             <Line
               points={drape([-2, -2 + i * 0.4], [2, -2 + i * 0.4])}
-              color="#3d6fa1"
+              color={gridColor}
               transparent
               opacity={0.55}
             />
-            {/* Every line is labelled; the last one is 00 of the next 100 km square. */}
+            {/* Every line is labeled; the last one is 00 of the next 100 km square. */}
             <Tag
               pos={[-2 + i * 0.4, 0.03, 2.25]}
               text={String((i * 10) % 100).padStart(2, "0")}
@@ -199,14 +202,14 @@ export function GridReferenceScene() {
             <group key={`km-${k}`}>
               <Line
                 points={drape([x0 + o, z0], [x0 + o, z0 - 0.4])}
-                color="#3d6fa1"
+                color={gridColor}
                 transparent
                 opacity={0.3}
                 lineWidth={0.6}
               />
               <Line
                 points={drape([x0, z0 - o], [x0 + 0.4, z0 - o])}
-                color="#3d6fa1"
+                color={gridColor}
                 transparent
                 opacity={0.3}
                 lineWidth={0.6}
@@ -274,13 +277,13 @@ export function GridReferenceScene() {
           color="#9b958b"
           lineWidth={4}
         />
-        {/* Two 10 km segments (dark, then grey), so each segment matches one grid square. */}
+        {/* Two 10 km segments (dark, then gray), so each segment matches one grid square. */}
         <Tag pos={[0.8, 0.02, 2.75]} text="0" occlude={false} />
         <Tag pos={[1.6, 0.02, 2.75]} text="20 km" occlude={false} />
         <Tag
           pos={[x, y + 0.75, z]}
           text={`${String(e).padStart(3, "0")} ${String(n).padStart(3, "0")}`}
-          note="Six figures identify a 100 m grid square. The marker shows its southwest corner; it is not a surveyed point accurate to one metre."
+          note="Six figures identify a 100 m grid square. The marker shows its southwest corner; it is not a surveyed point accurate to one meter."
           occlude={false}
         />
       </ScienceStudio>
@@ -289,8 +292,11 @@ export function GridReferenceScene() {
         {(e * 0.1).toFixed(1)} {"km east. Then up: "}
         {(n * 0.1).toFixed(1)}{" "}
         {
-          "km north. Each slider step is 100 m; grid lines are 10 km apart. Brown contours, woodland, river, road and villages are fictional landmarks; the relief is exaggerated so the contours read as hills. A British National Grid reference also needs its 100 km letter pair."
+          "km north. Each slider step is 100 m; grid lines are 10 km apart. Brown contours, woodland, river, road and villages are fictional landmarks; the relief is exaggerated so the contours read as hills. "
         }
+        {bng
+          ? "A British National Grid reference also needs its 100 km letter pair, such as SH."
+          : "A full US National Grid reference also needs its UTM zone and 100 km square letters, such as 18T WL."}
       </ScienceReadout>
     </>
   );
@@ -334,15 +340,15 @@ function ProjectionSurface({ morph, kind }: { morph: number; kind: number }) {
         onBeforeCompile={(shader) => {
           // Bind the morph so the globe shading fades out as the map flattens.
           shader.uniforms.uMorph = morphUniform;
-          atlasColours(shader);
+          atlasColors(shader);
         }}
         customProgramCacheKey={() => "projection-atlas-v3"}
       />
     </mesh>
   );
 }
-/** The day texture's oceans are very dark; recolour them as a clear atlas-blue sea. */
-function atlasColours(s: THREE.WebGLProgramParametersWithUniforms) {
+/** The day texture's oceans are very dark; recolor them as a clear atlas-blue sea. */
+function atlasColors(s: THREE.WebGLProgramParametersWithUniforms) {
   // While still a globe, shade it softly from the upper left so it reads as a sphere;
   // the shading fades out as the surface unfolds into a flat map.
   s.vertexShader =
@@ -408,7 +414,7 @@ export function ProjectionScene() {
         slug="map-projections"
         scale="Globe → flat map · shown to 85° N and S · every flat map distorts distance, shape or area"
         trueScale="No flat world map preserves all distances, shapes and areas"
-        // Level with the map centre, so the flat map is not foreshortened into a trapezoid.
+        // Level with the map center, so the flat map is not foreshortened into a trapezoid.
         camera={[0, 0, 6]}
       >
         <ProjectionSurface morph={morph} kind={kind} />
@@ -481,7 +487,7 @@ export function ProjectionScene() {
         {names[kind]} · {Math.round(morph * 100)}
         {"% flattened. "}
         {kind === 0
-          ? "Mercator keeps local shapes and angles; areas grow strongly towards the poles."
+          ? "Mercator keeps local shapes and angles; areas grow strongly toward the poles."
           : kind === 1
             ? "When fully flat, this map keeps true relative areas; shapes are distorted."
             : "This compromise spreads distortion between area and shape; it keeps neither exactly."}{" "}

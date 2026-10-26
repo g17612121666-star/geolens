@@ -177,14 +177,14 @@ export default function Rivers() {
             text={compact ? "1" : "Upper course · steeper"}
             title={"1 · Upper course"}
             occlude={false}
-            note="A steep long profile often favours incision; channel shape, sediment and discharge also matter."
+            note="A steep long profile often favors incision; channel shape, sediment and discharge also matter."
           />
           <Tag
             pos={[0.5, riverBed(0.5) * f + 0.35, riverZ(0.5)]}
             text={compact ? "2" : "Meanders"}
             title={"2 · Meanders"}
             occlude={false}
-            note="Outside bends tend to erode; slower flow along inside bends favours deposition."
+            note="Outside bends tend to erode; slower flow along inside bends favors deposition."
           />
           <Tag
             pos={[2.7, riverBed(2.7) * f + 0.4, riverZ(2.7)]}

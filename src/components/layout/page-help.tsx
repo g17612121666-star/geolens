@@ -9,7 +9,7 @@ const TIPS: [string, string, string[]][] = [
     "Field trip",
     [
       "Press Next or the → key to fly to the next stop; ← goes back.",
-      "The coloured box is the one fact to remember from each stop.",
+      "The colored box is the one fact to remember from each stop.",
       "Open the lab to see the process at work, set up for that place.",
       "Your progress is kept on this device, so you can continue later.",
     ],
@@ -28,7 +28,7 @@ const TIPS: [string, string, string[]][] = [
     [
       "Look for clues in the photo: rock, ice, plants, coast and sky.",
       "Click the map to place a guess; you can move it before locking it in.",
-      "Only your first game each day counts towards your streak.",
+      "Only your first game each day counts toward your streak.",
     ],
   ],
   [
@@ -37,7 +37,7 @@ const TIPS: [string, string, string[]][] = [
     [
       "Study first: click a name to fly to it on the map.",
       "In Quiz and Speed round, click where the named feature is. Large features accept a wide area.",
-      "Use the filters to practise one type of feature or an easier level.",
+      "Use the filters to practice one type of feature or an easier level.",
     ],
   ],
   [

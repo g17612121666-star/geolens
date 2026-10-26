@@ -71,7 +71,7 @@ function flowLine(
   });
 }
 
-/** Vertex colours: fresh dark lava near the vent, older flows, ash, vegetation and snow. */
+/** Vertex colors: fresh dark lava near the vent, older flows, ash, vegetation and snow. */
 function paint(
   g: THREE.BufferGeometry,
   h: (x: number, z: number) => number,
@@ -401,8 +401,8 @@ export default function Volcanoes() {
         slug="volcanoes"
         scale={
           fissure
-            ? "Idealised linear vents · relative geometry · fountains and trees not to scale"
-            : "Idealised forms · heights exaggerated about 2.5× · cut-away exposes the conduit and magma chamber"
+            ? "Idealized linear vents · relative geometry · fountains and trees not to scale"
+            : "Idealized forms · heights exaggerated about 2.5× · cut-away exposes the conduit and magma chamber"
         }
         trueScale={
           fissure

@@ -6,23 +6,23 @@ import * as THREE from "three";
  * Procedural material, not an observation or a resolved map of any star. */
 export function StarMesh({
   radius = 0.28,
-  colour = "#fff0d7",
+  color = "#fff0d7",
   glow = true,
 }: {
   radius?: number;
-  colour?: string;
+  color?: string;
   glow?: boolean;
 }) {
   const uniforms = useMemo(
-    () => ({ surfaceColour: { value: new THREE.Color(colour) }, time: { value: 0 } }),
-    [colour],
+    () => ({ surfaceColour: { value: new THREE.Color(color) }, time: { value: 0 } }),
+    [color],
   );
   useFrame(({ clock }) => {
     uniforms.time.value = clock.elapsedTime;
   });
   return (
     <group>
-      {glow && <Corona radius={radius} colour={colour} />}
+      {glow && <Corona radius={radius} color={color} />}
       <mesh>
         <sphereGeometry args={[radius, 96, 64]} />
         <shaderMaterial
@@ -40,7 +40,7 @@ export function StarMesh({
     float cells=vn(q*38.+vec3(0.,time*.05,0.))*.6+vn(q*90.-vec3(time*.08))*.4;
     float lanes=smoothstep(.25,.6,cells);
     float faculae=smoothstep(.72,.9,vn(q*12.+3.))*(1.-mu);
-    // Limb darkening, reddening towards the edge.
+    // Limb darkening, reddening toward the edge.
     vec3 limbTint=mix(vec3(1.,.55,.3),vec3(1.),pow(mu,.45));
     float limb=.38+.62*pow(mu,.55);
     vec3 c=surfaceColour*limbTint*limb*(.86+.2*lanes)*(1.+.35*faculae);
@@ -102,7 +102,7 @@ function streamerMap() {
 }
 
 /** Soft additive halo so the Sun reads as a light source; purely illustrative. */
-function Corona({ radius, colour }: { radius: number; colour: string }) {
+function Corona({ radius, color }: { radius: number; color: string }) {
   const map = useMemo(() => coronaMap(), []),
     streamers = useMemo(() => streamerMap(), []);
   if (!map) return null;
@@ -112,7 +112,7 @@ function Corona({ radius, colour }: { radius: number; colour: string }) {
         <sprite scale={[radius * 9, radius * 9, 1]} raycast={() => null}>
           <spriteMaterial
             map={streamers}
-            color={colour}
+            color={color}
             transparent
             opacity={0.55}
             depthWrite={false}
@@ -124,7 +124,7 @@ function Corona({ radius, colour }: { radius: number; colour: string }) {
       <sprite scale={[radius * 7, radius * 7, 1]} raycast={() => null}>
         <spriteMaterial
           map={map}
-          color={colour}
+          color={color}
           transparent
           depthWrite={false}
           blending={THREE.AdditiveBlending}

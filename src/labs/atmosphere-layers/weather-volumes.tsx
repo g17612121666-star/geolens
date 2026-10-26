@@ -2,12 +2,12 @@ import { useEffect, useLayoutEffect, useMemo } from "react";
 import * as THREE from "three";
 import { cloudVertex, cloudFragment } from "../shared/cloud-material";
 
-// The same volume with a multiplying tint, e.g. grey-brown for volcanic ash instead of water cloud.
+// The same volume with a multiplying tint, e.g. gray-brown for volcanic ash instead of water cloud.
 const tintedFragment = cloudFragment
   .replace("uniform float seed;", "uniform float seed; uniform vec3 tint;")
   .replace(
-    "gl_FragColor=vec4(colour/max(alpha,.001),alpha);",
-    "gl_FragColor=vec4(colour/max(alpha,.001)*tint,alpha);",
+    "gl_FragColor=vec4(color/max(alpha,.001),alpha);",
+    "gl_FragColor=vec4(color/max(alpha,.001)*tint,alpha);",
   );
 
 const random = (n: number) => {
@@ -28,7 +28,7 @@ export function CloudVolume({
   seed?: number;
   density?: number;
   opacity?: number;
-  /** Multiplies the cloud colour; white keeps condensed-water cloud. */
+  /** Multiplies the cloud color; white keeps condensed-water cloud. */
   tint?: string;
 }) {
   const uniforms = useMemo(

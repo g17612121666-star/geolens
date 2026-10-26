@@ -39,7 +39,7 @@ export default function Aeolian() {
     },
     [mode, shift],
   );
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number, z: number) => {
       const n = noise(x * 2 + 4, z * 2);
       if (mode === 1) {
@@ -63,7 +63,7 @@ export default function Aeolian() {
         <group scale={[1, v, 1]}>
           <GeomorphicTerrain
             height={height}
-            colour={colour}
+            color={color}
             resolution={mode === 0 ? 320 : 220}
             base={-0.15}
             cliff={mode === 0 ? 0.2 : 0.55}

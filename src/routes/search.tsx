@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { headFor } from "@/lib/seo";
 import { isListed } from "@/lib/labs/status";
 import { teacherArticle } from "@/lib/teachers/article";
-import { CASES } from "@/lib/cases";
+import { CASES_BY_REGION as CASES } from "@/lib/cases";
 
 import { expandSearchNeedle } from "@/lib/search-aliases";
 

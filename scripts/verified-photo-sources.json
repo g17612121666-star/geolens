@@ -16,7 +16,7 @@
     "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
     "credit": "NASA / Expedition 66 crew · ISS066-E-86970 · public domain · resized",
     "alt": "Orange and blue atmospheric layers above Earth's curved horizon, with a crescent Moon in the black sky.",
-    "caption": "Earth's atmosphere seen edge-on from the ISS on 6 December 2021. Its coloured bands reveal a thin envelope above the surface.",
+    "caption": "Earth's atmosphere seen edge-on from the ISS on 6 December 2021. Its colored bands reveal a thin envelope above the surface.",
     "kind": "photo"
   },
   {
@@ -96,7 +96,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Canyonlands_National_Park,_Utah_(10423895104).jpg",
     "credit": "NASA Goddard Space Flight Center from Greenbelt, MD, USA / Wikimedia Commons · Public domain · resized",
     "alt": "ASTER satellite image of branching tributary valleys near the Colorado River in Canyonlands, Utah.",
-    "caption": "ASTER false-colour image, 24 September 2005: tributaries cut into sandstone in Canyonlands, Utah. Plants along the valley floors show up red. The branching network carries water towards the Colorado River (top left).",
+    "caption": "ASTER false-color image, 24 September 2005: tributaries cut into sandstone in Canyonlands, Utah. Plants along the valley floors show up red. The branching network carries water toward the Colorado River (top left).",
     "kind": "scientific-image"
   },
   {
@@ -106,7 +106,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Mapping_Kamchatka_Earthquake_Displacement_(154776_-_kamchatka_aria_20250802_lrg).jpg",
     "credit": "NASA Earth Observatory images by Wanmei Liang, using data provided by the ARIA team at NASA/JPL-Caltech. The displacement map is based on Landsat data from the U.S. Geological Survey and ALOS-2 data from the Japan Aerospace Exploration Agency (JAXA). Story by Adam Voiland. / Wikimedia Commons · Public domain · resized",
     "alt": "NASA ARIA map showing measured ground displacement along the Kamchatka Peninsula after the 2025 earthquake.",
-    "caption": "NASA ARIA displacement mapping after the 2025 Kamchatka earthquake. Colours encode surface movement, rather than the colour of the ground.",
+    "caption": "NASA ARIA displacement mapping after the 2025 Kamchatka earthquake. Colors encode surface movement, rather than the color of the ground.",
     "kind": "scientific-image"
   },
   {
@@ -155,7 +155,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hutton%27s_unconformity_at_Siccar_Point,_Scotland.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "PawełS / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Younger gently dipping red sandstone overlies steep grey beds at Siccar Point, Scotland.",
+    "alt": "Younger gently dipping red sandstone overlies steep gray beds at Siccar Point, Scotland.",
     "caption": "Siccar Point: Devonian sandstone overlies much older, tilted Silurian beds. The unconformity records deformation, erosion and missing time.",
     "kind": "photo"
   },
@@ -176,7 +176,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Christine Matthews / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A physical marker of the historic Greenwich Meridian at the Royal Observatory.",
-    "caption": "The historic Greenwich Meridian makes a reference longitude tangible. Modern WGS84 zero longitude lies about 102 metres east of this line.",
+    "caption": "The historic Greenwich Meridian makes a reference longitude tangible. Modern WGS84 zero longitude lies about 102 meters east of this line.",
     "kind": "photo"
   },
   {
@@ -186,7 +186,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Yosemite-creek-campground-topo.jpg",
     "credit": "USGS / Wikimedia Commons · Public domain · resized",
     "alt": "USGS topographic map extract showing Yosemite Creek, a campground, contours and coordinate markings.",
-    "caption": "A USGS topographic map of Yosemite Creek. Check its coordinate system and scale before giving a position: it does not use the British National Grid.",
+    "caption": "A USGS topographic map of Yosemite Creek. Check its coordinate system and scale before giving a position: its red numbered squares are land-survey sections, not a metric grid.",
     "kind": "scientific-image"
   },
   {
@@ -255,7 +255,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Modis_brighttemp_glfstr_lrg.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Modis_brighttemp_glfstr_lrg.jpg",
     "credit": "NASA / Wikimedia Commons · Public domain · resized",
-    "alt": "False-colour MODIS brightness-temperature image showing the Gulf Stream and warm eddies in the North Atlantic.",
+    "alt": "False-color MODIS brightness-temperature image showing the Gulf Stream and warm eddies in the North Atlantic.",
     "caption": "MODIS, 2 May 2001: thermal contrast traces the Gulf Stream and eddies. Brightness temperature includes the sea surface and overlying moist atmosphere.",
     "kind": "scientific-image"
   },
@@ -266,7 +266,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Polygon_patterns_on_the_tundra_develop_from_yearly_freeze-thaw_cycles._Wedges_of_ice_that_extend_vertically_into_the_ground_(c4f83de0-1dd8-b71c-07b5-b2f3b36bcc0e).jpg",
     "credit": "NPS Photo / Wikimedia Commons · Public domain · resized",
     "alt": "Polygonal ground and ponds on the tundra in Noatak National Preserve, Alaska, photographed from the air.",
-    "caption": "Ice-wedge polygons in Alaska's Noatak tundra. Repeated thermal contraction cracking and ice growth organise the permafrost landscape.",
+    "caption": "Ice-wedge polygons in Alaska's Noatak tundra. Repeated thermal contraction cracking and ice growth organize the permafrost landscape.",
     "kind": "photo"
   },
   {
@@ -285,7 +285,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lena_River_Delta_-_Landsat_2000.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Lena_River_Delta_-_Landsat_2000.jpg",
     "credit": "none (Landsat) / Wikimedia Commons · Public domain · resized",
-    "alt": "False-colour Landsat image of the Lena Delta with many branching distributaries and islands.",
+    "alt": "False-color Landsat image of the Lena Delta with many branching distributaries and islands.",
     "caption": "Landsat's view of the Lena Delta, 2000. Distributaries spread sediment into the Arctic Ocean. The image combines infrared and red bands.",
     "kind": "scientific-image"
   },
@@ -336,7 +336,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Expl6454_-_pillow_lava_in_Galapagos_Rift.jpg",
     "credit": "National Oceanic & Atmospheric Adminstration (NOAA) / Wikimedia Commons · Public domain · resized",
     "alt": "Rounded pillow lava on a fissured seafloor at the Galápagos Rift, photographed by a NOAA expedition.",
-    "caption": "NOAA, Galápagos Rift, 21 July 2011. Lava quenched in seawater forms pillows close to a spreading centre, where new oceanic crust is built.",
+    "caption": "NOAA, Galápagos Rift, 21 July 2011. Lava quenched in seawater forms pillows close to a spreading center, where new oceanic crust is built.",
     "kind": "photo"
   },
   {
@@ -385,8 +385,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saturn_from_Cassini_Orbiter_(2004-10-06).jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Saturn_from_Cassini_Orbiter_(2004-10-06).jpg",
     "credit": "NASA/JPL/Space Science Institute / Wikimedia Commons · Public domain · resized",
-    "alt": "Saturn and its broad rings in a natural-colour mosaic photographed by the Cassini spacecraft.",
-    "caption": "Cassini, 6 October 2004: a natural-colour mosaic of Saturn and its rings. The rings are a thin disc of orbiting particles.",
+    "alt": "Saturn and its broad rings in a natural-color mosaic photographed by the Cassini spacecraft.",
+    "caption": "Cassini, 6 October 2004: a natural-color mosaic of Saturn and its rings. The rings are a thin disc of orbiting particles.",
     "kind": "photo"
   },
   {
@@ -406,7 +406,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "NASA/SDO, ALMA (ESO/NAOJ/NRAO) / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "Extreme-ultraviolet observation of the full Sun showing bright active regions, displayed in yellow.",
-    "caption": "SDO's Atmospheric Imaging Assembly, 18 December 2015. This false-colour ultraviolet observation reveals the hot solar atmosphere, not the Sun's visible colour.",
+    "caption": "SDO's Atmospheric Imaging Assembly, 18 December 2015. This false-color ultraviolet observation reveals the hot solar atmosphere, not the Sun's visible color.",
     "kind": "scientific-image"
   },
   {
@@ -416,7 +416,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:CloudStreets_BeringSea_20060120.jpg",
     "credit": "Jesse Allen, NASA Earth Observatory, using data obtained from the Goddard Earth Sciences DAAC. / Wikimedia Commons · Public domain · resized",
     "alt": "Parallel rows of clouds extend from sea ice across open water in the Bering Sea.",
-    "caption": "Cloud streets over the Bering Sea, 20 January 2006. Cold air over warmer water supports convection organised into rolls by the wind.",
+    "caption": "Cloud streets over the Bering Sea, 20 January 2006. Cold air over warmer water supports convection organized into rolls by the wind.",
     "kind": "photo"
   },
   {
@@ -436,7 +436,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Dennis G. Jarvis / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A fishing boat rests on exposed mud beside a wharf at low tide in Nova Scotia.",
-    "caption": "Low tide at Waterford on St Mary's Bay, Nova Scotia. The exposed harbour floor makes tidal range visible.",
+    "caption": "Low tide at Waterford on St Mary's Bay, Nova Scotia. The exposed harbor floor makes tidal range visible.",
     "kind": "photo"
   },
   {
@@ -466,7 +466,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Pahoeoe_fountain_original.jpg",
     "credit": "Jim D. Griggs, HVO (USGS) staff photographer[1][2] / Wikimedia Commons · Public domain · resized",
     "alt": "An arching orange lava fountain erupts from a vent on Kīlauea amid dark cooling lava.",
-    "caption": "A lava fountain about 10 metres high at Kīlauea, photographed by USGS on 25 February 1983. Magma reaches the surface here, but the mantle beneath is almost entirely solid.",
+    "caption": "A lava fountain about 10 meters high at Kīlauea, photographed by USGS on 25 February 1983. Magma reaches the surface here, but the mantle beneath is almost entirely solid.",
     "kind": "photo"
   },
   {
@@ -476,7 +476,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:One_frosty_morning._(52657835823).jpg",
     "credit": "Bernard Spragg. NZ from Christchurch, New Zealand / Wikimedia Commons · Public domain · resized",
     "alt": "Wisps of low fog rise above a calm lake on a frosty morning, with trees reflected in the water.",
-    "caption": "Evaporation fog over a lake. Water evaporating from the warmer lake condenses into tiny droplets in the cold air above; the fog is droplets, not invisible water vapour.",
+    "caption": "Evaporation fog over a lake. Water evaporating from the warmer lake condenses into tiny droplets in the cold air above; the fog is droplets, not invisible water vapor.",
     "kind": "photo"
   },
   {
@@ -506,7 +506,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Kevin M. Gill / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "A rounded specimen of augen gneiss with pale mineral eyes enclosed in dark, folded bands.",
-    "caption": "Augen gneiss: deformation and metamorphism organise minerals into bands around larger crystals. Rock-cycle pathways need not follow one fixed loop.",
+    "caption": "Augen gneiss: deformation and metamorphism organize minerals into bands around larger crystals. Rock-cycle pathways need not follow one fixed loop.",
     "kind": "photo"
   },
   {
@@ -516,7 +516,7 @@
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "credit": "Leonhard Lenz / Wikimedia Commons · CC0 · resized",
     "alt": "An exposed soil profile beneath woodland at Wuhlheide in Berlin, with a measuring tape against the face.",
-    "caption": "A measured field profile in Wuhlheide, Berlin. Colour and texture vary down the soil; horizon boundaries must be identified from field evidence.",
+    "caption": "A measured field profile in Wuhlheide, Berlin. Color and texture vary down the soil; horizon boundaries must be identified from field evidence.",
     "kind": "photo"
   },
   {
@@ -557,7 +557,7 @@
     "credit": "Jacques Descloitres, MODIS Land Rapid Response Team / NASA GSFC · public domain · resized",
     "kind": "photo",
     "alt": "Hawaiian islands with greener windward slopes, drier leeward slopes and silvery sunglint on the Pacific.",
-    "caption": "Terra MODIS, 27 May 2003. Northeasterly trade winds favour wetter, greener windward slopes; leeward slopes are drier. The bright ocean is sunglint."
+    "caption": "Terra MODIS, 27 May 2003. Northeasterly trade winds favor wetter, greener windward slopes; leeward slopes are drier. The bright ocean is sunglint."
   },
   {
     "id": "alabama-karst-spring",
@@ -576,7 +576,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Karthoo / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "The Wutach flows through a narrow, wooded gorge below exposed rock walls in the Black Forest.",
-    "caption": "Wutach Gorge, Germany. Capture diverted drainage from the Danube system towards the Rhine; subsequent incision cut this gorge.",
+    "caption": "Wutach Gorge, Germany. Capture diverted drainage from the Danube system toward the Rhine; subsequent incision cut this gorge.",
     "kind": "photo"
   },
   {
@@ -596,7 +596,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Principal_Aquifers_of_the_United_States,_Ground_Water_Atlas_of_the_United_States,_published_2000_by_USGS_02.png",
     "credit": "USGS Office of Groundwater / Wikimedia Commons · Public domain · resized",
     "alt": "USGS map showing the distribution of principal aquifers across the United States.",
-    "caption": "USGS principal aquifers of the United States, 2000. Colours identify aquifer systems; the map does not show water-table depth or whether an aquifer is confined at a particular well.",
+    "caption": "USGS principal aquifers of the United States, 2000. Colors identify aquifer systems; the map does not show water-table depth or whether an aquifer is confined at a particular well.",
     "kind": "scientific-image"
   },
   {
@@ -625,7 +625,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cambrian_Trilobite_Olenoides_Mt._Stephen.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Cambrian_Trilobite_Olenoides_Mt._Stephen.jpg",
     "credit": "Wilson44691 / Wikimedia Commons · Public domain · resized",
-    "alt": "Fossilised Ogyopsis klotzi trilobite preserved in dark shale.",
+    "alt": "Fossilized Ogyopsis klotzi trilobite preserved in dark shale.",
     "caption": "Ogyopsis klotzi from the Middle Cambrian Mount Stephen Trilobite Beds, Canada. Fossils help correlate and interpret ancient sedimentary rocks.",
     "kind": "photo"
   },
@@ -686,7 +686,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Thames_Estuary_and_Wind_Farms_from_Space_NASA.jpg",
     "credit": "Operational Land Imager / Wikimedia Commons · Public domain · resized",
     "alt": "Landsat view of the Thames estuary, coastal shallows and offshore wind farms.",
-    "caption": "NASA Landsat observation of the Thames estuary. The tidal river widens towards the North Sea; pale water reveals suspended material and shallow coastal water.",
+    "caption": "NASA Landsat observation of the Thames estuary. The tidal river widens toward the North Sea; pale water reveals suspended material and shallow coastal water.",
     "kind": "photo"
   },
   {
@@ -885,8 +885,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:GleyClay.jpg",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "credit": "Plorpy2 / Wikimedia Commons · CC0 · resized",
-    "alt": "Photographs of clay samples comparing grey reduced material and oxidised reddish material.",
-    "caption": "The same clay kept airless in a sealed jar (grey gley colour) and after oxidising in open air (orange-brown). In waterlogged soils, iron changes like this give grey colours and rusty mottles.",
+    "alt": "Photographs of clay samples comparing gray reduced material and oxidized reddish material.",
+    "caption": "The same clay kept airless in a sealed jar (gray gley color) and after oxidizing in open air (orange-brown). In waterlogged soils, iron changes like this give gray colors and rusty mottles.",
     "kind": "photo"
   },
   {
@@ -906,7 +906,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Explorer2310 / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "Microscope photograph of leaf epidermal cells and stomatal pores under drought conditions.",
-    "caption": "Leaf epidermis viewed through a microscope. Stomata regulate gas exchange and water-vapour loss; transpiration is one part of evapotranspiration.",
+    "caption": "Leaf epidermis viewed through a microscope. Stomata regulate gas exchange and water-vapor loss; transpiration is one part of evapotranspiration.",
     "kind": "photo"
   },
   {
@@ -926,7 +926,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:NASA%27s_SDO_Observes_Largest_Sunspot_of_the_Solar_Cycle_(15430820129).jpg",
     "credit": "NASA Goddard Space Flight Center from Greenbelt, MD, USA / Wikimedia Commons · Public domain · resized",
     "alt": "An SDO observation of the solar photosphere showing a large dark sunspot group.",
-    "caption": "NASA SDO observation of active region AR 12192 in 2014. Sunspots are cooler areas of the photosphere; the orange display colour is image processing.",
+    "caption": "NASA SDO observation of active region AR 12192 in 2014. Sunspots are cooler areas of the photosphere; the orange display color is image processing.",
     "kind": "scientific-image"
   },
   {
@@ -1006,7 +1006,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Atlantic_bathymetry_(cropped_-_South).jpg",
     "credit": "NOAA / Wikimedia Commons · Public domain · resized",
     "alt": "NOAA bathymetry map of the South Atlantic showing continental shelves and the mid-ocean ridge.",
-    "caption": "NOAA South Atlantic bathymetry. Colour represents seafloor depth, revealing continental margins, abyssal basins and the Mid-Atlantic Ridge.",
+    "caption": "NOAA South Atlantic bathymetry. Color represents seafloor depth, revealing continental margins, abyssal basins and the Mid-Atlantic Ridge.",
     "kind": "scientific-image"
   },
   {
@@ -1046,7 +1046,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Evan_Dec_16_2012_0135Z.jpg",
     "credit": "NASA image courtesy Jeff Schmaltz, LANCE MODIS Rapid Response. Caption by Michon Scott. / Wikimedia Commons · Public domain · resized",
     "alt": "Cyclone Evan's spiral cloud bands cross the islands of Fiji in a NASA satellite image.",
-    "caption": "Aqua MODIS observed Cyclone Evan near Fiji on 16 December 2012. Its cloud bands spiral around the centre, roughly following a logarithmic spiral.",
+    "caption": "Aqua MODIS observed Cyclone Evan near Fiji on 16 December 2012. Its cloud bands spiral around the center, roughly following a logarithmic spiral.",
     "kind": "photo"
   },
   {
@@ -1066,7 +1066,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Released_to_Public_Lunar_Eclipse,_2003_(NASA)_(411737672).jpg",
     "credit": "NASA Kennedy Space Center, KSC-00PP-0096 · public domain · via Wikimedia Commons · resized",
     "alt": "The Moon appears copper-red during a lunar eclipse viewed from Merritt Island, Florida.",
-    "caption": "NASA Kennedy Space Center photograph of a total lunar eclipse. Earth's shadow falls on the Moon; sunlight filtered through Earth's atmosphere gives the eclipsed surface a reddish colour.",
+    "caption": "NASA Kennedy Space Center photograph of a total lunar eclipse. Earth's shadow falls on the Moon; sunlight filtered through Earth's atmosphere gives the eclipsed surface a reddish color.",
     "kind": "photo"
   },
   {
@@ -1086,7 +1086,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Mercator-projection.jpg",
     "credit": "Mdf / Wikimedia Commons · Public domain · resized",
     "alt": "NASA Blue Marble imagery in Mercator projection, with strongly enlarged high-latitude regions.",
-    "caption": "NASA Blue Marble imagery reprojected by Mdf into Mercator. Local angles are preserved, area grows towards the poles, and a constant-bearing route plots as a straight line.",
+    "caption": "NASA Blue Marble imagery reprojected by Mdf into Mercator. Local angles are preserved, area grows toward the poles, and a constant-bearing route plots as a straight line.",
     "kind": "scientific-image"
   },
   {
@@ -1096,7 +1096,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Neptune_Full_(original).jpg",
     "credit": "NASA/JPL / Wikimedia Commons · Public domain · resized",
     "alt": "Voyager 2 image of Neptune's blue disc showing cloud bands and the Great Dark Spot.",
-    "caption": "Voyager 2 image of Neptune, assembled from green and orange filter observations in August 1989. The deep blue here is enhanced; the ice giant's natural colour is paler.",
+    "caption": "Voyager 2 image of Neptune, assembled from green and orange filter observations in August 1989. The deep blue here is enhanced; the ice giant's natural color is paler.",
     "kind": "scientific-image"
   },
   {
@@ -1116,7 +1116,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:2023_Ozone_Hole_Update_(SVS14449_-_ozone_geos5_2023264_print).jpg",
     "credit": "NASA's Scientific Visualization Studio - Amy Moran, Lauren Dauphin, Paul Newman, Katie Jepson, Aaron E. Lepsch / Wikimedia Commons · Public domain · resized",
     "alt": "NASA map of low ozone concentrations over Antarctica in September 2023.",
-    "caption": "NASA Ozone Watch and GEOS-5, 21 September 2023. The ozone hole is a region of depleted stratospheric ozone; the colours show ozone amounts, not a visible gap.",
+    "caption": "NASA Ozone Watch and GEOS-5, 21 September 2023. The ozone hole is a region of depleted stratospheric ozone; the colors show ozone amounts, not a visible gap.",
     "kind": "scientific-image"
   },
   {
@@ -1125,7 +1125,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beach_rocks_and_pebbles.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Gaisarix / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Rounded grey stones and pebbles of different sizes on an English North Sea beach.",
+    "alt": "Rounded gray stones and pebbles of different sizes on an English North Sea beach.",
     "caption": "Pebbles on the North Sea coast of England. Repeated collisions round and shrink fragments through attrition.",
     "kind": "photo"
   },
@@ -1145,8 +1145,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarius_spacecraft_first_global_salinity_map_Aug-Sep_2011.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Aquarius_spacecraft_first_global_salinity_map_Aug-Sep_2011.jpg",
     "credit": "NASA/GSFC/JPL-Caltech / Wikimedia Commons · Public domain · resized",
-    "alt": "Aquarius satellite map of ocean surface salinity with warm colours in saltier subtropical waters.",
-    "caption": "NASA Aquarius surface-salinity composite, August–September 2011. Colours show salt concentration at the surface only; black marks missing data. This early product contains some calibration errors.",
+    "alt": "Aquarius satellite map of ocean surface salinity with warm colors in saltier subtropical waters.",
+    "caption": "NASA Aquarius surface-salinity composite, August–September 2011. Colors show salt concentration at the surface only; black marks missing data. This early product contains some calibration errors.",
     "kind": "scientific-image"
   },
   {
@@ -1156,7 +1156,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "credit": "NOAA's National Ocean Service / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "Multibeam sonar bathymetry reveals a broad undersea mountain in the Arctic Ocean.",
-    "caption": "NOAA Office of Coast Survey multibeam measurements of an Arctic seamount. The coloured relief is a visualisation of measured seabed shape, not an underwater photograph.",
+    "caption": "NOAA Office of Coast Survey multibeam measurements of an Arctic seamount. The colored relief is a visualization of measured seabed shape, not an underwater photograph.",
     "kind": "scientific-image"
   },
   {
@@ -1185,7 +1185,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:CERES_Radiation_Fluxes_(SVS30604_-_ceres_lw_all_201504).png",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:CERES_Radiation_Fluxes_(SVS30604_-_ceres_lw_all_201504).png",
     "credit": "NASA's Scientific Visualization Studio - Marit Jentoft-Nilsen, Global Science and Technology, Inc./Amy Moran, Global Science and Technology, Inc./Heather Hanson / Wikimedia Commons · Public domain · resized",
-    "alt": "CERES global map of outgoing longwave radiation with a colour scale in watts per square metre.",
+    "alt": "CERES global map of outgoing longwave radiation with a color scale in watts per square meter.",
     "caption": "NASA CERES, April 2015. Satellite observations map outgoing thermal radiation at the top of the atmosphere in W m⁻²; colder cloud tops generally emit less than warm clear-sky regions.",
     "kind": "scientific-image"
   },
@@ -1246,7 +1246,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Bathymetry_of_the_northeast_corner_of_the_Caribbean_Plate_showing_the_major_faults_and_plate_boundaries.jpg",
     "credit": "NOAA / Wikimedia Commons · Public domain · resized",
     "alt": "NOAA seafloor relief map around Puerto Rico identifies the deep Puerto Rico Trench and nearby plate boundary.",
-    "caption": "NOAA bathymetric visualisation of the Puerto Rico region. A trench is an elongated seafloor depression associated here with a complex convergent plate boundary; vertical relief is exaggerated in this perspective.",
+    "caption": "NOAA bathymetric visualization of the Puerto Rico region. A trench is an elongated seafloor depression associated here with a complex convergent plate boundary; vertical relief is exaggerated in this perspective.",
     "kind": "scientific-image"
   },
   {
@@ -1256,7 +1256,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:La_Ni%C3%B1a_Is_Here_(153917).jpg",
     "credit": "NASA Earth Observatory image by Lauren Dauphin, using modified Copernicus Sentinel data (2025) processed by the European Space Agency and further processed by Josh Willis, and Kevin Marlis/NASA/JPL-Caltech. Story by Emily Cassidy. / Wikimedia Commons · Attribution · resized",
     "alt": "Sentinel-6 sea-surface height anomaly map shows lower-than-average levels across the central and eastern equatorial Pacific.",
-    "caption": "Sentinel-6, 13 January 2025. Lower sea-surface heights accompanied La Niña's cooler equatorial waters. Colours show height anomalies, not sea-surface temperature; seasonal cycles and long-term trends were removed.",
+    "caption": "Sentinel-6, 13 January 2025. Lower sea-surface heights accompanied La Niña's cooler equatorial waters. Colors show height anomalies, not sea-surface temperature; seasonal cycles and long-term trends were removed.",
     "kind": "scientific-image"
   },
   {
@@ -1296,7 +1296,7 @@
     "licenseUrl": "https://www.usgs.gov/media/images/usgs-map-august-14-2021-earthquake-haiti",
     "credit": "USGS · public domain · 14 August 2021 ShakeMap · resized",
     "kind": "scientific-image",
-    "alt": "USGS ShakeMap of the 14 August 2021 Haiti earthquake with coloured zones of shaking intensity.",
+    "alt": "USGS ShakeMap of the 14 August 2021 Haiti earthquake with colored zones of shaking intensity.",
     "caption": "USGS ShakeMap for the 14 August 2021 Haiti earthquake. Intensity describes the shaking felt in each place; magnitude describes the size of the earthquake as a whole."
   },
   {
@@ -1307,7 +1307,7 @@
     "credit": "NOAA NCEI / CIRES · EMAG2 v3 · public domain · resized",
     "kind": "scientific-image",
     "alt": "EMAG2 global magnetic-anomaly map with alternating anomalies across the ocean floor.",
-    "caption": "NOAA EMAG2 v3 combines satellite, ship and airborne magnetic measurements. Stripes on the ocean floor record spreading and reversals of Earth's magnetic field. Colours show anomalies in nanotesla, not rock ages."
+    "caption": "NOAA EMAG2 v3 combines satellite, ship and airborne magnetic measurements. Stripes on the ocean floor record spreading and reversals of Earth's magnetic field. Colors show anomalies in nanotesla, not rock ages."
   },
   {
     "id": "mauritania-upwelling-modis",
@@ -1337,7 +1337,7 @@
     "credit": "Jesse Allen / NASA Earth Observatory · AMSR-E / Remote Sensing Systems · public domain · resized",
     "kind": "scientific-image",
     "alt": "AMSR-E sea-surface temperature anomalies around northern Australia in the Indo-Pacific warm pool.",
-    "caption": "AMSR-E, 19 October 2004. This warm-pool region was cooler than its long-term average. Colours show the difference from average, so the water was still warm in absolute terms."
+    "caption": "AMSR-E, 19 October 2004. This warm-pool region was cooler than its long-term average. Colors show the difference from average, so the water was still warm in absolute terms."
   },
   {
     "id": "place-ae",
@@ -1605,8 +1605,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:2005_Hong_kong,_buildings_landscape_4.jpg",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "credit": "Syced / Wikimedia Commons · CC0 · resized",
-    "alt": "Dense urban development around Hong Kong's harbour, seen from the hills in 2005.",
-    "caption": "Hong Kong, 2005. Steep hills and a deeply indented coast concentrate urban development beside the harbour.",
+    "alt": "Dense urban development around Hong Kong's harbor, seen from the hills in 2005.",
+    "caption": "Hong Kong, 2005. Steep hills and a deeply indented coast concentrate urban development beside the harbor.",
     "kind": "photo"
   },
   {
@@ -2056,7 +2056,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "chris fleizach from Cupertino, USA / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A low wooded island and coastal water in Tonga.",
-    "caption": "Tonga. Low, palm-covered islands rise only a few metres above a calm lagoon, so they are exposed to storm waves and rising sea level.",
+    "caption": "Tonga. Low, palm-covered islands rise only a few meters above a calm lagoon, so they are exposed to storm waves and rising sea level.",
     "kind": "photo"
   },
   {
@@ -2236,7 +2236,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "credit": "Someone35 / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Autumn forest covering mountains in New Hampshire.",
-    "caption": "New Hampshire. Deciduous woodland changes colour across the slopes of the Appalachian uplands.",
+    "caption": "New Hampshire. Deciduous woodland changes color across the slopes of the Appalachian uplands.",
     "kind": "photo"
   },
   {
@@ -2285,8 +2285,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Battery_Park.JPG",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "credit": "Gryffindor / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Lower Manhattan and the Battery seen from above beside New York Harbour.",
-    "caption": "New York Harbour. Dense development occupies the meeting point of a river estuary and the Atlantic coast.",
+    "alt": "Lower Manhattan and the Battery seen from above beside New York Harbor.",
+    "caption": "New York Harbor. Dense development occupies the meeting point of a river estuary and the Atlantic coast.",
     "kind": "photo"
   },
   {
@@ -2406,7 +2406,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Hurricane_Katrina_Erodes_the_U.S._Gulf_Coast,_Natural_Hazards_DVIDS762243.jpg",
     "credit": "Jesse Allen / NASA Earth Observatory · Landsat · public domain · resized",
     "alt": "Landsat view of the northern Gulf of Mexico coast, with barrier islands off Mississippi and Alabama and the faint Chandeleur arc off Louisiana.",
-    "caption": "Landsat image of the northern Gulf coast (colours enhanced). Louisiana's Chandeleur Islands are the faint curved arc at lower left, beside the state's delta marshes; these barrier islands are vulnerable to storm erosion. The coast across the top is Mississippi and Alabama.",
+    "caption": "Landsat image of the northern Gulf coast (colors enhanced). Louisiana's Chandeleur Islands are the faint curved arc at lower left, beside the state's delta marshes; these barrier islands are vulnerable to storm erosion. The coast across the top is Mississippi and Alabama.",
     "kind": "scientific-image"
   },
   {
@@ -2565,7 +2565,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mangkhut_approaching_the_Philippines.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Mangkhut_approaching_the_Philippines.jpg",
     "credit": "EOSDIS Worldview / Wikimedia Commons · Public domain · resized",
-    "alt": "Satellite view of Typhoon Mangkhut with a compact eye and spiralling cloud bands in September 2018.",
+    "alt": "Satellite view of Typhoon Mangkhut with a compact eye and spiraling cloud bands in September 2018.",
     "caption": "Typhoon Mangkhut in September 2018, observed by NASA EOSDIS. The western North Pacific storm went on to strike the Philippines and southern China.",
     "kind": "photo"
   },
@@ -2576,7 +2576,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Dietmar Rabich / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Steam and orange microbial mats around Grand Prismatic Spring in Yellowstone National Park.",
-    "caption": "Grand Prismatic Spring, Yellowstone National Park, Wyoming. Hot groundwater heated by a shallow magma body feeds the spring; heat-tolerant microbes colour its edges.",
+    "caption": "Grand Prismatic Spring, Yellowstone National Park, Wyoming. Hot groundwater heated by a shallow magma body feeds the spring; heat-tolerant microbes color its edges.",
     "kind": "photo"
   },
   {
@@ -2615,7 +2615,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loess_Hills_0633.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Chris Light / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Contour-ploughed fields on the Loess Hills of western Iowa.",
+    "alt": "Contour-plowed fields on the Loess Hills of western Iowa.",
     "caption": "Western Iowa. Wind-deposited silt forms fertile but erosion-prone hills; contour farming follows their slopes.",
     "kind": "photo"
   },
@@ -2746,7 +2746,7 @@
     "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
     "credit": "Jeff Schmaltz / NASA GSFC · Terra MODIS / LANCE-EOSDIS · public domain · resized",
     "kind": "photo",
-    "alt": "Terra MODIS natural-colour view of Bangladesh, its delta channels and the Sundarbans beside the Bay of Bengal.",
+    "alt": "Terra MODIS natural-color view of Bangladesh, its delta channels and the Sundarbans beside the Bay of Bengal.",
     "caption": "Bangladesh, Terra MODIS, 9 November 2011. River-borne sediment builds the broad delta and coastal plain; folded hills lie to the east."
   },
   {
@@ -2835,7 +2835,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terrestrial_globe_gores._LOC_2008627640.tif",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Terrestrial_globe_gores._LOC_2008627640.tif",
     "credit": "Hondius, Jodocus; Rossi, Giuseppe Di. / Wikimedia Commons · Public domain · resized",
-    "alt": "Digitised historical sheets of narrow, tapered terrestrial map strips intended to cover a 19-centimetre globe.",
+    "alt": "Digitized historical sheets of narrow, tapered terrestrial map strips intended to cover a 19-centimeter globe.",
     "caption": "Library of Congress scan of Hondius terrestrial globe gores, reissued by Giuseppe di Rossi in 1615. The tapered paper strips were cut to cover a sphere; the geography is historical, not a modern reference map.",
     "kind": "scientific-image"
   },
@@ -2865,8 +2865,8 @@
     "sourceUrl": "https://svs.gsfc.nasa.gov/30604",
     "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
     "credit": "NASA Goddard Space Flight Center / Scientific Visualization Studio · public domain · resized",
-    "alt": "NASA CERES map of reflected shortwave radiation averaged over 2000–2015, with a 0–385 W m⁻² colour scale.",
-    "caption": "NASA CERES observations, 2000–2015 mean. Colours show sunlight reflected by the Earth system in W m⁻². This is outgoing shortwave flux, not incoming solar irradiance or albedo itself.",
+    "alt": "NASA CERES map of reflected shortwave radiation averaged over 2000–2015, with a 0–385 W m⁻² color scale.",
+    "caption": "NASA CERES observations, 2000–2015 mean. Colors show sunlight reflected by the Earth system in W m⁻². This is outgoing shortwave flux, not incoming solar irradiance or albedo itself.",
     "kind": "scientific-image"
   },
   {
@@ -2875,7 +2875,7 @@
     "sourceUrl": "https://svs.gsfc.nasa.gov/30604",
     "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
     "credit": "NASA Goddard Space Flight Center / Scientific Visualization Studio · public domain · resized",
-    "alt": "NASA CERES map of net radiation averaged over 2000–2015, with a −200 to +200 W m⁻² colour scale.",
+    "alt": "NASA CERES map of net radiation averaged over 2000–2015, with a −200 to +200 W m⁻² color scale.",
     "caption": "NASA CERES observations, 2000–2015 mean. Net radiation is incoming sunlight minus reflected shortwave and emitted longwave energy at the top of the atmosphere. Positive values indicate a radiative surplus.",
     "kind": "scientific-image"
   },
@@ -2885,7 +2885,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naze_Cliffs,_Walton-on-the-Naze,_Essex_-_geograph.org.uk_-_3399527.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Peter Pearson / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "Grey London Clay exposed below yellow-brown Red Crag in the sea cliffs at Walton-on-the-Naze, Essex.",
+    "alt": "Gray London Clay exposed below yellow-brown Red Crag in the sea cliffs at Walton-on-the-Naze, Essex.",
     "caption": "London Clay forms the lower part of the Naze cliffs. Clay-rich beds let groundwater through only slowly, so they can act as aquitards.",
     "kind": "photo"
   },
@@ -2896,7 +2896,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
     "credit": "Ustill / Wikimedia Commons · CC BY-SA 3.0 de · resized",
     "alt": "A broad, grassy former river valley near Blumberg, now drained by the much smaller Aitrach.",
-    "caption": "The Aitrach valley follows the former route of the Feldberg Danube. Capture by the Wutach diverted its upper flow towards the Rhine, leaving the small Aitrach in an oversized valley.",
+    "caption": "The Aitrach valley follows the former route of the Feldberg Danube. Capture by the Wutach diverted its upper flow toward the Rhine, leaving the small Aitrach in an oversized valley.",
     "kind": "photo"
   },
   {
@@ -2916,7 +2916,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "LynceanEducation / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Three time-lapse sunrises blended into one panorama, with the Sun rising further north in summer and further south in winter.",
-    "caption": "Composite of three time-lapse sunrises photographed from the same spot: at the summer solstice (left, furthest north), the spring equinox (centre) and the winter solstice (right, furthest south). The sunrise point and the Sun's path shift through the year.",
+    "caption": "Composite of three time-lapse sunrises photographed from the same spot: at the summer solstice (left, furthest north), the spring equinox (center) and the winter solstice (right, furthest south). The sunrise point and the Sun's path shift through the year.",
     "kind": "photo"
   },
   {
@@ -2935,7 +2935,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alpha_Centauri_and_Beta_Centauri_(centaurus-ch17-bardon-cc).jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Zdeněk Bardon/ESO / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "The Milky Way in Centaurus with the two bright stars Alpha and Beta Centauri near the centre.",
+    "alt": "The Milky Way in Centaurus with the two bright stars Alpha and Beta Centauri near the center.",
     "caption": "Alpha and Beta Centauri, photographed from ESO's La Silla Observatory by Zdeněk Bardon. They look like a pair, but Alpha Centauri, the nearest star system to the Sun, is about 4.4 light-years away, while Beta Centauri is roughly 390 light-years away.",
     "kind": "photo"
   },
@@ -2955,8 +2955,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_from_Mount_Batilamu,_Koroyanitu_National_Heritage_Park,_Viti_Levu,_Fiji_-_August_2016.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Rickard Törnblad / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "View from Mount Batilamu across forested volcanic ridges towards the coast of Viti Levu, Fiji.",
-    "caption": "View from Mount Batilamu, Viti Levu, Fiji. Forested ridges of old volcanic rock fall towards the coastal lowlands of Fiji's largest island.",
+    "alt": "View from Mount Batilamu across forested volcanic ridges toward the coast of Viti Levu, Fiji.",
+    "caption": "View from Mount Batilamu, Viti Levu, Fiji. Forested ridges of old volcanic rock fall toward the coastal lowlands of Fiji's largest island.",
     "kind": "photo"
   },
   {
@@ -2966,7 +2966,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Astrobond / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "The Andromeda Galaxy, a large spiral of stars with two small companion galaxies, against a field of foreground stars.",
-    "caption": "The Andromeda Galaxy (M31) with its two small companion galaxies. Its light has travelled about 2.5 million years to reach us; the scattered points are much nearer stars in our own galaxy.",
+    "caption": "The Andromeda Galaxy (M31) with its two small companion galaxies. Its light has traveled about 2.5 million years to reach us; the scattered points are much nearer stars in our own galaxy.",
     "kind": "photo"
   },
   {
@@ -2975,7 +2975,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Sun_at_perihelion_and_aphelion.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Afdumitriu / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Two half-discs of the Sun joined at the centre; the left half, at perihelion, is slightly larger than the right half, at aphelion.",
+    "alt": "Two half-discs of the Sun joined at the center; the left half, at perihelion, is slightly larger than the right half, at aphelion.",
     "caption": "The Sun photographed through the same telescope at perihelion (left, 2 January 2021) and aphelion (right, 5 July 2021). Earth is about 147 million km from the Sun in January and 152 million km in July, so the disc looks about 3% larger at perihelion. This small difference does not cause the seasons.",
     "kind": "photo"
   },
@@ -3005,8 +3005,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:NWS_Surface_map_1998-01-06.gif",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:NWS_Surface_map_1998-01-06.gif",
     "credit": "National Weather Service Office in Burlington, Vermont / Wikimedia Commons · Public domain · resized",
-    "alt": "US National Weather Service surface weather chart for 6 January 1998 with isobars, high and low centres and fronts.",
-    "caption": "US National Weather Service surface chart, 6 January 1998. Isobars join places with equal pressure; a strong high over Canada and a low near Lake Erie, with a warm front towards New England, set up a strong pressure gradient during the 1998 ice storm.",
+    "alt": "US National Weather Service surface weather chart for 6 January 1998 with isobars, high and low centers and fronts.",
+    "caption": "US National Weather Service surface chart, 6 January 1998. Isobars join places with equal pressure; a strong high over Canada and a low near Lake Erie, with a warm front toward New England, set up a strong pressure gradient during the 1998 ice storm.",
     "kind": "scientific-image"
   },
   {
@@ -3086,7 +3086,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Colin Vosper / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "Rock layers bent into an arch in a small headland at Coppet Hall beach, Pembrokeshire.",
-    "caption": "An anticline at Coppet Hall, near Saundersfoot, Pembrokeshire. The rock layers are bent upwards into an arch, with the oldest beds in the core.",
+    "caption": "An anticline at Coppet Hall, near Saundersfoot, Pembrokeshire. The rock layers are bent upward into an arch, with the oldest beds in the core.",
     "kind": "photo"
   },
   {
@@ -3115,7 +3115,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sourmilk_Gill,_Buttermere.JPG",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Antiquary / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Sourmilk Gill falling as a white stream down a steep wooded slope towards Buttermere.",
+    "alt": "Sourmilk Gill falling as a white stream down a steep wooded slope toward Buttermere.",
     "caption": "Sourmilk Gill, Buttermere, Lake District. The stream falls steeply from the hanging corrie of Bleaberry Tarn down to the floor of the main glacial trough.",
     "kind": "photo"
   },
@@ -3245,7 +3245,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wind_gap_in_Karu_valley,_Ladakh.JPG",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "credit": "DanHobley / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "View up a dry valley in Ladakh towards a notch in the mountain ridge on the skyline, with a village in the foreground.",
+    "alt": "View up a dry valley in Ladakh toward a notch in the mountain ridge on the skyline, with a village in the foreground.",
     "caption": "A wind gap above the Karu valley, Ladakh. Glacial erosion on the far side of the ridge beheaded this valley, leaving the outline of its U-shaped head as a dry notch on the skyline, with no river flowing through it.",
     "kind": "photo"
   },
@@ -3260,7 +3260,7 @@
     "kind": "photo"
   },
   {
-    "id": "macau-inner-harbour",
+    "id": "macau-inner-harbor",
     "url": "https://commons.wikimedia.org/w/thumb.php?f=Panorama of Macau Peninsula2021.jpg&w=1280",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_of_Macau_Peninsula2021.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
@@ -3287,6 +3287,16 @@
     "credit": "Voice of America (Tang Huiyun) / Wikimedia Commons · Public domain · cropped and resized",
     "kind": "photo",
     "alt": "Houses on top of a steep coastal slope at Redhill Peninsula, Hong Kong, with a bare brown landslide scar running down the vegetated slope to the sea.",
-    "caption": "Redhill Peninsula, Hong Kong, after the record rainstorm of September 2023. The bare brown strip below the houses is the landslide scar, where saturated soil and rock slid down the steep slope towards the sea."
+    "caption": "Redhill Peninsula, Hong Kong, after the record rainstorm of September 2023. The bare brown strip below the houses is the landslide scar, where saturated soil and rock slid down the steep slope toward the sea."
+  },
+  {
+    "id": "usgs-us-topo-utm-grid",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=USGS_Topo_Map_Covington,_LA_2018.pdf&w=2560",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:USGS_Topo_Map_Covington,_LA_2018.pdf",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:USGS_Topo_Map_Covington,_LA_2018.pdf",
+    "credit": "U.S. Geological Survey, US Topo 7.5-minute map for Covington, LA (2018) / Wikimedia Commons · Public domain · cropped",
+    "alt": "Northwest corner of a USGS US Topo map of Covington, Louisiana, with a 1 km UTM grid labeled 776000 m E and 3377000 m N, and principal digits 77 to 83 along the top edge.",
+    "caption": "Part of the USGS US Topo map of Covington, Louisiana (2018). Thin lines mark the 1 km UTM grid used by the US National Grid; the corner labels give full coordinates (776000 m E, 3377000 m N), and the large two-digit numbers are the principal digits read in a grid reference.",
+    "kind": "scientific-image"
   }
 ]

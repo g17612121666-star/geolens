@@ -13,7 +13,7 @@ export default function TropicalCyclone() {
   const maximum = 20 + 60 * (params.intensity ?? 0.7),
     spin = params.sh > 0.5 ? 1 : -1,
     vertical = trueScale ? 0.2 : 1,
-    centre = tropicalVortex(0, maximum);
+    center = tropicalVortex(0, maximum);
   const trace = Array.from(
     { length: 101 },
     (_, i) =>
@@ -98,7 +98,7 @@ export default function TropicalCyclone() {
         <Tag
           pos={[1.05, 1.25 * vertical, -0.2]}
           text="Eyewall"
-          note="In this model the wind peaks 30 km from the centre. In real storms, rising moist air releases latent heat that powers the eyewall; that heat is not calculated here."
+          note="In this model the wind peaks 30 km from the center. In real storms, rising moist air releases latent heat that powers the eyewall; that heat is not calculated here."
           occlude={false}
         />
         <Tag
@@ -114,7 +114,7 @@ export default function TropicalCyclone() {
           className="mx-auto h-24 w-full max-w-lg"
           role="img"
           aria-label={
-            "Idealised wind profile: peak at a radius of 30 kilometres, decreasing outwards"
+            "Idealized wind profile: peak at a radius of 30 kilometers, decreasing outward"
           }
         >
           <line x1="25" x2="365" y1="80" y2="80" stroke="#8b9f9c" />
@@ -133,13 +133,13 @@ export default function TropicalCyclone() {
           </text>
         </svg>
         {"Maximum tangential wind "}
-        {maximum.toFixed(1)} {"m/s · model centre pressure "}
-        {(centre.pressure / 100).toFixed(0)} {"hPa. "}
-        {spin < 0 ? "Northern Hemisphere: anticlockwise" : "Southern Hemisphere: clockwise"}{" "}
+        {maximum.toFixed(1)} {"m/s · model center pressure "}
+        {(center.pressure / 100).toFixed(0)} {"hPa. "}
+        {spin < 0 ? "Northern Hemisphere: counterclockwise" : "Southern Hemisphere: clockwise"}{" "}
         {"viewed from above."}
         <br />
         {
-          "Use Cutaway to open the structure. Clouds and tracers move as in two hours of a steady, idealised vortex; arrows show inflow, rising air and outflow. The model does not forecast intensity changes, rainfall, track or landfall."
+          "Use Cutaway to open the structure. Clouds and tracers move as in two hours of a steady, idealized vortex; arrows show inflow, rising air and outflow. The model does not forecast intensity changes, rainfall, track or landfall."
         }
       </ScienceReadout>
     </>

@@ -38,7 +38,7 @@ const SOILS: Record<SoilTone, [string, string, string, string]> = {
   thin: ["#5d6a3c", "#6a5440", "#76604a", "#9a8a72"],
 };
 
-/** Bedrock colour at local position p; g is fine grain noise, 0–1. */
+/** Bedrock color at local position p; g is fine grain noise, 0–1. */
 const ROCKS: Record<Bedrock, string> = {
   sandstone: `
   float y=p.y*BEDS+BEDOFF+.12*sNoise(vec2(p.x+p.z,1.)*1.7);
@@ -135,7 +135,7 @@ vec3 sectionColour(vec3 p,vec3 w){
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 }
 
-/** Exposed-rock surface colour for each bedrock, used on steep slopes. */
+/** Exposed-rock surface color for each bedrock, used on steep slopes. */
 export const ROCK_FACE: Record<Bedrock, string> = {
   sandstone: "#a58a6a",
   limestone: "#bdb8ab",

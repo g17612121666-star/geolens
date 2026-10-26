@@ -14,7 +14,7 @@ const EVENTS = [
   {
     age: 2400,
     name: "Great Oxidation",
-    note: "Oxygen from photosynthesising microbes began to accumulate in the atmosphere about 2.4 billion years ago.",
+    note: "Oxygen from photosynthesizing microbes began to accumulate in the atmosphere about 2.4 billion years ago.",
   },
   {
     age: 539,
@@ -195,7 +195,7 @@ export default function GeologicTime() {
         <Tag
           pos={[2.7, 0.8, 1.5]}
           text={`${age < 10 ? age.toFixed(3) : age.toFixed(1)} Ma`}
-          note={`Selected time: ${unit.name}. Ma means millions of years before the present. Equal distance along the coil means equal time; neighbouring turns are not close in time.`}
+          note={`Selected time: ${unit.name}. Ma means millions of years before the present. Equal distance along the coil means equal time; neighboring turns are not close in time.`}
           occlude={false}
         />
         <Tag
@@ -228,7 +228,7 @@ export default function GeologicTime() {
         {" Ma before present. One turn spans "}
         {(span / 3).toFixed(2)} {"million years."}
         <br />
-        {`${span > 3 ? "Pale collars mark eon and era boundaries in their true positions (ICS chart, 2026/06 edition). " : "No era boundary falls in this window: all of it lies in the Quaternary Period of the Cenozoic Era. "}Thin dark rings mark every ${span > 1000 ? 500 : span > 100 ? 50 : 0.25} million years, and grey beads split the window into twelve equal parts of ${(span / 12).toFixed(span > 10 ? 1 : 3)} million years. The central column shows the same window unrolled, so each unit's height is its duration. The Phanerozoic begins at 538.8 Ma, and its eras differ greatly in length. Choose a shorter window to inspect recent time. The coil is a time axis, not a thickness of rock layers or an evolutionary ladder.`}
+        {`${span > 3 ? "Pale collars mark eon and era boundaries in their true positions (ICS chart, 2026/06 edition). " : "No era boundary falls in this window: all of it lies in the Quaternary Period of the Cenozoic Era. "}Thin dark rings mark every ${span > 1000 ? 500 : span > 100 ? 50 : 0.25} million years, and gray beads split the window into twelve equal parts of ${(span / 12).toFixed(span > 10 ? 1 : 3)} million years. The central column shows the same window unrolled, so each unit's height is its duration. The Phanerozoic begins at 538.8 Ma, and its eras differ greatly in length. Choose a shorter window to inspect recent time. The coil is a time axis, not a thickness of rock layers or an evolutionary ladder.`}
         <div className="pointer-events-auto mt-1 flex flex-wrap justify-center gap-2">
           {[
             { age: 3500, label: "Evidence of life ≥3.5 Ga" },

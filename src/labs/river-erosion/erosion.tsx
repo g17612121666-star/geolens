@@ -152,7 +152,7 @@ function Pothole({ t }: { t: number }) {
           />
         </mesh>
       </group>
-      {/* A thin sheet of stream water across the bedrock, flowing towards +x. */}
+      {/* A thin sheet of stream water across the bedrock, flowing toward +x. */}
       <mesh position={[0, 0.012, -SLAB_D / 2]} rotation={[-Math.PI / 2, 0, 0]} renderOrder={3}>
         <planeGeometry args={[SLAB_W, SLAB_D]} />
         <meshPhysicalMaterial
@@ -250,7 +250,7 @@ export default function RiverErosion() {
           },
     [mode, progress],
   );
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number, z: number) => {
       const c = new THREE.Color();
       if (mode === 2) {
@@ -354,7 +354,7 @@ export default function RiverErosion() {
         }
         trueScale={
           mode === 1
-            ? "Pothole geometry at common metre scale · stones enlarged"
+            ? "Pothole geometry at common meter scale · stones enlarged"
             : "1 scene unit = 10 m · equal horizontal and vertical scale"
         }
       >
@@ -365,7 +365,7 @@ export default function RiverErosion() {
             <group scale={[1, vertical, 1]}>
               <GeomorphicTerrain
                 height={height}
-                colour={colour}
+                color={color}
                 resolution={220}
                 base={mode === 0 ? 0.08 : -0.3}
                 cliff={0.6}
@@ -479,7 +479,7 @@ export default function RiverErosion() {
         {mode === 0
           ? `Water flows downstream; the waterfall retreats upstream by ${(25 * progress).toFixed(1)} m in this chosen sequence. Change Retreat to expose a longer gorge.`
           : mode === 1
-            ? "Flow swirls stones around a hollow in the bedrock. The block is cut through the centre of a 1.24 m wide, 0.85 m deep example."
+            ? "Flow swirls stones around a hollow in the bedrock. The block is cut through the center of a 1.24 m wide, 0.85 m deep example."
             : "A narrow channel cuts the valley floor while weathering and slope processes lower both sides. The water flows downstream; the valley shape does not change."}
         <br />
         {

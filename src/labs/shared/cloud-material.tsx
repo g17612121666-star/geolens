@@ -18,9 +18,9 @@ export function CloudPuffMaterial({ opacity = 0.75 }: { opacity?: number }) {
   varying vec2 puffUv;varying float puffSeed;
   void main(){
    puffUv=uv;puffSeed=float(gl_InstanceID)*.173;
-   mat4 mv=modelViewMatrix*instanceMatrix;vec4 centre=mv*vec4(0.,0.,0.,1.);
-   centre.xy+=position.xy*vec2(length(mv[0].xyz),length(mv[1].xyz));
-   gl_Position=projectionMatrix*centre;
+   mat4 mv=modelViewMatrix*instanceMatrix;vec4 center=mv*vec4(0.,0.,0.,1.);
+   center.xy+=position.xy*vec2(length(mv[0].xyz),length(mv[1].xyz));
+   gl_Position=projectionMatrix*center;
   }
  `}
       fragmentShader={`
@@ -62,7 +62,7 @@ export const cloudFragment = `
   vec3 nearV=min(lo,hi),farV=max(lo,hi);
   float entry=max(max(nearV.x,nearV.y),nearV.z),exitT=min(min(farV.x,farV.y),farV.z);
   entry=max(0.,entry);if(exitT<=entry)discard;
-  float stepSize=(exitT-entry)/40.,transmission=1.;vec3 colour=vec3(0.);
+  float stepSize=(exitT-entry)/40.,transmission=1.;vec3 color=vec3(0.);
   vec3 sun=normalize(vec3(-.5,.85,.5));
   for(int i=0;i<40;i++){
    vec3 p=rayOrigin+direction*(entry+(float(i)+.5)*stepSize);
@@ -71,12 +71,12 @@ export const cloudFragment = `
     float shade=exp(-(densityAt(p+sun*.12)+densityAt(p+sun*.28))*1.1);
     vec3 light=mix(vec3(.33,.43,.50),vec3(.94,.97,.96),shade)*(.86+.14*smoothstep(-.3,.35,p.y));
     float alpha=1.-exp(-density*stepSize*opacity*15.);
-    colour+=transmission*alpha*light;transmission*=1.-alpha;
+    color+=transmission*alpha*light;transmission*=1.-alpha;
     if(transmission<.025)break;
    }
   }
   float alpha=1.-transmission;if(alpha<.008)discard;
-  gl_FragColor=vec4(colour/max(alpha,.001),alpha);
+  gl_FragColor=vec4(color/max(alpha,.001),alpha);
   #include <tonemapping_fragment>
   #include <colorspace_fragment>
  }

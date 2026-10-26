@@ -11,7 +11,7 @@ export const Route = createFileRoute("/skills")({
     headFor({
       title: "Skills studio",
       description:
-        "Practise map skills in 3D: contours, latitude and longitude, map projections and grid references.",
+        "Practice map skills in 3D: contours, latitude and longitude, map projections and grid references.",
       path: "/skills",
     }),
 });
@@ -28,7 +28,7 @@ function Skills() {
       <h1 className="mt-3 font-display text-4xl">{"Read the map, then the hill."}</h1>
       <p className="mt-5 max-w-2xl text-lg leading-7 text-mist">
         {
-          "Practise map skills in 3D: contours, latitude and longitude, map projections and grid references, then a hydrograph and a soil texture triangle. Many GCSE map questions start with contours, so begin there. To browse with photos, open the "
+          "Practice map skills in 3D: contours, latitude and longitude, map projections and grid references, then a hydrograph and a soil texture triangle. Many map questions in Earth-science and geography tests start with contours, so begin there. To browse with photos, open the "
         }
         <Link to="/realms/$realm" params={{ realm: "skills" }} className="text-ice hover:underline">
           {"Skills subject page"}

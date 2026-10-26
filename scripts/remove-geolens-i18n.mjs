@@ -23,7 +23,7 @@ for(const file of files(join(root,'src')).filter(p=>/\.tsx?$/.test(p)&&!p.includ
  }
  walk(sf);
  for(const e of edits.sort((a,b)=>b.start-a.start))source=source.slice(0,e.start)+e.text+source.slice(e.end);
- source=source.replace('// Localised display text.\n','').replaceAll('TerraLens','Geolens');
+ source=source.replace('// Localized display text.\n','').replaceAll('TerraLens','Geolens');
  writeFileSync(file,source);changed.push(relative(root,file));
 }
 for(const file of files(join(root,'src')).filter(p=>/\.(tsx?|json)$/.test(p)&&!p.includes('i18n')&&!p.endsWith('routeTree.gen.ts'))){const s=readFileSync(file,'utf8');if(s.includes('TerraLens')){writeFileSync(file,s.replaceAll('TerraLens','Geolens'));changed.push(relative(root,file));}}

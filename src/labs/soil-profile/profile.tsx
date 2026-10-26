@@ -23,11 +23,11 @@ function profileGlsl(index: number) {
   const { horizons } = SOIL_PROFILES[index],
     blend = index === 2 ? 0.08 : 0.018,
     rootDepth = index === 1 ? 0.65 : 0.35;
-  const colour = horizons
+  const color = horizons
     .map((h, i) =>
       i === 0
-        ? `vec3 c=${hex(h.colour)};int kind=${kindOf(h.code)};`
-        : `{float t=smoothstep(${(horizons[i - 1].bottom - blend).toFixed(3)},${(horizons[i - 1].bottom + blend).toFixed(3)},d);c=mix(c,${hex(h.colour)},t);if(t>.5)kind=${kindOf(h.code)};}`,
+        ? `vec3 c=${hex(h.color)};int kind=${kindOf(h.code)};`
+        : `{float t=smoothstep(${(horizons[i - 1].bottom - blend).toFixed(3)},${(horizons[i - 1].bottom + blend).toFixed(3)},d);c=mix(c,${hex(h.color)},t);if(t>.5)kind=${kindOf(h.code)};}`,
     )
     .join("\n");
   return `
@@ -48,7 +48,7 @@ vec2 cellStone(vec2 q){
 }
 vec3 sectionColour(vec3 p,vec3 w){
   float h=p.x+p.z,d=-p.y+.025*(sNoise(vec2(h*5.,1.))-.5);
-  ${colour}
+  ${color}
   vec2 q=vec2(h,d);
   float g=grain(q);
   c*=mix(.9,1.08,g);
@@ -78,7 +78,7 @@ vec3 sectionColour(vec3 p,vec3 w){
   c=mix(c,vec3(.80,.72,.58),root*.7);
   // Earthworm and animal burrows, back-filled with darker topsoil.
   float burrow=smoothstep(.86,.89,sNoise(q*vec2(26.,12.)+3.))*step(d,${index === 1 ? "1.2" : "0.8"});
-  c=mix(c,${hex(horizons[Math.min(1, horizons.length - 1)].colour)},burrow*.7);
+  c=mix(c,${hex(horizons[Math.min(1, horizons.length - 1)].color)},burrow*.7);
   return c;
 }
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;

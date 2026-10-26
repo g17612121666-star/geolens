@@ -63,16 +63,16 @@ export function riverGround(x: number, z: number) {
 /** Both wet edges are intersections of one stage with the fixed bed, never independent ribbons. */
 export function riverBanks(x: number, discharge: number): [number, number] {
   const stage = riverStage(x, discharge),
-    centre = riverZ(x);
+    center = riverZ(x);
   return [-1, 1].map((side) => {
     let low = 0,
       high = riverSection(x, side).width + 0.04;
     for (let i = 0; i < 24; i++) {
       const mid = (low + high) / 2;
-      if (riverGround(x, centre + side * mid) < stage) low = mid;
+      if (riverGround(x, center + side * mid) < stage) low = mid;
       else high = mid;
     }
-    return centre + (side * (low + high)) / 2;
+    return center + (side * (low + high)) / 2;
   }) as [number, number];
 }
 export function riverSurface(discharge: number, factor = 1) {

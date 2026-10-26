@@ -73,9 +73,9 @@ export default function Fronts() {
         camera={[0.2, 1.8, 8]}
       >
         <FrontGround />
-        <FrontSurface height={s.cold} from={-300} to={s.coldFront} factor={f} colour="#4f8fd0" />
+        <FrontSurface height={s.cold} from={-300} to={s.coldFront} factor={f} color="#4f8fd0" />
         {!s.occluded && (
-          <FrontSurface height={s.cool} from={s.warmFront} to={300} factor={f} colour="#d0614f" />
+          <FrontSurface height={s.cool} from={s.warmFront} to={300} factor={f} color="#d0614f" />
         )}
         {/* Cirrus streaks far ahead of the warm front, then thickening altostratus. */}
         {!s.occluded &&
@@ -216,12 +216,12 @@ export default function Fronts() {
 
 /** The front's ground trace drawn as on a weather chart; symbols point the way it moves. */
 function ChartFront({ x, kind }: { x: number; kind: "cold" | "warm" | "occluded" }) {
-  const colour = kind === "cold" ? "#2f6fd0" : kind === "warm" ? "#d0402f" : "#8a46b8";
+  const color = kind === "cold" ? "#2f6fd0" : kind === "warm" ? "#d0402f" : "#8a46b8";
   return (
     <group position={[x, 0.006, 0]}>
       <mesh rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[0.03, 1.8]} />
-        <meshBasicMaterial color={colour} />
+        <meshBasicMaterial color={color} />
       </mesh>
       {Array.from({ length: 5 }, (_, i) => {
         const z = -0.72 + i * 0.36,
@@ -233,7 +233,7 @@ function ChartFront({ x, kind }: { x: number; kind: "cold" | "warm" | "occluded"
             ) : (
               <circleGeometry args={[0.065, 24, -Math.PI / 2, Math.PI]} />
             )}
-            <meshBasicMaterial color={colour} side={THREE.DoubleSide} />
+            <meshBasicMaterial color={color} side={THREE.DoubleSide} />
           </mesh>
         );
       })}
@@ -247,13 +247,13 @@ function FrontSurface({
   from,
   to,
   factor,
-  colour,
+  color,
 }: {
   height: (x: number) => number;
   from: number;
   to: number;
   factor: number;
-  colour: string;
+  color: string;
 }) {
   const geometry = useMemo(() => {
     const n = 96,
@@ -275,7 +275,7 @@ function FrontSurface({
   return (
     <mesh geometry={geometry}>
       <meshStandardMaterial
-        color={colour}
+        color={color}
         transparent
         opacity={0.32}
         side={THREE.DoubleSide}

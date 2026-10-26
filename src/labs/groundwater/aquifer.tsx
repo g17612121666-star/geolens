@@ -147,14 +147,14 @@ export default function Groundwater() {
             note={
               confined
                 ? "The potentiometric surface is the level water rises to in a well. The confined aquifer stays fully saturated beneath the clay layer."
-                : "The water table separates saturated pores below from the unsaturated zone above. The coloured surface is a level, not an underground lake."
+                : "The water table separates saturated pores below from the unsaturated zone above. The colored surface is a level, not an underground lake."
             }
             occlude={false}
           />
           <Tag
             pos={[0.9, 4.3 * f, 0]}
             text="Pumping well"
-            note="An idealised well pumping at the set rate through the full aquifer thickness. The fixed-head outer boundary resupplies the water, so the model does not show long-term depletion."
+            note="An idealized well pumping at the set rate through the full aquifer thickness. The fixed-head outer boundary resupplies the water, so the model does not show long-term depletion."
             occlude={false}
           />
         </group>
@@ -175,8 +175,8 @@ export default function Groundwater() {
           "K = 10 m/day, fixed head at 500 m, well radius 0.2 m. Steady Thiem / Dupuit approximation. "
         }
         {pump > 0
-          ? "Play shows water moving towards the well."
-          : "Raise Pump above zero to see tracers flow towards the well."}{" "}
+          ? "Play shows water moving toward the well."
+          : "Raise Pump above zero to see tracers flow toward the well."}{" "}
         {""}
       </ScienceReadout>
     </>
@@ -200,7 +200,7 @@ function LocalClipping() {
   return null;
 }
 
-/** Layers in section (heights in metres ÷ 10, times the vertical factor f): bedrock below 0,
+/** Layers in section (heights in meters ÷ 10, times the vertical factor f): bedrock below 0,
  * sand and gravel aquifer, a clay aquitard (confined case), dry sand above the water table and
  * a soil cap. The water table comes from the lab's head model through a radial profile. */
 const AQUIFER_GLSL = `uniform sampler2D uProfile; uniform float uF,uConfined,uTop,uLift;

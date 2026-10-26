@@ -66,7 +66,7 @@ function Plot({
     },
     [q, rill, covered],
   );
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number, z: number) =>
       covered
         ? noise(x * 4, z * 4) > 0.5
@@ -82,7 +82,7 @@ function Plot({
     <group position={[x, 0, 0]}>
       <GeomorphicTerrain
         height={height}
-        colour={colour}
+        color={color}
         width={4}
         depth={2}
         base={-0.12}
@@ -221,7 +221,7 @@ function Plot({
       <Tag
         pos={[0, 0.9, -1.35]}
         text={covered ? "Covered plot" : "Bare plot"}
-        note={`Model soil budget: ${result.remaining.toFixed(1)} kg in place, ${result.moving.toFixed(1)} kg in transport and ${result.exported.toFixed(1)} kg exported, always totalling 6000 kg. Cover multiplies detachment by 0.15, a chosen value, not a measured reduction. ${wind ? "Wind carries exported soil off through the air, so the trough stays empty" : "Exported soil collects in the trough"}; the dark topsoil in the cut face thins as the surface lowers.`}
+        note={`Model soil budget: ${result.remaining.toFixed(1)} kg in place, ${result.moving.toFixed(1)} kg in transport and ${result.exported.toFixed(1)} kg exported, always totaling 6000 kg. Cover multiplies detachment by 0.15, a chosen value, not a measured reduction. ${wind ? "Wind carries exported soil off through the air, so the trough stays empty" : "Exported soil collects in the trough"}; the dark topsoil in the cut face thins as the surface lowers.`}
         occlude={false}
       />
     </group>

@@ -18,6 +18,6 @@ test('five closed gyre routes have hemisphere-correct circulation in geographic 
  assert.equal(SUBTROPICAL_GYRES.length,5);
  for(const g of SUBTROPICAL_GYRES){assert.deepEqual(g.points[0],g.points.at(-1));let area=0;
   for(let i=1;i<g.points.length;i++){const a=g.points[i-1],b=g.points[i];area+=a[1]*b[0]-b[1]*a[0];}
-  assert.equal(Math.sign(area),-Math.sign(g.centre[0]),g.name);
+  assert.equal(Math.sign(area),-Math.sign(g.center[0]),g.name);
  }
 });

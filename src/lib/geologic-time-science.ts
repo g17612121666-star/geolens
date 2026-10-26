@@ -1,9 +1,9 @@
 /** Selected ICS boundaries, chart 2026/06. Numbers date boundaries; they are not all definitions. */
 export const GEOLOGIC_UNITS=[
  {name:'Hadean',old:4567,young:4031,color:'#8c668b'},
- {name:'Archaean',old:4031,young:2500,color:'#aa817c'},
+ {name:'Archean',old:4031,young:2500,color:'#aa817c'},
  {name:'Proterozoic',old:2500,young:538.8,color:'#be9d75'},
- {name:'Palaeozoic',old:538.8,young:251.902,color:'#789f90'},
+ {name:'Paleozoic',old:538.8,young:251.902,color:'#789f90'},
  {name:'Mesozoic',old:251.902,young:66,color:'#75a8b4'},
  {name:'Cenozoic',old:66,young:0,color:'#dbca90'},
 ];

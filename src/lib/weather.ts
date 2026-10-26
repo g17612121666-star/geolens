@@ -45,7 +45,7 @@ export function createWeatherClient(fetcher: typeof fetch = fetch, now = Date.no
   return async (point: Pick<WeatherPoint,'lat'|'lon'>, signal?: AbortSignal): Promise<WeatherResult> => {
     const url = weatherUrl(point);
     const cached = cache.get(url);
-    if (signal?.aborted) throw new DOMException('Cancelled','AbortError');
+    if (signal?.aborted) throw new DOMException('Canceled','AbortError');
     if (cached && now()-cached.fetchedAt<600_000) return cached;
     if (now()<retryAt) throw new WeatherError('The weather service is rate-limited. Please wait before retrying.',retryAt);
     const timeout = AbortSignal.timeout(12_000);
@@ -64,7 +64,7 @@ export function createWeatherClient(fetcher: typeof fetch = fetch, now = Date.no
       if(cache.size>24) cache.delete(cache.keys().next().value!);
       return result;
     } catch(error) {
-      if(signal?.aborted) throw new DOMException('Cancelled','AbortError');
+      if(signal?.aborted) throw new DOMException('Canceled','AbortError');
       if(error instanceof WeatherError) throw error;
       throw new WeatherError(timeout.aborted ? 'The weather request timed out. Please try again.' : 'The weather service could not be reached. Check the connection and try again.');
     }
