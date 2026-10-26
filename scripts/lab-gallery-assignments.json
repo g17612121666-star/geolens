@@ -5,8 +5,7 @@
       "caption": "Meteosat satellite image at the March equinox: the terminator runs nearly pole to pole, as in the model when neither hemisphere tilts towards the Sun."
     },
     {
-      "id": "greens-mill-sundial",
-      "caption": "A sundial in Nottingham. Its shadow is long in winter and short in summer because the noon Sun's altitude changes with the seasons."
+      "id": "sunrise-solstice-panorama"
     }
   ],
   "rotation": [
@@ -40,16 +39,19 @@
     },
     {
       "id": "swarm-core-field",
-      "caption": "Swarm satellite maps of Earth's magnetic field. The field is generated mainly by moving liquid iron in the outer core."
+      "caption": "Maps of magnetic-field strength at Earth's surface in 2014 and 2025, modelled from Swarm satellite measurements (colours show nanotesla). The field is generated mainly by moving liquid iron in the outer core, not by a permanent bar magnet."
     },
     {
       "id": "puerto-rico-seismometer",
       "caption": "A seismometer being installed in Puerto Rico. Recorded P- and S-wave arrivals are the main evidence for the layers in the model."
+    },
+    {
+      "id": "seismic-shadow-zones"
     }
   ],
   "plate-boundaries": [
     {
-      "id": "san-andreas-highsmith",
+      "id": "carrizo-san-andreas",
       "caption": "The San Andreas Fault, California: a transform boundary where the plates slide past each other horizontally."
     },
     {
@@ -58,7 +60,7 @@
     },
     {
       "id": "noaa-puerto-rico-trench",
-      "caption": "NOAA seafloor relief map of the Puerto Rico Trench, a deep trench along a convergent plate boundary. Colours and labels are a visualisation of measured depth."
+      "caption": "NOAA seafloor relief of the Puerto Rico Trench, where the North American Plate meets the Caribbean Plate at an oblique convergent boundary. Colours show measured depth with vertical relief exaggerated; the labels and boundary lines are added interpretation."
     }
   ],
   "contours": [
@@ -175,6 +177,9 @@
     {
       "id": "meteosat-march-equinox",
       "caption": "Meteosat satellite image at the March equinox. The Sun is overhead at the equator, and the noon altitude at any latitude is 90° minus the latitude."
+    },
+    {
+      "id": "sunrise-solstice-panorama"
     }
   ],
   "continental-drift": [
@@ -194,7 +199,7 @@
     },
     {
       "id": "noaa-arctic-seamount",
-      "caption": "NOAA multibeam survey of an Arctic seamount. Volcanoes carried off a hotspot can sink to become seamounts like this."
+      "caption": "NOAA multibeam survey of an Arctic seamount, shown in 3D with colours for depth; the vertical scale is probably exaggerated. Volcanoes carried away from a hotspot can cool and sink to become seamounts, although not every seamount forms this way."
     },
     {
       "id": "kilauea-lava-fountain",
@@ -232,7 +237,7 @@
   "energy-budget": [
     {
       "id": "ceres-reflected-2000-2015",
-      "caption": "NASA CERES satellite map of reflected sunlight: the shortwave energy the model sends back to space from clouds, ice and bright surfaces."
+      "caption": "NASA CERES satellite map of reflected sunlight, 2000–2015 average: shortwave energy that clouds, ice and bright surfaces send back to space."
     },
     {
       "id": "ceres-longwave-2015",
@@ -259,8 +264,8 @@
   ],
   "wind": [
     {
-      "id": "noaa-surface-analysis-2022",
-      "caption": "NOAA surface analysis charts. Closely spaced isobars mark a strong pressure gradient and strong winds."
+      "id": "nws-surface-1998",
+      "caption": "A US National Weather Service surface chart. Closely spaced isobars mark a strong pressure gradient and strong winds."
     },
     {
       "id": "japan-extratropical-cyclone",
@@ -279,8 +284,8 @@
   ],
   "fronts": [
     {
-      "id": "noaa-surface-analysis-2022",
-      "caption": "NOAA surface analysis charts with cold, warm and occluded fronts drawn between air masses as a storm develops."
+      "id": "nws-surface-1998",
+      "caption": "A US National Weather Service surface chart with cold, warm and occluded fronts drawn between air masses as a storm develops."
     },
     {
       "id": "japan-extratropical-cyclone",
@@ -289,8 +294,8 @@
   ],
   "cyclone-anticyclone": [
     {
-      "id": "noaa-surface-analysis-2022",
-      "caption": "NOAA surface charts marking H and L pressure centres. Winds blow anticlockwise around lows in the Northern Hemisphere."
+      "id": "nws-surface-1998",
+      "caption": "A US National Weather Service surface chart marking H and L pressure centres. Winds blow anticlockwise around lows in the Northern Hemisphere."
     },
     {
       "id": "evan-2012-modis",
@@ -322,7 +327,7 @@
     },
     {
       "id": "lena-delta-landsat",
-      "caption": "Landsat image of the Lena Delta: the river's mouth, where its basin's water reaches the Arctic Ocean."
+      "caption": "False-colour Landsat image of the Lena Delta, Russia: the river's mouth, where water from its basin reaches the Arctic Ocean."
     }
   ],
   "hydrograph": [
@@ -346,7 +351,7 @@
     },
     {
       "id": "huey-creek-gauge",
-      "caption": "A USGS stream gauge in Antarctica. Year-round records of stage and discharge reveal a river's regime."
+      "caption": "A USGS stream gauge at Huey Creek, Antarctica. Fed by glacier meltwater, the stream flows only for a few weeks in the southern summer. Records of stage and discharge reveal this strongly seasonal regime."
     }
   ],
   "ocean-currents": [
@@ -394,7 +399,7 @@
     },
     {
       "id": "amsre-warm-pool-anomaly",
-      "caption": "AMSR-E sea-surface temperature anomalies around the western Pacific warm pool, where trade winds pile up warm water."
+      "caption": "AMSR-E map of sea-surface temperature anomalies, 19 October 2004. Blue water was cooler than average and orange warmer. The warm pool north of Australia still held some of the warmest water on Earth; it was simply less warm than usual. Alt text: 'Global AMSR-E map of sea-surface temperature anomalies, blue where cooler than average and orange where warmer.'"
     }
   ],
   "landform-types": [
@@ -445,12 +450,10 @@
       "caption": "The Aitrach valley, Germany: a beheaded stream now far too small for the valley left after the Wutach captured its headwaters."
     },
     {
-      "id": "bald-eagle-wind-gap",
-      "caption": "Bald Eagle Mountain, Pennsylvania. A wind gap, a notch with no through-flowing river, can mark a former river course."
+      "id": "wind-gap-karu"
     },
     {
-      "id": "misfit-stream-valley",
-      "caption": "A misfit stream in a valley much larger than its present flow, one possible result of capture or meltwater loss."
+      "id": "misfit-gleann-nan-eun"
     }
   ],
   "coasts": [
@@ -487,8 +490,7 @@
       "caption": "Bimmah sinkhole, Oman: a doline formed by dissolution and collapse."
     },
     {
-      "id": "kyllini-stalactites",
-      "caption": "Stalactites in a Greek cave, deposited as dripping water loses carbon dioxide."
+      "id": "white-scar-straws"
     },
     {
       "id": "mammoth-cave-broadway",
@@ -497,12 +499,12 @@
   ],
   "folds-faults": [
     {
-      "id": "stillwater-reverse-fault",
-      "caption": "A reverse fault offsetting layers in a rock sample from Montana; the hanging wall has moved up relative to the footwall."
+      "id": "moine-thrust-knockan",
+      "caption": "The Moine Thrust at Knockan Crag, Scotland: a low-angle reverse fault (a thrust). The hanging wall above the fault plane carries older rocks over the younger footwall rocks below, recording compression."
     },
     {
-      "id": "san-andreas-highsmith",
-      "caption": "The San Andreas Fault, California: a strike-slip fault with mainly horizontal movement."
+      "id": "wallace-creek-offset",
+      "caption": "Wallace Creek, California: the stream channel is offset sideways where it crosses the San Andreas, a strike-slip fault."
     },
     {
       "id": "thingvellir-rift",
@@ -540,7 +542,7 @@
   "soil-profile": [
     {
       "id": "karelian-podzolic-soil",
-      "caption": "A podzolic soil in Karelia, with a pale leached E horizon above a browner B horizon."
+      "caption": "A podzolic soil in Karelia. A thin pale grey E horizon lies just below the dark topsoil, above a rusty-brown B horizon. The paler sand near the bottom is the parent material."
     },
     {
       "id": "nipe-oxisol",
@@ -567,8 +569,7 @@
       "caption": "Angular blocks on Foel Fras, Wales: mechanical weathering, such as frost shattering, breaks rock without changing its minerals."
     },
     {
-      "id": "roots-in-bedrock",
-      "caption": "Tree roots growing into rock joints: biological weathering that can widen cracks."
+      "id": "ash-grike-tree"
     },
     {
       "id": "malham-limestone-pavement",
@@ -648,7 +649,7 @@
     },
     {
       "id": "nasa-blue-marble-july",
-      "caption": "NASA Blue Marble in a latitude–longitude grid, where every meridian and parallel is drawn as a straight line."
+      "caption": "NASA Blue Marble on an equirectangular latitude–longitude grid. No lines are drawn here, but on this projection every meridian and parallel would plot as an evenly spaced straight line."
     }
   ],
   "map-projections": [
@@ -753,8 +754,7 @@
       "caption": "A blockfield on Foel Fras, Wales, broken up by frost shattering in past periglacial conditions."
     },
     {
-      "id": "blorenge-cwm-craf",
-      "caption": "Cwm Craf on Blorenge, Wales: a hollow interpreted as formed by nivation beneath lingering snow patches."
+      "id": "nivation-zastler"
     }
   ],
   "storm-surge": [
@@ -768,7 +768,7 @@
     },
     {
       "id": "place-us-la",
-      "caption": "Landsat image of the Chandeleur barrier islands, Louisiana, which storm surges and waves repeatedly overwash and break up."
+      "caption": "Landsat image of the northern Gulf coast (colours enhanced). The faint, broken arc at lower left is Louisiana's Chandeleur Islands, which storm surges and waves repeatedly overwash and break up. The brighter islands across the top lie off Mississippi and Alabama."
     }
   ]
 }

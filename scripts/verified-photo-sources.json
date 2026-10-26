@@ -86,7 +86,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Extratropical_cyclone_02-22-2012.jpg",
     "credit": "NASA, MODIS Rapid Response System / Wikimedia Commons · Public domain · resized",
     "alt": "A broad spiral of white clouds over the Pacific northeast of Japan.",
-    "caption": "MODIS observed this extratropical cyclone northeast of Japan on 22 February 2012. Cloud bands trace the low-pressure circulation.",
+    "caption": "MODIS observed this extratropical cyclone northeast of Japan on 22 February 2012. Cloud bands trace the low-pressure circulation. The image joins two satellite passes, so the straight diagonal line is a seam, not a weather feature.",
     "kind": "photo"
   },
   {
@@ -96,7 +96,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Canyonlands_National_Park,_Utah_(10423895104).jpg",
     "credit": "NASA Goddard Space Flight Center from Greenbelt, MD, USA / Wikimedia Commons · Public domain · resized",
     "alt": "ASTER satellite image of branching tributary valleys near the Colorado River in Canyonlands, Utah.",
-    "caption": "ASTER, 24 September 2005: tributaries dissect sandstone in Canyonlands, Utah. A drainage network collects flow towards a main river.",
+    "caption": "ASTER false-colour image, 24 September 2005: tributaries cut into sandstone in Canyonlands, Utah. Plants along the valley floors show up red. The branching network carries water towards the Colorado River (top left).",
     "kind": "scientific-image"
   },
   {
@@ -296,7 +296,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "credit": "James St. John / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "Rounded potholes cut into dark bedrock beside flowing water in the Presque Isle River, Michigan.",
-    "caption": "Presque Isle River, Michigan. Sediment circulating in eddies abrades the bedrock, enlarging these potholes.",
+    "caption": "Presque Isle River, Michigan. Swirling, sediment-laden water has drilled potholes into the bedrock of this river in the Upper Peninsula, near Lake Superior.",
     "kind": "photo"
   },
   {
@@ -426,7 +426,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Satellite_View_of_the_Americas_on_Earth_Day_(13989104603).jpg",
     "credit": "NASA Goddard Space Flight Center from Greenbelt, MD, USA / Wikimedia Commons · Public domain · resized",
     "alt": "GOES-East satellite view of the Americas with tropical cloud bands and midlatitude weather systems.",
-    "caption": "GOES-East, 22 April 2014 at 11:45 UTC. Cloud belts reveal aspects of global circulation; a single image does not outline every atmospheric cell.",
+    "caption": "GOES-East cloud data for 22 April 2014, laid over a cloud-free satellite image of land and ocean, so the whole disc is shown lit. Cloud belts reveal aspects of the global circulation; a single image does not outline every atmospheric cell.",
     "kind": "scientific-image"
   },
   {
@@ -455,19 +455,9 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_aerial_view_of_tsunami_damage_in_an_area_north_of_Sendai,_Japan,_taken_from_a_U.S._Navy_helicopter.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:An_aerial_view_of_tsunami_damage_in_an_area_north_of_Sendai,_Japan,_taken_from_a_U.S._Navy_helicopter.jpg",
     "credit": "Mass Communication Specialist 3rd Class Dylan McCord / Wikimedia Commons · Public domain · resized",
-    "alt": "Debris, damaged buildings and inundated land at a fishing port near Kesennuma after the 2011 tsunami.",
-    "caption": "Kesennuma, Japan, after the 2011 Tōhoku tsunami. The photograph shows the damage left by inundation, not the tsunami wave itself.",
+    "alt": "Aerial view of debris, damaged buildings and flooded land at a fishing port in Kesennuma after the 2011 tsunami.",
+    "caption": "Kawara fishing port, Kesennuma, Japan, after the 2011 Tōhoku tsunami. The photograph shows the damage left by inundation, not the tsunami wave itself.",
     "kind": "photo"
-  },
-  {
-    "id": "hubble-andromeda",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Andromeda_Galaxy_M31_-_Heic1502a_Full_resolution.jpg/1280px-Andromeda_Galaxy_M31_-_Heic1502a_Full_resolution.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andromeda_Galaxy_M31_-_Heic1502a_Full_resolution.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "NASA, ESA, J. Dalcanton, B.F. Williams, and L.C. Johnson (University of Washington), the PHAT team, and R. Gendler / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "A Hubble mosaic of Andromeda's bright central region, dark dust lanes and densely packed stars.",
-    "caption": "NASA/ESA Hubble mosaic of the Andromeda Galaxy, about 2.5 million light-years away. Individual stars and dust lanes are visible.",
-    "kind": "scientific-image"
   },
   {
     "id": "kilauea-lava-fountain",
@@ -536,7 +526,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
     "credit": "Jan Nyssen, Sander Tielens, Tesfamichael Gebreyohannes, Tigist Araya, Kassa Teka, Johan Van de Wauw, Karen Degeyndt, Katrien Descheemaeker, Kassa Amare, Mitiku Haile, Amanuel Zenebe, Neil Munro, Kristine Walraevens, Kindeya Gebrehiwot, Jean Poesen, Amaury Frankl, Alemtsehay Tsegay, Jozef Deckers / Wikimedia Commons · CC BY-SA 2.5 · resized",
     "alt": "Field photographs of red and black soils at different positions on the Addi Selam hillslope in Ethiopia.",
-    "caption": "Addi Selam, Ethiopia: published field photographs compare red and black soils along a hillslope. Slope position changes drainage and material movement.",
+    "caption": "Addi Selam, Ethiopia (published field figure). A: red soil on the upper slope near the town; B: dark, clay-rich soil on the gentler lower ground. Slope position changes drainage and how material moves, so the soils differ along the catena.",
     "kind": "photo"
   },
   {
@@ -750,16 +740,6 @@
     "kind": "photo"
   },
   {
-    "id": "crearlagh-hanging-valley",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/The_hanging_valley_of_Crearlagh_Burn_-_geograph.org.uk_-_3723828.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_hanging_valley_of_Crearlagh_Burn_-_geograph.org.uk_-_3723828.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "Eric Jones / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "Crearlagh Burn descends from a higher tributary valley towards a deeper main valley.",
-    "caption": "The hanging valley of Crearlagh Burn, Scotland. Tributary valleys can be left above a main trough when a larger glacier erodes more deeply.",
-    "kind": "photo"
-  },
-  {
     "id": "little-matterhorn-montana",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Little_Matterhorn_from_Avalanche_Lake.jpg/1280px-Little_Matterhorn_from_Avalanche_Lake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Little_Matterhorn_from_Avalanche_Lake.jpg",
@@ -780,23 +760,13 @@
     "kind": "photo"
   },
   {
-    "id": "noaa-surface-analysis-2022",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Surface_analysis_for_the_Late_February_2022_North_American_winter_storm.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Surface_analysis_for_the_Late_February_2022_North_American_winter_storm.png",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Surface_analysis_for_the_Late_February_2022_North_American_winter_storm.png",
-    "credit": "National Weather Service / Wikimedia Commons · Public domain · resized",
-    "alt": "Four NOAA surface analysis charts show pressure contours and weather fronts during a North American storm.",
-    "caption": "NOAA surface analyses during a late-February 2022 storm. Isobars join equal pressure; front symbols identify analysed boundaries between air masses.",
-    "kind": "scientific-image"
-  },
-  {
     "id": "scollard-kpg-boundary",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Scollard_Formation_K-Pg_boundary_by_Nick_Longrich.jpg/1280px-Scollard_Formation_K-Pg_boundary_by_Nick_Longrich.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scollard_Formation_K-Pg_boundary_by_Nick_Longrich.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "NickLongrich / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Exposed layers of the Scollard Formation beside the Red Deer River in Alberta.",
-    "caption": "The K–Pg boundary in the Scollard Formation, Alberta, Canada. The rock record preserves evidence of the transition around 66 million years ago.",
+    "alt": "Close-up of a rock face in the Scollard Formation, Alberta, with a thin pale clay layer just below a black coal seam.",
+    "caption": "Close-up of the K–Pg boundary in the Scollard Formation, Alberta, Canada. The boundary lies in the thin pale clay just below the black coal; it formed about 66 million years ago.",
     "kind": "photo"
   },
   {
@@ -860,16 +830,6 @@
     "kind": "photo"
   },
   {
-    "id": "stillwater-reverse-fault",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Reverse_fault_in_inch-scale_layered_plagioclase_feldspar_%26_pyroxene_%28Stillwater_Complex%2C_Neoarchean%2C_2.71_Ga%3B_near_the_Stillwater_Mine%2C_Beartooth_Mountains%2C_Montana%2C_USA%29_1.jpg/1280px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reverse_fault_in_inch-scale_layered_plagioclase_feldspar_%26_pyroxene_(Stillwater_Complex,_Neoarchean,_2.71_Ga;_near_the_Stillwater_Mine,_Beartooth_Mountains,_Montana,_USA)_1.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "credit": "James St. John / Wikimedia Commons · CC BY 2.0 · resized",
-    "alt": "A reverse fault offsets contrasting mineral layers in a rock sample from the Stillwater Complex, Montana.",
-    "caption": "Reverse fault in layered igneous rock from Montana's Stillwater Complex. Trace matching layers across the break: the hanging wall moved up relative to the footwall.",
-    "kind": "photo"
-  },
-  {
     "id": "sossusvlei-dunes",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Sossusvlei_Dune_Namib_Desert_Namibia_Luca_Galuzzi_2004.JPG/1280px-Sossusvlei_Dune_Namib_Desert_Namibia_Luca_Galuzzi_2004.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sossusvlei_Dune_Namib_Desert_Namibia_Luca_Galuzzi_2004.JPG",
@@ -914,7 +874,7 @@
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Snowmelt_stream.JPG/1280px-Snowmelt_stream.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Snowmelt_stream.JPG",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Snowmelt_stream.JPG",
-    "credit": "USFS employees / Wikimedia Commons · Public domain · resized",
+    "credit": "USFS employees / Wikimedia Commons · Public domain · cropped and resized",
     "alt": "Melting snow patches and a stream near Fourth of July Lake in Idaho's Sawtooth Mountains.",
     "caption": "Snowmelt near Fourth of July Lake, Idaho. Seasonal melting transfers stored snow water into streams, soils and groundwater.",
     "kind": "photo"
@@ -926,7 +886,7 @@
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "credit": "Plorpy2 / Wikimedia Commons · CC0 · resized",
     "alt": "Photographs of clay samples comparing grey reduced material and oxidised reddish material.",
-    "caption": "Clay samples showing contrasting redox conditions. Prolonged waterlogging removes oxygen, often producing grey gley colours; oxidation produces reddish mottles.",
+    "caption": "The same clay kept airless in a sealed jar (grey gley colour) and after oxidising in open air (orange-brown). In waterlogged soils, iron changes like this give grey colours and rusty mottles.",
     "kind": "photo"
   },
   {
@@ -937,16 +897,6 @@
     "credit": "The original uploader was Michaila vnuk at Ukrainian Wikipedia. / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "A soil profile on the Karelian Isthmus with a dark surface, pale leached layer and browner subsoil.",
     "caption": "Podzolic soil on the Karelian Isthmus. The pale E horizon has lost material by eluviation; material may accumulate in the B horizon below.",
-    "kind": "photo"
-  },
-  {
-    "id": "kyllini-stalactites",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Cave_of_Kyllini_stalactite%2C_Kylj470.jpg/1280px-Cave_of_Kyllini_stalactite%2C_Kylj470.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cave_of_Kyllini_stalactite,_Kylj470.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Zde / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Calcite stalactites hang from the roof of a cave on Mount Kyllini, Greece.",
-    "caption": "Stalactites in a cave on Mount Kyllini. Dissolved calcium carbonate is deposited as water drips and loses carbon dioxide.",
     "kind": "photo"
   },
   {
@@ -1007,16 +957,6 @@
     "credit": "Michael Rivera / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "A USGS groundwater observation station in Stephen C. Foster State Park, Georgia.",
     "caption": "USGS observation well in Stephen C. Foster State Park, Georgia. Instruments record groundwater levels; the water table itself lies beneath the surface.",
-    "kind": "photo"
-  },
-  {
-    "id": "charterhall-weather-station",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Charterhall_Met_Office_Weather_Station_-_Image_%5E2_-_geograph.org.uk_-_2754912.jpg/1280px-Charterhall_Met_Office_Weather_Station_-_Image_%5E2_-_geograph.org.uk_-_2754912.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Charterhall_Met_Office_Weather_Station_-_Image_%5E2_-_geograph.org.uk_-_2754912.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "James T M Towill / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "Weather instruments inside the enclosure at Charterhall in the Scottish Borders.",
-    "caption": "Charterhall weather station, Scotland. Standardised instruments measure local conditions; climate describes their statistics over many years.",
     "kind": "photo"
   },
   {
@@ -1150,16 +1090,6 @@
     "kind": "scientific-image"
   },
   {
-    "id": "misfit-stream-valley",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Misfit_stream_-_geograph.org.uk_-_6847549.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Misfit_stream_-_geograph.org.uk_-_6847549.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "Richard Webb / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "A small stream runs along a valley much larger than its present channel.",
-    "caption": "A misfit stream: its flow is small for the size of its valley. Former glacial meltwater or a change in drainage may explain the mismatch.",
-    "kind": "photo"
-  },
-  {
     "id": "voyager-neptune-disc",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Neptune_Full_%28original%29.jpg/1280px-Neptune_Full_%28original%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neptune_Full_(original).jpg",
@@ -1208,16 +1138,6 @@
     "alt": "NASA Blue Marble satellite imagery displayed in the curved-outline Robinson projection.",
     "caption": "NASA satellite imagery in Robinson projection. This compromise projection balances several distortions; it preserves neither all areas nor all local angles.",
     "kind": "scientific-image"
-  },
-  {
-    "id": "roots-in-bedrock",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Tree_roots_in_rock_-_geograph.org.uk_-_6696952.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tree_roots_in_rock_-_geograph.org.uk_-_6696952.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "Philip Halling / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "Tree roots grow into joints in rock beside a roadside exposure.",
-    "caption": "Roots grow through existing rock joints. Their growth can widen cracks, contributing to biological and physical weathering.",
-    "kind": "photo"
   },
   {
     "id": "aquarius-salinity-2011",
@@ -1330,16 +1250,6 @@
     "kind": "scientific-image"
   },
   {
-    "id": "san-andreas-highsmith",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Aerial_view_of_a_portion_of_the_San_Andreas_Fault_in_California%27s_Sierra_Madre_Mountains%2C_midway_between_Bakersfield_and_Santa_Barbara_LCCN2013631261.tif/lossy-page1-1280px-Aerial_view_of_a_portion_of_the_San_Andreas_Fault_in_California%27s_Sierra_Madre_Mountains%2C_midway_between_Bakersfield_and_Santa_Barbara_LCCN2013631261.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_a_portion_of_the_San_Andreas_Fault_in_California%27s_Sierra_Madre_Mountains,_midway_between_Bakersfield_and_Santa_Barbara_LCCN2013631261.tif",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_a_portion_of_the_San_Andreas_Fault_in_California%27s_Sierra_Madre_Mountains,_midway_between_Bakersfield_and_Santa_Barbara_LCCN2013631261.tif",
-    "credit": "Carol M. Highsmith · The Jon B. Lovelace Collection of California Photographs in Carol M. Highsmith's America Project, Library of Congress, Prints and Photographs Division · public domain · resized",
-    "alt": "Aerial view of the San Andreas Fault cutting across dry hills in California.",
-    "caption": "San Andreas Fault in California's Sierra Madre Mountains. The fault accommodates mainly horizontal motion between the Pacific and North American plates.",
-    "kind": "photo"
-  },
-  {
     "id": "sentinel-la-nina-2025",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/La_Ni%C3%B1a_Is_Here_%28153917%29.jpg/1280px-La_Ni%C3%B1a_Is_Here_%28153917%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Ni%C3%B1a_Is_Here_(153917).jpg",
@@ -1436,7 +1346,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Mahdithewikipedian / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Rocky ridges above Wadi Shahah in Ras Al Khaimah, United Arab Emirates.",
-    "caption": "Wadi Shahah, UAE. Bare mountain slopes drain into channels that carry water after rain.",
+    "caption": "Ras Al Khaimah, UAE. Bare, rocky mountain slopes with almost no plant cover; a road winds up to the summit ridge.",
     "kind": "photo"
   },
   {
@@ -1514,9 +1424,9 @@
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Gornji_Orahovac%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_10-13_PAN.jpg/1280px-Gornji_Orahovac%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_10-13_PAN.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gornji_Orahovac,_Bosnia_y_Herzegovina,_2014-04-14,_DD_10-13_PAN.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Diego Delso / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Rocky hills and the Trebišnjica valley near Gornji Orahovac, Bosnia and Herzegovina.",
-    "caption": "Trebišnjica valley, Bosnia and Herzegovina. Rocky relief and confined low ground shape drainage and settlement.",
+    "credit": "Diego Delso / Wikimedia Commons · CC BY-SA 3.0 · cropped and resized",
+    "alt": "A blue river winding through a green valley with villages, below rocky limestone mountains.",
+    "caption": "The Trebišnjica river winding through a valley near Gornji Orahovac, southern Bosnia and Herzegovina, between bare limestone mountains.",
     "kind": "photo"
   },
   {
@@ -1526,7 +1436,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "credit": "Ben Pirard / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Freÿr limestone cliffs across the Meuse beside the castle gardens in Belgium.",
-    "caption": "Freÿr, Belgium. The Meuse cuts between wooded slopes and exposed limestone cliffs.",
+    "caption": "Freÿr, Belgium. Limestone cliffs and pinnacles rise from the wooded slopes of the Meuse valley above the castle gardens.",
     "kind": "photo"
   },
   {
@@ -1536,7 +1446,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "kallerna / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Snow-covered Vihren and Kutelo peaks in Bulgaria's Pirin Mountains.",
-    "caption": "Pirin Mountains, Bulgaria. Elevation controls snow cover and contrasts with the warmer lowlands.",
+    "caption": "Pirin Mountains, Bulgaria. Vihren and Kutelo stay snow-covered long after the lowlands have thawed, because temperature falls with height.",
     "kind": "photo"
   },
   {
@@ -1576,7 +1486,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "EdwinAlden.1995 / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Green hills above Kamanyola in South Kivu, Democratic Republic of the Congo.",
-    "caption": "Kamanyola, DR Congo. Hills rise beside the Ruzizi Plain within the East African Rift region.",
+    "caption": "Kamanyola, DR Congo. Steep, partly cleared hills in South Kivu, near the western edge of the East African Rift.",
     "kind": "photo"
   },
   {
@@ -1630,16 +1540,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-dk",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Denmark_%2823375253%29.jpeg/1280px-Denmark_%2823375253%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Denmark_(23375253).jpeg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Flemming Christiansen / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Low, wet grassland and bare trees beneath clouds in Denmark.",
-    "caption": "Denmark. Low-lying ground and seasonal wetness influence drainage and farming.",
-    "kind": "photo"
-  },
-  {
     "id": "place-dz",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Algeria_coastal_landscape_view.jpg/1280px-Algeria_coastal_landscape_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Algeria_coastal_landscape_view.jpg",
@@ -1680,16 +1580,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-fi",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Winter_landscape_1960_%28JOKAMT2Ma76-2%29.tif/lossy-page1-1280px-Winter_landscape_1960_%28JOKAMT2Ma76-2%29.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_landscape_1960_(JOKAMT2Ma76-2).tif",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "Erkki Voutilainen / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "A winter river and snow-covered trees in Finland, in a historical photograph.",
-    "caption": "Finland, around 1960. A historical field photograph of seasonal snow beside a river.",
-    "kind": "photo"
-  },
-  {
     "id": "place-ge",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/The_Greater_Caucasus_Mountains_in_Georgia.jpg/1280px-The_Greater_Caucasus_Mountains_in_Georgia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Greater_Caucasus_Mountains_in_Georgia.jpg",
@@ -1707,16 +1597,6 @@
     "credit": "Penwills / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Grassy and wooded hills near Boti, Ghana.",
     "caption": "Boti, Ghana. Vegetation cover varies across hills and cultivated ground.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-gy",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/KITLV_A873_-_Roroima-gebergte_in_Brits_Guyana%2C_KITLV_107366.tiff/lossy-page1-1280px-KITLV_A873_-_Roroima-gebergte_in_Brits_Guyana%2C_KITLV_107366.tiff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:KITLV_A873_-_Roroima-gebergte_in_Brits_Guyana,_KITLV_107366.tiff",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "AnonymousUnknown author / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Historical photograph of the Roraima escarpment in British Guiana, around 1910–1911.",
-    "caption": "Roraima region, historical British Guiana. A steep plateau edge rises above the surrounding upland landscape.",
     "kind": "photo"
   },
   {
@@ -1756,7 +1636,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Nxr-at / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "A broad flowering rapeseed field near Rum, Hungary.",
-    "caption": "Rum, Hungary. Agricultural fields occupy gently rolling lowland terrain.",
+    "caption": "Rum, Hungary. A flowering rapeseed field stretches across flat lowland farmland.",
     "kind": "photo"
   },
   {
@@ -1846,7 +1726,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Jocelyndurrey / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Dark rock walls and trees surround the water at Soesokkak on Jeju, South Korea.",
-    "caption": "Soesokkak, Jeju. Water drains through the volcanic island's rocky coastal landscape.",
+    "caption": "Soesokkak, Jeju, South Korea. A stream has cut a steep-sided gorge through volcanic rock just before it reaches the sea.",
     "kind": "photo"
   },
   {
@@ -1870,23 +1750,13 @@
     "kind": "photo"
   },
   {
-    "id": "place-lb",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/The_landscape_of_Lebanon_with_its_famous_tree_cedar_of_Lebanon_%28FL63289247%29.jpg/1280px-The_landscape_of_Lebanon_with_its_famous_tree_cedar_of_Lebanon_%28FL63289247%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_landscape_of_Lebanon_with_its_famous_tree_cedar_of_Lebanon_(FL63289247).jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "IPPA photographer / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Historical black-and-white photograph of a hillside town and terraced slopes in Lebanon.",
-    "caption": "Lebanon, historical photograph. Buildings and cultivated terraces follow the slope of the land.",
-    "kind": "photo"
-  },
-  {
     "id": "place-lk",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Ella_Valley%2C_Sri_Lanka%2C_Mountain_slopes_under_clouds.jpg/1280px-Ella_Valley%2C_Sri_Lanka%2C_Mountain_slopes_under_clouds.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ella_Valley,_Sri_Lanka,_Mountain_slopes_under_clouds.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Vyacheslav Argenberg / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "Clouds and green mountain slopes around Ella Gap in Sri Lanka.",
-    "caption": "Ella Gap, Sri Lanka. Upland relief channels winds and changes local rainfall.",
+    "caption": "Ella, Sri Lanka. Low cloud gathers around grassy ridges in the central highlands, where high ground increases rainfall.",
     "kind": "photo"
   },
   {
@@ -2006,7 +1876,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "DipoTayo / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Stone buildings and terraces in the Sukur cultural landscape, Nigeria.",
-    "caption": "Sukur, Nigeria. Stone-built settlements and terraces occupy a rocky upland landscape.",
+    "caption": "Sukur, Nigeria. Thatched huts and dry-stone walls sit among granite boulders in a rocky upland landscape.",
     "kind": "photo"
   },
   {
@@ -2015,7 +1885,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_landscape_in_the_Netherlands.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Fractal Caleidoscope / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Water channels, reeds and snow across flat winter ground in the Netherlands.",
+    "alt": "Frost-covered reeds and grass beside frozen drainage channels on flat land in the Netherlands.",
     "caption": "The Netherlands. Low relief requires careful drainage and water-level management.",
     "kind": "photo"
   },
@@ -2155,7 +2025,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Refane_landscape.jpg",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "credit": "Catjacket / Wikimedia Commons · CC0 · resized",
-    "alt": "Dry fields and scattered trees at Refane, Senegal.",
+    "alt": "Bare sandy ground and scattered trees at the edge of Refane, Senegal, in the dry season.",
     "caption": "Refane, Senegal. A long dry season limits vegetation cover between periods of rainfall.",
     "kind": "photo"
   },
@@ -2166,7 +2036,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/3.0/de/deed.en",
     "credit": "High Contrast / Wikimedia Commons · CC BY 3.0 de · resized",
     "alt": "Bare layered cliffs around Maaloula, Syria.",
-    "caption": "Maaloula, Syria. Erosion exposes sedimentary layers above a dry valley.",
+    "caption": "Near Maaloula, Syria. With little vegetation to protect it, this dry hillside has been cut into a fan of gullies by occasional heavy rain.",
     "kind": "photo"
   },
   {
@@ -2186,7 +2056,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "chris fleizach from Cupertino, USA / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A low wooded island and coastal water in Tonga.",
-    "caption": "Tonga. Low islands and coastal settlements are exposed to waves and changing sea level.",
+    "caption": "Tonga. Low, palm-covered islands rise only a few metres above a calm lagoon, so they are exposed to storm waves and rising sea level.",
     "kind": "photo"
   },
   {
@@ -2280,16 +2150,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-in",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Park_in_Lebanon%2C_Indiana_-_March_2013_-_Dave_Herrmann.jpg/1280px-Park_in_Lebanon%2C_Indiana_-_March_2013_-_Dave_Herrmann.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Park_in_Lebanon,_Indiana_-_March_2013_-_Dave_Herrmann.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "Dave Herrmann / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "A snow-covered park and bare deciduous trees in Lebanon, Indiana.",
-    "caption": "Lebanon, Indiana. Seasonal snow illustrates winter conditions in the continental interior.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-ks",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Kansas_Windmills.JPG/1280px-Kansas_Windmills.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kansas_Windmills.JPG",
@@ -2330,16 +2190,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-mi",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Fields%2C_Frankenmuth%2C_Michigan%2C_2015-01-11_01.jpg/1280px-Fields%2C_Frankenmuth%2C_Michigan%2C_2015-01-11_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fields,_Frankenmuth,_Michigan,_2015-01-11_01.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Crisco 1492 / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Snow-covered fields and evergreen trees at Frankenmuth, Michigan.",
-    "caption": "Frankenmuth, Michigan. Winter snow covers a low agricultural landscape.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-mn",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Minnesota_Landscape_Arboretum2.jpg/1280px-Minnesota_Landscape_Arboretum2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minnesota_Landscape_Arboretum2.jpg",
@@ -2354,7 +2204,7 @@
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Landscape_Over_The_Mississippi_%28155785175%29.jpeg/1280px-Landscape_Over_The_Mississippi_%28155785175%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_Over_The_Mississippi_(155785175).jpeg",
     "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "credit": "Yinan Chen / Wikimedia Commons · CC BY 3.0 · resized",
+    "credit": "Yinan Chen / Wikimedia Commons · CC BY 3.0 · cropped and resized",
     "alt": "A bend of the Mississippi River viewed from Mississippi Palisades State Park in Illinois.",
     "caption": "Mississippi Palisades, Illinois. A broad river flows beneath a wooded bluff.",
     "kind": "photo"
@@ -2387,16 +2237,6 @@
     "credit": "Someone35 / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Autumn forest covering mountains in New Hampshire.",
     "caption": "New Hampshire. Deciduous woodland changes colour across the slopes of the Appalachian uplands.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-no",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Norway_landscape_August_1974_02.jpg/1280px-Norway_landscape_August_1974_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Norway_landscape_August_1974_02.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "per source. Please credit \"Family photos of Infrogmation\" / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "A steep-sided glacial valley in western Norway with a river, fields and a road on its floor.",
-    "caption": "A steep-sided glacial valley in western Norway, photographed in August 1974. A river, fields and a road occupy the valley floor; where the sea floods a trough like this, it becomes a fjord.",
     "kind": "photo"
   },
   {
@@ -2456,17 +2296,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "AndrewKPepper / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Shallow water, wetland plants and trees at Salt Plains National Wildlife Refuge, Oklahoma.",
-    "caption": "Salt Plains, Oklahoma. Wetland habitats occur within a saline inland basin.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-sc",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/0329ba_Eichen-Allee_Boone_Hall_Mt_Pleasant_USA.jpg/1280px-0329ba_Eichen-Allee_Boone_Hall_Mt_Pleasant_USA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:0329ba_Eichen-Allee_Boone_Hall_Mt_Pleasant_USA.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Heinz-Vale / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Broad spreading live-oak branches at Boone Hall in Mount Pleasant, South Carolina.",
-    "caption": "Mount Pleasant, South Carolina. Live oaks are characteristic of the warm, humid coastal plain.",
+    "caption": "Salt Plains National Wildlife Refuge, Oklahoma. Shallow marsh and cottonwood woodland lie around the edge of a wide inland salt flat, which is out of view here.",
     "kind": "photo"
   },
   {
@@ -2476,7 +2306,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Prairie_Pothole_Landscape_South_Dakota_(53107513660).jpg",
     "credit": "USFWS Mountain Prairie / Wikimedia Commons · Public domain · resized",
     "alt": "An aerial view of wetlands and farmland in South Dakota's Prairie Pothole Region.",
-    "caption": "South Dakota. Small wetlands occupy depressions left in a formerly glaciated landscape.",
+    "caption": "South Dakota from the air. A small stream meanders across flat farmland in a formerly glaciated landscape, where shallow wetlands fill some of the low hollows.",
     "kind": "photo"
   },
   {
@@ -2497,16 +2327,6 @@
     "credit": "Rosie De Lise from Eugene, OR, USA. Cropped and color-corrected by Daniel Case prior tp upload / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "Lake Champlain and Vermont's distant mountains viewed east from Poke-O-Moonshine Mountain in New York.",
     "caption": "Vermont lies beyond Lake Champlain in this view from New York. The lake occupies a long valley between mountain ranges.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-wy",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Grand_Teton_National_Park_-_Wyoming_2023.jpg/1280px-Grand_Teton_National_Park_-_Wyoming_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grand_Teton_National_Park_-_Wyoming_2023.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "credit": "Watts / Wikimedia Commons · CC BY 2.0 · resized",
-    "alt": "Snow-covered Teton peaks above forest and wet meadow in Wyoming.",
-    "caption": "Grand Teton National Park, Wyoming. Abrupt mountain relief rises above the Jackson Hole valley.",
     "kind": "photo"
   },
   {
@@ -2576,7 +2396,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Washington,_D.C.,_with_Ronald_Reagan_Washington_National_Airport_and_the_Potomac_River_to_the_left_LCCN2011632537.tif",
     "credit": "Carol M. Highsmith / Wikimedia Commons · Public domain · resized",
     "alt": "Aerial view of Washington, DC, beside the Potomac River and National Airport.",
-    "caption": "Washington, DC. The city occupies low ground beside the tidal Potomac River.",
+    "caption": "Washington, DC, seen across the tidal Potomac River from above Arlington, Virginia. The Washington Monument and the Capitol stand on the low ground beyond the river; the airport and offices in front are in Virginia.",
     "kind": "photo"
   },
   {
@@ -2595,8 +2415,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hurricane_Katrina_Erodes_the_U.S._Gulf_Coast,_Natural_Hazards_DVIDS762243.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Hurricane_Katrina_Erodes_the_U.S._Gulf_Coast,_Natural_Hazards_DVIDS762243.jpg",
     "credit": "Jesse Allen / NASA Earth Observatory · Landsat · public domain · resized",
-    "alt": "Landsat view of the thin Chandeleur barrier islands off Louisiana.",
-    "caption": "Chandeleur Islands, Louisiana. Barrier islands separate the Gulf from shallow coastal waters and are vulnerable to storm erosion. Satellite colours emphasise land and water.",
+    "alt": "Landsat view of the northern Gulf of Mexico coast, with barrier islands off Mississippi and Alabama and the faint Chandeleur arc off Louisiana.",
+    "caption": "Landsat image of the northern Gulf coast (colours enhanced). Louisiana's Chandeleur Islands are the faint curved arc at lower left, beside the state's delta marshes; these barrier islands are vulnerable to storm erosion. The coast across the top is Mississippi and Alabama.",
     "kind": "scientific-image"
   },
   {
@@ -2696,7 +2516,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:ISS-64_Khartoum,_Sudan.jpg",
     "credit": "NASA / Wikimedia Commons · Public domain · resized",
     "alt": "Night-time ISS photograph of Khartoum at the meeting of the Blue and White Nile in Sudan.",
-    "caption": "Khartoum, Sudan. Settlement and lighting follow the confluence of the Blue and White Nile.",
+    "caption": "Khartoum, Sudan, photographed at night from the International Space Station. The dark winding bands are the Blue and White Nile, which meet here; the city's lights spread along their banks.",
     "kind": "photo"
   },
   {
@@ -2766,7 +2586,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Dietmar Rabich / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Steam and orange microbial mats around Grand Prismatic Spring in Yellowstone National Park.",
-    "caption": "Grand Prismatic Spring, Yellowstone. Hot groundwater and heat-tolerant microorganisms create the pool's striking colour bands.",
+    "caption": "Grand Prismatic Spring, Yellowstone National Park, Wyoming. Hot groundwater heated by a shallow magma body feeds the spring; heat-tolerant microbes colour its edges.",
     "kind": "photo"
   },
   {
@@ -2797,16 +2617,6 @@
     "credit": "James St. John / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "A dark Glossopteris fossil leaf from Permian rocks in Antarctica, with a branching vein network.",
     "caption": "Permian Glossopteris leaf from Antarctica. Related fossils on separated southern continents are evidence that these lands were once joined within Gondwana, which formed part of Pangaea.",
-    "kind": "photo"
-  },
-  {
-    "id": "bald-eagle-wind-gap",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Bald_Eagle_Mountain_Panorama.JPG/1280px-Bald_Eagle_Mountain_Panorama.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bald_Eagle_Mountain_Panorama.JPG",
-    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-    "credit": "User:Ruhrfisch / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Panorama of Bald Eagle Mountain in Pennsylvania with the Route 15 wind gap left of centre and a water gap farther right.",
-    "caption": "Bald Eagle Mountain, Pennsylvania. The wind gap crossed by Route 15 is left of centre; Hagermans Run occupies a separate water gap to the right. A wind gap lacks the through-flowing river found in a water gap.",
     "kind": "photo"
   },
   {
@@ -2950,16 +2760,6 @@
     "kind": "photo"
   },
   {
-    "id": "hubble-ison-before-perihelion",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Hubble%27s_Last_Look_at_Comet_ISON_Before_Perihelion.jpg/1280px-Hubble%27s_Last_Look_at_Comet_ISON_Before_Perihelion.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hubble%27s_Last_Look_at_Comet_ISON_Before_Perihelion.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "NASA, ESA, and the Hubble Heritage Team (STScI/AURA) / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Hubble observations of Comet ISON's bright coma and tail on 2 November 2013, before perihelion.",
-    "caption": "Hubble observed Comet ISON on 2 November 2013, before perihelion, its closest approach to the Sun.",
-    "kind": "scientific-image"
-  },
-  {
     "id": "bangladesh-modis-2011",
     "url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/77000/77364/bangladesh_tmo_2011313_lrg.jpg?crop=faces%2Cfocalpoint&fit=clip&h=5200&w=6600",
     "sourceUrl": "https://science.nasa.gov/earth/earth-observatory/bangladesh-77364/",
@@ -2990,16 +2790,6 @@
     "kind": "photo"
   },
   {
-    "id": "blorenge-cwm-craf",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Blorenge_looms_behind_Llanfoist%27s_moraine-by-Alan-Bowring.jpg/1280px-Blorenge_looms_behind_Llanfoist%27s_moraine-by-Alan-Bowring.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blorenge_looms_behind_Llanfoist%27s_moraine-by-Alan-Bowring.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "Alan Bowring / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "Blorenge above Llanfoist, with the shallow Cwm Craf hollow visible on its front slope.",
-    "caption": "Cwm Craf on Blorenge, Wales, has been interpreted as a former nivation hollow. Persistent snow patches can promote weathering and sediment removal without forming a moving glacier. The ridge in the foreground is the glacial moraine at Llanfoist.",
-    "kind": "photo"
-  },
-  {
     "id": "cairngorms-winter-snow",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg/1280px-RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg",
@@ -3017,16 +2807,6 @@
     "credit": "dwhartwig / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "Water cascades down pale rock steps at Kent Falls State Park, Connecticut.",
     "caption": "Kent Falls, Connecticut. Flowing water erodes a stepped bedrock channel within the wooded uplands.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-mo",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/View_from_Macau_Tower_-_panoramio_%281%29.jpg/1280px-View_from_Macau_Tower_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_from_Macau_Tower_-_panoramio_(1).jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "AwOiSoAk KaOsIoWa / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "A long bridge over coastal water viewed from Macau Tower.",
-    "caption": "Macau. Bridges connect urban land across the Pearl River estuary, where reclamation has changed the shoreline.",
     "kind": "photo"
   },
   {
@@ -3137,6 +2917,376 @@
     "credit": "Ustill / Wikimedia Commons · CC BY-SA 3.0 de · resized",
     "alt": "A broad, grassy former river valley near Blumberg, now drained by the much smaller Aitrach.",
     "caption": "The Aitrach valley follows the former route of the Feldberg Danube. Capture by the Wutach diverted its upper flow towards the Rhine, leaving the small Aitrach in an oversized valley.",
+    "kind": "photo"
+  },
+  {
+    "id": "seismic-shadow-zones",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Seismic wave travel through Earth.png&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seismic_wave_travel_through_Earth.png",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Karla Panchuk, Steven Earle / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Diagram of S-wave and P-wave paths through Earth, showing the solid inner core, liquid outer core and shadow zones.",
+    "caption": "Diagram of seismic wave paths through Earth (not to scale). S-waves cannot cross the liquid outer core, leaving a large S-wave shadow zone; P-waves bend at the core boundary, leaving P-wave shadow zones between about 103° and 150° from the earthquake.",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "sunrise-solstice-panorama",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=A panorama of sunrises at the solstices and equinoxes.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_panorama_of_sunrises_at_the_solstices_and_equinoxes.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "LynceanEducation / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Three time-lapse sunrises blended into one panorama, with the Sun rising further north in summer and further south in winter.",
+    "caption": "Composite of three time-lapse sunrises photographed from the same spot: at the summer solstice (left, furthest north), the spring equinox (centre) and the winter solstice (right, furthest south). The sunrise point and the Sun's path shift through the year.",
+    "kind": "photo"
+  },
+  {
+    "id": "goes19-winter-solstice",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=The Winter Solstice Through NOAA’s Newest Eyes in Space (NESDIS 2024-12-21 cira-rammb-slider---goes-19---full disk---geocolor-opacity-100---20241221093020-3a).png&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Winter_Solstice_Through_NOAA%E2%80%99s_Newest_Eyes_in_Space_(NESDIS_2024-12-21_cira-rammb-slider---goes-19---full_disk---geocolor-opacity-100---20241221093020-3a).png",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:The_Winter_Solstice_Through_NOAA%E2%80%99s_Newest_Eyes_in_Space_(NESDIS_2024-12-21_cira-rammb-slider---goes-19---full_disk---geocolor-opacity-100---20241221093020-3a).png",
+    "credit": "NOAA / Wikimedia Commons · Public domain · resized",
+    "alt": "GOES-19 full-disc view of the Americas on 21 December 2024, with daylight reaching eastern South America while North America is dark.",
+    "caption": "GOES-19 GeoColor view, 21 December 2024 at 09:30 UTC. Dawn is reaching eastern South America while North America is still in darkness; the night side is shown with infrared cloud imagery. Different longitudes reach sunrise at different times.",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "alpha-beta-centauri",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Alpha Centauri and Beta Centauri (centaurus-ch17-bardon-cc).jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alpha_Centauri_and_Beta_Centauri_(centaurus-ch17-bardon-cc).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Zdeněk Bardon/ESO / Wikimedia Commons · CC BY 4.0 · resized",
+    "alt": "The Milky Way in Centaurus with the two bright stars Alpha and Beta Centauri near the centre.",
+    "caption": "Alpha and Beta Centauri, photographed from ESO's La Silla Observatory by Zdeněk Bardon. They look like a pair, but Alpha Centauri, the nearest star system to the Sun, is about 4.4 light-years away, while Beta Centauri is roughly 390 light-years away.",
+    "kind": "photo"
+  },
+  {
+    "id": "thorpe-cloud-knoll",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Thorpe Cloud, Derbyshire (267m)(942’).jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thorpe_Cloud,_Derbyshire_(267m)(942%E2%80%99).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Medenmaun / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Thorpe Cloud, a steep isolated grassy limestone hill, rising above fields with sheep in Derbyshire.",
+    "caption": "Thorpe Cloud, Derbyshire (267 m): a small, steep, isolated limestone hill, or knoll, standing above the surrounding fields. It formed from a reef in a warm Carboniferous sea.",
+    "kind": "photo"
+  },
+  {
+    "id": "viti-levu-batilamu",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=View from Mount Batilamu, Koroyanitu National Heritage Park, Viti Levu, Fiji - August 2016.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_from_Mount_Batilamu,_Koroyanitu_National_Heritage_Park,_Viti_Levu,_Fiji_-_August_2016.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Rickard Törnblad / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "View from Mount Batilamu across forested volcanic ridges towards the coast of Viti Levu, Fiji.",
+    "caption": "View from Mount Batilamu, Viti Levu, Fiji. Forested ridges of old volcanic rock fall towards the coastal lowlands of Fiji's largest island.",
+    "kind": "photo"
+  },
+  {
+    "id": "andromeda-m31",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Andromeda Galaxy M31.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Andromeda_Galaxy_M31.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Astrobond / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "The Andromeda Galaxy, a large spiral of stars with two small companion galaxies, against a field of foreground stars.",
+    "caption": "The Andromeda Galaxy (M31) with its two small companion galaxies. Its light has travelled about 2.5 million years to reach us; the scattered points are much nearer stars in our own galaxy.",
+    "kind": "photo"
+  },
+  {
+    "id": "sun-perihelion-aphelion",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=The Sun at perihelion and aphelion.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Sun_at_perihelion_and_aphelion.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Afdumitriu / Wikimedia Commons · CC BY 4.0 · resized",
+    "alt": "Two half-discs of the Sun joined at the centre; the left half, at perihelion, is slightly larger than the right half, at aphelion.",
+    "caption": "The Sun photographed through the same telescope at perihelion (left, 2 January 2021) and aphelion (right, 5 July 2021). Earth is about 147 million km from the Sun in January and 152 million km in July, so the disc looks about 3% larger at perihelion. This small difference does not cause the seasons.",
+    "kind": "photo"
+  },
+  {
+    "id": "white-scar-straws",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=White Scar Cave straw stalactites.JPG&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:White_Scar_Cave_straw_stalactites.JPG",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:White_Scar_Cave_straw_stalactites.JPG",
+    "credit": "Immanuel Giel / Wikimedia Commons · Public domain · resized",
+    "alt": "Thin straw stalactites hanging from the brown limestone roof of White Scar Cave.",
+    "caption": "Straw stalactites in White Scar Cave, Yorkshire Dales. Each thin tube grows as dripping water loses carbon dioxide and leaves a ring of calcite at its tip.",
+    "kind": "photo"
+  },
+  {
+    "id": "penumbral-eclipse-2020",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Penumbral Lunar Eclipse 2020-01-10.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Penumbral_Lunar_Eclipse_2020-01-10.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "H. Raab (User:Vesta) / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Three photographs of the full Moon side by side; the middle one is faintly darker along its lower edge.",
+    "caption": "Penumbral lunar eclipse, 10 January 2020: three photographs an hour apart, combined. In the middle image about 90% of the Moon is inside Earth's penumbra, which dims it only slightly; there is no dark umbral bite.",
+    "kind": "photo"
+  },
+  {
+    "id": "nws-surface-1998",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=NWS Surface map 1998-01-06.gif&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NWS_Surface_map_1998-01-06.gif",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:NWS_Surface_map_1998-01-06.gif",
+    "credit": "National Weather Service Office in Burlington, Vermont / Wikimedia Commons · Public domain · resized",
+    "alt": "US National Weather Service surface weather chart for 6 January 1998 with isobars, high and low centres and fronts.",
+    "caption": "US National Weather Service surface chart, 6 January 1998. Isobars join places with equal pressure; a strong high over Canada and a low near Lake Erie, with a warm front towards New England, set up a strong pressure gradient during the 1998 ice storm.",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "kaieteur-falls",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Kaieteur Falls, Guyana (23035888153).jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaieteur_Falls,_Guyana_(23035888153).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Dan Sloan / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "Kaieteur Falls dropping in a single plunge over a sandstone cliff into a forested gorge in Guyana.",
+    "caption": "Kaieteur Falls, Guyana. The Potaro River plunges about 226 m over a hard sandstone edge of the ancient Guiana Shield into a forested gorge.",
+    "kind": "photo"
+  },
+  {
+    "id": "koli-pielinen",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Koli National Park, North Karelia, Finland - Scenery from Ukkokoli.jpeg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koli_National_Park,_North_Karelia,_Finland_-_Scenery_from_Ukkokoli.jpeg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Pentti Rautio / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "View from a rocky hilltop with spruce trees over Lake Pielinen and its wooded islands in Finland.",
+    "caption": "Lake Pielinen from Ukko-Koli, Koli National Park, Finland. Ice sheets scoured this ancient bedrock; lakes and forest now fill the hollows.",
+    "kind": "photo"
+  },
+  {
+    "id": "geirangerfjord",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Geirangerfjord Viewed from Flydalsjuvet Viewpoint - 2013.08 - panoramio.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Geirangerfjord_Viewed_from_Flydalsjuvet_Viewpoint_-_2013.08_-_panoramio.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "credit": "rheins / Wikimedia Commons · CC BY 3.0 · resized",
+    "alt": "Geirangerfjord between steep mountain walls, with the village of Geiranger and cruise ships on the water.",
+    "caption": "Geirangerfjord, Norway. A glacier deepened this valley below sea level; when the ice melted, the sea flooded the steep-sided trough to form a fjord.",
+    "kind": "photo"
+  },
+  {
+    "id": "carrizo-san-andreas",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Kluft-photo-Carrizo-Plain-Nov-2007-Img 0327.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kluft-photo-Carrizo-Plain-Nov-2007-Img_0327.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Ikluft / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Aerial view of the San Andreas Fault as a straight line of ridges and gullies crossing the dry Carrizo Plain.",
+    "caption": "The San Andreas Fault crossing the Carrizo Plain, California, seen from about 2,600 m. The straight line marks the boundary where the Pacific Plate moves north-west past the North American Plate.",
+    "kind": "photo"
+  },
+  {
+    "id": "wallace-creek-offset",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Wallace Creek offset across the San Andreas Fault.png&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wallace_Creek_offset_across_the_San_Andreas_Fault.png",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Wallace_Creek_offset_across_the_San_Andreas_Fault.png",
+    "credit": "Robert E. Wallace / Wikimedia Commons · Public domain · resized",
+    "alt": "Aerial view of Wallace Creek, whose channel bends sharply where it crosses the San Andreas Fault.",
+    "caption": "Wallace Creek, Carrizo Plain, California. Where the stream crosses the San Andreas Fault its channel is offset about 130 m sideways: horizontal (strike-slip) movement over thousands of years.",
+    "kind": "photo"
+  },
+  {
+    "id": "ash-grike-tree",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Ash tree, Old Pasture - geograph.org.uk - 324197.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ash_tree,_Old_Pasture_-_geograph.org.uk_-_324197.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Gordon Hatton / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "A lone ash tree growing out of a crack in a limestone pavement above Grassington.",
+    "caption": "An ash tree growing out of a grike in limestone pavement above Grassington, Yorkshire Dales. Roots in the crack can widen it, and acids from roots and decaying leaves help dissolve the rock.",
+    "kind": "photo"
+  },
+  {
+    "id": "old-harry-rocks",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Old Harry Rocks, Handfast Point, Isle of Purbeck, Dorset.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_Harry_Rocks,_Handfast_Point,_Isle_of_Purbeck,_Dorset.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Simaron / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "Aerial view of chalk cliffs at Handfast Point with stacks, an arch and low stumps standing in the sea.",
+    "caption": "Old Harry Rocks, Handfast Point, Dorset. Waves erode the chalk headland into caves, arches and stacks; low remnants just above the water are stumps.",
+    "kind": "photo"
+  },
+  {
+    "id": "coppet-hall-anticline",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Coppet Hall - Anticline - geograph.org.uk - 1716373.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coppet_Hall_-_Anticline_-_geograph.org.uk_-_1716373.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Colin Vosper / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "Rock layers bent into an arch in a small headland at Coppet Hall beach, Pembrokeshire.",
+    "caption": "An anticline at Coppet Hall, near Saundersfoot, Pembrokeshire. The rock layers are bent upwards into an arch, with the oldest beds in the core.",
+    "kind": "photo"
+  },
+  {
+    "id": "botallack-waves",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=View of waves crashing up against the cliff at Botallack - geograph.org.uk - 6285496.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_waves_crashing_up_against_the_cliff_at_Botallack_-_geograph.org.uk_-_6285496.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Robert Lamb / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "Waves crashing into dark, jointed cliffs at Botallack, Cornwall.",
+    "caption": "Waves striking the cliffs at Botallack, Cornwall. Hydraulic action forces water and air into joints and cracks, loosening the rock; fast river flow does the same to channel banks.",
+    "kind": "photo"
+  },
+  {
+    "id": "avanne-colluvium",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Colluvions Avanne-Aveney.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colluvions_Avanne-Aveney.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Géodigital / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A cutting at the foot of a wooded slope exposing unsorted angular stones in brown soil.",
+    "caption": "Recent colluvium at the foot of a slope near Avanne-Aveney, France: angular, unsorted rock fragments and soil that have moved downslope under gravity and wash.",
+    "kind": "photo"
+  },
+  {
+    "id": "sourmilk-gill",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Sourmilk Gill, Buttermere.JPG&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sourmilk_Gill,_Buttermere.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Antiquary / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Sourmilk Gill falling as a white stream down a steep wooded slope towards Buttermere.",
+    "caption": "Sourmilk Gill, Buttermere, Lake District. The stream falls steeply from the hanging corrie of Bleaberry Tarn down to the floor of the main glacial trough.",
+    "kind": "photo"
+  },
+  {
+    "id": "indiana-dunes-baldy",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Mount Baldy at Indiana Dunes National Park.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Baldy_at_Indiana_Dunes_National_Park.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Indianadunes / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Marram grass on a sand dune above the blue water of Lake Michigan at Indiana Dunes.",
+    "caption": "Mount Baldy, Indiana Dunes National Park. Onshore winds off Lake Michigan build dunes; marram grass helps trap and hold the sand.",
+    "kind": "photo"
+  },
+  {
+    "id": "congaree-floodplain",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=The Forested Floodplains of Congaree National Park (1281254 - congareenp oli2 20250818).jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Forested_Floodplains_of_Congaree_National_Park_(1281254_-_congareenp_oli2_20250818).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:The_Forested_Floodplains_of_Congaree_National_Park_(1281254_-_congareenp_oli2_20250818).jpg",
+    "credit": "NASA Earth Observatory/Michala Garrison / Wikimedia Commons · Public domain · resized",
+    "alt": "Landsat 9 image of the meandering Congaree River and its forested floodplain, with labels for meanders and a paleochannel.",
+    "caption": "Landsat 9, 2025: the meandering Congaree River and its forested floodplain, South Carolina. Labels mark a meander and an abandoned former channel (paleochannel).",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "kadisha-valley",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=View of the Kadisha Valley, Lebanon.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_the_Kadisha_Valley,_Lebanon.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Vyacheslav Argenberg / Wikimedia Commons · CC BY 4.0 · resized",
+    "alt": "Steep limestone cliffs of the deep Kadisha Valley gorge in northern Lebanon.",
+    "caption": "Kadisha Valley, northern Lebanon. The river has cut a deep gorge into the limestone of Mount Lebanon.",
+    "kind": "photo"
+  },
+  {
+    "id": "mons-klint",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Møns Klint chalk cliffs 1.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%B8ns_Klint_chalk_cliffs_1.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "kallerna / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "White chalk cliffs above a narrow beach on the Baltic coast of Møn, Denmark.",
+    "caption": "Møns Klint, Denmark. Chalk formed from tiny marine plankton was pushed up by glacier ice; waves and landslides keep the cliffs steep.",
+    "kind": "photo"
+  },
+  {
+    "id": "delaware-water-gap",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Delaware Water Gap aerial view.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delaware_Water_Gap_aerial_view.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Quintin Soloviev / Wikimedia Commons · CC BY 4.0 · resized",
+    "alt": "Aerial view of the Delaware River curving through a gap cut across Kittatinny Ridge.",
+    "caption": "Delaware Water Gap, on the Pennsylvania–New Jersey border. The river cuts straight through Kittatinny Ridge in a water gap; a dry notch with no river would be a wind gap.",
+    "kind": "photo"
+  },
+  {
+    "id": "weather-station-mettingen",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Wetterstation Mettingen Schlickelde 04.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wetterstation_Mettingen_Schlickelde_04.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "J.-H. Janßen / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "A white Stevenson screen on legs, an instrument mast and a rain gauge on grass at a weather station.",
+    "caption": "Weather station at Mettingen, Germany, with a Stevenson screen for thermometers, an instrument mast and a rain gauge. Climate is worked out from many years of measurements like these.",
+    "kind": "photo"
+  },
+  {
+    "id": "nasa-sst-global",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Global Sea Surface Temperature - GPN-2003-00032.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Global_Sea_Surface_Temperature_-_GPN-2003-00032.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Global_Sea_Surface_Temperature_-_GPN-2003-00032.jpg",
+    "credit": "NASA / Wikimedia Commons · Public domain · cropped and resized",
+    "alt": "World map of sea-surface temperature, with red in the western Pacific and Indian Ocean and blue near the poles.",
+    "caption": "NASA map of sea-surface temperature from two weeks of satellite infrared data. Red marks the warmest water; the western Pacific warm pool is the large red area near Indonesia and northern Australia (left edge).",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "mississippi-delta-sts062",
+    "url": "https://images-assets.nasa.gov/image/STS062-85-021/STS062-85-021~large.jpg",
+    "sourceUrl": "https://images.nasa.gov/details/STS062-85-021",
+    "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "credit": "NASA Johnson Space Center · STS-62 crew · public domain · resized",
+    "alt": "Astronaut photograph of the bird's-foot Mississippi River delta, with sediment-laden water spreading into the Gulf of Mexico.",
+    "caption": "The Mississippi River delta, Louisiana, photographed by Space Shuttle astronauts in March 1994. Sediment carried by the river builds the bird's-foot delta out into the Gulf of Mexico.",
+    "kind": "photo"
+  },
+  {
+    "id": "tsunami-drawdown-katanoi",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=KataNoiReceding.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:KataNoiReceding.jpg",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "credit": "PHG / Wikimedia Commons · CC BY-SA 3.0 (originally GFDL) · resized",
+    "alt": "Wide sandy bay with the seabed exposed after the sea drew back, framed by trees and rocks, at Kata Noi Beach, Phuket.",
+    "caption": "Kata Noi Beach, Phuket, Thailand, 26 December 2004: the sea has drawn back before the third and strongest tsunami wave, exposing the seabed; open water is far out to the right. Many tsunamis arrive without this warning.",
+    "kind": "photo"
+  },
+  {
+    "id": "nivation-zastler",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Zastler Loch am Feldberg.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zastler_Loch_am_Feldberg.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Andreas Schwarzkopf / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Patches of late-lying snow on the grassy slopes of a hollow below the Feldberg summit, with spruce forest.",
+    "caption": "Late-lying snow in the Zastler Loch on the Feldberg, Black Forest, in June. Where snow patches linger in hollows, freeze–thaw and meltwater (nivation) slowly loosen and remove material, deepening the hollow.",
+    "kind": "photo"
+  },
+  {
+    "id": "spring-line-fulking",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Fulking escarpment and spring line - geograph.org.uk - 388244.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fulking_escarpment_and_spring_line_-_geograph.org.uk_-_388244.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Peter Cox / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "Fulking village at the foot of the steep, grassy South Downs scarp, with fields stretching away below.",
+    "caption": "Fulking, West Sussex, at the foot of the South Downs. Water soaks into the permeable chalk and comes out as springs where it meets less permeable rock at the base of the scarp, so villages grew up along this spring line.",
+    "kind": "photo"
+  },
+  {
+    "id": "misfit-gleann-nan-eun",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Misfit stream.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Misfit_stream.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Dave Fergusson / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "A small stream meandering across the wide, flat floor of a Highland glen between rounded hills.",
+    "caption": "Gleann nan Eun, east of Loch Ness, Scotland. The small stream winding across the floor is far too small to have carved such a wide valley: a misfit stream in a glen shaped by ice and meltwater.",
+    "kind": "photo"
+  },
+  {
+    "id": "wind-gap-karu",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Wind gap in Karu valley, Ladakh.JPG&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wind_gap_in_Karu_valley,_Ladakh.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "DanHobley / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "View up a dry valley in Ladakh towards a notch in the mountain ridge on the skyline, with a village in the foreground.",
+    "caption": "A wind gap above the Karu valley, Ladakh. Glacial erosion on the far side of the ridge beheaded this valley, leaving the outline of its U-shaped head as a dry notch on the skyline, with no river flowing through it.",
+    "kind": "photo"
+  },
+  {
+    "id": "brodick-sundial",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Got the time^ - geograph.org.uk - 1469342.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Got_the_time%5E_-_geograph.org.uk_-_1469342.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "adam sommerville / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "A horizontal bronze sundial with a sharp shadow cast by its gnomon, in a garden at Brodick Castle.",
+    "caption": "Sundial in the walled garden at Brodick Castle, Isle of Arran. The gnomon's shadow shows the Sun's direction; when the Sun is lower in the sky, shadows are longer.",
+    "kind": "photo"
+  },
+  {
+    "id": "macau-inner-harbour",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Panorama of Macau Peninsula2021.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_of_Macau_Peninsula2021.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Charlie fong / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Dusk panorama across the Inner Harbour to the dense buildings of the western Macau Peninsula.",
+    "caption": "The west side of the Macau Peninsula from across the Inner Harbour, at the mouth of the Pearl River estuary. Much of Macau's low ground is reclaimed land.",
     "kind": "photo"
   }
 ]

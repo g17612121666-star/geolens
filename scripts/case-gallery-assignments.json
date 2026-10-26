@@ -6,7 +6,7 @@
     },
     {
       "id": "greens-mill-sundial",
-      "caption": "A sundial at Green's Windmill, Nottingham. In December the low midday Sun casts long shadows across Britain, and the Sun is lower still at Lerwick."
+      "caption": "A spherical sundial at Green's Windmill, Nottingham. It shows local solar time. In December the midday Sun is low over Britain, and lower still at Lerwick, so days are short and shadows are long."
     }
   ],
   "florida-insolation": [
@@ -45,8 +45,7 @@
       "caption": "Aletsch Glacier, Switzerland, shows the process rather than the place: a valley glacier deepening and widening its trough, as glaciers once did in Lake District valleys."
     },
     {
-      "id": "crearlagh-hanging-valley",
-      "caption": "A hanging valley at Crearlagh Burn, Scotland (not the Lake District). Tributary valleys like this are left high above a main glacial trough, a feature common around the Lakeland fells."
+      "id": "sourmilk-gill"
     }
   ],
   "snowdonia": [
@@ -65,14 +64,14 @@
       "caption": "A karst spring in Alabama, USA. Water that sinks into limestone can re-emerge at a spring like this one, as streams do at resurgences in the Dales."
     },
     {
-      "id": "kyllini-stalactites",
-      "caption": "Stalactites in a cave on Mount Kyllini, Greece. They illustrate how dissolved calcium carbonate is redeposited underground, as in Dales caves."
+      "id": "white-scar-straws",
+      "caption": "Straw stalactites in White Scar Cave, near Ingleton in the Yorkshire Dales: calcite redeposited as dripping water loses carbon dioxide."
     }
   ],
   "somerset-levels": [
     {
       "id": "place-nl",
-      "caption": "Flat, waterlogged winter ground in the Netherlands. This is not Somerset, but it shows a similar problem: in very low-lying land, drainage must be managed by channels and pumping."
+      "caption": "Flat, frosty winter ground in the Netherlands, crossed by ice-covered drainage channels. This is not Somerset, but it shows a similar problem: in very low-lying land, water levels must be managed with channels and pumping."
     },
     {
       "id": "hannibal-mississippi-levee",
@@ -110,7 +109,7 @@
     },
     {
       "id": "puerto-rico-seismometer",
-      "caption": "USGS scientists install a seismometer in Puerto Rico. Networks of instruments like this record slip and shaking along faults such as the San Andreas."
+      "caption": "USGS scientists install a seismometer in Puerto Rico. Networks of instruments like this record the shaking from earthquakes on faults such as the San Andreas."
     }
   ],
   "cascadia": [
@@ -168,13 +167,16 @@
     },
     {
       "id": "place-us-la",
-      "caption": "Landsat image of the Chandeleur Islands, Louisiana. These barrier islands are remnants of an abandoned Mississippi delta lobe, now eroding as sediment supply has moved elsewhere."
+      "caption": "Landsat image of the northern Gulf coast (colours enhanced). The faint curved arc at lower left is the Chandeleur Islands, remnants of an abandoned Mississippi delta lobe, now eroding because the river's sediment goes elsewhere. Delta marshes lie to their left; the coast across the top is Mississippi and Alabama."
+    },
+    {
+      "id": "mississippi-delta-sts062"
     }
   ],
   "yosemite": [
     {
       "id": "yosemite-topographic-sheet",
-      "caption": "USGS topographic sheet of Yosemite Creek, inside Yosemite National Park. Closely spaced contours mark the steep valley walls."
+      "caption": "USGS topographic sheet of Yosemite Creek, in the uplands north of Yosemite Valley. Closely spaced contours mark the steep sides of the creek's valley; Yosemite Valley itself is off this extract."
     },
     {
       "id": "aletsch-glacier",
@@ -264,7 +266,7 @@
   "outer-banks": [
     {
       "id": "place-us-la",
-      "caption": "Landsat image of the Chandeleur barrier islands, Louisiana. Like the Outer Banks, these narrow sandy islands are reshaped by storms; they illustrate the process, not North Carolina."
+      "caption": "Landsat image of the northern Gulf coast (colours enhanced). Like the Outer Banks, the narrow barrier islands off Mississippi and Alabama (top) and Louisiana's Chandeleur Islands (faint arc, lower left) are reshaped by storms. This image illustrates the process, not North Carolina."
     },
     {
       "id": "ike-bolivar-surge",
@@ -339,8 +341,7 @@
       "caption": "Hong Kong's harbour and high-rise waterfront, which Mangkhut's winds and storm surge struck in September 2018."
     },
     {
-      "id": "place-mo",
-      "caption": "A bridge over the coastal waters of Macau, in the Pearl River Delta. Mangkhut's storm surge flooded low-lying parts of Macau in 2018."
+      "id": "macau-inner-harbour"
     },
     {
       "id": "isabel-hurricane-eye",
