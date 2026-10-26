@@ -276,13 +276,13 @@
     ]
   },
   {
-    "source": "nps-soil-texture",
+    "source": "soil-hands-montana",
     "terms": [
       "Texture",
       "USDA texture triangle",
       "Ternary plot"
     ],
-    "caption": "NPS scientists examine soil texture in the field. Sand, silt and clay proportions can be plotted on a ternary texture triangle; the photograph shows the sampled material and fieldwork."
+    "caption": "Soil scientists judge texture by feel in the field. Sand, silt and clay proportions can be plotted on a ternary texture triangle; the photograph shows the sampled material and fieldwork."
   },
   {
     "source": "greens-mill-sundial",
@@ -465,7 +465,7 @@
     ]
   },
   {
-    "source": "chukurovo-lignite",
+    "source": "bedford-coal-seam",
     "terms": [
       "Fossil fuel"
     ]
@@ -557,7 +557,7 @@
     ]
   },
   {
-    "source": "graw-radiosondes",
+    "source": "lake-charles-sounding",
     "terms": [
       "Radiosonde",
       "Lapse rate"
@@ -587,7 +587,7 @@
     ]
   },
   {
-    "source": "puerto-rico-seismometer",
+    "source": "seismograph-drum",
     "terms": [
       "P-wave",
       "S-wave",
@@ -1083,7 +1083,7 @@
     "caption": "Mantle peridotite carried to the surface as a xenolith within volcanic rock. It provides a sample of solid upper mantle. The lithosphere includes crust and rigid upper mantle; the green xenolith is not a piece of crust."
   },
   {
-    "source": "nps-soil-texture",
+    "source": "soil-hands-montana",
     "terms": [
       "Loam"
     ]

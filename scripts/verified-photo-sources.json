@@ -360,16 +360,6 @@
     "kind": "photo"
   },
   {
-    "id": "nps-soil-texture",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/NPS_soil_scientists_with_the_Inventory_%26_Monitoring_program_determine_the_texture_%28how_much_sand%2C_silt%2C_and_clay%29_of_part_of_a_%286cd0f90d-1dd8-b71b-0bc0-639e1da883a2%29.JPG/1280px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NPS_soil_scientists_with_the_Inventory_%26_Monitoring_program_determine_the_texture_(how_much_sand,_silt,_and_clay)_of_part_of_a_(6cd0f90d-1dd8-b71b-0bc0-639e1da883a2).JPG",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:NPS_soil_scientists_with_the_Inventory_%26_Monitoring_program_determine_the_texture_(how_much_sand,_silt,_and_clay)_of_part_of_a_(6cd0f90d-1dd8-b71b-0bc0-639e1da883a2).JPG",
-    "credit": "NPS / Wikimedia Commons · Public domain · resized",
-    "alt": "National Park Service soil scientists examine a freshly sampled soil profile and record its texture.",
-    "caption": "NPS fieldwork at Chesapeake and Ohio Canal National Historical Park. Texture describes the proportions of sand, silt and clay in the mineral soil.",
-    "kind": "photo"
-  },
-  {
     "id": "greens-mill-sundial",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Green%27s_Windmill_sundial_1265.JPG/1280px-Green%27s_Windmill_sundial_1265.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Green%27s_Windmill_sundial_1265.JPG",
@@ -507,16 +497,6 @@
     "credit": "Kevin M. Gill / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "A rounded specimen of augen gneiss with pale mineral eyes enclosed in dark, folded bands.",
     "caption": "Augen gneiss: deformation and metamorphism organize minerals into bands around larger crystals. Rock-cycle pathways need not follow one fixed loop.",
-    "kind": "photo"
-  },
-  {
-    "id": "berlin-soil-profile",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Soil_profile_in_Wuhlheide_in_Berlin-K%C3%B6penick_2020-08-11_03.jpg/1280px-Soil_profile_in_Wuhlheide_in_Berlin-K%C3%B6penick_2020-08-11_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Soil_profile_in_Wuhlheide_in_Berlin-K%C3%B6penick_2020-08-11_03.jpg",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "credit": "Leonhard Lenz / Wikimedia Commons · CC0 · resized",
-    "alt": "An exposed soil profile beneath woodland at Wuhlheide in Berlin, with a measuring tape against the face.",
-    "caption": "A measured field profile in Wuhlheide, Berlin. Color and texture vary down the soil; horizon boundaries must be identified from field evidence.",
     "kind": "photo"
   },
   {
@@ -700,16 +680,6 @@
     "kind": "photo"
   },
   {
-    "id": "chukurovo-lignite",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Lignite-coal.jpg/1280px-Lignite-coal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lignite-coal.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Edal Anton Lefterov / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Brown coal exposed at Chukurovo in Bulgaria.",
-    "caption": "Lignite at Chukurovo, Bulgaria. This fossil fuel formed from buried plant material; combustion transfers its stored carbon to the atmosphere.",
-    "kind": "photo"
-  },
-  {
     "id": "reunion-foehn-wall",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Foehn_cloud_coteau_Kerv%C3%A9guen_%40_Cilaos_01.jpg/1280px-Foehn_cloud_coteau_Kerv%C3%A9guen_%40_Cilaos_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Foehn_cloud_coteau_Kerv%C3%A9guen_@_Cilaos_01.jpg",
@@ -820,16 +790,6 @@
     "kind": "photo"
   },
   {
-    "id": "graw-radiosondes",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Two_modern_Graw_radiosondes_with_desktop_SDR_receiver.jpg/1280px-Two_modern_Graw_radiosondes_with_desktop_SDR_receiver.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_modern_Graw_radiosondes_with_desktop_SDR_receiver.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Paul Wynter / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Graw DFM radiosondes and a radio receiver arranged on a table.",
-    "caption": "Balloon-borne radiosondes transmit measurements of the atmosphere. Profiles of temperature, humidity and pressure help locate inversions and estimate lapse rates.",
-    "kind": "photo"
-  },
-  {
     "id": "sossusvlei-dunes",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Sossusvlei_Dune_Namib_Desert_Namibia_Luca_Galuzzi_2004.JPG/1280px-Sossusvlei_Dune_Namib_Desert_Namibia_Luca_Galuzzi_2004.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sossusvlei_Dune_Namib_Desert_Namibia_Luca_Galuzzi_2004.JPG",
@@ -847,16 +807,6 @@
     "credit": "Jakub Hałun / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "The isolated rock stack Hvítserkur rises from shallow coastal water in northwestern Iceland.",
     "caption": "Hvítserkur, Iceland: a sea stack with openings eroded through its base.",
-    "kind": "photo"
-  },
-  {
-    "id": "puerto-rico-seismometer",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Installing_a_temporary_seismometer.jpg/1280px-Installing_a_temporary_seismometer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Installing_a_temporary_seismometer.jpg",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Installing_a_temporary_seismometer.jpg",
-    "credit": "Thomas Pratt, USGS. Public domain. / Wikimedia Commons · Public domain · resized",
-    "alt": "USGS scientists install a field seismometer at Sabana Yeguas, Puerto Rico.",
-    "caption": "USGS scientists install a seismometer at Sabana Yeguas, Puerto Rico, on 10 January 2020. Its records show the arrival of P waves, S waves and surface waves.",
     "kind": "photo"
   },
   {
@@ -1360,16 +1310,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-am",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Armenia_landscape_2019.jpg/1280px-Armenia_landscape_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Armenia_landscape_2019.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Kokiniatsi27 / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Wooded hills and a road through a valley in Armenia.",
-    "caption": "Armenia. Wooded slopes and valley routes show how relief shapes access and land use.",
-    "kind": "photo"
-  },
-  {
     "id": "place-ao",
     "url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Angola_landscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angola_landscape.jpg",
@@ -1427,16 +1367,6 @@
     "credit": "Diego Delso / Wikimedia Commons · CC BY-SA 3.0 · cropped and resized",
     "alt": "A blue river winding through a green valley with villages, below rocky limestone mountains.",
     "caption": "The Trebišnjica river winding through a valley near Gornji Orahovac, southern Bosnia and Herzegovina, between bare limestone mountains.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-be",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Belgium-Freyr-Castle-Garden.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Belgium-Freyr-Castle-Garden.JPG",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Ben Pirard / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Freÿr limestone cliffs across the Meuse beside the castle gardens in Belgium.",
-    "caption": "Freÿr, Belgium. Limestone cliffs and pinnacles rise from the wooded slopes of the Meuse valley above the castle gardens.",
     "kind": "photo"
   },
   {
@@ -1547,16 +1477,6 @@
     "credit": "Momotlemcen13 / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Low coastal hills overlooking the sea in Algeria.",
     "caption": "Coastal Algeria. Mediterranean hills contrast with the much drier interior of the country.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-ec",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Ecuador_Landscape_Light_Shadow.jpg/1280px-Ecuador_Landscape_Light_Shadow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ecuador_Landscape_Light_Shadow.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Kilobug / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Cloud and sunlight across wooded mountain slopes in Ecuador.",
-    "caption": "Ecuador. Mountain relief changes temperature and rainfall over short distances.",
     "kind": "photo"
   },
   {
@@ -1830,16 +1750,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-mt",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/MALTA_24.10.2025.jpg/1280px-MALTA_24.10.2025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MALTA_24.10.2025.jpg",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "credit": "August Dominus / Wikimedia Commons · CC0 · resized",
-    "alt": "Low fields, stone boundaries and buildings on Malta.",
-    "caption": "Malta. Thin soils and seasonal dryness make soil and water conservation important.",
-    "kind": "photo"
-  },
-  {
     "id": "place-mx",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Large_cloud_over_Mexican_landscape.jpg/1280px-Large_cloud_over_Mexican_landscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Large_cloud_over_Mexican_landscape.jpg",
@@ -1930,16 +1840,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-pl",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Landscape_of_Lesser_Poland_Voivodeship%2C_September_2023%2C_01.jpg/1280px-Landscape_of_Lesser_Poland_Voivodeship%2C_September_2023%2C_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_of_Lesser_Poland_Voivodeship,_September_2023,_01.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Kgbo / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Fields, scattered trees and low hills in Lesser Poland.",
-    "caption": "Lesser Poland. Agricultural land occupies gently rolling ground between wooded patches.",
-    "kind": "photo"
-  },
-  {
     "id": "place-py",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Atardecer_en_la_Reserva_Mbatov%C3%AD_Paraguay.jpg/1280px-Atardecer_en_la_Reserva_Mbatov%C3%AD_Paraguay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Atardecer_en_la_Reserva_Mbatov%C3%AD_Paraguay.jpg",
@@ -2020,16 +1920,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-sn",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Refane_landscape.jpg/1280px-Refane_landscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Refane_landscape.jpg",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "credit": "Catjacket / Wikimedia Commons · CC0 · resized",
-    "alt": "Bare sandy ground and scattered trees at the edge of Refane, Senegal, in the dry season.",
-    "caption": "Refane, Senegal. A long dry season limits vegetation cover between periods of rainfall.",
-    "kind": "photo"
-  },
-  {
     "id": "place-sy",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Maaloula_landscape_in_Syria.JPG/1280px-Maaloula_landscape_in_Syria.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maaloula_landscape_in_Syria.JPG",
@@ -2077,16 +1967,6 @@
     "credit": "brian25_tw / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "Buildings in Beitun, Taichung, with Taiwan's mountains behind them.",
     "caption": "Taichung, Taiwan. Urban lowlands lie beside a high mountain belt formed at a plate boundary.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-ua",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Pecherskyi_Landscape_Park.JPG/1280px-Pecherskyi_Landscape_Park.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pecherskyi_Landscape_Park.JPG",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Сергій Криниця (Haidamac) / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "The Dnipro valley and bridges seen from Pecherskyi Landscape Park in Kyiv, Ukraine.",
-    "caption": "Kyiv, Ukraine. The broad Dnipro valley separates higher ground and provides a transport corridor.",
     "kind": "photo"
   },
   {
@@ -2157,16 +2037,6 @@
     "credit": "User:Kgwo1972 / Wikimedia Commons · Public domain · resized",
     "alt": "Rolling Kansas grassland with two traditional farm windmills.",
     "caption": "Rolling grassland in Kansas, with two farm windmills that pump groundwater for livestock. Grass cover protects the soil of the Great Plains from wind erosion.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-ky",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Pathfork%2C_Kentucky_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pathfork,_Kentucky_2.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "User:Nitefirre / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Houses along a wooded valley at Pathfork, Kentucky.",
-    "caption": "Pathfork, Kentucky. Appalachian relief concentrates settlement along narrow valleys.",
     "kind": "photo"
   },
   {
@@ -2610,16 +2480,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-ia",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Loess_Hills_0633.jpg/1280px-Loess_Hills_0633.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loess_Hills_0633.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Chris Light / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Contour-plowed fields on the Loess Hills of western Iowa.",
-    "caption": "Western Iowa. Wind-deposited silt forms fertile but erosion-prone hills; contour farming follows their slopes.",
-    "kind": "photo"
-  },
-  {
     "id": "place-jm",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Fog_hangs_over_the_village_of_Section_in_the_Blue_Mountains_of_Portland_Parish%2C_Jamaica.jpg/1280px-Fog_hangs_over_the_village_of_Section_in_the_Blue_Mountains_of_Portland_Parish%2C_Jamaica.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fog_hangs_over_the_village_of_Section_in_the_Blue_Mountains_of_Portland_Parish,_Jamaica.jpg",
@@ -2727,16 +2587,6 @@
     "credit": "Eirian Evans / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "The Thames Barrier's silver piers beside the tidal river in London.",
     "caption": "Thames Barrier, London. Movable gates reduce tidal-surge flood risk upstream; they do not remove every source of river or surface-water flooding.",
-    "kind": "photo"
-  },
-  {
-    "id": "shibukawa-terrestrial-globe",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Terrestrial_Globe_and_Celestial_Globe_17th_century_Japan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Terrestrial_Globe_and_Celestial_Globe_17th_century_Japan.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Momotarou2012 / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Shibukawa Shunkai's 1695 terrestrial globe above a celestial globe in a Tokyo museum display.",
-    "caption": "A physical terrestrial globe made by Shibukawa Shunkai in 1695, photographed in Japan's National Museum of Nature and Science. Narrow printed gores are one method of covering a sphere; the assembled surface avoids the interruptions of a flattened world map.",
     "kind": "photo"
   },
   {
@@ -3298,5 +3148,245 @@
     "alt": "Northwest corner of a USGS US Topo map of Covington, Louisiana, with a 1 km UTM grid labeled 776000 m E and 3377000 m N, and principal digits 77 to 83 along the top edge.",
     "caption": "Part of the USGS US Topo map of Covington, Louisiana (2018). Thin lines mark the 1 km UTM grid used by the US National Grid; the corner labels give full coordinates (776000 m E, 3377000 m N), and the large two-digit numbers are the principal digits read in a grid reference.",
     "kind": "scientific-image"
+  },
+  {
+    "id": "soil-hands-montana",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Soil+Survey09+%2839041768842%29.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Soil_Survey09_(39041768842).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Soil_Survey09_(39041768842).jpg",
+    "credit": "USDA NRCS Montana / Wikimedia Commons · Public domain · resized",
+    "alt": "Two cupped hands holding a handful of dark, crumbly topsoil.",
+    "caption": "A handful of topsoil. Soil scientists judge texture by feel: sand is gritty, silt is smooth like flour, and clay is sticky and can be pressed into a ribbon.",
+    "kind": "photo"
+  },
+  {
+    "id": "bama-soil-profile",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Bama+soil.png&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bama_soil.png",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Bama_soil.png",
+    "credit": "USDA Employee / Wikimedia Commons · Public domain · cropped",
+    "alt": "The upper part of a soil profile: brown topsoil grading down into thick red subsoil, with a depth scale in feet.",
+    "caption": "Bama, Alabama's state soil. Brown topsoil sits over a thick red subsoil colored by iron oxides; the scale on the left is in feet.",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "palouse-hills-nrcs",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=NRCSWA84001+-+Washington+%286775%29%28NRCS+Photo+Gallery%29.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NRCSWA84001_-_Washington_(6775)(NRCS_Photo_Gallery).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:NRCSWA84001_-_Washington_(6775)(NRCS_Photo_Gallery).jpg",
+    "credit": "Photo by Tim McCabe, USDA Natural Resources Conservation Service. / Wikimedia Commons · Public domain · resized",
+    "alt": "Rolling wheat fields on smooth loess hills in the Palouse region of eastern Washington.",
+    "caption": "The Palouse, eastern Washington. Soil on these wind-deposited loess hills changes from hilltop to footslope as water and sediment move downslope.",
+    "kind": "photo"
+  },
+  {
+    "id": "iowa-rill-erosion",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=NRCSIA99145+-+Iowa+%282991%29%28NRCS+Photo+Gallery%29.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:NRCSIA99145_-_Iowa_(2991)(NRCS_Photo_Gallery).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:NRCSIA99145_-_Iowa_(2991)(NRCS_Photo_Gallery).jpg",
+    "credit": "Photo by Lynn Betts, USDA Natural Resources Conservation Service. / Wikimedia Commons · Public domain · resized",
+    "alt": "A sloping cornfield in western Iowa cut by rills and a gully where runoff has washed soil away.",
+    "caption": "Rill and gully erosion in a western Iowa cornfield. Runoff has carried away young corn plants, topsoil and nutrients from the loess soil.",
+    "kind": "photo"
+  },
+  {
+    "id": "joshua-tree-granite",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Boulders+in+Joshua+Tree+National+Park.JPG&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boulders_in_Joshua_Tree_National_Park.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "credit": "PatríciaR / Wikimedia Commons · CC BY-SA 2.5 · resized",
+    "alt": "Rounded, stacked granite boulders under a cloudy sky in Joshua Tree National Park.",
+    "caption": "Granite boulders in Joshua Tree National Park, California. Weathering along cracks in the granite rounds the blocks into piles of boulders.",
+    "kind": "photo"
+  },
+  {
+    "id": "ichetucknee-spring-run",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Ichetucknee+River+6.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ichetucknee_River_6.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Michael Rivera / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "The clear, shallow Ichetucknee River flowing between grassy, wooded banks in Florida.",
+    "caption": "The Ichetucknee River in Florida is fed by springs: groundwater from the limestone aquifer flows out at the surface and keeps the water clear.",
+    "kind": "photo"
+  },
+  {
+    "id": "florida-sinkhole-lakes-iss",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=LakeWales%26FrostproofFromTheISS.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:LakeWales%26FrostproofFromTheISS.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:LakeWales%26FrostproofFromTheISS.jpg",
+    "credit": "NASA/Chris Hadfield / Wikimedia Commons · Public domain · resized",
+    "alt": "Astronaut photograph of central Florida dotted with round, dark lakes among farm fields.",
+    "caption": "Central Florida from the International Space Station, near Lake Wales. Many of the round lakes fill sinkholes formed where the limestone below dissolved.",
+    "kind": "photo"
+  },
+  {
+    "id": "hannah-bay-raised-shorelines",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Hannah+Bay.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hannah_Bay.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Hannah_Bay.jpg",
+    "credit": "NASA / Wikimedia Commons · Public domain · resized",
+    "alt": "Space Shuttle view of snow-covered land around Hannah Bay with many curved, parallel lines of old shorelines.",
+    "caption": "Hannah Bay, at the south end of James Bay, Canada, in winter. Snow picks out dozens of old shorelines left behind as the land rose after the ice sheet melted.",
+    "kind": "photo"
+  },
+  {
+    "id": "rainy-lake-thunderhead",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Clouds+over+Rainy+Lake+13+Oct+2013+041.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clouds_over_Rainy_Lake_13_Oct_2013_041.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Jfred1962 / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A towering thunderhead cloud backlit by the Sun, with rays of light spreading across a blue sky.",
+    "caption": "A thunderhead over Rainy Lake, Minnesota. Water evaporated from lakes and land rises, cools and condenses into cloud before falling again as rain.",
+    "kind": "photo"
+  },
+  {
+    "id": "wutach-gauchach-confluence",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Wutach+-+Gauchach+-+Confluence+01.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wutach_-_Gauchach_-_Confluence_01.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "H. Zell / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "A shallow river flowing through a steep, wooded gorge in the Black Forest, Germany.",
+    "caption": "The Wutach Gorge, Black Forest, Germany. After the Wutach was captured by a steeper Rhine tributary, it cut this deep gorge.",
+    "kind": "photo"
+  },
+  {
+    "id": "iowa-loess-hills",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Loess+hills.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loess_hills.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Bill Whittaker / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Steep, grassy Loess Hills rising behind a cornfield east of Mondamin, Iowa.",
+    "caption": "The Loess Hills near Mondamin, western Iowa. The hills are built of loess: wind-blown sediment made mostly of silt.",
+    "kind": "photo"
+  },
+  {
+    "id": "cumberland-falls",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Cumberland+Falls+%28east+of+Honeybee%2C+Kentucky%2C+USA%29+1+%2819414070703%29.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cumberland_Falls_(east_of_Honeybee,_Kentucky,_USA)_1_(19414070703).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "James St. John / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "A broad waterfall pouring over a sandstone ledge into a rocky gorge in Kentucky.",
+    "caption": "Cumberland Falls, Kentucky. The Cumberland River drops about 20 m over a resistant sandstone ledge on the Cumberland Plateau.",
+    "kind": "photo"
+  },
+  {
+    "id": "lac-rose-senegal",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Lac+rose+au+S%C3%A9n%C3%A9gal.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lac_rose_au_S%C3%A9n%C3%A9gal.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Abrahami / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Painted wooden boats on the shore of a pink salt lake in Senegal.",
+    "caption": "Lac Rose (Lake Retba), Senegal. Very salty water and salt-loving microbes give this coastal lake its pink color.",
+    "kind": "photo"
+  },
+  {
+    "id": "cotopaxi-paramo",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Cotopaxi+01.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cotopaxi_01.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Bernard Gagnon / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "The snow-capped cone of Cotopaxi volcano rising above high grassland under scattered clouds.",
+    "caption": "Cotopaxi, Ecuador, one of the highest active volcanoes in the world (5,897 m), seen across the páramo grassland of the Andes.",
+    "kind": "photo"
+  },
+  {
+    "id": "lake-sevan",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=2014+Prowincja+Gegharkunik%2C+Jezioro+Sewan+widziane+z+p%C3%B3%C5%82wyspu+Sewan+%2806%29.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2014_Prowincja_Gegharkunik,_Jezioro_Sewan_widziane_z_p%C3%B3%C5%82wyspu_Sewan_(06).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Marcin Konsek / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A pebble beach and clear water on the shore of Lake Sevan, Armenia, under a blue sky.",
+    "caption": "Lake Sevan, Armenia, a large freshwater lake about 1,900 m above sea level in the Lesser Caucasus.",
+    "kind": "photo"
+  },
+  {
+    "id": "semois-valley",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Alle-sur-Semois+viewed+from+the+GR16+%28DSCF4844%29.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alle-sur-Semois_viewed_from_the_GR16_(DSCF4844).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Trougnouf (Benoit Brummer) / Wikimedia Commons · CC BY 4.0 · resized",
+    "alt": "A misty, forested valley with a river winding below, framed by bare winter trees.",
+    "caption": "The Semois valley in the Belgian Ardennes, where the river has cut deep meanders into old, uplifted rock.",
+    "kind": "photo"
+  },
+  {
+    "id": "dingli-cliffs",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Dingli+Cliffs+2009.JPG&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dingli_Cliffs_2009.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "credit": "Felix König / Wikimedia Commons · CC BY 3.0 · resized",
+    "alt": "Limestone cliffs dropping steeply to the sea on the coast of Malta, with a small building on the top.",
+    "caption": "The Dingli Cliffs, Malta, near the island's highest point, where limestone layers end in steep sea cliffs.",
+    "kind": "photo"
+  },
+  {
+    "id": "morskie-oko",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Morskie+Oko+2019.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Morskie_Oko_2019.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "kallerna / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A mountain lake below steep, snow-streaked granite peaks in the Tatra Mountains, Poland.",
+    "caption": "Morskie Oko, Tatra Mountains, Poland. The lake fills a basin carved by glaciers below granite peaks.",
+    "kind": "photo"
+  },
+  {
+    "id": "carpathian-valley",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=%D0%9A%D0%B0%D1%80%D0%BF%D0%B0%D1%82%D1%81%D0%BA%D0%B8%D0%B9+05.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D1%80%D0%BF%D0%B0%D1%82%D1%81%D0%BA%D0%B8%D0%B9_05.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Balkhovitin / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "A wide green mountain valley in the Carpathians with sunbeams breaking through cloud.",
+    "caption": "The Carpathian Mountains, Ukraine, seen from the slopes of Hoverla, the country's highest peak.",
+    "kind": "photo"
+  },
+  {
+    "id": "chinook-arch",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Chinook-arch-01.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinook-arch-01.jpg",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "credit": "Surrealplaces / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "A band of orange-lit cloud with a clear strip of sky beneath it over a suburban skyline.",
+    "caption": "A chinook arch over Calgary, Canada. As warm, dry air sinks down the lee of the Rocky Mountains, it leaves a clear strip below a long bank of cloud.",
+    "kind": "photo"
+  },
+  {
+    "id": "lake-charles-sounding",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=December+16th%2C+2019+Lake+Charles+Radiosonde+Launch.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:December_16th,_2019_Lake_Charles_Radiosonde_Launch.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:December_16th,_2019_Lake_Charles_Radiosonde_Launch.jpg",
+    "credit": "Storm Prediction Center / Wikimedia Commons · Public domain · resized",
+    "alt": "A skew-T chart from a weather-balloon sounding, with red temperature and green dew-point lines rising through the atmosphere.",
+    "caption": "Weather-balloon sounding from Lake Charles, Louisiana, 16 December 2019. The radiosonde measured temperature (red) and dew point (green) with height; the slope of the red line shows the lapse rate.",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "kpg-trinidad-lake",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=K-T+boundary+TLSP.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:K-T_boundary_TLSP.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "credit": "Nationalparks / Wikimedia Commons · CC BY-SA 2.5 · resized",
+    "alt": "A rock outcrop with a dashed line drawn along a thin pale layer between darker beds below and sandstone above.",
+    "caption": "The K–Pg boundary at Trinidad Lake State Park, Colorado. The dashed line marks the thin clay layer laid down about 66 million years ago, when the non-bird dinosaurs died out.",
+    "kind": "photo"
+  },
+  {
+    "id": "bedford-coal-seam",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Bedford+Coal+%28Middle+Pennsylvanian%3B+Noland+Tunnel%27s+north+portal+outcrop%2C+Tunnel+Hill%2C+Coshocton+County%2C+Ohio%2C+USA%29+6+%2830235221423%29.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bedford_Coal_(Middle_Pennsylvanian;_Noland_Tunnel%27s_north_portal_outcrop,_Tunnel_Hill,_Coshocton_County,_Ohio,_USA)_6_(30235221423).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "James St. John / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "A rock face with a dark, layered coal seam between paler beds, with dry leaves on the ledges.",
+    "caption": "A coal seam in Coshocton County, Ohio, about 310 million years old. Coal forms from buried swamp plants; burning it releases carbon stored for millions of years.",
+    "kind": "photo"
+  },
+  {
+    "id": "seismograph-drum",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Seismogram+on+historical+seismometer+at+Institute+of+Geophysis+of+the+Czech+Academy+of+Science+%2812%29.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seismogram_on_historical_seismometer_at_Institute_of_Geophysis_of_the_Czech_Academy_of_Science_(12).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Petr Brož (Czech Academy of Science) / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A pen arm resting on a white paper drum covered in fine parallel lines, one section showing a burst of wiggles.",
+    "caption": "A seismograph drum records ground motion as a line on paper. The burst of wiggles is an earthquake: P-waves arrive first, then S-waves and surface waves.",
+    "kind": "photo"
   }
 ]
