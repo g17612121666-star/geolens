@@ -3,10 +3,6 @@
     {
       "id": "meteosat-march-equinox",
       "caption": "Meteosat satellite image at the March equinox: the terminator runs nearly pole to pole, as in the model when neither hemisphere tilts towards the Sun."
-    },
-    {
-      "id": "greens-mill-sundial",
-      "caption": "A sundial in Nottingham. Its shadow is long in winter and short in summer because the noon Sun's altitude changes with the seasons."
     }
   ],
   "rotation": [
@@ -40,7 +36,7 @@
     },
     {
       "id": "swarm-core-field",
-      "caption": "Swarm satellite maps of Earth's magnetic field. The field is generated mainly by moving liquid iron in the outer core."
+      "caption": "Maps of magnetic-field strength at Earth's surface in 2014 and 2025, modelled from Swarm satellite measurements (colours show nanotesla). The field is generated mainly by moving liquid iron in the outer core, not by a permanent bar magnet."
     },
     {
       "id": "puerto-rico-seismometer",
@@ -58,7 +54,7 @@
     },
     {
       "id": "noaa-puerto-rico-trench",
-      "caption": "NOAA seafloor relief map of the Puerto Rico Trench, a deep trench along a convergent plate boundary. Colours and labels are a visualisation of measured depth."
+      "caption": "NOAA seafloor relief of the Puerto Rico Trench, where the North American Plate meets the Caribbean Plate at an oblique convergent boundary. Colours show measured depth with vertical relief exaggerated; the labels and boundary lines are added interpretation."
     }
   ],
   "contours": [
@@ -194,7 +190,7 @@
     },
     {
       "id": "noaa-arctic-seamount",
-      "caption": "NOAA multibeam survey of an Arctic seamount. Volcanoes carried off a hotspot can sink to become seamounts like this."
+      "caption": "NOAA multibeam survey of an Arctic seamount, shown in 3D with colours for depth; the vertical scale is probably exaggerated. Volcanoes carried away from a hotspot can cool and sink to become seamounts, although not every seamount forms this way."
     },
     {
       "id": "kilauea-lava-fountain",
@@ -232,7 +228,7 @@
   "energy-budget": [
     {
       "id": "ceres-reflected-2000-2015",
-      "caption": "NASA CERES satellite map of reflected sunlight: the shortwave energy the model sends back to space from clouds, ice and bright surfaces."
+      "caption": "NASA CERES satellite map of reflected sunlight, 2000–2015 average: shortwave energy that clouds, ice and bright surfaces send back to space."
     },
     {
       "id": "ceres-longwave-2015",
@@ -322,7 +318,7 @@
     },
     {
       "id": "lena-delta-landsat",
-      "caption": "Landsat image of the Lena Delta: the river's mouth, where its basin's water reaches the Arctic Ocean."
+      "caption": "False-colour Landsat image of the Lena Delta, Russia: the river's mouth, where water from its basin reaches the Arctic Ocean."
     }
   ],
   "hydrograph": [
@@ -346,7 +342,7 @@
     },
     {
       "id": "huey-creek-gauge",
-      "caption": "A USGS stream gauge in Antarctica. Year-round records of stage and discharge reveal a river's regime."
+      "caption": "A USGS stream gauge at Huey Creek, Antarctica. Fed by glacier meltwater, the stream flows only for a few weeks in the southern summer. Records of stage and discharge reveal this strongly seasonal regime."
     }
   ],
   "ocean-currents": [
@@ -394,7 +390,7 @@
     },
     {
       "id": "amsre-warm-pool-anomaly",
-      "caption": "AMSR-E sea-surface temperature anomalies around the western Pacific warm pool, where trade winds pile up warm water."
+      "caption": "AMSR-E map of sea-surface temperature anomalies, 19 October 2004. Blue water was cooler than average and orange warmer. The warm pool north of Australia still held some of the warmest water on Earth; it was simply less warm than usual. Alt text: 'Global AMSR-E map of sea-surface temperature anomalies, blue where cooler than average and orange where warmer.'"
     }
   ],
   "landform-types": [
@@ -488,7 +484,7 @@
     },
     {
       "id": "kyllini-stalactites",
-      "caption": "Stalactites in a Greek cave, deposited as dripping water loses carbon dioxide."
+      "caption": "A calcite column in a Greek cave, with small stalactites on the roof behind. Both grow as dripping water loses carbon dioxide."
     },
     {
       "id": "mammoth-cave-broadway",
@@ -497,8 +493,8 @@
   ],
   "folds-faults": [
     {
-      "id": "stillwater-reverse-fault",
-      "caption": "A reverse fault offsetting layers in a rock sample from Montana; the hanging wall has moved up relative to the footwall."
+      "id": "moine-thrust-knockan",
+      "caption": "The Moine Thrust at Knockan Crag, Scotland: a low-angle reverse fault (a thrust). The hanging wall above the fault plane carries older rocks over the younger footwall rocks below, recording compression."
     },
     {
       "id": "san-andreas-highsmith",
@@ -540,7 +536,7 @@
   "soil-profile": [
     {
       "id": "karelian-podzolic-soil",
-      "caption": "A podzolic soil in Karelia, with a pale leached E horizon above a browner B horizon."
+      "caption": "A podzolic soil in Karelia. A thin pale grey E horizon lies just below the dark topsoil, above a rusty-brown B horizon. The paler sand near the bottom is the parent material."
     },
     {
       "id": "nipe-oxisol",
@@ -568,7 +564,7 @@
     },
     {
       "id": "roots-in-bedrock",
-      "caption": "Tree roots growing into rock joints: biological weathering that can widen cracks."
+      "caption": "Tree roots spreading into soil-filled cracks above sandstone: as roots grow in joints they can prise them wider."
     },
     {
       "id": "malham-limestone-pavement",
@@ -648,7 +644,7 @@
     },
     {
       "id": "nasa-blue-marble-july",
-      "caption": "NASA Blue Marble in a latitude–longitude grid, where every meridian and parallel is drawn as a straight line."
+      "caption": "NASA Blue Marble on an equirectangular latitude–longitude grid. No lines are drawn here, but on this projection every meridian and parallel would plot as an evenly spaced straight line."
     }
   ],
   "map-projections": [
@@ -768,7 +764,7 @@
     },
     {
       "id": "place-us-la",
-      "caption": "Landsat image of the Chandeleur barrier islands, Louisiana, which storm surges and waves repeatedly overwash and break up."
+      "caption": "Landsat image of the northern Gulf coast (colours enhanced). The faint, broken arc at lower left is Louisiana's Chandeleur Islands, which storm surges and waves repeatedly overwash and break up. The brighter islands across the top lie off Mississippi and Alabama."
     }
   ]
 }

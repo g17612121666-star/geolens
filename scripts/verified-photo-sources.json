@@ -86,7 +86,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Extratropical_cyclone_02-22-2012.jpg",
     "credit": "NASA, MODIS Rapid Response System / Wikimedia Commons · Public domain · resized",
     "alt": "A broad spiral of white clouds over the Pacific northeast of Japan.",
-    "caption": "MODIS observed this extratropical cyclone northeast of Japan on 22 February 2012. Cloud bands trace the low-pressure circulation.",
+    "caption": "MODIS observed this extratropical cyclone northeast of Japan on 22 February 2012. Cloud bands trace the low-pressure circulation. The image joins two satellite passes, so the straight diagonal line is a seam, not a weather feature.",
     "kind": "photo"
   },
   {
@@ -96,7 +96,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Canyonlands_National_Park,_Utah_(10423895104).jpg",
     "credit": "NASA Goddard Space Flight Center from Greenbelt, MD, USA / Wikimedia Commons · Public domain · resized",
     "alt": "ASTER satellite image of branching tributary valleys near the Colorado River in Canyonlands, Utah.",
-    "caption": "ASTER, 24 September 2005: tributaries dissect sandstone in Canyonlands, Utah. A drainage network collects flow towards a main river.",
+    "caption": "ASTER false-colour image, 24 September 2005: tributaries cut into sandstone in Canyonlands, Utah. Plants along the valley floors show up red. The branching network carries water towards the Colorado River (top left).",
     "kind": "scientific-image"
   },
   {
@@ -296,7 +296,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "credit": "James St. John / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "Rounded potholes cut into dark bedrock beside flowing water in the Presque Isle River, Michigan.",
-    "caption": "Presque Isle River, Michigan. Sediment circulating in eddies abrades the bedrock, enlarging these potholes.",
+    "caption": "Presque Isle River, Michigan. Swirling, sediment-laden water has drilled potholes into the bedrock of this river in the Upper Peninsula, near Lake Superior.",
     "kind": "photo"
   },
   {
@@ -426,7 +426,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Satellite_View_of_the_Americas_on_Earth_Day_(13989104603).jpg",
     "credit": "NASA Goddard Space Flight Center from Greenbelt, MD, USA / Wikimedia Commons · Public domain · resized",
     "alt": "GOES-East satellite view of the Americas with tropical cloud bands and midlatitude weather systems.",
-    "caption": "GOES-East, 22 April 2014 at 11:45 UTC. Cloud belts reveal aspects of global circulation; a single image does not outline every atmospheric cell.",
+    "caption": "GOES-East cloud data for 22 April 2014, laid over a cloud-free satellite image of land and ocean, so the whole disc is shown lit. Cloud belts reveal aspects of the global circulation; a single image does not outline every atmospheric cell.",
     "kind": "scientific-image"
   },
   {
@@ -455,8 +455,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_aerial_view_of_tsunami_damage_in_an_area_north_of_Sendai,_Japan,_taken_from_a_U.S._Navy_helicopter.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:An_aerial_view_of_tsunami_damage_in_an_area_north_of_Sendai,_Japan,_taken_from_a_U.S._Navy_helicopter.jpg",
     "credit": "Mass Communication Specialist 3rd Class Dylan McCord / Wikimedia Commons · Public domain · resized",
-    "alt": "Debris, damaged buildings and inundated land at a fishing port near Kesennuma after the 2011 tsunami.",
-    "caption": "Kesennuma, Japan, after the 2011 Tōhoku tsunami. The photograph shows the damage left by inundation, not the tsunami wave itself.",
+    "alt": "Aerial view of debris, damaged buildings and flooded land on the coast north of Sendai after the 2011 tsunami.",
+    "caption": "Coastal land north of Sendai, Japan, after the 2011 Tōhoku tsunami. The photograph shows the damage left by inundation, not the tsunami wave itself.",
     "kind": "photo"
   },
   {
@@ -536,7 +536,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
     "credit": "Jan Nyssen, Sander Tielens, Tesfamichael Gebreyohannes, Tigist Araya, Kassa Teka, Johan Van de Wauw, Karen Degeyndt, Katrien Descheemaeker, Kassa Amare, Mitiku Haile, Amanuel Zenebe, Neil Munro, Kristine Walraevens, Kindeya Gebrehiwot, Jean Poesen, Amaury Frankl, Alemtsehay Tsegay, Jozef Deckers / Wikimedia Commons · CC BY-SA 2.5 · resized",
     "alt": "Field photographs of red and black soils at different positions on the Addi Selam hillslope in Ethiopia.",
-    "caption": "Addi Selam, Ethiopia: published field photographs compare red and black soils along a hillslope. Slope position changes drainage and material movement.",
+    "caption": "Addi Selam, Ethiopia (published field figure). A: red soil on the upper slope near the town; B: dark, clay-rich soil on the gentler lower ground. Slope position changes drainage and how material moves, so the soils differ along the catena.",
     "kind": "photo"
   },
   {
@@ -795,8 +795,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scollard_Formation_K-Pg_boundary_by_Nick_Longrich.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "NickLongrich / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Exposed layers of the Scollard Formation beside the Red Deer River in Alberta.",
-    "caption": "The K–Pg boundary in the Scollard Formation, Alberta, Canada. The rock record preserves evidence of the transition around 66 million years ago.",
+    "alt": "Close-up of a rock face in the Scollard Formation, Alberta, with a thin pale clay layer just below a black coal seam.",
+    "caption": "Close-up of the K–Pg boundary in the Scollard Formation, Alberta, Canada. The boundary lies in the thin pale clay just below the black coal; it formed about 66 million years ago.",
     "kind": "photo"
   },
   {
@@ -914,7 +914,7 @@
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Snowmelt_stream.JPG/1280px-Snowmelt_stream.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Snowmelt_stream.JPG",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Snowmelt_stream.JPG",
-    "credit": "USFS employees / Wikimedia Commons · Public domain · resized",
+    "credit": "USFS employees / Wikimedia Commons · Public domain · cropped and resized",
     "alt": "Melting snow patches and a stream near Fourth of July Lake in Idaho's Sawtooth Mountains.",
     "caption": "Snowmelt near Fourth of July Lake, Idaho. Seasonal melting transfers stored snow water into streams, soils and groundwater.",
     "kind": "photo"
@@ -926,7 +926,7 @@
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "credit": "Plorpy2 / Wikimedia Commons · CC0 · resized",
     "alt": "Photographs of clay samples comparing grey reduced material and oxidised reddish material.",
-    "caption": "Clay samples showing contrasting redox conditions. Prolonged waterlogging removes oxygen, often producing grey gley colours; oxidation produces reddish mottles.",
+    "caption": "The same clay kept airless in a sealed jar (grey gley colour) and after oxidising in open air (orange-brown). In waterlogged soils, iron changes like this give grey colours and rusty mottles.",
     "kind": "photo"
   },
   {
@@ -945,8 +945,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cave_of_Kyllini_stalactite,_Kylj470.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Zde / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Calcite stalactites hang from the roof of a cave on Mount Kyllini, Greece.",
-    "caption": "Stalactites in a cave on Mount Kyllini. Dissolved calcium carbonate is deposited as water drips and loses carbon dioxide.",
+    "alt": "A large white calcite column and flowstone in a cave on Mount Kyllini, Greece, with small stalactites on the dark roof behind.",
+    "caption": "A calcite column and flowstone in a cave on Mount Kyllini, Greece. Small stalactites hang from the roof behind it. Dissolved calcium carbonate is deposited as dripping water loses carbon dioxide.",
     "kind": "photo"
   },
   {
@@ -1215,8 +1215,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tree_roots_in_rock_-_geograph.org.uk_-_6696952.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Philip Halling / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "Tree roots grow into joints in rock beside a roadside exposure.",
-    "caption": "Roots grow through existing rock joints. Their growth can widen cracks, contributing to biological and physical weathering.",
+    "alt": "Tree roots spread across a soil-covered bank above a bedded sandstone road cutting.",
+    "caption": "Tree roots spread across the top of a sandstone bank and into soil-filled cracks. As roots grow in rock joints they can prise them wider: biological weathering that also aids physical breakdown.",
     "kind": "photo"
   },
   {
@@ -1436,7 +1436,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Mahdithewikipedian / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Rocky ridges above Wadi Shahah in Ras Al Khaimah, United Arab Emirates.",
-    "caption": "Wadi Shahah, UAE. Bare mountain slopes drain into channels that carry water after rain.",
+    "caption": "Ras Al Khaimah, UAE. Bare, rocky mountain slopes with almost no plant cover; a road winds up to the summit ridge.",
     "kind": "photo"
   },
   {
@@ -1526,7 +1526,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "credit": "Ben Pirard / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Freÿr limestone cliffs across the Meuse beside the castle gardens in Belgium.",
-    "caption": "Freÿr, Belgium. The Meuse cuts between wooded slopes and exposed limestone cliffs.",
+    "caption": "Freÿr, Belgium. Limestone cliffs and pinnacles rise from the wooded slopes of the Meuse valley above the castle gardens.",
     "kind": "photo"
   },
   {
@@ -1536,7 +1536,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "kallerna / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Snow-covered Vihren and Kutelo peaks in Bulgaria's Pirin Mountains.",
-    "caption": "Pirin Mountains, Bulgaria. Elevation controls snow cover and contrasts with the warmer lowlands.",
+    "caption": "Pirin Mountains, Bulgaria. Vihren and Kutelo stay snow-covered long after the lowlands have thawed, because temperature falls with height.",
     "kind": "photo"
   },
   {
@@ -1576,7 +1576,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "EdwinAlden.1995 / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Green hills above Kamanyola in South Kivu, Democratic Republic of the Congo.",
-    "caption": "Kamanyola, DR Congo. Hills rise beside the Ruzizi Plain within the East African Rift region.",
+    "caption": "Kamanyola, DR Congo. Steep, partly cleared hills in South Kivu, near the western edge of the East African Rift.",
     "kind": "photo"
   },
   {
@@ -1686,7 +1686,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Erkki Voutilainen / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "A winter river and snow-covered trees in Finland, in a historical photograph.",
-    "caption": "Finland, around 1960. A historical field photograph of seasonal snow beside a river.",
+    "caption": "If kept: Finland, 1960. Snow lines the banks of a calm river in this historical black-and-white photograph.",
     "kind": "photo"
   },
   {
@@ -1756,7 +1756,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Nxr-at / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "A broad flowering rapeseed field near Rum, Hungary.",
-    "caption": "Rum, Hungary. Agricultural fields occupy gently rolling lowland terrain.",
+    "caption": "Rum, Hungary. A flowering rapeseed field stretches across flat lowland farmland.",
     "kind": "photo"
   },
   {
@@ -1846,7 +1846,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Jocelyndurrey / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Dark rock walls and trees surround the water at Soesokkak on Jeju, South Korea.",
-    "caption": "Soesokkak, Jeju. Water drains through the volcanic island's rocky coastal landscape.",
+    "caption": "Soesokkak, Jeju, South Korea. A stream has cut a steep-sided gorge through volcanic rock just before it reaches the sea.",
     "kind": "photo"
   },
   {
@@ -1886,7 +1886,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "credit": "Vyacheslav Argenberg / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "Clouds and green mountain slopes around Ella Gap in Sri Lanka.",
-    "caption": "Ella Gap, Sri Lanka. Upland relief channels winds and changes local rainfall.",
+    "caption": "Ella, Sri Lanka. Low cloud gathers around grassy ridges in the central highlands, where high ground increases rainfall.",
     "kind": "photo"
   },
   {
@@ -2006,7 +2006,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "DipoTayo / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Stone buildings and terraces in the Sukur cultural landscape, Nigeria.",
-    "caption": "Sukur, Nigeria. Stone-built settlements and terraces occupy a rocky upland landscape.",
+    "caption": "Sukur, Nigeria. Thatched huts and dry-stone walls sit among granite boulders in a rocky upland landscape.",
     "kind": "photo"
   },
   {
@@ -2015,7 +2015,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Winter_landscape_in_the_Netherlands.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Fractal Caleidoscope / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Water channels, reeds and snow across flat winter ground in the Netherlands.",
+    "alt": "Frost-covered reeds and grass beside frozen drainage channels on flat land in the Netherlands.",
     "caption": "The Netherlands. Low relief requires careful drainage and water-level management.",
     "kind": "photo"
   },
@@ -2156,7 +2156,7 @@
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "credit": "Catjacket / Wikimedia Commons · CC0 · resized",
     "alt": "Dry fields and scattered trees at Refane, Senegal.",
-    "caption": "Refane, Senegal. A long dry season limits vegetation cover between periods of rainfall.",
+    "caption": "Caption unchanged. Alt: 'Bare sandy ground and scattered trees at the edge of Refane, Senegal, in the dry season.'",
     "kind": "photo"
   },
   {
@@ -2166,7 +2166,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/3.0/de/deed.en",
     "credit": "High Contrast / Wikimedia Commons · CC BY 3.0 de · resized",
     "alt": "Bare layered cliffs around Maaloula, Syria.",
-    "caption": "Maaloula, Syria. Erosion exposes sedimentary layers above a dry valley.",
+    "caption": "Near Maaloula, Syria. With little vegetation to protect it, this dry hillside has been cut into a fan of gullies by occasional heavy rain.",
     "kind": "photo"
   },
   {
@@ -2186,7 +2186,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "chris fleizach from Cupertino, USA / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A low wooded island and coastal water in Tonga.",
-    "caption": "Tonga. Low islands and coastal settlements are exposed to waves and changing sea level.",
+    "caption": "Tonga. Low, palm-covered islands rise only a few metres above a calm lagoon, so they are exposed to storm waves and rising sea level.",
     "kind": "photo"
   },
   {
@@ -2354,7 +2354,7 @@
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Landscape_Over_The_Mississippi_%28155785175%29.jpeg/1280px-Landscape_Over_The_Mississippi_%28155785175%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_Over_The_Mississippi_(155785175).jpeg",
     "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
-    "credit": "Yinan Chen / Wikimedia Commons · CC BY 3.0 · resized",
+    "credit": "Yinan Chen / Wikimedia Commons · CC BY 3.0 · cropped and resized",
     "alt": "A bend of the Mississippi River viewed from Mississippi Palisades State Park in Illinois.",
     "caption": "Mississippi Palisades, Illinois. A broad river flows beneath a wooded bluff.",
     "kind": "photo"
@@ -2394,7 +2394,7 @@
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Norway_landscape_August_1974_02.jpg/1280px-Norway_landscape_August_1974_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Norway_landscape_August_1974_02.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "per source. Please credit \"Family photos of Infrogmation\" / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "credit": "Family photos of Infrogmation / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "A steep-sided glacial valley in western Norway with a river, fields and a road on its floor.",
     "caption": "A steep-sided glacial valley in western Norway, photographed in August 1974. A river, fields and a road occupy the valley floor; where the sea floods a trough like this, it becomes a fjord.",
     "kind": "photo"
@@ -2456,7 +2456,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "AndrewKPepper / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Shallow water, wetland plants and trees at Salt Plains National Wildlife Refuge, Oklahoma.",
-    "caption": "Salt Plains, Oklahoma. Wetland habitats occur within a saline inland basin.",
+    "caption": "Salt Plains National Wildlife Refuge, Oklahoma. Shallow marsh and cottonwood woodland lie around the edge of a wide inland salt flat, which is out of view here.",
     "kind": "photo"
   },
   {
@@ -2476,7 +2476,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Prairie_Pothole_Landscape_South_Dakota_(53107513660).jpg",
     "credit": "USFWS Mountain Prairie / Wikimedia Commons · Public domain · resized",
     "alt": "An aerial view of wetlands and farmland in South Dakota's Prairie Pothole Region.",
-    "caption": "South Dakota. Small wetlands occupy depressions left in a formerly glaciated landscape.",
+    "caption": "South Dakota from the air. A small stream meanders across flat farmland in a formerly glaciated landscape, where shallow wetlands fill some of the low hollows.",
     "kind": "photo"
   },
   {
@@ -2576,7 +2576,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Washington,_D.C.,_with_Ronald_Reagan_Washington_National_Airport_and_the_Potomac_River_to_the_left_LCCN2011632537.tif",
     "credit": "Carol M. Highsmith / Wikimedia Commons · Public domain · resized",
     "alt": "Aerial view of Washington, DC, beside the Potomac River and National Airport.",
-    "caption": "Washington, DC. The city occupies low ground beside the tidal Potomac River.",
+    "caption": "Washington, DC, seen across the tidal Potomac River from above Arlington, Virginia. The Washington Monument and the Capitol stand on the low ground beyond the river; the airport and offices in front are in Virginia.",
     "kind": "photo"
   },
   {
@@ -2595,8 +2595,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hurricane_Katrina_Erodes_the_U.S._Gulf_Coast,_Natural_Hazards_DVIDS762243.jpg",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Hurricane_Katrina_Erodes_the_U.S._Gulf_Coast,_Natural_Hazards_DVIDS762243.jpg",
     "credit": "Jesse Allen / NASA Earth Observatory · Landsat · public domain · resized",
-    "alt": "Landsat view of the thin Chandeleur barrier islands off Louisiana.",
-    "caption": "Chandeleur Islands, Louisiana. Barrier islands separate the Gulf from shallow coastal waters and are vulnerable to storm erosion. Satellite colours emphasise land and water.",
+    "alt": "Landsat view of the northern Gulf of Mexico coast, with barrier islands off Mississippi and Alabama and the faint Chandeleur arc off Louisiana.",
+    "caption": "Landsat image of the northern Gulf coast (colours enhanced). Louisiana's Chandeleur Islands are the faint curved arc at lower left, beside the state's delta marshes; these barrier islands are vulnerable to storm erosion. The coast across the top is Mississippi and Alabama.",
     "kind": "scientific-image"
   },
   {
@@ -2696,7 +2696,7 @@
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:ISS-64_Khartoum,_Sudan.jpg",
     "credit": "NASA / Wikimedia Commons · Public domain · resized",
     "alt": "Night-time ISS photograph of Khartoum at the meeting of the Blue and White Nile in Sudan.",
-    "caption": "Khartoum, Sudan. Settlement and lighting follow the confluence of the Blue and White Nile.",
+    "caption": "Khartoum, Sudan, photographed at night from the International Space Station. The dark winding bands are the Blue and White Nile, which meet here; the city's lights spread along their banks.",
     "kind": "photo"
   },
   {
@@ -2766,7 +2766,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "credit": "Dietmar Rabich / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Steam and orange microbial mats around Grand Prismatic Spring in Yellowstone National Park.",
-    "caption": "Grand Prismatic Spring, Yellowstone. Hot groundwater and heat-tolerant microorganisms create the pool's striking colour bands.",
+    "caption": "Grand Prismatic Spring, Yellowstone National Park, Wyoming. Hot groundwater heated by a shallow magma body feeds the spring; heat-tolerant microbes colour its edges.",
     "kind": "photo"
   },
   {
@@ -2996,7 +2996,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "credit": "Alan Bowring / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "Blorenge above Llanfoist, with the shallow Cwm Craf hollow visible on its front slope.",
-    "caption": "Cwm Craf on Blorenge, Wales, has been interpreted as a former nivation hollow. Persistent snow patches can promote weathering and sediment removal without forming a moving glacier. The ridge in the foreground is the glacial moraine at Llanfoist.",
+    "caption": "Blorenge above Llanfoist, Wales. A shallow hollow on its slope, Cwm Craf, has been interpreted as a former nivation hollow, where persistent snow patches promoted weathering and sediment removal without forming a moving glacier.",
     "kind": "photo"
   },
   {
@@ -3026,7 +3026,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "credit": "AwOiSoAk KaOsIoWa / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "A long bridge over coastal water viewed from Macau Tower.",
-    "caption": "Macau. Bridges connect urban land across the Pearl River estuary, where reclamation has changed the shoreline.",
+    "caption": "Macau. A road bridge crosses the coastal waters of the Pearl River estuary, seen from Macau Tower.",
     "kind": "photo"
   },
   {
