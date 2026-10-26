@@ -2390,16 +2390,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-dc",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Aerial_view_of_Washington%2C_D.C.%2C_with_Ronald_Reagan_Washington_National_Airport_and_the_Potomac_River_to_the_left_LCCN2011632537.tif/lossy-page1-1280px-Aerial_view_of_Washington%2C_D.C.%2C_with_Ronald_Reagan_Washington_National_Airport_and_the_Potomac_River_to_the_left_LCCN2011632537.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Washington,_D.C.,_with_Ronald_Reagan_Washington_National_Airport_and_the_Potomac_River_to_the_left_LCCN2011632537.tif",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Washington,_D.C.,_with_Ronald_Reagan_Washington_National_Airport_and_the_Potomac_River_to_the_left_LCCN2011632537.tif",
-    "credit": "Carol M. Highsmith / Wikimedia Commons · Public domain · resized",
-    "alt": "Aerial view of Washington, DC, beside the Potomac River and National Airport.",
-    "caption": "Washington, DC, seen across the tidal Potomac River from above Arlington, Virginia. The Washington Monument and the Capitol stand on the low ground beyond the river; the airport and offices in front are in Virginia.",
-    "kind": "photo"
-  },
-  {
     "id": "place-uk-kent",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Chalkstone_Coast_near_Dover_-_panoramio.jpg/1280px-Chalkstone_Coast_near_Dover_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chalkstone_Coast_near_Dover_-_panoramio.jpg",
@@ -2737,16 +2727,6 @@
     "credit": "Eirian Evans / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "The Thames Barrier's silver piers beside the tidal river in London.",
     "caption": "Thames Barrier, London. Movable gates reduce tidal-surge flood risk upstream; they do not remove every source of river or surface-water flooding.",
-    "kind": "photo"
-  },
-  {
-    "id": "redhill-hongkong-landslide",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Redhill_Peninsula_landslide.jpg/1280px-Redhill_Peninsula_landslide.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Redhill_Peninsula_landslide.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Cypp0847 / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Slope failures above the coast at Hong Kong's Redhill Peninsula after extreme rainfall.",
-    "caption": "Redhill Peninsula, Hong Kong. Slope failures following extreme rainfall show how saturated ground can destabilise steep developed slopes.",
     "kind": "photo"
   },
   {
@@ -3288,5 +3268,25 @@
     "alt": "Dusk panorama across the Inner Harbour to the dense buildings of the western Macau Peninsula.",
     "caption": "The west side of the Macau Peninsula from across the Inner Harbour, at the mouth of the Pearl River estuary. Much of Macau's low ground is reclaimed land.",
     "kind": "photo"
+  },
+  {
+    "id": "dc-national-mall-aerial",
+    "url": "https://tile.loc.gov/storage-services/service/pnp/highsm/17200/17213v.jpg",
+    "sourceUrl": "https://www.loc.gov/resource/highsm.17213/",
+    "licenseUrl": "https://www.loc.gov/rr/print/res/482_high.html",
+    "credit": "Carol M. Highsmith / Library of Congress · public domain",
+    "kind": "photo",
+    "alt": "Aerial view west from above the US Capitol along the green National Mall to the Washington Monument and the Potomac River.",
+    "caption": "Washington, DC, looking west from above the US Capitol along the National Mall to the Washington Monument. The city sits on low ground where the Anacostia joins the tidal Potomac River (top left)."
+  },
+  {
+    "id": "redhill-landslide-scar-2023",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Redhill_Peninsula_after_huge_rain_202309.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Redhill_Peninsula_after_huge_rain_202309.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Redhill_Peninsula_after_huge_rain_202309.jpg",
+    "credit": "Voice of America (Tang Huiyun) / Wikimedia Commons · Public domain · cropped and resized",
+    "kind": "photo",
+    "alt": "Houses on top of a steep coastal slope at Redhill Peninsula, Hong Kong, with a bare brown landslide scar running down the vegetated slope to the sea.",
+    "caption": "Redhill Peninsula, Hong Kong, after the record rainstorm of September 2023. The bare brown strip below the houses is the landslide scar, where saturated soil and rock slid down the steep slope towards the sea."
   }
 ]
