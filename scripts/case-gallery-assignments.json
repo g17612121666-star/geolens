@@ -43,6 +43,9 @@
     {
       "id": "aletsch-glacier",
       "caption": "Aletsch Glacier, Switzerland, shows the process rather than the place: a valley glacier deepening and widening its trough, as glaciers once did in Lake District valleys."
+    },
+    {
+      "id": "sourmilk-gill"
     }
   ],
   "snowdonia": [
@@ -61,8 +64,8 @@
       "caption": "A karst spring in Alabama, USA. Water that sinks into limestone can re-emerge at a spring like this one, as streams do at resurgences in the Dales."
     },
     {
-      "id": "kyllini-stalactites",
-      "caption": "A calcite column and small stalactites in a cave on Mount Kyllini, Greece (not the Dales). They show how dissolved calcium carbonate is redeposited underground."
+      "id": "white-scar-straws",
+      "caption": "Straw stalactites in White Scar Cave, near Ingleton in the Yorkshire Dales: calcite redeposited as dripping water loses carbon dioxide."
     }
   ],
   "somerset-levels": [
@@ -165,6 +168,9 @@
     {
       "id": "place-us-la",
       "caption": "Landsat image of the northern Gulf coast (colours enhanced). The faint curved arc at lower left is the Chandeleur Islands, remnants of an abandoned Mississippi delta lobe, now eroding because the river's sediment goes elsewhere. Delta marshes lie to their left; the coast across the top is Mississippi and Alabama."
+    },
+    {
+      "id": "mississippi-delta-sts062"
     }
   ],
   "yosemite": [

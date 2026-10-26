@@ -3,6 +3,9 @@
     {
       "id": "meteosat-march-equinox",
       "caption": "Meteosat satellite image at the March equinox: the terminator runs nearly pole to pole, as in the model when neither hemisphere tilts towards the Sun."
+    },
+    {
+      "id": "sunrise-solstice-panorama"
     }
   ],
   "rotation": [
@@ -41,11 +44,14 @@
     {
       "id": "puerto-rico-seismometer",
       "caption": "A seismometer being installed in Puerto Rico. Recorded P- and S-wave arrivals are the main evidence for the layers in the model."
+    },
+    {
+      "id": "seismic-shadow-zones"
     }
   ],
   "plate-boundaries": [
     {
-      "id": "san-andreas-highsmith",
+      "id": "carrizo-san-andreas",
       "caption": "The San Andreas Fault, California: a transform boundary where the plates slide past each other horizontally."
     },
     {
@@ -171,6 +177,9 @@
     {
       "id": "meteosat-march-equinox",
       "caption": "Meteosat satellite image at the March equinox. The Sun is overhead at the equator, and the noon altitude at any latitude is 90° minus the latitude."
+    },
+    {
+      "id": "sunrise-solstice-panorama"
     }
   ],
   "continental-drift": [
@@ -255,8 +264,8 @@
   ],
   "wind": [
     {
-      "id": "noaa-surface-analysis-2022",
-      "caption": "NOAA surface analysis charts. Closely spaced isobars mark a strong pressure gradient and strong winds."
+      "id": "nws-surface-1998",
+      "caption": "A US National Weather Service surface chart. Closely spaced isobars mark a strong pressure gradient and strong winds."
     },
     {
       "id": "japan-extratropical-cyclone",
@@ -275,8 +284,8 @@
   ],
   "fronts": [
     {
-      "id": "noaa-surface-analysis-2022",
-      "caption": "NOAA surface analysis charts with cold, warm and occluded fronts drawn between air masses as a storm develops."
+      "id": "nws-surface-1998",
+      "caption": "A US National Weather Service surface chart with cold, warm and occluded fronts drawn between air masses as a storm develops."
     },
     {
       "id": "japan-extratropical-cyclone",
@@ -285,8 +294,8 @@
   ],
   "cyclone-anticyclone": [
     {
-      "id": "noaa-surface-analysis-2022",
-      "caption": "NOAA surface charts marking H and L pressure centres. Winds blow anticlockwise around lows in the Northern Hemisphere."
+      "id": "nws-surface-1998",
+      "caption": "A US National Weather Service surface chart marking H and L pressure centres. Winds blow anticlockwise around lows in the Northern Hemisphere."
     },
     {
       "id": "evan-2012-modis",
@@ -483,8 +492,7 @@
       "caption": "Bimmah sinkhole, Oman: a doline formed by dissolution and collapse."
     },
     {
-      "id": "kyllini-stalactites",
-      "caption": "A calcite column in a Greek cave, with small stalactites on the roof behind. Both grow as dripping water loses carbon dioxide."
+      "id": "white-scar-straws"
     },
     {
       "id": "mammoth-cave-broadway",
@@ -497,8 +505,8 @@
       "caption": "The Moine Thrust at Knockan Crag, Scotland: a low-angle reverse fault (a thrust). The hanging wall above the fault plane carries older rocks over the younger footwall rocks below, recording compression."
     },
     {
-      "id": "san-andreas-highsmith",
-      "caption": "The San Andreas Fault, California: a strike-slip fault with mainly horizontal movement."
+      "id": "wallace-creek-offset",
+      "caption": "Wallace Creek, California: the stream channel is offset sideways where it crosses the San Andreas, a strike-slip fault."
     },
     {
       "id": "thingvellir-rift",
@@ -563,8 +571,7 @@
       "caption": "Angular blocks on Foel Fras, Wales: mechanical weathering, such as frost shattering, breaks rock without changing its minerals."
     },
     {
-      "id": "roots-in-bedrock",
-      "caption": "Tree roots spreading into soil-filled cracks above sandstone: as roots grow in joints they can prise them wider."
+      "id": "ash-grike-tree"
     },
     {
       "id": "malham-limestone-pavement",
