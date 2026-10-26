@@ -101,9 +101,9 @@ export const FIELD_TRIPS: FieldTrip[] = [
       },
       {
         title: "When a subduction zone slips",
-        place: "Coast north of Sendai, Tōhoku, Japan",
-        lat: 38.45,
-        lon: 141.3,
+        place: "Kesennuma, Tōhoku, Japan",
+        lat: 38.85,
+        lon: 141.58,
         zoom: 7,
         fact: "In 2011 a magnitude 9 earthquake off Japan lifted the seafloor and sent a tsunami ashore.",
         body: "The plates had been locked for centuries. When they slipped, the seafloor moved suddenly and pushed the whole depth of the ocean upwards. The wave was low out at sea but grew as it reached shallow water near the coast.",
