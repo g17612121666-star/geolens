@@ -42,8 +42,8 @@
       "caption": "Maps of magnetic-field strength at Earth's surface in 2014 and 2025, modeled from Swarm satellite measurements (colors show nanotesla). The field is generated mainly by moving liquid iron in the outer core, not by a permanent bar magnet."
     },
     {
-      "id": "puerto-rico-seismometer",
-      "caption": "A seismometer being installed in Puerto Rico. Recorded P- and S-wave arrivals are the main evidence for the layers in the model."
+      "id": "seismograph-drum",
+      "caption": "A seismograph records ground motion as a wiggly line. P- and S-wave arrival times recorded around the world are the main evidence for the layers in the model."
     },
     {
       "id": "seismic-shadow-zones"
@@ -141,8 +141,8 @@
       "caption": "A Middle Cambrian trilobite, roughly 500 million years old, from the Mount Stephen beds, Canada. Fossils mark positions on the timeline."
     },
     {
-      "id": "scollard-kpg-boundary",
-      "caption": "The K–Pg boundary in Alberta, about 66 million years ago, when the non-bird dinosaurs disappeared."
+      "id": "kpg-trinidad-lake",
+      "caption": "The K–Pg boundary at Trinidad Lake, Colorado, about 66 million years ago, when the non-bird dinosaurs disappeared."
     },
     {
       "id": "grand-canyon-hopi-point",
@@ -222,8 +222,8 @@
   ],
   "atmosphere-layers": [
     {
-      "id": "graw-radiosondes",
-      "caption": "Radiosondes carried by weather balloons measure temperature with height, giving the profile the model uses to define the layers."
+      "id": "lake-charles-sounding",
+      "caption": "A radiosonde sounding from Lake Charles, Louisiana. Weather balloons measure temperature with height, giving the profile the model uses to define the layers."
     },
     {
       "id": "nasa-ozone-2023",
@@ -384,8 +384,8 @@
       "caption": "Leaf litter in New South Wales. Decomposers respire, returning carbon from the litter to the air: part of the fast carbon cycle."
     },
     {
-      "id": "chukurovo-lignite",
-      "caption": "Lignite from Bulgaria. Burning this fossil fuel releases carbon stored for millions of years in the slow cycle."
+      "id": "bedford-coal-seam",
+      "caption": "A coal seam in Ohio. Burning this fossil fuel releases carbon stored for about 300 million years in the slow cycle."
     },
     {
       "id": "place-ee",
@@ -559,7 +559,7 @@
       "caption": "Kaolinite, a clay mineral. Clay as a texture class means particles smaller than 0.002 mm, whatever the mineral."
     },
     {
-      "id": "place-us-ia",
+      "id": "iowa-loess-hills",
       "caption": "Iowa's Loess Hills are made of silt-rich wind-blown sediment, which would plot near the silt corner of the texture triangle."
     }
   ],
@@ -596,8 +596,8 @@
       "caption": "USGS ShakeMap of the 2021 Haiti earthquake. The star marks the epicenter and the colored rings show intensity falling with distance."
     },
     {
-      "id": "puerto-rico-seismometer",
-      "caption": "A seismometer being installed in Puerto Rico. Its records of P-, S- and surface-wave arrivals are used to locate the focus."
+      "id": "seismograph-drum",
+      "caption": "A seismograph drum records the shaking as a line on paper. The arrival times of P-, S- and surface waves are used to locate the focus."
     }
   ],
   "volcanoes": [

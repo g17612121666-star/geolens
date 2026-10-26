@@ -108,8 +108,8 @@
       "caption": "USGS ShakeMap for the 2021 Haiti earthquake, not California. The same method maps how shaking intensity spreads out from the epicenter after Californian earthquakes."
     },
     {
-      "id": "puerto-rico-seismometer",
-      "caption": "USGS scientists install a seismometer in Puerto Rico. Networks of instruments like this record the shaking from earthquakes on faults such as the San Andreas."
+      "id": "seismograph-drum",
+      "caption": "A seismograph records the shaking from an earthquake as a line on paper. Networks of instruments record earthquakes on faults such as the San Andreas."
     }
   ],
   "cascadia": [
@@ -239,8 +239,8 @@
       "caption": "A mantle xenolith from Peridot Mesa, Arizona, not Kola. Rock from the mantle reaches the surface only when magma carries it up; drilling has never reached the mantle."
     },
     {
-      "id": "puerto-rico-seismometer",
-      "caption": "A USGS seismometer being installed in Puerto Rico. Seismic waves recorded by instruments like this reveal layers far deeper than the Kola borehole's 12 km."
+      "id": "seismograph-drum",
+      "caption": "A seismograph records seismic waves. Waves recorded around the world reveal layers far deeper than the Kola borehole's 12 km."
     }
   ],
   "snowdonia-moon": [
@@ -311,8 +311,8 @@
       "caption": "Earth's atmosphere seen edge-on from the ISS. The weather layer is far thicker than Denver's 1.6 km elevation, so the city lies well inside the troposphere."
     },
     {
-      "id": "graw-radiosondes",
-      "caption": "Radiosondes like these are launched twice daily from upper-air stations, including one at Denver. They measure how pressure and temperature change with height."
+      "id": "lake-charles-sounding",
+      "caption": "A radiosonde sounding chart. Weather balloons launched twice daily from upper-air stations, including one at Denver, measure how temperature and moisture change with height."
     }
   ],
   "hong-kong-landslide": [
@@ -350,7 +350,7 @@
   ],
   "loess-plateau": [
     {
-      "id": "place-us-ia",
+      "id": "iowa-loess-hills",
       "caption": "Loess Hills, western Iowa, USA. They show the same process as the Loess Plateau: wind-deposited silt that erodes easily once exposed, here farmed along the contours."
     },
     {
