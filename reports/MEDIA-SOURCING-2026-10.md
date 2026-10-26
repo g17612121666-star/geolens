@@ -26,12 +26,24 @@ Every verified photo was checked against its live source record (Wikimedia Commo
 | Climate | Weather station with Stevenson screen |
 | Warm pool | NASA global sea-surface temperature map |
 | Lake District gallery | Sourmilk Gill falling from a hanging corrie |
+| Tsunami drawdown | Kata Noi Beach, Phuket, 26 December 2004, sea withdrawn before the third wave |
+| Nivation | Late-lying snow in the Zastler Loch, Feldberg |
+| Spring line | Fulking at the foot of the South Downs |
+| Misfit stream | Gleann nan Eun, Scotland |
+| Wind gap | Glacially beheaded valley head, Karu valley, Ladakh |
+| Solar-altitude cover, gnomon, noon and solar altitude | Sundial with a sharp shadow, Brodick Castle |
+| Atlas: Macau | Inner Harbour and the western Macau Peninsula |
+| Atlas: Bosnia and Herzegovina | Wider, better-proportioned crop of the same Trebišnjica valley panorama |
 | Atlas: Guyana, Finland, Norway, Fiji, Louisiana, Indiana, South Carolina, Lebanon, Denmark, Pennsylvania | Kaieteur Falls; Koli; Geirangerfjord; Viti Levu; Mississippi delta (NASA); Indiana Dunes; Congaree floodplain (Landsat 9); Kadisha Valley; Møns Klint; Delaware Water Gap |
+
+## Considered and not used
+
+- **Shau Kei Wan landslide (2023)**: a news-video frame with a channel logo and burnt-in subtitles.
+- **CEDD/GEO landslide report plates**: Hong Kong Government copyright, not an open licence, so they cannot join the verified library. The Redhill photo stays.
+- **Washington DC aerial (Fletcher6)** and **Pale aerial view**: hazy, high-altitude views that are harder to read than the current photos.
+- **Macau City panorama**: centred on a casino tower rather than the landscape.
 
 ## Still worth improving
 
-- **Tsunami drawdown** (tsunami lab thumbnail): no openly licensed photograph of the sea withdrawing before a tsunami was found, so the thumbnail stays empty.
-- **Nivation**, **spring line**, **misfit stream** and **wind gap**: the current photos are kept with honest captions; no clearer free image was found.
-- **Solar altitude lab cover**: the sundial photo still has no visible shadow.
-- **Macau**, **Bosnia and Herzegovina** (a very wide panorama) and **Washington, DC** atlas photos: acceptable, but better views would help.
-- **Hong Kong landslide**: the scar is small in the frame; a closer GEO/CEDD photograph would be better.
+- **Washington, DC** atlas photo: acceptable; a clear public-domain aerial of the Mall and the Potomac (for example from the Highsmith archive) would be better.
+- **Hong Kong landslide**: the scar is small in the frame.

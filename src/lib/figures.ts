@@ -66,13 +66,8 @@ function termKey(lab: string, term: string): string {
   return `${lab}--${slug}`;
 }
 
-// Terms whose meaning in that lab differs from the glossary photo (tsunami drawdown is not a
-// pumped well), so no photo is better than the glossary fallback.
-const NO_THUMB = new Set(["tsunami--drawdown"]);
-
 /** The same verified observation follows a term across the glossary and labs. */
 export function termThumb(lab: string, term: string): Fig | undefined {
-  if (NO_THUMB.has(termKey(lab, term))) return undefined;
   const thumbs = TERM_THUMB ?? {};
   const direct = thumbs[termKey(lab, term)];
   if (direct) return slot(direct);

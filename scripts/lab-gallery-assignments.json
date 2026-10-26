@@ -450,12 +450,10 @@
       "caption": "The Aitrach valley, Germany: a beheaded stream now far too small for the valley left after the Wutach captured its headwaters."
     },
     {
-      "id": "bald-eagle-wind-gap",
-      "caption": "Bald Eagle Mountain, Pennsylvania. A wind gap, a notch with no through-flowing river, can mark a former river course."
+      "id": "wind-gap-karu"
     },
     {
-      "id": "misfit-stream-valley",
-      "caption": "A misfit stream in a valley much larger than its present flow, one possible result of capture or meltwater loss."
+      "id": "misfit-gleann-nan-eun"
     }
   ],
   "coasts": [
@@ -756,8 +754,7 @@
       "caption": "A blockfield on Foel Fras, Wales, broken up by frost shattering in past periglacial conditions."
     },
     {
-      "id": "blorenge-cwm-craf",
-      "caption": "Cwm Craf on Blorenge, Wales: a hollow interpreted as formed by nivation beneath lingering snow patches."
+      "id": "nivation-zastler"
     }
   ],
   "storm-surge": [

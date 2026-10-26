@@ -1090,16 +1090,6 @@
     "kind": "scientific-image"
   },
   {
-    "id": "misfit-stream-valley",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Misfit_stream_-_geograph.org.uk_-_6847549.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Misfit_stream_-_geograph.org.uk_-_6847549.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "Richard Webb / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "A small stream runs along a valley much larger than its present channel.",
-    "caption": "A misfit stream: its flow is small for the size of its valley. Former glacial meltwater or a change in drainage may explain the mismatch.",
-    "kind": "photo"
-  },
-  {
     "id": "voyager-neptune-disc",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Neptune_Full_%28original%29.jpg/1280px-Neptune_Full_%28original%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neptune_Full_(original).jpg",
@@ -1434,9 +1424,9 @@
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Gornji_Orahovac%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_10-13_PAN.jpg/1280px-Gornji_Orahovac%2C_Bosnia_y_Herzegovina%2C_2014-04-14%2C_DD_10-13_PAN.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gornji_Orahovac,_Bosnia_y_Herzegovina,_2014-04-14,_DD_10-13_PAN.jpg",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Diego Delso / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Rocky hills and the Trebišnjica valley near Gornji Orahovac, Bosnia and Herzegovina.",
-    "caption": "Trebišnjica valley, Bosnia and Herzegovina. Rocky relief and confined low ground shape drainage and settlement.",
+    "credit": "Diego Delso / Wikimedia Commons · CC BY-SA 3.0 · cropped and resized",
+    "alt": "A blue river winding through a green valley with villages, below rocky limestone mountains.",
+    "caption": "The Trebišnjica river winding through a valley near Gornji Orahovac, southern Bosnia and Herzegovina, between bare limestone mountains.",
     "kind": "photo"
   },
   {
@@ -2630,16 +2620,6 @@
     "kind": "photo"
   },
   {
-    "id": "bald-eagle-wind-gap",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Bald_Eagle_Mountain_Panorama.JPG/1280px-Bald_Eagle_Mountain_Panorama.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bald_Eagle_Mountain_Panorama.JPG",
-    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
-    "credit": "User:Ruhrfisch / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Panorama of Bald Eagle Mountain in Pennsylvania with the Route 15 wind gap left of centre and a water gap farther right.",
-    "caption": "Bald Eagle Mountain, Pennsylvania. The wind gap crossed by Route 15 is left of centre; Hagermans Run occupies a separate water gap to the right. A wind gap lacks the through-flowing river found in a water gap.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-ia",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Loess_Hills_0633.jpg/1280px-Loess_Hills_0633.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Loess_Hills_0633.jpg",
@@ -2810,16 +2790,6 @@
     "kind": "photo"
   },
   {
-    "id": "blorenge-cwm-craf",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Blorenge_looms_behind_Llanfoist%27s_moraine-by-Alan-Bowring.jpg/1280px-Blorenge_looms_behind_Llanfoist%27s_moraine-by-Alan-Bowring.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blorenge_looms_behind_Llanfoist%27s_moraine-by-Alan-Bowring.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "Alan Bowring / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "Blorenge above Llanfoist, with the shallow Cwm Craf hollow visible on its front slope.",
-    "caption": "Blorenge above Llanfoist, Wales. A shallow hollow on its slope, Cwm Craf, has been interpreted as a former nivation hollow, where persistent snow patches promoted weathering and sediment removal without forming a moving glacier.",
-    "kind": "photo"
-  },
-  {
     "id": "cairngorms-winter-snow",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg/1280px-RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg",
@@ -2837,16 +2807,6 @@
     "credit": "dwhartwig / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "Water cascades down pale rock steps at Kent Falls State Park, Connecticut.",
     "caption": "Kent Falls, Connecticut. Flowing water erodes a stepped bedrock channel within the wooded uplands.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-mo",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/View_from_Macau_Tower_-_panoramio_%281%29.jpg/1280px-View_from_Macau_Tower_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_from_Macau_Tower_-_panoramio_(1).jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "AwOiSoAk KaOsIoWa / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "A long bridge over coastal water viewed from Macau Tower.",
-    "caption": "Macau. A road bridge crosses the coastal waters of the Pearl River estuary, seen from Macau Tower.",
     "kind": "photo"
   },
   {
@@ -3257,6 +3217,76 @@
     "credit": "NASA Johnson Space Center · STS-62 crew · public domain · resized",
     "alt": "Astronaut photograph of the bird's-foot Mississippi River delta, with sediment-laden water spreading into the Gulf of Mexico.",
     "caption": "The Mississippi River delta, Louisiana, photographed by Space Shuttle astronauts in March 1994. Sediment carried by the river builds the bird's-foot delta out into the Gulf of Mexico.",
+    "kind": "photo"
+  },
+  {
+    "id": "tsunami-drawdown-katanoi",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=KataNoiReceding.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:KataNoiReceding.jpg",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "credit": "PHG / Wikimedia Commons · CC BY-SA 3.0 (originally GFDL) · resized",
+    "alt": "Wide sandy bay with the seabed exposed after the sea drew back, framed by trees and rocks, at Kata Noi Beach, Phuket.",
+    "caption": "Kata Noi Beach, Phuket, Thailand, 26 December 2004: the sea has drawn back before the third and strongest tsunami wave, exposing the seabed; open water is far out to the right. Many tsunamis arrive without this warning.",
+    "kind": "photo"
+  },
+  {
+    "id": "nivation-zastler",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Zastler Loch am Feldberg.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zastler_Loch_am_Feldberg.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Andreas Schwarzkopf / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Patches of late-lying snow on the grassy slopes of a hollow below the Feldberg summit, with spruce forest.",
+    "caption": "Late-lying snow in the Zastler Loch on the Feldberg, Black Forest, in June. Where snow patches linger in hollows, freeze–thaw and meltwater (nivation) slowly loosen and remove material, deepening the hollow.",
+    "kind": "photo"
+  },
+  {
+    "id": "spring-line-fulking",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Fulking escarpment and spring line - geograph.org.uk - 388244.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fulking_escarpment_and_spring_line_-_geograph.org.uk_-_388244.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Peter Cox / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "Fulking village at the foot of the steep, grassy South Downs scarp, with fields stretching away below.",
+    "caption": "Fulking, West Sussex, at the foot of the South Downs. Water soaks into the permeable chalk and comes out as springs where it meets less permeable rock at the base of the scarp, so villages grew up along this spring line.",
+    "kind": "photo"
+  },
+  {
+    "id": "misfit-gleann-nan-eun",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Misfit stream.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Misfit_stream.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Dave Fergusson / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "A small stream meandering across the wide, flat floor of a Highland glen between rounded hills.",
+    "caption": "Gleann nan Eun, east of Loch Ness, Scotland. The small stream winding across the floor is far too small to have carved such a wide valley: a misfit stream in a glen shaped by ice and meltwater.",
+    "kind": "photo"
+  },
+  {
+    "id": "wind-gap-karu",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Wind gap in Karu valley, Ladakh.JPG&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wind_gap_in_Karu_valley,_Ladakh.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "DanHobley / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "View up a dry valley in Ladakh towards a notch in the mountain ridge on the skyline, with a village in the foreground.",
+    "caption": "A wind gap above the Karu valley, Ladakh. Glacial erosion on the far side of the ridge beheaded this valley, leaving the outline of its U-shaped head as a dry notch on the skyline, with no river flowing through it.",
+    "kind": "photo"
+  },
+  {
+    "id": "brodick-sundial",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Got the time^ - geograph.org.uk - 1469342.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Got_the_time%5E_-_geograph.org.uk_-_1469342.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "adam sommerville / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "A horizontal bronze sundial with a sharp shadow cast by its gnomon, in a garden at Brodick Castle.",
+    "caption": "Sundial in the walled garden at Brodick Castle, Isle of Arran. The gnomon's shadow shows the Sun's direction; when the Sun is lower in the sky, shadows are longer.",
+    "kind": "photo"
+  },
+  {
+    "id": "macau-inner-harbour",
+    "url": "https://commons.wikimedia.org/w/thumb.php?f=Panorama of Macau Peninsula2021.jpg&w=1280",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panorama_of_Macau_Peninsula2021.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Charlie fong / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Dusk panorama across the Inner Harbour to the dense buildings of the western Macau Peninsula.",
+    "caption": "The west side of the Macau Peninsula from across the Inner Harbour, at the mouth of the Pearl River estuary. Much of Macau's low ground is reclaimed land.",
     "kind": "photo"
   }
 ]
