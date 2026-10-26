@@ -6,7 +6,7 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { cn } from "@/lib/utils";
 import { Figure } from "@/components/figure";
 import { labFigures, termThumb } from "@/lib/figures";
-import { labVideo } from "@/lib/lab-videos";
+import { labVideos } from "@/lib/lab-videos";
 import { useQuizAnswers } from "@/lib/quiz-progress";
 import { PRODUCER_MAILTO } from "@/lib/contact";
 import { Gallery } from "@/components/gallery";
@@ -22,7 +22,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
   const setExam = useLabControls((s) => s.setExam);
   const pairs = lab.misconceptions?.length ? lab.misconceptions : [lab.misconception];
   const figs = labFigures(lab.slug);
-  const video = labVideo(lab.slug);
+  const videos = labVideos(lab.slug);
   const gallery = (LAB_GALLERY[lab.slug] ?? []).filter((g) => g.src !== figs[0]?.src);
   const seenTermSrc = new Set<string>();
 
@@ -68,22 +68,26 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
                 {i === 0 && figs[0] && <Figure {...figs[0]} />}
               </div>
             ))}
-            {video && (
-              <div>
-                <p className="section-label">{"Film"}</p>
-                <div className="mt-2 overflow-hidden rounded-xl border border-white/10">
-                  <ProgressFrame
-                    title={video.title}
-                    src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
-                    className="aspect-video w-full"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                  />
-                </div>
-                <p className="mt-2 text-sm leading-5 text-mist">
-                  {video.title} — {video.source}.
-                </p>
+            {videos.length > 0 && (
+              <div className="space-y-4">
+                <p className="section-label">{videos.length > 1 ? "Films" : "Film"}</p>
+                {videos.map((video) => (
+                  <div key={video.youtubeId}>
+                    <div className="overflow-hidden rounded-xl border border-white/10">
+                      <ProgressFrame
+                        title={video.title}
+                        src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
+                        className="aspect-video w-full"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                      />
+                    </div>
+                    <p className="mt-2 text-sm leading-5 text-mist">
+                      {video.title} — {video.source}.
+                    </p>
+                  </div>
+                ))}
               </div>
             )}
             <p className="section-label">{"A common misunderstanding"}</p>

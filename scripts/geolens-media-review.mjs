@@ -11,7 +11,7 @@ fs.writeFileSync('reports/geolens-photo-current.json',JSON.stringify(rows,null,2
 const oldCode=ts.transpile(fs.readFileSync('reports/geolens-video-before.txt','utf8'),{module:ts.ModuleKind.ESNext});
 const old = (await import('data:text/javascript;base64,'+Buffer.from(oldCode).toString('base64'))).LAB_VIDEOS;
 const removed=Object.entries(old).filter(([slug]) => !LAB_VIDEOS[slug]);
-const verified=[...new Map(Object.values(LAB_VIDEOS).map(v => [v.youtubeId,v])).values()];
+const verified=[...new Map(Object.values(LAB_VIDEOS).flat().map(v => [v.youtubeId,v])).values()];
 const count=Object.fromEntries(Object.entries(surfaces).map(([g,x])=>[g,Object.keys(x).length]));
 const bad={tides:'Ocean circulation does not explain gravitational tides.', 'universe-scale':'Earth movement does not explain the astronomical scale hierarchy.', 'solar-system':'Earth movement is not a solar-system comparison.', earthquakes:'Evidence for the core does not teach fault rupture and earthquake shaking.', enso:'A general climate-change film is not a focused explanation of ENSO.', 'carbon-cycle':'Climate change alone does not establish coverage of carbon stores and transfers.', isostasy:'A film about ocean-floor depth does not establish isostatic adjustment.', 'cyclone-anticyclone':'A general natural-hazards film does not explain both low- and high-pressure circulation.', 'grid-references':'A map introduction does not establish four- and six-figure grid-reference instruction.', contours:'Landform examples do not establish contour-reading instruction.', 'geologic-time':'The rock-cycle film does not establish a geological-time lesson.', periglacial:'Glaciers and periglacial ground processes are different topics.'};
 const lines=[
@@ -41,7 +41,7 @@ const lines=[
 '',
 '| Labs | Video | Publisher evidence |',
 '|---|---|---|',
-...verified.map(v=>`| ${Object.entries(LAB_VIDEOS).filter(([,x])=>x.youtubeId===v.youtubeId).map(([s])=>s).join(', ')} | ${v.title} (${v.youtubeId}) | ${v.sourceUrl} |`),
+...verified.map(v=>`| ${Object.entries(LAB_VIDEOS).filter(([,x])=>x.some(y=>y.youtubeId===v.youtubeId)).map(([s])=>s).join(', ')} | ${v.title} (${v.youtubeId}) | ${v.sourceUrl} |`),
 '',
 'Corrected the old Crash Course episode labels: plate tectonics #19, rocks #18, rivers #23, glaciers #26. Removed unverified duration and license assertions from the video catalog. External player material remains with its publisher.',
 '',

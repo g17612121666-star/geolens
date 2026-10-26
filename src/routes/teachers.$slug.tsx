@@ -6,7 +6,7 @@ import { isListed } from "@/lib/labs/status";
 import { teacherArticle } from "@/lib/teachers/article";
 import { Figure } from "@/components/figure";
 import { labFigures, teacherHero, termFigure } from "@/lib/figures";
-import { labVideo } from "@/lib/lab-videos";
+import { labVideos } from "@/lib/lab-videos";
 import { headFor } from "@/lib/seo";
 import { useState } from "react";
 import { LESSON_PHASES, lessonLink, lessonOutline } from "@/lib/teachers/workflow";
@@ -46,7 +46,7 @@ function TeacherArticlePage() {
         all.findIndex((other) => other.figure?.src === item.figure?.src) === i,
     )
     .slice(0, 2);
-  const video = labVideo(lab.slug);
+  const videos = labVideos(lab.slug);
   const more = LABS.filter(
     (l) => l.realm === lab.realm && l.slug !== lab.slug && isListed(l.slug),
   ).slice(0, 4);
@@ -279,22 +279,28 @@ function TeacherArticlePage() {
         </ul>
       </section>
 
-      {video && (
+      {videos.length > 0 && (
         <section className="mt-10" data-print-hide>
           <h2 className="font-display text-2xl text-chalk">{"Watch an explanation"}</h2>
-          <div className="mt-4 overflow-hidden rounded-2xl border border-white/10">
-            <ProgressFrame
-              title={video.title}
-              src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
-              className="aspect-video w-full"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-            />
+          <div className={`mt-4 grid gap-6 ${videos.length > 1 ? "md:grid-cols-2" : ""}`}>
+            {videos.map((video) => (
+              <div key={video.youtubeId}>
+                <div className="overflow-hidden rounded-2xl border border-white/10">
+                  <ProgressFrame
+                    title={video.title}
+                    src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
+                    className="aspect-video w-full"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+                <p className="mt-2 text-sm text-mist">
+                  {video.title} <span className="block mt-1">{video.source}</span>
+                </p>
+              </div>
+            ))}
           </div>
-          <p className="mt-2 text-sm text-mist">
-            {video.title} <span className="block mt-1">{video.source}</span>
-          </p>
         </section>
       )}
 
