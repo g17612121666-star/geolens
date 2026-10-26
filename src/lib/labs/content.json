@@ -10944,6 +10944,10 @@
         {
           "label": "Met Office tropical cyclone facts",
           "href": "https://www.metoffice.gov.uk/research/weather/tropical-cyclones/facts"
+        },
+        {
+          "label": "NASA MODIS: Hurricane Katrina, 28 August 2005",
+          "href": "https://commons.wikimedia.org/wiki/File:Katrina_2005-08-28_1702Z_(cropped).jpg"
         }
       ],
       "controls": {
@@ -10970,7 +10974,7 @@
         "The ideal wind profile increases linearly from a calm center to a maximum at radius 30 km, then decreases inversely with radius.",
         "Intensity selects maximum tangential wind from 38 to 80 m/s.",
         "Pressure comes from a steady gradient-wind balance with air density 1.15 kg/m³, a Coriolis parameter of 0.00005 per second and 101300 Pa at 300 km radius.",
-        "Cloud depth is 12 km, drawn five times taller in the teaching view (Physical scale, or the T key, shows it 1:1); the clouds are visual only, not simulated droplets or rainfall."
+        "Cloud depth is 12 km, drawn five times taller in the teaching view (Physical scale, or the T key, shows it 1:1). The cloud tops are a NASA MODIS image of Hurricane Katrina (28 August 2005) at the model's scale; their heights are illustrative, and the clouds are not simulated droplets or rainfall."
       ]
     },
     {

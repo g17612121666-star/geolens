@@ -1,6 +1,13 @@
 import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { useTexture } from "@react-three/drei";
+
+/** NASA MODIS true-color image of Hurricane Katrina, 28 August 2005, centered on the eye and
+ * cropped to 550 km across (the model disc at 1 unit = 50 km). See its .source.json. */
+const CLOUD_IMAGE = "/textures/hurricane-katrina-2005.jpg",
+  CLOUD_HEIGHT = "/textures/hurricane-katrina-2005-height.png",
+  IMAGE_UNITS = 11;
 
 /** Shared GLSL: Rankine wind (m/s) at radius r scene units (1 unit = 50 km, max wind at 0.6). */
 const VORTEX = `
@@ -10,22 +17,13 @@ float shHash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float shNoise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
   return mix(mix(shHash(i),shHash(i+vec2(1.,0.)),f.x),mix(shHash(i+vec2(0.,1.)),shHash(i+vec2(1.,1.)),f.x),f.y);}
 float shFbm(vec2 p){return .55*shNoise(p)+.3*shNoise(p*2.1+3.7)+.15*shNoise(p*4.3-1.3);}
-/** Cloud-top density: clear eye, eyewall, dense overcast and two trailing rainbands. */
-float shieldDensity(float r,float a,float spin,float turn,float vmax){
-  float aa=a-turn*windAt(r,vmax)/max(r,.05);
-  vec2 q=vec2(cos(aa),sin(aa))*r;
-  float n=shFbm(q*2.6+7.);
-  float eye=smoothstep(.36,.62,r);
-  float wall=exp(-sq((r-.78)/.2));
-  float overcast=.8*exp(-sq((r-1.3)/1.05));
-  float arm=.5+.5*cos(2.*(aa+spin*1.75*log(max(r,.1)))+1.3*n);
-  float bands=smoothstep(.3,.9,arm)*exp(-sq((r-2.8)/1.7))*smoothstep(.9,1.7,r);
-  float d=max(max(wall,overcast),bands*1.05)*eye;
-  d*=.7+.6*n;
-  return d*(1.-smoothstep(4.6,5.4,r));
-}`;
+`;
 
-/** One continuous, lit cloud-top surface. Flat shading gives the cauliflower texture of convection. */
+/**
+ * One continuous, lit cloud-top surface draped with a real satellite image. Cloud brightness sets
+ * the cloud-top height (illustrative), and the image turns with the model vortex: faster near the
+ * eyewall, slower outward.
+ */
 export function CloudShield({
   slice,
   spin,
@@ -45,15 +43,25 @@ export function CloudShield({
     return g;
   }, []);
   useEffect(() => () => geometry.dispose(), [geometry]);
+  const [cloud, height] = useTexture([CLOUD_IMAGE, CLOUD_HEIGHT]);
+  useMemo(() => {
+    for (const tex of [cloud, height]) {
+      tex.colorSpace = THREE.NoColorSpace;
+      tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
+      tex.needsUpdate = true;
+    }
+  }, [cloud, height]);
   const uniforms = useMemo(
     () => ({
+      uCloud: { value: cloud as THREE.Texture },
+      uHeight: { value: height as THREE.Texture },
       uSpin: { value: 1 },
       uTurn: { value: 0 },
       uVmax: { value: 60 },
       uSlice: { value: 0 },
       uVertical: { value: 1 },
     }),
-    [],
+    [cloud, height],
   );
   uniforms.uSpin.value = spin;
   uniforms.uTurn.value = (spin * t * 7200) / 50000;
@@ -64,30 +72,40 @@ export function CloudShield({
     () => (s: THREE.WebGLProgramParametersWithUniforms) => {
       Object.assign(s.uniforms, uniforms);
       s.vertexShader =
-        `uniform float uSpin,uTurn,uVmax,uVertical; varying float vDensity; varying float vAngle;\n${VORTEX}\n` +
+        `uniform float uSpin,uTurn,uVmax,uVertical; uniform sampler2D uHeight; varying float vDensity; varying float vAngle; varying float vRadius; varying vec2 vCloudUv;\n${VORTEX}\n` +
         s.vertexShader.replace(
           "#include <begin_vertex>",
           `#include <begin_vertex>
   float sr=length(transformed.xz),sa=atan(transformed.z,transformed.x);
-  float sd=shieldDensity(sr,sa,uSpin,uTurn,uVmax);
-  vDensity=sd; vAngle=sa;
+  // Sample where this cloud was before the vortex turned it (differential rotation).
+  float aa=sa-uTurn*windAt(sr,uVmax)/max(sr,.05);
+  vec2 q=vec2(cos(aa),sin(aa))*sr;
+  // Image north is scene -z; the Southern Hemisphere mirrors east and west so it turns clockwise.
+  vCloudUv=vec2(.5-uSpin*q.x/${IMAGE_UNITS}.,.5-q.y/${IMAGE_UNITS}.);
+  // The height map is contrast-stretched brightness: brighter, colder cloud tops stand taller.
+  float edge=1.-smoothstep(4.2,5.4,sr);
+  float sd=(.25+.75*texture2D(uHeight,vCloudUv).r)*edge;
+  vDensity=sd; vAngle=sa; vRadius=sr;
   float tower=exp(-sq((sr-.8)/.22));
   transformed.y=uVertical*(.18+sd*(.72+.55*tower));`,
         );
       s.fragmentShader =
-        "uniform float uSlice; varying float vDensity; varying float vAngle;\n" +
+        "uniform float uSlice; uniform sampler2D uCloud; varying float vDensity; varying float vAngle; varying float vRadius; varying vec2 vCloudUv;\n" +
         s.fragmentShader
           .replace(
             "#include <clipping_planes_fragment>",
             `#include <clipping_planes_fragment>
-  if(vDensity<.14)discard;
+  vec3 sat=texture2D(uCloud,vCloudUv).rgb;
+  float bright=dot(sat,vec3(.3,.59,.11));
+  float cover=smoothstep(.3,.52,bright)*(1.-smoothstep(4.5,5.35,vRadius));
+  if(cover<.12)discard;
   if(abs(atan(sin(vAngle-1.5707963),cos(vAngle-1.5707963)))<uSlice*3.1415927*.48)discard;`,
           )
           .replace(
             "#include <color_fragment>",
             `#include <color_fragment>
-  diffuseColor.rgb*=mix(vec3(.66,.7,.75),vec3(1.),smoothstep(.15,.75,vDensity));
-  diffuseColor.a*=smoothstep(.14,.32,vDensity);`,
+  diffuseColor.rgb*=pow(sat,vec3(2.2))*1.08;
+  diffuseColor.a*=smoothstep(.12,.3,cover);`,
           );
     },
     [uniforms],
@@ -101,7 +119,7 @@ export function CloudShield({
         transparent
         side={THREE.DoubleSide}
         onBeforeCompile={compile}
-        customProgramCacheKey={() => "cyclone-shield-v1"}
+        customProgramCacheKey={() => "cyclone-shield-satellite-v2"}
       />
     </mesh>
   );
