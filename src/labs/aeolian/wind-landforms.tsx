@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import RealGreatSandDunes from "./real-great-sand-dunes";
 import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
@@ -19,6 +20,11 @@ function barchanField(x: number, z: number, shift: number) {
   return Math.max(duneHeight(x - shift, z), small(1.75, -1.25, 0.38), small(-1.95, 1.25, 0.32));
 }
 export default function Aeolian() {
+  const real = useLabControls((s) => Math.round(s.params.feature ?? 0) === 2);
+  return real ? <RealGreatSandDunes /> : <ModelAeolian />;
+}
+
+function ModelAeolian() {
   const { params, t, trueScale } = useLabControls();
   useLabTick(1 / 40);
   const mode = Math.round(params.feature ?? 0),

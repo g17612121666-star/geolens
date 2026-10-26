@@ -1,0 +1,92 @@
+{
+  "grand-canyon": {
+    "name": "Grand Canyon near Grand Canyon Village, Arizona",
+    "lat": 36.085,
+    "lon": -112.12,
+    "widthKm": 16.0,
+    "size": 257,
+    "minM": 715.7,
+    "maxM": 2325.8,
+    "bbox": [
+      -112.208926,
+      36.01265,
+      -112.031074,
+      36.15735
+    ]
+  },
+  "great-sand-dunes": {
+    "name": "Great Sand Dunes, Colorado",
+    "lat": 37.76,
+    "lon": -105.56,
+    "widthKm": 10.0,
+    "size": 257,
+    "minM": 2335.8,
+    "maxM": 3170.6,
+    "bbox": [
+      -105.616813,
+      37.714781,
+      -105.503187,
+      37.805219
+    ]
+  },
+  "mauna-loa": {
+    "name": "Mauna Loa, Hawaiʻi",
+    "lat": 19.475,
+    "lon": -155.6,
+    "widthKm": 60.0,
+    "size": 257,
+    "minM": -0.0,
+    "maxM": 4147.0,
+    "bbox": [
+      -155.885848,
+      19.203688,
+      -155.314152,
+      19.746312
+    ]
+  },
+  "st-helens": {
+    "name": "Mount St. Helens, Washington",
+    "lat": 46.2,
+    "lon": -122.189,
+    "widthKm": 12.0,
+    "size": 257,
+    "minM": 650.2,
+    "maxM": 2530.1,
+    "bbox": [
+      -122.266872,
+      46.145738,
+      -122.111128,
+      46.254262
+    ]
+  },
+  "sugarloaf-md": {
+    "name": "Sugarloaf Mountain, Maryland",
+    "lat": 39.2626,
+    "lon": -77.3946,
+    "widthKm": 3.2,
+    "size": 257,
+    "minM": 109.1,
+    "maxM": 387.8,
+    "bbox": [
+      -77.413164,
+      39.24813,
+      -77.376036,
+      39.27707
+    ]
+  },
+  "yosemite-valley": {
+    "name": "Yosemite Valley, California",
+    "lat": 37.738,
+    "lon": -119.585,
+    "widthKm": 13.0,
+    "size": 257,
+    "minM": 1184.8,
+    "maxM": 2758.3,
+    "bbox": [
+      -119.658835,
+      37.679216,
+      -119.511165,
+      37.796784
+    ]
+  }
+}

@@ -27,6 +27,7 @@ const SNOW = new THREE.Color("#eef2f3"),
   OUTWASH = new THREE.Color("#a59d88"),
   TILL = new THREE.Color("#8f8775");
 import { Cirques } from "./cirques";
+import RealYosemite from "./real-yosemite";
 function Ice({ length }: { length: number }) {
   const geometry = useMemo(() => glacierIceGeometry(length), [length]);
   useEffect(() => () => geometry.dispose(), [geometry]);
@@ -37,6 +38,11 @@ function Ice({ length }: { length: number }) {
   );
 }
 export default function Glaciers() {
+  const view = useLabControls((s) => s.params.view ?? 0);
+  return view > 1.5 ? <RealYosemite /> : <ModelGlaciers />;
+}
+
+function ModelGlaciers() {
   const { params, t, trueScale } = useLabControls();
   useLabTick(1 / 50);
   const extent = params.extent ?? 0.5,

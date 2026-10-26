@@ -18,6 +18,7 @@ export function ScienceStudio({
   space = false,
   ground,
   horizon = false,
+  fitKey = "",
 }: {
   slug: string;
   children: ReactNode;
@@ -31,6 +32,8 @@ export function ScienceStudio({
   ground?: boolean;
   /** Ground-based scene: stop the camera a little below the horizon. */
   horizon?: boolean;
+  /** Change this when async content (such as loaded terrain) changes the model's size. */
+  fitKey?: string;
 }) {
   const lab = LAB_BY_SLUG[slug];
   const revision = useLabControls((s) =>
@@ -62,7 +65,7 @@ export function ScienceStudio({
           lights={lights}
           groundShadows={false}
           fit
-          fitRevision={revision}
+          fitRevision={revision + fitKey}
           fitGround={ground ?? !space}
           backdrop={space ? <SpaceBackdrop /> : undefined}
           maxPolarAngle={horizon ? Math.PI * 0.56 : undefined}

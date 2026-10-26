@@ -1233,11 +1233,33 @@
         },
         {
           "label": "USGS topographic maps"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
         "time": "none",
         "extra": [
+          {
+            "key": "place",
+            "label": "Landscape",
+            "min": 0,
+            "max": 1,
+            "step": 1,
+            "default": 0,
+            "options": [
+              {
+                "label": "Model hill",
+                "value": 0
+              },
+              {
+                "label": "Real: Sugarloaf Mountain, MD",
+                "value": 1
+              }
+            ]
+          },
           {
             "key": "interval",
             "label": "Contour interval",
@@ -1265,7 +1287,8 @@
         "Change Contour interval from 5 m to 20 m and ask which details disappear.",
         "Click any point on the hill to read its height and draw the A–B cross-section.",
         "On a flat map, close lines mean steep ground, widely spaced lines mean gentle ground, a V pointing uphill marks a valley and a spur bends the other way.",
-        "These rules are enough for the Check questions and for reading a USGS or OS map extract without the 3D view."
+        "These rules are enough for the Check questions and for reading a USGS or OS map extract without the 3D view.",
+        "Choose Landscape → Real: Sugarloaf Mountain, MD to read contours on real USGS elevation data (heights above sea level); the model hill is idealized."
       ]
     },
     {
@@ -7369,6 +7392,10 @@
         {
           "label": "NPS resistant strata and waterfalls",
           "href": "https://www.nps.gov/piro/planyourvisit/waterfalls.htm"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
@@ -7378,7 +7405,7 @@
             "key": "feature",
             "label": "Feature",
             "min": 0,
-            "max": 2,
+            "max": 3,
             "step": 1,
             "default": 0,
             "options": [
@@ -7393,6 +7420,10 @@
               {
                 "label": "V-shaped valley",
                 "value": 2
+              },
+              {
+                "label": "Real: Grand Canyon, AZ",
+                "value": 3
               }
             ]
           },
@@ -7414,7 +7445,8 @@
       },
       "modelNotes": [
         "Retreat moves the lip up to 25 m upstream in chosen steps, not a dated rate; the falling water and plunge pool move with it.",
-        "Vertical relief is enlarged 2.2 times in the waterfall view and 1.5 times in the valley view; Physical scale removes the exaggeration."
+        "Vertical relief is enlarged 2.2 times in the waterfall view and 1.5 times in the valley view; Physical scale removes the exaggeration.",
+        "The Real: Grand Canyon view uses USGS elevation and aerial imagery to show a river that has cut about 1.5 km into a rising plateau."
       ]
     },
     {
@@ -8308,6 +8340,10 @@
         {
           "label": "NPS glacial erosion and debris",
           "href": "https://www.nps.gov/dena/learn/nature/glaciers.htm"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
@@ -8317,7 +8353,7 @@
             "key": "view",
             "label": "Landform view",
             "min": 0,
-            "max": 1,
+            "max": 2,
             "step": 1,
             "default": 0,
             "options": [
@@ -8328,6 +8364,10 @@
               {
                 "value": 1,
                 "label": "Cirques, arêtes and horn"
+              },
+              {
+                "value": 2,
+                "label": "Real: Yosemite Valley, CA"
               }
             ]
           },
@@ -8337,19 +8377,34 @@
             "min": 0,
             "max": 1,
             "step": 0.02,
-            "default": 0.5
+            "default": 0.5,
+            "showWhen": {
+              "key": "view",
+              "values": [
+                0,
+                1
+              ]
+            }
           }
         ],
         "toggles": [
           {
             "key": "ice",
             "label": "Ice",
-            "defaultOn": true
+            "defaultOn": true,
+            "showWhen": {
+              "key": "view",
+              "values": [
+                0,
+                1
+              ]
+            }
           }
         ]
       },
       "modelNotes": [
-        "Default relief is enlarged 1.5 times; Physical scale restores a common kilometer scale."
+        "Default relief is enlarged 1.5 times; Physical scale restores a common kilometer scale.",
+        "The Real: Yosemite Valley view uses USGS elevation and aerial imagery; its north–south cross-section shows the real U shape. Heights are exaggerated ×1.5 unless Compare physical scale is on."
       ]
     },
     {
@@ -8949,6 +9004,10 @@
         {
           "label": "NPS dune types",
           "href": "https://www.nps.gov/grsa/learn/nature/dune-types.htm"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
@@ -8958,7 +9017,7 @@
             "key": "feature",
             "label": "Landform",
             "min": 0,
-            "max": 1,
+            "max": 2,
             "step": 1,
             "default": 0,
             "options": [
@@ -8969,6 +9028,10 @@
               {
                 "value": 1,
                 "label": "Yardang ridges"
+              },
+              {
+                "value": 2,
+                "label": "Real: Great Sand Dunes, CO"
               }
             ]
           },
@@ -8989,7 +9052,8 @@
         ]
       },
       "modelNotes": [
-        "The example dune has a gentle windward (stoss) slope and a 32° slip face on its lee side at true scale."
+        "The example dune has a gentle windward (stoss) slope and a 32° slip face on its lee side at true scale.",
+        "The Real: Great Sand Dunes view uses USGS elevation and aerial imagery; its dunefield is shaped by winds from two directions, unlike the single-wind barchan model."
       ]
     },
     {
@@ -10447,6 +10511,10 @@
         {
           "label": "USGS eruption styles",
           "href": "https://www.usgs.gov/programs/VHP/volcano-types-and-styles"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
@@ -10458,7 +10526,13 @@
             "min": 0,
             "max": 1,
             "step": 0.01,
-            "default": 0.25
+            "default": 0.25,
+            "showWhen": {
+              "key": "real",
+              "values": [
+                0
+              ]
+            }
           },
           {
             "key": "gas",
@@ -10466,18 +10540,36 @@
             "min": 0,
             "max": 1,
             "step": 0.05,
-            "default": 0.45
+            "default": 0.45,
+            "showWhen": {
+              "key": "real",
+              "values": [
+                0
+              ]
+            }
           }
         ],
         "slice": true,
         "toggles": [
           {
+            "key": "real",
+            "label": "Real volcanoes (USGS)"
+          },
+          {
             "key": "fissure",
-            "label": "Fissure vents"
+            "label": "Fissure vents",
+            "showWhen": {
+              "key": "real",
+              "values": [
+                0
+              ]
+            }
           }
         ]
       },
-      "modelNotes": []
+      "modelNotes": [
+        "Turn on Real volcanoes to compare Mauna Loa and Mount St. Helens from USGS elevation data at the same scale (heights from sea level, exaggerated ×3 unless Compare physical scale is on)."
+      ]
     },
     {
       "slug": "tsunami",

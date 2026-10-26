@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef } from "react";
+import RealVolcanoes from "./real-volcanoes";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
@@ -351,6 +352,11 @@ function LocalClipping() {
 }
 
 export default function Volcanoes() {
+  const real = useLabControls((s) => (s.params.real ?? 0) > 0.5);
+  return real ? <RealVolcanoes /> : <ModelVolcanoes />;
+}
+
+function ModelVolcanoes() {
   const { params, slice, t, trueScale } = useLabControls();
   useLabTick(1 / 9);
   const v = params.visc ?? 0.25,
