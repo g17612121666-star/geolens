@@ -14,14 +14,14 @@ const changed={
 'coasts':['Approved photographic rock mapping and arch geometry preserved.'],
 'rivers':['Approved channel geometry, water and woodland preserved.'],
 'continental-drift':['Existing pre-baked reconstruction maps and entry progress retained; no fabricated ancient photographic surface.'],
-'groundwater':['Corrected pressure-surface colour reference in model note.'],
+'groundwater':['Corrected pressure-surface color reference in model note.'],
 'wilson-cycle':['Formation-stage translation separated from hydraulic stage; rock sections retained.'],
 };
 const scatter=['thermal-circulation','drainage-basin','hydrograph','river-hydrology','landform-types','river-erosion','river-deposition','soil-profile','soil-erosion','mass-movement','soil-catena'];
 const guides=['seasons','solar-system','moon-phases','eclipses','rotation','tides','universe-scale','atmosphere-layers','energy-budget','wind','three-cell','fronts','carbon-cycle','enso','earthquakes','geologic-time','thermohaline','sun-earth','tropical-cyclone','tsunami','storm-surge','solar-altitude'];
 const controls={
 'earth-interior':['Final light-theme Chinese cutaway inspected'],
-'seasons':['Final light-theme orbital guide and labelled globe inspected'],
+'seasons':['Final light-theme orbital guide and labeled globe inspected'],
 'water-cycle':['Final Chinese surface-flow readout and reservoir view inspected'],
 'coasts':['390 px mobile arch scene, controls and ready gate inspected'],
 'volcanoes':['Viscosity .25 → .85 changes shield to composite; gas .45 → .9 changes eruption; fissure control toggled; final density plume visually verified'],

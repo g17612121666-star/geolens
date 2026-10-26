@@ -44,7 +44,7 @@ export default function DrainageBasin() {
     <>
       <ScienceStudio
         slug="drainage-basin"
-        scale="Idealised surface catchment · relief, channels and vegetation enlarged"
+        scale="Idealized surface catchment · relief, channels and vegetation enlarged"
         trueScale="Shows how the catchment fits together · not a surveyed elevation model"
         camera={[3, 3.8, 5]}
       >

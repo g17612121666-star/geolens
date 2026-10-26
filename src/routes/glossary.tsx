@@ -19,7 +19,7 @@ export const Route = createFileRoute("/glossary")({
   head: () =>
     headFor({
       title: "Glossary",
-      description: `${GLOSSARY.length} Earth science terms, real observations and related labs. Search, read or practise recall.`,
+      description: `${GLOSSARY.length} Earth science terms, real observations and related labs. Search, read or practice recall.`,
       path: "/glossary",
     }),
 });
@@ -143,7 +143,7 @@ function Glossary() {
             update({ term: undefined });
           }}
         >
-          {revision ? "Return to reading" : "Practise recall"}
+          {revision ? "Return to reading" : "Practice recall"}
         </button>
       </div>
       <p className="mt-4 max-w-3xl text-mist">
@@ -194,7 +194,7 @@ function Glossary() {
                 }
               >
                 {known.includes(key(selected.term))
-                  ? "Marked understood · practise again"
+                  ? "Marked understood · practice again"
                   : "Mark understood"}
               </button>
             </div>
@@ -207,7 +207,7 @@ function Glossary() {
         <>
           {search.term && (
             <p className="mt-3 text-sm text-mist">
-              {"That term link is not recognised. Search the glossary below."}
+              {"That term link is not recognized. Search the glossary below."}
             </p>
           )}
           <section
@@ -326,7 +326,7 @@ function Glossary() {
                       {"Got it · next"}
                     </button>
                     <button className={button} onClick={() => mark(false)}>
-                      {"Practise again · next"}
+                      {"Practice again · next"}
                     </button>
                   </div>
                 </>

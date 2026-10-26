@@ -278,7 +278,7 @@ function Turf({ line }: { line: [number, number][] }) {
     const g = new THREE.ExtrudeGeometry(shape, { depth: 2.22, bevelEnabled: false });
     g.translate(0, 0, -1.11);
     return g;
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on key (line serialised) so a fresh line array with the same points does not rebuild the geometry
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on key (line serialized) so a fresh line array with the same points does not rebuild the geometry
   }, [key]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (

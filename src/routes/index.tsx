@@ -22,15 +22,13 @@ export const Route = createFileRoute("/")({
       path: "/",
     }),
 });
-const FEATURED = ["holderness", "mississippi", "hong-kong-landslide", "shanghai-huangpu"];
+const FEATURED = ["san-andreas", "mississippi", "grand-canyon", "tohoku-2011"];
 const SUMMARIES: Record<string, string> = {
-  holderness: "See how waves erode soft cliffs and move sediment along the Holderness coast.",
+  "san-andreas": "See how two plates slide past each other along California’s most famous fault.",
   mississippi:
     "Follow a large river across its floodplain and investigate how people manage flood risk.",
-  "hong-kong-landslide":
-    "Explore how intense rain and weathered rock contribute to landslides on steep slopes.",
-  "shanghai-huangpu":
-    "Investigate how a low-lying city manages river water and coastal flood risk.",
+  "grand-canyon": "Read nearly two billion years of Earth history in the walls of a river-cut canyon.",
+  "tohoku-2011": "Trace how a subduction-zone earthquake sent a tsunami onto the coast of Japan.",
 };
 function Home() {
   const classroom = labFigure("soil-texture");

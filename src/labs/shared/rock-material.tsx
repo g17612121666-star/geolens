@@ -4,7 +4,7 @@ import { PhotographicRockMaterial } from "./photographic-rock";
 
 type RockProps = ThreeElements["meshStandardMaterial"] & {
   repeat?: number;
-  /** 0 keeps the bed colour fully saturated; 1 leaves only the photo's grey tone. */
+  /** 0 keeps the bed color fully saturated; 1 leaves only the photo's gray tone. */
   desaturate?: number;
   strata?: boolean;
 };

@@ -66,8 +66,8 @@ export function PhotographicRockMaterial({
     vec4 rockPatch(sampler2D tex,vec2 uv){
       vec2 cell=floor(uv),blend=fract(uv);blend=blend*blend*(3.-2.*blend);
       vec2 dx=dFdx(uv),dy=dFdy(uv);
-      // Randomised phase, with shared derivatives, prevents visible tile grids
-      // and mip seams. The same projection is used for colour, height and roughness.
+      // Randomized phase, with shared derivatives, prevents visible tile grids
+      // and mip seams. The same projection is used for color, height and roughness.
       return mix(mix(textureGrad(tex,uv+rockOffset(cell),dx,dy),textureGrad(tex,uv+rockOffset(cell+vec2(1.,0.)),dx,dy),blend.x),
         mix(textureGrad(tex,uv+rockOffset(cell+vec2(0.,1.)),dx,dy),textureGrad(tex,uv+rockOffset(cell+vec2(1.,1.)),dx,dy),blend.x),blend.y);
     }

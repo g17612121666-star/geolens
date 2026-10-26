@@ -10,10 +10,10 @@ import { TerrainMaterial } from "./natural-world";
 import { FlowWaterMaterial } from "./flow-water";
 import { AlpineMaterial } from "./alpine-material";
 /** Closed terrain whose cut faces show soil, weathered rock and bedded bedrock, with an explicitly
- * supplied surface colour that is mottled and gives way to bare rock on steep slopes. */
+ * supplied surface color that is mottled and gives way to bare rock on steep slopes. */
 export function GeomorphicTerrain({
   height,
-  colour,
+  color,
   width = 6,
   depth = 4,
   base = -0.3,
@@ -26,7 +26,7 @@ export function GeomorphicTerrain({
   sideUniforms,
 }: {
   height: (x: number, z: number) => number;
-  colour: (x: number, y: number, z: number) => string;
+  color: (x: number, y: number, z: number) => string;
   width?: number;
   depth?: number;
   base?: number;
@@ -36,7 +36,7 @@ export function GeomorphicTerrain({
   section?: LandSection;
   /** Slopes whose normal has a vertical component below this show bare rock; 0 disables. */
   cliff?: number;
-  /** Strength of the large-scale colour variation across the surface. */
+  /** Strength of the large-scale color variation across the surface. */
   mottle?: number;
   /** A complete SectionMaterial shader for the cut faces, replacing `section`. */
   sideGlsl?: string;
@@ -56,7 +56,7 @@ export function GeomorphicTerrain({
     for (let i = 0; i < p.count; i++) {
       const x = p.getX(i),
         z = p.getZ(i);
-      col.set(colour(x, p.getY(i), z));
+      col.set(color(x, p.getY(i), z));
       if (i < topCount) {
         const n =
           landscapeNoise(x * 2.3 + 11, z * 2.3) * 0.65 + landscapeNoise(x * 9, z * 9) * 0.35;
@@ -66,14 +66,14 @@ export function GeomorphicTerrain({
     }
     g.setAttribute("color", new THREE.BufferAttribute(c, 3));
     return g;
-  }, [height, colour, width, depth, base, resolution, mottle]);
+  }, [height, color, width, depth, base, resolution, mottle]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry} castShadow receiveShadow>
       {material === "alpine" ? (
         <AlpineMaterial attach="material-0" />
       ) : (
-        // The scene's own colours carry the landform; steep ground shows the bedrock beds.
+        // The scene's own colors carry the landform; steep ground shows the bedrock beds.
         <SectionMaterial
           attach="material-0"
           glsl={face}
@@ -112,7 +112,7 @@ export function WaterRibbon({
   const pathKey = path.map((p) => p.join(",")).join(";");
   const geometry = useMemo(
     () => waterRibbonGeometry(path, width),
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on pathKey (path serialised) so a fresh path array with the same points does not rebuild the geometry
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on pathKey (path serialized) so a fresh path array with the same points does not rebuild the geometry
     [pathKey, width],
   );
   useEffect(() => () => geometry.dispose(), [geometry]);
@@ -156,7 +156,7 @@ export function DebrisField({
     });
     mesh.current.instanceMatrix.needsUpdate = true;
     mesh.current.computeBoundingSphere();
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on pointsKey (points serialised) so a fresh points array with the same positions does not reset the instances
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on pointsKey (points serialized) so a fresh points array with the same positions does not reset the instances
   }, [pointsKey, size]);
   return (
     <instancedMesh ref={mesh} args={[undefined, undefined, points.length]} castShadow receiveShadow>
@@ -215,7 +215,7 @@ export function GrassPatch({
     g.setIndex(idx);
     g.computeVertexNormals();
     return g;
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on positionsKey (positions serialised) so a fresh positions array with the same entries does not rebuild the geometry
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on positionsKey (positions serialized) so a fresh positions array with the same entries does not rebuild the geometry
   }, [positionsKey, height]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
@@ -224,7 +224,7 @@ export function GrassPatch({
     </mesh>
   );
 }
-/** A branching root cut-face, with radius tapering towards the tips. */
+/** A branching root cut-face, with radius tapering toward the tips. */
 export function RootNetwork({
   x = 0,
   y = 0,
@@ -294,30 +294,30 @@ export function RootNetwork({
 /** Enlarged pore markers are instanced to keep cutaways usable on classroom phones. */
 export function PoreMarkers({
   positions,
-  colours,
+  colors,
   radius = 0.024,
 }: {
   positions: [number, number, number][];
-  colours: string[];
+  colors: string[];
   radius?: number;
 }) {
   const mesh = useRef<THREE.InstancedMesh>(null),
-    key = positions.map((p) => p.join(",")).join(";") + colours.join(",");
+    key = positions.map((p) => p.join(",")).join(";") + colors.join(",");
   useLayoutEffect(() => {
     if (!mesh.current) return;
     const dummy = new THREE.Object3D(),
-      colour = new THREE.Color();
+      color = new THREE.Color();
     positions.forEach((p, i) => {
       dummy.position.set(...p);
       dummy.scale.setScalar(radius);
       dummy.updateMatrix();
       mesh.current!.setMatrixAt(i, dummy.matrix);
-      mesh.current!.setColorAt(i, colour.set(colours[i] ?? "#80c8d6"));
+      mesh.current!.setColorAt(i, color.set(colors[i] ?? "#80c8d6"));
     });
     mesh.current.instanceMatrix.needsUpdate = true;
     if (mesh.current.instanceColor) mesh.current.instanceColor.needsUpdate = true;
     mesh.current.computeBoundingSphere();
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on key (positions and colours serialised) so fresh arrays with the same entries do not reset the instances
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed on key (positions and colors serialized) so fresh arrays with the same entries do not reset the instances
   }, [key, radius]);
   return (
     <instancedMesh ref={mesh} args={[undefined, undefined, positions.length]}>

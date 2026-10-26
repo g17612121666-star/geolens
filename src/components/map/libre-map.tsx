@@ -72,7 +72,7 @@ const CREDIT: Record<MapBasemap, string> = {
   osm: "OpenStreetMap contributors · raster basemap",
   "natural-earth": "Natural Earth 110m land — offline fallback. Coastlines only.",
   relief: "OpenTopoMap relief · OSM / SRTM · land elevation",
-  bathymetry: "Esri Ocean / GEBCO. Seafloor as colour. Not a navigation chart.",
+  bathymetry: "Esri Ocean / GEBCO. Seafloor as color. Not a navigation chart.",
 };
 
 function meridians(): { type: string; features: unknown[] } {
@@ -136,7 +136,7 @@ function StaticCoast({ className, hidden }: { className: string; hidden: boolean
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    let cancelled = false;
+    let canceled = false;
     const draw = (fc: { features: { geometry: { type: string; coordinates: unknown } }[] }) => {
       const parent = el.parentElement;
       const w = parent?.clientWidth || 640;
@@ -151,7 +151,7 @@ function StaticCoast({ className, hidden }: { className: string; hidden: boolean
     void fetch("/geo/ne_110m_land.geojson")
       .then((r) => r.json())
       .then((fc) => {
-        if (cancelled) return;
+        if (canceled) return;
         draw(fc);
         const ro = new ResizeObserver(() => draw(fc));
         if (el.parentElement) ro.observe(el.parentElement);
@@ -159,7 +159,7 @@ function StaticCoast({ className, hidden }: { className: string; hidden: boolean
       })
       .catch(() => undefined);
     return () => {
-      cancelled = true;
+      canceled = true;
       (el as HTMLCanvasElement & { __ro?: ResizeObserver }).__ro?.disconnect();
     };
   }, []);
@@ -473,7 +473,7 @@ export function LibreMap({
   const [mapVersion, setMapVersion] = useState(0);
 
   useEffect(() => {
-    let cancelled = false;
+    let canceled = false;
     let detach = () => undefined as void;
     const el = ref.current;
     if (!el) return;
@@ -486,7 +486,7 @@ export function LibreMap({
       try {
         const maplibregl = await import("maplibre-gl");
         await import("maplibre-gl/dist/maplibre-gl.css");
-        if (cancelled || !el) return;
+        if (canceled || !el) return;
         try {
           maplibregl.setWorkerUrl("/maplibre/maplibre-gl-worker.mjs");
         } catch {
@@ -520,11 +520,11 @@ export function LibreMap({
         const fallback = attachStyleFallback(m as never, {
           start: requestedBaseRef.current,
           onBasemap: (b) => {
-            if (cancelled) return;
+            if (canceled) return;
             setBasemap(b);
           },
           onPhase: (p) => {
-            if (!cancelled) setPhase(p);
+            if (!canceled) setPhase(p);
           },
         });
         fallbackRef.current = fallback;
@@ -621,7 +621,7 @@ export function LibreMap({
           prevDetach();
         };
       } catch {
-        if (!cancelled) {
+        if (!canceled) {
           setFailed(true);
           setPhase("error");
         }
@@ -629,7 +629,7 @@ export function LibreMap({
     })();
 
     return () => {
-      cancelled = true;
+      canceled = true;
       detach();
       fallbackRef.current = null;
       markerRef.current?.remove();
@@ -691,9 +691,9 @@ export function LibreMap({
     }
     const m = mapRef.current;
     if (!m) return;
-    let cancelled = false;
+    let canceled = false;
     void import("maplibre-gl").then((maplibregl) => {
-      if (cancelled || mapRef.current !== m || markerRef.current) return;
+      if (canceled || mapRef.current !== m || markerRef.current) return;
       const element = customA ? document.createElement("div") : undefined;
       const mk = new maplibregl.Marker({
         color: "#3EE0C6",
@@ -715,7 +715,7 @@ export function LibreMap({
       markerRef.current = mk;
     });
     return () => {
-      cancelled = true;
+      canceled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- marker is a fresh array from callers each render; keyed on its listed coordinates
   }, [markerLng, markerLat, mapVersion, draggableMarker, customA]);
@@ -739,9 +739,9 @@ export function LibreMap({
     }
     const m = mapRef.current;
     if (!m) return;
-    let cancelled = false;
+    let canceled = false;
     void import("maplibre-gl").then((maplibregl) => {
-      if (cancelled || mapRef.current !== m || markerBRef.current) return;
+      if (canceled || mapRef.current !== m || markerBRef.current) return;
       const element = customB ? document.createElement("div") : undefined;
       const mkB = new maplibregl.Marker({
         color: "#FF6A3D",
@@ -754,7 +754,7 @@ export function LibreMap({
       markerBRef.current = mkB;
     });
     return () => {
-      cancelled = true;
+      canceled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- markerB is a fresh array from callers each render; keyed on its listed coordinates
   }, [markerBLng, markerBLat, mapVersion, customB]);

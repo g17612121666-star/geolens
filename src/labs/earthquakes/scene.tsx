@@ -13,7 +13,7 @@ import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { PlantStand } from "../shared/natural-world";
 
-/** 1 scene unit = 50 km. The block is cut through the hypocentre along z = 0. */
+/** 1 scene unit = 50 km. The block is cut through the hypocenter along z = 0. */
 const KM = 1 / 50,
   WIDTH = 7.2,
   DEPTH = 2.6,
@@ -376,21 +376,21 @@ export default function Earthquakes() {
         </group>
         <Tag
           pos={[0, ground(0, 0) + 0.3, 0.1]}
-          text="Epicentre"
-          note="The epicentre is the point on the surface vertically above the hypocentre. It is not necessarily where the inclined fault reaches the surface."
+          text="Epicenter"
+          note="The epicenter is the point on the surface vertically above the hypocenter. It is not necessarily where the inclined fault reaches the surface."
           occlude={false}
         />
         <Tag
           pos={[0, -d - 0.3, 0.05]}
-          text={`Hypocentre · ${depth.toFixed(0)} km`}
+          text={`Hypocenter · ${depth.toFixed(0)} km`}
           tone="magma"
-          note="Rupture starts at the focus (hypocentre); the red patch shows part of the fault slipping. Here the waves spread as spheres from one point through uniform rock; real ruptures spread across a whole fault surface."
+          note="Rupture starts at the focus (hypocenter); the red patch shows part of the fault slipping. Here the waves spread as spheres from one point through uniform rock; real ruptures spread across a whole fault surface."
           occlude={false}
         />
         <Tag
           pos={[station[0] + 1.5, station[1] + 0.55, station[2]]}
           text="Seismometer · 50 km"
-          note="The station is 50 km horizontally from the epicentre, so the straight-line distance from the focus is √(depth² + 50²) km. Its drum record shows the P-wave arrival, then the larger S-wave, then the slower, larger surface wave."
+          note="The station is 50 km horizontally from the epicenter, so the straight-line distance from the focus is √(depth² + 50²) km. Its drum record shows the P-wave arrival, then the larger S-wave, then the slower, larger surface wave."
           occlude={false}
         />
         <Tag

@@ -42,13 +42,13 @@ function City({ ground }: { ground: (x: number, z: number) => number }) {
         const x = 0.55 + i * 0.27,
           z = -1.05 + j * 0.32,
           k = Math.abs(Math.sin(i * 12.9 + j * 78.2) * 43758.5) % 1,
-          centre = Math.exp(-(((x - 1.5) / 0.8) ** 2) - (z / 0.9) ** 2);
+          center = Math.exp(-(((x - 1.5) / 0.8) ** 2) - (z / 0.9) ** 2);
         out.push({
           x,
           z,
           w: 0.15 + 0.06 * k,
           d: 0.16 + 0.05 * ((k * 7) % 1),
-          h: 0.08 + 0.5 * centre * (0.5 + k),
+          h: 0.08 + 0.5 * center * (0.5 + k),
           c: ["#9aa3a6", "#b4b0a6", "#7f8a90", "#c2c4c0", "#8e8475"][Math.floor(k * 5)],
         });
       }
@@ -78,7 +78,7 @@ function City({ ground }: { ground: (x: number, z: number) => number }) {
   );
 }
 
-/** Tracer parcels following the circulation loop, coloured warm on the rising side. */
+/** Tracer parcels following the circulation loop, colored warm on the rising side. */
 function Tracers({
   path,
   direction,
@@ -280,12 +280,12 @@ export default function ThermalCirculation() {
             direction === 0
               ? "Equal heating · no loop"
               : urban
-                ? "Surface flow → towards the warmer city"
+                ? "Surface flow → toward the warmer city"
                 : direction > 0
                   ? "Sea breeze · surface flow → onshore"
                   : "Land breeze · surface flow ← offshore"
           }
-          note="The surface branch flows towards the warmer side, ascent occurs there, and flow returns aloft. Loop height and speed are illustrative."
+          note="The surface branch flows toward the warmer side, ascent occurs there, and flow returns aloft. Loop height and speed are illustrative."
           occlude={false}
         />
       </ScienceStudio>
@@ -294,7 +294,7 @@ export default function ThermalCirculation() {
         {hour.toFixed(1)} {"· right minus left "}
         {c.contrast.toFixed(1)} {"°C. "}
         {urban
-          ? "Urban heat island: surface air flows from the cooler countryside towards the warmer city, where it rises. (Urban heat replaces the coast while it is on.)"
+          ? "Urban heat island: surface air flows from the cooler countryside toward the warmer city, where it rises. (Urban heat replaces the coast while it is on.)"
           : !coast
             ? "Both settings are off: equal temperature gives no thermal circulation."
             : direction === 0

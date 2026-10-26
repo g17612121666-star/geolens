@@ -1,5 +1,5 @@
 /**
- * Named physical features for map practice. Each point is a representative centre; a click within
+ * Named physical features for map practice. Each point is a representative center; a click within
  * `radius` km counts as correct, so large features such as the Sahara accept a wide area.
  */
 export type FeatureKind =
@@ -379,7 +379,7 @@ export const WORLD_FEATURES: WorldFeature[] = [
     lon: -66,
     radius: 900,
     level: 2,
-    note: "A warm current that carries heat from the Gulf of Mexico towards Europe.",
+    note: "A warm current that carries heat from the Gulf of Mexico toward Europe.",
     lab: "ocean-currents",
   },
   {

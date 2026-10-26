@@ -129,7 +129,7 @@ vec3 sectionGlow(vec3 p,vec3 w){
   return vec3(1.,.36,.05)*max(pipe*1.1,chamber*.8);
 }`;
 
-/** Asthenosphere with the plume head and stem, coloured by an illustrative temperature. */
+/** Asthenosphere with the plume head and stem, colored by an illustrative temperature. */
 const MANTLE_GLSL = `uniform float uPlume,uTop,uTime;
 float plume(vec3 w){
   float dx=w.x-uPlume, y=w.y;
@@ -340,7 +340,7 @@ function Track({
           text={continental ? "Plate moves SW" : "Plate moves NW"}
           note={
             continental
-              ? "The North American Plate moves southwest relative to the Yellowstone heat source, so the active centre appears to migrate northeast."
+              ? "The North American Plate moves southwest relative to the Yellowstone heat source, so the active center appears to migrate northeast."
               : "The Pacific Plate moves northwest relative to the Hawaiian heat source, carrying each volcano away from the place where it formed."
           }
           occlude={false}
@@ -351,7 +351,7 @@ function Track({
         text={continental ? "Yellowstone · NE" : "Hawaiʻi · SE"}
         note={
           continental
-            ? "Young end of the Yellowstone volcanic track: a caldera with a lake, geysers and a magma reservoir in the crust. Older volcanic centres extend southwest along the flat basalt Snake River Plain."
+            ? "Young end of the Yellowstone volcanic track: a caldera with a lake, geysers and a magma reservoir in the crust. Older volcanic centers extend southwest along the flat basalt Snake River Plain."
             : "The southeastern end includes active Hawaiian volcanism: young black lava, a glowing summit and no forest yet. Kauaʻi, to the northwest, preserves rocks about 5–5.5 million years old."
         }
         occlude={false}
@@ -361,7 +361,7 @@ function Track({
         text={continental ? "Older · SW" : "Older · NW"}
         note={
           continental
-            ? "The southwest end of the recognised Yellowstone track reaches roughly 17 Ma. Older calderas are buried by later basalt; these depressions are symbols, not surveyed caldera outlines."
+            ? "The southwest end of the recognized Yellowstone track reaches roughly 17 Ma. Older calderas are buried by later basalt; these depressions are symbols, not surveyed caldera outlines."
             : "Moving away from the plume, islands cool, sink and erode: green valleys, then a coral atoll ring around a lagoon, then a drowned flat-topped seamount. Shapes are illustrative, not real coastlines."
         }
         occlude={false}
@@ -380,7 +380,7 @@ function Track({
           pos={[PLUME_X + 3 * SPACING + shift, SEA + 0.25 + tagLift * 0.5, 0]}
           text="Atoll"
           tone="glacier"
-          note="Coral reefs keep growing upwards at sea level while the extinct volcano beneath them subsides, leaving a ring of reef around a lagoon."
+          note="Coral reefs keep growing upward at sea level while the extinct volcano beneath them subsides, leaving a ring of reef around a lagoon."
           occlude={false}
         />
       )}
@@ -388,7 +388,7 @@ function Track({
         pos={[PLUME_X - 0.75, -1.2, D / 2 + 0.05]}
         text="Mantle plume"
         tone="magma"
-        note="In the plume hypothesis, hot but mostly solid mantle rises slowly. Partial melting near the top feeds magma up through the plate; it is not a hollow pipe or a column of liquid magma. Geometry and colours are schematic."
+        note="In the plume hypothesis, hot but mostly solid mantle rises slowly. Partial melting near the top feeds magma up through the plate; it is not a hollow pipe or a column of liquid magma. Geometry and colors are schematic."
         occlude={false}
       />
     </group>
@@ -422,10 +422,10 @@ export default function Hotspots() {
       </ScienceStudio>
       <ScienceReadout>
         {hawaii
-          ? "Hawaiʻi's volcanic islands become older towards the northwest; Kauaʻi's rocks are about 5–5.5 million years old. "
+          ? "Hawaiʻi's volcanic islands become older toward the northwest; Kauaʻi's rocks are about 5–5.5 million years old. "
           : ""}
         {yellowstone
-          ? "Yellowstone's volcanic track goes back about 17 million years, with older sites towards the southwest. "
+          ? "Yellowstone's volcanic track goes back about 17 million years, with older sites toward the southwest. "
           : ""}
         {!hawaii && !yellowstone
           ? "Select Hawaiʻi, Yellowstone or both to compare their volcanic tracks."

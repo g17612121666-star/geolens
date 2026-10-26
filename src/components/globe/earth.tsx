@@ -99,7 +99,7 @@ const earthFrag = /* glsl */ `
     // Twilight: a warm band where sunlight crosses the most air.
     float twilight = exp(-pow((ndl - 0.02) / 0.09, 2.0));
     color += vec3(1.0, 0.42, 0.16) * twilight * 0.09;
-    // Atmospheric haze towards the limb on the day side.
+    // Atmospheric haze toward the limb on the day side.
     float rim = pow(1.0 - max(dot(n, view), 0.0), 2.4);
     color = mix(color, vec3(0.42, 0.68, 1.0), rim * 0.3 * smoothstep(-0.15, 0.4, ndl));
     if(eclipseEnabled && ndl>0.0){
@@ -217,12 +217,12 @@ export function EarthMesh({
   useFrame(({ camera }) => {
     if (mat.current) {
       if (lighting === "viewer" && mesh.current) {
-        const centre = mesh.current.getWorldPosition(VIEW_CENTRE);
+        const center = mesh.current.getWorldPosition(VIEW_CENTRE);
         const up = VIEW_UP.set(0, 1, 0).applyQuaternion(camera.quaternion);
         const right = VIEW_RIGHT.set(1, 0, 0).applyQuaternion(camera.quaternion);
         mat.current.uniforms.sunDirection.value
           .copy(camera.position)
-          .sub(centre)
+          .sub(center)
           .normalize()
           .addScaledVector(up, 0.55)
           .addScaledVector(right, -0.45)

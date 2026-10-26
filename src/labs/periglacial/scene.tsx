@@ -56,7 +56,7 @@ vec3 sectionColour(vec3 p,vec3 w){
   float d=-w.y,g=grain(vec2(w.x+w.z,w.y));
   float e=${wedge};
   float hw=uWedge*clamp(1.-(d-uActive)/uDepth,0.,1.);
-  // Beds are dragged upwards beside each wedge as it grows.
+  // Beds are dragged upward beside each wedge as it grows.
   float lift=.35*uWedge*exp(-max(e,0.)/.25);
   float lam=fract((d-lift)*9.);
   // Winter contraction crack: through the active layer and down the middle of the wedge.
@@ -71,7 +71,7 @@ vec3 sectionColour(vec3 p,vec3 w){
   else if(d<uActive){
     c=mix(vec3(.55,.46,.34),vec3(.50,.42,.31),g);
     // Thawed ground is darker and wetter than seasonally frozen ground. In autumn the
-    // layer refreezes from the surface downwards, leaving a thawed band beneath.
+    // layer refreezes from the surface downward, leaving a thawed band beneath.
     c*=d<uThaw&&d>uFreeze?.78:1.;
   }else{
     c=mix(vec3(.50,.48,.44),vec3(.44,.42,.39),step(.5,lam))*mix(.93,1.06,g);
@@ -90,7 +90,7 @@ const TUNDRA = new THREE.Color("#7f8452"),
   TROUGH = new THREE.Color("#5f7246"),
   SNOW = new THREE.Color("#eef2f3");
 
-/** Low-centred polygons: troughs over the wedges, raised rims beside them and wet centres. */
+/** Low-centered polygons: troughs over the wedges, raised rims beside them and wet centers. */
 function polygonHeight(x: number, z: number, growth: number) {
   const e = edgeDistance(x, z),
     g = 0.3 + 0.7 * growth;
@@ -113,7 +113,7 @@ export default function Periglacial() {
     thaw = t < 0.4 ? 0.7 * Math.sqrt(t / 0.4) : t < 0.55 ? 0.7 : 0,
     freeze = t < 0.4 || t >= 0.55 ? 0 : (0.7 * (t - 0.4)) / 0.15,
     winter = t >= 0.55;
-  // Section view: metres. Network view: the same layering scaled down with the polygons.
+  // Section view: meters. Network view: the same layering scaled down with the polygons.
   const sectionUniforms = useSectionUniforms({
     uThaw: thaw,
     uFreeze: freeze,
@@ -133,7 +133,7 @@ export default function Periglacial() {
     uCrack: 0.006,
   });
   const ground = useMemo(() => (x: number, z: number) => polygonHeight(x, z, growth), [growth]);
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number, z: number) => {
       const e = edgeDistance(x, z),
         c = TUNDRA.clone().lerp(RIM, Math.exp(-(((e - 0.2) / 0.08) ** 2)) * 0.8);
@@ -163,7 +163,7 @@ export default function Periglacial() {
         scale={
           view === 0
             ? "10 m wide, 5 m deep · 0.7 m active layer · common scale"
-            : "Ice-wedge polygon network · idealised pattern, not a field survey · relief exaggerated"
+            : "Ice-wedge polygon network · idealized pattern, not a field survey · relief exaggerated"
         }
         trueScale={
           view === 0
@@ -211,14 +211,14 @@ export default function Periglacial() {
                     ? `Seasonal thaw · ${thaw.toFixed(2)} m`
                     : "Active layer frozen"
               }
-              note="Seasonal thaw deepens through the summer to a maximum of 0.7 m, marked by the dashed line. In autumn the active layer refreezes from the surface downwards. Thawed ground is shown darker and wetter."
+              note="Seasonal thaw deepens through the summer to a maximum of 0.7 m, marked by the dashed line. In autumn the active layer refreezes from the surface downward. Thawed ground is shown darker and wetter."
               occlude={false}
             />
             {winter && (
               <Tag
                 pos={[0.6, 0.25, 1.2]}
                 text="Winter crack"
-                note="In intense winter cold the frozen ground contracts and cracks, usually along the same line through the wedge each year. Real cracks are only millimetres to a centimetre or two wide; the crack is drawn wider here so it can be seen. Next spring, meltwater runs into it and freezes as a new vein of ice."
+                note="In intense winter cold the frozen ground contracts and cracks, usually along the same line through the wedge each year. Real cracks are only millimeters to a centimeter or two wide; the crack is drawn wider here so it can be seen. Next spring, meltwater runs into it and freezes as a new vein of ice."
                 occlude={false}
               />
             )}
@@ -231,7 +231,7 @@ export default function Periglacial() {
             <Tag
               pos={[-2.6, -3.8, 1.2]}
               text={`Ice wedge · ${width.toFixed(2)} m at top`}
-              note="Intense winter cold makes frozen ground contract and crack. Meltwater enters the cracks and freezes as thin vertical veins, so the wedge widens year after year and pushes the neighbouring layers upwards. It is not caused by water simply expanding as it freezes, nor by a glacier."
+              note="Intense winter cold makes frozen ground contract and crack. Meltwater enters the cracks and freezes as thin vertical veins, so the wedge widens year after year and pushes the neighboring layers upward. It is not caused by water simply expanding as it freezes, nor by a glacier."
               occlude={false}
             />
           </>
@@ -239,7 +239,7 @@ export default function Periglacial() {
           <>
             <GeomorphicTerrain
               height={ground}
-              colour={colour}
+              color={color}
               width={6}
               depth={6}
               resolution={240}
@@ -263,7 +263,7 @@ export default function Periglacial() {
             <Tag
               pos={[0, 0.7, 0]}
               text="Thermal-contraction polygon network"
-              note="Troughs lie above the ice wedges, with raised rims beside them and wet, low centres; the cut faces show a wedge beneath every trough. Natural polygons are irregular; this regular network is idealised, not a field survey."
+              note="Troughs lie above the ice wedges, with raised rims beside them and wet, low centers; the cut faces show a wedge beneath every trough. Natural polygons are irregular; this regular network is idealized, not a field survey."
               occlude={false}
             />
           </>

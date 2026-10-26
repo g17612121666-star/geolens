@@ -155,7 +155,7 @@
   "uk-lakes": "place-uk-cma",
   "uk-gwn": "place-uk-snowdonia",
   "cu": "place-cu",
-  "us-dc": "place-us-dc",
+  "us-dc": "dc-national-mall-aerial",
   "uk-kent": "place-uk-kent",
   "us-la": "mississippi-delta-sts062",
   "us-me": "place-us-me",
@@ -176,7 +176,7 @@
   "us-nj": "place-us-nj",
   "uy": "place-uy",
   "us-ct": "place-us-ct",
-  "mo": "macau-inner-harbour",
+  "mo": "macau-inner-harbor",
   "bd": "bangladesh-modis-2011",
   "gy": "kaieteur-falls"
 }

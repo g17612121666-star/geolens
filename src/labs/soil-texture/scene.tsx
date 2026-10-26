@@ -49,7 +49,7 @@ export default function SoilTexture() {
     return geo;
   }, []);
   useEffect(() => () => g.dispose(), [g]);
-  // Class boundaries: segments wherever neighbouring sample points fall in different classes.
+  // Class boundaries: segments wherever neighboring sample points fall in different classes.
   const borders = useMemo(() => {
     const out: number[] = [],
       n = 160,
@@ -74,7 +74,7 @@ export default function SoilTexture() {
     return geo;
   }, []);
   useEffect(() => () => borders.dispose(), [borders]);
-  // A solid tile beneath the coloured face, so the triangle reads as an object.
+  // A solid tile beneath the colored face, so the triangle reads as an object.
   const tile = useMemo(() => {
     const corners = [xyz(100, 0), xyz(0, 0), xyz(0, 100)],
       shape = new THREE.Shape(corners.map(([x, , z]) => new THREE.Vector2(x, -z))),
@@ -218,7 +218,7 @@ export default function SoilTexture() {
         <Tag
           pos={[xyz(sand, clay)[0], 0.4, xyz(sand, clay)[2]]}
           text={name}
-          note="The class depends on particle sizes, not colour, fertility or organic content. Silt is whatever remains after sand and clay, so the total stays at 100%."
+          note="The class depends on particle sizes, not color, fertility or organic content. Silt is whatever remains after sand and clay, so the total stays at 100%."
           occlude={false}
         />
       </ScienceStudio>
@@ -233,14 +233,14 @@ export default function SoilTexture() {
         </span>{" "}
         · {name}
         {
-          ". USDA size limits: sand 0.05–2 mm, silt 0.002–0.05 mm, clay <0.002 mm. The jar shows how the same mix settles in water. Class colours are a key, not soil photographs."
+          ". USDA size limits: sand 0.05–2 mm, silt 0.002–0.05 mm, clay <0.002 mm. The jar shows how the same mix settles in water. Class colors are a key, not soil photographs."
         }
       </ScienceReadout>
     </>
   );
 }
 
-/** A small number or axis name beside the triangle, pushed outwards by `offset` (x, z). */
+/** A small number or axis name beside the triangle, pushed outward by `offset` (x, z). */
 function AxisNumber({
   pos,
   offset,
@@ -267,21 +267,21 @@ function SettlingJar({ sand, silt, clay }: { sand: number; silt: number; clay: n
   const height = 1.2,
     radius = 0.32,
     layers = [
-      { f: sand, colour: "#d2b27a", name: "Sand" },
-      { f: silt, colour: "#a8906e", name: "Silt" },
-      { f: clay, colour: "#7d6a5c", name: "Clay" },
+      { f: sand, color: "#d2b27a", name: "Sand" },
+      { f: silt, color: "#a8906e", name: "Silt" },
+      { f: clay, color: "#7d6a5c", name: "Clay" },
     ];
   let y = 0;
   return (
     <group position={[2.6, 0, -0.4]}>
       {layers.map((l) => {
         const h = (l.f / 100) * height * 0.62,
-          centre = y + h / 2;
+          center = y + h / 2;
         y += h;
         return h > 0.002 ? (
-          <mesh key={l.name} position={[0, centre, 0]}>
+          <mesh key={l.name} position={[0, center, 0]}>
             <cylinderGeometry args={[radius * 0.96, radius * 0.96, h, 40]} />
-            <meshStandardMaterial color={l.colour} roughness={0.95} />
+            <meshStandardMaterial color={l.color} roughness={0.95} />
           </mesh>
         ) : null;
       })}

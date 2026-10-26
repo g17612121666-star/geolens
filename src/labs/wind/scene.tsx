@@ -16,12 +16,12 @@ import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 
 /** Isobar spacing implied by 0.001 m/s² over 150 km at 1.2 kg/m³, in hPa. */
 const ISOBAR_HPA = (1.2 * 0.001 * 150000) / 100;
-/** Force arrows start from the parcel west of centre; the wind arrow sits between isobars. */
+/** Force arrows start from the parcel west of center; the wind arrow sits between isobars. */
 const FORCE_X = -0.6,
   WIND_X = 1.2,
   WIND_Z = 0.5;
 const COMPASS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
-const towards = (u: number, v: number) =>
+const toward = (u: number, v: number) =>
   COMPASS[Math.round((((Math.atan2(u, v) * 180) / Math.PI + 360) % 360) / 45) % 8];
 const ss = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 /** Regional landscape under the f-plane: a coast to the south-west, hills to the north-east.
@@ -168,7 +168,7 @@ export default function Wind() {
             <Tag
               pos={[2.75, landHeight(2.75, z) + 0.08, z]}
               text={`${(1014 + z * ISOBAR_HPA).toFixed(1)} hPa`}
-              note={`Isobars join points of equal surface pressure. With the lab's pressure-gradient acceleration of 0.001 m/s² and air density 1.2 kg/m³, neighbouring lines 150 km apart differ by about ${ISOBAR_HPA.toFixed(1)} hPa. The pressure values themselves are only examples.`}
+              note={`Isobars join points of equal surface pressure. With the lab's pressure-gradient acceleration of 0.001 m/s² and air density 1.2 kg/m³, neighboring lines 150 km apart differ by about ${ISOBAR_HPA.toFixed(1)} hPa. The pressure values themselves are only examples.`}
               occlude={false}
             />
           </group>
@@ -176,7 +176,7 @@ export default function Wind() {
         <Tag
           pos={[-2.2, 0.1, -2.4]}
           text="Lower pressure · north"
-          note="The fixed pressure gradient points north, across these parallel isobars. No fronts or curved pressure centres are included."
+          note="The fixed pressure gradient points north, across these parallel isobars. No fronts or curved pressure centers are included."
           occlude={false}
         />
         <Tag
@@ -234,10 +234,10 @@ export default function Wind() {
         {w.speed.toFixed(1)} {"m/s"}
         {w.speed < 0.05
           ? " (air at rest)"
-          : ` blowing from the ${towards(-w.u, -w.v)} towards the ${towards(w.u, w.v)}, ${
+          : ` blowing from the ${toward(-w.u, -w.v)} toward the ${toward(w.u, w.v)}, ${
               Math.abs(across) < 1
                 ? "along the isobars"
-                : `crossing the isobars at ${Math.abs(across).toFixed(0)}° towards ${
+                : `crossing the isobars at ${Math.abs(across).toFixed(0)}° toward ${
                     across > 0 ? "lower" : "higher"
                   } pressure`
             }`}
@@ -270,16 +270,16 @@ function PressureField() {
   const geometry = useMemo(() => {
     const g = new THREE.PlaneGeometry(6, 5.6, 1, 24),
       p = g.attributes.position,
-      colours = new Float32Array(p.count * 3),
+      colors = new Float32Array(p.count * 3),
       low = new THREE.Color("#4f8fd0"),
       high = new THREE.Color("#e9a35e"),
       c = new THREE.Color();
     for (let i = 0; i < p.count; i++) {
       // Plane local +y becomes world −z (north) after rotation.
       c.copy(high).lerp(low, (p.getY(i) + 2.8) / 5.6);
-      colours.set([c.r, c.g, c.b], i * 3);
+      colors.set([c.r, c.g, c.b], i * 3);
     }
-    g.setAttribute("color", new THREE.BufferAttribute(colours, 3));
+    g.setAttribute("color", new THREE.BufferAttribute(colors, 3));
     return g;
   }, []);
   useEffect(() => () => geometry.dispose(), [geometry]);

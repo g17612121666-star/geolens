@@ -8,6 +8,6 @@ export function mountainParcel(heightM:number,crestM:number,rh:number,leeward=fa
   const pressure=(h:number)=>1013.25*Math.exp(-h/8430),initialVapour=humidity*saturationPressure(start),initialMixing=.622*initialVapour/(1013.25-initialVapour);
   const saturatedMixing=(h:number,temp:number)=>.622*saturationPressure(temp)/(pressure(h)-saturationPressure(temp));
   const mixing=leeward?Math.min(initialMixing,saturatedMixing(crestM,crestTemperature)):Math.min(initialMixing,saturatedMixing(height,temperature));
-  const vapour=mixing*pressure(height)/(.622+mixing);
-  return {temperature,relativeHumidity:Math.min(1,vapour/saturationPressure(temperature)),lcl,crestTemperature,condensedGrams:Math.max(0,(initialMixing-mixing)*1000)};
+  const vapor=mixing*pressure(height)/(.622+mixing);
+  return {temperature,relativeHumidity:Math.min(1,vapor/saturationPressure(temperature)),lcl,crestTemperature,condensedGrams:Math.max(0,(initialMixing-mixing)*1000)};
 }

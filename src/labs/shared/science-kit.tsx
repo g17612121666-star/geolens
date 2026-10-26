@@ -25,7 +25,7 @@ export function ScienceStudio({
   trueScale?: string;
   camera?: [number, number, number];
   lights?: boolean;
-  /** Astronomy scenes: deep-space background and stars instead of the page colour. */
+  /** Astronomy scenes: deep-space background and stars instead of the page color. */
   space?: boolean;
   /** Soft ground shadow under the model; on by default except in space. */
   ground?: boolean;

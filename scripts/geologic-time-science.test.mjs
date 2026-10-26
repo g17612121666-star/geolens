@@ -10,10 +10,10 @@ test("units are contiguous, oldest first, and end at the present", () => {
 
 test("timeUnit names the unit on each side of a boundary", () => {
   assert.equal(timeUnit(4100).name, "Hadean");
-  assert.equal(timeUnit(3000).name, "Archaean");
+  assert.equal(timeUnit(3000).name, "Archean");
   assert.equal(timeUnit(539).name, "Proterozoic");
-  assert.equal(timeUnit(538).name, "Palaeozoic");
-  assert.equal(timeUnit(252).name, "Palaeozoic");
+  assert.equal(timeUnit(538).name, "Paleozoic");
+  assert.equal(timeUnit(252).name, "Paleozoic");
   assert.equal(timeUnit(251).name, "Mesozoic");
   assert.equal(timeUnit(66.1).name, "Mesozoic");
   assert.equal(timeUnit(65.9).name, "Cenozoic");

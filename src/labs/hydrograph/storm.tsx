@@ -28,7 +28,7 @@ export default function Hydrograph() {
     <>
       <ScienceStudio
         slug="hydrograph"
-        scale="1 km² idealised catchment · relief, river width and vegetation enlarged · 24-hour storm view"
+        scale="1 km² idealized catchment · relief, river width and vegetation enlarged · 24-hour storm view"
         trueScale="Storm model uses SI volumes and time · land geometry is conceptual"
         camera={[3, 2.8, 5]}
       >
@@ -56,7 +56,7 @@ export default function Hydrograph() {
             viewBox="0 0 700 116"
             className="mx-auto h-28 w-full"
             role="img"
-            aria-label={`Storm hydrograph: peak ${data.peak.q.toFixed(2)} cubic metres per second, lag ${data.lag.toFixed(2)} hours`}
+            aria-label={`Storm hydrograph: peak ${data.peak.q.toFixed(2)} cubic meters per second, lag ${data.lag.toFixed(2)} hours`}
           >
             {[0, 0.5, 1].map((f) => (
               <g key={f}>

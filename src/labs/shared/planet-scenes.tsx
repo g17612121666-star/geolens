@@ -16,7 +16,7 @@ export { LunarModel as LunarScene } from "./lunar-model";
 export function SolarAltitudeScene() {
   const { t, params } = useLabControls();
   useLabTick(1 / 36);
-  const lat = params.latitude ?? 51.5,
+  const lat = params.latitude ?? 40.7,
     date = new Date(Date.UTC(2026, 0, 1) + t * 365 * 86400000),
     declination = solarEphemeris(date).declination;
   const points = Array.from({ length: 145 }, (_, i) =>
@@ -78,7 +78,7 @@ export function SolarAltitudeScene() {
           )}
         </group>
         {shadowLength > 0 && (
-          // A plain line: GuideLine lightens dark colours in dark mode, which would make the shadow pale.
+          // A plain line: GuideLine lightens dark colors in dark mode, which would make the shadow pale.
           <PlainLine
             points={[
               [0, 0.014, 0],
@@ -122,7 +122,7 @@ export function SolarAltitudeScene() {
 }
 
 /** Sky hemisphere tinted by the Sun's altitude: blue by day, glowing near a low Sun, dark at
- * night. Colours are illustrative; 30° and 60° altitude rings are for reading the Sun's height. */
+ * night. Colors are illustrative; 30° and 60° altitude rings are for reading the Sun's height. */
 function SkyDome({ sun }: { sun: [number, number, number] }) {
   const rings = useMemo(
     () =>

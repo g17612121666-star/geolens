@@ -167,7 +167,7 @@ export default function SolarSystem() {
               <Tag
                 pos={[0, 1.7, 0]}
                 text={p.name}
-                note={`Mean radius ${p.radius.toLocaleString("en-GB")} km. Mercury uses an enhanced-colour MESSENGER map. Mars and Saturn use NASA model geometry and mapped materials; Jupiter uses a NASA global map. Venus, Uranus and Neptune have modelled cloud colours, not observed maps.`}
+                note={`Mean radius ${p.radius.toLocaleString("en-GB")} km. Mercury uses an enhanced-color MESSENGER map. Mars and Saturn use NASA model geometry and mapped materials; Jupiter uses a NASA global map. Venus, Uranus and Neptune have modeled cloud colors, not observed maps.`}
                 occlude={false}
               />
             </group>
@@ -211,7 +211,7 @@ export default function SolarSystem() {
         <br />
         {mode === 0
           ? "All planets begin at perihelion in this model. Choose physical scale (T) to show true radii at the orbital scale, or turn off All eight orbits to examine the inner system."
-          : "Planet textures use enhanced-colour Mercury imagery, a NASA/GSFC Jupiter map, and NASA/JPL-Caltech maps for Mars and Saturn. Cloud colours for Venus and the ice giants are modelled. Saturn’s rings consist of particles."}
+          : "Planet textures use enhanced-color Mercury imagery, a NASA/GSFC Jupiter map, and NASA/JPL-Caltech maps for Mars and Saturn. Cloud colors for Venus and the ice giants are modeled. Saturn’s rings consist of particles."}
       </ScienceReadout>
     </>
   );

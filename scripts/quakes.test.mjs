@@ -28,7 +28,7 @@ test('distance to the nearest plate boundary is small on a boundary and large in
   // A vertex of the boundary data itself is (almost) zero distance away.
   const [lon, lat] = plates.features[0].geometry.coordinates[0];
   assert.ok(distanceToBoundaryKm(lat, lon, segs) < 1);
-  // Chile trench region (2010 Maule earthquake epicentre, about 35.9° S, 72.7° W) lies near the boundary.
+  // Chile trench region (2010 Maule earthquake epicenter, about 35.9° S, 72.7° W) lies near the boundary.
   assert.ok(distanceToBoundaryKm(-35.9, -72.7, segs) < 200);
   // Central Australia is far inside the Australian plate.
   assert.ok(distanceToBoundaryKm(-25, 134, segs) > 1000);
@@ -38,7 +38,7 @@ test('a real USGS feed (significant earthquakes, 2015) parses, merges duplicates
   const raw = JSON.parse(readFileSync(new URL('./fixtures/usgs-significant-2015.geojson', import.meta.url), 'utf8'));
   const quakes = parseFeed(raw);
   assert.equal(raw.features.length, 156);
-  // Nine events appear twice, reported by both the USGS and the Global CMT catalogue (within 1 s
+  // Nine events appear twice, reported by both the USGS and the Global CMT catalog (within 1 s
   // and 1 km), including the M8.3 Illapel, Chile earthquake of 16 September 2015.
   assert.equal(quakes.filter((q) => q.mag === 8.3).length, 1);
   assert.equal(quakes[0].mag, 8.3);

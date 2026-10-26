@@ -15,8 +15,8 @@ const fragment = cloudFragment
     `float densityAt(vec3 p){
    float angle=atan(p.z,p.x),height=p.y+.65;
    if(abs(atan(sin(angle-1.5707963),cos(angle-1.5707963)))<opening*1.507964)return 0.;
-   float radius=length(p.xz),centre=.64+.13*height;
-   float body=1.-length(vec2((radius-centre)/.25,(height-.63)/.63));
+   float radius=length(p.xz),center=.64+.13*height;
+   float body=1.-length(vec2((radius-center)/.25,(height-.63)/.63));
    vec3 advected=vec3(cos(angle-phase)*radius,p.y,sin(angle-phase)*radius);
    float texture=cloudNoise(advected*11.+vec3(seed));
    return smoothstep(.0,.35,body+(texture-.52)*.65)*smoothstep(.07,.2,height);

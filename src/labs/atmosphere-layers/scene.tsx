@@ -40,7 +40,7 @@ const layers = [
 ];
 const CUT_VERTEX = `varying vec3 vLocal; void main(){vLocal=position; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
 /** Cut face: density falls off with height (about 8 km scale height), with the ozone layer,
- * meteor trails and polar aurora drawn where they occur. Colours are illustrative. */
+ * meteor trails and polar aurora drawn where they occur. Colors are illustrative. */
 const CUT_FRAGMENT = `uniform float factor; uniform vec3 base; uniform float light; varying vec3 vLocal;
 float ah(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 void main(){
@@ -84,7 +84,7 @@ function GasLayer({
   useEffect(() => () => geo.dispose(), [geo]);
   const labels = useLabControls((s) => s.labels);
   // Leader starts mid-layer on the cut face that faces the camera (the cut-away wedge is
-  // centred on +x, so a point at z = 0 would sit in empty space).
+  // centered on +x, so a point at z = 0 would sit in empty space).
   const mid = (inner + outer) / 2,
     theta = 0.4 + i * 0.65,
     phi = Math.PI * 0.31,
@@ -167,7 +167,7 @@ export default function AtmosphereLayers() {
         }
         trueScale={
           profile
-            ? "Reference temperature profile · axes use different labelled units"
+            ? "Reference temperature profile · axes use different labeled units"
             : "Earth and altitude share a scale · layer boundaries are approximate"
         }
         camera={profile ? [0, 0, 5] : [0.5, 1.1, 5.5]}

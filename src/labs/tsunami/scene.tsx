@@ -23,7 +23,7 @@ const X0 = -2.5,
   BASE_M = 6200,
   LAND_RELIEF = 4;
 
-/** Water depth in metres along the 1-D transect, with a beach and coastal plain beyond it. */
+/** Water depth in meters along the 1-D transect, with a beach and coastal plain beyond it. */
 function transectDepth(x: number) {
   if (x >= X1) return 100 - (x - X1) * 1100;
   const i = THREE.MathUtils.clamp(((x - X0) * 100000) / 2000, 0, TRANSECT.points.length - 1.0001),
@@ -32,7 +32,7 @@ function transectDepth(x: number) {
   return TRANSECT.points[k].depth * (1 - f) + TRANSECT.points[k + 1].depth * f;
 }
 
-/** Seafloor or land height in metres; seamounts and canyons fade to the exact transect at the front. */
+/** Seafloor or land height in meters; seamounts and canyons fade to the exact transect at the front. */
 function floorMetres(x: number, z: number) {
   const front = 1 - THREE.MathUtils.smoothstep(z, HALF - 0.45, HALF - 0.05);
   let y = -transectDepth(x);
@@ -163,7 +163,7 @@ export default function Tsunami() {
     () =>
       xs.map((x, i) => {
         const p = TRANSECT.points[Math.min(i, TRANSECT.points.length - 1)],
-          // Over the beach the drawn surface eases back to sea level: run-up is not modelled.
+          // Over the beach the drawn surface eases back to sea level: run-up is not modeled.
           ease = 1 - THREE.MathUtils.smoothstep(x, X1, COAST + 0.04);
         return waveY(elevation(p)) * ease;
       }),
@@ -231,7 +231,7 @@ export default function Tsunami() {
         slug="tsunami"
         camera={[1.6, 3.2, 6.4]}
         scale="1 scene unit = 100 km · depth ×20 · wave height a further ×600 · land relief ×80 · seamounts, canyon and town illustrative"
-        trueScale="Depth and wave at one common scale · a metres-high wave is invisible over 4 km of water"
+        trueScale="Depth and wave at one common scale · a meters-high wave is invisible over 4 km of water"
       >
         <mesh geometry={floor} castShadow receiveShadow>
           <TerrainMaterial attach="material-0" kind="sand" color="#d2d2d2" vertexColors />
@@ -317,7 +317,7 @@ export default function Tsunami() {
         <Tag
           pos={[-1.7, 0.45, -0.4]}
           text="Deep ocean · 4000 m"
-          note="An idealised offshore disturbance sends out a 20-minute wave packet with a 0.5 m amplitude. In deep water the wave is fast (about 200 m/s) but low. Seamounts and the trench are illustrative; the front face follows the modelled depth profile exactly."
+          note="An idealized offshore disturbance sends out a 20-minute wave packet with a 0.5 m amplitude. In deep water the wave is fast (about 200 m/s) but low. Seamounts and the trench are illustrative; the front face follows the modeled depth profile exactly."
           occlude={false}
         />
         <Tag
@@ -328,7 +328,7 @@ export default function Tsunami() {
         />
         <Tag
           pos={[3.15, -0.2, HALF]}
-          text="Coast · run-up not modelled"
+          text="Coast · run-up not modeled"
           note="The coastal town shows what is at risk. This model stops at 100 m depth; breaking, run-up and inundation are not calculated."
           occlude={false}
         />
@@ -348,7 +348,7 @@ export default function Tsunami() {
           className="mx-auto h-24 w-full"
           role="img"
           aria-label={
-            "Sea-surface displacement in metres across a 500 kilometre transect; vertical axis minus two to plus two metres"
+            "Sea-surface displacement in meters across a 500 kilometer transect; vertical axis minus two to plus two meters"
           }
         >
           {[-2, 0, 2].map((y) => (
@@ -379,7 +379,7 @@ export default function Tsunami() {
           : `Propagation stage: ${(seconds / 60).toFixed(1)} min · crest ${crest.speed.toFixed(1)} m/s at ${crest.depth.toFixed(0)} m depth. The central crest reaches 100 m depth at ${(TRANSECT.totalTravel / 60).toFixed(1)} min.`}
         <br />
         {
-          "Two stages: a set seafloor uplift, then a simple long-wave model. The gold line follows the crest; the chart shows the true sea-surface height in metres. Fault rupture, breaking, run-up and inundation are not modelled."
+          "Two stages: a set seafloor uplift, then a simple long-wave model. The gold line follows the crest; the chart shows the true sea-surface height in meters. Fault rupture, breaking, run-up and inundation are not modeled."
         }
       </ScienceReadout>
     </>

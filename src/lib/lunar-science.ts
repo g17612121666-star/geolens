@@ -1,4 +1,4 @@
-/** Circular-orbit teaching geometry; not an ephemeris or eclipse-date predictor. Kilometres. */
+/** Circular-orbit teaching geometry; not an ephemeris or eclipse-date predictor. Kilometers. */
 export const LUNAR = {
   earth: 6371,
   moon: 1737.4,
@@ -41,7 +41,7 @@ export function lunarEclipse(p: [number, number, number]) {
   if (offset - LUNAR.moon < penumbra) return "Penumbral lunar eclipse";
   return "Moon misses Earth’s shadow";
 }
-/** Moon's shadow at Earth (Sun towards +x). Widths are full diameters in km where the shadow axis meets the surface. */
+/** Moon's shadow at Earth (Sun toward +x). Widths are full diameters in km where the shadow axis meets the surface. */
 export function solarEclipse(p: [number, number, number]) {
   const s = [p[0] - LUNAR.au, p[1], p[2]],
     sunDistance = Math.hypot(...s),

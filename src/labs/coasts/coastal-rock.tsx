@@ -22,7 +22,7 @@ export function CoastalRock({
   points: [number, number][];
   depth?: number;
   position?: [number, number, number];
-  /** Colour of upward-facing surfaces; grass by default, bare wave-washed rock for a stump. */
+  /** Color of upward-facing surfaces; grass by default, bare wave-washed rock for a stump. */
   top?: string;
 }) {
   const signature = JSON.stringify(points);

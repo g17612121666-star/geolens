@@ -103,7 +103,7 @@ function WhereOnEarth() {
           <p className="mt-2 font-display text-5xl text-chalk">{`${fmt(total)} / 25,000`}</p>
           {daily && earlier != null && (
             <p className="mt-2 text-sm text-mist">
-              {"Only your first score each day counts towards points and your streak."}
+              {"Only your first score each day counts toward points and your streak."}
             </p>
           )}
           <ul className="mt-5 grid gap-3">

@@ -11,7 +11,7 @@ test('Stokes fine-silt settling has quadratic diameter scaling and low Reynolds 
  assert.ok(Math.abs(settlingVelocity(40e-6)/settlingVelocity(20e-6)-4)<1e-12);
  for(const d of [10e-6,50e-6]){const w=settlingVelocity(d);assert.ok(w>0);assert.ok(998*w*d/1.002e-3<.12);assert.ok(Math.abs(settlingDistance(d)*w-.2)<1e-12);}
 });
-test('barchan centre has a 32 degree lee slope and downwind horns',()=>{
+test('barchan center has a 32 degree lee slope and downwind horns',()=>{
  const dx=.001,lee=(duneHeight(-.4,0)-duneHeight(-.4+dx,0))/dx;
  assert.ok(Math.abs(lee-Math.tan(32*Math.PI/180))<1e-10);
  assert.ok(duneHeight(1.12,1.3)>0);assert.equal(duneHeight(-1,1.3),0);

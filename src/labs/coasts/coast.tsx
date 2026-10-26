@@ -109,7 +109,7 @@ function Headland({ stage }: { stage: number }) {
       <GrassPatch positions={grasses} height={0.075} color="#7e8860" />
       <GeomorphicTerrain
         height={bed}
-        colour={bedColour}
+        color={bedColour}
         width={7}
         depth={5}
         resolution={200}
@@ -118,7 +118,7 @@ function Headland({ stage }: { stage: number }) {
         mottle={0.05}
         section={{ rock: "chalk", soil: 0, regolith: 0.02, beds: 3.2, bedOffset: 0.3 }}
       />
-      <WaterSides land={bed} level={() => 0.02} width={7} depth={5} colour="#164a5a" />
+      <WaterSides land={bed} level={() => 0.02} width={7} depth={5} color="#164a5a" />
       {stage < 2 ? (
         <>
           <mesh geometry={geometry} castShadow receiveShadow>
@@ -219,7 +219,7 @@ export default function Coasts() {
     },
     [mode, constructive, groyne, progress],
   );
-  const colour = useMemo(
+  const color = useMemo(
     () => (x: number, y: number, z: number) => {
       const h = y,
         c = new THREE.Color("#8b8b70")
@@ -272,7 +272,7 @@ export default function Coasts() {
           <group scale={[1, v, 1]}>
             <GeomorphicTerrain
               height={height}
-              colour={colour}
+              color={color}
               width={7}
               depth={5}
               resolution={200}
@@ -384,7 +384,7 @@ export default function Coasts() {
               level={() => 0.02}
               width={7}
               depth={5}
-              colour="#164a5a"
+              color="#164a5a"
             />
           </>
         )}
@@ -413,7 +413,7 @@ export default function Coasts() {
             <Tag
               pos={[-1.7, 0.05, 1.1]}
               text="Longshore drift"
-              note="Sediment moved along the coast by oblique waves keeps travelling in the same direction where the coast turns inland, and is deposited to build the spit."
+              note="Sediment moved along the coast by oblique waves keeps traveling in the same direction where the coast turns inland, and is deposited to build the spit."
               occlude={false}
             />
           </>

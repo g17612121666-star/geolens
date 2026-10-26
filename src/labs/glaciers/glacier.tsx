@@ -44,7 +44,7 @@ export default function Glaciers() {
     vertical = trueScale ? 1 : 1.5,
     showIce = params.ice > 0.5;
   const height = useMemo(() => land, []),
-    colour = useMemo(
+    color = useMemo(
       () => (x: number, y: number, z: number) => {
         const above = y - glacierFloor(x),
           n = noise(x * 3 + 1, z * 3),
@@ -94,7 +94,7 @@ export default function Glaciers() {
             <>
               <GeomorphicTerrain
                 height={height}
-                colour={colour}
+                color={color}
                 resolution={200}
                 base={-0.15}
                 cliff={0.6}
@@ -222,7 +222,7 @@ export default function Glaciers() {
         {params.view > 0.5 ? (
           <>
             {
-              "Three neighbouring cirques leave arêtes between them and a horn in the centre. Switch off Ice to see the bare rock."
+              "Three neighboring cirques leave arêtes between them and a horn in the center. Switch off Ice to see the bare rock."
             }
             <br />
             {

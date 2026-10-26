@@ -2,7 +2,7 @@
   "seasons": [
     {
       "id": "meteosat-march-equinox",
-      "caption": "Meteosat satellite image at the March equinox: the terminator runs nearly pole to pole, as in the model when neither hemisphere tilts towards the Sun."
+      "caption": "Meteosat satellite image at the March equinox: the terminator runs nearly pole to pole, as in the model when neither hemisphere tilts toward the Sun."
     },
     {
       "id": "sunrise-solstice-panorama"
@@ -39,7 +39,7 @@
     },
     {
       "id": "swarm-core-field",
-      "caption": "Maps of magnetic-field strength at Earth's surface in 2014 and 2025, modelled from Swarm satellite measurements (colours show nanotesla). The field is generated mainly by moving liquid iron in the outer core, not by a permanent bar magnet."
+      "caption": "Maps of magnetic-field strength at Earth's surface in 2014 and 2025, modeled from Swarm satellite measurements (colors show nanotesla). The field is generated mainly by moving liquid iron in the outer core, not by a permanent bar magnet."
     },
     {
       "id": "puerto-rico-seismometer",
@@ -60,7 +60,7 @@
     },
     {
       "id": "noaa-puerto-rico-trench",
-      "caption": "NOAA seafloor relief of the Puerto Rico Trench, where the North American Plate meets the Caribbean Plate at an oblique convergent boundary. Colours show measured depth with vertical relief exaggerated; the labels and boundary lines are added interpretation."
+      "caption": "NOAA seafloor relief of the Puerto Rico Trench, where the North American Plate meets the Caribbean Plate at an oblique convergent boundary. Colors show measured depth with vertical relief exaggerated; the labels and boundary lines are added interpretation."
     }
   ],
   "contours": [
@@ -84,7 +84,7 @@
     },
     {
       "id": "lena-delta-landsat",
-      "caption": "False-colour Landsat image of the Lena Delta, Russia, where the river reaches base level and deposits its load."
+      "caption": "False-color Landsat image of the Lena Delta, Russia, where the river reaches base level and deposits its load."
     }
   ],
   "water-cycle": [
@@ -108,7 +108,7 @@
     },
     {
       "id": "voyager-neptune-disc",
-      "caption": "Voyager 2 image of Neptune, an ice giant about 30 times farther from the Sun than Earth. Its displayed colour has been processed."
+      "caption": "Voyager 2 image of Neptune, an ice giant about 30 times farther from the Sun than Earth. Its displayed color has been processed."
     },
     {
       "id": "apollo17-earth",
@@ -162,11 +162,11 @@
   "tides": [
     {
       "id": "first-quarter-moon-2019",
-      "caption": "A first-quarter Moon. With the Sun and Moon at right angles, their tidal effects partly cancel, favouring neap tides."
+      "caption": "A first-quarter Moon. With the Sun and Moon at right angles, their tidal effects partly cancel, favoring neap tides."
     },
     {
       "id": "nearly-full-moon-viatour",
-      "caption": "A nearly full Moon. Near full and new Moon the Sun and Moon line up, favouring spring tides with a larger range."
+      "caption": "A nearly full Moon. Near full and new Moon the Sun and Moon line up, favoring spring tides with a larger range."
     }
   ],
   "solar-altitude": [
@@ -199,7 +199,7 @@
     },
     {
       "id": "noaa-arctic-seamount",
-      "caption": "NOAA multibeam survey of an Arctic seamount, shown in 3D with colours for depth; the vertical scale is probably exaggerated. Volcanoes carried away from a hotspot can cool and sink to become seamounts, although not every seamount forms this way."
+      "caption": "NOAA multibeam survey of an Arctic seamount, shown in 3D with colors for depth; the vertical scale is probably exaggerated. Volcanoes carried away from a hotspot can cool and sink to become seamounts, although not every seamount forms this way."
     },
     {
       "id": "kilauea-lava-fountain",
@@ -269,7 +269,7 @@
     },
     {
       "id": "japan-extratropical-cyclone",
-      "caption": "MODIS satellite image of a depression northeast of Japan. Clouds spiral anticlockwise around the low, as Coriolis deflection predicts in the Northern Hemisphere."
+      "caption": "MODIS satellite image of a depression northeast of Japan. Clouds spiral counterclockwise around the low, as Coriolis deflection predicts in the Northern Hemisphere."
     }
   ],
   "three-cell": [
@@ -295,7 +295,7 @@
   "cyclone-anticyclone": [
     {
       "id": "nws-surface-1998",
-      "caption": "A US National Weather Service surface chart marking H and L pressure centres. Winds blow anticlockwise around lows in the Northern Hemisphere."
+      "caption": "A US National Weather Service surface chart marking H and L pressure centers. Winds blow counterclockwise around lows in the Northern Hemisphere."
     },
     {
       "id": "evan-2012-modis",
@@ -327,7 +327,7 @@
     },
     {
       "id": "lena-delta-landsat",
-      "caption": "False-colour Landsat image of the Lena Delta, Russia: the river's mouth, where water from its basin reaches the Arctic Ocean."
+      "caption": "False-color Landsat image of the Lena Delta, Russia: the river's mouth, where water from its basin reaches the Arctic Ocean."
     }
   ],
   "hydrograph": [
@@ -536,13 +536,13 @@
     },
     {
       "id": "weathered-granite",
-      "caption": "Weathered granite breaking down into loose material: the first step towards new sediment."
+      "caption": "Weathered granite breaking down into loose material: the first step toward new sediment."
     }
   ],
   "soil-profile": [
     {
       "id": "karelian-podzolic-soil",
-      "caption": "A podzolic soil in Karelia. A thin pale grey E horizon lies just below the dark topsoil, above a rusty-brown B horizon. The paler sand near the bottom is the parent material."
+      "caption": "A podzolic soil in Karelia. A thin pale gray E horizon lies just below the dark topsoil, above a rusty-brown B horizon. The paler sand near the bottom is the parent material."
     },
     {
       "id": "nipe-oxisol",
@@ -593,7 +593,7 @@
   "earthquakes": [
     {
       "id": "usgs-haiti-intensity",
-      "caption": "USGS ShakeMap of the 2021 Haiti earthquake. The star marks the epicentre and the coloured rings show intensity falling with distance."
+      "caption": "USGS ShakeMap of the 2021 Haiti earthquake. The star marks the epicenter and the colored rings show intensity falling with distance."
     },
     {
       "id": "puerto-rico-seismometer",
@@ -621,7 +621,7 @@
     },
     {
       "id": "porto-covo-breaking-wave",
-      "caption": "A wind wave breaking in Portugal, for contrast. Its wavelength is tens of metres; a tsunami's can be hundreds of kilometres."
+      "caption": "A wind wave breaking in Portugal, for contrast. Its wavelength is tens of meters; a tsunami's can be hundreds of kilometers."
     }
   ],
   "tropical-cyclone": [
@@ -631,11 +631,11 @@
     },
     {
       "id": "evan-2012-modis",
-      "caption": "MODIS satellite image of Cyclone Evan near Fiji: a Southern Hemisphere tropical cyclone spiralling clockwise."
+      "caption": "MODIS satellite image of Cyclone Evan near Fiji: a Southern Hemisphere tropical cyclone spiraling clockwise."
     },
     {
       "id": "katrina-new-orleans-2005",
-      "caption": "New Orleans flooded after Hurricane Katrina, 2005: storm surge and failed defences caused much of the damage."
+      "caption": "New Orleans flooded after Hurricane Katrina, 2005: storm surge and failed defenses caused much of the damage."
     }
   ],
   "graticule": [
@@ -668,12 +668,20 @@
   ],
   "grid-references": [
     {
+      "id": "usgs-us-topo-utm-grid",
+      "caption": "A USGS US Topo map with its 1 km UTM grid. Read the principal digits along the edges: eastings along the top and bottom first, then northings up the sides."
+    },
+    {
       "id": "yosemite-topographic-sheet",
-      "caption": "A USGS topographic sheet of Yosemite Creek. Its red numbered squares are US land-survey sections, not British National Grid squares: always check which grid a map uses."
+      "caption": "An older USGS topographic sheet of Yosemite Creek. Its red numbered squares are Public Land Survey System sections (township and range), not UTM grid squares: always check which grid a map uses."
+    },
+    {
+      "id": "os-northeast-scotland-grid",
+      "caption": "An Ordnance Survey sheet of northeast Scotland. The British National Grid works the same way as the US National Grid, but a two-letter code (here NO) names each 100 km square."
     },
     {
       "id": "greenwich-meridian",
-      "caption": "The Greenwich Meridian marker. WGS84 GPS longitude differs from this historic line by about 102 metres, a reminder that coordinate systems differ."
+      "caption": "The Greenwich Meridian marker. WGS84 GPS longitude differs from this historic line by about 102 meters, a reminder that coordinate systems differ."
     }
   ],
   "mass-movement": [
@@ -682,8 +690,7 @@
       "caption": "Rotational slumping above Redcliff Point, Dorset: blocks slide and tilt on a curved shear surface."
     },
     {
-      "id": "redhill-hongkong-landslide",
-      "caption": "A rainfall-triggered slope failure on the Redhill Peninsula, Hong Kong: higher pore pressure reduced the slope's strength."
+      "id": "redhill-landslide-scar-2023"
     }
   ],
   "rain-shadow": [
@@ -737,7 +744,7 @@
   "soil-catena": [
     {
       "id": "gley-redox-samples",
-      "caption": "Gley clay compared with oxidised clay. Waterlogged soils at the foot of a slope often become grey gleys."
+      "caption": "Gley clay compared with oxidized clay. Waterlogged soils at the foot of a slope often become gray gleys."
     },
     {
       "id": "berder-ranker",
@@ -760,7 +767,7 @@
   "storm-surge": [
     {
       "id": "katrina-new-orleans-2005",
-      "caption": "New Orleans after Hurricane Katrina, 2005: low-lying neighbourhoods flooded after the surge and the failure of flood defences."
+      "caption": "New Orleans after Hurricane Katrina, 2005: low-lying neighbourhoods flooded after the surge and the failure of flood defenses."
     },
     {
       "id": "thames-barrier-evans",
@@ -768,7 +775,7 @@
     },
     {
       "id": "place-us-la",
-      "caption": "Landsat image of the northern Gulf coast (colours enhanced). The faint, broken arc at lower left is Louisiana's Chandeleur Islands, which storm surges and waves repeatedly overwash and break up. The brighter islands across the top lie off Mississippi and Alabama."
+      "caption": "Landsat image of the northern Gulf coast (colors enhanced). The faint, broken arc at lower left is Louisiana's Chandeleur Islands, which storm surges and waves repeatedly overwash and break up. The brighter islands across the top lie off Mississippi and Alabama."
     }
   ]
 }

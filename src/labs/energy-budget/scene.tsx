@@ -142,13 +142,13 @@ export default function EnergyBudget() {
         <Tag
           pos={[1.1, 2.7, 0.3]}
           text={`To space ${b.outgoing.toFixed(0)} W/m²`}
-          note="Outgoing infrared = surface radiation that passes through the layer + infrared the layer emits upwards. At equilibrium it equals the sunlight absorbed."
+          note="Outgoing infrared = surface radiation that passes through the layer + infrared the layer emits upward. At equilibrium it equals the sunlight absorbed."
           occlude={false}
         />
         <Tag
           pos={[greenhouse ? 2 : 2.3, 0.4, 0.3]}
           text={greenhouse ? "IR layer · ε = 0.78" : "No infrared absorption"}
-          note="One layer absorbs and emits the same share of infrared at every wavelength but lets sunlight through. The hugely enlarged molecules stand for greenhouse gases: carbon dioxide (linear), water vapour (bent) and methane; their vibrations absorb infrared. Convection, evaporation and wavelength detail are left out."
+          note="One layer absorbs and emits the same share of infrared at every wavelength but lets sunlight through. The hugely enlarged molecules stand for greenhouse gases: carbon dioxide (linear), water vapor (bent) and methane; their vibrations absorb infrared. Convection, evaporation and wavelength detail are left out."
           occlude={false}
         />
       </ScienceStudio>

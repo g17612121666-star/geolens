@@ -54,7 +54,7 @@ function FlowCone({
     </mesh>
   );
 }
-/** Unlit surface-wind arrow so its colour matches the legend on the night side too. */
+/** Unlit surface-wind arrow so its color matches the legend on the night side too. */
 function WindArrow({
   from,
   to,
@@ -173,7 +173,7 @@ export default function ThreeCell() {
                 note={
                   b.name === "Ferrel"
                     ? "The Ferrel cell is an average, ‘indirect’ circulation kept going mainly by heat and momentum carried by midlatitude weather systems. Real air follows those systems, not a neat permanent loop."
-                    : `${b.name}: air rises at the lower-latitude end, flows poleward aloft, sinks farther poleward and returns towards the equator near the surface. Real boundaries vary.`
+                    : `${b.name}: air rises at the lower-latitude end, flows poleward aloft, sinks farther poleward and returns toward the equator near the surface. Real boundaries vary.`
                 }
                 occlude={false}
               />

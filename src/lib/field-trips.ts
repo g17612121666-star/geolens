@@ -25,7 +25,7 @@ export type FieldTrip = {
   title: string;
   kicker: string;
   summary: string;
-  colour: string;
+  color: string;
   stops: TripStop[];
   check: { prompt: string; choices: string[]; answer: number; why: string };
 };
@@ -37,7 +37,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
     kicker: "Plates and volcanoes",
     summary:
       "From a rift you can walk through in Iceland to the roof of the world: how moving plates build and break the land.",
-    colour: "#e8613a",
+    color: "#e8613a",
     stops: [
       {
         title: "Walking between two plates",
@@ -58,7 +58,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lon: -86.1,
         zoom: 4,
         fact: "Most new crust is made out of sight, along ridges on the ocean floor.",
-        body: "At a spreading centre, lava erupts into cold seawater and cools almost at once into rounded pillows. As the plates move apart, this new crust is carried away from the ridge on both sides.",
+        body: "At a spreading center, lava erupts into cold seawater and cools almost at once into rounded pillows. As the plates move apart, this new crust is carried away from the ridge on both sides.",
         photo: "galapagos-pillow-lava",
         lab: "seafloor-spreading",
         labLabel: "Seafloor spreading",
@@ -81,7 +81,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lat: 28.0,
         lon: 86.9,
         zoom: 5,
-        fact: "India's collision with Asia, still going on at a few centimetres a year, raised the Himalaya.",
+        fact: "India's collision with Asia, still going on at a few centimeters a year, raised the Himalaya.",
         body: "Continental crust is too buoyant to sink far, so when the two continents met the crust crumpled and thickened instead. The mountains stand high because a deep root of light crust lies beneath them.",
         photo: "himalaya-iss",
         lab: "plate-boundaries?boundary=1",
@@ -106,7 +106,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lon: 141.58,
         zoom: 7,
         fact: "In 2011 a magnitude 9 earthquake off Japan lifted the seafloor and sent a tsunami ashore.",
-        body: "The plates had been locked for centuries. When they slipped, the seafloor moved suddenly and pushed the whole depth of the ocean upwards. The wave was low out at sea but grew as it reached shallow water near the coast.",
+        body: "The plates had been locked for centuries. When they slipped, the seafloor moved suddenly and pushed the whole depth of the ocean upward. The wave was low out at sea but grew as it reached shallow water near the coast.",
         photo: "tohoku-tsunami-aftermath",
         lab: "tsunami",
         labLabel: "Tsunami",
@@ -154,7 +154,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
     kicker: "Glaciers and cold climates",
     summary:
       "Valley glaciers, sharp peaks, streamlined hills and frozen ground: how ice shapes the land, now and in the past.",
-    colour: "#7fc4e0",
+    color: "#7fc4e0",
     stops: [
       {
         title: "A river of ice",
@@ -235,7 +235,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lon: 175.0,
         zoom: 4,
         fact: "When sea water freezes, it leaves salt behind, so the water beneath becomes denser and sinks.",
-        body: "New sea ice forms as small pancakes that join together. The cold, salty water left beneath sinks towards the ocean floor and spreads northwards, helping to drive the global overturning circulation.",
+        body: "New sea ice forms as small pancakes that join together. The cold, salty water left beneath sinks toward the ocean floor and spreads northward, helping to drive the global overturning circulation.",
         photo: "ross-sea-pancake-ice",
         lab: "thermohaline",
         labLabel: "Thermohaline circulation",
@@ -259,7 +259,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
     kicker: "Rivers",
     summary:
       "Waterfalls, gorges, meanders and deltas: follow the landforms a river builds and erodes on its way to the sea.",
-    colour: "#5aa7d6",
+    color: "#5aa7d6",
     stops: [
       {
         title: "A waterfall in the hills",
@@ -268,7 +268,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lon: -3.97,
         zoom: 11,
         fact: "Falling water and the stones it carries scour a plunge pool beneath a waterfall.",
-        body: "Upland rivers are steep and erode downwards. Where hard rock lies over softer rock, a step forms. The softer rock below is undercut, the hard lip collapses, and the waterfall slowly retreats upstream.",
+        body: "Upland rivers are steep and erode downward. Where hard rock lies over softer rock, a step forms. The softer rock below is undercut, the hard lip collapses, and the waterfall slowly retreats upstream.",
         photo: "cwmorthin-plunge-pool",
         lab: "river-erosion?feature=0",
         labLabel: "Waterfall and gorge in River erosion",
@@ -303,7 +303,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lat: 50.365,
         lon: 7.606,
         zoom: 10,
-        fact: "At a confluence a tributary joins the main river, which carries water from both basins onwards.",
+        fact: "At a confluence a tributary joins the main river, which carries water from both basins onward.",
         body: "The Moselle drains part of France, Luxembourg and Germany; here it joins the Rhine. Downstream of each confluence the river carries more water, so it is usually wider and deeper.",
         photo: "rhine-moselle-confluence",
         lab: "drainage-basin?feature=2",
@@ -376,7 +376,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
     kicker: "Coasts and hazards",
     summary:
       "Stacks, slumps, spits and storm surges: how waves, tides and storms build and wear away the coast.",
-    colour: "#3fb6a8",
+    color: "#3fb6a8",
     stops: [
       {
         title: "A stack with holes through it",
@@ -408,7 +408,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lat: 50.62,
         lon: -2.39,
         zoom: 11,
-        fact: "Wet clay cliffs can fail along a curved surface and slump down towards the sea.",
+        fact: "Wet clay cliffs can fail along a curved surface and slump down toward the sea.",
         body: "Rain soaks into the cliff and raises the water pressure in the ground, which weakens it. The sea removes the debris at the foot, so the cliff keeps failing again.",
         photo: "redcliff-coastal-slump",
         lab: "mass-movement",
@@ -493,7 +493,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
     kicker: "Atmosphere and climate",
     summary:
       "Rainforest, savanna, desert, rain shadows, hurricanes and dust storms: why climates differ from place to place.",
-    colour: "#f2b84b",
+    color: "#f2b84b",
     stops: [
       {
         title: "Wet all year",
@@ -538,7 +538,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lon: -156.3,
         zoom: 6,
         fact: "Moist trade winds rise over the mountains and drop rain on the windward side, leaving a dry rain shadow behind.",
-        body: "As the air rises it cools and its water vapour condenses. Descending on the far side, the dried air warms, so leeward slopes are brown while windward slopes are green.",
+        body: "As the air rises it cools and its water vapor condenses. Descending on the far side, the dried air warms, so leeward slopes are brown while windward slopes are green.",
         photo: "hawaii-windward-leeward",
         lab: "rain-shadow",
         labLabel: "Rain shadow",
@@ -562,7 +562,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lon: -57.0,
         zoom: 4,
         fact: "Tropical cyclones draw their energy from warm ocean water.",
-        body: "Air spirals in towards low pressure at the centre and rises in a ring of towering cloud, the eyewall. In the eye, air sinks and the sky can be almost clear. Isabel was photographed from the International Space Station in 2003.",
+        body: "Air spirals in toward low pressure at the center and rises in a ring of towering cloud, the eyewall. In the eye, air sinks and the sky can be almost clear. Isabel was photographed from the International Space Station in 2003.",
         photo: "isabel-hurricane-eye",
         lab: "tropical-cyclone",
         labLabel: "Tropical cyclone",
@@ -573,7 +573,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lat: 35.2,
         lon: -101.8,
         zoom: 6,
-        fact: "Drought plus bare, ploughed soil let the wind strip away topsoil in the 1930s Dust Bowl.",
+        fact: "Drought plus bare, plowed soil let the wind strip away topsoil in the 1930s Dust Bowl.",
         body: "Without roots and plant cover to hold it, dry soil was lifted by the wind and carried far away. Planting cover and windbreaks now helps to protect soils on the plains.",
         photo: "dustbowl-texas-rothstein",
         lab: "soil-erosion?wind=1",
@@ -610,7 +610,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
     kicker: "Rocks and Earth history",
     summary:
       "Unconformities, thrusts, fossils and boreholes: how geologists read billions of years of Earth history in the field.",
-    colour: "#b48ad6",
+    color: "#b48ad6",
     stops: [
       {
         title: "Hutton's unconformity",
@@ -619,7 +619,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lon: -2.3,
         zoom: 11,
         fact: "Gently tilted sandstone lies on top of near-vertical older beds, recording a huge gap in time.",
-        body: "The older beds were laid down flat, folded upright, worn down, and then covered by new sediment. James Hutton visited in 1788 and realised such a sequence needs immense spans of time.",
+        body: "The older beds were laid down flat, folded upright, worn down, and then covered by new sediment. James Hutton visited in 1788 and realized such a sequence needs immense spans of time.",
         photo: "siccar-unconformity",
         lab: "geologic-time?window=1",
         labLabel: "Phanerozoic in Geologic time",
@@ -631,7 +631,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lon: -5.07,
         zoom: 10,
         fact: "At a thrust fault, compression pushes older rocks over younger ones.",
-        body: "During the Caledonian mountain building, rocks were driven many kilometres westwards along the Moine Thrust. Geologists in the 1880s used this site to show that the order of rocks can be overturned.",
+        body: "During the Caledonian mountain building, rocks were driven many kilometers westward along the Moine Thrust. Geologists in the 1880s used this site to show that the order of rocks can be overturned.",
         photo: "moine-thrust-knockan",
         lab: "folds-faults?structure=3",
         labLabel: "Reverse fault in Folds and faults",
@@ -691,7 +691,7 @@ export const FIELD_TRIPS: FieldTrip[] = [
         lon: -110.838,
         zoom: 9,
         fact: "Yellowstone's hot springs are heated by a hotspot beneath the North American Plate.",
-        body: "As the plate moves south-west over the hotspot, older volcanic centres trail away behind it. Hot groundwater rises in springs and geysers, and heat-loving microbes give the pools their bright colour bands.",
+        body: "As the plate moves south-west over the hotspot, older volcanic centers trail away behind it. Hot groundwater rises in springs and geysers, and heat-loving microbes give the pools their bright color bands.",
         photo: "yellowstone-grand-prismatic",
         lab: "hotspots?yellowstone=1&hawaii=0",
         labLabel: "Yellowstone in Hotspots",

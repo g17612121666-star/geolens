@@ -57,7 +57,7 @@ function PracticeHub() {
           <div
             className="mt-2 h-2 overflow-hidden rounded-full bg-white/10"
             role="progressbar"
-            aria-label="Points towards the next level"
+            aria-label="Points toward the next level"
             aria-valuemin={lv.floor}
             aria-valuemax={lv.next ?? state.xp}
             aria-valuenow={state.xp}
@@ -106,7 +106,7 @@ function PracticeHub() {
           icon={Mountain}
           title="World landforms"
           blurb="Learn and test the world's great mountain ranges, deserts, rivers and ocean features on the map."
-          status="Practise any time"
+          status="Practice any time"
         />
       </div>
       <section className="mt-10 grid overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] md:grid-cols-[minmax(0,1fr)_1.2fr]">

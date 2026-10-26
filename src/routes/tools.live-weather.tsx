@@ -48,8 +48,8 @@ export const Route = createFileRoute("/tools/live-weather")({
     }),
 });
 const PRESETS: WeatherPoint[] = [
-  { name: "London", lat: 51.51, lon: -0.13 },
   { name: "New York", lat: 40.71, lon: -74.01 },
+  { name: "London", lat: 51.51, lon: -0.13 },
   { name: "Nairobi", lat: -1.29, lon: 36.82 },
   { name: "Sydney", lat: -33.87, lon: 151.21 },
   { name: "Tokyo", lat: 35.68, lon: 139.69 },
@@ -223,7 +223,7 @@ function LiveWeather() {
           <h1>Live weather</h1>
           <p className="field-intro">
             Compare the weather in two places, then follow the next three days together. Start with
-            London’s temperate setting and Singapore’s position near the equator.
+            New York’s temperate setting and Singapore’s position near the equator.
           </p>
         </div>
         <div className="field-actions">
@@ -682,7 +682,7 @@ function Comparison({
     delta === null
       ? "Compare the temperature, cloud cover and wind, then look for changes along the forecast."
       : Math.abs(delta) < 0.05
-        ? `${names[0]} and ${names[1]} have the same modelled temperature at this time.`
+        ? `${names[0]} and ${names[1]} have the same modeled temperature at this time.`
         : `${names[1]} is ${Math.abs(delta).toFixed(1)} °C ${delta > 0 ? "warmer" : "cooler"} than ${names[0]} at the same model time.`;
   return (
     <aside className="weather-comparison-note" aria-label="Read the comparison">
@@ -696,7 +696,7 @@ function Comparison({
         {a && b && !same
           ? "The current model times differ; use the shared forecast timeline for a comparison at the same UTC hour."
           : defaultPair
-            ? "London and Singapore differ in latitude and local time. Follow their daily temperature cycles before deciding how much a single reading can tell you about climate."
+            ? "New York and Singapore differ in latitude and local time. Follow their daily temperature cycles before deciding how much a single reading can tell you about climate."
             : "Consider latitude, elevation, distance from the sea and local time when proposing an explanation. One forecast does not establish a place’s climate."}
       </p>
     </aside>

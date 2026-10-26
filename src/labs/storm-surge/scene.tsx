@@ -13,7 +13,7 @@ import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 
-/** 1 scene unit = 20 km across the shelf; heights in metres are multiplied by `f / 20000`. */
+/** 1 scene unit = 20 km across the shelf; heights in meters are multiplied by `f / 20000`. */
 const X0 = -2.5,
   COAST = 2.5,
   LAND = 3.5,
@@ -21,7 +21,7 @@ const X0 = -2.5,
   NX = 120,
   NZ = 22;
 
-/** Sea floor and land in metres: a flat shelf, a short beach, dunes, then a low coastal plain. */
+/** Sea floor and land in meters: a flat shelf, a short beach, dunes, then a low coastal plain. */
 function floorMetres(x: number, z: number, depth: number) {
   if (x < COAST - 0.14)
     return -depth + 0.35 * Math.sin(x * 40 + 3 * Math.sin(z * 4)) * (fbm(x * 2, z * 2) + 0.3);
@@ -121,7 +121,7 @@ export default function StormSurge() {
     for (let i = 0; i < p.count; i++) {
       const x = p.getX(i),
         z = p.getZ(i);
-      // Wind waves are an optical cue only; the modelled setup is the smooth slope beneath them.
+      // Wind waves are an optical cue only; the modeled setup is the smooth slope beneath them.
       const waves = chop * Math.sin(x * 26 + Math.sin(z * 5) * 2) * Math.sin(z * 19 + x * 4);
       p.setY(i, eta(x) * s + waves);
     }
@@ -283,7 +283,7 @@ export default function StormSurge() {
           pos={[gauge[0] - 0.45, Math.max(setupY, gaugeTop) + 0.2, gauge[1]]}
           text={`Setup ${result.coastalSetup.toFixed(2)} m`}
           tone="sandstone"
-          note={`${trueScale ? "At Physical scale the tide-gauge post is enlarged so it stays visible, and its bands are not to scale." : "Read the tide-gauge post: each red or white band is 1 m."} The gold ring marks the modelled water level at the coast. The offshore end is held at mean sea level (dashed line), the coast is closed, and the pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.`}
+          note={`${trueScale ? "At Physical scale the tide-gauge post is enlarged so it stays visible, and its bands are not to scale." : "Read the tide-gauge post: each red or white band is 1 m."} The gold ring marks the modeled water level at the coast. The offshore end is held at mean sea level (dashed line), the coast is closed, and the pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.`}
           occlude={false}
         />
         <Tag

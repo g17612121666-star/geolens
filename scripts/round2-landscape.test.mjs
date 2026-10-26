@@ -13,7 +13,7 @@ test('water ribbons retain width and arc-length UVs through vertical falls witho
  }
  assert.ok([...p.array,...g.attributes.normal.array].every(Number.isFinite));g.dispose();
 });
-test('horizontal ribbons and main river surfaces face upwards',()=>{
+test('horizontal ribbons and main river surfaces face upward',()=>{
  for(const g of [waterRibbonGeometry([[-1,0,0],[0,0,0],[1,0,0]],.1),riverSurface(.7)]){
   const n=g.attributes.normal;for(let i=0;i<n.count;i++)assert.ok(n.getY(i)>0);g.dispose();
  }

@@ -1,4 +1,4 @@
-/** Invented periodic 100 km² catchments. Millimetres of catchment-equivalent water.
+/** Invented periodic 100 km² catchments. Millimeters of catchment-equivalent water.
  * Daily buckets conserve precipitation between loss, snow, quick routing, slow groundwater
  * (baseflow), optional dam and outflow. */
 export function annualRiverRegime(snowFed:boolean,dam:boolean){

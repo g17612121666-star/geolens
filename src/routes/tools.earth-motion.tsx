@@ -39,7 +39,7 @@ function utcLabel(value: number | null) {
 }
 function EarthMotion() {
   const [date, setDate] = useState("2026-06-21");
-  const [a, setA] = useState<Site>({ ...CITIES.london });
+  const [a, setA] = useState<Site>({ ...CITIES.newYork });
   const [b, setB] = useState<Site | null>({ ...CITIES.sydney });
   const [tilt, setTilt] = useState(23.44);
   const [hour, setHour] = useState(12);
@@ -327,7 +327,7 @@ function EarthMotion() {
           </label>
           <p className="mt-2 text-xs leading-5 text-mist">
             {
-              "By default, sunrise occurs when the Sun’s centre crosses a level horizon. The −0.833° option accounts approximately for atmospheric refraction and the Sun’s visible disc; the globe still shows the geometric day–night boundary."
+              "By default, sunrise occurs when the Sun’s center crosses a level horizon. The −0.833° option accounts approximately for atmospheric refraction and the Sun’s visible disc; the globe still shows the geometric day–night boundary."
             }
           </p>
         </section>
@@ -579,7 +579,7 @@ function OutCard({
         <p className="mt-3 text-sm text-glacier">
           {out.polar === "horizon"
             ? "Sun on the geometric horizon all day; no ordinary sunrise or sunset."
-            : `Polar ${out.polar}: no sunrise or sunset on this modelled day.`}
+            : `Polar ${out.polar}: no sunrise or sunset on this modeled day.`}
         </p>
       )}
     </div>

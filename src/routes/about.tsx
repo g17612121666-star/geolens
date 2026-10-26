@@ -118,7 +118,7 @@ function About() {
             , so they can be used for non-commercial teaching with attribution.
           </p>
           <p className="mt-4 leading-7 text-mist">
-            Photographs and datasets retain their own credits and licences.{" "}
+            Photographs and datasets retain their own credits and licenses.{" "}
             <Link to="/image-credits" className="text-ice underline">
               Image credits
             </Link>{" "}

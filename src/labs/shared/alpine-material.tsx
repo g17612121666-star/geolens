@@ -89,7 +89,7 @@ export function GlacierMaterial() {
     float bands=.5+.5*sin(iceP.z*31.+sin(iceP.x*1.7)*.75);
     diffuseColor.rgb*=mix(vec3(.79,.89,.92),vec3(.99,1.,1.),bands*.6+fine*.09);
     float u=iceUv.x/3.,v=iceUv.y*2.-1.;
-    // Arcuate crevasses where the ice steepens, bowed downstream by faster flow in the centre.
+    // Arcuate crevasses where the ice steepens, bowed downstream by faster flow in the center.
     float field=exp(-sq((u-.25)/.05))+exp(-sq((u-.42)/.05))+exp(-sq((u-.58)/.05));
     float arc=fract((u+.035*(1.-v*v))*70.+.3*sin(v*5.));
     float crack=(1.-smoothstep(.0,.08,arc))*min(1.,field)*(1.-smoothstep(.75,.95,abs(v)));

@@ -96,14 +96,14 @@ export default function Plates() {
             </p>
             <div className="mt-2 grid grid-cols-3 gap-2 text-sm">
               {[
-                { name: "Divergent", colour: "#69dfce" },
-                { name: "Convergent", colour: "#f39676" },
-                { name: "Transform", colour: "#e5ca85" },
+                { name: "Divergent", color: "#69dfce" },
+                { name: "Convergent", color: "#f39676" },
+                { name: "Transform", color: "#e5ca85" },
               ].map((item) => (
                 <span key={item.name} className="rounded-lg border border-white/15 px-2 py-2">
                   <span
                     className="mr-2 inline-block h-2 w-3 rounded-full"
-                    style={{ backgroundColor: item.colour }}
+                    style={{ backgroundColor: item.color }}
                   />
                   {item.name}
                 </span>
@@ -111,13 +111,13 @@ export default function Plates() {
             </div>
           </>
         ) : (
-          `Continental positions ${Math.round(age / 10) * 10} million years ago. Move towards the present to compare how the continents have shifted.`
+          `Continental positions ${Math.round(age / 10) * 10} million years ago. Move toward the present to compare how the continents have shifted.`
         )}
         {hotspot && age >= 5 && !section && " Return to the present to locate Hawaiʻi."}
         <br />
         {section
           ? "Arrows show relative plate motion. Compare the section with the surface pattern on the globe."
-          : "The older views carry modern coastlines backwards using a plate reconstruction; past sea levels and shorelines also differed."}
+          : "The older views carry modern coastlines backward using a plate reconstruction; past sea levels and shorelines also differed."}
       </ScienceReadout>
     </>
   );
@@ -125,7 +125,7 @@ export default function Plates() {
 
 /**
  * Representative present-day plate motions (direction only, relative to a fixed hotspot
- * frame, generalised from the MORVEL/NUVEL-1A models). Arrow length is not to scale.
+ * frame, generalized from the MORVEL/NUVEL-1A models). Arrow length is not to scale.
  */
 const MOTIONS: { lat: number; lon: number; bearing: number; name: string }[] = [
   { lat: 18, lon: -150, bearing: 300, name: "Pacific" },

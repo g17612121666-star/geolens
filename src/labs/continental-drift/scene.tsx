@@ -44,7 +44,7 @@ function FacingGlobe({
           const [lat, lon] = site.positions[siteIndex(age)];
           sum.add(new THREE.Vector3(...latLonToXYZ(lat, lon, 1)));
         }
-      // Spin about the polar axis, then tilt towards the viewer, so north never rolls sideways.
+      // Spin about the polar axis, then tilt toward the viewer, so north never rolls sideways.
       const local = sum.normalize().applyQuaternion(BASE);
       const view = camera.position.clone().normalize();
       const yaw = new THREE.Quaternion().setFromAxisAngle(
@@ -81,17 +81,17 @@ function FossilSites({ age }: { age: number }) {
       {FOSSILS.taxa.flatMap((taxon) =>
         taxon.sites.map((site) => {
           const [lat, lon] = site.positions[index];
-          const colour = TAXON_COLOUR[taxon.key];
+          const color = TAXON_COLOUR[taxon.key];
           return (
             <group key={`${taxon.key}-${site.label}`} position={latLonToXYZ(lat, lon, 1.262)}>
               <mesh>
                 <sphereGeometry args={[0.026, 20, 14]} />
-                <meshBasicMaterial color={colour} toneMapped={false} />
+                <meshBasicMaterial color={color} toneMapped={false} />
               </mesh>
               <mesh>
                 <sphereGeometry args={[0.045, 20, 14]} />
                 <meshBasicMaterial
-                  color={colour}
+                  color={color}
                   transparent
                   opacity={0.28}
                   depthWrite={false}
@@ -112,7 +112,7 @@ export default function ContinentalDrift() {
     <>
       <ScienceStudio
         slug="continental-drift"
-        scale="GPlates MULLER2019 · 10 Ma snapshots · modern coastlines moved back in time · land relief and colours illustrative"
+        scale="GPlates MULLER2019 · 10 Ma snapshots · modern coastlines moved back in time · land relief and colors illustrative"
         trueScale="Globe to scale · positions shown only at reconstructed 10 Ma steps"
         camera={[2.8, 1.2, 3.8]}
       >
@@ -169,7 +169,7 @@ export default function ContinentalDrift() {
           </>
         ) : (
           <p className="mt-2">
-            Move towards 200–250 million years ago to examine Pangaea, then turn on Fossil evidence
+            Move toward 200–250 million years ago to examine Pangaea, then turn on Fossil evidence
             and rotate the globe to compare where the same fossils occur.
           </p>
         )}

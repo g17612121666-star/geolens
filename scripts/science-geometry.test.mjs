@@ -38,7 +38,7 @@ test('contours are consistent with source terrain and interval changes',()=>{
   const fine=contours(5),coarse=contours(20);assert.equal(fine.length,20);assert.equal(coarse.length,5);
   for(const line of fine)for(const p of line.points)assert.ok(Math.abs(hillHeight(...p)-line.height)<.12);
 });
-test('river surface faces upwards and river terrain includes closed substrate faces',()=>{
+test('river surface faces upward and river terrain includes closed substrate faces',()=>{
   for(const q of [.2,.7,1.6]){const water=riverSurface(q),n=water.attributes.normal;for(let i=0;i<n.count;i++)assert.ok(n.getY(i)>0);water.dispose();}
   const land=riverTerrain();assert.equal(land.groups.length,2);assert.ok(land.groups[1].count>1000);land.dispose();
 });

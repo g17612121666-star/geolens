@@ -202,7 +202,7 @@
 :root[data-theme="light"] .bg-glacier {color:#fff;}
 :root[data-theme="light"] .bg-magma {color:#fff;}
 
-/* Links inside running text are underlined, so they never rely on colour alone. */
+/* Links inside running text are underlined, so they never rely on color alone. */
 :where(p, li, dd) > a.text-ice {text-decoration-line:underline;text-underline-offset:3px;}
 
 /* Shared editorial rhythm for the Geolens collections. */

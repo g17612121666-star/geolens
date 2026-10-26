@@ -14,7 +14,7 @@ import { latLonToXYZ } from "@/lib/geo";
  * moves left to right, carrying places from the lit half across the sunset terminator.
  */
 const SUN = new THREE.Vector3(-1, 0, 0);
-const CITY = { name: "London", lat: 51.5, lon: -0.1 };
+const CITY = { name: "New York", lat: 40.7, lon: -74 };
 
 /** Terminator: the great circle at right angles to the Sun direction (equinox geometry). */
 const TERMINATOR = Array.from({ length: 161 }, (_, i): [number, number, number] => {

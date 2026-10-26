@@ -7,7 +7,7 @@ export const Route = createFileRoute("/image-credits")({
   head: () =>
     headFor({
       title: "Image credits",
-      description: "Photograph sources, authors and licences for images used in Geolens.",
+      description: "Photograph sources, authors and licenses for images used in Geolens.",
       path: "/image-credits",
     }),
 });

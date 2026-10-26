@@ -13,8 +13,8 @@ function clamp(x: number, a: number, b: number): number {
 }
 
 export const CITIES = {
-  london: { name: "London", lat: 51.51, lon: -0.13 },
   newYork: { name: "New York", lat: 40.71, lon: -74.01 },
+  london: { name: "London", lat: 51.51, lon: -0.13 },
   nairobi: { name: "Nairobi", lat: -1.29, lon: 36.82 },
   sydney: { name: "Sydney", lat: -33.87, lon: 151.21 },
   reykjavik: { name: "Reykjavík", lat: 64.15, lon: -21.94 },
@@ -53,7 +53,10 @@ export function latLonToVector3(lat: number, lon: number, r = 1) {
   return { x, y, z, toArray: () => [x, y, z] as [number, number, number] };
 }
 
-export function vector3ToLatLon(v: { x: number; y: number; z: number }): { lat: number; lon: number } {
+export function vector3ToLatLon(v: { x: number; y: number; z: number }): {
+  lat: number;
+  lon: number;
+} {
   return xyzToLatLon(v.x, v.y, v.z);
 }
 

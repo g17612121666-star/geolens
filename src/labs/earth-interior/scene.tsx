@@ -42,7 +42,7 @@ const layers = [
   },
 ];
 /** Static micro-normal/roughness fields distinguish material response only.
- * They never displace the closed cut faces or imply kilometre-scale structures. */
+ * They never displace the closed cut faces or imply kilometer-scale structures. */
 function CoreMaterial({ solid, attach }: { solid: boolean; attach: string }) {
   const maps = useMemo(() => {
     const size = 512,
@@ -222,10 +222,10 @@ const heatFragment = /* glsl */ `
         t = mix(temps[k], temps[k + 1], (depth - depths[k]) / max(depths[k + 1] - depths[k], 0.001));
       }
     }
-    vec3 colour = ramp(t / 5400.0);
+    vec3 color = ramp(t / 5400.0);
     vec3 view = normalize(cameraPosition - vPosW);
     float facing = abs(dot(normalize(vNormalW), view));
-    gl_FragColor = vec4(colour * (0.72 + 0.28 * facing), 1.0);
+    gl_FragColor = vec4(color * (0.72 + 0.28 * facing), 1.0);
     #include <colorspace_fragment>
   }
 `;
@@ -467,7 +467,7 @@ export default function EarthInterior() {
       <ScienceStudio
         slug="earth-interior"
         scale="Crust ×4 thickness · T restores a 35 km reference crust"
-        trueScale="Radii to scale · 35 km reference crust · colours identify materials"
+        trueScale="Radii to scale · 35 km reference crust · colors identify materials"
         camera={[3.8, 1.5, 3]}
       >
         <directionalLight position={[3, 2, 5]} intensity={2.2} color="#fff1db" />
@@ -532,12 +532,12 @@ export default function EarthInterior() {
         {waves && slice <= 0.05 && "Open the Cutaway to see the wave paths. "}
         {waves
           ? "Blue P waves pass through solid and liquid layers; amber S waves stop at the liquid outer core. Press Play to follow their motion."
-          : "Earth's radius is 6,371 km. The outer-core boundary lies 3,480 km from the centre, and the inner core has a radius of 1,221 km."}
+          : "Earth's radius is 6,371 km. The outer-core boundary lies 3,480 km from the center, and the inner core has a radius of 1,221 km."}
         {explode > 0.01 && " Reset layer spacing to compare depths."}
         <br />
         {waves
           ? "The radial paths illustrate transmission through different materials; they do not calculate the curved paths of seismic rays."
-          : "Dashed mantle interfaces mark phase transitions at depths of 410 and 660 km. Colours and textures distinguish materials; the mottled mantle pattern is illustrative, not mapped plumes or slabs."}
+          : "Dashed mantle interfaces mark phase transitions at depths of 410 and 660 km. Colors and textures distinguish materials; the mottled mantle pattern is illustrative, not mapped plumes or slabs."}
       </ScienceReadout>
     </>
   );

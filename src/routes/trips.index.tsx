@@ -112,7 +112,7 @@ function TripsIndex() {
                 />
                 <span
                   className="absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-semibold text-basalt"
-                  style={{ background: t.colour }}
+                  style={{ background: t.color }}
                 >
                   {t.kicker}
                 </span>
@@ -143,7 +143,7 @@ function TripsIndex() {
                   >
                     <span
                       className="block h-full rounded-full"
-                      style={{ width: `${(100 * seen) / t.stops.length}%`, background: t.colour }}
+                      style={{ width: `${(100 * seen) / t.stops.length}%`, background: t.color }}
                     />
                   </span>
                   <span className="text-sm text-mist">{`${t.stops.length} stops`}</span>

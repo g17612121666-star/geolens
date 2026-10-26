@@ -109,9 +109,9 @@ function LandformsPractice() {
   );
 }
 
-const ring = (f: WorldFeature, colour: string) => ({
-  id: `feature-${colour.slice(1)}`,
-  color: colour,
+const ring = (f: WorldFeature, color: string) => ({
+  id: `feature-${color.slice(1)}`,
+  color: color,
   circle: true,
   data: {
     type: "FeatureCollection",
@@ -278,7 +278,7 @@ function Quiz({ pool, speed }: { pool: WorldFeature[]; speed: boolean }) {
                 <p className={`font-semibold ${ok ? "text-glacier" : "text-magma"}`}>
                   {ok
                     ? "Correct!"
-                    : `Not quite: about ${Math.round(km).toLocaleString("en-GB")} km from its centre.`}
+                    : `Not quite: about ${Math.round(km).toLocaleString("en-GB")} km from its center.`}
                 </p>
                 {!speed && <p className="mt-2 leading-6 text-mist">{f.note}</p>}
               </div>
@@ -306,7 +306,7 @@ function Quiz({ pool, speed }: { pool: WorldFeature[]; speed: boolean }) {
         marker={guess}
         overlays={guess && f ? [ring(f, ok ? "#3fb6a8" : "#e8613a")] : []}
         onClick={(c) => answer([c.lon, c.lat])}
-        // An unlabelled ocean-floor basemap, so place names do not give the answers away.
+        // An unlabeled ocean-floor basemap, so place names do not give the answers away.
         baseMap="bathymetry"
         inspectFeatures={false}
         label="World map: click where the named feature is"

@@ -39,7 +39,7 @@ function CasePage() {
     name: c.title,
     description: c.lede,
     url: `${siteOrigin()}/case/${c.slug}`,
-    educationalLevel: ["KS3", "GCSE", "A-level", "NGSS", "APES"],
+    educationalLevel: ["NGSS", "APES", "HS Earth Science", "KS3", "GCSE", "A-level"],
     about: c.place,
     image: fig?.src,
   });

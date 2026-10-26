@@ -125,7 +125,7 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
     () => (px: number, pz: number) => height(kind, px, pz) * vertical,
     [kind, vertical],
   );
-  const colour = useMemo(() => (px: number, _y: number, pz: number) => cover(kind, px, pz), [kind]);
+  const color = useMemo(() => (px: number, _y: number, pz: number) => cover(kind, px, pz), [kind]);
   const trees = useMemo(() => {
     const out: [number, number, number][] = [];
     for (let i = 0; out.length < 70 && i < 900; i++) {
@@ -162,7 +162,7 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
     <group position={[x, 0, 0]}>
       <GeomorphicTerrain
         height={surface}
-        colour={colour}
+        color={color}
         width={4}
         depth={4}
         resolution={160}
@@ -214,7 +214,7 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
                 ? "A plateau is a broad, fairly level high surface. Its edges may be steep, exposing the rock layers beneath, and rivers may cut valleys into it. Plateaux form in different ways."
                 : kind === 3
                   ? "A plain has low local relief. Plains can lie at high or low elevation; this one is low, with fields and a meandering river."
-                  : "A basin is lower than the land around it. It may have an outlet or drain inwards; the shape alone does not mean it holds a lake."
+                  : "A basin is lower than the land around it. It may have an outlet or drain inward; the shape alone does not mean it holds a lake."
         }
         occlude={false}
       />
@@ -262,7 +262,7 @@ export default function LandformTypes() {
         </span>
         <br />
         {
-          "Choose any two of the five forms. These are invented surfaces, not real places. Heights are measured from the scene's zero level, taken as sea level; local relief is highest minus lowest point in the 4 × 4 km sample. Slopes are true-scale values, whatever the relief setting. Colour and texture help you read them; they do not show origin, climate or rock type."
+          "Choose any two of the five forms. These are invented surfaces, not real places. Heights are measured from the scene's zero level, taken as sea level; local relief is highest minus lowest point in the 4 × 4 km sample. Slopes are true-scale values, whatever the relief setting. Color and texture help you read them; they do not show origin, climate or rock type."
         }
       </ScienceReadout>
     </>

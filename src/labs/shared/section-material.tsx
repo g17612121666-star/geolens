@@ -14,10 +14,10 @@ float grain(vec2 p){return .6*sNoise(p*70.)+.4*sNoise(p*15.);}
 `;
 
 /**
- * A lit material whose colour is computed per fragment from position, for geological cut faces.
+ * A lit material whose color is computed per fragment from position, for geological cut faces.
  * `glsl` must define `vec3 sectionColour(vec3 p, vec3 w)` and `vec3 sectionGlow(vec3 p, vec3 w)`,
  * where p is the object-space and w the world-space position. Declare any uniforms in `glsl`.
- * Colours are written as sRGB values (like CSS hex) and converted to linear here.
+ * Colors are written as sRGB values (like CSS hex) and converted to linear here.
  * Return a negative red channel from sectionColour to discard the fragment.
  * With `surface`, the geometry must carry a `surfaceY` attribute (see `withSurfaceY`), and the
  * GLSL can read `sectionDepth`, the local depth below the ground surface above each point.
@@ -34,8 +34,8 @@ export function SectionMaterial({
   uniforms?: Record<string, { value: unknown }>;
   cacheKey: string;
   surface?: boolean;
-  /** Ground-surface mode: keep the base colour on gentle, upward-facing slopes and show the
-   * section colour where the world-space normal's vertical component falls below this value
+  /** Ground-surface mode: keep the base color on gentle, upward-facing slopes and show the
+   * section color where the world-space normal's vertical component falls below this value
    * (so overhangs and arch roofs also show rock). */
   cliff?: number;
 }) {

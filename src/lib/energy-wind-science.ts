@@ -1,5 +1,5 @@
 export const STEFAN_BOLTZMANN=5.670374419e-8;
-/** Globally averaged, shortwave-transparent, grey single-layer radiative equilibrium. */
+/** Globally averaged, shortwave-transparent, gray single-layer radiative equilibrium. */
 export function radiationBudget(albedo:number,emissivity:number){
   const a=Math.max(0,Math.min(1,albedo)),e=Math.max(0,Math.min(1,emissivity));
   const incoming=1361/4,reflected=incoming*a,absorbed=incoming-reflected;

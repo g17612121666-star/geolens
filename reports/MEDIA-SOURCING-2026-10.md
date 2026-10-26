@@ -32,6 +32,8 @@ Every verified photo was checked against its live source record (Wikimedia Commo
 | Misfit stream | Gleann nan Eun, Scotland |
 | Wind gap | Glacially beheaded valley head, Karu valley, Ladakh |
 | Solar-altitude cover, gnomon, noon and solar altitude | Sundial with a sharp shadow, Brodick Castle |
+| Atlas: Washington, DC | Carol M. Highsmith aerial west along the National Mall (Library of Congress, public domain) |
+| Hong Kong landslide | Closer view of the 2023 Redhill Peninsula scar (Voice of America, public domain) |
 | Atlas: Macau | Inner Harbour and the western Macau Peninsula |
 | Atlas: Bosnia and Herzegovina | Wider, better-proportioned crop of the same Trebišnjica valley panorama |
 | Atlas: Guyana, Finland, Norway, Fiji, Louisiana, Indiana, South Carolina, Lebanon, Denmark, Pennsylvania | Kaieteur Falls; Koli; Geirangerfjord; Viti Levu; Mississippi delta (NASA); Indiana Dunes; Congaree floodplain (Landsat 9); Kadisha Valley; Møns Klint; Delaware Water Gap |
@@ -39,11 +41,10 @@ Every verified photo was checked against its live source record (Wikimedia Commo
 ## Considered and not used
 
 - **Shau Kei Wan landslide (2023)**: a news-video frame with a channel logo and burnt-in subtitles.
-- **CEDD/GEO landslide report plates**: Hong Kong Government copyright, not an open licence, so they cannot join the verified library. The Redhill photo stays.
+- **CEDD/GEO landslide report plates**: Hong Kong Government copyright, not an open licence, so they cannot join the verified library. A closer public-domain Voice of America photograph is used instead.
 - **Washington DC aerial (Fletcher6)** and **Pale aerial view**: hazy, high-altitude views that are harder to read than the current photos.
 - **Macau City panorama**: centred on a casino tower rather than the landscape.
 
 ## Still worth improving
 
-- **Washington, DC** atlas photo: acceptable; a clear public-domain aerial of the Mall and the Potomac (for example from the Highsmith archive) would be better.
-- **Hong Kong landslide**: the scar is small in the frame.
+Nothing outstanding from this audit.
