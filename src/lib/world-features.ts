@@ -379,7 +379,7 @@ export const WORLD_FEATURES: WorldFeature[] = [
     lon: -66,
     radius: 900,
     level: 2,
-    note: "A warm current that carries heat from the Gulf of Mexico toward Europe.",
+    note: "A warm current that carries tropical heat up the US East Coast and, through the North Atlantic Current, toward Europe.",
     lab: "ocean-currents",
   },
   {

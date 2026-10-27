@@ -1,0 +1,47 @@
+# Fact check, October 2026
+
+This review covers the text in the lab content (`src/lib/labs/content.json`), all 310 quiz questions, the case studies, field trips, atlas hooks, world-feature notes, the glossary page data, photo captions and the notes and scale bars inside the 3D scenes. Each numeric or named claim was compared with primary or standard sources, and anything uncertain was looked up online.
+
+## Corrected
+
+| Where | Was | Now | Why |
+| --- | --- | --- | --- |
+| Glossary page (`scripts/glossary-definitions.json`) | British spellings: centre, Palaeozoic, Palaeogene, Archaean, anticlockwise, kilometre, epicentre, towards, colour and others | American spellings | The glossary page reads this file, and the earlier spelling pass missed it |
+| Glossary: four-figure, six-figure grid reference, grid square | Defined only for the British National Grid | Same text as the grid-references lab (US National Grid first, British grid second) | US-first convention |
+| Seafloor spreading, misconception | "The oldest ocean floor is less than about 200 million years old" | "Almost all ocean floor is…" | Small remnants, such as the eastern Mediterranean, may be older |
+| Plate boundaries, quiz 2 prompt | "The Himalaya form at a…" (did not fit the answers) | "The Himalaya are rising at…" | Grammar; answer unchanged |
+| Field trip, Knockan Crag | "show that the order of rocks can be overturned" | "a thrust can push older rocks on top of younger ones, reversing the usual order" | Thrusting stacks older rock over younger; it does not overturn the beds |
+| Atlas, Kentucky | "a Mammoth Cave cousin" | "Mammoth Cave, the longest known cave system on Earth" | Mammoth Cave is in Kentucky (NPS) |
+| Atlas, Netherlands | "Levées" | "Levees" | American spelling |
+| World map, Gulf Stream | "carries heat from the Gulf of Mexico toward Europe" | "carries tropical heat up the US East Coast and, through the North Atlantic Current, toward Europe" | The Gulf Stream proper ends off the Grand Banks; the North Atlantic Current continues toward Europe (NOAA) |
+| Captions and case study | "neighbourhoods", "moulded", "prising" | "neighborhoods", "molded", "prying" | American spelling |
+| Curriculum tags | universe-scale MS-ESS1-2; geologic-time HS-ESS1-6 only; three-cell HS-ESS2-4; map-projections MS-ESS2-2; ocean-currents none | MS-ESS1-3; MS-ESS1-4 added; MS-ESS2-6; tag removed; MS-ESS2-6 | Matched to the NGSS performance-expectation wording |
+| AP Environmental Science tags | water cycle 4.1/4.2, carbon 1.4/4.6, climate types 4.7, energy budget 4.4, soil profile and soil erosion 4.3, soil catena 4.3, groundwater 4.2, hydrograph unnumbered | 1.7/4.6, 1.4/9.4, 4.8, 4.7/9.3, 4.2, 4.2/4.3, 1.7, 5.13 | Matched to the College Board CED topic list (4.1 is plate tectonics, 4.6 is watersheds, and so on) |
+
+## Checked and correct (selection)
+
+- Astronomy: synodic month 29.53 d; lunar orbit tilt about 5°; au = 149,597,870,700 m; light-year 9.46 × 10¹⁵ m; parsec 3.26 ly; Proxima Centauri 4.24 ly; light time 1.28 s to the Moon and 499 s to the Sun; Mars 1.88 yr; Neptune 165 yr; Mercury 88 d; Earth's eccentricity 0.0167; tilt 23.44°.
+- New York and Miami Sun geometry: equinox noon altitude 49.3°, June noon about 73°, day length about 9¼–15 h; Miami 41° and Minneapolis 22° December noon Sun; Miami about 10½ h of daylight in December and Minneapolis under 9 h.
+- Earth interior: oceanic crust about 7 km, continental 30–70 km, core–mantle boundary 2,890 km deep, inner core radius 1,220 km, Kola borehole 12.262 km and about 180 °C.
+- Geologic time: Earth 4.54 Ga; Hadean base 4567 Ma and Phanerozoic base 538.8 Ma on the ICS chart v2026/06 (released June 2026); K–Pg 66 Ma; *Homo sapiens* about 300 ka; first trilobites about 521 Ma.
+- Tectonics: Kauaʻi 5.1 Ma; Yellowstone track about 16–17 Ma; Iceland spreading about 2 cm/yr; India–Eurasia contact about 50 Ma at 4–5 cm/yr; magnetite Curie point 580 °C; Tōhoku M9.1 (USGS), run-up about 40 m, about 18,000 dead or missing; every earthquake above M9 occurred on a megathrust.
+- Atmosphere and oceans: 6.5 °C/km standard lapse rate; 9.8 °C/km dry adiabatic rate; layer boundaries about 12, 50 and 85 km; troposphere holds 75–80% of the atmosphere's mass; storm surge about 1 cm per hPa; tsunami speed √(gh), about 200 m/s at 4,000 m.
+- Climate: Köppen thresholds (Af 18 °C and 60 mm; BWh mean annual temperature 18 °C or more); Beck et al. maps V3 are the current GloH2O release, available at 1 km and 0.1°.
+- Records: Honister Pass 341.4 mm in the 24 hours to 18:00 GMT on 5 December 2015 (Met Office UK record); Aletsch Glacier 22.6 km long (2014), so "more than 20 km" holds.
+- Isostasy: 3000 m × 917/3300 ≈ 830 m; Gulf of Bothnia uplift reaches about 8–9 mm/yr.
+- All 310 quiz answer keys point to the correct choice. Answer indices are unchanged, so saved quiz progress still works.
+- The NGSS codes used are all real performance expectations. The APES numbers not listed above (4.4, 4.5, 4.7, 4.8, 4.9, 4.3 for texture) match their topics.
+
+## Sources
+
+- ICS chart release v2026/06: https://stratigraphy.org/news/156
+- Beck et al. Köppen–Geiger V3: https://www.gloh2o.org/koppen/ and https://doi.org/10.1038/s41597-023-02549-6
+- Met Office, Storm Desmond and UK climate extremes: https://weather.metoffice.gov.uk/warnings-and-advice/uk-storm-centre/storm-desmond and https://www.metoffice.gov.uk/research/climate/maps-and-data/uk-climate-extremes
+- Aletsch Glacier length: https://en.wikipedia.org/wiki/Aletsch_Glacier (GLAMOS 2014 measurement)
+- NGSS performance expectations as listed by NASA Science: https://science.nasa.gov/learners/learning-standards-planetary-science
+- AP Environmental Science topic list (CED numbering): https://fiveable.me/ap-enviro/unit-4
+
+## Not changed
+
+- The atlas lists contested or split capitals as commonly given (Bolivia: Sucre; Israel: Jerusalem; South Africa: Pretoria). These are conventions, not errors, and are left as they are.
+- Rounded statements such as "about 1.5 km deep" at Grand Canyon Village and "about 1.8 km" for the canyon's greatest depth are both consistent with NPS figures.
