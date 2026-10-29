@@ -634,7 +634,7 @@ export const CASES: CaseStudy[] = [
     zoom: 8,
     lede: "Phoenix shows how buildings, paving and dry ground affect urban temperature. Heat stored during the day keeps built surfaces warm after sunset.",
     body: [
-      "Urban surfaces differ from surrounding land in reflectivity, heat storage, shade and evaporation. Paving and buildings can store substantial energy, while limited soil moisture reduces evaporative cooling. The balance changes through the day and between neighbourhoods.",
+      "Urban surfaces differ from surrounding land in reflectivity, heat storage, shade and evaporation. Paving and buildings can store substantial energy, while limited soil moisture reduces evaporative cooling. The balance changes through the day and between neighborhoods.",
       "Use the thermal-circulation model’s urban heat setting and the energy-budget model’s albedo slider. Ask students to distinguish a thermal image of surface temperature from an air-temperature reading, then discuss how trees, shade and building materials change local conditions.",
     ],
     exam: {

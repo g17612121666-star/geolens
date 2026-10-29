@@ -884,7 +884,7 @@
           "explain": "At the Mid-Atlantic Ridge, plates separate and mantle material rises beneath the spreading center. Partial melting supplies magma that forms new oceanic crust."
         },
         {
-          "prompt": "The Himalaya form at a…",
+          "prompt": "The Himalaya are rising at…",
           "choices": [
             "An ocean–ocean transform fault.",
             "A mantle hotspot beneath a plate.",
@@ -1233,11 +1233,33 @@
         },
         {
           "label": "USGS topographic maps"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
         "time": "none",
         "extra": [
+          {
+            "key": "place",
+            "label": "Landscape",
+            "min": 0,
+            "max": 1,
+            "step": 1,
+            "default": 0,
+            "options": [
+              {
+                "label": "Model hill",
+                "value": 0
+              },
+              {
+                "label": "Real: Sugarloaf Mountain, MD",
+                "value": 1
+              }
+            ]
+          },
           {
             "key": "interval",
             "label": "Contour interval",
@@ -1265,7 +1287,8 @@
         "Change Contour interval from 5 m to 20 m and ask which details disappear.",
         "Click any point on the hill to read its height and draw the A–B cross-section.",
         "On a flat map, close lines mean steep ground, widely spaced lines mean gentle ground, a V pointing uphill marks a valley and a spur bends the other way.",
-        "These rules are enough for the Check questions and for reading a USGS or OS map extract without the 3D view."
+        "These rules are enough for the Check questions and for reading a USGS or OS map extract without the 3D view.",
+        "Choose Landscape → Real: Sugarloaf Mountain, MD to read contours on real USGS elevation data (heights above sea level); the model hill is idealized."
       ]
     },
     {
@@ -1469,7 +1492,7 @@
       ],
       "curriculum": [
         "NGSS MS-ESS2-4",
-        "APES 4.1 / 4.2",
+        "APES 1.7 / 4.6",
         "KS3",
         "AQA A-level 3.1.1 Water and carbon cycles",
         "GCSE"
@@ -2202,7 +2225,7 @@
         "KS3"
       ],
       "curriculum": [
-        "NGSS MS-ESS1-2",
+        "NGSS MS-ESS1-3",
         "KS3"
       ],
       "steps": [
@@ -2417,6 +2440,7 @@
         "GCSE"
       ],
       "curriculum": [
+        "NGSS MS-ESS1-4",
         "NGSS HS-ESS1-6",
         "KS3",
         "GCSE"
@@ -3801,7 +3825,7 @@
         },
         {
           "claim": "The ocean floor is the oldest part of Earth’s surface.",
-          "truth": "The oldest ocean floor is less than about 200 million years old, because oceanic crust is recycled at subduction zones. Some continental rocks are over 4 billion years old."
+          "truth": "Almost all ocean floor is less than about 200 million years old, because oceanic crust is recycled at subduction zones. Some continental rocks are over 4 billion years old."
         }
       ],
       "cases": [
@@ -4065,7 +4089,7 @@
       ],
       "curriculum": [
         "NGSS MS-ESS2-6",
-        "APES 4.4",
+        "APES 4.7 / 9.3",
         "KS3",
         "AQA GCSE 3.1.1.4 Climate change",
         "Edexcel GCSE A Topic 2 Weather hazards and climate change",
@@ -4668,7 +4692,7 @@
         "A-level"
       ],
       "curriculum": [
-        "NGSS HS-ESS2-4",
+        "NGSS MS-ESS2-6",
         "APES 4.5",
         "AQA GCSE 3.1.1.3 Weather hazards",
         "Edexcel GCSE A Topic 2 Weather hazards and climate change",
@@ -5241,7 +5265,7 @@
       ],
       "curriculum": [
         "NGSS MS-ESS2-6",
-        "APES 4.7",
+        "APES 4.8",
         "GCSE"
       ],
       "steps": [
@@ -5675,7 +5699,7 @@
         "A-level"
       ],
       "curriculum": [
-        "APES",
+        "APES 5.13",
         "AQA GCSE 3.1.3.3 River landscapes in the UK",
         "AQA A-level 3.1.1 Water and carbon cycles",
         "Edexcel GCSE A Topic 1 Changing landscapes of the UK",
@@ -6076,6 +6100,7 @@
         "A-level"
       ],
       "curriculum": [
+        "NGSS MS-ESS2-6",
         "APES 4.5",
         "GCSE",
         "A-level"
@@ -6528,7 +6553,7 @@
         "A-level"
       ],
       "curriculum": [
-        "APES 1.4 / 4.6",
+        "APES 1.4 / 9.4",
         "AQA A-level 3.1.1 Water and carbon cycles",
         "GCSE"
       ],
@@ -7369,6 +7394,10 @@
         {
           "label": "NPS resistant strata and waterfalls",
           "href": "https://www.nps.gov/piro/planyourvisit/waterfalls.htm"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
@@ -7378,7 +7407,7 @@
             "key": "feature",
             "label": "Feature",
             "min": 0,
-            "max": 2,
+            "max": 3,
             "step": 1,
             "default": 0,
             "options": [
@@ -7393,6 +7422,10 @@
               {
                 "label": "V-shaped valley",
                 "value": 2
+              },
+              {
+                "label": "Real: Grand Canyon, AZ",
+                "value": 3
               }
             ]
           },
@@ -7414,7 +7447,8 @@
       },
       "modelNotes": [
         "Retreat moves the lip up to 25 m upstream in chosen steps, not a dated rate; the falling water and plunge pool move with it.",
-        "Vertical relief is enlarged 2.2 times in the waterfall view and 1.5 times in the valley view; Physical scale removes the exaggeration."
+        "Vertical relief is enlarged 2.2 times in the waterfall view and 1.5 times in the valley view; Physical scale removes the exaggeration.",
+        "The Real: Grand Canyon view uses USGS elevation and aerial imagery to show a river that has cut about 1.5 km into a rising plateau."
       ]
     },
     {
@@ -8308,6 +8342,10 @@
         {
           "label": "NPS glacial erosion and debris",
           "href": "https://www.nps.gov/dena/learn/nature/glaciers.htm"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
@@ -8317,7 +8355,7 @@
             "key": "view",
             "label": "Landform view",
             "min": 0,
-            "max": 1,
+            "max": 2,
             "step": 1,
             "default": 0,
             "options": [
@@ -8328,6 +8366,10 @@
               {
                 "value": 1,
                 "label": "Cirques, arêtes and horn"
+              },
+              {
+                "value": 2,
+                "label": "Real: Yosemite Valley, CA"
               }
             ]
           },
@@ -8337,19 +8379,34 @@
             "min": 0,
             "max": 1,
             "step": 0.02,
-            "default": 0.5
+            "default": 0.5,
+            "showWhen": {
+              "key": "view",
+              "values": [
+                0,
+                1
+              ]
+            }
           }
         ],
         "toggles": [
           {
             "key": "ice",
             "label": "Ice",
-            "defaultOn": true
+            "defaultOn": true,
+            "showWhen": {
+              "key": "view",
+              "values": [
+                0,
+                1
+              ]
+            }
           }
         ]
       },
       "modelNotes": [
-        "Default relief is enlarged 1.5 times; Physical scale restores a common kilometer scale."
+        "Default relief is enlarged 1.5 times; Physical scale restores a common kilometer scale.",
+        "The Real: Yosemite Valley view uses USGS elevation and aerial imagery; its north–south cross-section shows the real U shape. Heights are exaggerated ×1.5 unless Compare physical scale is on."
       ]
     },
     {
@@ -8949,6 +9006,10 @@
         {
           "label": "NPS dune types",
           "href": "https://www.nps.gov/grsa/learn/nature/dune-types.htm"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
@@ -8958,7 +9019,7 @@
             "key": "feature",
             "label": "Landform",
             "min": 0,
-            "max": 1,
+            "max": 2,
             "step": 1,
             "default": 0,
             "options": [
@@ -8969,6 +9030,10 @@
               {
                 "value": 1,
                 "label": "Yardang ridges"
+              },
+              {
+                "value": 2,
+                "label": "Real: Great Sand Dunes, CO"
               }
             ]
           },
@@ -8989,7 +9054,8 @@
         ]
       },
       "modelNotes": [
-        "The example dune has a gentle windward (stoss) slope and a 32° slip face on its lee side at true scale."
+        "The example dune has a gentle windward (stoss) slope and a 32° slip face on its lee side at true scale.",
+        "The Real: Great Sand Dunes view uses USGS elevation and aerial imagery; its dunefield is shaped by winds from two directions, unlike the single-wind barchan model."
       ]
     },
     {
@@ -9256,7 +9322,7 @@
         "A-level"
       ],
       "curriculum": [
-        "APES 4.3",
+        "APES 4.2",
         "GCSE",
         "A-level"
       ],
@@ -9746,7 +9812,7 @@
           "choices": [
             "Ice expanding in a crack",
             "Rain slowly dissolving limestone",
-            "Roots prising rock apart",
+            "Roots prying rock apart",
             "Rock flaking as it heats and cools"
           ],
           "answer": 1,
@@ -9880,7 +9946,7 @@
       ],
       "curriculum": [
         "NGSS",
-        "APES 4.3",
+        "APES 4.2",
         "GCSE"
       ],
       "steps": [
@@ -10447,6 +10513,10 @@
         {
           "label": "USGS eruption styles",
           "href": "https://www.usgs.gov/programs/VHP/volcano-types-and-styles"
+        },
+        {
+          "label": "USGS 3D Elevation Program (3DEP)",
+          "href": "https://www.usgs.gov/3d-elevation-program"
         }
       ],
       "controls": {
@@ -10458,7 +10528,13 @@
             "min": 0,
             "max": 1,
             "step": 0.01,
-            "default": 0.25
+            "default": 0.25,
+            "showWhen": {
+              "key": "real",
+              "values": [
+                0
+              ]
+            }
           },
           {
             "key": "gas",
@@ -10466,18 +10542,36 @@
             "min": 0,
             "max": 1,
             "step": 0.05,
-            "default": 0.45
+            "default": 0.45,
+            "showWhen": {
+              "key": "real",
+              "values": [
+                0
+              ]
+            }
           }
         ],
         "slice": true,
         "toggles": [
           {
+            "key": "real",
+            "label": "Real volcanoes (USGS)"
+          },
+          {
             "key": "fissure",
-            "label": "Fissure vents"
+            "label": "Fissure vents",
+            "showWhen": {
+              "key": "real",
+              "values": [
+                0
+              ]
+            }
           }
         ]
       },
-      "modelNotes": []
+      "modelNotes": [
+        "Turn on Real volcanoes to compare Mauna Loa and Mount St. Helens from USGS elevation data at the same scale (heights from sea level, exaggerated ×3 unless Compare physical scale is on)."
+      ]
     },
     {
       "slug": "tsunami",
@@ -10852,6 +10946,10 @@
         {
           "label": "Met Office tropical cyclone facts",
           "href": "https://www.metoffice.gov.uk/research/weather/tropical-cyclones/facts"
+        },
+        {
+          "label": "NASA MODIS: Hurricane Katrina, 28 August 2005",
+          "href": "https://commons.wikimedia.org/wiki/File:Katrina_2005-08-28_1702Z_(cropped).jpg"
         }
       ],
       "controls": {
@@ -10878,7 +10976,7 @@
         "The ideal wind profile increases linearly from a calm center to a maximum at radius 30 km, then decreases inversely with radius.",
         "Intensity selects maximum tangential wind from 38 to 80 m/s.",
         "Pressure comes from a steady gradient-wind balance with air density 1.15 kg/m³, a Coriolis parameter of 0.00005 per second and 101300 Pa at 300 km radius.",
-        "Cloud depth is 12 km, drawn five times taller in the teaching view (Physical scale, or the T key, shows it 1:1); the clouds are visual only, not simulated droplets or rainfall."
+        "Cloud depth is 12 km, drawn five times taller in the teaching view (Physical scale, or the T key, shows it 1:1). The cloud tops are a NASA MODIS image of Hurricane Katrina (28 August 2005) at the model's scale; their heights are illustrative, and the clouds are not simulated droplets or rainfall."
       ]
     },
     {
@@ -11103,7 +11201,6 @@
         "GCSE"
       ],
       "curriculum": [
-        "NGSS MS-ESS2-2",
         "AQA GCSE 3.4 Geographical skills"
       ],
       "steps": [
@@ -11963,7 +12060,7 @@
       ],
       "curriculum": [
         "NGSS MS-ESS2-4",
-        "APES 4.2",
+        "APES 1.7",
         "AQA A-level 3.1.1 Water and carbon cycles",
         "GCSE"
       ],
@@ -12586,7 +12683,7 @@
         "A-level"
       ],
       "curriculum": [
-        "APES 4.3",
+        "APES 4.2 / 4.3",
         "GCSE",
         "A-level"
       ],

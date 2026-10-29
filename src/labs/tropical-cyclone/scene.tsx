@@ -25,7 +25,7 @@ export default function TropicalCyclone() {
         slug="tropical-cyclone"
         horizon
         camera={[4, 5.5, 8]}
-        scale="Cloud height ×5 · max-wind radius 30 km · ocean domain radius 300 km"
+        scale="Cloud height ×5 · max-wind radius 30 km · ocean domain radius 300 km · cloud tops: NASA MODIS image of Hurricane Katrina, 2005"
         trueScale="1 scene unit = 50 km · 12 km cloud depth at common geometric scale"
       >
         <mesh position={[0, -0.04, 0]}>
@@ -104,7 +104,7 @@ export default function TropicalCyclone() {
         <Tag
           pos={[-4.3, 0.7 * vertical, -0.4]}
           text="Rainbands"
-          note="Cloud shapes are a 3D structural illustration, not satellite data or simulated rainfall. Actual bands, eye size and symmetry vary considerably."
+          note="Cloud tops come from a NASA satellite image of Hurricane Katrina on 28 August 2005, at the same horizontal scale as the model. Their heights are illustrative, set by cloud brightness, and the clouds turn with the idealized model winds, not Katrina's real ones."
           occlude={false}
         />
       </ScienceStudio>

@@ -1,4 +1,5 @@
 import { useMemo, useEffect } from "react";
+import RealGrandCanyon from "./real-grand-canyon";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
@@ -220,6 +221,11 @@ const GORGE_GRASS = new THREE.Color("#6f8c4a"),
   POOL_BED = new THREE.Color("#4f4a42");
 
 export default function RiverErosion() {
+  const real = useLabControls((s) => Math.round(s.params.feature ?? 0) === 3);
+  return real ? <RealGrandCanyon /> : <ModelRiverErosion />;
+}
+
+function ModelRiverErosion() {
   const { params, t, trueScale } = useLabControls();
   useLabTick(1 / 45);
   const mode = Math.round(params.feature ?? 0),

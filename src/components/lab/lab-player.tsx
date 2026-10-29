@@ -245,7 +245,15 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
         className="min-h-dvh bg-void pt-16"
       >
         <div className="px-4 pb-3">{titleBlock}</div>
-        <div className="relative h-[62svh] min-h-[400px]">{scene}</div>
+        {/* The readout sits below the canvas on phones, so the model keeps its height. */}
+        <div
+          className="relative"
+          style={{
+            height: "calc(max(56svh, 360px) + var(--science-readout-height, 0px) + 12px)",
+          }}
+        >
+          {scene}
+        </div>
         <div className="relative z-10 border-t border-white/10 bg-basalt">
           <div className="p-3">
             <ControlBar
