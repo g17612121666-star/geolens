@@ -172,8 +172,8 @@ export default function PressureCentres() {
           );
         })}
         {!high &&
-          Array.from({ length: 14 }, (_, i) => {
-            const u = (t + i / 14) % 1,
+          Array.from({ length: 9 }, (_, i) => {
+            const u = (t + i / 9) % 1,
               r = 2.85 - u * 1.8,
               a = spin * (u * 5 + i * 2.4);
             return (
@@ -208,7 +208,7 @@ export default function PressureCentres() {
             </group>
           ))}
         {high &&
-          Array.from({ length: 12 }, (_, i) => {
+          Array.from({ length: 8 }, (_, i) => {
             const a = i * 2.399,
               r = 1.6 + 1.2 * ((i * 0.618) % 1);
             return (

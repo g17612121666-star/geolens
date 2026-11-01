@@ -57,10 +57,24 @@ function CasePage() {
       <p className="mt-6 text-lg leading-7 text-chalk/90">{c.lede}</p>
       {fig && <Figure {...fig} className="mt-6" />}
       <div className="mt-8">
-        <MiniMap lat={c.lat} lon={c.lon} zoom={c.zoom} label={c.title} />
+        <MiniMap
+          lat={c.lat}
+          lon={c.lon}
+          zoom={c.zoom}
+          label={c.title}
+          second={c.also}
+          area={c.area}
+        />
         <p className="mt-2 font-mono text-[11px] text-mist">
           {"Location: "}
           {c.lat.toFixed(2)}°, {c.lon.toFixed(2)}°
+          {c.also && (
+            <>
+              {" · second marker: "}
+              {c.also.name} ({c.also.lat.toFixed(2)}°, {c.also.lon.toFixed(2)}°)
+            </>
+          )}
+          {c.area && ` · outlined: ${c.area.name}`}
         </p>
       </div>
       <div className="mt-8 space-y-4 text-[17px] leading-7 text-mist">

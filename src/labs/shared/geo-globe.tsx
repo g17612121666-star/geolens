@@ -47,17 +47,20 @@ function useGeo(url: string): { data: Geo; error: undefined; retry: () => void }
   }
   throw pending.get(url);
 }
-type Fade = { material?: React.Ref<THREE.MeshStandardMaterial>; onReady?: () => void };
+type Fade = {
+  material?: React.Ref<THREE.MeshStandardMaterial>;
+  onReady?: (snapshot: number) => void;
+};
 const MODERN = ["/textures/earth-day.jpg", "/textures/earth-bump.jpg"];
-const snapshotUrl = (snapshot: number) => `/geo/reconstruction/coastlines-${snapshot}-4k.webp`;
-function useReady(onReady?: () => void) {
-  useEffect(() => onReady?.(), [onReady]);
+const snapshotUrl = (snapshot: number) => `/geo/reconstruction/paleo-${snapshot}.webp`;
+function useReady(snapshot: number, onReady?: (snapshot: number) => void) {
+  useEffect(() => onReady?.(snapshot), [snapshot, onReady]);
 }
 function ModernGlobe({ radius, material, onReady }: { radius: number } & Fade) {
   const [day, bump] = useTexture(MODERN);
   day.colorSpace = THREE.SRGBColorSpace;
   day.anisotropy = 12;
-  useReady(onReady);
+  useReady(0, onReady);
   return (
     <mesh rotation={[0, Math.PI / 2, 0]}>
       <sphereGeometry args={[radius, 160, 96]} />
@@ -74,67 +77,9 @@ function ModernGlobe({ radius, material, onReady }: { radius: number } & Fade) {
   );
 }
 /**
- * Reconstructed coastlines arrive as a flat two-color map. The shader keeps those shapes exactly
- * and adds a continental shelf, relief shading and land tones. Relief is illustrative noise, not
- * reconstructed paleotopography.
+ * Reconstructed coastlines come pre-baked by scripts/bake-paleo-globes.py: the coast shapes are
+ * EarthByte data, while the shelf, land tones and gentle shading are illustrative.
  */
-const PALAEO_SHADER = (s: THREE.WebGLProgramParametersWithUniforms) => {
-  s.vertexShader =
-    "varying vec3 palaeoPos;\n" +
-    s.vertexShader.replace(
-      "#include <begin_vertex>",
-      "#include <begin_vertex>\npalaeoPos=normalize(position);",
-    );
-  s.fragmentShader = "varying vec3 palaeoPos;\n" + s.fragmentShader;
-  s.fragmentShader = s.fragmentShader
-    .replace(
-      "#include <map_pars_fragment>",
-      `#include <map_pars_fragment>
-float pHash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
-float pNoise(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
-  return mix(mix(mix(pHash(i),pHash(i+vec3(1,0,0)),f.x),mix(pHash(i+vec3(0,1,0)),pHash(i+vec3(1,1,0)),f.x),f.y),
-    mix(mix(pHash(i+vec3(0,0,1)),pHash(i+vec3(1,0,1)),f.x),mix(pHash(i+vec3(0,1,1)),pHash(i+vec3(1,1,1)),f.x),f.y),f.z);}
-float pFbm(vec3 p){return .5*pNoise(p)+.27*pNoise(p*2.1)+.15*pNoise(p*4.3)+.08*pNoise(p*8.7);}
-float landAt(vec2 uv){return smoothstep(.1,.2,texture2D(map,uv).g);}
-float palaeoHeight;
-`,
-    )
-    .replace(
-      "#include <map_fragment>",
-      `#include <map_fragment>
-  float land=landAt(vMapUv);
-  float near=0.;
-  for(int i=0;i<8;i++){float a=float(i)*.785398;near+=landAt(vMapUv+vec2(cos(a)*.006,sin(a)*.012));}
-  near/=8.;
-  float coast=smoothstep(.85,1.,texture2D(map,vMapUv).r);
-  float h=pFbm(palaeoPos*5.);
-  palaeoHeight=land*h;
-  vec3 deep=pow(vec3(.07,.19,.30),vec3(2.2)),shelf=pow(vec3(.22,.47,.54),vec3(2.2));
-  vec3 low=pow(vec3(.42,.53,.31),vec3(2.2)),up=pow(vec3(.60,.53,.36),vec3(2.2)),high=pow(vec3(.70,.66,.60),vec3(2.2));
-  vec3 sea=mix(deep,shelf,smoothstep(.05,.6,near)*.85);
-  vec3 ground=mix(low,up,smoothstep(.45,.62,h));
-  ground=mix(ground,high,smoothstep(.72,.82,h)*.8);
-  ground*=.9+.2*pFbm(palaeoPos*16.+7.);
-  diffuseColor.rgb=mix(sea,ground,land);
-  diffuseColor.rgb=mix(diffuseColor.rgb,pow(vec3(.86,.82,.66),vec3(2.2)),coast*.25);`,
-    )
-    .replace(
-      "#include <normal_fragment_maps>",
-      `#include <normal_fragment_maps>
-  {
-    vec3 dpdx=dFdx(-vViewPosition),dpdy=dFdy(-vViewPosition);
-    float hx=dFdx(palaeoHeight)*.9,hy=dFdy(palaeoHeight)*.9;
-    vec3 r1=cross(dpdy,normal),r2=cross(normal,dpdx);
-    float det=dot(dpdx,r1);
-    vec3 grad=sign(det)*(hx*r1+hy*r2);
-    normal=normalize(abs(det)*normal-grad);
-  }`,
-    )
-    .replace(
-      "#include <roughnessmap_fragment>",
-      "#include <roughnessmap_fragment>\n  roughnessFactor=mix(.42,.9,land);",
-    );
-};
 function ReconstructedSnapshot({
   snapshot,
   radius,
@@ -144,7 +89,7 @@ function ReconstructedSnapshot({
   const texture = useTexture(snapshotUrl(snapshot));
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.anisotropy = 12;
-  useReady(onReady);
+  useReady(snapshot, onReady);
   return (
     <mesh rotation={[0, Math.PI / 2, 0]}>
       <sphereGeometry args={[radius, 160, 96]} />
@@ -154,8 +99,6 @@ function ReconstructedSnapshot({
         roughness={0.84}
         transparent={Boolean(material)}
         depthWrite={!material}
-        onBeforeCompile={PALAEO_SHADER}
-        customProgramCacheKey={() => "paleo-globe-v1"}
       />
     </mesh>
   );
@@ -177,15 +120,16 @@ export function ReconstructionGlobe({ age, radius = 1.25 }: { age: number; radiu
   const snapshot = Math.max(0, Math.min(250, Math.round(age / 10) * 10));
   const [current, setCurrent] = useState(snapshot);
   const [leaving, setLeaving] = useState<number | null>(null);
-  const ready = useRef(true);
+  // The last snapshot that finished loading: only that one may stay on screen while the next
+  // loads. Fading out a snapshot that never loaded would suspend and freeze the old globe.
+  const shown = useRef<number | null>(null);
   const opacity = useRef(1);
   const material = useRef<THREE.MeshStandardMaterial>(null);
   const invalidate = useThree((s) => s.invalidate);
   useEffect(() => {
     if (snapshot === current) return;
-    setLeaving(current);
+    setLeaving(shown.current);
     setCurrent(snapshot);
-    ready.current = false;
     opacity.current = 1;
   }, [snapshot, current]);
   useEffect(() => {
@@ -194,30 +138,33 @@ export function ReconstructionGlobe({ age, radius = 1.25 }: { age: number; radiu
     if (snapshot === 10) useTexture.preload(MODERN);
   }, [snapshot]);
   const onReady = useMemo(
-    () => () => {
-      ready.current = true;
+    () => (loaded: number) => {
+      shown.current = loaded;
       invalidate();
     },
     [invalidate],
   );
   useFrame((_, dt) => {
-    if (leaving === null || !ready.current) return;
+    if (leaving === null || shown.current !== current) return;
     opacity.current = Math.max(0, opacity.current - dt * 3.5);
     if (material.current) material.current.opacity = opacity.current;
     if (opacity.current <= 0) setLeaving(null);
     invalidate();
   });
-  const base = <Snapshot key={current} snapshot={current} radius={radius} onReady={onReady} />;
   return (
     <>
-      {leaving === null ? base : <Suspense fallback={null}>{base}</Suspense>}
-      {leaving !== null && (
-        <Snapshot
-          key={`leaving-${leaving}`}
-          snapshot={leaving}
-          radius={radius * 1.002}
-          material={material}
-        />
+      <Suspense fallback={null}>
+        <Snapshot key={current} snapshot={current} radius={radius} onReady={onReady} />
+      </Suspense>
+      {leaving !== null && leaving !== current && (
+        <Suspense fallback={null}>
+          <Snapshot
+            key={`leaving-${leaving}`}
+            snapshot={leaving}
+            radius={radius * 1.002}
+            material={material}
+          />
+        </Suspense>
       )}
     </>
   );

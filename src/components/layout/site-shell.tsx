@@ -28,9 +28,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           );
           if (age > 0)
             void import("@react-three/drei")
-              .then(({ useTexture }) =>
-                useTexture.preload(`/geo/reconstruction/coastlines-${age}-4k.webp`),
-              )
+              .then(({ useTexture }) => useTexture.preload(`/geo/reconstruction/paleo-${age}.webp`))
               .catch(() => {});
         }
       }, 120);

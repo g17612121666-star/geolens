@@ -234,6 +234,9 @@ export default function MassMovement() {
       </ScienceStudio>
       <ScienceReadout>
         <div className="mx-auto mb-2 max-w-md" aria-hidden="true">
+          <p className="mb-1 text-[11px] text-mist">
+            {"Factor of safety (resisting ÷ driving forces): below 1 the slope fails"}
+          </p>
           <div className="relative h-2.5 rounded-full bg-gradient-to-r from-[#d0402f] via-[#e3b04b] to-[#4c9a5b]">
             <span
               className="absolute top-[-4px] h-[18px] w-[3px] rounded bg-chalk"
@@ -248,7 +251,7 @@ export default function MassMovement() {
           </div>
           <div className="mt-1 flex justify-between text-[11px] text-mist">
             <span>0.5 · fails</span>
-            <span>1.0</span>
+            <span>1.0 · balance</span>
             <span>2.0 · stable</span>
           </div>
         </div>

@@ -121,11 +121,18 @@ export function ControlBar({
             type="range"
             min={0}
             max={1}
-            step={0.001}
+            // A day slider steps in 5-minute increments so the arrow keys visibly turn Earth.
+            step={lab.controls.time === "day" ? 1 / 288 : 0.001}
             value={t}
             onChange={(e) => setT(Number(e.target.value))}
             className="h-2 w-full accent-glacier"
             aria-label={timeLabel}
+            aria-valuenow={t}
+            aria-valuetext={
+              lab.controls.time === "day"
+                ? `${(t * 24).toFixed(1)} hours${t >= 0.999 ? " (the same orientation as 0 hours)" : ""}`
+                : `${Math.round(t * 100)}% of the process`
+            }
             suppressHydrationWarning
           />
           <span
@@ -169,6 +176,10 @@ export function ControlBar({
               onChange={(e) => setParam(ex.key, Number(e.target.value))}
               className="h-2 w-28 shrink-0 accent-sandstone"
               aria-label={ex.label}
+              aria-valuenow={Number(params[ex.key] ?? ex.default ?? ex.min)}
+              aria-valuetext={`${Number(params[ex.key] ?? ex.default ?? ex.min).toFixed(
+                Math.min(6, (String(ex.step).split(".")[1] ?? "").length),
+              )}${ex.unit ?? ""}`}
               suppressHydrationWarning
             />
             <span className="min-w-12 shrink-0 whitespace-nowrap text-[13px] tabular-nums text-chalk">
@@ -216,6 +227,8 @@ export function ControlBar({
               onChange={(e) => setExplode(Number(e.target.value))}
               className="h-2 w-16 accent-magma"
               aria-label={"Separate layers"}
+              aria-valuenow={explode}
+              aria-valuetext={`${Math.round(explode * 100)}%`}
               suppressHydrationWarning
             />
             <output className="text-[13px] tabular-nums text-chalk">
@@ -236,6 +249,8 @@ export function ControlBar({
               onChange={(e) => setSlice(Number(e.target.value))}
               className="h-2 w-16 accent-ice"
               aria-label={"Cutaway"}
+              aria-valuenow={slice}
+              aria-valuetext={`${Math.round(slice * 100)}%`}
               suppressHydrationWarning
             />
             <output className="text-[13px] tabular-nums text-chalk">

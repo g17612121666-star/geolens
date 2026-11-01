@@ -481,8 +481,18 @@
     max-height: none;
     overflow-x: auto;
   }
+  .atlas-place-list {
+    scroll-padding-inline: 1rem;
+    scroll-snap-type: x proximity;
+  }
   .atlas-place-list li {
-    flex: 0 0 160px;
+    flex: 0 0 auto;
+    min-width: 7.5rem;
+    max-width: 14rem;
+    scroll-snap-align: start;
+  }
+  .atlas-place-list button span {
+    white-space: nowrap;
   }
   .atlas-place-list button {
     height: 100%;
@@ -1057,4 +1067,21 @@
   .atlas-place-panels--compare .atlas-place-heading {
     min-height: 230px;
   }
+}
+
+.atlas-not-found {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-glass-border);
+  border-radius: 1rem;
+}
+.atlas-not-found h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.atlas-not-found p {
+  margin: 0;
+  max-width: 40rem;
 }

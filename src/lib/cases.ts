@@ -11,6 +11,10 @@ export type CaseStudy = {
   lat: number;
   lon: number;
   zoom: number;
+  /** The second place of a two-place case, pinned on the same map. */
+  also?: { name: string; lat: number; lon: number };
+  /** A region outlined on the case map, as [west, south, east, north] in degrees. */
+  area?: { name: string; bounds: [number, number, number, number] };
   sources: { label: string; href?: string }[];
   /** Query string (no ?) that restores a teaching frame in the first lab. */
   state?: string;
@@ -38,7 +42,7 @@ export const CASES: CaseStudy[] = [
       hint: "Explain how the Northern Hemisphere tilts away from the Sun in December, then compare the daylight arcs at the two latitudes.",
     },
     sources: [
-      { label: "Met Office — UK day length" },
+      { label: "Met Office — UK day length", href: "https://www.metoffice.gov.uk/" },
       { label: "NOAA Solar Calculator", href: "https://gml.noaa.gov/grad/solcalc/" },
     ],
   },
@@ -51,6 +55,7 @@ export const CASES: CaseStudy[] = [
     lat: 25.76,
     lon: -80.19,
     zoom: 5,
+    also: { name: "Minneapolis, Minnesota", lat: 44.98, lon: -93.27 },
     lede: "Miami receives a higher midday Sun than Minneapolis in December. Comparing their solar angles helps explain why the same season brings different amounts of solar energy.",
     body: [
       "Near the December solstice, the noon Sun is about 41° above the horizon in Miami and about 22° in Minneapolis, which lies about 19° farther north. A steeper beam spreads its energy across a smaller horizontal area. Miami also has a longer winter day, about 10½ hours against fewer than 9, extending the time during which sunlight is received. London, at 51.5° N, gets a noon Sun of only about 15°.",
@@ -89,7 +94,10 @@ export const CASES: CaseStudy[] = [
     sources: [
       { label: "BGS — Holderness coastal erosion" },
       { label: "East Riding of Yorkshire coastal monitoring" },
-      { label: "Environment Agency shoreline management" },
+      {
+        label: "Environment Agency shoreline management",
+        href: "https://www.gov.uk/government/publications/shoreline-management-plans-smps",
+      },
     ],
   },
   {
@@ -111,7 +119,10 @@ export const CASES: CaseStudy[] = [
         "With reference to a named Jurassic Coast example, explain how a headland can be eroded from a cave to a stump.",
       hint: "Explain how erosion enlarges weaknesses into a cave and arch, then how collapse can leave a stack and eventually a stump.",
     },
-    sources: [{ label: "Jurassic Coast Trust / UNESCO" }, { label: "BGS — Dorset coast" }],
+    sources: [
+      { label: "Jurassic Coast Trust / UNESCO", href: "https://whc.unesco.org/en/list/1029/" },
+      { label: "BGS — Dorset coast" },
+    ],
   },
   {
     slug: "lake-district",
@@ -156,7 +167,10 @@ export const CASES: CaseStudy[] = [
         "On an OS-style extract of Yr Wyddfa, how would you distinguish a cirque from a spur using contours alone?",
       hint: "A cirque shows as an armchair-shaped hollow with tightly packed contours at its back wall; a spur shows as contours bending into a V or U that points downhill.",
     },
-    sources: [{ label: "Ordnance Survey" }, { label: "BGS Wales" }],
+    sources: [
+      { label: "Ordnance Survey", href: "https://www.ordnancesurvey.co.uk/" },
+      { label: "BGS Wales" },
+    ],
   },
   {
     slug: "yorkshire-dales",
@@ -198,7 +212,13 @@ export const CASES: CaseStudy[] = [
         "Using the idea of lag time, explain why the Somerset Levels can stay flooded long after the rain has stopped.",
       hint: "Explain how saturated ground increases runoff, while low gradients and restricted outlets lengthen the falling limb.",
     },
-    sources: [{ label: "Environment Agency — Somerset" }, { label: "UKCEH hydrology" }],
+    sources: [
+      {
+        label: "Environment Agency — Somerset",
+        href: "https://www.gov.uk/government/organisations/environment-agency",
+      },
+      { label: "UKCEH hydrology" },
+    ],
   },
   {
     slug: "thames",
@@ -244,9 +264,9 @@ export const CASES: CaseStudy[] = [
       hint: "Explain the divergent boundary and mantle upwelling, then consider how magma composition and interaction with ice can alter eruption style.",
     },
     sources: [
-      { label: "IMO / Icelandic Met Office" },
+      { label: "IMO / Icelandic Met Office", href: "https://en.vedur.is/" },
       { label: "BGS — Eyjafjallajökull 2010" },
-      { label: "NASA Earth Observatory" },
+      { label: "NASA Earth Observatory", href: "https://earthobservatory.nasa.gov/" },
     ],
   },
   {
@@ -273,7 +293,10 @@ export const CASES: CaseStudy[] = [
         label: "USGS Earthquake Hazards Program",
         href: "https://www.usgs.gov/programs/earthquake-hazards",
       },
-      { label: "USGS San Andreas fact sheets" },
+      {
+        label: "USGS San Andreas fact sheets",
+        href: "https://www.usgs.gov/programs/earthquake-hazards/faults",
+      },
     ],
   },
   {
@@ -295,7 +318,10 @@ export const CASES: CaseStudy[] = [
         "Explain how the Cascadia subduction system forms a volcanic arc over geological time, and how a megathrust earthquake can generate a tsunami in minutes.",
       hint: "Distinguish magma generation above the descending slab from the rapid seafloor displacement that can produce a tsunami.",
     },
-    sources: [{ label: "USGS Cascadia" }, { label: "NOAA / NWS tsunami" }],
+    sources: [
+      { label: "USGS Cascadia", href: "https://www.usgs.gov/programs/earthquake-hazards" },
+      { label: "NOAA / NWS tsunami", href: "https://www.weather.gov/safety/tsunami" },
+    ],
   },
   {
     slug: "yellowstone",
@@ -316,7 +342,13 @@ export const CASES: CaseStudy[] = [
         "How does the age pattern of calderas in the Snake River Plain support a hotspot under a moving plate?",
       hint: "Relate the southwestward increase in volcanic age to plate movement over a long-lived source, while recognizing that the source can also move.",
     },
-    sources: [{ label: "USGS Yellowstone Volcano Observatory" }, { label: "USGS hotspot track" }],
+    sources: [
+      {
+        label: "USGS Yellowstone Volcano Observatory",
+        href: "https://www.usgs.gov/observatories/yvo",
+      },
+      { label: "USGS hotspot track" },
+    ],
   },
   {
     slug: "hawaii",
@@ -338,7 +370,10 @@ export const CASES: CaseStudy[] = [
       hint: "Link runny basaltic lava to the broad shield shape, then link the increasing age of volcanoes to plate movement away from the hotspot.",
     },
     sources: [
-      { label: "USGS Hawaiian Volcano Observatory" },
+      {
+        label: "USGS Hawaiian Volcano Observatory",
+        href: "https://www.usgs.gov/observatories/hvo",
+      },
       { label: "NOAA / ocean exploration seamounts" },
     ],
   },
@@ -361,7 +396,7 @@ export const CASES: CaseStudy[] = [
         "Distinguish the age of the rocks in the Grand Canyon walls from the age of the canyon as a landform.",
       hint: "Date the rocks and the incision separately. Old sedimentary layers can be exposed by a much younger episode of erosion.",
     },
-    sources: [{ label: "USGS / NPS Grand Canyon" }],
+    sources: [{ label: "USGS / NPS Grand Canyon", href: "https://www.nps.gov/grca/" }],
   },
   {
     slug: "mississippi",
@@ -383,7 +418,10 @@ export const CASES: CaseStudy[] = [
       hint: "Consider river sediment supply alongside tides, waves and subsidence. Delta growth requires deposition to keep pace with losses and relative sea-level change.",
     },
     sources: [
-      { label: "USGS Mississippi River" },
+      {
+        label: "USGS Mississippi River",
+        href: "https://www.usgs.gov/mission-areas/water-resources",
+      },
       { label: "USACE Mississippi River & Tributaries" },
     ],
   },
@@ -406,7 +444,9 @@ export const CASES: CaseStudy[] = [
         "How would a contour map distinguish Yosemite Valley from a V-shaped river gorge of similar depth?",
       hint: "Identify a wide floor, steep walls and hanging tributaries in a glacial trough, then compare these with the contours of a narrower river valley.",
     },
-    sources: [{ label: "USGS / NPS Yosemite" }],
+    sources: [
+      { label: "USGS / NPS Yosemite", href: "https://www.nps.gov/yose/learn/nature/geology.htm" },
+    ],
   },
   {
     slug: "katrina-sandy",
@@ -417,6 +457,7 @@ export const CASES: CaseStudy[] = [
     lat: 29.95,
     lon: -90.07,
     zoom: 5,
+    also: { name: "New York Bight (Sandy)", lat: 40.57, lon: -73.98 },
     lede: "Katrina and Sandy struck different coasts, but both show how storm winds can raise the sea. Coastal shape, tides and defenses shaped the floods that followed.",
     body: [
       "Storm surge is the rise in sea level above the expected tide, caused mainly by wind pushing water onshore and partly by low air pressure. Water levels at the shore also depend on waves, the timing of high tide and the shape and depth of the coast, so a storm’s wind category alone does not describe the flood threat.",
@@ -428,8 +469,8 @@ export const CASES: CaseStudy[] = [
       hint: "Separate storm surge, waves and tide, then explain how shallow coastal water, low-lying land and failed flood defenses increased the flooding.",
     },
     sources: [
-      { label: "NOAA / NHC Katrina and Sandy reports" },
-      { label: "USGS surge and high-water marks" },
+      { label: "NOAA / NHC Katrina and Sandy reports", href: "https://www.nhc.noaa.gov/data/tcr/" },
+      { label: "USGS surge and high-water marks", href: "https://stn.wim.usgs.gov/fev/" },
     ],
   },
   {
@@ -455,7 +496,10 @@ export const CASES: CaseStudy[] = [
     sources: [
       { label: "NOAA / NCEI drought and Dust Bowl" },
       { label: "USDA NRCS soil erosion history" },
-      { label: "USGS High Plains aquifer water-level monitoring" },
+      {
+        label: "USGS High Plains aquifer water-level monitoring",
+        href: "https://www.usgs.gov/mission-areas/water-resources",
+      },
     ],
   },
   {
@@ -498,7 +542,9 @@ export const CASES: CaseStudy[] = [
         "Why is 15° of longitude equal to one hour, and why is the Greenwich meridian not required for that arithmetic?",
       hint: "Divide 360° by 24 hours to get 15° per hour, and explain that this works from any starting meridian.",
     },
-    sources: [{ label: "Royal Observatory Greenwich" }],
+    sources: [
+      { label: "Royal Observatory Greenwich", href: "https://www.rmg.co.uk/royal-observatory" },
+    ],
   },
   {
     slug: "time-zones-us",
@@ -519,17 +565,17 @@ export const CASES: CaseStudy[] = [
         "If solar noon has just reached New York, about how long until solar noon in a place 45° of longitude further west?",
       hint: "Divide 45° by 15° per hour to get about three hours of solar time. Clock times may differ because of time-zone rules.",
     },
-    sources: [{ label: "NIST / USNO" }],
+    sources: [{ label: "NIST / USNO", href: "https://www.nist.gov/time-distribution" }],
   },
   {
     slug: "kola",
     title: "Kola Superdeep borehole",
-    place: "Kola Peninsula",
+    place: "Pechengsky District, Murmansk Oblast, Russia (Kola Peninsula)",
     region: "Shared",
     labs: ["earth-interior"],
-    lat: 69.4,
-    lon: 30.6,
-    zoom: 5,
+    lat: 69.396,
+    lon: 30.609,
+    zoom: 8,
     lede: "The Kola Superdeep Borehole reached about 12 km into Earth’s crust. Comparing that depth with Earth’s layers shows why scientists rely on seismic evidence to investigate the interior.",
     body: [
       "Despite reaching roughly 12 km, the Kola borehole did not drill through the continental crust. The mantle and core lie far beyond direct reach, so rock samples answer local questions but cannot give a section through the whole planet.",
@@ -560,7 +606,7 @@ export const CASES: CaseStudy[] = [
         "Why can two observers, one in Snowdonia and one in Yosemite, see the same lunar phase on the same date but at different clock times?",
       hint: "Separate the Sun–Earth–Moon geometry that sets the phase from Earth’s rotation and longitude, which set the local time it is seen.",
     },
-    sources: [{ label: "NASA Moon phases" }],
+    sources: [{ label: "NASA Moon phases", href: "https://science.nasa.gov/moon/moon-phases/" }],
   },
   {
     slug: "yosemite-moon",
@@ -601,7 +647,10 @@ export const CASES: CaseStudy[] = [
         "Compare the Holderness coast and the Outer Banks as sediment systems. What do they have in common, and how do they differ?",
       hint: "Explain the shared role of longshore sediment transport, then compare mobile barrier sand with sediment supplied by till-cliff erosion.",
     },
-    sources: [{ label: "USGS barrier islands" }, { label: "NOAA / NPS Cape Hatteras" }],
+    sources: [
+      { label: "USGS barrier islands" },
+      { label: "NOAA / NPS Cape Hatteras", href: "https://www.nps.gov/caha/" },
+    ],
   },
   {
     slug: "mammoth-cave",
@@ -621,7 +670,7 @@ export const CASES: CaseStudy[] = [
       prompt: "Why do sinkholes and caves cluster on carbonate rocks rather than on granite?",
       hint: "Explain how weakly acidic water dissolves calcite along fractures. Granite’s minerals dissolve far more slowly, so it does not develop caves and sinkholes in the same way.",
     },
-    sources: [{ label: "NPS / USGS Mammoth Cave" }],
+    sources: [{ label: "NPS / USGS Mammoth Cave", href: "https://www.nps.gov/maca/" }],
   },
   {
     slug: "phoenix-heat",
@@ -662,7 +711,7 @@ export const CASES: CaseStudy[] = [
         "Draw and label a sea-breeze circulation for a calm, sunny afternoon on the south coast.",
       hint: "Show warm land with rising air and lower surface pressure, an onshore breeze at ground level, and a return flow out to sea higher up.",
     },
-    sources: [{ label: "Met Office sea breezes" }],
+    sources: [{ label: "Met Office sea breezes", href: "https://www.metoffice.gov.uk/" }],
   },
   {
     slug: "cairngorms-albedo",
@@ -704,7 +753,10 @@ export const CASES: CaseStudy[] = [
         "Denver is a mile above sea level. Explain why its weather still happens in the troposphere.",
       hint: "Compare the city’s elevation with the much greater depth of the troposphere; high ground does not place the city outside the weather layer.",
     },
-    sources: [{ label: "NOAA / NWS Denver" }, { label: "Met Office radiosondes" }],
+    sources: [
+      { label: "NOAA / NWS Denver", href: "https://www.weather.gov/bou/" },
+      { label: "Met Office radiosondes" },
+    ],
   },
   {
     slug: "hong-kong-landslide",
@@ -725,7 +777,13 @@ export const CASES: CaseStudy[] = [
         "Contrast a Hong Kong hillslope failure with Holderness cliff retreat, using rock type and the triggering process.",
       hint: "Compare weathered rock and rainfall-driven pore pressure in Hong Kong with glacial till and wave erosion at Holderness.",
     },
-    sources: [{ label: "GEO Hong Kong — landslide studies" }, { label: "BGS — Holderness till" }],
+    sources: [
+      {
+        label: "GEO Hong Kong — landslide studies",
+        href: "https://www.cedd.gov.hk/eng/about-us/organisation/geo/",
+      },
+      { label: "BGS — Holderness till" },
+    ],
   },
   {
     slug: "shanghai-huangpu",
@@ -768,7 +826,13 @@ export const CASES: CaseStudy[] = [
         "Explain why Typhoon Mangkhut and Hurricane Katrina are the same type of storm despite their different names.",
       hint: "Describe the shared features: warm ocean water as the energy source, a warm core, an eye and spiral rain bands. Then explain that the name depends only on the ocean basin.",
     },
-    sources: [{ label: "HKO — Super Typhoon Mangkhut" }, { label: "NOAA — hurricane vs typhoon" }],
+    sources: [
+      { label: "HKO — Super Typhoon Mangkhut", href: "https://www.hko.gov.hk/en/" },
+      {
+        label: "NOAA — hurricane vs typhoon",
+        href: "https://oceanservice.noaa.gov/facts/cyclone.html",
+      },
+    ],
   },
   {
     slug: "loess-plateau",
@@ -796,14 +860,14 @@ export const CASES: CaseStudy[] = [
     title: "Storm Desmond and Cumbria’s record rain",
     place: "Cumbria, England",
     region: "UK",
-    labs: ["fronts", "rain-shadow", "hydrograph"],
+    labs: ["fronts", "hydrograph", "drainage-basin"],
     lat: 54.5,
     lon: -3.17,
     zoom: 8,
     lede: "In December 2015 slow-moving fronts and a mild, moist airstream met the Cumbrian fells. The result was the wettest 24 hours ever recorded in the UK and severe flooding in Carlisle, Keswick and Appleby.",
     body: [
       "A deep low near Iceland trailed fronts across northern Britain, with a mild, moist south-westerly airstream behind them. Where that air was forced up over the Lake District fells it cooled, and the frontal rain was greatly intensified: Honister Pass recorded 341.4 mm in the 24 hours to 18:00 on 5 December 2015, a UK record.",
-      "The rain fell on ground already saturated by a wet November, so rivers rose quickly and stayed high. Use the fronts model to see how air is lifted along a frontal boundary, the rain-shadow model to add the effect of high ground, and the hydrograph model to see why saturated catchments give high, fast flood peaks.",
+      "The rain fell on ground already saturated by a wet November, so rivers rose quickly and stayed high. Use the fronts model to see how air is lifted along a frontal boundary; the fells then forced the moist air higher still on their windward, western side. The hydrograph and drainage-basin models show why saturated catchments give high, fast flood peaks.",
     ],
     exam: {
       prompt:
@@ -823,9 +887,10 @@ export const CASES: CaseStudy[] = [
     place: "Tropical Pacific Ocean",
     region: "Pacific",
     labs: ["enso", "ocean-currents", "three-cell"],
-    lat: -2,
-    lon: -140,
-    zoom: 2,
+    lat: 0,
+    lon: -160,
+    zoom: 1.4,
+    area: { name: "Niño 3.4 region", bounds: [-170, -5, -120, 5] },
     lede: "The 2015–16 El Niño was one of the strongest on record. Warm water spread across the central and eastern tropical Pacific, and rainfall patterns shifted around the world.",
     body: [
       "During El Niño the Pacific trade winds weaken, so warm surface water that usually piles up in the west spreads eastward. Rising air and heavy rain follow the warm water. In 2015–16 this brought floods to parts of Peru and Ecuador, while Indonesia and parts of Australia became drier, and fires in Indonesia sent smoke across south-east Asia.",
@@ -837,8 +902,18 @@ export const CASES: CaseStudy[] = [
       hint: "Link weaker trade winds to the eastward spread of warm water, then link the warm water to the position of rising air and rainfall, and its absence in the west.",
     },
     sources: [
-      { label: "NOAA Climate.gov — ENSO", href: "https://www.climate.gov/enso" },
-      { label: "NOAA Climate Prediction Center — ENSO diagnostic discussions" },
+      {
+        label: "NOAA PMEL — What is El Niño?",
+        href: "https://www.pmel.noaa.gov/elnino/what-is-el-nino",
+      },
+      {
+        label: "NOAA Climate Prediction Center — ENSO diagnostic discussion",
+        href: "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+      },
+      {
+        label: "NOAA Climate Prediction Center — ENSO diagnostic discussions",
+        href: "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+      },
     ],
   },
   {
@@ -989,7 +1064,10 @@ export const CASES: CaseStudy[] = [
       hint: "Link the weight of the ice sheet to depression of the crust, then explain how slow rebound after melting lifted former shorelines above the present sea.",
     },
     sources: [
-      { label: "British Geological Survey — glacial isostatic adjustment" },
+      {
+        label: "British Geological Survey — glacial isostatic adjustment",
+        href: "https://www.bgs.ac.uk/",
+      },
       { label: "Ordnance Survey — tide gauge and GPS land-level records" },
     ],
   },

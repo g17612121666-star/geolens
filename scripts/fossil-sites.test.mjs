@@ -12,7 +12,7 @@ function angle([la1, lo1], [la2, lo2]) {
 test('fossil sites use the same 10 Ma snapshots as the coastline textures', () => {
   assert.deepEqual(data.ages, Array.from({ length: 26 }, (_, i) => i * 10));
   for (const age of data.ages.slice(1))
-    assert.ok(existsSync(new URL(`../public/geo/reconstruction/coastlines-${age}-4k.webp`, import.meta.url)), `missing texture ${age}`);
+    assert.ok(existsSync(new URL(`../public/geo/reconstruction/paleo-${age}.webp`, import.meta.url)), `missing texture ${age}`);
 });
 
 test('every site has a valid position at every snapshot and sits on a plate', () => {
