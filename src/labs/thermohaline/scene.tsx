@@ -187,7 +187,7 @@ export default function Thermohaline() {
       <ScienceReadout>
         {view === 0
           ? "Warm upper water (amber) flows from the tropical coast (left) to the icy polar coast (right), sinks and returns at depth (blue). Choose Density experiment to vary the parcel."
-          : `${temperature} °C · Absolute Salinity ${salinity.toFixed(1)} g/kg · density difference ${difference >= 0 ? "+" : ""}${difference.toFixed(2)} kg/m³: ${Math.abs(difference) < 0.005 ? "neutral" : difference > 0 ? "denser parcel tends to sink" : "lighter parcel rises toward the surface"}.`}
+          : `${temperature} °C · Absolute Salinity ${salinity.toFixed(1)} g/kg · density difference ${difference >= 0 ? "+" : ""}${difference.toFixed(2)} kg/m³: ${Math.abs(difference) < 0.005 ? "neutral" : difference > 0 ? "denser parcel tends to sink" : "lighter parcel rises toward the surface"}.`}{" "}
         <br />
         {view === 0 ? (
           "Overturning also needs winds and mixing. The parcel experiment does not calculate AMOC strength or a shutdown threshold."

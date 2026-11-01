@@ -268,8 +268,7 @@ export default function Isostasy() {
         {"Ice "}
         {Math.round(ice)} {"m → equilibrium depression "}
         {result.depression.toFixed(0)}{" "}
-        {"m at the center. Mantle / crust / ice densities: 3300 / 2800 / 917 kg/m³."}
-        <br />
+        {"m at the center. Mantle / crust / ice densities: 3300 / 2800 / 917 kg/m³."} <br />
         {
           "Each column keeps its rock thickness and mass, so thicker ice pushes it further down. Unloading raises the equilibrium position; this static experiment does not predict rebound timing or global sea level."
         }

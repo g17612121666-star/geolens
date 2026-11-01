@@ -195,8 +195,7 @@ export default function Enso() {
         {c.phase} {"· thermocline west "}
         {c.westDepth.toFixed(0)} {"m / east "}
         {c.eastDepth.toFixed(0)}{" "}
-        {"m. Gold: idealized thermocline; amber: warmer upper water; blue: colder water."}
-        <br />
+        {"m. Gold: idealized thermocline; amber: warmer upper water; blue: colder water."} <br />
         {
           "The ENSO slider picks a set state; Play only moves the tracers and does not show years or a forecast. Teleconnections change the odds but do not decide a particular UK winter."
         }

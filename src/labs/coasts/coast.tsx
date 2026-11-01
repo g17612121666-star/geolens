@@ -424,7 +424,7 @@ export default function Coasts() {
           ? "Look into the cave from the sea, then compare the arch, stack and stump. The chalk headland, banded with dark flint, stands on a wave-cut platform; the cave has a back wall."
           : mode === 1
             ? "Swash moves grains diagonally up the beach; backwash returns them straight downslope. The zigzag is one simplified pathway."
-            : "A spit grows from the shore across a bay, sheltering a shallow lagoon with salt marsh behind it. Change Spit extent to compare its length; the water beyond its tip stays open."}
+            : "A spit grows from the shore across a bay, sheltering a shallow lagoon with salt marsh behind it. Change Spit extent to compare its length; the water beyond its tip stays open."}{" "}
         <br />
         {mode === 1
           ? groyne

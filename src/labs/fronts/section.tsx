@@ -204,7 +204,7 @@ export default function Fronts() {
         {"Section spans 600 km. "}
         {s.occluded
           ? `Occluded: the cold front has caught the warm front, so the warm air no longer touches the ground. Its lowest point, where the two frontal surfaces meet, is ${s.liftAtMeeting.toFixed(2)} km above the ground.`
-          : `Surface warm sector ${(s.warmFront - s.coldFront).toFixed(0)} km wide.`}
+          : `Surface warm sector ${(s.warmFront - s.coldFront).toFixed(0)} km wide.`}{" "}
         <br />
         {
           "Play or drag Process to follow the faster cold front. Slopes and speeds are set by the model, and the clouds are for illustration. A front on a weather chart marks where a sloping boundary meets the ground."

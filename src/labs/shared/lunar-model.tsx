@@ -539,7 +539,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
           ? lunarEclipse(p) + ". Turn on Shadow close-up for a closer view."
           : slug === "tides"
             ? "The surface shows the combined lunar and solar tidal effects."
-            : `The Moon's orbit is tilted by ${aligned ? "0" : LUNAR.inclination}°.`}
+            : `The Moon's orbit is tilted by ${aligned ? "0" : LUNAR.inclination}°.`}{" "}
         <br />
         {focus &&
           "Play follows an 8.5-hour window around the selected lunar phase. Change Node direction to compare an eclipse with a missed alignment. "}

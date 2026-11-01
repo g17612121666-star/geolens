@@ -163,7 +163,7 @@ function ModelAeolian() {
       <ScienceReadout>
         {mode === 0
           ? "Barchan: deposited sand, a gentler windward slope and a steeper lee slip face. Dune position moves the dune downwind without a set speed."
-          : "Yardang: rock carved into streamlined ridges, aligned broadly with the erosive wind."}
+          : "Yardang: rock carved into streamlined ridges, aligned broadly with the erosive wind."}{" "}
         <br />
         {
           "Play shows enlarged grains hopping downwind; the dune shape is not simulated from sand transport. Many deserts have rock or gravel surfaces; a dune needs a supply of sand."

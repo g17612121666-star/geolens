@@ -229,7 +229,7 @@ function ModelGlaciers() {
           <>
             {
               "Three neighboring cirques leave arêtes between them and a horn in the center. Switch off Ice to see the bare rock."
-            }
+            }{" "}
             <br />
             {
               "Relief is exaggerated ×1.5; Physical scale removes this. Ice and flow tracers are schematic, and Ice extent applies only to Valley glacier."
@@ -238,8 +238,7 @@ function ModelGlaciers() {
         ) : (
           <>
             {"Glacier length "}
-            {length.toFixed(2)} {"km. Play always moves ice down-valley."}
-            <br />
+            {length.toFixed(2)} {"km. Play always moves ice down-valley."} <br />
             {
               "Ice extent compares margin positions; it does not reverse the flow or model mass balance. Switch off Ice to see the trough and debris."
             }

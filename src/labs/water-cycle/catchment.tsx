@@ -449,7 +449,7 @@ export default function WaterCycle() {
         <strong className="text-chalk">{path.name}.</strong> {path.note}{" "}
         <span className="formula">
           {`Reservoir ${fmt(remaining)} + human use ${fmt(withdrawn)} = 10,000 m³`}
-        </span>
+        </span>{" "}
         <br />
         {
           "Closed teaching budget: abstraction moves water from the reservoir to the human-use store, "

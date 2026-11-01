@@ -166,7 +166,7 @@ export default function Groundwater() {
           {H.toFixed(1)} {"m · well head "}
           {atWell.toFixed(2)} {"m · drawdown "}
           {(H - atWell).toFixed(2)} {"m."}
-        </span>
+        </span>{" "}
         <br />
         {confined
           ? "Confined: the 12 m aquifer stays saturated; gold is the potentiometric surface (level water would rise to in a well)."

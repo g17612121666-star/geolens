@@ -305,8 +305,7 @@ export default function StormSurge() {
         {result.stress.toFixed(2)} {"Pa · pressure drop "}
         {pressure} {"Pa ("}
         {(pressure / 100).toFixed(0)} {"hPa), pressure-only rise "}
-        {result.inverseBarometer.toFixed(2)} {"m."}
-        <br />
+        {result.inverseBarometer.toFixed(2)} {"m."} <br />
         {
           "Read the combined setup on the striped tide-gauge post at the coast. Tides, waves and inland flooding are left out, so this is not a flood forecast."
         }

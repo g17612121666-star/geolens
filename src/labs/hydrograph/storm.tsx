@@ -144,8 +144,7 @@ export default function Hydrograph() {
         {row.rain.toFixed(1)} {"mm/h · Q "}
         {row.q.toFixed(2)} {"m³/s · peak "}
         {data.peak.q.toFixed(2)} {"m³/s · lag "}
-        {data.lag.toFixed(2)} {"h."}
-        <br />
+        {data.lag.toFixed(2)} {"h."} <br />
         {"Runoff fraction "}
         {data.coefficient.toFixed(2)}
         {"; storage time "}

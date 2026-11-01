@@ -486,7 +486,7 @@ function ModelRiverErosion() {
           ? `Water flows downstream; the waterfall retreats upstream by ${(25 * progress).toFixed(1)} m in this chosen sequence. Change Retreat to expose a longer gorge.`
           : mode === 1
             ? "Flow swirls stones around a hollow in the bedrock. The block is cut through the center of a 1.24 m wide, 0.85 m deep example."
-            : "A narrow channel cuts the valley floor while weathering and slope processes lower both sides. The water flows downstream; the valley shape does not change."}
+            : "A narrow channel cuts the valley floor while weathering and slope processes lower both sides. The water flows downstream; the valley shape does not change."}{" "}
         <br />
         {
           "Play animates the flow only; the model gives no erosion rate or landform age. Choose a feature, rotate the model and compare it with the photograph."

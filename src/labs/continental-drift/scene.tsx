@@ -173,7 +173,7 @@ export default function ContinentalDrift() {
             Move toward 200–250 million years ago to examine Pangaea, then turn on Fossil evidence
             and rotate the globe to compare where the same fossils occur.
           </p>
-        )}
+        )}{" "}
         <br />
         The reconstruction moves modern coastlines; ancient shorelines also changed with sea level
         and landscape development.

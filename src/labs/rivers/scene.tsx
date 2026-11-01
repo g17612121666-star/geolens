@@ -198,8 +198,7 @@ export default function Rivers() {
       <ScienceReadout>
         {compact && (
           <div className="mb-2 text-chalk">
-            {"1 · Steeper upper course"}
-            <br />
+            {"1 · Steeper upper course"} <br />
             {"2 · Meanders · 3 · Gentler lower course"}
           </div>
         )}

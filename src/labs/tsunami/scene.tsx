@@ -376,7 +376,7 @@ export default function Tsunami() {
         </svg>
         {source
           ? `Source stage: the seafloor rises ${uplift.toFixed(2)} m and lifts the water above it by the same amount. The gold block and arrow show the uplift (enlarged). The hump then splits into two waves of about half its height; this transect follows the one heading for the coast.`
-          : `Propagation stage: ${(seconds / 60).toFixed(1)} min · crest ${crest.speed.toFixed(1)} m/s at ${crest.depth.toFixed(0)} m depth. The central crest reaches 100 m depth at ${(TRANSECT.totalTravel / 60).toFixed(1)} min.`}
+          : `Propagation stage: ${(seconds / 60).toFixed(1)} min · crest ${crest.speed.toFixed(1)} m/s at ${crest.depth.toFixed(0)} m depth. The central crest reaches 100 m depth at ${(TRANSECT.totalTravel / 60).toFixed(1)} min.`}{" "}
         <br />
         {
           "Two stages: a set seafloor uplift, then a simple long-wave model. The gold line follows the crest; the chart shows the true sea-surface height in meters. Fault rupture, breaking, run-up and inundation are not modeled."

@@ -276,8 +276,7 @@ export default function Periglacial() {
             ? `Autumn freeze-back: the active layer refreezes from the surface down (${freeze.toFixed(2)} m frozen).`
             : `Thaw season: the active layer has thawed to ${thaw.toFixed(2)} m of its 0.70 m maximum; the permafrost below stays frozen.`}{" "}
         {"Long-term wedge development "}
-        {(growth * 100).toFixed(0)}%.
-        <br />
+        {(growth * 100).toFixed(0)}%. <br />
         {
           "Play runs through one year. Wedge development compares how much a wedge has grown, not how fast. Ice-wedge polygons differ from frost-sorted stone circles; neither needs a glacier on site."
         }

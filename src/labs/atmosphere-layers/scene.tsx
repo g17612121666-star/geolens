@@ -289,7 +289,7 @@ export default function AtmosphereLayers() {
             At 12 km: <strong>{(15 - 12 * lapse).toFixed(1)} °C</strong> with a lapse rate of{" "}
             {lapse.toFixed(1)} °C/km.
           </p>
-        </div>
+        </div>{" "}
         <br />
         {!profile && (
           <div className="mb-3 grid grid-cols-2 gap-3">
@@ -297,7 +297,7 @@ export default function AtmosphereLayers() {
               <p key={layer.name}>
                 <strong>
                   {index + 1}. {layer.name}
-                </strong>
+                </strong>{" "}
                 <br />
                 {layer.lo}–{layer.hi} km{index === 3 ? " shown" : ""}
               </p>

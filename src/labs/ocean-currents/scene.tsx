@@ -176,7 +176,7 @@ export default function OceanCurrents() {
         }
         {g.center[0] > 0
           ? "This northern gyre turns clockwise, as Earth’s rotation deflects moving water to the right."
-          : "This southern gyre turns counterclockwise, as Earth’s rotation deflects moving water to the left."}
+          : "This southern gyre turns counterclockwise, as Earth’s rotation deflects moving water to the left."}{" "}
         <br />
         {
           "Viewed on a map, northern subtropical gyres turn clockwise and southern ones counterclockwise. Play shows direction only. UK winters reflect westerlies, ocean heat and geography together; the Gulf Stream is one contribution."

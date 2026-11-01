@@ -278,8 +278,7 @@ export default function PressureCentres() {
         {high
           ? "high pressure, surface divergence and sinking air"
           : "low pressure, surface convergence and rising air"}
-        {". Spin is read from above."}
-        <br />
+        {". Spin is read from above."} <br />
         {high
           ? "Sinking air usually stops deep cloud forming, but fog or low cloud may persist. Follow the parcels spiraling out from the center."
           : "Blue and coral lines mark example cold and warm fronts; this is a midlatitude depression, not a tropical cyclone. Follow the parcels spiraling in toward the rising center."}

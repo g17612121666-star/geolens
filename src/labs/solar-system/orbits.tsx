@@ -207,7 +207,7 @@ export default function SolarSystem() {
         {p.period.toFixed(3)} {"years."}
         {mode === 0
           ? ` Model year ${years.toFixed(3)}; distance ${Math.hypot(...selectedPosition).toFixed(3)} AU.`
-          : ` Model year ${years.toFixed(3)}; the selected planet rotates on the same time scale as the orbital view.`}
+          : ` Model year ${years.toFixed(3)}; the selected planet rotates on the same time scale as the orbital view.`}{" "}
         <br />
         {mode === 0
           ? "All planets begin at perihelion in this model. Choose physical scale (T) to show true radii at the orbital scale, or turn off All eight orbits to examine the inner system."

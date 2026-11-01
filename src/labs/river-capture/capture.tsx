@@ -227,7 +227,7 @@ export default function RiverCapture() {
             "Headward erosion: the captor approaches the divide.",
             "After capture: headwater flow turns into the lower outlet; the former downstream reach loses that supply.",
           ][stage]
-        }
+        }{" "}
         <br />
         {
           "The gold arrow shows headward erosion extending the valley upstream, while its water still flows downstream. The stages are not dated. Play follows the current water route."

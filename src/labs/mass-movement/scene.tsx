@@ -260,7 +260,7 @@ export default function MassMovement() {
         {result.maxPressure.toFixed(1)} {"kPa. "}
         {result.factor < 1
           ? "Driving forces exceed resistance: Play shows the slump rotating (illustrative)."
-          : "Resistance exceeds driving forces: increase Pore pressure to compare."}
+          : "Resistance exceeds driving forces: increase Pore pressure to compare."}{" "}
         <br />
         {
           "The Bishop calculation uses cohesion of 2 kPa, a friction angle of 15° and unit weight of 20 kN/m³ for the starting slope."
