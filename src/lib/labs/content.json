@@ -413,10 +413,12 @@
       },
       "sources": [
         {
-          "label": "Royal Observatory Greenwich"
+          "label": "Royal Observatory Greenwich",
+          "href": "https://www.rmg.co.uk/royal-observatory"
         },
         {
-          "label": "USNO — sidereal vs solar day"
+          "label": "USNO — sidereal vs solar day",
+          "href": "https://aa.usno.navy.mil/faq/"
         }
       ],
       "controls": {
@@ -602,7 +604,8 @@
       },
       "sources": [
         {
-          "label": "NASA Moon phases"
+          "label": "NASA Moon phases",
+          "href": "https://science.nasa.gov/moon/moon-phases/"
         },
         {
           "label": "USGS / NASA SVS Moon kit"
@@ -1004,7 +1007,8 @@
           "label": "USGS plate boundaries"
         },
         {
-          "label": "Natural Earth"
+          "label": "Natural Earth",
+          "href": "https://www.naturalearthdata.com/"
         },
         {
           "label": "BGS — plate tectonics"
@@ -1459,7 +1463,8 @@
           "label": "BGS — fluvial geomorphology"
         },
         {
-          "label": "USGS Mississippi River"
+          "label": "USGS Mississippi River",
+          "href": "https://www.usgs.gov/mission-areas/water-resources"
         }
       ],
       "controls": {
@@ -1647,13 +1652,15 @@
       },
       "sources": [
         {
-          "label": "USGS Water Science School"
+          "label": "USGS Water Science School",
+          "href": "https://www.usgs.gov/special-topics/water-science-school"
         },
         {
           "label": "NOAA water cycle"
         },
         {
-          "label": "UK Centre for Ecology & Hydrology"
+          "label": "UK Centre for Ecology & Hydrology",
+          "href": "https://www.ceh.ac.uk/"
         }
       ],
       "controls": {
@@ -2602,7 +2609,8 @@
           "label": "USGS geologic time"
         },
         {
-          "label": "BGS"
+          "label": "BGS",
+          "href": "https://www.bgs.ac.uk/"
         },
         {
           "label": "ICS International Chronostratigraphic Chart · 2026/06",
@@ -2819,7 +2827,8 @@
       },
       "sources": [
         {
-          "label": "NASA eclipses"
+          "label": "NASA eclipses",
+          "href": "https://science.nasa.gov/eclipses/"
         },
         {
           "label": "NASA eclipse geometry",
@@ -3049,10 +3058,12 @@
       },
       "sources": [
         {
-          "label": "NOAA tides"
+          "label": "NOAA tides",
+          "href": "https://oceanservice.noaa.gov/education/tutorial_tides/"
         },
         {
-          "label": "UKHO"
+          "label": "UKHO",
+          "href": "https://www.gov.uk/government/organisations/uk-hydrographic-office"
         }
       ],
       "controls": {
@@ -3231,7 +3242,8 @@
       },
       "sources": [
         {
-          "label": "NOAA solar calculator"
+          "label": "NOAA solar calculator",
+          "href": "https://gml.noaa.gov/grad/solcalc/"
         }
       ],
       "controls": {
@@ -3442,7 +3454,8 @@
           "label": "USGS plates"
         },
         {
-          "label": "BGS"
+          "label": "BGS",
+          "href": "https://www.bgs.ac.uk/"
         }
       ],
       "controls": {
@@ -3851,7 +3864,8 @@
           "label": "USGS seafloor"
         },
         {
-          "label": "NOAA"
+          "label": "NOAA",
+          "href": "https://www.noaa.gov/"
         },
         {
           "label": "USGS spreading and magnetic evidence",
@@ -4046,7 +4060,8 @@
       },
       "sources": [
         {
-          "label": "NOAA layers of the atmosphere"
+          "label": "NOAA layers of the atmosphere",
+          "href": "https://www.noaa.gov/jetstream/atmosphere/layers-of-atmosphere"
         },
         {
           "label": "Met Office radiosondes"
@@ -4448,7 +4463,8 @@
       },
       "sources": [
         {
-          "label": "Met Office sea breezes"
+          "label": "Met Office sea breezes",
+          "href": "https://www.metoffice.gov.uk/"
         },
         {
           "label": "NOAA urban heat"
@@ -4645,7 +4661,8 @@
           "label": "Met Office charts"
         },
         {
-          "label": "NOAA jet stream"
+          "label": "NOAA jet stream",
+          "href": "https://www.noaa.gov/jetstream"
         },
         {
           "label": "Hong Kong Observatory: geostrophic wind",
@@ -5636,10 +5653,12 @@
       },
       "sources": [
         {
-          "label": "UKCEH"
+          "label": "UKCEH",
+          "href": "https://www.ceh.ac.uk/"
         },
         {
-          "label": "USGS"
+          "label": "USGS",
+          "href": "https://www.usgs.gov/"
         }
       ],
       "controls": {
@@ -5864,7 +5883,8 @@
       },
       "sources": [
         {
-          "label": "UKCEH"
+          "label": "UKCEH",
+          "href": "https://www.ceh.ac.uk/"
         },
         {
           "label": "USGS NWIS"
@@ -6068,7 +6088,8 @@
           "label": "NRFA"
         },
         {
-          "label": "USGS"
+          "label": "USGS",
+          "href": "https://www.usgs.gov/"
         }
       ],
       "controls": {
@@ -6256,7 +6277,8 @@
           "label": "NOAA ocean"
         },
         {
-          "label": "Met Office"
+          "label": "Met Office",
+          "href": "https://www.metoffice.gov.uk/"
         },
         {
           "label": "NOAA subtropical gyres",
@@ -7142,7 +7164,8 @@
           "label": "USGS landforms"
         },
         {
-          "label": "BGS"
+          "label": "BGS",
+          "href": "https://www.bgs.ac.uk/"
         }
       ],
       "controls": {
@@ -7389,7 +7412,8 @@
           "label": "BGS fluvial"
         },
         {
-          "label": "USGS"
+          "label": "USGS",
+          "href": "https://www.usgs.gov/"
         },
         {
           "label": "NPS resistant strata and waterfalls",
@@ -7631,7 +7655,8 @@
           "label": "USGS Mississippi"
         },
         {
-          "label": "BGS"
+          "label": "BGS",
+          "href": "https://www.bgs.ac.uk/"
         },
         {
           "label": "USGS floodplain sedimentation",
@@ -7859,7 +7884,8 @@
           "label": "USACE Old River"
         },
         {
-          "label": "BGS"
+          "label": "BGS",
+          "href": "https://www.bgs.ac.uk/"
         }
       ],
       "controls": {
@@ -9225,7 +9251,8 @@
           "label": "USGS rocks"
         },
         {
-          "label": "BGS"
+          "label": "BGS",
+          "href": "https://www.bgs.ac.uk/"
         },
         {
           "label": "BGS rocks and minerals",
@@ -9893,7 +9920,8 @@
           "label": "BGS weathering"
         },
         {
-          "label": "USGS"
+          "label": "USGS",
+          "href": "https://www.usgs.gov/"
         },
         {
           "label": "BGS weathering processes",
@@ -10746,7 +10774,8 @@
           "label": "NOAA tsunami"
         },
         {
-          "label": "USGS"
+          "label": "USGS",
+          "href": "https://www.usgs.gov/"
         },
         {
           "label": "NOAA NCEI historical tsunami database",
@@ -10937,7 +10966,8 @@
           "label": "NOAA NHC"
         },
         {
-          "label": "Met Office"
+          "label": "Met Office",
+          "href": "https://www.metoffice.gov.uk/"
         },
         {
           "label": "NOAA tropical cyclone structure",
@@ -11148,7 +11178,8 @@
       },
       "sources": [
         {
-          "label": "Royal Observatory Greenwich"
+          "label": "Royal Observatory Greenwich",
+          "href": "https://www.rmg.co.uk/royal-observatory"
         },
         {
           "label": "USGS / OS map skills"
@@ -11361,7 +11392,8 @@
           "label": "USGS map projections"
         },
         {
-          "label": "Natural Earth"
+          "label": "Natural Earth",
+          "href": "https://www.naturalearthdata.com/"
         }
       ],
       "controls": {

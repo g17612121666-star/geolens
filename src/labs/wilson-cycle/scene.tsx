@@ -295,7 +295,7 @@ export default function WilsonCycle() {
           ? "Extension and spreading can open a basin."
           : stage < 5
             ? "Oceanic lithosphere sinks at the trench; buoyant continental crust resists being pulled down."
-            : "Collision thickens and deforms the continental crust; remnants of an ocean may remain in the suture."}
+            : "Collision thickens and deforms the continental crust; remnants of an ocean may remain in the suture."}{" "}
         <br />
         {
           "Select a stage to compare the structure. The reference continental crust is 35 km thick and oceanic crust about 7 km thick."

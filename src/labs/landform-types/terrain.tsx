@@ -249,17 +249,15 @@ export default function LandformTypes() {
             <span key={i}>
               <strong>
                 {i === 0 ? "Left" : "Right"}: {NAMES[kind]}
-              </strong>
+              </strong>{" "}
               <br />
               Highest point {STATS[kind].hi.toLocaleString("en-GB")} m · lowest{" "}
-              {STATS[kind].lo.toLocaleString("en-GB")} m
-              <br />
-              Local relief <strong>{STATS[kind].relief.toLocaleString("en-GB")} m</strong>
-              <br />
+              {STATS[kind].lo.toLocaleString("en-GB")} m <br />
+              Local relief <strong>{STATS[kind].relief.toLocaleString("en-GB")} m</strong> <br />
               Typical slope {STATS[kind].typical}° · steepest {STATS[kind].steepest}°
             </span>
           ))}
-        </span>
+        </span>{" "}
         <br />
         {
           "Choose any two of the five forms. These are invented surfaces, not real places. Heights are measured from the scene's zero level, taken as sea level; local relief is highest minus lowest point in the 4 × 4 km sample. Slopes are true-scale values, whatever the relief setting. Color and texture help you read them; they do not show origin, climate or rock type."

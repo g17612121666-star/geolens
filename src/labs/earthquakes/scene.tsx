@@ -422,8 +422,7 @@ export default function Earthquakes() {
         {rayKm.toFixed(1)} {"km. Arrivals: P "}
         {w.pArrival.toFixed(2)} {"s; S "}
         {w.sArrival.toFixed(2)} {"s; surface wave "}
-        {surfaceArrival.toFixed(1)} {"s."}
-        <br />
+        {surfaceArrival.toFixed(1)} {"s."} <br />
         {
           "The cut face shows each wave front where it crosses the rock; faint shells show the cut-away half. The violet ring is the slower surface wave, which often brings the strongest, longest shaking; here it is what sways the buildings."
         }

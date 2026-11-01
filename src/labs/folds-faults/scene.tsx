@@ -332,7 +332,7 @@ export default function FoldsFaults() {
         .{" "}
         {fold
           ? `Fold amplitude ${(amount * 1000).toFixed(0)} m; shortening ${(amount * 25).toFixed(0)}%, with bed volume preserved.`
-          : `Relative slip ${(amount * 0.7 * 1000).toFixed(0)} m${kind === 4 ? "" : `; vertical throw ${Math.abs(slip[1] * 1000).toFixed(0)} m`}.`}
+          : `Relative slip ${(amount * 0.7 * 1000).toFixed(0)} m${kind === 4 ? "" : `; vertical throw ${Math.abs(slip[1] * 1000).toFixed(0)} m`}.`}{" "}
         <br />
         {
           "Press Play or drag Process to deform the section. Explode pulls beds or blocks apart for inspection; the gap is not a real canyon. The model shows structure, not stress or earthquake timing."

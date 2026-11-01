@@ -269,7 +269,7 @@ export default function Karst() {
       </ScienceStudio>
       <ScienceReadout>
         <span className="formula">{"CaCO₃ + CO₂ + H₂O → Ca²⁺ + 2HCO₃⁻."}</span>{" "}
-        {"Water containing dissolved CO₂ can dissolve calcite and enlarge connected openings."}
+        {"Water containing dissolved CO₂ can dissolve calcite and enlarge connected openings."}{" "}
         <br />
         {cut
           ? "Cutaway reveals the cave passage; the dashed water route is schematic and tracers are enlarged."

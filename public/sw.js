@@ -3,7 +3,7 @@
  * Static files are kept after the first visit: hashed build files are served from the cache,
  * others from the cache while a fresh copy is fetched in the background.
  * Nothing from other sites (map tiles, weather, video) is stored. */
-const VERSION = "v2";
+const VERSION = "v3";
 const PAGES = `geolens-pages-${VERSION}`;
 const ASSETS = `geolens-assets-${VERSION}`;
 const ASSET_PATH = /^\/(assets|fonts|textures|terrain|photos|models|geo|icons|hdri|maplibre)\//;

@@ -197,8 +197,7 @@ export default function SoilProfile() {
         ))}
       </ScienceStudio>
       <ScienceReadout>
-        {profile.name}. {profile.context}
-        <br />
+        {profile.name}. {profile.context} <br />
         {
           "Depths are teaching examples, not field measurements. These examples have no E (leached) or R (bedrock) horizon, though other soils do. Select a horizon label to read what it means."
         }

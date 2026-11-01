@@ -188,7 +188,7 @@ export default function SoilCatena() {
           .join(" · ")}. `}
         {
           "Soils share the same parent material, but their position on the slope changes drainage and sediment movement: the crest and backslope lose material, while the toe receives water and sediment."
-        }
+        }{" "}
         <br />
         {
           "Pale blue arrows show water and sediment moving downslope. Change Slope to compare the soil thicknesses. Only soil thickness is exaggerated in the teaching view, and the model does not calculate rates of soil formation, erosion or deposition."

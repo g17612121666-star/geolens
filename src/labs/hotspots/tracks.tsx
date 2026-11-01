@@ -429,7 +429,7 @@ export default function Hotspots() {
           : ""}
         {!hawaii && !yellowstone
           ? "Select Hawaiʻi, Yellowstone or both to compare their volcanic tracks."
-          : "Press Play to follow plate motion above each hotspot."}
+          : "Press Play to follow plate motion above each hotspot."}{" "}
         <br />
         {
           "Here the plume is held still and the plate moves over it at no set speed. The arrow shows plate motion: right is northwest for Hawaiʻi and southwest for Yellowstone."

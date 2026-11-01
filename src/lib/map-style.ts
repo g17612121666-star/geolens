@@ -113,7 +113,9 @@ type MapLike = {
 export type MapPhase = "loading" | "ready" | "offline" | "error";
 export function basemapStyle(basemap: MapBasemap) {
   return {
-    openfreemap: FIORD, osm: OSM_RASTER_STYLE,
+    // Liberty: OpenFreeMap's light, well-labeled style. The dark Fiord style left place names
+    // and coastlines too faint to read in both site themes.
+    openfreemap: LIBERTY, osm: OSM_RASTER_STYLE,
     relief: OSM_RELIEF_STYLE, bathymetry: ESRI_OCEAN_STYLE, "natural-earth": NATURAL_EARTH_STYLE,
   }[basemap];
 }

@@ -247,8 +247,7 @@ export default function Wind() {
           : `${(t * 24).toFixed(1)} h after release from rest.`}{" "}
         <span className="text-sandstone">{"Gold: pressure gradient"}</span> ·{" "}
         <span className="text-glacier">{"Blue: Coriolis"}</span> ·{" "}
-        <span className="text-magma">{"Coral: friction"}</span> {"· White: wind velocity."}
-        <br />
+        <span className="text-magma">{"Coral: friction"}</span> {"· White: wind velocity."} <br />
         {w.steady ? "" : "The pale curve traces the wind since release. "}
         {"Eastward "}
         {w.u.toFixed(2)}

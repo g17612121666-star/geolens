@@ -308,7 +308,7 @@ export default function SeafloorSpreading() {
         {half.toFixed(1)}{" "}
         {
           "mm/year. Teal and sand-colored stripes record opposite magnetic polarities, mirrored on each flank."
-        }
+        }{" "}
         <br />
         {
           "Play runs a made-up reversal record through 1 Ma to show the symmetry; it is not the real reversal timescale. The seafloor deepens with the square root of its age. In this model the rift valley gives way to a smoother axial rise above about 40 mm/year; real ridges change more gradually, and broad axial highs are typical of fast ridges (above about 80 mm/year)."

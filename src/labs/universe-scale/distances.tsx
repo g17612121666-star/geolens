@@ -151,7 +151,7 @@ export default function UniverseScale() {
             s.target +
             " ×" +
             enlarge(r2 / s.targetRadius) +
-            "."}
+            "."}{" "}
         <br />
         {stop === 0
           ? "384400 km is a mean center distance, not a fixed lunar orbit."

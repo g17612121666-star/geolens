@@ -287,8 +287,7 @@ export default function CarbonCycle() {
         {"Model year "}
         {(t * 100).toFixed(1)} · {flux.name}: {flux.rate.toFixed(2)} {"Pg C/year. Burned "}
         {budget.emitted.toFixed(1)} {"Pg C; total "}
-        {budget.total.toFixed(1)} {"Pg C stays fixed."}
-        <br />
+        {budget.total.toFixed(1)} {"Pg C stays fixed."} <br />
         {
           "Click a bead on a faint arc to follow another transfer. 1 Pg C = 10¹² kg of carbon; every transfer removes from one store exactly what it adds to another."
         }

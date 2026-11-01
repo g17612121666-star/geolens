@@ -137,8 +137,7 @@ export default function RainShadow() {
         {Math.max(0, parcel.lcl).toFixed(0)} {"m. Leeward foot: "}
         {downstream.temperature.toFixed(1)} {"°C, "}
         {(downstream.relativeHumidity * 100).toFixed(0)}
-        {"% RH."}
-        <br />
+        {"% RH."} <br />
         {"Windward foot (start): 20 °C, "}
         {(humidity * 100).toFixed(0)}
         {"% RH. "}

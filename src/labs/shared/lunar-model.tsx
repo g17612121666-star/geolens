@@ -396,6 +396,11 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
   const solar = params.eclipse > 0.5,
     shadowPhase = (solar ? 0 : 0.5) + (t - 0.5) * 0.012,
     shadowPoint = lunarPosition(shadowPhase, node, aligned, distance);
+  // A miss caused only by timing (the eclipse happens at 0 h) is not a miss caused by the tilt.
+  const hitAt = (q: [number, number, number]) =>
+      solar ? solarEclipse(q).kind !== "none" : !/misses|Outside/.test(lunarEclipse(q)),
+    timingMiss =
+      !hitAt(shadowPoint) && hitAt(lunarPosition(solar ? 0 : 0.5, node, aligned, distance));
   const phaseName =
     fraction < 0.01
       ? "New Moon"
@@ -525,7 +530,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
           </div>
         )}
         {focus
-          ? `${((t - 0.5) * 0.012 * 29.53059 * 24).toFixed(2)} h from ${solar ? "new" : "full"} Moon: ${solar ? solarEclipseText(shadowPoint) : lunarEclipse(shadowPoint)}.`
+          ? `${((t - 0.5) * 0.012 * 29.53059 * 24).toFixed(2)} h from ${solar ? "new" : "full"} Moon: ${solar ? solarEclipseText(shadowPoint) : lunarEclipse(shadowPoint)}.${timingMiss ? ` At this moment the Moon is ${t < 0.5 ? "still approaching" : "already past"} the alignment; at 0 h it ${solar ? "casts its shadow on Earth" : "enters Earth's shadow"}.` : ""}`
           : `At day ${(t * 29.53059).toFixed(1)} of the model month, the Moon is ${(fraction * 100).toFixed(1)}% illuminated as seen from Earth (${phaseName.replace(/^\w/, (c) => c.toLowerCase())}).`}{" "}
         {slug === "moon-phases" && !focus && /lunar eclipse/i.test(lunarEclipse(p))
           ? `Earth's shadow now falls on the Moon: ${lunarEclipse(p).toLowerCase()}. `
@@ -534,7 +539,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
           ? lunarEclipse(p) + ". Turn on Shadow close-up for a closer view."
           : slug === "tides"
             ? "The surface shows the combined lunar and solar tidal effects."
-            : `The Moon's orbit is tilted by ${aligned ? "0" : LUNAR.inclination}°.`}
+            : `The Moon's orbit is tilted by ${aligned ? "0" : LUNAR.inclination}°.`}{" "}
         <br />
         {focus &&
           "Play follows an 8.5-hour window around the selected lunar phase. Change Node direction to compare an eclipse with a missed alignment. "}

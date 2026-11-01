@@ -255,7 +255,7 @@ export default function Weathering() {
             {" "}
             <span className="formula">{"CaCO₃ + CO₂ + H₂O → Ca²⁺ + 2HCO₃⁻."}</span>
           </>
-        )}
+        )}{" "}
         <br />
         {
           "Play shows the order of change, not elapsed years. Weathering changes rock in place; erosion carries the material away. The model does not predict when the rock breaks."

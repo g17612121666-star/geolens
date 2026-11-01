@@ -301,7 +301,7 @@ export default function ThermalCirculation() {
               ? "Sea and land are equally warm: no thermal circulation while the breeze changes direction."
               : direction > 0
                 ? `${weak ? "Weak sea breeze" : "Sea breeze"}: land warmer than sea, surface flow onshore.`
-                : `${weak ? "Weak land breeze" : "Land breeze"}: land cooler than sea, surface flow offshore.`}
+                : `${weak ? "Weak land breeze" : "Land breeze"}: land cooler than sea, surface flow offshore.`}{" "}
         <br />
         {
           "Play runs through a daily heating cycle; the Sun marks the hour. In real weather the night-time reversal does not always happen."

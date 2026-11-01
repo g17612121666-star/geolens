@@ -38,8 +38,9 @@ function FacingGlobe({
     if (!focus) {
       target.copy(BASE);
     } else {
+      // Center on the Mesosaurus sites: the South America–Africa fit is the key evidence.
       const sum = new THREE.Vector3();
-      for (const taxon of FOSSILS.taxa)
+      for (const taxon of FOSSILS.taxa.filter((t) => t.key === "mesosaurus"))
         for (const site of taxon.sites) {
           const [lat, lon] = site.positions[siteIndex(age)];
           sum.add(new THREE.Vector3(...latLonToXYZ(lat, lon, 1)));
@@ -172,7 +173,7 @@ export default function ContinentalDrift() {
             Move toward 200–250 million years ago to examine Pangaea, then turn on Fossil evidence
             and rotate the globe to compare where the same fossils occur.
           </p>
-        )}
+        )}{" "}
         <br />
         The reconstruction moves modern coastlines; ancient shorelines also changed with sea level
         and landscape development.

@@ -5,10 +5,11 @@ import {
   ATLAS,
   atlasClimate,
   atlasClimateDetail,
-  atlasKindLabel,
+  ATLAS_BY_ID,
   atlasLabs,
   atlasPhoto,
-  atlasSearchText,
+  atlasPlaceLabel,
+  atlasSearch,
   atlasTectonics,
   CLIMATE_LABEL,
   TECTONIC_LABEL,
@@ -17,6 +18,7 @@ import {
   type TectonicSetting,
 } from "@/lib/atlas-data";
 import { LibreMap } from "@/components/map/libre-map";
+import { MapDot } from "@/components/map/mini-map";
 import { ZoomableImage } from "@/components/zoomable-image";
 import { fmtLatLon, haversineKm } from "@/lib/geo";
 import { headFor } from "@/lib/seo";
@@ -51,11 +53,8 @@ const TABS: { id: string; label: string; kinds: AtlasKind[] }[] = [
   { id: "uk", label: "United Kingdom", kinds: ["uk-nation", "uk-county", "uk-place"] },
   { id: "us", label: "US states", kinds: ["us-state"] },
 ];
-const fold = (s: string) =>
-  s
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
+/** US-first: with no place in the link, the atlas opens on the United States. */
+const DEFAULT_PLACE = ATLAS_BY_ID.us;
 const placeTab = (p: AtlasPlace) =>
   p.kind.startsWith("uk-") ? "uk" : p.kind === "us-state" ? "us" : "world";
 const climateName = (p: AtlasPlace) =>
@@ -97,11 +96,19 @@ const PROCESS_NOTES: Record<string, string> = {
 function AtlasPage() {
   const search = Route.useSearch(),
     navigate = Route.useNavigate();
-  const shown = ATLAS.find((p) => p.id === search.place) ?? ATLAS[0];
-  const vs = ATLAS.find((p) => p.id === search.vs && p.id !== shown.id) ?? null;
-  const tab = TABS.some((t) => t.id === search.tab) ? search.tab! : placeTab(shown);
-  const q = search.q ?? "",
-    climate = search.climate ?? "all",
+  const q = search.q ?? "";
+  const hits = useMemo(() => atlasSearch(q), [q]);
+  // An unknown place id shows a "not found" panel; it never silently swaps in another place.
+  const requested = search.place ? (ATLAS_BY_ID[search.place] ?? null) : undefined;
+  const shown =
+    requested === null ? null : (requested ?? (q.trim() ? hits[0]?.place : null) ?? DEFAULT_PLACE);
+  const vs = ATLAS.find((p) => p.id === search.vs && p.id !== shown?.id) ?? null;
+  const tab = TABS.some((t) => t.id === search.tab)
+    ? search.tab!
+    : shown
+      ? placeTab(shown)
+      : "world";
+  const climate = search.climate ?? "all",
     tectonic = search.tectonic ?? "all";
   const [notice, setNotice] = useState(""),
     [projector, setProjector] = useState(false);
@@ -123,19 +130,39 @@ function AtlasPage() {
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
   }, []);
-  const needle = fold(q.trim());
+  const needle = q.trim();
   const list = useMemo(
     () =>
-      ATLAS.filter(
-        (p) =>
-          (needle
-            ? fold(atlasSearchText(p)).includes(needle)
-            : TABS.find((t) => t.id === tab)!.kinds.includes(p.kind)) &&
+      (needle
+        ? hits
+        : ATLAS.filter((p) => TABS.find((t) => t.id === tab)!.kinds.includes(p.kind)).map(
+            (place) => ({ place, match: undefined as string | undefined }),
+          )
+      ).filter(
+        ({ place: p }) =>
           (climate === "all" || atlasClimate(p) === climate) &&
           (tectonic === "all" || atlasTectonics(p).includes(tectonic as TectonicSetting)),
       ),
-    [needle, tab, climate, tectonic],
+    [needle, hits, tab, climate, tectonic],
   );
+  // Names shared by two places (Georgia the country and the US state) get their kind added.
+  const sameName = (p: AtlasPlace) =>
+    ATLAS.some((o) => o.id !== p.id && o.name === p.name)
+      ? `${p.name} (${atlasPlaceLabel(p)})`
+      : p.name;
+  // Keep the open place visible in the list (a horizontal strip on phones).
+  useEffect(() => {
+    // Scroll only the list itself, never the page.
+    const item = document.querySelector<HTMLElement>(
+        '.atlas-place-list [aria-current="true"]',
+      )?.parentElement,
+      list = item?.parentElement;
+    if (!item || !list) return;
+    if (list.scrollWidth > list.clientWidth)
+      list.scrollLeft = item.offsetLeft - list.offsetLeft - 16;
+    else if (list.scrollHeight > list.clientHeight)
+      list.scrollTop = item.offsetTop - list.offsetTop - list.clientHeight / 3;
+  }, [shown?.id, tab]);
   async function share() {
     try {
       await navigator.clipboard.writeText(window.location.href);
@@ -184,7 +211,7 @@ function AtlasPage() {
             <input
               value={q}
               placeholder="Search a place or landscape"
-              onChange={(e) => update({ q: e.target.value || undefined })}
+              onChange={(e) => update({ q: e.target.value || undefined, place: undefined })}
             />
           </span>
         </label>
@@ -192,14 +219,15 @@ function AtlasPage() {
           <span>Compare with</span>
           <select
             value={vs?.id ?? ""}
-            onChange={(e) => update({ place: shown.id, vs: e.target.value || undefined })}
+            disabled={!shown}
+            onChange={(e) => update({ place: shown?.id, vs: e.target.value || undefined })}
           >
             <option value="">Choose a second place</option>
             {TABS.map((t) => (
               <optgroup key={t.id} label={t.label}>
-                {ATLAS.filter((p) => t.kinds.includes(p.kind) && p.id !== shown.id).map((p) => (
+                {ATLAS.filter((p) => t.kinds.includes(p.kind) && p.id !== shown?.id).map((p) => (
                   <option key={p.id} value={p.id}>
-                    {p.name}
+                    {sameName(p)}
                   </option>
                 ))}
               </optgroup>
@@ -260,13 +288,14 @@ function AtlasPage() {
               ))}
             </div>
             <p className="atlas-result-count" role="status">
-              {list.length} places{needle ? " across all collections" : ""}
+              {list.length} {list.length === 1 ? "place" : "places"}
+              {needle ? " across all collections" : ""}
             </p>
             <ul className="atlas-place-list">
-              {list.map((p) => (
+              {list.map(({ place: p, match }) => (
                 <li key={p.id}>
                   <button
-                    aria-current={shown.id === p.id ? "true" : undefined}
+                    aria-current={shown?.id === p.id ? "true" : undefined}
                     onClick={() =>
                       update({
                         place: p.id,
@@ -276,8 +305,11 @@ function AtlasPage() {
                     }
                   >
                     <span>{p.name}</span>
-                    <small>{atlasKindLabel(p.kind)}</small>
-                    {shown.id === p.id && <ArrowRight size={16} aria-hidden="true" />}
+                    <small>
+                      {match ? `${match} · ` : ""}
+                      {atlasPlaceLabel(p)}
+                    </small>
+                    {shown?.id === p.id && <ArrowRight size={16} aria-hidden="true" />}
                   </button>
                 </li>
               ))}
@@ -295,7 +327,7 @@ function AtlasPage() {
                 </li>
               )}
             </ul>
-            {!list.some((p) => p.id === shown.id) && (
+            {shown && !list.some(({ place }) => place.id === shown.id) && (
               <p className="atlas-result-count">{shown.name} remains open outside these results.</p>
             )}
             <Link className="atlas-directory-link" to="/tools/map">
@@ -304,18 +336,27 @@ function AtlasPage() {
           </aside>
         )}
         <section className="atlas-observations" aria-label="Place observations">
-          {search.place && !ATLAS.some((p) => p.id === search.place) && (
-            <p role="status" className="field-notice">
-              This place link is not recognized. The United Kingdom is shown instead.
-            </p>
-          )}
-          {vs ? (
+          {!shown ? (
+            <div className="atlas-not-found" role="status">
+              <h2>Place not found</h2>
+              <p>
+                This link asks for a place called “{search.place}”, which is not in the atlas.
+                Search for a place or choose one from the list.
+              </p>
+              <button
+                className="field-button"
+                onClick={() => update({ place: DEFAULT_PLACE.id, tab: placeTab(DEFAULT_PLACE) })}
+              >
+                Open {DEFAULT_PLACE.name}
+              </button>
+            </div>
+          ) : vs ? (
             <div className="atlas-comparison-heading">
               <div>
                 <p className="section-label">Compare landscapes</p>
                 <p>
                   The reference points are{" "}
-                  {Math.round(haversineKm(shown.lat, shown.lon, vs.lat, vs.lon)).toLocaleString(
+                  {Math.round(haversineKm(shown!.lat, shown!.lon, vs.lat, vs.lon)).toLocaleString(
                     "en",
                   )}{" "}
                   km apart.
@@ -324,7 +365,7 @@ function AtlasPage() {
               <div className="field-actions">
                 <button
                   className="field-button"
-                  onClick={() => update({ place: vs.id, vs: shown.id, tab: placeTab(vs) })}
+                  onClick={() => update({ place: vs.id, vs: shown!.id, tab: placeTab(vs) })}
                 >
                   <ArrowLeftRight size={16} aria-hidden="true" /> Swap places
                 </button>
@@ -345,71 +386,79 @@ function AtlasPage() {
               </button>
             </div>
           )}
-          <div className="atlas-map-controls">
-            <span>
-              <MapPin size={16} aria-hidden="true" />{" "}
-              {vs ? "Maps share the same zoom and basemap." : "Explore the reference point."}
-            </span>
-            <div className="field-actions">
-              <label className="field-inline-label">
-                View
-                <select
-                  aria-label="Map view"
-                  value={baseMap}
-                  onChange={(e) => setBaseMap(e.target.value as "vector" | "relief")}
-                >
-                  <option value="vector">Places</option>
-                  <option value="relief">Relief</option>
-                </select>
-              </label>
-              <label className="field-inline-label">
-                Scale
-                <select
-                  aria-label="Shared map scale"
-                  value={
-                    Math.abs(zoom - 3) < 0.02
-                      ? "3"
-                      : Math.abs(zoom - 5) < 0.02
-                        ? "5"
-                        : Math.abs(zoom - 7) < 0.02
-                          ? "7"
-                          : "custom"
-                  }
-                  onChange={(e) => e.target.value !== "custom" && setZoom(Number(e.target.value))}
-                >
-                  <option value="3">Wider region</option>
-                  <option value="5">Region</option>
-                  <option value="7">Local</option>
-                  <option value="custom" disabled>
-                    Custom zoom
-                  </option>
-                </select>
-              </label>
-            </div>
-          </div>
-          <div className={`atlas-place-panels ${vs ? "atlas-place-panels--compare" : ""}`}>
-            <PlaceCard
-              key={shown.id}
-              p={shown}
-              label={vs ? "A" : undefined}
-              zoom={zoom}
-              onZoom={syncZoom}
-              baseMap={baseMap}
-              showPhoto={!vs || !!atlasPhoto(vs)}
-            />
-            {vs && (
-              <PlaceCard
-                key={vs.id}
-                p={vs}
-                label="B"
-                zoom={zoom}
-                onZoom={syncZoom}
-                baseMap={baseMap}
-                showPhoto={!!atlasPhoto(shown)}
-              />
-            )}
-          </div>
-          {vs && (
+          {shown && (
+            <>
+              <div className="atlas-map-controls">
+                <span>
+                  <MapPin size={16} aria-hidden="true" />{" "}
+                  {vs ? "Maps share the same zoom and basemap." : "Explore the reference point."}
+                </span>
+                <div className="field-actions">
+                  <label className="field-inline-label">
+                    View
+                    <select
+                      aria-label="Map view"
+                      value={baseMap}
+                      onChange={(e) => setBaseMap(e.target.value as "vector" | "relief")}
+                    >
+                      <option value="vector">Places</option>
+                      <option value="relief">Relief</option>
+                    </select>
+                  </label>
+                  <label className="field-inline-label">
+                    Scale
+                    <select
+                      aria-label="Shared map scale"
+                      value={
+                        Math.abs(zoom - 3) < 0.02
+                          ? "3"
+                          : Math.abs(zoom - 5) < 0.02
+                            ? "5"
+                            : Math.abs(zoom - 7) < 0.02
+                              ? "7"
+                              : "custom"
+                      }
+                      onChange={(e) =>
+                        e.target.value !== "custom" && setZoom(Number(e.target.value))
+                      }
+                    >
+                      <option value="3">Wider region</option>
+                      <option value="5">Region</option>
+                      <option value="7">Local</option>
+                      <option value="custom" disabled>
+                        Custom zoom
+                      </option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <div className={`atlas-place-panels ${vs ? "atlas-place-panels--compare" : ""}`}>
+                {/* Stable keys keep one map per panel alive and fly it to the next place:
+                    creating a new WebGL map for every card ran phones out of memory. */}
+                <PlaceCard
+                  key="a"
+                  p={shown}
+                  label={vs ? "A" : undefined}
+                  zoom={zoom}
+                  onZoom={syncZoom}
+                  baseMap={baseMap}
+                  showPhoto={!vs || !!atlasPhoto(vs)}
+                />
+                {vs && (
+                  <PlaceCard
+                    key="b"
+                    p={vs}
+                    label="B"
+                    zoom={zoom}
+                    onZoom={syncZoom}
+                    baseMap={baseMap}
+                    showPhoto={!!atlasPhoto(shown)}
+                  />
+                )}
+              </div>
+            </>
+          )}
+          {shown && vs && (
             <div className="atlas-reading-question">
               <h2>What explains the difference?</h2>
               <p>
@@ -459,11 +508,8 @@ function PlaceCard({
   const photo = showPhoto ? atlasPhoto(p) : undefined,
     climate = atlasClimateDetail(p);
   const placeName = p.capital === "—" ? "The marked location" : p.capital;
+  // Only labs that fit this place: no generic filler to make up a count.
   const processes = atlasLabs(p).filter((l) => l.slug !== "climate-types");
-  if (processes.length < 2 && !processes.some((l) => l.slug === "graticule"))
-    processes.push({ slug: "graticule", label: "Latitude and longitude" });
-  if (processes.length < 2 && !processes.some((l) => l.slug === "plate-boundaries"))
-    processes.push({ slug: "plate-boundaries", label: "Plate boundaries" });
   const cards = [
     {
       slug: "climate-types",
@@ -472,14 +518,12 @@ function PlaceCard({
         ? `${placeName} is classified as ${climate.code} in the ${climateName(p).toLowerCase()} climate family. Explore how temperature and rainfall define this pattern.`
         : "Explore how long-term temperature and rainfall patterns distinguish climate families around the world.",
     },
-    ...processes
-      .slice(0, 3)
-      .map((l) => ({
-        ...l,
-        note:
-          PROCESS_NOTES[l.slug] ??
-          `Explore ${l.label.toLowerCase()} in 3D, then return to the landscape and identify evidence that supports your explanation.`,
-      })),
+    ...processes.slice(0, 3).map((l) => ({
+      ...l,
+      note:
+        PROCESS_NOTES[l.slug] ??
+        `Explore ${l.label.toLowerCase()} in 3D, then return to the landscape and identify evidence that supports your explanation.`,
+    })),
   ];
   return (
     <article className="atlas-place-card">
@@ -490,7 +534,7 @@ function PlaceCard({
               {label}
             </span>
           )}
-          {atlasKindLabel(p.kind)}
+          {atlasPlaceLabel(p)}
         </p>
         <h2>{p.name}</h2>
         <p className="atlas-reference">
@@ -526,6 +570,7 @@ function PlaceCard({
           center={[p.lon, p.lat]}
           zoom={zoom}
           marker={[p.lon, p.lat]}
+          markerContent={<MapDot />}
           onViewChange={(view) => onZoom(view.zoom)}
           baseMap={baseMap}
           label={`${p.name} reference point map`}

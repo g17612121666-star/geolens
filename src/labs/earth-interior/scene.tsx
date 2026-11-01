@@ -533,8 +533,7 @@ export default function EarthInterior() {
         {waves
           ? "Blue P waves pass through solid and liquid layers; amber S waves stop at the liquid outer core. Press Play to follow their motion."
           : "Earth's radius is 6,371 km. The outer-core boundary lies 3,480 km from the center, and the inner core has a radius of 1,221 km."}
-        {explode > 0.01 && " Reset layer spacing to compare depths."}
-        <br />
+        {explode > 0.01 && " Reset layer spacing to compare depths."} <br />
         {waves
           ? "The radial paths illustrate transmission through different materials; they do not calculate the curved paths of seismic rays."
           : "Dashed mantle interfaces mark phase transitions at depths of 410 and 660 km. Colors and textures distinguish materials; the mottled mantle pattern is illustrative, not mapped plumes or slabs."}

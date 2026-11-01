@@ -226,8 +226,7 @@ export default function GeologicTime() {
         {age < 2.58 ? "Quaternary · within the Cenozoic" : unit.name} ·{" "}
         {age < 10 ? age.toFixed(3) : age.toFixed(1)}
         {" Ma before present. One turn spans "}
-        {(span / 3).toFixed(2)} {"million years."}
-        <br />
+        {(span / 3).toFixed(2)} {"million years."} <br />
         {`${span > 3 ? "Pale collars mark eon and era boundaries in their true positions (ICS chart, 2026/06 edition). " : "No era boundary falls in this window: all of it lies in the Quaternary Period of the Cenozoic Era. "}Thin dark rings mark every ${span > 1000 ? 500 : span > 100 ? 50 : 0.25} million years, and gray beads split the window into twelve equal parts of ${(span / 12).toFixed(span > 10 ? 1 : 3)} million years. The central column shows the same window unrolled, so each unit's height is its duration. The Phanerozoic begins at 538.8 Ma, and its eras differ greatly in length. Choose a shorter window to inspect recent time. The coil is a time axis, not a thickness of rock layers or an evolutionary ladder.`}
         <div className="pointer-events-auto mt-1 flex flex-wrap justify-center gap-2">
           {[

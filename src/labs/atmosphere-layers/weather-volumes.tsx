@@ -8,7 +8,11 @@ const tintedFragment = cloudFragment
   .replace(
     "gl_FragColor=vec4(color/max(alpha,.001),alpha);",
     "gl_FragColor=vec4(color/max(alpha,.001)*tint,alpha);",
-  );
+  )
+  // Ray-march steps come from the `density` prop (STEPS define), so small background clouds
+  // cost less: many overlapping 40-step volumes stalled weaker GPUs.
+  .replace("stepSize=(exitT-entry)/40.", "stepSize=(exitT-entry)/float(STEPS)")
+  .replace("for(int i=0;i<40;i++)", "for(int i=0;i<STEPS;i++)");
 
 const random = (n: number) => {
   const value = Math.sin(n * 127.1 + 311.7) * 43758.5453;
@@ -19,7 +23,7 @@ export function CloudVolume({
   position = [0, 0, 0],
   scale = [1, 1, 1],
   seed = 1,
-  density: _density = 64,
+  density = 64,
   opacity = 0.62,
   tint = "#ffffff",
 }: {
@@ -48,6 +52,7 @@ export function CloudVolume({
         <shaderMaterial
           vertexShader={cloudVertex}
           fragmentShader={tintedFragment}
+          defines={{ STEPS: Math.round(THREE.MathUtils.clamp(density, 16, 40)) }}
           uniforms={uniforms}
           transparent
           depthWrite={false}

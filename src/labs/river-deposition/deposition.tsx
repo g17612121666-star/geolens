@@ -409,7 +409,7 @@ export default function RiverDeposition() {
           ? "Inner-bank point bar opposite an undercut river cliff. Flow tracers move downstream; the bar does not grow in this model."
           : mode === 1
             ? `${flood ? "Overbank flow shown" : "Channel flow shown"} · natural levees border a lower floodplain. Toggle Overbank water to compare.`
-            : "A delta of river sediment, crossed by branching distributaries, builds out into the sea. Not every river mouth builds a delta; many end in estuaries."}
+            : "A delta of river sediment, crossed by branching distributaries, builds out into the sea. Not every river mouth builds a delta; many end in estuaries."}{" "}
         <br />
         {"Separate settling experiment: "}
         {grain.toFixed(0)} {"μm quartz spheres settle at "}

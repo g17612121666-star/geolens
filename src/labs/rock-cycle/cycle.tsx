@@ -174,7 +174,7 @@ export default function RockCycle() {
         {REGIMES[regime]}.{" "}
         {suits
           ? "These conditions suit this pathway."
-          : "This pathway does not normally happen under these conditions."}
+          : "This pathway does not normally happen under these conditions."}{" "}
         <br />
         {
           "Select another path; the cycle has branches and loops, with no compulsory order. Depth assumes a uniform rock density of 2800 kg/m³. The condition bands are broad guides: temperature and pressure alone do not identify a rock or how much of it melts; composition, fluids, time and history also matter. Melting begins near 650 °C only for granitic rock containing water, while dry basalt needs about 1100 °C or more. The moving specimen changes type halfway along the route; it shows the route, not a reaction rate."

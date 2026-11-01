@@ -16,7 +16,7 @@
     },
     {
       "id": "ceres-net-2000-2015",
-      "caption": "NASA CERES satellite map of net radiation (2000–2015 average). It illustrates the process rather than either city: low latitudes gain energy overall, while high latitudes lose it."
+      "caption": "NASA CERES satellite map of net radiation (2000–2015 average). Southern Florida sits in the low-latitude band that gains energy over a year; Minnesota sits farther north, where the yearly balance is close to a loss."
     }
   ],
   "holderness": [
@@ -40,10 +40,6 @@
     }
   ],
   "lake-district": [
-    {
-      "id": "aletsch-glacier",
-      "caption": "Aletsch Glacier, Switzerland, shows the process rather than the place: a valley glacier deepening and widening its trough, as glaciers once did in Lake District valleys."
-    },
     {
       "id": "sourmilk-gill"
     }
@@ -90,16 +86,8 @@
   ],
   "iceland": [
     {
-      "id": "noaa-south-atlantic-bathymetry",
-      "caption": "NOAA bathymetry of the South Atlantic showing the Mid-Atlantic Ridge. This is the same ridge that crosses Iceland, seen here thousands of kilometers to the south, mostly under deep water."
-    },
-    {
-      "id": "galapagos-pillow-lava",
-      "caption": "Pillow lava at the Galápagos Rift, Pacific Ocean. It shows the process rather than Iceland: basalt erupting at a spreading center, as it does along the submarine Mid-Atlantic Ridge."
-    },
-    {
-      "id": "kamoamoa-fissure-2011",
-      "caption": "A fissure eruption at Kīlauea, Hawaiʻi, in 2011. It shows the type of eruption, not Iceland: lava rises along a linear crack, as in many Icelandic eruptions."
+      "id": "thingvellir-rift",
+      "caption": "Þingvellir, Iceland: open fissures and a rift valley where the North American and Eurasian plates pull apart. Gentle basaltic fissure eruptions come from cracks like these."
     }
   ],
   "san-andreas": [
@@ -177,30 +165,18 @@
     {
       "id": "yosemite-topographic-sheet",
       "caption": "USGS topographic sheet of Yosemite Creek, in the uplands north of Yosemite Valley. Closely spaced contours mark the steep sides of the creek's valley; Yosemite Valley itself is off this extract."
-    },
-    {
-      "id": "aletsch-glacier",
-      "caption": "Aletsch Glacier, Switzerland, illustrates the process rather than Yosemite: a large valley glacier deepening and widening a trough, as ice once did in Yosemite Valley."
     }
   ],
   "katrina-sandy": [
     {
       "id": "place-us-ny",
       "caption": "Lower Manhattan and the Battery beside New York Harbor. Sandy's 2012 storm surge flooded low ground at this tip of the island."
-    },
-    {
-      "id": "ike-bolivar-surge",
-      "caption": "Bolivar Peninsula, Texas, after Hurricane Ike in 2008. It is neither Katrina nor Sandy, but it shows the destruction storm surge can cause on a low barrier coast."
     }
   ],
   "dust-bowl": [
     {
       "id": "place-us-ks",
       "caption": "Grassland in Kansas, part of the Great Plains affected in the 1930s. Undisturbed grass cover holds the soil that plowing exposed to the wind."
-    },
-    {
-      "id": "shanxi-loess-hills",
-      "caption": "Loess hills in Shanxi, China, for comparison: here running water, not wind, has cut deep gullies into wind-deposited silt."
     }
   ],
   "colorado": [
@@ -225,12 +201,7 @@
   ],
   "time-zones-us": [
     {
-      "id": "diomede-landsat",
-      "caption": "Landsat 8 image of the Diomede Islands in the Bering Strait. Little Diomede (US) and Big Diomede (Russia) lie either side of the International Date Line, under 4 km apart but nearly a day apart on the clock."
-    },
-    {
-      "id": "meteosat-march-equinox",
-      "caption": "Meteosat-9 satellite image at the March equinox. It illustrates the process, not the USA: as Earth rotates eastward, the day–night boundary sweeps westward across places at different longitudes."
+      "id": "goes19-winter-solstice"
     }
   ],
   "kola": [
@@ -265,19 +236,11 @@
   ],
   "outer-banks": [
     {
-      "id": "place-us-la",
-      "caption": "Landsat image of the northern Gulf coast (colors enhanced). Like the Outer Banks, the narrow barrier islands off Mississippi and Alabama (top) and Louisiana's Chandeleur Islands (faint arc, lower left) are reshaped by storms. This image illustrates the process, not North Carolina."
-    },
-    {
       "id": "ike-bolivar-surge",
       "caption": "Bolivar Peninsula, Texas, after Hurricane Ike (2008). Overwash spread sand across the low barrier and destroyed buildings, a process the Outer Banks also experience."
     }
   ],
   "mammoth-cave": [
-    {
-      "id": "malham-limestone-pavement",
-      "caption": "Limestone pavement at Malham, Yorkshire Dales, for comparison. Here dissolution has widened joints at the surface; at Mammoth Cave it has enlarged passages deep underground."
-    },
     {
       "id": "alabama-karst-spring",
       "caption": "A karst spring in Alabama. It shows how water moving through limestone passages re-emerges at the surface, as underground rivers do near Mammoth Cave."
@@ -325,16 +288,7 @@
       "caption": "Deeply weathered granite with rounded unweathered cores (location outside Hong Kong). It illustrates saprolite, the weak weathered material that forms many Hong Kong slopes."
     }
   ],
-  "shanghai-huangpu": [
-    {
-      "id": "thames-barrier-evans",
-      "caption": "The Thames Barrier in London, for comparison. Like Shanghai's flood walls along the Huangpu, it protects a tidal river city against high water."
-    },
-    {
-      "id": "bangladesh-modis-2011",
-      "caption": "Terra MODIS satellite image of the Ganges–Brahmaputra delta, Bangladesh. It shows the process rather than Shanghai: rivers building a low, monsoon-flooded delta plain like the Yangtze delta."
-    }
-  ],
+  "shanghai-huangpu": [],
   "typhoon-mangkhut": [
     {
       "id": "place-hk",

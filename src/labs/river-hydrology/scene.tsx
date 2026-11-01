@@ -233,7 +233,7 @@ export default function RiverHydrology() {
         {`on ${date(pa.day)}; snow-fed (blue) ${pb.flow.toFixed(1)} m³/s on ${date(pb.day)}`}
         {dam
           ? ` (${peak(free.series).flow.toFixed(1)} m³/s on ${date(peak(free.series).day)} without the dam, dashed).`
-          : "."}
+          : "."}{" "}
         <br />
         {`Day ${day + 1} of a repeating year. Dam `}
         {dam ? "on: the reservoir stores the melt peak and releases it more slowly" : "off"}

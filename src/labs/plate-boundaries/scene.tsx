@@ -113,8 +113,7 @@ export default function Plates() {
         ) : (
           `Continental positions ${Math.round(age / 10) * 10} million years ago. Move toward the present to compare how the continents have shifted.`
         )}
-        {hotspot && age >= 5 && !section && " Return to the present to locate Hawaiʻi."}
-        <br />
+        {hotspot && age >= 5 && !section && " Return to the present to locate Hawaiʻi."} <br />
         {section
           ? "Arrows show relative plate motion. Compare the section with the surface pattern on the globe."
           : "The older views carry modern coastlines backward using a plate reconstruction; past sea levels and shorelines also differed."}

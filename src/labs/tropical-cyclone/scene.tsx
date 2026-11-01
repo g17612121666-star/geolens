@@ -136,8 +136,7 @@ export default function TropicalCyclone() {
         {maximum.toFixed(1)} {"m/s · model center pressure "}
         {(center.pressure / 100).toFixed(0)} {"hPa. "}
         {spin < 0 ? "Northern Hemisphere: counterclockwise" : "Southern Hemisphere: clockwise"}{" "}
-        {"viewed from above."}
-        <br />
+        {"viewed from above."} <br />
         {
           "Use Cutaway to open the structure. Clouds and tracers move as in two hours of a steady, idealized vortex; arrows show inflow, rising air and outflow. The model does not forecast intensity changes, rainfall, track or landfall."
         }

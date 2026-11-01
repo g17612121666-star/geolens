@@ -214,3 +214,18 @@
 @media(prefers-reduced-motion:reduce){.editorial-card:hover{transform:none;}}
 
 .realm-cover img{width:100%;aspect-ratio:16/10;max-height:24rem;object-fit:cover;}
+
+/* Map location marker: a ring that leaves the basemap's place label readable. */
+.map-dot {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  border: 3px solid #0b7a6a;
+  background: rgba(62, 224, 198, 0.35);
+  box-shadow: 0 0 0 2px #fff;
+}
+.map-dot--b {
+  border-color: #b4531f;
+  background: rgba(232, 97, 58, 0.35);
+}

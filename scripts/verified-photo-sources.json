@@ -2243,7 +2243,7 @@
     "id": "os-northeast-scotland-grid",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Ordnance_Survey_1-250000_-_NO.jpg/1280px-Ordnance_Survey_1-250000_-_NO.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ordnance_Survey_1-250000_-_NO.jpg",
-    "licenseUrl": "https://www.ordnancesurvey.co.uk/business-and-government/licensing/using-creating-data-with-os-products/os-opendata.html",
+    "licenseUrl": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
     "credit": "Contains Ordnance Survey data © Crown copyright and database right · OS OpenData / Open Government Licence v3.0 · resized",
     "alt": "Ordnance Survey 1:250,000 map sheet NO of northeast Scotland with the British National Grid.",
     "caption": "Ordnance Survey sheet NO, northeast Scotland. Eastings and northings locate places in the British National Grid. This reduced 1:250,000 sheet illustrates the grid; use a detailed map for precise six-figure references.",
@@ -2623,7 +2623,7 @@
     "id": "cairngorms-winter-snow",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg/1280px-RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:RAF_Search_and_Rescue_Helicopter_in_the_Cairngorms_MOD_45155350.jpg",
-    "licenseUrl": "http://NationalArchives.gov.uk/doc/open-government-licence/version/1/",
+    "licenseUrl": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/",
     "credit": "SAC Faye Storer / UK Ministry of Defence · Crown copyright / Open Government Licence v1.0 · cropped and resized",
     "alt": "Patchy winter snow over dark exposed rock and heath on a Cairngorm mountainside.",
     "caption": "Winter in the Cairngorms. Bright snow reflects far more sunlight than the darker exposed ground, so patchy cover changes the landscape’s albedo.",
@@ -3165,8 +3165,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bama_soil.png",
     "licenseUrl": "https://commons.wikimedia.org/wiki/File:Bama_soil.png",
     "credit": "USDA Employee / Wikimedia Commons · Public domain · cropped",
-    "alt": "The upper part of a soil profile: brown topsoil grading down into thick red subsoil, with a depth scale in feet.",
-    "caption": "Bama, Alabama's state soil. Brown topsoil sits over a thick red subsoil colored by iron oxides; the scale on the left is in feet.",
+    "alt": "A soil profile with a thin dark topsoil, a pale tan layer below it and thick red subsoil, beside a depth scale in feet.",
+    "caption": "Bama, Alabama's state soil, an Ultisol: a thin dark A horizon, a pale leached E horizon, then thick red Bt subsoil where washed-down clay and iron oxides collect (scale in feet). Unlike the model's temperate brown soil, it has an E horizon and a clay-enriched Bt instead of a Bw.",
     "kind": "scientific-image"
   },
   {
@@ -3387,6 +3387,66 @@
     "credit": "Petr Brož (Czech Academy of Science) / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "A pen arm resting on a white paper drum covered in fine parallel lines, one section showing a burst of wiggles.",
     "caption": "A seismograph drum records ground motion as a line on paper. The burst of wiggles is an earthquake: P-waves arrive first, then S-waves and surface waves.",
+    "kind": "photo"
+  },
+  {
+    "id": "sendai-airport-inundation",
+    "url": "https://commons.wikimedia.org/wiki/File:SendaiAirportMarch16.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:SendaiAirportMarch16.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:SendaiAirportMarch16.jpg",
+    "credit": "U.S. Air Force photo / Staff Sgt. Samuel Morse · Public domain · resized",
+    "alt": "Aerial view of Sendai Airport, Japan, with seawater and debris covering the runways and the flat farmland around them.",
+    "caption": "Sendai Airport, Japan, two days after the 2011 Tōhoku tsunami. The water spread across the flat coastal plain and still covered the runways on 13 March.",
+    "kind": "photo"
+  },
+  {
+    "id": "sendai-airport-flood-mark",
+    "url": "https://commons.wikimedia.org/wiki/File:Sendaiairport_tunami201307.JPG",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sendaiairport_tunami201307.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "credit": "メルビル / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "A pillar inside Sendai Airport's terminal with a blue band and a marker labeled 3.02 m near the ceiling.",
+    "caption": "A pillar in Sendai Airport's terminal marks how high the 2011 tsunami water rose there: 3.02 m above the floor. Survey teams measure marks like this to map inundation and run-up.",
+    "kind": "photo"
+  },
+  {
+    "id": "eyjafjallajokull-plume-2010",
+    "url": "https://commons.wikimedia.org/wiki/File:April_19,_2010,_Ash_plume_from_Eyjafjallajokull_Volcano.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:April_19,_2010,_Ash_plume_from_Eyjafjallajokull_Volcano.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:April_19,_2010,_Ash_plume_from_Eyjafjallajokull_Volcano.jpg",
+    "credit": "NASA Terra MODIS · Public domain · cropped and resized",
+    "alt": "Satellite view of Iceland with a long brown ash plume streaming south over the ocean from the south coast.",
+    "caption": "NASA's Terra satellite on 19 April 2010: ash from Eyjafjallajökull streams south over the Atlantic. Meltwater from the ice cap chilled and shattered the magma, making fine ash that closed much of Europe's airspace.",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "us-time-zones-map",
+    "url": "https://commons.wikimedia.org/wiki/File:UnitedStatesTimeZones.png",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:UnitedStatesTimeZones.png",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:UnitedStatesTimeZones.png",
+    "credit": "USGS National Atlas of the United States · Public domain · resized",
+    "alt": "Map of the United States colored by the Pacific, Mountain, Central and Eastern standard time zones, with clock faces showing 3, 4, 5 and 6 PM.",
+    "caption": "Standard time zones of the United States (USGS National Atlas). Each zone is roughly 15° of longitude wide, but its boundaries follow state and county lines rather than meridians.",
+    "kind": "scientific-image"
+  },
+  {
+    "id": "woodland-noon-analemma",
+    "url": "https://commons.wikimedia.org/wiki/File:Analemma_showing_the_path_of_the_sun_at_12-00-00_Noon_PST,_Woodland,_CA.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Analemma_showing_the_path_of_the_sun_at_12-00-00_Noon_PST,_Woodland,_CA.jpg",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "credit": "Timmonswilliams / Wikimedia Commons · CC0 · resized",
+    "alt": "A figure-eight curve painted on a house wall in Woodland, California, with a scale from 23.5° N (Tropic of Cancer) at the top to 23.5° S (Tropic of Capricorn) at the bottom.",
+    "caption": "Woodland, California: a small mirror reflected the noon Sun onto this wall, and its position was marked every day for two years. The figure eight runs from 23.5° N in June to 23.5° S in December: the Sun's declination, which sets how steeply sunlight strikes the ground.",
+    "kind": "photo"
+  },
+  {
+    "id": "little-back-creek-streamgage",
+    "url": "https://commons.wikimedia.org/wiki/File:USGS_Streamgage_(15358867302).jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:USGS_Streamgage_(15358867302).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:USGS_Streamgage_(15358867302).jpg",
+    "credit": "Alan Cressler, USGS · Public domain · resized",
+    "alt": "A small instrument shelter on stilts beside a concrete weir on a forest stream.",
+    "caption": "A USGS streamgage on Little Back Creek, Bath County, Virginia. The shelter records the water level (stage) every few minutes; a rating curve converts stage to discharge, the numbers plotted on a storm hydrograph.",
     "kind": "photo"
   }
 ]

@@ -172,8 +172,7 @@ export default function EnergyBudget() {
         {Math.abs(b.absorbed - b.outgoing) < 0.05
           ? "0.0"
           : (b.absorbed - b.outgoing).toFixed(1)}{" "}
-        {"W/m²."}
-        <br />
+        {"W/m²."} <br />
         {
           "Yellow: sunlight in and reflected. Orange: infrared from the surface. Blue: infrared emitted by the layer, up to space and back down to the surface. Each band’s width is proportional to its flux. Top-of-atmosphere balance is sunlight absorbed minus infrared to space; zero means equilibrium."
         }

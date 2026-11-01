@@ -120,7 +120,7 @@ export function PageHelp({ pathname }: { pathname: string }) {
         aria-expanded={open}
         aria-controls="page-help"
         aria-label="Tips for this page"
-        className="fixed bottom-5 left-5 z-40 inline-flex size-12 items-center justify-center rounded-full border border-white/15 bg-basalt/95 text-chalk shadow-lg backdrop-blur hover:text-glacier"
+        className="fixed bottom-3 right-3 z-40 inline-flex size-10 items-center justify-center rounded-full border border-white/15 bg-basalt/95 text-chalk shadow-lg backdrop-blur hover:text-glacier md:bottom-5 md:left-5 md:right-auto md:size-12"
       >
         <HelpCircle className="size-6" aria-hidden="true" />
       </button>
@@ -131,7 +131,7 @@ export function PageHelp({ pathname }: { pathname: string }) {
           tabIndex={-1}
           role="dialog"
           aria-label={`Tips: ${title}`}
-          className="fixed bottom-20 left-5 z-40 w-[min(22rem,calc(100vw-2.5rem))] rounded-2xl border border-white/12 bg-basalt/98 p-5 shadow-2xl outline-none"
+          className="fixed bottom-16 right-3 z-40 w-[min(22rem,calc(100vw-1.5rem))] md:bottom-20 md:left-5 md:right-auto rounded-2xl border border-white/12 bg-basalt/98 p-5 shadow-2xl outline-none"
         >
           <div className="flex items-start justify-between gap-3">
             <p className="font-display text-xl text-chalk">{`Tips: ${title}`}</p>

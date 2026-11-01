@@ -172,8 +172,8 @@ export default function PressureCentres() {
           );
         })}
         {!high &&
-          Array.from({ length: 14 }, (_, i) => {
-            const u = (t + i / 14) % 1,
+          Array.from({ length: 9 }, (_, i) => {
+            const u = (t + i / 9) % 1,
               r = 2.85 - u * 1.8,
               a = spin * (u * 5 + i * 2.4);
             return (
@@ -208,7 +208,7 @@ export default function PressureCentres() {
             </group>
           ))}
         {high &&
-          Array.from({ length: 12 }, (_, i) => {
+          Array.from({ length: 8 }, (_, i) => {
             const a = i * 2.399,
               r = 1.6 + 1.2 * ((i * 0.618) % 1);
             return (
@@ -278,8 +278,7 @@ export default function PressureCentres() {
         {high
           ? "high pressure, surface divergence and sinking air"
           : "low pressure, surface convergence and rising air"}
-        {". Spin is read from above."}
-        <br />
+        {". Spin is read from above."} <br />
         {high
           ? "Sinking air usually stops deep cloud forming, but fog or low cloud may persist. Follow the parcels spiraling out from the center."
           : "Blue and coral lines mark example cold and warm fronts; this is a midlatitude depression, not a tropical cyclone. Follow the parcels spiraling in toward the rising center."}

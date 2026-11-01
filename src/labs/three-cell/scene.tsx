@@ -190,7 +190,7 @@ export default function ThreeCell() {
       <ScienceReadout>
         {three
           ? "Hadley and Polar cells are driven by rising warm air and sinking cold air; the Ferrel cell is sustained by heat and momentum transferred by weather systems."
-          : "Without rotation, this model shows one large circulation cell in each hemisphere, with rising tropical air and sinking polar air."}
+          : "Without rotation, this model shows one large circulation cell in each hemisphere, with rising tropical air and sinking polar air."}{" "}
         <br />
         {three ? "Gold: tropical / polar surface easterlies · blue: midlatitude westerlies. " : ""}
         {

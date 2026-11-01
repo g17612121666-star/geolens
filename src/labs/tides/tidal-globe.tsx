@@ -156,8 +156,7 @@ export default function Tides() {
         {tideState}
         {" · relative equatorial range "}
         {range.toFixed(2)} {"(spring 2.19, neap 0.81) · Moon "}
-        {(distance / 1000).toFixed(1)} {"thousand km away."}
-        <br />
+        {(distance / 1000).toFixed(1)} {"thousand km away."} <br />
         <span className="formula">{"Lunar tidal strength ∝ 1/r³"}</span>
         {
           "; the Sun's effect is 0.46 of the Moon's at mean distance. Earth rotates beneath a pattern that follows the Moon and Sun. This is not a forecast of tide times or heights."
