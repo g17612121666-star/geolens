@@ -1697,6 +1697,10 @@
       ],
       "cases": [
         {
+          "slug": "lake-mead-low",
+          "label": "Lake Mead"
+        },
+        {
           "slug": "colorado",
           "label": "Colorado River reservoirs"
         },
@@ -6104,6 +6108,10 @@
       ],
       "cases": [
         {
+          "slug": "mississippi-flood-2011",
+          "label": "Mississippi flood 2011"
+        },
+        {
           "slug": "shanghai-huangpu",
           "label": "Shanghai / Huangpu"
         },
@@ -6318,6 +6326,10 @@
         }
       ],
       "cases": [
+        {
+          "slug": "lake-mead-low",
+          "label": "Lake Mead"
+        },
         {
           "slug": "mississippi",
           "label": "Mississippi"
@@ -7944,6 +7956,10 @@
         }
       ],
       "cases": [
+        {
+          "slug": "louisiana-land-loss",
+          "label": "Louisiana land loss"
+        },
         {
           "slug": "mississippi",
           "label": "Mississippi delta"
@@ -10947,6 +10963,10 @@
       ],
       "cases": [
         {
+          "slug": "mount-st-helens-1980",
+          "label": "Mount St. Helens 1980"
+        },
+        {
           "slug": "hawaii",
           "label": "Hawaiʻi shields"
         },
@@ -11189,6 +11209,10 @@
         }
       ],
       "cases": [
+        {
+          "slug": "kamchatka-tsunami-hawaii-2025",
+          "label": "Kamchatka → Hawaiʻi 2025"
+        },
         {
           "slug": "cascadia",
           "label": "Cascadia"
@@ -12306,6 +12330,10 @@
         }
       ],
       "cases": [
+        {
+          "slug": "mount-st-helens-1980",
+          "label": "Mount St. Helens landslide"
+        },
         {
           "slug": "hong-kong-landslide",
           "label": "Hong Kong slopes"
@@ -13578,6 +13606,10 @@
       ],
       "cases": [
         {
+          "slug": "newtok-mertarvik",
+          "label": "Newtok to Mertarvik"
+        },
+        {
           "slug": "alaska-permafrost",
           "label": "Arctic Alaska permafrost"
         },
@@ -13807,6 +13839,10 @@
         }
       ],
       "cases": [
+        {
+          "slug": "louisiana-land-loss",
+          "label": "Louisiana marsh loss"
+        },
         {
           "slug": "katrina-sandy",
           "label": "Katrina / Sandy surge"
