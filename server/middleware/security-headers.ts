@@ -19,6 +19,8 @@ const CSP = [
     "https://*.openfreemap.org",
     "https://api.open-meteo.com",
     "https://earthquake.usgs.gov",
+    "https://api.tidesandcurrents.noaa.gov",
+    "https://api.waterdata.usgs.gov",
     "https://*.tile.openstreetmap.org",
     "https://*.openstreetmap.org",
     "https://tile.openstreetmap.org",

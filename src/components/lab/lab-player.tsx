@@ -6,6 +6,7 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { StepRail } from "./step-rail";
 import { WhyPanel } from "./why-panel";
 import { GuidedGate, GuidedPanel } from "./guided";
+import { LiveData } from "./live-data";
 import { ControlBar } from "./control-bar";
 import { useIsCompact, useMediaQuery } from "@/hooks/use-media";
 import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state";
@@ -293,6 +294,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
           </p>
           <div className="grid gap-3 p-3 sm:grid-cols-2">
             <GuidedPanel lab={lab} />
+            <LiveData slug={lab.slug} />
             <StepRail lab={lab} />
             <WhyPanel lab={lab} />
           </div>
@@ -334,6 +336,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             className="pointer-events-auto absolute bottom-4 right-6 top-20 z-10 flex w-[22rem] flex-col gap-4 overflow-x-hidden overflow-y-auto pr-1"
           >
             <GuidedPanel lab={lab} />
+            <LiveData slug={lab.slug} />
             <StepRail lab={lab} />
             <WhyPanel lab={lab} />
           </div>
