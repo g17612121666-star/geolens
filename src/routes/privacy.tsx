@@ -39,11 +39,16 @@ function Privacy() {
         </p>
         <p>
           {
-            "Quiz answers, glossary practice marks and the labs you opened recently are saved only in this browser, so a student can pick up where they left off on the same device. They are never sent to a server. Pages and files you open are also kept by your browser so they still work without a connection. Start again in a lab’s Check tab clears that lab, and clearing the site’s data removes them all."
+            "Quiz answers, written predictions and explanations, the name a student types on a hand-in slip, glossary practice marks and the labs you opened recently are saved only in this browser, so a student can pick up where they left off on the same device. They are never sent to a server. Pages and files you open are also kept by your browser so they still work without a connection. Start again in a lab’s Check tab clears the visible answers but keeps the first answer to each question, which the hand-in code records; clearing the site’s data removes everything."
           }
         </p>
         <p>
           {"We do not track what students do. There is no analytics software recording clicks."}
+        </p>
+        <p>
+          {
+            "A hand-in code is made on the student’s device. It records the lab, the date, the first answer to each Check question and whether a prediction and explanation were written, but no name and no written text. It reaches a teacher only if the student hands it over, and the teacher’s checker decodes it in the teacher’s own browser."
+          }
         </p>
         <p>
           {

@@ -12,6 +12,7 @@ import { PRODUCER_MAILTO } from "@/lib/contact";
 import { Gallery } from "@/components/gallery";
 import { LAB_GALLERY } from "@/lib/media-galleries";
 import { SpeakButton } from "@/components/speak-button";
+import { HandInPanel } from "./hand-in-panel";
 
 const WHY_LABELS = ["Why it happens", "Try a comparison", "Reading the result"] as const;
 
@@ -167,6 +168,26 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
                   {paragraph}
                 </p>
               ))}
+            {lab.cer && (
+              <details className="rounded-xl border border-white/10 p-3">
+                <summary className="cursor-pointer text-chalk">
+                  {"Model answer for the Guided explanation"}
+                </summary>
+                <p className="mt-2 text-chalk/90">{lab.cer.prompt}</p>
+                <p className="mt-2 text-mist">
+                  <span className="text-glacier">{"Claim. "}</span>
+                  {lab.cer.claim}
+                </p>
+                <p className="mt-1 text-mist">
+                  <span className="text-glacier">{"Evidence. "}</span>
+                  {lab.cer.evidence}
+                </p>
+                <p className="mt-1 text-mist">
+                  <span className="text-glacier">{"Reasoning. "}</span>
+                  {lab.cer.reasoning}
+                </p>
+              </details>
+            )}
             <p className="section-label">{"Points to watch for"}</p>
             <ul className="list-disc space-y-1 pl-4 text-mist">
               {lab.teacher.pitfalls.map((p) => (
@@ -295,6 +316,7 @@ function CheckList({ lab }: { lab: LabMeta }) {
           </div>
         );
       })}
+      <HandInPanel lab={lab} />
     </div>
   );
 }

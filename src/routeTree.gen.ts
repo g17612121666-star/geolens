@@ -27,8 +27,10 @@ import { Route as PracticeDailyRouteImport } from './routes/practice.daily'
 import { Route as PracticeLandformsRouteImport } from './routes/practice.landforms'
 import { Route as PracticeWhereRouteImport } from './routes/practice.where'
 import { Route as RealmsRealmRouteImport } from './routes/realms.$realm'
+import { Route as SlipSlugRouteImport } from './routes/slip.$slug'
 import { Route as TeachersIndexRouteImport } from './routes/teachers.index'
 import { Route as TeachersSlugRouteImport } from './routes/teachers.$slug'
+import { Route as TeachersCheckRouteImport } from './routes/teachers.check'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ToolsAtlasRouteImport } from './routes/tools.atlas'
 import { Route as ToolsEarthMotionRouteImport } from './routes/tools.earth-motion'
@@ -131,6 +133,11 @@ const RealmsRealmRoute = RealmsRealmRouteImport.update({
   path: '/realms/$realm',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SlipSlugRoute = SlipSlugRouteImport.update({
+  id: '/slip/$slug',
+  path: '/slip/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TeachersIndexRoute = TeachersIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -139,6 +146,11 @@ const TeachersIndexRoute = TeachersIndexRouteImport.update({
 const TeachersSlugRoute = TeachersSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
+  getParentRoute: () => TeachersRoute,
+} as any)
+const TeachersCheckRoute = TeachersCheckRouteImport.update({
+  id: '/check',
+  path: '/check',
   getParentRoute: () => TeachersRoute,
 } as any)
 const ToolsIndexRoute = ToolsIndexRouteImport.update({
@@ -215,7 +227,9 @@ export interface FileRoutesByFullPath {
   '/practice/landforms': typeof PracticeLandformsRoute
   '/practice/where': typeof PracticeWhereRoute
   '/realms/$realm': typeof RealmsRealmRoute
+  '/slip/$slug': typeof SlipSlugRoute
   '/teachers/$slug': typeof TeachersSlugRoute
+  '/teachers/check': typeof TeachersCheckRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
   '/tools/earthquakes': typeof ToolsEarthquakesRoute
@@ -247,7 +261,9 @@ export interface FileRoutesByTo {
   '/practice/landforms': typeof PracticeLandformsRoute
   '/practice/where': typeof PracticeWhereRoute
   '/realms/$realm': typeof RealmsRealmRoute
+  '/slip/$slug': typeof SlipSlugRoute
   '/teachers/$slug': typeof TeachersSlugRoute
+  '/teachers/check': typeof TeachersCheckRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
   '/tools/earthquakes': typeof ToolsEarthquakesRoute
@@ -281,7 +297,9 @@ export interface FileRoutesById {
   '/practice/landforms': typeof PracticeLandformsRoute
   '/practice/where': typeof PracticeWhereRoute
   '/realms/$realm': typeof RealmsRealmRoute
+  '/slip/$slug': typeof SlipSlugRoute
   '/teachers/$slug': typeof TeachersSlugRoute
+  '/teachers/check': typeof TeachersCheckRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
   '/tools/earthquakes': typeof ToolsEarthquakesRoute
@@ -316,7 +334,9 @@ export interface FileRouteTypes {
     | '/practice/landforms'
     | '/practice/where'
     | '/realms/$realm'
+    | '/slip/$slug'
     | '/teachers/$slug'
+    | '/teachers/check'
     | '/tools/atlas'
     | '/tools/earth-motion'
     | '/tools/earthquakes'
@@ -348,7 +368,9 @@ export interface FileRouteTypes {
     | '/practice/landforms'
     | '/practice/where'
     | '/realms/$realm'
+    | '/slip/$slug'
     | '/teachers/$slug'
+    | '/teachers/check'
     | '/tools/atlas'
     | '/tools/earth-motion'
     | '/tools/earthquakes'
@@ -381,7 +403,9 @@ export interface FileRouteTypes {
     | '/practice/landforms'
     | '/practice/where'
     | '/realms/$realm'
+    | '/slip/$slug'
     | '/teachers/$slug'
+    | '/teachers/check'
     | '/tools/atlas'
     | '/tools/earth-motion'
     | '/tools/earthquakes'
@@ -415,6 +439,7 @@ export interface RootRouteChildren {
   PracticeLandformsRoute: typeof PracticeLandformsRoute
   PracticeWhereRoute: typeof PracticeWhereRoute
   RealmsRealmRoute: typeof RealmsRealmRoute
+  SlipSlugRoute: typeof SlipSlugRoute
   ToolsAtlasRoute: typeof ToolsAtlasRoute
   ToolsEarthMotionRoute: typeof ToolsEarthMotionRoute
   ToolsEarthquakesRoute: typeof ToolsEarthquakesRoute
@@ -557,6 +582,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RealmsRealmRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/slip/$slug': {
+      id: '/slip/$slug'
+      path: '/slip/$slug'
+      fullPath: '/slip/$slug'
+      preLoaderRoute: typeof SlipSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/teachers/': {
       id: '/teachers/'
       path: '/'
@@ -569,6 +601,13 @@ declare module '@tanstack/react-router' {
       path: '/$slug'
       fullPath: '/teachers/$slug'
       preLoaderRoute: typeof TeachersSlugRouteImport
+      parentRoute: typeof TeachersRoute
+    }
+    '/teachers/check': {
+      id: '/teachers/check'
+      path: '/check'
+      fullPath: '/teachers/check'
+      preLoaderRoute: typeof TeachersCheckRouteImport
       parentRoute: typeof TeachersRoute
     }
     '/tools/': {
@@ -653,11 +692,13 @@ declare module '@tanstack/react-router' {
 
 interface TeachersRouteChildren {
   TeachersSlugRoute: typeof TeachersSlugRoute
+  TeachersCheckRoute: typeof TeachersCheckRoute
   TeachersIndexRoute: typeof TeachersIndexRoute
 }
 
 const TeachersRouteChildren: TeachersRouteChildren = {
   TeachersSlugRoute: TeachersSlugRoute,
+  TeachersCheckRoute: TeachersCheckRoute,
   TeachersIndexRoute: TeachersIndexRoute,
 }
 
@@ -683,6 +724,7 @@ const rootRouteChildren: RootRouteChildren = {
   PracticeLandformsRoute: PracticeLandformsRoute,
   PracticeWhereRoute: PracticeWhereRoute,
   RealmsRealmRoute: RealmsRealmRoute,
+  SlipSlugRoute: SlipSlugRoute,
   ToolsAtlasRoute: ToolsAtlasRoute,
   ToolsEarthMotionRoute: ToolsEarthMotionRoute,
   ToolsEarthquakesRoute: ToolsEarthquakesRoute,
