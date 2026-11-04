@@ -790,7 +790,7 @@ export function LibreMap({
         {phase === "error" &&
           (failed
             ? "Interactive mapping is unavailable in this browser. The world overview is static."
-            : "The basemap could not load. Try again when the connection is available.")}
+            : "The basemap didn’t load. Check your connection and try again.")}
         {(phase === "offline" || phase === "error") && (
           <button
             type="button"

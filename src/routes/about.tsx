@@ -45,9 +45,8 @@ function About() {
           connect what they see to a real landscape.
         </p>
         <p>
-          Teachers and school geography clubs can use the models alongside teaching notes, case
-          studies and questions for discussion. All resources are available without an account,
-          advertising or a paywall.
+          Teachers and school geography clubs can use the models with teaching notes, case studies
+          and discussion questions. Everything is free, with no account, ads or paywall.
         </p>
       </div>
       <article className="mt-12 grid overflow-hidden rounded-2xl border border-white/15 bg-basalt md:grid-cols-[0.8fr_1.2fr]">
@@ -69,14 +68,12 @@ function About() {
           </p>
           <p className="mt-4 leading-7 text-mist">
             As a student docent at the Shanghai Natural History Museum, he also shares science with
-            museum visitors. Geolens brings this interest in education and
-            public science communication into a resource that students, teachers and geography clubs
-            can use together.
+            museum visitors. Geolens turns that interest in teaching and public science into
+            something students, teachers and geography clubs can use together.
           </p>
           <p className="mt-4 leading-7 text-mist">
-            The site connects interactive models with explanations, photographs and teaching
-            prompts, so that an unfamiliar process can become something a learner can investigate
-            and describe.
+            Each lab pairs an interactive model with explanations, photographs and teaching prompts,
+            so an unfamiliar process becomes something a student can investigate and describe.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
             <MailLink />
@@ -96,9 +93,9 @@ function About() {
         <section>
           <h2 className="font-display text-2xl">Using Geolens in a lesson</h2>
           <p className="mt-4 leading-7 text-mist">
-            Begin with something students can observe, then use a model to test their explanation.
-            Curriculum filters help teachers find relevant topics, and the teaching notes offer
-            prompts that can be adapted for class or a geography club meeting.
+            Start with something students can see, then use a model to test their explanation.
+            Curriculum filters help teachers find topics, and the teaching notes offer prompts to
+            adapt for a class or a geography club meeting.
           </p>
           <Link to="/teachers" className="mt-4 inline-flex min-h-11 items-center text-glacier">
             Browse teaching resources →
@@ -118,7 +115,7 @@ function About() {
             , so they can be used for non-commercial teaching with attribution.
           </p>
           <p className="mt-4 leading-7 text-mist">
-            Photographs and datasets retain their own credits and licenses.{" "}
+            Photographs and datasets keep their own credits and licenses.{" "}
             <Link to="/image-credits" className="text-ice underline">
               Image credits
             </Link>{" "}

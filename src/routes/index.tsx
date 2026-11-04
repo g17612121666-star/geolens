@@ -27,7 +27,8 @@ const SUMMARIES: Record<string, string> = {
   "san-andreas": "See how two plates slide past each other along California’s most famous fault.",
   mississippi:
     "Follow a large river across its floodplain and investigate how people manage flood risk.",
-  "grand-canyon": "Read nearly two billion years of Earth history in the walls of a river-cut canyon.",
+  "grand-canyon":
+    "Read nearly two billion years of Earth history in the walls of a river-cut canyon.",
   "tohoku-2011": "Trace how a subduction-zone earthquake sent a tsunami onto the coast of Japan.",
 };
 function Home() {
@@ -41,8 +42,8 @@ function Home() {
             Understand the Earth in 3D.
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-8 text-mist">
-            Rotate a model, change a variable and see how the Earth works. Explore geography through
-            interactive labs and the landscapes they help explain.
+            Rotate a model, change a variable and see how Earth works. Explore geography through
+            interactive labs and the real landscapes they explain.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="pill">
@@ -55,8 +56,8 @@ function Home() {
             </Button>
           </div>
           <p className="mt-6 max-w-md text-sm leading-6 text-mist">
-            Completely free for students, teachers and school geography clubs, with no account,
-            adverts or paywall.
+            Completely free for students, teachers and school geography clubs, with no account, ads
+            or paywall.
           </p>
         </div>
         <div

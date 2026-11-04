@@ -28,11 +28,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "London",
     lat: 51.51,
     lon: -0.13,
-    hook: "Four nations on a drowned shelf; the physical story is ice, till, and a North Atlantic fetch.",
+    hook: "Four nations on a flooded continental shelf, shaped by ice, glacial till and Atlantic weather.",
     geo: [
-      "Four nations on a drowned continental shelf. Ice, till, and a North Atlantic fetch write the land more than any county line.",
-      "The west is wet and upland; the east is drier and lower. Holderness till cliffs and a chalk south coast are the exam pair.",
-      "London sits on a drowned Thames. The physical map is glacial and marine, not a flag.",
+      "The UK sits on a continental shelf that the sea flooded after the last ice age. Ice, till and storms off the North Atlantic shaped the land.",
+      "The west is wetter and higher; the east is drier and lower. The soft till cliffs of Holderness and the chalk of the south coast are the classic pair to compare.",
+      "London grew on the Thames, a river whose lower valley the sea drowned as ice melted and sea level rose.",
     ],
     labs: [
       { slug: "coasts", label: "Coasts" },
@@ -47,11 +47,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Dublin",
     lat: 53.35,
     lon: -6.26,
-    hook: "A limestone and peat island; karst in the Burren, peat in the bogs.",
+    hook: "An island of limestone and peat, with bare karst in the Burren and wide bogs inland.",
     geo: [
-      "A limestone and peat island on the Atlantic margin.",
-      "The Burren is carbonation along joints — a pavement, not a granite slab.",
-      "Ice left drumlins and a wet west. Dublin is on the drier east.",
+      "Ireland is an island of limestone and peat on the edge of the Atlantic.",
+      "In the Burren, slightly acidic rain has dissolved the limestone along its joints, leaving a bare limestone pavement.",
+      "Ice left drumlins across the north and middle of the country. The west is wet; Dublin, on the east coast, is drier.",
     ],
     labs: [
       { slug: "karst", label: "Karst" },
@@ -65,11 +65,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Reykjavík",
     lat: 64.15,
     lon: -21.94,
-    hook: "A mid-ocean ridge with a country on it. Basalt, ice, and a hotspot.",
+    hook: "A country built on a mid-ocean ridge, where a hotspot and ice meet.",
     geo: [
-      "Iceland sits on the Mid-Atlantic Ridge: a divergent plate boundary with a country on it.",
-      "A mantle plume (hotspot) thickens the crust so the ridge stands above sea level. New basalt at the axis; ice on the high ground.",
-      "Earthquakes and fissure eruptions are the syllabus, not a volcanic arc. The island is not a subduction story.",
+      "Iceland sits on the Mid-Atlantic Ridge, a divergent plate boundary that here rises above the sea.",
+      "A mantle plume (hotspot) under the ridge makes the crust thick enough to stand above sea level. New basalt forms along the rift, and ice caps cover the high ground.",
+      "Earthquakes and fissure eruptions come from plates pulling apart. Unlike Japan, Iceland has no subduction zone.",
     ],
     labs: [
       { slug: "hotspots", label: "Hotspots" },
@@ -84,11 +84,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Paris",
     lat: 48.86,
     lon: 2.35,
-    hook: "Massif Central to Alpine collision; a temperate west-coast climate inland.",
+    hook: "Old uplands in the Massif Central, young Alpine mountains in the southeast, and a mild Atlantic climate.",
     geo: [
-      "Massif Central of old rock, then Alpine collision in the south-east.",
-      "A temperate west-coast climate that becomes more continental inland.",
-      "Paris sits on a sedimentary basin, not in the mountains.",
+      "The Massif Central is a block of old, worn-down rock. The Alps in the southeast were raised by a much younger collision.",
+      "The climate is mild and wet near the Atlantic and becomes more continental farther inland.",
+      "Paris lies in a wide basin of sedimentary rock, far from the mountains.",
     ],
   },
   {
@@ -98,11 +98,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Madrid",
     lat: 40.42,
     lon: -3.7,
-    hook: "A high meseta, Mediterranean coasts, and a rain-shadow interior.",
+    hook: "A high central plateau, Mediterranean coasts, and a dry interior in the rain shadow of its mountains.",
     geo: [
-      "A high meseta, Mediterranean coasts, and a rain-shadow interior.",
-      "The west sees Atlantic moisture; the south-east is drier.",
-      "Madrid is an interior capital on the plateau, not a port.",
+      "Much of Spain is the Meseta, a high plateau ringed by mountains that keep the interior dry.",
+      "The northwest gets plenty of Atlantic rain; the southeast is the driest part of mainland Europe.",
+      "Madrid stands on the plateau near the center of the country, far from any port.",
     ],
   },
   {
@@ -112,7 +112,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Lisbon",
     lat: 38.72,
     lon: -9.14,
-    hook: "Atlantic margin, Iberian plate, and a long fetch for swell.",
+    hook: "An Atlantic coast facing a long stretch of open ocean, so big swells roll in.",
   },
   {
     id: "de",
@@ -121,7 +121,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Berlin",
     lat: 52.52,
     lon: 13.41,
-    hook: "North European Plain, then the Alpine foreland. Rivers write the map.",
+    hook: "The flat North European Plain in the north, the Alpine foothills in the south, and big rivers in between.",
   },
   {
     id: "it",
@@ -130,11 +130,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Rome",
     lat: 41.9,
     lon: 12.5,
-    hook: "A colliding boot: Alps, Apennines, volcanoes on a subduction story.",
+    hook: "A peninsula shaped by collision: the Alps, the Apennines, and volcanoes fed by subduction.",
     geo: [
-      "Alps from collision, Apennines as a fold belt, volcanoes on a subduction hinge.",
-      "Vesuvius and Etna differ in magma composition and tectonic setting; Etna commonly erupts basaltic lava.",
-      "Rome sits in a west-coast lowland, not on the Alpine crest.",
+      "The Alps rose in a continental collision, the Apennines are a fold belt, and the southern volcanoes sit above a subducting plate.",
+      "Vesuvius and Etna differ in magma and tectonic setting; Etna often erupts runny basaltic lava.",
+      "Rome lies in a lowland near the west coast, far from the Alps.",
     ],
     labs: [
       { slug: "volcanoes", label: "Volcanoes" },
@@ -149,7 +149,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Athens",
     lat: 37.98,
     lon: 23.73,
-    hook: "A drowned mountain landscape; earthquakes are the plate conversation.",
+    hook: "Mountains partly drowned by the sea, on an active plate boundary with frequent earthquakes.",
     labs: [
       { slug: "earthquakes", label: "Earthquakes" },
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -162,11 +162,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Oslo",
     lat: 59.91,
     lon: 10.75,
-    hook: "Glacial troughs flooded as fjords. Ice did the cutting.",
+    hook: "Deep U-shaped valleys carved by glaciers and later flooded by the sea to form fjords.",
     geo: [
-      "Ice cut U-troughs; the sea flooded them as fjords. Rivers did not invent those walls.",
-      "A wet west on a westerly fetch; Oslo is on a drier east.",
-      "Caledonian rock and a glaciated shield, not a volcanic arc.",
+      "Glaciers carved deep U-shaped valleys, and the sea flooded them as the ice melted to make fjords. Rivers alone could not cut walls that steep.",
+      "Westerly winds bring heavy rain to the west coast; Oslo, in the east, is drier.",
+      "The mountains are ancient Caledonian rock and the worn edge of a continental shield, not volcanoes.",
     ],
     labs: [
       { slug: "glaciers", label: "Glacial landforms" },
@@ -180,7 +180,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Stockholm",
     lat: 59.33,
     lon: 18.07,
-    hook: "A shield of old rock, ice-scoured, with a Baltic half-sea.",
+    hook: "Ancient shield rock scraped bare by ice sheets, beside the brackish Baltic Sea.",
   },
   {
     id: "fi",
@@ -189,7 +189,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Helsinki",
     lat: 60.17,
     lon: 24.94,
-    hook: "A lake-and-moraine country left by ice sheets.",
+    hook: "A land of lakes and moraines left behind by the ice sheets.",
   },
   {
     id: "pl",
@@ -198,7 +198,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Warsaw",
     lat: 52.23,
     lon: 21.01,
-    hook: "A plain of glacial deposits between the Baltic and the Carpathians.",
+    hook: "A broad plain of glacial deposits stretching from the Baltic coast to the Carpathians.",
   },
   {
     id: "nl",
@@ -207,7 +207,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Amsterdam",
     lat: 52.37,
     lon: 4.9,
-    hook: "A delta and a bargain with the sea. Levees as national policy.",
+    hook: "A river delta where much of the land lies below sea level, protected by dikes and pumps.",
     labs: [
       { slug: "rivers", label: "Rivers" },
       { slug: "coasts", label: "Coasts" },
@@ -221,7 +221,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Brussels",
     lat: 50.85,
     lon: 4.35,
-    hook: "A short slope from North Sea mud to Ardennes rock.",
+    hook: "A gentle rise from the North Sea coast to the old rocks of the Ardennes.",
   },
   {
     id: "ch",
@@ -230,7 +230,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Bern",
     lat: 46.95,
     lon: 7.44,
-    hook: "Collision mountains, U-troughs, and the hydrology of ice.",
+    hook: "Mountains raised by collision, valleys carved by glaciers, and rivers fed by melting ice.",
     labs: [
       { slug: "glaciers", label: "Glacial landforms" },
       { slug: "folds-faults", label: "Folds and faults" },
@@ -243,7 +243,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Vienna",
     lat: 48.21,
     lon: 16.37,
-    hook: "The eastern Alps, then the Danube gate.",
+    hook: "The eastern Alps, opening onto the Danube valley.",
   },
   {
     id: "tr",
@@ -252,7 +252,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Ankara",
     lat: 39.93,
     lon: 32.86,
-    hook: "A plateau between colliding plates; North Anatolian Fault is the exam case.",
+    hook: "A high plateau squeezed between colliding plates; the North Anatolian Fault is a classic case study.",
     labs: [
       { slug: "earthquakes", label: "Earthquakes" },
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -265,11 +265,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Cairo",
     lat: 30.04,
     lon: 31.24,
-    hook: "A desert with a river. The Nile is the hydrograph.",
+    hook: "A desert crossed by one great river, the Nile.",
     geo: [
-      "A hot desert with one through-flowing river. The Nile is the hydrograph.",
-      "Almost no rain on the plateau. Flood pulse and irrigation are the water story.",
-      "Cairo sits on alluvium, not on a glacier or a plate boundary.",
+      "Egypt is a hot desert crossed by one great river. Almost everyone lives along the Nile.",
+      "Rain is rare. The Nile's yearly flood, now held back by the Aswan High Dam, and irrigation decide where water is.",
+      "Cairo is built on fertile silt laid down by the Nile.",
     ],
     labs: [
       { slug: "hydrograph", label: "Storm hydrograph" },
@@ -284,11 +284,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Nairobi",
     lat: -1.29,
     lon: 36.82,
-    hook: "Equatorial highlands and the East African Rift; seasonal rain and drier lowlands.",
+    hook: "Equatorial highlands split by the East African Rift, with two rainy seasons and drier lowlands.",
     geo: [
-      "Kenya sits on the East African Rift. Equator on a diverging plate.",
-      "Rainfall seasons reflect the migration of tropical circulation, ocean conditions and relief; axial tilt still drives the seasonal solar cycle.",
-      "Nairobi is high enough to be cool. Height writes the air here, not latitude alone.",
+      "Kenya straddles the equator and the East African Rift, where the African plate is slowly splitting apart.",
+      "The rainy seasons follow the movement of the tropical rain belt, shaped by the oceans and the highlands.",
+      "Nairobi is high enough to stay mild all year: here altitude matters as much as latitude.",
     ],
     labs: [
       { slug: "seasons", label: "Why seasons happen" },
@@ -303,7 +303,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Pretoria",
     lat: -25.75,
     lon: 28.19,
-    hook: "A high plateau, a cold current, and a winter-rain Cape.",
+    hook: "A high inland plateau, a cold ocean current in the west, and winter rain around Cape Town.",
   },
   {
     id: "ng",
@@ -312,7 +312,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Abuja",
     lat: 9.08,
     lon: 7.4,
-    hook: "ITCZ walk writes a wet south and a drier north.",
+    hook: "The tropical rain belt brings a long wet season to the south and a short one to the drier north.",
   },
   {
     id: "ma",
@@ -321,7 +321,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Rabat",
     lat: 34.02,
     lon: -6.84,
-    hook: "Atlas ranges, a cold Canary current, and a Sahara edge.",
+    hook: "The Atlas Mountains, a cool Canary Current offshore, and the edge of the Sahara.",
   },
   {
     id: "us",
@@ -330,11 +330,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Washington, D.C.",
     lat: 38.91,
     lon: -77.04,
-    hook: "Cordillera, shield, plains, and two oceans. One country, several planets.",
+    hook: "Western mountains, an ancient shield, wide central plains and two ocean coasts in one country.",
     geo: [
-      "Cordillera, shield, plains, and two oceans. One country, several physical planets.",
-      "The west is plates and rain-shadow. The east is a drowned glacial and river story.",
-      "Washington, D.C. sits on a fall-line hinge, not in a glacial trough.",
+      "The United States spans western mountain ranges, part of the ancient Canadian Shield, the Great Plains and two ocean coasts.",
+      "In the west, plate boundaries build mountains that cast deep rain shadows. The east has older, worn-down mountains, glaciated land in the north and broad coastal plains.",
+      "Washington, D.C. sits on the fall line, where hard upland rock meets the softer coastal plain.",
     ],
     labs: [
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -349,7 +349,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Ottawa",
     lat: 45.42,
     lon: -75.7,
-    hook: "A shield of ancient rock, ice, and a long polar night in the north.",
+    hook: "Ancient shield rock scoured by ice, with long polar nights in the far north.",
     labs: [
       { slug: "glaciers", label: "Glacial landforms" },
       { slug: "periglacial", label: "Periglacial" },
@@ -362,7 +362,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Mexico City",
     lat: 19.43,
     lon: -99.13,
-    hook: "A volcanic high, a subduction trench, and a dry north.",
+    hook: "High volcanic plateaus, a subduction trench off the Pacific coast, and dry northern deserts.",
     labs: [
       { slug: "volcanoes", label: "Volcanoes" },
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -375,7 +375,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Brasília",
     lat: -15.79,
     lon: -47.88,
-    hook: "Amazon basin, Brazilian plateau, and an ITCZ that is not a UK weather map.",
+    hook: "The Amazon basin and the Brazilian Highlands, watered by the tropical rain belt.",
     labs: [
       { slug: "climate-types", label: "Climate types" },
       { slug: "carbon-cycle", label: "Carbon cycle" },
@@ -389,7 +389,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Buenos Aires",
     lat: -34.6,
     lon: -58.38,
-    hook: "Andes rain-shadow, then a humid Pampas, then Patagonian ice.",
+    hook: "Dry land in the lee of the Andes, the humid Pampas grasslands, and glaciers in Patagonia.",
   },
   {
     id: "cl",
@@ -398,11 +398,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Santiago",
     lat: -33.45,
     lon: -70.67,
-    hook: "A trench, a range, and a desert beside a cold current.",
+    hook: "A deep ocean trench, the Andes, and a desert kept dry by a cold current.",
     geo: [
-      "A trench, a range, and the Atacama beside a cold Humboldt current.",
-      "Subduction writes the Andes and the volcanoes. Rain-shadow writes the desert.",
-      "Santiago sits in a central valley, not on the trench axis.",
+      "Chile is a thin strip between an ocean trench and the Andes, with the Atacama Desert beside the cold Humboldt Current.",
+      "Subduction raised the Andes and feeds their volcanoes. The cold current and the mountains together keep the Atacama dry.",
+      "Santiago lies in the Central Valley between the coast range and the Andes.",
     ],
     labs: [
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -417,7 +417,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Lima",
     lat: -12.05,
     lon: -77.04,
-    hook: "Humboldt current, Andes, Amazon — three climates in one transect.",
+    hook: "The cold Humboldt Current, the Andes and the Amazon: three climates in one trip inland.",
     labs: [
       { slug: "rain-shadow", label: "Rain shadow" },
       { slug: "ocean-currents", label: "Ocean currents" },
@@ -431,7 +431,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Bogotá",
     lat: 4.71,
     lon: -74.07,
-    hook: "Equatorial Andes. Height writes the climate, not latitude.",
+    hook: "The Andes on the equator, where altitude, not latitude, sets the climate.",
   },
   {
     id: "au",
@@ -440,7 +440,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Canberra",
     lat: -35.28,
     lon: 149.13,
-    hook: "An old, dry shield. Monsoon north, Mediterranean south-west, desert core.",
+    hook: "An old, dry continent with a monsoon north, a Mediterranean southwest and a desert heart.",
     labs: [
       { slug: "climate-types", label: "Climate types" },
       { slug: "aeolian", label: "Wind landforms" },
@@ -453,11 +453,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Wellington",
     lat: -41.29,
     lon: 174.78,
-    hook: "A plate boundary with alps and a westerly fetch.",
+    hook: "Islands on a plate boundary, with the Southern Alps standing in the path of westerly winds.",
     geo: [
-      "A plate boundary with Southern Alps and a long westerly fetch.",
-      "The Alpine Fault is a transform with a compressional component — not a Hawaiian hotspot.",
-      "Wellington sits on the colliding edge. Ice cut the south-west fjords.",
+      "New Zealand sits on a plate boundary. The Southern Alps rise straight into steady westerly winds off the Tasman Sea.",
+      "The Alpine Fault is mainly a transform fault, but the plates also push together, which keeps the Southern Alps rising.",
+      "Wellington sits close to active faults. Glaciers carved the fjords of the southwest.",
     ],
     labs: [
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -472,11 +472,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Tokyo",
     lat: 35.68,
     lon: 139.65,
-    hook: "Arc volcanoes on a subduction hinge. Earthquakes are the syllabus.",
+    hook: "A volcanic island arc above subduction zones, with frequent earthquakes.",
     geo: [
-      "Japan lies along several plate margins, where the Pacific and Philippine Sea plates subduct beneath parts of the island arc.",
-      "Volcanoes form above subduction zones. Offshore earthquakes can generate tsunami when they displace the seafloor.",
-      "Tokyo sits on a Kanto plain of sediment, not on a mid-ocean ridge. This is not Iceland and not Hawaiʻi.",
+      "Japan lies where several plates meet. The Pacific and Philippine Sea plates sink beneath the island arc.",
+      "Volcanoes form above these subduction zones. Large offshore earthquakes can lift the seafloor and send out tsunamis.",
+      "Tokyo is built on the Kanto Plain, a lowland of river sediment beside the bay.",
     ],
     labs: [
       { slug: "volcanoes", label: "Volcanoes" },
@@ -491,11 +491,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Beijing",
     lat: 39.9,
     lon: 116.41,
-    hook: "A monsoon east, a dry west, a colliding south.",
+    hook: "A monsoon east, a dry interior west, and the Himalaya rising in the southwest.",
     geo: [
-      "A monsoon east, a dry interior west, and a colliding Himalayan south.",
-      "The Tibetan Plateau is continent–continent convergence, not a volcanic arc.",
-      "Beijing sits on a north China plain. The high ice is a thousand kilometers southwest. Shanghai, Hong Kong, and the Loess Plateau are other physical planets inside the same country.",
+      "China has a monsoon east, a dry interior west and the high Tibetan Plateau in the southwest.",
+      "The Tibetan Plateau was raised by India colliding with Asia, a continent–continent collision rather than a volcanic arc.",
+      "Beijing lies on the North China Plain, about 1,000 km from the high plateau. Shanghai, Hong Kong and the Loess Plateau each show very different landscapes in the same country.",
     ],
     labs: [
       { slug: "folds-faults", label: "Folds and faults" },
@@ -511,11 +511,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "—",
     lat: 22.3,
     lon: 114.17,
-    hook: "Weathered granite, steep catchments, a drowned harbor. Mass movement is the syllabus.",
+    hook: "Deeply weathered granite, steep hillsides above a crowded city, and landslides after heavy rain.",
     geo: [
-      "A granite and volcanic terrain, deeply weathered in a subtropical monsoon.",
-      "Steep catchments above a dense city. Debris flows after rain, not till cliffs at a North Sea fetch.",
-      "Victoria Harbour is a drowned valley. The physical map is slope and saprolite, not a skyline.",
+      "Hong Kong is built on granite and volcanic rock that warm, wet monsoon weather has weathered deeply.",
+      "Steep slopes rise right above dense neighborhoods, so heavy rain can trigger landslides and debris flows.",
+      "Victoria Harbour is a drowned valley, flooded as sea level rose after the last ice age.",
     ],
     labs: [
       { slug: "mass-movement", label: "Mass movement" },
@@ -531,11 +531,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "—",
     lat: 31.23,
     lon: 121.47,
-    hook: "A tidal Huangpu on the Yangtze delta. Meiyu, tide, and a flood wall.",
+    hook: "A city on the Yangtze delta, where tides, early-summer rains and typhoons all raise the river.",
     geo: [
-      "A drowned river on a silt delta. The Huangpu is tidal; the sea is part of the hydrograph.",
-      "Meiyu (plum rain) and typhoon remnants write summer peaks. This is not a UK winter front.",
-      "Pudong is a skyline on alluvium. The physical map is the delta, not the tower.",
+      "Shanghai sits on the silty Yangtze delta. The Huangpu River is tidal, so the sea helps set its level.",
+      "Summer peaks come from the meiyu (“plum rain”) season and the remains of typhoons.",
+      "Pudong's towers stand on soft river sediment, and flood walls line the river.",
     ],
     labs: [
       { slug: "hydrograph", label: "Storm hydrograph" },
@@ -551,11 +551,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Taipei",
     lat: 25.03,
     lon: 121.57,
-    hook: "A colliding island: high Central Range, a typhoon east, a strait to the west.",
+    hook: "An island pushed up by colliding plates, with a high central mountain range and typhoons from the east.",
     geo: [
-      "Taiwan is an orogen on a converging edge. The Central Range is high because plates shorten.",
-      "The east is a typhoon fetch. Yushan is a collision peak, not a volcanic arc like Fuji.",
-      "Taipei sits in a northern basin. The physical map is the range and the strait.",
+      "Taiwan is a mountain belt built where two plates converge. The Central Range is high because the crust is being squeezed.",
+      "Typhoons usually strike from the Pacific side. Yushan, the highest peak, was raised by collision, not built by a volcano like Mount Fuji.",
+      "Taipei lies in a basin in the north, and the Taiwan Strait separates the island from mainland China.",
     ],
     labs: [
       { slug: "folds-faults", label: "Folds and faults" },
@@ -571,11 +571,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "—",
     lat: 22.2,
     lon: 113.54,
-    hook: "A drowned Pearl River edge. Typhoon surge on reclaimed ground.",
+    hook: "Low, partly reclaimed land on the Pearl River estuary, exposed to typhoon storm surges.",
     geo: [
-      "Macau sits on the west of the Pearl River estuary. Reclamation is the new shoreline.",
-      "A typhoon surge is the syllabus, not a chalk cliff. The same warm-core engine as a hurricane, a western North Pacific name.",
-      "The tower is a landmark. The physical map is an estuary and a monsoon.",
+      "Macau sits on the western side of the Pearl River estuary, and much of its land has been reclaimed from the sea.",
+      "Storm surge from typhoons is the main coastal hazard. Typhoons are the same kind of storm as hurricanes, under the western Pacific name.",
+      "Its landscape is shaped by the estuary and the monsoon.",
     ],
     labs: [
       { slug: "tropical-cyclone", label: "Tropical cyclone" },
@@ -591,11 +591,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "New Delhi",
     lat: 28.61,
     lon: 77.21,
-    hook: "A continent that walked north; the Himalaya are the crumple.",
+    hook: "A continent that drifted north into Asia and crumpled up the Himalaya.",
     geo: [
-      "India walked north into Eurasia. The Himalaya are the crumple zone.",
-      "A monsoon climate on a colliding edge. The Ganges–Brahmaputra is the hydrograph.",
-      "New Delhi sits on the Indo-Gangetic plain, not on the high ice.",
+      "India drifted north and collided with Asia. The Himalaya formed where the crust crumpled.",
+      "The summer monsoon brings most of the year's rain, and the Ganges and Brahmaputra rise and fall with it.",
+      "New Delhi stands on the Indo-Gangetic Plain, a vast lowland of river sediment south of the mountains.",
     ],
     labs: [
       { slug: "continental-drift", label: "Continental drift" },
@@ -610,7 +610,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Jakarta",
     lat: -6.21,
     lon: 106.85,
-    hook: "An island arc on the Pacific Ring. Volcanoes and a warm pool.",
+    hook: "Volcanic islands on the Pacific Ring of Fire, surrounded by some of the warmest ocean on Earth.",
     labs: [
       { slug: "volcanoes", label: "Volcanoes" },
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -624,7 +624,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Manila",
     lat: 14.6,
     lon: 120.98,
-    hook: "A typhoon alley on a colliding arc.",
+    hook: "A volcanic island arc where typhoons strike more often than almost anywhere else.",
     labs: [
       { slug: "tropical-cyclone", label: "Tropical cyclone" },
       { slug: "volcanoes", label: "Volcanoes" },
@@ -638,7 +638,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Seoul",
     lat: 37.57,
     lon: 126.98,
-    hook: "A peninsula between a cold sea and a monsoon.",
+    hook: "A peninsula between a cold sea and the East Asian monsoon.",
   },
   {
     id: "ru",
@@ -647,7 +647,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Moscow",
     lat: 55.76,
     lon: 37.62,
-    hook: "A continental interior. Size on a Mercator map is a projection lie.",
+    hook: "A vast continental interior. Mercator maps make it look even bigger than it is.",
     labs: [
       { slug: "map-projections", label: "Map projections" },
       { slug: "climate-types", label: "Climate types" },
@@ -660,7 +660,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Kyiv",
     lat: 50.45,
     lon: 30.52,
-    hook: "A chernozem plain — mollisol country — drained by the Dnipro.",
+    hook: "Rich black chernozem soils on a broad plain drained by the Dnipro.",
   },
   {
     id: "sa",
@@ -669,7 +669,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Riyadh",
     lat: 24.71,
     lon: 46.68,
-    hook: "A hot desert on a shield, with a Red Sea rift on one edge.",
+    hook: "Hot desert on ancient shield rock, with the Red Sea rift along its western edge.",
   },
   {
     id: "ir",
@@ -678,7 +678,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Tehran",
     lat: 35.69,
     lon: 51.39,
-    hook: "Fold mountains from collision; a dry interior plateau.",
+    hook: "Fold mountains raised by collision around a dry interior plateau.",
   },
   {
     id: "pk",
@@ -687,7 +687,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Islamabad",
     lat: 33.68,
     lon: 73.05,
-    hook: "Indus basin in the rain-shadow of the collision belt.",
+    hook: "The Indus basin, lying in the rain shadow of the mountains to the north.",
   },
   {
     id: "bd",
@@ -696,7 +696,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Dhaka",
     lat: 23.81,
     lon: 90.41,
-    hook: "A delta the size of a country. Monsoon plus Ganges–Brahmaputra load.",
+    hook: "Almost the whole country is a delta, built by sediment from the Ganges and Brahmaputra.",
     labs: [
       { slug: "rivers", label: "Rivers" },
       { slug: "hydrograph", label: "Storm hydrograph" },
@@ -710,7 +710,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Hanoi",
     lat: 21.03,
     lon: 105.85,
-    hook: "A monsoon coast with a Red River and Mekong pair of deltas.",
+    hook: "A monsoon coast with two great deltas: the Red River in the north and the Mekong in the south.",
   },
   {
     id: "th",
@@ -719,7 +719,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Bangkok",
     lat: 13.76,
     lon: 100.5,
-    hook: "A tropical wet-and-dry year on a peninsula.",
+    hook: "A tropical climate with a clear wet season and dry season.",
   },
   {
     id: "my",
@@ -728,7 +728,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Kuala Lumpur",
     lat: 3.14,
     lon: 101.69,
-    hook: "Equatorial rainforest on a peninsula and on Borneo.",
+    hook: "Equatorial rainforest on the Malay Peninsula and on Borneo.",
   },
   {
     id: "sg",
@@ -737,7 +737,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Singapore",
     lat: 1.35,
     lon: 103.82,
-    hook: "Almost on the equator. Day length barely moves.",
+    hook: "Almost on the equator, so day length hardly changes through the year.",
     labs: [{ slug: "seasons", label: "Why seasons happen" }],
   },
   {
@@ -747,7 +747,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Abu Dhabi",
     lat: 24.45,
     lon: 54.38,
-    hook: "Hot desert coast on a shallow sea. Albedo and air-con are the budget.",
+    hook: "A hot desert coast on a shallow sea, where keeping cool takes a lot of energy.",
   },
   {
     id: "qa",
@@ -756,7 +756,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Doha",
     lat: 25.29,
     lon: 51.53,
-    hook: "A limestone peninsula, a shallow gulf, extreme summer heat.",
+    hook: "A low limestone peninsula in a shallow gulf, with extremely hot summers.",
   },
   {
     id: "il",
@@ -765,7 +765,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Jerusalem",
     lat: 31.77,
     lon: 35.22,
-    hook: "A climate transect from Mediterranean to rain-shadow desert in a few hours.",
+    hook: "From Mediterranean coast to rain-shadow desert in a few hours' drive.",
   },
   {
     id: "et",
@@ -774,7 +774,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Addis Ababa",
     lat: 9.03,
     lon: 38.74,
-    hook: "A high plateau on the East African Rift. Height, not latitude, writes the air.",
+    hook: "A high plateau split by the East African Rift, cool because of its height.",
     labs: [
       { slug: "plate-boundaries", label: "Plate boundaries" },
       { slug: "climate-types", label: "Climate types" },
@@ -787,7 +787,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Dodoma",
     lat: -6.16,
     lon: 35.75,
-    hook: "Rift, crater highlands, and an Indian Ocean monsoon.",
+    hook: "The East African Rift, volcanic crater highlands, and monsoon rains from the Indian Ocean.",
   },
   {
     id: "gh",
@@ -796,7 +796,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Accra",
     lat: 5.6,
     lon: -0.19,
-    hook: "ITCZ rains on a Gulf of Guinea coast. Greenwich’s sea crossing is offshore.",
+    hook: "A Gulf of Guinea coast watered by the tropical rain belt. The Greenwich meridian crosses the country.",
   },
   {
     id: "sn",
@@ -805,7 +805,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Dakar",
     lat: 14.69,
     lon: -17.45,
-    hook: "Sahel on the west. The ITCZ’s walk is the wet season.",
+    hook: "The western edge of the Sahel, where the tropical rain belt brings a short wet season.",
   },
   {
     id: "dz",
@@ -814,7 +814,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Algiers",
     lat: 36.75,
     lon: 3.06,
-    hook: "A Mediterranean strip, then Sahara. Albedo jumps at the sand.",
+    hook: "A narrow Mediterranean coast and, beyond the mountains, the Sahara.",
   },
   {
     id: "ly",
@@ -823,7 +823,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Tripoli",
     lat: 32.89,
     lon: 13.19,
-    hook: "Sahara to a short Mediterranean coast.",
+    hook: "Mostly Sahara, with a short strip of Mediterranean coast.",
   },
   {
     id: "sd",
@@ -832,7 +832,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Khartoum",
     lat: 15.5,
     lon: 32.56,
-    hook: "Nile confluence in a seasonal ITCZ climate.",
+    hook: "Where the Blue and White Nile meet, with rain only when the tropical rain belt moves north.",
   },
   {
     id: "cd",
@@ -841,7 +841,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Kinshasa",
     lat: -4.33,
     lon: 15.31,
-    hook: "Congo basin rainforest. The air is a store of water.",
+    hook: "The rainforest of the Congo basin, one of the wettest regions on Earth.",
   },
   {
     id: "ao",
@@ -850,7 +850,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Luanda",
     lat: -8.84,
     lon: 13.23,
-    hook: "A Benguela-current coast and an inland plateau.",
+    hook: "A dry coast cooled by the Benguela Current, rising to a high inland plateau.",
   },
   {
     id: "mz",
@@ -859,7 +859,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Maputo",
     lat: -25.97,
     lon: 32.57,
-    hook: "An Indian Ocean cyclone coast on a rifted margin.",
+    hook: "A long Indian Ocean coast often struck by tropical cyclones.",
   },
   {
     id: "mg",
@@ -868,7 +868,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Antananarivo",
     lat: -18.88,
     lon: 47.51,
-    hook: "A wet east, a dry west, a rain-shadow island.",
+    hook: "A wet east, a dry west, and mountains between that cast a rain shadow.",
   },
   {
     id: "cu",
@@ -877,7 +877,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Havana",
     lat: 23.11,
     lon: -82.37,
-    hook: "A tropical island in the hurricane belt, on a carbonate platform.",
+    hook: "A tropical island of limestone in the path of Atlantic hurricanes.",
     labs: [
       { slug: "tropical-cyclone", label: "Tropical cyclone" },
       { slug: "karst", label: "Karst" },
@@ -890,7 +890,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Port-au-Prince",
     lat: 18.59,
     lon: -72.31,
-    hook: "A transform and collision edge. Earthquakes and steep catchments.",
+    hook: "Steep mountains on an active plate boundary, prone to earthquakes and flash floods.",
     labs: [
       { slug: "earthquakes", label: "Earthquakes" },
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -903,7 +903,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Kingston",
     lat: 18.02,
     lon: -76.81,
-    hook: "A limestone island with hurricane fetch from the Atlantic.",
+    hook: "A limestone island exposed to Atlantic hurricanes.",
   },
   {
     id: "cr",
@@ -912,7 +912,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "San José",
     lat: 9.93,
     lon: -84.09,
-    hook: "A volcanic isthmus between two oceans.",
+    hook: "A volcanic land bridge between the Pacific and the Caribbean.",
   },
   {
     id: "pa",
@@ -921,7 +921,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Panama City",
     lat: 8.98,
     lon: -79.52,
-    hook: "The divide a canal cut. Two oceans, one ITCZ.",
+    hook: "The narrow isthmus the canal cuts through, between two oceans.",
   },
   {
     id: "ec",
@@ -930,7 +930,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Quito",
     lat: -0.18,
     lon: -78.47,
-    hook: "Equator plus Andes. Galápagos is the hotspot footnote.",
+    hook: "The Andes on the equator, plus the Galápagos, a chain of hotspot islands far offshore.",
     labs: [
       { slug: "hotspots", label: "Hotspots" },
       { slug: "seasons", label: "Why seasons happen" },
@@ -943,7 +943,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Sucre",
     lat: -19.02,
     lon: -65.26,
-    hook: "Altiplano, a high dry basin between ranges.",
+    hook: "The Altiplano: a high, dry basin between two ranges of the Andes.",
   },
   {
     id: "uy",
@@ -952,7 +952,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Montevideo",
     lat: -34.9,
     lon: -56.16,
-    hook: "A temperate grassland on the Río de la Plata.",
+    hook: "Temperate grassland along the Río de la Plata.",
   },
   {
     id: "py",
@@ -961,7 +961,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Asunción",
     lat: -25.26,
     lon: -57.58,
-    hook: "A continental interior river basin, no coast.",
+    hook: "A landlocked country in the river basins of the continental interior.",
   },
   {
     id: "ve",
@@ -970,7 +970,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Caracas",
     lat: 10.48,
     lon: -66.9,
-    hook: "Caribbean coast, Andes spur, Orinoco plains.",
+    hook: "A Caribbean coast, a branch of the Andes, and the wide plains of the Orinoco.",
   },
   {
     id: "gy",
@@ -979,7 +979,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Georgetown",
     lat: 6.8,
     lon: -58.16,
-    hook: "A Guiana Shield edge and a muddy Atlantic coast.",
+    hook: "The ancient rocks of the Guiana Shield and a low, muddy Atlantic coast.",
   },
   {
     id: "pg",
@@ -988,7 +988,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Port Moresby",
     lat: -9.44,
     lon: 147.18,
-    hook: "A colliding island of high relief and wet tropics.",
+    hook: "Rugged, high mountains raised by colliding plates, in the wet tropics.",
   },
   {
     id: "fj",
@@ -997,7 +997,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Suva",
     lat: -18.14,
     lon: 178.44,
-    hook: "A tropical cyclone island on a complex plate hinge.",
+    hook: "Tropical islands on a complicated plate boundary, often hit by cyclones.",
   },
   {
     id: "to",
@@ -1006,7 +1006,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Nukuʻalofa",
     lat: -21.14,
     lon: -175.2,
-    hook: "A volcanic arc above a deep trench.",
+    hook: "A chain of volcanic islands beside one of the deepest ocean trenches.",
   },
   {
     id: "ws",
@@ -1015,7 +1015,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Apia",
     lat: -13.83,
     lon: -171.77,
-    hook: "Hotspot islands in the South Pacific trades.",
+    hook: "Volcanic islands in the South Pacific trade winds.",
   },
   {
     id: "np",
@@ -1024,7 +1024,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Kathmandu",
     lat: 27.72,
     lon: 85.32,
-    hook: "The Himalaya wedge. Continent–continent convergence, in section.",
+    hook: "The heart of the Himalaya, where two continents are colliding.",
     labs: [
       { slug: "folds-faults", label: "Folds and faults" },
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -1037,7 +1037,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Thimphu",
     lat: 27.47,
     lon: 89.64,
-    hook: "A monsoon mountain wall on the same collision.",
+    hook: "Mountains rising steeply into the monsoon on the same collision zone.",
   },
   {
     id: "lk",
@@ -1046,7 +1046,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Sri Jayawardenepura Kotte",
     lat: 6.89,
     lon: 79.9,
-    hook: "A tropical island with two monsoons and a highland core.",
+    hook: "A tropical island with two monsoon seasons and a mountainous center.",
   },
   {
     id: "mm",
@@ -1055,7 +1055,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Naypyidaw",
     lat: 19.76,
     lon: 96.12,
-    hook: "A monsoon trough and an arc of hills around the Irrawaddy.",
+    hook: "Monsoon lowlands along the Irrawaddy, ringed by an arc of hills.",
   },
   {
     id: "kh",
@@ -1064,7 +1064,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Phnom Penh",
     lat: 11.56,
     lon: 104.93,
-    hook: "A Mekong flood pulse and a Tonlé Sap reverse-flow lake.",
+    hook: "Each monsoon the Mekong rises so high that it pushes water back up into the Tonlé Sap lake.",
   },
   {
     id: "la",
@@ -1073,7 +1073,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Vientiane",
     lat: 17.98,
     lon: 102.63,
-    hook: "An interior monsoon catchment of the Mekong.",
+    hook: "A landlocked monsoon country drained by the Mekong.",
   },
   {
     id: "mn",
@@ -1082,7 +1082,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Ulaanbaatar",
     lat: 47.91,
     lon: 106.91,
-    hook: "A continental interior. Cold, dry, and far from any sea breeze.",
+    hook: "Deep in the continent, far from any sea: cold winters and dry air.",
   },
   {
     id: "kz",
@@ -1091,7 +1091,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Astana",
     lat: 51.17,
     lon: 71.45,
-    hook: "Steppe and a closed basin. Continentality in one word.",
+    hook: "Vast steppe and inland basins with no outlet to the sea, a textbook continental climate.",
   },
   {
     id: "uz",
@@ -1100,7 +1100,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Tashkent",
     lat: 41.3,
     lon: 69.24,
-    hook: "An irrigated dryland in a rain-shadow of high Asia.",
+    hook: "Irrigated farmland in a dry region sheltered from rain by the mountains of Central Asia.",
   },
   {
     id: "af",
@@ -1109,7 +1109,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Kabul",
     lat: 34.53,
     lon: 69.17,
-    hook: "A high dry collision landscape. Rain is a mountain story.",
+    hook: "High, dry mountains raised by collision, where most of the water comes from the peaks.",
   },
   {
     id: "iq",
@@ -1118,7 +1118,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Baghdad",
     lat: 33.32,
     lon: 44.37,
-    hook: "Tigris–Euphrates alluvium between deserts.",
+    hook: "The fertile river plain of the Tigris and Euphrates, between deserts.",
   },
   {
     id: "sy",
@@ -1127,7 +1127,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Damascus",
     lat: 33.51,
     lon: 36.29,
-    hook: "A Fertile Crescent edge: rain-fed west, dry east.",
+    hook: "An edge of the Fertile Crescent: rain-fed farmland in the west, dry steppe in the east.",
   },
   {
     id: "jo",
@@ -1136,7 +1136,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Amman",
     lat: 31.95,
     lon: 35.93,
-    hook: "A rift valley (Dead Sea) beside a rain-shadow desert.",
+    hook: "A rift valley holding the Dead Sea, beside a rain-shadow desert.",
   },
   {
     id: "lb",
@@ -1145,7 +1145,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Beirut",
     lat: 33.89,
     lon: 35.5,
-    hook: "A short mountain that wrings Mediterranean westerlies.",
+    hook: "Mountains close to the coast that squeeze the rain out of Mediterranean winds.",
   },
   {
     id: "cy",
@@ -1154,7 +1154,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Nicosia",
     lat: 35.17,
     lon: 33.36,
-    hook: "A Mediterranean island on an African–Anatolian hinge.",
+    hook: "A Mediterranean island near the boundary of the African and Anatolian plates.",
   },
   {
     id: "mt",
@@ -1163,7 +1163,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Valletta",
     lat: 35.9,
     lon: 14.51,
-    hook: "A limestone slab in a small sea. Karst at island scale.",
+    hook: "Small limestone islands, with caves, cliffs and other karst features.",
   },
   {
     id: "hr",
@@ -1172,7 +1172,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Zagreb",
     lat: 45.81,
     lon: 15.98,
-    hook: "A karst coast of drowned valleys — a Dalmatian shoreline.",
+    hook: "A limestone coast of drowned valleys and long islands along the Adriatic.",
   },
   {
     id: "ba",
@@ -1181,7 +1181,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Sarajevo",
     lat: 43.86,
     lon: 18.41,
-    hook: "Dinaric limestone, a karst interior.",
+    hook: "The Dinaric limestone mountains, full of caves and sinkholes.",
   },
   {
     id: "rs",
@@ -1190,7 +1190,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Belgrade",
     lat: 44.79,
     lon: 20.45,
-    hook: "A Danube gate through older hills.",
+    hook: "The Danube cutting through older hills on its way east.",
   },
   {
     id: "ro",
@@ -1199,7 +1199,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Bucharest",
     lat: 44.43,
     lon: 26.1,
-    hook: "Carpathian arc around a basin, then the Danube delta.",
+    hook: "The arc of the Carpathians around a basin, and the Danube delta on the Black Sea.",
   },
   {
     id: "bg",
@@ -1208,7 +1208,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Sofia",
     lat: 42.7,
     lon: 23.32,
-    hook: "A Balkan mountain and a Black Sea shelf.",
+    hook: "The Balkan Mountains and a Black Sea coast.",
   },
   {
     id: "hu",
@@ -1217,7 +1217,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Budapest",
     lat: 47.5,
     lon: 19.04,
-    hook: "A basin inside the Carpathians. Continental summers.",
+    hook: "A broad basin ringed by the Carpathians, with hot continental summers.",
   },
   {
     id: "cz",
@@ -1226,7 +1226,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Prague",
     lat: 50.08,
     lon: 14.44,
-    hook: "A Hercynian upland, a Bohemian basin.",
+    hook: "Old, worn-down uplands surrounding the Bohemian basin.",
   },
   {
     id: "sk",
@@ -1235,7 +1235,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Bratislava",
     lat: 48.15,
     lon: 17.11,
-    hook: "Western Carpathians and a Danube edge.",
+    hook: "The western Carpathians, sloping down to the Danube.",
   },
   {
     id: "dk",
@@ -1244,7 +1244,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Copenhagen",
     lat: 55.68,
     lon: 12.57,
-    hook: "A moraine country. Ice wrote the hills.",
+    hook: "Low hills of moraine left by the ice sheets.",
   },
   {
     id: "ee",
@@ -1253,7 +1253,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Tallinn",
     lat: 59.44,
     lon: 24.75,
-    hook: "A low glacial shield coast on the Baltic.",
+    hook: "A low, glaciated Baltic coast on ancient shield rock.",
   },
   {
     id: "lv",
@@ -1262,7 +1262,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Riga",
     lat: 56.95,
     lon: 24.11,
-    hook: "Moraine and a drowned glacial coast.",
+    hook: "Moraine hills and a low Baltic coast shaped by ice.",
   },
   {
     id: "lt",
@@ -1271,7 +1271,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Vilnius",
     lat: 54.69,
     lon: 25.28,
-    hook: "A glacial plain between two seas of influence.",
+    hook: "A glacial plain between the Baltic and the continental interior.",
   },
   {
     id: "by",
@@ -1280,7 +1280,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Minsk",
     lat: 53.9,
     lon: 27.57,
-    hook: "A moraine and peat interior.",
+    hook: "A low inland plain of moraines, peat bogs and marshes.",
   },
   {
     id: "md",
@@ -1289,7 +1289,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Chișinău",
     lat: 47.01,
     lon: 28.86,
-    hook: "A loess and steppe slice of the Black Sea hinterland.",
+    hook: "Rolling steppe and wind-blown loess soils inland from the Black Sea.",
   },
   {
     id: "ge",
@@ -1298,7 +1298,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Tbilisi",
     lat: 41.72,
     lon: 44.79,
-    hook: "Greater Caucasus collision wall, a humid west.",
+    hook: "The Greater Caucasus, a wall raised by collision, and a humid Black Sea coast.",
   },
   {
     id: "am",
@@ -1307,7 +1307,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Yerevan",
     lat: 40.18,
     lon: 44.51,
-    hook: "A volcanic high in a closed basin.",
+    hook: "A high volcanic plateau around Lake Sevan.",
   },
   {
     id: "az",
@@ -1316,7 +1316,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Baku",
     lat: 40.41,
     lon: 49.87,
-    hook: "Caspian shore, a dry east, a colliding west.",
+    hook: "A Caspian coast, dry lowlands, and the Caucasus Mountains to the north.",
   },
 
   {
@@ -1326,11 +1326,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "London",
     lat: 51.51,
     lon: -0.13,
-    hook: "Chalk downs, a drowned North Sea, and a till coast at Holderness.",
+    hook: "Chalk hills in the south, the North Sea to the east, and the crumbling till cliffs of Holderness.",
     geo: [
-      "Chalk downs in the south, a drowned North Sea to the east, and a till coast at Holderness.",
-      "Ice left till that the sea now cuts. Spurn Head is the longshore spit of that story.",
-      "London is on a drowned Thames, not a highland capital.",
+      "England has chalk hills in the south, the North Sea to the east and soft till cliffs at Holderness.",
+      "Ice sheets left the till, and the sea now erodes it quickly. Spurn Head is the spit built from that eroded sediment.",
+      "London lies in the lowland Thames valley, not in the hills.",
     ],
     labs: [
       { slug: "coasts", label: "Coasts" },
@@ -1345,11 +1345,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Edinburgh",
     lat: 55.95,
     lon: -3.19,
-    hook: "Caledonian mountains, glens as U-troughs, a wet west.",
+    hook: "Ancient Caledonian mountains, glens carved by glaciers, and a wet Atlantic west.",
     geo: [
-      "Caledonian mountains, glens as glacial U-troughs, a wet Atlantic west.",
-      "Ice, not rivers, cut the troughs. Rift of Glen More is a different story.",
-      "Edinburgh sits on a drier east, on old volcanic rock.",
+      "Scotland's Highlands are ancient Caledonian mountains, with glens carved into U-shaped valleys by ice.",
+      "Glaciers deepened the glens. The Great Glen itself follows a major fault that erosion picked out.",
+      "Edinburgh lies in the drier east, built around old volcanic rock such as Castle Rock.",
     ],
     labs: [
       { slug: "glaciers", label: "Glacial landforms" },
@@ -1363,11 +1363,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Cardiff",
     lat: 51.48,
     lon: -3.18,
-    hook: "Uplands of old rock, a wet west, and a coalfield coast.",
+    hook: "Uplands of old rock, a wet west, and a former coalfield along the south coast.",
     geo: [
-      "Uplands of old rock, a wet west, Snowdonia as the ice classroom.",
-      "Cardiff is on a coalfield coast, not in the mountains.",
-      "Contours and U-troughs are the physical map.",
+      "Wales is mostly uplands of old rock, with a wet west and the glaciated mountains of Eryri (Snowdonia).",
+      "Cardiff sits on the south coast beside the old South Wales coalfield.",
+      "Its contours and U-shaped valleys make it a good place to practice reading maps.",
     ],
     labs: [
       { slug: "glaciers", label: "Glacial landforms" },
@@ -1381,7 +1381,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Belfast",
     lat: 54.6,
     lon: -5.93,
-    hook: "Basalt steps of the Giant’s Causeway; a glacial drumlin belt.",
+    hook: "The basalt columns of the Giant's Causeway and a belt of drumlins left by ice.",
     labs: [
       { slug: "volcanoes", label: "Volcanoes" },
       { slug: "glaciers", label: "Glacial landforms" },
@@ -1394,7 +1394,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Northallerton",
     lat: 54.34,
     lon: -1.43,
-    hook: "Moors, a limestone edge, and a till coast that becomes Holderness.",
+    hook: "High moors, a limestone edge, and a till coast that continues south into Holderness.",
   },
   {
     id: "uk-cma",
@@ -1403,7 +1403,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Carlisle",
     lat: 54.89,
     lon: -2.94,
-    hook: "The Lake District: cirques, arêtes, radial drainage.",
+    hook: "The Lake District: corries, knife-edge ridges and lakes in valleys radiating from the center.",
     alias: ["Lake District"],
   },
   {
@@ -1413,7 +1413,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Exeter",
     lat: 50.72,
     lon: -3.53,
-    hook: "Jurassic Coast begins here: a tilted textbook of rock time.",
+    hook: "Where the Jurassic Coast begins: tilted rock layers spanning millions of years.",
     alias: ["Jurassic Coast"],
   },
   {
@@ -1423,7 +1423,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Dorchester",
     lat: 50.72,
     lon: -2.44,
-    hook: "Lulworth folds, Chesil Beach, a stack-and-arch coast.",
+    hook: "Folded rock at Lulworth, the shingle of Chesil Beach, and a coast of stacks and arches.",
     alias: ["Jurassic Coast", "Lulworth"],
   },
   {
@@ -1433,7 +1433,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Caernarfon",
     lat: 53.14,
     lon: -4.27,
-    hook: "Eryri / Snowdonia: a classroom of contours and ice.",
+    hook: "Eryri (Snowdonia): a classic place to study contours and glacial landforms.",
     alias: ["Snowdonia", "Eryri"],
   },
   {
@@ -1443,7 +1443,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Taunton",
     lat: 51.02,
     lon: -3.1,
-    hook: "Levels as a floodplain bargain; hydrographs that sit for weeks.",
+    hook: "The Somerset Levels, a low floodplain where floodwater can sit for weeks.",
   },
   {
     id: "uk-kent",
@@ -1452,7 +1452,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Maidstone",
     lat: 51.27,
     lon: 0.52,
-    hook: "Chalk cliffs, a drowned Thames mouth, a narrow sea.",
+    hook: "White chalk cliffs, the Thames estuary, and the narrow Strait of Dover.",
   },
   {
     id: "uk-nbl",
@@ -1461,7 +1461,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Morpeth",
     lat: 55.17,
     lon: -1.69,
-    hook: "A till and Whin Sill coast; a Cheviot upland.",
+    hook: "A coast of till and the hard Whin Sill, with the Cheviot Hills inland.",
   },
   {
     id: "uk-hld",
@@ -1470,7 +1470,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Inverness",
     lat: 57.48,
     lon: -4.23,
-    hook: "The Great Glen Fault, ice-cut lochs, a wet Atlantic wall.",
+    hook: "The Great Glen Fault, lochs carved by ice, and a wet Atlantic coast.",
   },
   {
     id: "uk-ery",
@@ -1479,7 +1479,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Beverley",
     lat: 53.84,
     lon: -0.43,
-    hook: "Holderness till cliffs and the Spurn spit.",
+    hook: "The fast-eroding till cliffs of Holderness and the Spurn Head spit.",
     alias: ["Holderness", "Spurn"],
   },
   {
@@ -1489,11 +1489,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "—",
     lat: 53.73,
     lon: -0.05,
-    hook: "Glacial till cliffs, southward longshore drift, Spurn Head spit.",
+    hook: "Soft glacial cliffs, longshore drift to the south, and the Spurn Head spit.",
     geo: [
-      "Holderness is a coast of glacial till — boulder clay — not chalk. Waves undercut a soft cliff.",
-      "Longshore drift carries sediment south. Spurn Head is the free-end spit of that conveyor.",
-      "This is the GCSE coasts case, not a fjord and not a coral island.",
+      "The Holderness cliffs are glacial till (boulder clay), not chalk. Waves undercut the soft cliff and it slumps.",
+      "Longshore drift carries the eroded sediment south, where it builds the long spit of Spurn Head.",
+      "It is one of Europe's fastest-eroding coastlines and a standard GCSE coasts case study.",
     ],
     labs: [
       { slug: "coasts", label: "Coasts" },
@@ -1508,11 +1508,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Keswick",
     lat: 54.45,
     lon: -3.08,
-    hook: "Cirques, arêtes, radial drainage from a glaciated dome.",
+    hook: "Corries, knife-edge ridges and valleys radiating from a glaciated dome.",
     geo: [
-      "A glaciated dome: cirques, arêtes, and radial drainage from a central high.",
-      "Ice cut U-troughs now holding lakes. Rivers did not invent those walls.",
-      "Keswick sits in a trough, not on a horn.",
+      "The Lake District is a dome of old rock. Ice carved corries and sharp ridges, and its valleys radiate out from the center.",
+      "Glaciers deepened the valleys into U-shaped troughs that now hold the lakes.",
+      "Keswick sits on the valley floor beside Derwentwater.",
     ],
     labs: [
       { slug: "glaciers", label: "Glacial landforms" },
@@ -1527,11 +1527,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "—",
     lat: 53.07,
     lon: -4.08,
-    hook: "Eryri: contours, ice, and a classroom mountain.",
+    hook: "Eryri (Snowdonia): steep contours, glacial landforms, and a mountain made for fieldwork.",
     geo: [
-      "Eryri / Snowdonia is a classroom of contours and ice. Cirques bite a ridge; a U-trough is the valley.",
-      "Yr Wyddfa is not a volcano. Old rock, then ice.",
-      "OS grid on these slopes is a skills lab, not a flag.",
+      "Eryri (Snowdonia) is a classic place to study contours and glacial landforms: corries bite into the ridges, and the valleys are U-shaped troughs.",
+      "Yr Wyddfa (Snowdon) is built from ancient volcanic rock, but it is not a volcano today; ice shaped its present form.",
+      "Its slopes are ideal for practicing Ordnance Survey grid references and contour reading.",
     ],
     labs: [
       { slug: "glaciers", label: "Glacial landforms" },
@@ -1547,11 +1547,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "—",
     lat: 50.62,
     lon: -2.25,
-    hook: "A tilted textbook of rock time: Lulworth folds, stacks, Chesil.",
+    hook: "Tilted layers of rock spanning millions of years: Lulworth Cove, sea stacks and Chesil Beach.",
     geo: [
-      "A tilted sequence of sedimentary rock from east Devon through Dorset. Time you can walk.",
-      "Lulworth Cove is differential erosion of a fold. Durdle Door is an arch in the same limestone.",
-      "Chesil is a tombolo-like barrier of graded pebbles, not a spit of till.",
+      "From east Devon to Dorset, tilted sedimentary layers record about 185 million years of Earth history. You can walk through geological time.",
+      "Lulworth Cove formed where the sea broke through hard limestone and scooped out softer rock behind it. Durdle Door is an arch in the same limestone.",
+      "Chesil Beach is a long shingle barrier whose pebbles are sorted by size along its length.",
     ],
     labs: [
       { slug: "coasts", label: "Coasts" },
@@ -1568,7 +1568,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Montgomery",
     lat: 32.38,
     lon: -86.3,
-    hook: "A coastal plain rising to Appalachian remnants.",
+    hook: "A coastal plain rising northward to the worn-down Appalachians.",
   },
   {
     id: "us-ak",
@@ -1577,11 +1577,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Juneau",
     lat: 58.3,
     lon: -134.42,
-    hook: "Subduction, ice, and a Pacific plate edge.",
+    hook: "Subduction, glaciers and the edge of the Pacific plate.",
     geo: [
-      "Alaska is a subduction and collision edge with ice on the high ground.",
-      "The Aleutian arc is a volcanic chain above a trench. Interior ice fields are glaciers, not a Florida story.",
-      "Juneau sits on a drowned glacial coast. Earthquakes and volcanoes are the plate conversation.",
+      "Alaska sits where the Pacific plate sinks beneath North America, with glaciers on its high mountains.",
+      "The Aleutian Islands are a chain of volcanoes above an ocean trench. Great ice fields cover the coastal ranges.",
+      "Juneau sits on a coast carved by glaciers and flooded by the sea. Large earthquakes and eruptions are part of life.",
     ],
     labs: [
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -1596,7 +1596,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Phoenix",
     lat: 33.45,
     lon: -112.07,
-    hook: "A desert basin, an urban heat island, a plateau canyon to the north.",
+    hook: "Desert basins, a growing urban heat island in Phoenix, and the Grand Canyon on the plateau to the north.",
     labs: [
       { slug: "river-erosion", label: "River erosion" },
       { slug: "climate-types", label: "Climate types" },
@@ -1609,7 +1609,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Little Rock",
     lat: 34.75,
     lon: -92.29,
-    hook: "Interior highlands to a Mississippi alluvial plain.",
+    hook: "The Ozark and Ouachita highlands, falling east to the Mississippi's floodplain.",
   },
   {
     id: "us-ca",
@@ -1618,11 +1618,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Sacramento",
     lat: 38.58,
     lon: -121.49,
-    hook: "Transform plus subduction plus a rain-shadow desert. San Andreas is a right-lateral transform, not a volcanic arc.",
+    hook: "A sliding plate boundary, the remains of a subduction zone, and deserts in the rain shadow of the Sierra Nevada.",
     geo: [
-      "California is transform plus a leftover of subduction plus a rain-shadow desert.",
-      "The San Andreas Fault is a right-lateral transform: plates slide past. It is not a volcanic arc and not a hotspot.",
-      "Cascadia-style subduction is to the north. The Sierra wrings the west wind; Death Valley is the lee.",
+      "California sits on the San Andreas transform, with the remains of an older subduction zone and deserts in the lee of its mountains.",
+      "Along the San Andreas Fault, the Pacific plate slides northwest past the North American plate. It builds no volcanoes.",
+      "Subduction continues to the north, at Cascadia. The Sierra Nevada wrings rain from westerly winds, leaving Death Valley dry in its shadow.",
     ],
     labs: [
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -1638,7 +1638,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Denver",
     lat: 39.74,
     lon: -104.99,
-    hook: "A mile-high step onto the Great Plains from the Rockies.",
+    hook: "Where the Rocky Mountains meet the Great Plains, a mile above sea level.",
   },
   {
     id: "us-ct",
@@ -1647,7 +1647,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Hartford",
     lat: 41.76,
     lon: -72.67,
-    hook: "A glaciated New England upland to a drowned coast.",
+    hook: "Glaciated New England hills sloping down to a drowned coast.",
   },
   {
     id: "us-de",
@@ -1656,7 +1656,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Dover",
     lat: 39.16,
     lon: -75.52,
-    hook: "A coastal-plain sliver on the Mid-Atlantic bight.",
+    hook: "A narrow strip of coastal plain on the Mid-Atlantic coast.",
   },
   {
     id: "us-dc",
@@ -1665,11 +1665,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Washington, D.C.",
     lat: 38.91,
     lon: -77.04,
-    hook: "A fall-line city on the Potomac. Coastal-plain / piedmont hinge, not a glacial trough.",
+    hook: "A city on the fall line of the Potomac, where hard upland rock meets the soft coastal plain.",
     geo: [
-      "Washington, D.C. sits on a fall-line hinge between piedmont rock and coastal-plain sediment.",
-      "The Potomac is a drowned river approaching Chesapeake. This is not a glacial trough.",
-      "A capital on a river terrace, not a mountain or a hotspot.",
+      "Washington, D.C. sits on the fall line, where the hard rock of the Piedmont meets the softer sediment of the coastal plain.",
+      "Below the falls, the Potomac becomes a drowned river valley that opens into Chesapeake Bay.",
+      "The city grew on river terraces where boats could go no farther upstream.",
     ],
     labs: [
       { slug: "rivers", label: "Rivers" },
@@ -1684,11 +1684,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Tallahassee",
     lat: 30.44,
     lon: -84.28,
-    hook: "A carbonate platform and a hurricane fetch. Not a glacial trough — ice never carved this peninsula.",
+    hook: "A low limestone platform with sinkholes inland and hurricane coasts on two sides.",
     geo: [
-      "Florida is a carbonate platform — limestone and sand — with a hurricane fetch from the Atlantic and Gulf.",
-      "It is not a glacial trough. Ice sheets did not cut Yosemite-style walls here. Karst and sinkholes are the inland story.",
-      "Tallahassee is on the north of the peninsula. Storm surge, not ice, is the coastal hazard.",
+      "Florida is a low platform of limestone and sand, open to hurricanes from both the Atlantic and the Gulf.",
+      "Ice sheets never reached it. Inland, rainwater dissolves the limestone, forming sinkholes, springs and caves.",
+      "Tallahassee is in the north of the state. Along the coast, storm surge is the main hazard.",
     ],
     labs: [
       { slug: "tropical-cyclone", label: "Tropical cyclone" },
@@ -1703,7 +1703,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Atlanta",
     lat: 33.75,
     lon: -84.39,
-    hook: "Piedmont to coastal plain; a classic fall-line city.",
+    hook: "Piedmont hills falling to a wide coastal plain, with cities along the fall line.",
   },
   {
     id: "us-hi",
@@ -1712,11 +1712,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Honolulu",
     lat: 21.31,
     lon: -157.86,
-    hook: "A hotspot track. Islands age northwest. Not a subduction arc.",
+    hook: "A chain of hotspot volcanoes that get older toward the northwest.",
     geo: [
-      "Hawaiʻi is a hotspot track through the Pacific plate. The plume stays; the plate moves northwest.",
-      "Islands age away from the active volcanoes. Kauaʻi is older than the Big Island. This is not a subduction arc and not a mid-ocean ridge.",
-      "Shield volcanoes of runny basalt, not steep stratovolcanoes. Honolulu sits on Oʻahu, a mid-chain island.",
+      "Hawaiʻi formed over a hotspot. The plume stays put while the Pacific plate moves northwest over it.",
+      "The islands get older away from the active volcanoes: Kauaʻi is far older than the Big Island. There is no subduction zone or ridge here.",
+      "The volcanoes are broad shields built from runny basalt, not steep cones. Honolulu is on Oʻahu, in the middle of the chain.",
     ],
     labs: [
       { slug: "hotspots", label: "Hotspots" },
@@ -1731,7 +1731,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Boise",
     lat: 43.62,
     lon: -116.2,
-    hook: "Snake River Plain is a hotspot track on land.",
+    hook: "The Snake River Plain, the track a hotspot has left across the continent.",
     labs: [{ slug: "hotspots", label: "Hotspots" }],
   },
   {
@@ -1741,7 +1741,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Springfield",
     lat: 39.78,
     lon: -89.65,
-    hook: "A glaciated prairie. Mollisol country.",
+    hook: "Flat prairie left by glaciers, with some of the world's richest soils.",
   },
   {
     id: "us-in",
@@ -1750,7 +1750,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Indianapolis",
     lat: 39.77,
     lon: -86.16,
-    hook: "Till plain, a glacial story under farms.",
+    hook: "Flat till plains left by glaciers, now covered by farms.",
   },
   {
     id: "us-ia",
@@ -1759,7 +1759,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Des Moines",
     lat: 41.59,
     lon: -93.62,
-    hook: "Loess and mollisol. The Dust Bowl’s wetter neighbor.",
+    hook: "Wind-blown loess and deep prairie soils, wetter than the Dust Bowl states to the southwest.",
   },
   {
     id: "us-ks",
@@ -1768,7 +1768,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Topeka",
     lat: 39.05,
     lon: -95.68,
-    hook: "Great Plains. Wind, wheat, and a rain gradient west to dry.",
+    hook: "Great Plains wheat country, getting drier from east to west.",
   },
   {
     id: "us-ky",
@@ -1777,7 +1777,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Frankfort",
     lat: 38.2,
     lon: -84.87,
-    hook: "Karst plateaus and Mammoth Cave, the longest known cave system on Earth.",
+    hook: "Limestone plateaus and Mammoth Cave, the longest known cave system on Earth.",
     labs: [{ slug: "karst", label: "Karst" }],
   },
   {
@@ -1787,7 +1787,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Baton Rouge",
     lat: 30.45,
     lon: -91.19,
-    hook: "Mississippi delta and a hurricane coast. Land-building vs subsidence.",
+    hook: "The Mississippi delta and a hurricane coast, where land is sinking and washing away faster than the river can build it.",
     labs: [
       { slug: "rivers", label: "Rivers" },
       { slug: "tropical-cyclone", label: "Tropical cyclone" },
@@ -1801,7 +1801,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Augusta",
     lat: 44.31,
     lon: -69.78,
-    hook: "A drowned glacial coast of granite and spruce.",
+    hook: "A rocky coast of granite and spruce, carved by ice and flooded by the sea.",
   },
   {
     id: "us-md",
@@ -1810,7 +1810,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Annapolis",
     lat: 38.98,
     lon: -76.49,
-    hook: "A ria coast — Chesapeake as a drowned river.",
+    hook: "Chesapeake Bay, a river valley drowned as sea level rose.",
   },
   {
     id: "us-ma",
@@ -1819,7 +1819,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Boston",
     lat: 42.36,
     lon: -71.06,
-    hook: "Glacial till, a cape of sand, a drowned New England shore.",
+    hook: "Glacial deposits, the sandy hook of Cape Cod, and a drowned New England shore.",
   },
   {
     id: "us-mi",
@@ -1828,7 +1828,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Lansing",
     lat: 42.73,
     lon: -84.56,
-    hook: "A glacial lake state. Moraines as the backbone.",
+    hook: "Two peninsulas framed by the Great Lakes, with moraine ridges left by the ice.",
   },
   {
     id: "us-mn",
@@ -1837,7 +1837,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Saint Paul",
     lat: 44.95,
     lon: -93.09,
-    hook: "Ice-scoured lakes on a shield edge.",
+    hook: "Thousands of lakes scoured by ice at the edge of the Canadian Shield.",
   },
   {
     id: "us-ms",
@@ -1846,7 +1846,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Jackson",
     lat: 32.3,
     lon: -90.18,
-    hook: "Alluvial plain of the big river. Loess bluffs on the edge.",
+    hook: "The Mississippi's wide floodplain, edged by bluffs of wind-blown loess.",
   },
   {
     id: "us-mo",
@@ -1855,7 +1855,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Jefferson City",
     lat: 38.58,
     lon: -92.17,
-    hook: "Ozark plateau, a Mississippi confluence, a tornado alley edge.",
+    hook: "The Ozark Plateau, the meeting of the Mississippi and Missouri, and the edge of Tornado Alley.",
   },
   {
     id: "us-mt",
@@ -1864,7 +1864,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Helena",
     lat: 46.59,
     lon: -112.02,
-    hook: "Northern Rockies to a high plains rain-shadow.",
+    hook: "The northern Rockies giving way to dry high plains in their rain shadow.",
   },
   {
     id: "us-ne",
@@ -1873,7 +1873,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Lincoln",
     lat: 40.81,
     lon: -96.7,
-    hook: "Loess and sandhills. A Great Plains hydrograph.",
+    hook: "Loess hills and the grass-covered dunes of the Sandhills.",
   },
   {
     id: "us-nv",
@@ -1882,7 +1882,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Carson City",
     lat: 39.16,
     lon: -119.77,
-    hook: "Basin and Range. Interior drainage, a rain-shadow desert.",
+    hook: "Basin and Range: rows of mountains, desert valleys, and rivers that never reach the sea.",
   },
   {
     id: "us-nh",
@@ -1891,7 +1891,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Concord",
     lat: 43.21,
     lon: -71.54,
-    hook: "Glaciated granite upland. A White Mountain horn-and-trough story.",
+    hook: "Granite uplands where glaciers carved the White Mountains' notches and peaks.",
   },
   {
     id: "us-nj",
@@ -1900,7 +1900,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Trenton",
     lat: 40.22,
     lon: -74.76,
-    hook: "A barrier coast and a piedmont. Sandy is the exam storm.",
+    hook: "Barrier islands, a coastal plain and the Piedmont. Hurricane Sandy is the key storm to study.",
   },
   {
     id: "us-nm",
@@ -1909,7 +1909,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Santa Fe",
     lat: 35.69,
     lon: -105.94,
-    hook: "A high dry plateau, a rift, a desert river.",
+    hook: "High, dry plateaus, the Rio Grande rift, and a desert river.",
   },
   {
     id: "us-ny",
@@ -1918,7 +1918,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Albany",
     lat: 42.65,
     lon: -73.76,
-    hook: "A glaciated through-valley to a drowned harbor.",
+    hook: "The Hudson Valley, deepened by ice, opening into a drowned harbor.",
   },
   {
     id: "us-nc",
@@ -1927,7 +1927,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Raleigh",
     lat: 35.78,
     lon: -78.64,
-    hook: "Outer Banks barriers; longshore drift as a state fact.",
+    hook: "The Outer Banks, barrier islands that longshore drift keeps reshaping.",
     labs: [
       { slug: "coasts", label: "Coasts" },
       { slug: "tropical-cyclone", label: "Tropical cyclone" },
@@ -1940,7 +1940,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Bismarck",
     lat: 46.81,
     lon: -100.78,
-    hook: "Prairie potholes, a glacial lake plain.",
+    hook: "Prairie potholes and the flat bed of a former glacial lake.",
   },
   {
     id: "us-oh",
@@ -1949,7 +1949,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Columbus",
     lat: 39.96,
     lon: -83.0,
-    hook: "Till plains to a lake-effect shore.",
+    hook: "Glacial till plains stretching north to the Lake Erie shore, where lake-effect snow falls.",
   },
   {
     id: "us-ok",
@@ -1958,7 +1958,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Oklahoma City",
     lat: 35.47,
     lon: -97.52,
-    hook: "Dust Bowl ground zero. Wind plus drought plus a broken A horizon.",
+    hook: "At the center of the Dust Bowl, where drought, wind and plowed-up topsoil turned to dust storms.",
     labs: [
       { slug: "soil-erosion", label: "Soil erosion" },
       { slug: "aeolian", label: "Wind landforms" },
@@ -1971,7 +1971,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Salem",
     lat: 44.94,
     lon: -123.03,
-    hook: "Cascadia subduction, a wet west, a dry east.",
+    hook: "Cascadia subduction, a wet west, and a dry east.",
     labs: [
       { slug: "plate-boundaries", label: "Plate boundaries" },
       { slug: "volcanoes", label: "Volcanoes" },
@@ -1985,7 +1985,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Harrisburg",
     lat: 40.27,
     lon: -76.88,
-    hook: "Folded Appalachian strata form parallel ridges and valleys; rock resistance and erosion control the relief.",
+    hook: "Folded Appalachian rock layers form parallel ridges and valleys; hard and soft rock erode at different rates.",
     labs: [{ slug: "folds-faults", label: "Folds and faults" }],
   },
   {
@@ -1995,7 +1995,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Providence",
     lat: 41.82,
     lon: -71.41,
-    hook: "A drowned glacial coast in miniature.",
+    hook: "A small coast of drowned valleys shaped by glaciers.",
   },
   {
     id: "us-sc",
@@ -2004,7 +2004,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Columbia",
     lat: 34.0,
     lon: -81.03,
-    hook: "A coastal plain and a hurricane fetch.",
+    hook: "A wide coastal plain exposed to Atlantic hurricanes.",
   },
   {
     id: "us-sd",
@@ -2013,7 +2013,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Pierre",
     lat: 44.37,
     lon: -100.35,
-    hook: "Badlands, a glaciated east, a dry west.",
+    hook: "The Badlands, a glaciated east, and a dry west.",
   },
   {
     id: "us-tn",
@@ -2022,7 +2022,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Nashville",
     lat: 36.16,
     lon: -86.78,
-    hook: "A folded valley-and-ridge, then a plateau, then a plain.",
+    hook: "Folded ridges and valleys, then the Cumberland Plateau, then plains toward the Mississippi.",
   },
   {
     id: "us-tx",
@@ -2031,7 +2031,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Austin",
     lat: 30.27,
     lon: -97.74,
-    hook: "A Gulf coast, an Edwards karst, a High Plains dry line.",
+    hook: "A Gulf coast, the limestone of the Edwards Plateau, and the dry line on the High Plains.",
     labs: [
       { slug: "karst", label: "Karst" },
       { slug: "tropical-cyclone", label: "Tropical cyclone" },
@@ -2044,7 +2044,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Salt Lake City",
     lat: 40.76,
     lon: -111.89,
-    hook: "A closed basin, a salt lake, basin-and-range.",
+    hook: "The Great Salt Lake in a basin with no outlet, and the Basin and Range to the west.",
   },
   {
     id: "us-vt",
@@ -2053,7 +2053,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Montpelier",
     lat: 44.26,
     lon: -72.58,
-    hook: "A glaciated green ridge. U-troughs in miniature.",
+    hook: "The Green Mountains, a ridge shaped by glaciers into small U-shaped valleys.",
   },
   {
     id: "us-va",
@@ -2062,7 +2062,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Richmond",
     lat: 37.54,
     lon: -77.44,
-    hook: "A fall line city; Blue Ridge to a drowned Chesapeake.",
+    hook: "A fall-line capital, with the Blue Ridge to the west and Chesapeake Bay to the east.",
   },
   {
     id: "us-wa",
@@ -2071,11 +2071,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Olympia",
     lat: 47.04,
     lon: -122.9,
-    hook: "Cascadia subduction, a wet Olympic rainforest, a dry interior. Not the San Andreas.",
+    hook: "Cascadia subduction, the Olympic rainforest, and a dry interior.",
     geo: [
-      "Washington State is Cascadia: the Juan de Fuca plate dives under North America. That is subduction, not the San Andreas transform.",
-      "A wet Olympic west, a volcanic Cascade arc, a dry Columbia interior in rain-shadow.",
-      "Olympia sits on a drowned glacial sound. Ice cut the troughs; the plate writes the volcanoes.",
+      "Washington sits above the Cascadia subduction zone, where the Juan de Fuca plate sinks beneath North America.",
+      "The Olympic Peninsula has a temperate rainforest. East of the volcanic Cascades, the Columbia Basin lies dry in their rain shadow.",
+      "Olympia is on Puget Sound, a set of troughs carved by ice and flooded by the sea.",
     ],
     labs: [
       { slug: "plate-boundaries", label: "Plate boundaries" },
@@ -2090,7 +2090,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Charleston",
     lat: 38.35,
     lon: -81.63,
-    hook: "Dissected plateau. Deep V-valleys in old rock.",
+    hook: "A plateau cut into steep V-shaped valleys by rivers.",
   },
   {
     id: "us-wi",
@@ -2099,7 +2099,7 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Madison",
     lat: 43.07,
     lon: -89.4,
-    hook: "A drumlin and moraine state. Ice as the cartographer.",
+    hook: "Drumlins and moraines left by the ice sheets.",
   },
   {
     id: "us-wy",
@@ -2108,11 +2108,11 @@ export const ATLAS: AtlasPlace[] = [
     capital: "Cheyenne",
     lat: 41.14,
     lon: -104.82,
-    hook: "A high dry plateau. Yellowstone is a continental hotspot, not a plate boundary.",
+    hook: "High plains and ranges, and Yellowstone, a hotspot in the middle of a continent.",
     geo: [
-      "A high dry plateau and ranges. Yellowstone is a continental hotspot: the plume stays, the plate moves.",
-      "It is not a mid-ocean ridge and not the San Andreas. Caldera plus a track of older volcanic centers to the south-west.",
-      "Cheyenne sits on the high plains, not in the caldera.",
+      "Wyoming is a land of high plains and mountain ranges. Yellowstone sits over a hotspot: the plume stays put and the plate moves over it.",
+      "It is far from any plate boundary. A trail of older volcanic centers stretches southwest along the Snake River Plain.",
+      "Cheyenne lies on the high plains in the southeast of the state.",
     ],
     labs: [
       { slug: "hotspots", label: "Hotspots" },

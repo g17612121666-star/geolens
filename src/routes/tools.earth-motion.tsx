@@ -208,7 +208,7 @@ function EarthMotion() {
       </div>
       <p className="mt-4 max-w-3xl text-mist">
         {
-          "Move through the year, compare two latitudes, then change the time of day. The readings and illuminated hemisphere use the same solar geometry."
+          "Move through the year, compare two latitudes, then change the time of day. The readings and the lit half of the globe come from the same solar geometry."
         }
       </p>
       <div className="mt-5 flex flex-wrap gap-2">

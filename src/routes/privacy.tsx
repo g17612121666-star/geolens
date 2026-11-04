@@ -14,7 +14,7 @@ export const Route = createFileRoute("/privacy")({
   head: () =>
     headFor({
       title: "Privacy",
-      description: "Geolens has no accounts, no adverts and no student tracking.",
+      description: "Geolens has no accounts, no ads and no student tracking.",
       path: "/privacy",
     }),
 });
@@ -34,7 +34,7 @@ function Privacy() {
         </p>
         <p>
           {
-            "Lab settings (such as tilt, date, viscosity or labels) are kept only in the page address and in your browser. Copy the link to share a setup. Nothing about them is sent to a server when you close the tab."
+            "Lab settings (such as tilt, date, viscosity or labels) are kept only in the page address and in your browser. Copy the link to share a setup. None of it is sent to a server."
           }
         </p>
         <p>

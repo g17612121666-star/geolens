@@ -30,7 +30,7 @@ export function LabThumb({ slug }: { slug: string }) {
         )}
         {failed && (
           <p role="alert" className="absolute inset-x-3 bottom-3 bg-basalt/95 p-3 text-sm">
-            {"Photograph unavailable. The lab can still open."}
+            {"Photo unavailable. The lab still works."}
           </p>
         )}
       </div>

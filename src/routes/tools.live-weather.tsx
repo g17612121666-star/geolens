@@ -358,8 +358,8 @@ function LiveWeather() {
               />
             ) : (
               <p>
-                The forecast is unavailable. Retry either place above; the map and related labs are
-                still available.
+                The forecast didn’t load. Try either place again above; the map and related labs
+                still work.
               </p>
             )}
           </div>
