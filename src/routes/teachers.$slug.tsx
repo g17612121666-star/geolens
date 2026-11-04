@@ -132,6 +132,17 @@ function TeacherArticlePage() {
           {"Student worksheet"}
         </Link>
         <button
+          className="min-h-11 rounded-full border border-glacier/30 px-4 text-glacier"
+          onClick={() =>
+            void copy(
+              `${window.location.origin}/lab/${lab.slug}?guided=1`,
+              "Guided link copied. Students predict, explore, explain and get a hand-in code.",
+            )
+          }
+        >
+          {"Copy Guided student link"}
+        </button>
+        <button
           className="min-h-11 rounded-full border border-white/15 px-4 text-ice"
           aria-pressed={largeText}
           onClick={() => setLargeText((v) => !v)}
@@ -155,6 +166,39 @@ function TeacherArticlePage() {
       )}
 
       {hero && <Figure {...hero} className="mt-8" />}
+      {(lab.predict || lab.cer) && (
+        <section className="mt-8" aria-label={"Guided activity"}>
+          <h2 className="font-display text-2xl">{"Guided activity and model answer"}</h2>
+          <p className="mt-2 text-sm leading-6 text-mist">
+            {
+              "The Guided link asks students to predict before the model opens, explore, then explain with claim, evidence and reasoning. Their hand-in code shows whether each part was written; the slip carries the writing."
+            }
+          </p>
+          {lab.predict && (
+            <p className="mt-4 leading-7">
+              <span className="font-medium text-chalk">{"Prediction prompt: "}</span>
+              <span className="text-mist">{lab.predict.prompt}</span>
+            </p>
+          )}
+          {lab.cer && (
+            <div className="mt-4 rounded-xl border border-white/10 bg-white/[.025] p-5 leading-7">
+              <p className="font-medium text-chalk">{lab.cer.prompt}</p>
+              <p className="mt-3">
+                <span className="font-medium text-glacier">{"Claim. "}</span>
+                <span className="text-mist">{lab.cer.claim}</span>
+              </p>
+              <p className="mt-2">
+                <span className="font-medium text-glacier">{"Evidence. "}</span>
+                <span className="text-mist">{lab.cer.evidence}</span>
+              </p>
+              <p className="mt-2">
+                <span className="font-medium text-glacier">{"Reasoning. "}</span>
+                <span className="text-mist">{lab.cer.reasoning}</span>
+              </p>
+            </div>
+          )}
+        </section>
+      )}
       <section className="mt-8" aria-label={"Lesson plan"}>
         <h2 className="font-display text-2xl">{"A suggested lesson sequence"}</h2>
         <p className="mt-3 leading-7 text-mist">

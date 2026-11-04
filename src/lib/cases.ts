@@ -524,6 +524,189 @@ export const CASES: CaseStudy[] = [
     sources: [{ label: "USBR / USGS Colorado River" }],
   },
   {
+    slug: "kamchatka-tsunami-hawaii-2025",
+    title: "The 2025 Kamchatka tsunami in Hawaiʻi",
+    place: "Kamchatka, Russia, to Hawaiʻi",
+    region: "US",
+    labs: ["tsunami", "plate-boundaries", "earthquakes"],
+    lat: 21.3,
+    lon: -157.8,
+    zoom: 2,
+    also: { name: "Epicenter off Kamchatka", lat: 52.5, lon: 160.3 },
+    lede: "On 29 July 2025 a magnitude 8.8 earthquake off Russia's Kamchatka Peninsula sent a tsunami across the North Pacific. About six hours later it reached Hawaiʻi, where waves of more than 1 meter arrived and coastal areas were evacuated.",
+    body: [
+      "The earthquake struck on the megathrust where the Pacific Plate sinks beneath the Okhotsk microplate. It was the sixth-largest earthquake ever recorded, and the sudden uplift of the seafloor lifted the whole depth of water above it. Hawaiʻi had the largest waves recorded outside Russia, yet NOAA notes that no deaths were caused by the shaking or the tsunami.",
+      "Warnings had hours to work because the tsunami crossed deep water at the speed of a jet plane. NASA's GUARDIAN system even detected its ripples in the upper atmosphere, using GPS signals, 32 minutes before Hawaiʻi's first tide gauge did. Use the tsunami model to see why the wave is fast and low in deep water, then slows and grows over the shelf.",
+    ],
+    exam: {
+      prompt:
+        "Explain why a tsunami from Kamchatka took about six hours to reach Hawaiʻi, and why it was barely noticeable in the open ocean.",
+      hint: "Use c = √(g h): in about 4 to 5 km of water the wave travels at around 200 m/s, so about 5,000 km takes several hours. Its energy is spread through the whole water depth, so the surface rise at sea is small.",
+    },
+    sources: [
+      {
+        label: "USGS Hawaiian Volcano Observatory — distant versus local tsunami response times",
+        href: "https://www.usgs.gov/observatories/hvo/news/volcano-watch-distant-versus-local-earthquakes-and-tsunami-response-times",
+      },
+      {
+        label: "NASA SVS — GUARDIAN warns Hawaii of the Kamchatka tsunami",
+        href: "https://svs.gsfc.nasa.gov/5625",
+      },
+    ],
+  },
+  {
+    slug: "mount-st-helens-1980",
+    title: "Mount St. Helens, 1980",
+    place: "Washington State",
+    region: "US",
+    labs: ["volcanoes", "plate-boundaries", "mass-movement"],
+    lat: 46.2,
+    lon: -122.19,
+    zoom: 9,
+    lede: "On 18 May 1980 the north side of Mount St. Helens collapsed in the largest landslide in recorded history, and the volcano blasted sideways across the forest. It is a classic example of a composite volcano above a subduction zone.",
+    body: [
+      "Through spring 1980, rising magma pushed the volcano's north flank outward by more than 135 meters. At 8:32 a.m. on 18 May an earthquake shook the bulge loose, and the summit and flank slid away as a huge debris avalanche. Releasing the pressure let gas-rich magma and superheated water explode sideways: the lateral blast reached at least 480 km/h and flattened forest across an area about 30 km wide. Lahars then poured down the river valleys.",
+      "Mount St. Helens sits in the Cascade arc, above the Juan de Fuca Plate sinking beneath North America. Its sticky, gas-rich magma builds steep cones and erupts explosively, unlike the runny basalt of Hawaiʻi. Compare it with Mauna Loa using Real volcanoes in the volcano lab, and use the mass-movement lab to think about how a slope fails.",
+    ],
+    exam: {
+      prompt:
+        "Explain why Mount St. Helens erupted explosively in 1980 while Hawaiian volcanoes usually produce lava flows.",
+      hint: "Link subduction to viscous, gas-rich magma; explain how the landslide suddenly released pressure; contrast this with runny basalt at a hotspot.",
+    },
+    sources: [
+      {
+        label: "USGS — Mount St. Helens 1980 cataclysmic eruption",
+        href: "https://www.usgs.gov/volcanoes/mount-st-helens/1980-cataclysmic-eruption",
+      },
+      {
+        label: "USGS — The climactic eruption of May 18, 1980",
+        href: "https://pubs.usgs.gov/gip/msh/climactic.html",
+      },
+    ],
+  },
+  {
+    slug: "mississippi-flood-2011",
+    title: "The 2011 Mississippi flood and the Morganza Spillway",
+    place: "Lower Mississippi River, Missouri to Louisiana",
+    region: "US",
+    labs: ["hydrograph", "drainage-basin", "rivers"],
+    lat: 30.99,
+    lon: -91.59,
+    zoom: 6,
+    also: { name: "Birds Point–New Madrid Floodway", lat: 36.8, lon: -89.25 },
+    lede: "In spring 2011 heavy rain and snowmelt across the Mississippi and Ohio basins produced one of the largest floods on record. Engineers deliberately flooded farmland through three floodways to protect towns and cities downstream.",
+    body: [
+      "On the night of 2 May the Army Corps of Engineers blew open the levee at the Birds Point–New Madrid Floodway in Missouri, sending water across about 130,000 acres of farmland to lower the river near Cairo, Illinois. The Bonnet Carré Spillway above New Orleans opened on 9 May, and on 14 May the Morganza Spillway opened for the first time since 1973, diverting water into the Atchafalaya Basin. It was the first time all three floodways had operated at once.",
+      "A river this size integrates rain and snowmelt from much of the central United States, so its flood peak builds over weeks rather than hours. Use the drainage-basin lab to trace how tributaries feed one outlet, and the hydrograph lab to compare a fast local storm peak with this slow, enormous one.",
+    ],
+    exam: {
+      prompt:
+        "Explain why engineers chose to flood farmland on purpose during the 2011 Mississippi flood.",
+      hint: "Floodways store and divert water, lowering the crest downstream; compare the cost of flooding farmland with the risk to cities and levees.",
+    },
+    sources: [
+      {
+        label: "USDA FSA — 2011 Birds Point–New Madrid Floodway activation",
+        href: "https://www.fsa.usda.gov/Internet/FSA_File/pm2011_disaster_plunk.pdf",
+      },
+      {
+        label: "NASA Landsat — Mississippi flooding comparison",
+        href: "https://landsat.gsfc.nasa.gov/article/landsat-offers-stunning-comparison-of-flooding",
+      },
+    ],
+  },
+  {
+    slug: "lake-mead-low",
+    title: "Lake Mead's falling water",
+    place: "Nevada and Arizona",
+    region: "US",
+    labs: ["water-cycle", "river-hydrology"],
+    lat: 36.02,
+    lon: -114.74,
+    zoom: 9,
+    lede: "Lake Mead, the largest reservoir in the United States, fell from about 1,204 feet above sea level in 2000 to about 1,049 feet by late May 2022, its lowest level since it first filled in 1937. A white bathtub ring on the canyon walls shows how far it dropped.",
+    body: [
+      "A reservoir is a store: its level rises when inflow exceeds releases, withdrawals and evaporation, and falls when outputs win. Since 2000, a long drought has reduced the snowmelt that feeds the Colorado River, while cities and farms in seven states and Mexico have kept drawing on it. In August 2021 the Bureau of Reclamation declared the first-ever shortage on the lower Colorado River for 2022, because Lake Mead was projected to start the year below 1,075 feet.",
+      "Use the water-cycle lab to see how abstraction lowers a reservoir while the total water on Earth stays the same, and the river-hydrology lab to see how a snow-fed river's flow depends on the winter snowpack.",
+    ],
+    exam: {
+      prompt:
+        "Using inputs, outputs and storage, explain why Lake Mead's level fell between 2000 and 2022.",
+      hint: "Compare reduced inflow from drought and smaller snowpacks with continued releases, withdrawals and evaporation; a store shrinks when outputs exceed inputs.",
+    },
+    sources: [
+      {
+        label: "Bureau of Reclamation — lower Colorado River water levels",
+        href: "https://www.usbr.gov/lc/region/g4000/hourly/levels.html",
+      },
+      {
+        label: "Bureau of Reclamation — news release on the first shortage declaration",
+        href: "https://www.usbr.gov/newsroom/news-release/3950",
+      },
+    ],
+  },
+  {
+    slug: "louisiana-land-loss",
+    title: "Louisiana's disappearing coast",
+    place: "Coastal Louisiana",
+    region: "US",
+    labs: ["river-deposition", "coasts", "storm-surge"],
+    lat: 29.48,
+    lon: -90.05,
+    zoom: 8,
+    lede: "Coastal Louisiana lost about 2,000 square miles of land between 1932 and 2016, roughly a quarter of its land area, as marsh turned into open water. The loss has slowed since 2010 but has not stopped.",
+    body: [
+      "The Mississippi built this coast over thousands of years by spreading sediment across its delta. Today levees keep most of that sediment in the channel and send it into deep water, so the marsh no longer gets the new mud it needs. Meanwhile the soft delta sediment compacts and sinks, canals cut through the marsh, sea level is rising, and hurricanes tear marsh apart.",
+      "Land loss matters for storm surge: marsh and barrier islands slow and lower a surge before it reaches towns. Use the river-deposition lab to see where rivers drop sediment, and the storm-surge lab to see how a shallow shelf and open water change the rise at the coast.",
+    ],
+    exam: {
+      prompt:
+        "Explain why the Mississippi delta is losing land even though the river still carries a large load of sediment.",
+      hint: "Levees route sediment past the marsh into deep water; subsidence, sea-level rise, canals and storms remove or drown marsh faster than new sediment builds it.",
+    },
+    sources: [
+      {
+        label: "USGS — Land area change in coastal Louisiana, 1932 to 2016",
+        href: "https://pubs.usgs.gov/publication/sim3381",
+      },
+      {
+        label: "USGS — Louisiana's rate of coastal wetland loss continues to slow",
+        href: "https://www.usgs.gov/news/national-news-release/usgs-louisianas-rate-coastal-wetland-loss-continues-slow",
+      },
+    ],
+  },
+  {
+    slug: "newtok-mertarvik",
+    title: "Newtok moves to Mertarvik",
+    place: "Western Alaska",
+    region: "US",
+    labs: ["periglacial", "coasts"],
+    lat: 60.82,
+    lon: -164.52,
+    zoom: 9,
+    also: { name: "Newtok", lat: 60.94, lon: -164.63 },
+    lede: "The Yup’ik village of Newtok, on the Ninglick River near the Bering Sea, has been losing land to erosion, thawing permafrost and flooding. In October 2019 its first families moved across the river to a new village, Mertarvik, built on bedrock.",
+    body: [
+      "Newtok stands on permafrost-rich, low-lying ground. As the ground thaws it softens and sinks, and river and storm waves cut away the weakened banks: erosion has removed close to a mile of land around the village. The new site, Mertarvik on Nelson Island, was chosen because its houses could stand on pads dug down to bedrock, which stays stable as the ground above freezes and thaws.",
+      "The move took years and is still not finished: families moved as houses became ready, and by 2025 everyone had left Newtok while Mertarvik still lacked enough housing and services. Use the periglacial lab to see the active layer and ground ice, and the coasts lab to think about how a bank retreats when its base is cut away.",
+    ],
+    exam: {
+      prompt:
+        "Explain how thawing permafrost and river erosion together made Newtok unsafe, and why Mertarvik's houses were built on pads dug to bedrock.",
+      hint: "Thaw weakens and lowers ice-rich ground, so banks erode faster and floods reach farther; bedrock does not change volume as the ground freezes and thaws.",
+    },
+    sources: [
+      {
+        label: "Alaska Public Media — Newtok's relocation is far from over (2025)",
+        href: "https://alaskapublic.org/news/environment/2025-06-10/although-everyone-has-moved-newtoks-relocation-is-far-from-over",
+      },
+      {
+        label: "Anchorage Daily News — a western Alaska village begins to relocate (2019)",
+        href: "https://www.adn.com/alaska-news/rural-alaska/2019/10/19/a-western-alaska-village-long-threatened-by-erosion-and-flooding-begins-to-relocate",
+      },
+    ],
+  },
+  {
     slug: "greenwich",
     title: "Greenwich meridian",
     place: "London",

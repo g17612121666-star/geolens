@@ -22,6 +22,9 @@ type LabControlsState = {
   layout: LabLayout;
   viewKey: number;
   liveText: string;
+  /** Guided mode (?guided=1): prediction first, then the model, then a written explanation. */
+  guided: boolean;
+  setGuided: (v: boolean) => void;
   play: () => void;
   pause: () => void;
   toggle: () => void;
@@ -62,6 +65,8 @@ export const useLabControls = create<LabControlsState>((set, get) => ({
   layout: "hud",
   viewKey: 0,
   liveText: "",
+  guided: false,
+  setGuided: (guided) => set({ guided }),
   play: () => set({ playing: true }),
   pause: () => set({ playing: false }),
   toggle: () => set({ playing: !get().playing }),
@@ -124,5 +129,6 @@ export const useLabControls = create<LabControlsState>((set, get) => ({
       params: defaults,
       layout: get().layout,
       viewKey: get().viewKey,
+      guided: false,
     }),
 }));

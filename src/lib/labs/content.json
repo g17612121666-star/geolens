@@ -251,7 +251,16 @@
         "Orbit stretch changes a hypothetical eccentricity from 0 to 0.4.",
         "Earth’s real eccentricity is about 0.0167, with perihelion in early January; this experiment starts in March and does not reproduce that timing.",
         "With Axial tilt and Orbit stretch both at 0, every place except the poles has 12-hour days."
-      ]
+      ],
+      "predict": {
+        "prompt": "If Earth's axis had no tilt at all, what would happen to the length of a June day in New York? Explain your guess."
+      },
+      "cer": {
+        "prompt": "Does the changing distance between Earth and the Sun, or the tilt of Earth's axis, cause the seasons?",
+        "claim": "The tilt of Earth's axis causes the seasons; the small change in distance does not.",
+        "evidence": "With Axial tilt at 0° and Orbit stretch at 0, every place except the poles has 12-hour days all year. At 23.44° tilt, New York's daylight changes from about 9 hours in December to about 15 hours in June, while Sydney has the opposite pattern. Earth is actually closest to the Sun in early January, during northern winter.",
+        "reasoning": "When a hemisphere is tilted toward the Sun it gets longer days and a higher noon Sun, so each square meter of ground receives more energy. Both hemispheres are the same distance from the Sun at any moment, so distance cannot explain why they have opposite seasons."
+      }
     },
     {
       "slug": "rotation",
@@ -434,7 +443,16 @@
         "Places farther east see the Sun rise first: Dallas, about 15° east of Phoenix, sees sunrise roughly an hour earlier.",
         "Relative to the Sun, Earth turns 360° in about 24 hours: 15° per hour.",
         "A sidereal day is about 23 h 56 min; a mean solar day is 24 h."
-      ]
+      ],
+      "predict": {
+        "prompt": "Dallas is about 15° of longitude east of Phoenix. Will the Sun rise earlier or later in Dallas, and by about how much?"
+      },
+      "cer": {
+        "prompt": "What causes day and night, and why do places at different longitudes reach noon at different times?",
+        "claim": "Earth's eastward rotation carries each place into and out of sunlight, and every 15° of longitude east makes solar noon arrive about one hour earlier.",
+        "evidence": "Moving the Day slider through a quarter of the scale turns Earth 90° in 6 hours. A city followed across the terminator goes from daylight into darkness without the Sun moving. Turning Time zones on changes the clock labels but not where the day–night boundary is.",
+        "reasoning": "Earth turns 360° relative to the Sun in about 24 hours, so 360 ÷ 24 = 15° per hour. Places farther east rotate into sunlight first. Time zones are human labels for clocks, so they cannot cause day and night."
+      }
     },
     {
       "slug": "moon-phases",
@@ -627,7 +645,16 @@
         "Turn on Eclipse alignment (it sets the 5° tilt to zero, so every full Moon would line up with Earth’s shadow), then ask why real full Moons are usually not eclipses.",
         "Without the 3D view: half the Moon is always sunlit; phases are the viewing angle from Earth; eclipses need the Moon near a node of its tilted orbit.",
         "The Moon close-up shows the phase as seen from the Northern Hemisphere. From the Southern Hemisphere the view is rotated, so a waxing Moon is lit on the left."
-      ]
+      ],
+      "predict": {
+        "prompt": "Does Earth's shadow cause the Moon's crescent phase? Write yes or no and give a reason."
+      },
+      "cer": {
+        "prompt": "Why does the Moon's shape seem to change during a month?",
+        "claim": "The Moon's phases happen because we see different amounts of the Moon's sunlit half as it orbits Earth, not because of Earth's shadow.",
+        "evidence": "In the orbit view, the Sun always lights half of the Moon. At new Moon the lit half faces away from Earth; at first quarter, about 90° from the Sun–Earth line, half of the lit half faces us; at full Moon, opposite the Sun, the whole lit half faces us. The phase cycle takes about 29.5 days.",
+        "reasoning": "The dark part of a crescent is the Moon's own night side. Earth's shadow only reaches the Moon during a lunar eclipse, when the full Moon lines up with the Sun and Earth near a node of its tilted orbit."
+      }
     },
     {
       "slug": "earth-interior",
@@ -830,7 +857,16 @@
       "modelNotes": [
         "This section uses a uniform 35 km reference crust, a core–mantle boundary at radius 3480 km and an inner-core radius of 1221 km.",
         "Oceanic crust is commonly 5–10 km thick and continental crust commonly 30–50 km; real boundaries are not perfectly concentric spheres."
-      ]
+      ],
+      "predict": {
+        "prompt": "Earthquake S-waves cannot travel through liquid. If part of Earth's core is liquid, where on the far side of Earth would you expect S-waves to be missing?"
+      },
+      "cer": {
+        "prompt": "How do earthquake waves show that Earth's outer core is liquid?",
+        "claim": "The outer core is liquid because S-waves cannot pass through it.",
+        "evidence": "With P/S waves on, P-waves travel through the solid mantle, the liquid outer core and the solid inner core, bending at each boundary. S-waves travel through the mantle but stop at the core–mantle boundary, about 2,900 km down (radius 3,480 km), leaving a large S-wave shadow on the far side of Earth.",
+        "reasoning": "S-waves are shear waves, and liquids cannot resist shearing, so S-waves cannot travel through a liquid. Their missing arrivals on the far side mean the layer below the mantle is liquid. P-waves are compression waves, which can cross liquids, so they still arrive, though refracted."
+      }
     },
     {
       "slug": "plate-boundaries",
@@ -1072,7 +1108,16 @@
         "The globe uses Bird PB2002 present-day boundaries; past views use GPlates MULLER2019 coastlines reconstructed in a mantle reference frame.",
         "Time before present steps through 10 Ma snapshots.",
         "If 3D is unavailable, use the photographs and the World map studio."
-      ]
+      ],
+      "predict": {
+        "prompt": "Volcanoes form where plates pull apart and where one plate sinks under another. Would you expect volcanoes along a transform boundary like the San Andreas Fault? Why?"
+      },
+      "cer": {
+        "prompt": "How does the motion at each type of plate boundary explain the landforms found there?",
+        "claim": "Divergent boundaries build ridges and rift valleys, convergent boundaries build mountains, trenches and volcanic arcs, and transform boundaries mainly produce earthquakes along faults.",
+        "evidence": "In Boundary section, divergent plates move apart and new crust forms at the ridge; at a convergent boundary one plate descends beneath another; at a transform boundary the plates slide past each other. On the globe, the Mid-Atlantic Ridge is divergent, the boundary along the Andes and Cascades is convergent, and the San Andreas is transform.",
+        "reasoning": "Separation lets mantle rock rise and partly melt, making new crust. Subduction carries water into the mantle, which helps rock melt and feed volcanoes. Sliding plates create or destroy little crust, so they produce faults and earthquakes but little magma."
+      }
     },
     {
       "slug": "contours",
@@ -1293,7 +1338,16 @@
         "On a flat map, close lines mean steep ground, widely spaced lines mean gentle ground, a V pointing uphill marks a valley and a spur bends the other way.",
         "These rules are enough for the Check questions and for reading a USGS or OS map extract without the 3D view.",
         "Choose Landscape → Real: Sugarloaf Mountain, MD to read contours on real USGS elevation data (heights above sea level); the model hill is idealized."
-      ]
+      ],
+      "predict": {
+        "prompt": "On a contour map, would you expect the lines to be closer together on a steep slope or a gentle one? Why?"
+      },
+      "cer": {
+        "prompt": "How can you tell a steep slope from a gentle one, and a valley from a spur, using contour lines?",
+        "claim": "Closely spaced contours mean a steep slope, widely spaced contours mean a gentle slope, and a contour V that points uphill marks a valley while one pointing downhill marks a spur.",
+        "evidence": "Turning the 3D hill on shows the steepest part of the hill where the contours crowd together. Following a stream valley, the contour bends point upslope; along a ridge spur they point downslope. Changing the contour interval from 5 m to 20 m removes detail but keeps the same pattern.",
+        "reasoning": "Each contour joins points of equal height and neighboring lines differ by the contour interval. Where the height changes quickly over a short distance, the lines must be closer together. Contours bend upstream where they cross a valley because the land falls toward the stream."
+      }
     },
     {
       "slug": "rivers",
@@ -1481,7 +1535,16 @@
           }
         ]
       },
-      "modelNotes": []
+      "modelNotes": [],
+      "predict": {
+        "prompt": "As a river flows from its source to the sea, do you expect it to get steeper or gentler? Wider or narrower?"
+      },
+      "cer": {
+        "prompt": "How do a river's gradient and channel change downstream, and why?",
+        "claim": "Downstream a river usually becomes less steep, with a wider and deeper channel that carries more water.",
+        "evidence": "The long profile is steep near the source and gentle near the mouth. The channel is narrow and rocky upstream and wide with bends in the lower course. Raising Discharge widens the wet channel and raises the water level.",
+        "reasoning": "Tributaries add water downstream, so discharge increases and the river needs a larger channel to carry it. In the upper course the river cuts down into its bed; downstream more energy goes into moving sediment sideways and depositing it, which builds a wider valley floor."
+      }
     },
     {
       "slug": "water-cycle",
@@ -1634,6 +1697,10 @@
       ],
       "cases": [
         {
+          "slug": "lake-mead-low",
+          "label": "Lake Mead"
+        },
+        {
           "slug": "colorado",
           "label": "Colorado River reservoirs"
         },
@@ -1726,7 +1793,16 @@
       },
       "modelNotes": [
         "Abstraction moves up to 6,000 m³ from an invented 10,000 m³ reservoir into a human-use store."
-      ]
+      ],
+      "predict": {
+        "prompt": "If people take water out of a reservoir faster than rain and rivers refill it, what happens to the total amount of water on Earth?"
+      },
+      "cer": {
+        "prompt": "How can a reservoir run low even though the total amount of water on Earth stays the same?",
+        "claim": "A reservoir shrinks when its outputs are larger than its inputs, but the water is moved to other stores rather than lost from Earth.",
+        "evidence": "Raising Abstraction moves up to 6,000 m³ from the 10,000 m³ reservoir into a human-use store, and the reservoir level falls, while the budget in the readout shows the combined total staying the same.",
+        "reasoning": "Water moves between stores by processes such as precipitation, runoff, evaporation and abstraction. A local store depends on the balance between these flows. Water taken out still exists elsewhere in the cycle, but it may not be available in the same place at the same time."
+      }
     },
     {
       "slug": "solar-system",
@@ -2008,7 +2084,16 @@
         "Orbital motion uses JPL J2000 semi-major axes, eccentricities, inclinations and orbital orientations, held fixed.",
         "Mercury’s 4096-pixel MESSENGER map uses enhanced color, not human-eye color.",
         "Jupiter uses a 6000-pixel NASA map; Mars and Saturn use NASA geometry and mapped materials."
-      ]
+      ],
+      "predict": {
+        "prompt": "Neptune is about 30 times farther from the Sun than Earth. Do you think its year is 30 times longer, more than 30 times longer, or less? Why?"
+      },
+      "cer": {
+        "prompt": "Why do planets farther from the Sun take longer to complete an orbit?",
+        "claim": "Farther planets take longer to orbit because they have a longer path to travel and also move more slowly.",
+        "evidence": "In Orbital motion, Mercury completes an orbit in about 88 days, Earth in a year, Mars in about 1.9 years and Neptune in about 165 years, which is far more than 30 Earth years. The inner planets visibly move faster along their orbits.",
+        "reasoning": "The Sun's gravity weakens with distance, so a distant planet needs less speed to stay in orbit. Kepler's third law (T² ∝ a³) combines the longer path and the slower speed, so the period grows faster than the distance."
+      }
     },
     {
       "slug": "sun-earth",
@@ -2219,7 +2304,16 @@
         "The fixed reference here is 1361 W/m² at 1 AU, near the top of Earth’s atmosphere.",
         "For a horizontal surface at local noon, the geometric input is 1361 × max(0, cos(latitude − solar declination)).",
         "Declination moves the subsolar latitude between about 23.44° south and north over a year."
-      ]
+      ],
+      "predict": {
+        "prompt": "At an equinox, the noon Sun is overhead at the equator. Do you think a place at 60° latitude gets more or less than half as much noon sunlight per square meter? Why?"
+      },
+      "cer": {
+        "prompt": "Why does a place at high latitude receive less solar energy per square meter at noon than a place near the equator?",
+        "claim": "Sunlight strikes high latitudes at a lower angle, so the same beam spreads over a larger area of ground.",
+        "evidence": "At 0° declination the noon input is about 1,361 W/m² at the equator and half of that, about 680 W/m², at 60°, because the factor is cos 60° = 0.5. At the poles it is zero. At the June solstice (+23.44°) the subsolar point moves to the Tropic of Cancer.",
+        "reasoning": "A beam of sunlight carries a fixed amount of energy. When it arrives at a slant, it covers more ground, so each square meter gets less. The input is proportional to the cosine of the angle between the Sun's rays and the vertical."
+      }
     },
     {
       "slug": "universe-scale",
@@ -2432,7 +2526,16 @@
         "The second uses 1 AU as a Sun–Earth reference.",
         "The third uses a rounded 4.24 light-years to Proxima Centauri, the nearest star to the Sun.",
         "At 1× speed, every full playback lasts 24 seconds, while the readout gives the corresponding physical travel time: about 1.28 seconds, 499 seconds or 4.24 years."
-      ]
+      ],
+      "predict": {
+        "prompt": "Light takes about 1.3 seconds to reach Earth from the Moon. Guess how long it takes light to reach us from the Sun, and from the nearest star."
+      },
+      "cer": {
+        "prompt": "What does a light-year measure, and how does light-travel time show the scale of space?",
+        "claim": "A light-year is a distance: how far light travels in one year. Light-travel times show that stars are vastly farther away than anything in the Solar System.",
+        "evidence": "Light crosses the Earth–Moon distance (384,400 km) in about 1.28 seconds and 1 AU in about 499 seconds (8.3 minutes), but takes about 4.24 years to reach Proxima Centauri.",
+        "reasoning": "Light travels at a fixed speed in a vacuum, about 300,000 km/s, so its travel time is a direct measure of distance. A time of years rather than minutes means the nearest star is about 270,000 times farther away than the Sun."
+      }
     },
     {
       "slug": "geologic-time",
@@ -2658,7 +2761,16 @@
         "The 4540 Ma start is not the exact base of the Hadean, which the ICS chart places at 4567 Ma.",
         "The Phanerozoic begins at 538.8 Ma on the ICS 2026/06 chart.",
         "Evidence of life extends back at least about 3.5 billion years, while human history occupies a minute part of the full window."
-      ]
+      ],
+      "predict": {
+        "prompt": "If Earth's whole history were one 24-hour day, how long ago in that day do you think humans appeared?"
+      },
+      "cer": {
+        "prompt": "Why does recorded human history look so small on a timeline of Earth's history?",
+        "claim": "Human history is a tiny fraction of Earth's 4.54-billion-year history, so on an evenly scaled timeline it is only a thin mark at the very end.",
+        "evidence": "In the Earth history window (4,540 Ma) the long Precambrian fills most of the coil. Our species appears only about 300,000 years ago and recorded history a few thousand years ago, which only becomes visible in the Quaternary window (2.58 Ma).",
+        "reasoning": "On a proportional timeline, equal distances stand for equal time. A few thousand years is about one millionth of 4.54 billion years, so it shrinks to almost nothing. Zooming to a shorter window spreads recent time out without changing how long any interval lasted."
+      }
     },
     {
       "slug": "eclipses",
@@ -2889,7 +3001,16 @@
       },
       "modelNotes": [
         "The close view spans 8.5 hours around full or new Moon; Play and the Transit slider follow that interval."
-      ]
+      ],
+      "predict": {
+        "prompt": "There is a full Moon every month. Do you expect a lunar eclipse every month? Why or why not?"
+      },
+      "cer": {
+        "prompt": "Why is there not an eclipse at every new Moon and full Moon?",
+        "claim": "Eclipses are rare because the Moon's orbit is tilted about 5°, so the Sun, Earth and Moon line up only when a new or full Moon happens near an orbital node.",
+        "evidence": "With Node direction at 0°, the full Moon passes through Earth's umbra and the readout shows a total lunar eclipse. At 60°, the full Moon passes above or below the shadow and misses. Turning on Eclipse alignment removes the tilt, and then every full Moon enters the shadow.",
+        "reasoning": "A shadow can only fall on a body that lies on the line from the Sun. The tilted orbit carries the Moon above or below that line most months. Only near the two places where the orbits cross, the nodes, can the alignment be close enough for an eclipse."
+      }
     },
     {
       "slug": "tides",
@@ -3069,7 +3190,16 @@
       "controls": {
         "time": "month"
       },
-      "modelNotes": []
+      "modelNotes": [],
+      "predict": {
+        "prompt": "Do you expect the biggest difference between high and low tide when the Sun and Moon line up with Earth, or when they are at right angles? Why?"
+      },
+      "cer": {
+        "prompt": "Why are tidal ranges larger at new and full Moon than at the quarter Moons?",
+        "claim": "When the Sun and Moon line up with Earth, their tidal effects add together and make spring tides with a large range; when they are at right angles, they partly cancel and make smaller neap tides.",
+        "evidence": "At new and full Moon the solar and lunar tidal lobes point the same way and the readout shows the largest relative range. At the quarter Moons the Sun's lobes fill the Moon's lows and the range is smaller, but never zero.",
+        "reasoning": "Tides come from the difference in the Moon's and Sun's pull across Earth, which stretches the oceans into two bulges. The Moon's tidal effect is about twice the Sun's, so lined-up effects add to a large range, while effects at right angles subtract but leave the Moon's tide in place."
+      }
     },
     {
       "slug": "solar-altitude",
@@ -3274,7 +3404,16 @@
         "Noon altitude is 90° minus the absolute difference of latitude and declination: 90° − |φ − δ|.",
         "Toward the equator: noon stays high, day length sits near 12 h.",
         "Drag Latitude to about 0° for Nairobi, 26° for Miami, or below 0° for the Southern Hemisphere."
-      ]
+      ],
+      "predict": {
+        "prompt": "Is the noon Sun directly overhead everywhere on Earth? Predict the noon Sun's height in New York on the March equinox."
+      },
+      "cer": {
+        "prompt": "How do latitude and the time of year change the Sun's noon altitude and the length of the day?",
+        "claim": "The noon Sun is highest and days are longest when the Sun's declination is close to your latitude; moving away from the equator increases the seasonal swing.",
+        "evidence": "In New York (40.7° N) the noon altitude is 90° − 40.7° = 49.3° at the equinoxes, about 73° in June and about 26° in December, with day length from about 9 to 15 hours. Near the equator, day length stays close to 12 hours all year.",
+        "reasoning": "Noon altitude equals 90° minus the difference between latitude and solar declination. Because Earth's axis is tilted 23.44°, the declination moves between 23.44° N and S over the year, changing the Sun's path most at high latitudes."
+      }
     },
     {
       "slug": "continental-drift",
@@ -3485,7 +3624,16 @@
         "Set Ma before present to 250 Ma, then compare the 10 Ma snapshots toward the present.",
         "At about 250 Ma the continental shelves fit together as Pangaea.",
         "Fossil evidence shows a few representative published sites for each species, moved with their plates by the same model. The dots mark where fossils are found, not each species’ full range."
-      ]
+      ],
+      "predict": {
+        "prompt": "Fossils of the same freshwater reptile, Mesosaurus, are found in Brazil and in southern Africa. How could that happen?"
+      },
+      "cer": {
+        "prompt": "What evidence shows that the continents were once joined in Pangaea?",
+        "claim": "The continents were once joined, because matching fossils and coastlines line up when the continents are moved back to their positions about 250 million years ago.",
+        "evidence": "At 250 Ma with Fossil evidence on, the Mesosaurus sites in Brazil and Namibia sit side by side, and Glossopteris and Lystrosaurus sites cluster across South America, Africa, India, Antarctica and Australia. Moving toward 0 Ma, the Atlantic opens and India moves north to collide with Asia.",
+        "reasoning": "Mesosaurus lived in fresh or brackish water and could not have crossed an ocean, so the land must have been connected. A reconstruction that fits fossils, rock belts and coastlines together at once is stronger evidence than any one clue alone."
+      }
     },
     {
       "slug": "hotspots",
@@ -3688,7 +3836,16 @@
       "modelNotes": [
         "In the main Hawaiian island chain, older volcanoes generally lie northwest of the currently active southeastern end; Kauaʻi preserves rocks about 5–5.5 Ma old.",
         "The Yellowstone track becomes older southwestward along the Snake River Plain and extends back roughly 17 Ma."
-      ]
+      ],
+      "predict": {
+        "prompt": "Kauaʻi is an old Hawaiian island and the Big Island is young. If the hotspot stays in one place, which way do you think the Pacific Plate is moving?"
+      },
+      "cer": {
+        "prompt": "How do the ages of volcanoes along a hotspot track show the direction a plate is moving?",
+        "claim": "The plate moves away from the hotspot toward the older volcanoes: the Pacific Plate moves northwest over the Hawaiian hotspot and the North American Plate moves southwest over Yellowstone.",
+        "evidence": "In the Hawaiian track the youngest, active volcano is at the southeastern end and the islands get older northwestward; Kauaʻi is about 5 million years old. Playing the model carries the active volcano off the plume while a new seamount grows. The Yellowstone track gets older southwestward along the Snake River Plain, back about 17 million years.",
+        "reasoning": "A hotspot is a long-lived source of melting beneath the plate. Each volcano forms over it and is then carried away as the plate moves, so the line of volcanoes ages in the direction of plate motion."
+      }
     },
     {
       "slug": "seafloor-spreading",
@@ -3888,7 +4045,16 @@
       "modelNotes": [
         "A full spreading rate of 25 mm/year means each flank moves 12.5 mm/year, or 12.5 km per million years.",
         "Change Full spreading rate and compare the ages labeled at the two ends of the section."
-      ]
+      ],
+      "predict": {
+        "prompt": "If new seafloor forms at a mid-ocean ridge, where would you expect to find the oldest seafloor?"
+      },
+      "cer": {
+        "prompt": "How do magnetic stripes and rock ages show that the seafloor is spreading?",
+        "claim": "New oceanic crust forms at the ridge and moves away on both sides, so the youngest rock is at the ridge and matching magnetic stripes mirror each other across it.",
+        "evidence": "The age labels increase with distance from the ridge on both flanks. At a full spreading rate of 25 mm/year each flank moves 12.5 mm/year, or 12.5 km per million years. The stripe pattern is symmetrical, with wide and narrow stripes because reversals happen at irregular times.",
+        "reasoning": "As lava cools at the ridge, magnetic minerals record the direction of Earth's magnetic field. When the field reverses, newly formed crust records the new direction, so each stripe is a time band carried away on both sides."
+      }
     },
     {
       "slug": "atmosphere-layers",
@@ -4088,7 +4254,16 @@
         "The troposphere is commonly about 8 km deep near the poles and 16–18 km in the tropics.",
         "At 6.5 °C/km, a 15 °C surface gives −63 °C at 12 km.",
         "If 3D is unavailable, use the ISS limb photograph, definitions and the teacher note."
-      ]
+      ],
+      "predict": {
+        "prompt": "Do you think it gets warmer or colder as you climb a high mountain, even though you are closer to the Sun? Why?"
+      },
+      "cer": {
+        "prompt": "How do changes in temperature with height show the boundaries between atmospheric layers?",
+        "claim": "Each layer boundary is a height where the temperature trend reverses: temperature falls through the troposphere, rises through the stratosphere, falls in the mesosphere and rises in the thermosphere.",
+        "evidence": "At a lapse rate of 6.5 °C/km a 15 °C surface gives −63 °C at 12 km, the model's tropopause. Above it the profile warms to about 50 km, cools to about 85 km and then warms again.",
+        "reasoning": "The troposphere is heated mainly from the ground, so it cools with height. Ozone absorbs ultraviolet radiation in the stratosphere and warms it. A few kilometers make no real difference to the distance from the Sun, so height above the ground, not closeness to the Sun, sets the pattern."
+      }
     },
     {
       "slug": "energy-budget",
@@ -4297,7 +4472,16 @@
       "modelNotes": [
         "Averaging 1361 W/m² over the globe gives 340.25 W/m² before reflection.",
         "With Greenhouse return on, infrared absorptivity and emissivity are both 0.78."
-      ]
+      ],
+      "predict": {
+        "prompt": "If Earth's surface became more reflective, for example covered by more snow and ice, would the surface get warmer or cooler? Why?"
+      },
+      "cer": {
+        "prompt": "How do albedo and greenhouse gases change Earth's surface temperature?",
+        "claim": "A higher albedo cools the surface because less sunlight is absorbed, and greenhouse gases warm the surface because they send infrared energy back down.",
+        "evidence": "The incoming 1,361 W/m² averages to 340.25 W/m² over the globe. Raising Albedo above 0.3 lowers the absorbed sunlight and the surface temperature. Turning on Greenhouse return makes the surface emit more infrared than before, while the energy leaving at the top of the atmosphere still balances the sunlight absorbed.",
+        "reasoning": "In balance, Earth must emit as much energy as it absorbs. Reflecting more sunlight leaves less to absorb. A layer that absorbs and re-emits infrared returns part of the surface's emission, so the surface must be warmer to emit enough energy to escape."
+      }
     },
     {
       "slug": "thermal-circulation",
@@ -4490,7 +4674,16 @@
       },
       "modelNotes": [
         "The loop is drawn four times taller than true; Physical scale shows the true proportions of a model area 20 km wide and 2 km deep."
-      ]
+      ],
+      "predict": {
+        "prompt": "On a sunny afternoon at the beach, which heats up faster, the land or the sea? Which way do you think the wind will blow at ground level?"
+      },
+      "cer": {
+        "prompt": "Why does a sea breeze blow onshore by day and often reverse at night?",
+        "claim": "Uneven heating of land and sea makes a circulation: by day the surface wind blows from the cooler sea toward the warmer land, and at night it can reverse into a land breeze.",
+        "evidence": "At local hour 15 the readout shows the land warmer than the sea, with surface flow onshore and a return flow aloft. At hour 3 the land is cooler than the sea and the surface flow reverses. With Urban heat on, the city is warmer than the countryside and air flows in toward it.",
+        "reasoning": "Land heats and cools faster than water. Warmer air is less dense and rises, lowering surface pressure, so cooler, denser air flows in underneath. When the heating pattern reverses at night, the pressure difference and the flow reverse too."
+      }
     },
     {
       "slug": "wind",
@@ -4694,7 +4887,16 @@
         "The fixed northward pressure-gradient acceleration is 0.001 m/s².",
         "Coriolis parameter f is ±0.0001 s⁻¹; surface friction uses a linear drag coefficient of 0.00005 s⁻¹.",
         "Turn on Release from rest, then press Play or drag the Process slider to see the first 24 hours."
-      ]
+      ],
+      "predict": {
+        "prompt": "Air flows from high to low pressure. Do you think the wind blows straight across the isobars from high to low? Why or why not?"
+      },
+      "cer": {
+        "prompt": "Why does the wind above the ground blow along the isobars instead of straight toward low pressure?",
+        "claim": "Earth's rotation turns moving air until the Coriolis effect balances the pressure-gradient force, so the wind blows along the isobars; near the ground, friction makes it cross them toward low pressure.",
+        "evidence": "With Release from rest, air starts toward lower pressure and turns right in the Northern Hemisphere (left with Southern hemisphere on) until it runs parallel to the isobars. Turning on Friction slows the wind, and it then crosses the isobars at an angle toward lower pressure.",
+        "reasoning": "The Coriolis effect deflects moving air to the right in the Northern Hemisphere and grows with wind speed. A steady wind is reached when it exactly balances the pressure-gradient force. Friction slows the air and weakens the deflection, so the pressure force wins slightly."
+      }
     },
     {
       "slug": "three-cell",
@@ -4902,7 +5104,16 @@
       "modelNotes": [
         "Play a year to move the model ITCZ between 10° S and 10° N.",
         "Physical scale (T) shrinks the cells to their true 12 km depth against Earth’s 6371 km radius."
-      ]
+      ],
+      "predict": {
+        "prompt": "Many of the world's hot deserts lie near 30° N and 30° S. What do you think the air is doing there: rising or sinking?"
+      },
+      "cer": {
+        "prompt": "How does the three-cell circulation explain where the world's rainforests and hot deserts are?",
+        "claim": "Rainforests lie near the equator where air rises in the Hadley cell, and hot deserts lie near 30° N and S where that air sinks.",
+        "evidence": "In the model, air rises at the ITCZ near the equator, flows poleward aloft, and sinks near 30°, then returns as the easterly trade winds. Playing a year moves the model ITCZ between 10° S and 10° N.",
+        "reasoning": "Rising air expands and cools, so its water vapor condenses into cloud and heavy rain. Sinking air is compressed and warms, which lowers its relative humidity and stops clouds forming, giving the subtropical highs and deserts."
+      }
     },
     {
       "slug": "fronts",
@@ -5082,7 +5293,16 @@
       "controls": {},
       "modelNotes": [
         "The model uses a cold-front slope of 1:50 and a gentler warm-front slope of 1:150 across a 600 km section."
-      ]
+      ],
+      "predict": {
+        "prompt": "When cold air pushes into warm air, which do you think goes underneath, and what happens to the warm air?"
+      },
+      "cer": {
+        "prompt": "Why do fronts bring cloud and rain?",
+        "claim": "At a front, warm air is lifted over colder, denser air; as it rises it cools and its water vapor condenses into cloud and rain.",
+        "evidence": "The cold front slopes steeply (1:50 in the model) and the warm front gently (1:150), with cloud over both sloping boundaries. At Process 0.70 the cold front catches the warm front and the warm sector is lifted off the ground, and the results panel gives how high it has been lifted.",
+        "reasoning": "Cold air is denser, so it stays underneath and wedges the warm air upward. Rising air expands and cools; once it reaches its dew point, water vapor condenses. A steep cold front lifts air quickly, giving short heavy showers; a gentle warm front gives wider, steadier rain."
+      }
     },
     {
       "slug": "cyclone-anticyclone",
@@ -5266,7 +5486,16 @@
           }
         ]
       },
-      "modelNotes": []
+      "modelNotes": [],
+      "predict": {
+        "prompt": "In the Northern Hemisphere, do you think air spins clockwise or counterclockwise around a low-pressure center? Why?"
+      },
+      "cer": {
+        "prompt": "Why are low-pressure systems often cloudy and wet while high-pressure systems are often clear?",
+        "claim": "Air converges and rises in a low, which makes cloud and rain; air sinks and spreads out in a high, which suppresses cloud.",
+        "evidence": "Around the low, surface air spirals inward counterclockwise (clockwise with Southern hemisphere on) and the center arrow points up, with cloud bands and rain. With Anticyclone on, surface air spirals outward clockwise, the center arrow points down, and the sky has only scattered cumulus.",
+        "reasoning": "Air that converges near the ground has to go somewhere, so it rises; rising air cools and its vapor condenses. Sinking air warms as it is compressed, so clouds evaporate. The Coriolis effect turns the moving air, which sets the direction of spin."
+      }
     },
     {
       "slug": "climate-types",
@@ -5480,7 +5709,16 @@
       "modelNotes": [
         "The classification uses Beck et al. V3 for 1991–2020. The globe groups the official 0.1° grid into five families.",
         "Singapore, Cairo, Washington, DC and Saint Paul are reference points from the Atlas 1 km raster; Nuuk is sampled from the 0.1° globe grid. Different resolutions can change classifications near a boundary."
-      ]
+      ],
+      "predict": {
+        "prompt": "The Sahara and the Amazon are both hot. What do you think separates a tropical climate from a hot desert climate?"
+      },
+      "cer": {
+        "prompt": "Why can't temperature alone tell you which climate family a place belongs to?",
+        "claim": "Climate families depend on both temperature and precipitation, so two equally hot places can belong to different families.",
+        "evidence": "Choosing Tropical highlights a band near the equator, including the Amazon and Congo basins. Choosing Dry highlights the Sahara, Arabia and central Australia near 30° N and S, and interiors and rain shadows elsewhere. Both include places that are hot all year.",
+        "reasoning": "The Köppen–Geiger system uses long-term monthly temperature and precipitation. A dry (B) climate is defined by too little precipitation for its temperature, whatever the temperature is. Rising air near the equator brings heavy rain, while sinking subtropical air keeps deserts dry."
+      }
     },
     {
       "slug": "drainage-basin",
@@ -5703,7 +5941,16 @@
         "Relief is exaggerated so the bowl shape is easy to see. A real divide, such as the low divide between the Great Lakes and Mississippi basins near Chicago, can be a barely noticeable rise.",
         "Orbit the model: the catchment is a 3D landscape, not a flat colored area.",
         "Without the 3D view, sketch a rim (the divide), a source, tributaries joining at a confluence, and an outlet."
-      ]
+      ],
+      "predict": {
+        "prompt": "Rain falls on two sides of a hilltop ridge. Will the water from both sides end up in the same river? Why or why not?"
+      },
+      "cer": {
+        "prompt": "What decides which river the rain falling on a slope ends up in?",
+        "claim": "The drainage divide (watershed) decides it: all the rain that falls inside the divide drains to the same outlet, and rain just outside it goes to a neighboring river.",
+        "evidence": "With Basin overlay on, the divide follows the high ground around the basin rim. Following a tributary shows water flowing downhill to a confluence and then to the single outlet; slopes beyond the rim drain away from it.",
+        "reasoning": "Water flows downhill. The divide is the line of highest ground between basins, so it separates the slopes that drain toward one outlet from those that drain toward another."
+      }
     },
     {
       "slug": "hydrograph",
@@ -5861,6 +6108,10 @@
       ],
       "cases": [
         {
+          "slug": "mississippi-flood-2011",
+          "label": "Mississippi flood 2011"
+        },
+        {
           "slug": "shanghai-huangpu",
           "label": "Shanghai / Huangpu"
         },
@@ -5919,7 +6170,16 @@
         "A four-hour triangular storm peaks at 20 mm/h multiplied by the Rain setting.",
         "Urban cover raises the runoff fraction from 0.25 to 0.85 and shortens the delay and storage time. These are teaching assumptions, not values measured at a real site.",
         "The graph shows 24 hours and so cuts off part of the long recession; the model keeps that water in storage. A constant baseflow of 0.05 m³/s stands for groundwater that keeps the river flowing between storms."
-      ]
+      ],
+      "predict": {
+        "prompt": "If fields around a river are covered with roads and roofs, will the river flood sooner or later after a storm? Higher or lower?"
+      },
+      "cer": {
+        "prompt": "How does building a town in a catchment change a river's response to a storm?",
+        "claim": "Urban surfaces make the river peak sooner and higher, so the lag time shortens and the peak discharge rises.",
+        "evidence": "Raising Urban cover from 0 to 1 raises the share of rain that runs off from 0.25 to 0.85 and moves the discharge peak closer to the rainfall peak at 2 hours. The rising limb gets steeper and the peak discharge in the readout increases.",
+        "reasoning": "Roads and roofs stop water soaking into the soil, and drains carry it quickly to the river. Less water is stored and slowed, so more of the rain reaches the channel in a shorter time."
+      }
     },
     {
       "slug": "river-hydrology",
@@ -6067,6 +6327,10 @@
       ],
       "cases": [
         {
+          "slug": "lake-mead-low",
+          "label": "Lake Mead"
+        },
+        {
           "slug": "mississippi",
           "label": "Mississippi"
         },
@@ -6106,7 +6370,16 @@
         "The snow-fed case stores precipitation below 0 °C and melts up to 3 mm water equivalent per positive degree Celsius per day.",
         "A fixed share of rain and meltwater is lost (40% for the rain-fed river, 25% for the snow-fed one). Of the rest, 70% reaches the river within days and 30% seeps into groundwater that drains slowly over months as baseflow, so both rivers keep flowing between peaks.",
         "The 3D terrain is illustrative: relief is enlarged ten times unless you switch to Physical scale (T), and the channel width and dam are symbols."
-      ]
+      ],
+      "predict": {
+        "prompt": "A mountain river is fed mainly by melting snow. In which season do you expect its highest flow?"
+      },
+      "cer": {
+        "prompt": "Why does a snow-fed river peak at a different time of year from a rain-fed river, and how does a dam change that?",
+        "claim": "A snow-fed river peaks in late spring, when stored snow melts, while a rain-fed river peaks in the wettest season; a dam lowers the peak, delays it and spreads it out.",
+        "evidence": "The blue snow-fed curve stays low through winter while snow builds up, then rises sharply in spring melt. The gold rain-fed curve peaks in winter. Turning on Dam on snow-fed river gives a lower, later and longer peak than the dashed curve without the dam.",
+        "reasoning": "Below 0 °C precipitation is stored as snow instead of running off, so it reaches the river only when temperatures rise. A reservoir stores part of the melt peak and releases it over the following months."
+      }
     },
     {
       "slug": "ocean-currents",
@@ -6320,7 +6593,16 @@
           }
         ]
       },
-      "modelNotes": []
+      "modelNotes": [],
+      "predict": {
+        "prompt": "Seattle is farther north than Boston, yet its winters are milder. What do you think could explain this?"
+      },
+      "cer": {
+        "prompt": "Why do the big ocean gyres turn the way they do, and why are their western currents fast and warm?",
+        "claim": "Winds and Earth's rotation drive gyres that turn clockwise in the Northern Hemisphere and counterclockwise in the Southern, with narrow, fast, warm currents along their western sides.",
+        "evidence": "The North Atlantic gyre turns clockwise, with the Gulf Stream flowing north along the US East Coast and the cooler Canary Current flowing south off Africa. The South Atlantic gyre turns the opposite way.",
+        "reasoning": "The trade winds and westerlies push surface water around each basin, and the Coriolis effect deflects it right in the north and left in the south. Because that effect strengthens with latitude, the return flow is squeezed against the western boundary, carrying tropical heat poleward."
+      }
     },
     {
       "slug": "thermohaline",
@@ -6560,7 +6842,16 @@
         "A simple linear formula uses a thermal expansion coefficient of 0.0002 per °C and a saline contraction coefficient of 0.00076 per g/kg at one reference pressure.",
         "This is not the TEOS-10 equation of state; real coefficients and compressibility vary.",
         "Compare 4 °C at 35 g/kg with the same temperature at 32 g/kg: the fresher parcel rises."
-      ]
+      ],
+      "predict": {
+        "prompt": "Which seawater do you think sinks: warm and fresh, or cold and salty? Why?"
+      },
+      "cer": {
+        "prompt": "Why does cold, salty water sink, and how could melting ice weaken deep-water formation?",
+        "claim": "Cooling and adding salt both make seawater denser, so cold, salty water sinks; adding fresh meltwater lowers density and can stop it sinking.",
+        "evidence": "In the Density experiment, cooling a parcel from 10 °C to 4 °C at 35 g/kg makes it about 1.2 kg/m³ denser than the reference water and it sinks. Lowering salinity from 35 to 32 g/kg makes it about 2.3 kg/m³ less dense, so a cold but fresh parcel stays near the surface.",
+        "reasoning": "Density depends on temperature and salinity. Water denser than its surroundings sinks. At high latitudes, fresh water from melting ice, rain and rivers can outweigh the effect of cooling, which reduces sinking and slows the overturning circulation."
+      }
     },
     {
       "slug": "carbon-cycle",
@@ -6806,7 +7097,16 @@
         "At the starting state, photosynthesis and respiration each transfer 60 Pg C/year, air–ocean exchange 40 in each direction, and the weathering–burial–degassing loop 0.2 on each leg.",
         "The fossil-fuel tap adds 0–10 Pg C/year to air for up to 100 model years.",
         "With the tap open, the fossil-fuel store falls and the fast stores change, while total carbon stays at 12000 Pg C. Extra CO₂ only partly speeds up uptake by plants and the ocean, so by model year 100 about half of the burned carbon is still in the air, close to what is seen on Earth today."
-      ]
+      ],
+      "predict": {
+        "prompt": "When fossil fuels are burned, does the carbon disappear, stay in the air, or go somewhere else? Predict where it ends up."
+      },
+      "cer": {
+        "prompt": "Where does the carbon from burning fossil fuels go, and why does the amount in the air keep rising?",
+        "claim": "Burning fossil fuels moves carbon from a slow geological store into the air; plants and the ocean take up part of it, but much stays in the atmosphere.",
+        "evidence": "At the start, photosynthesis and respiration each move 60 Pg C a year and the stores stay level. With the Fossil-fuel tap open to model year 100, the fossil-fuel store falls by the burned total, the atmosphere, biosphere and ocean stores all rise, and about half of the burned carbon is still in the air. The total stays at 12,000 Pg C.",
+        "reasoning": "A store stays level only when its inputs equal its outputs. Fossil carbon adds a new input to the air from a store that is not refilled on human timescales. Uptake by plants and the ocean speeds up but cannot keep pace, so the atmospheric store grows."
+      }
     },
     {
       "slug": "enso",
@@ -6995,7 +7295,16 @@
       "modelNotes": [
         "The ocean cross-section is 15,000 km wide and shows the upper 500 m.",
         "Depth is enlarged 10,000 times unless you switch to Physical scale (T)."
-      ]
+      ],
+      "predict": {
+        "prompt": "If the trade winds across the Pacific weaken, what do you think happens to the warm water usually piled up near Indonesia?"
+      },
+      "cer": {
+        "prompt": "How do changes in the trade winds produce El Niño and change where heavy rain falls?",
+        "claim": "When the trade winds weaken, warm water spreads east across the Pacific and the rising air and heavy rain move east with it: this is El Niño.",
+        "evidence": "At ENSO 0, warm water and rising air sit in the west over a deep thermocline, while cooler water lies near the surface in the east. Moving ENSO to +1 warms the eastern surface water, flattens the thermocline and shifts the rising branch east. At −1 (La Niña) the west–east contrast strengthens.",
+        "reasoning": "Trade winds normally push warm surface water west and allow cold water to upwell in the east. Rising air and rain follow the warmest water, so when the winds weaken and the warm water spreads, rainfall shifts toward the central and eastern Pacific."
+      }
     },
     {
       "slug": "landform-types",
@@ -7234,7 +7543,16 @@
           }
         ]
       },
-      "modelNotes": []
+      "modelNotes": [],
+      "predict": {
+        "prompt": "Can a high flat plateau have less local relief than a low hill? Explain your guess."
+      },
+      "cer": {
+        "prompt": "How do elevation and relief help you tell mountains, plateaus, hills, plains and basins apart?",
+        "claim": "Landforms are distinguished by both elevation (how high) and relief (how much the height varies): mountains are high with large relief, plateaus are high but flat-topped, and plains are low and flat.",
+        "evidence": "At the common scale, the readout shows the mountain with the greatest highest point and the greatest relief, the plateau with a high top but small relief across it, and the plain low with small relief. The basin's lowest point sits below the land around it.",
+        "reasoning": "Elevation measures height above a reference, while relief measures the difference between the highest and lowest points in an area. A plateau can be high but have gentle relief on top, with its steepest slopes only at its edges."
+      }
     },
     {
       "slug": "river-erosion",
@@ -7473,7 +7791,16 @@
         "Retreat moves the lip up to 25 m upstream in chosen steps, not a dated rate; the falling water and plunge pool move with it.",
         "Vertical relief is enlarged 2.2 times in the waterfall view and 1.5 times in the valley view; Physical scale removes the exaggeration.",
         "The Real: Grand Canyon view uses USGS elevation and aerial imagery to show a river that has cut about 1.5 km into a rising plateau."
-      ]
+      ],
+      "predict": {
+        "prompt": "Water flows downstream over a waterfall. Which way do you think the waterfall itself moves over time: downstream or upstream?"
+      },
+      "cer": {
+        "prompt": "How does a waterfall retreat upstream and leave a gorge, even though the water flows downstream?",
+        "claim": "A waterfall retreats upstream because water undercuts the soft rock beneath a resistant cap until the cap collapses, leaving a gorge downstream.",
+        "evidence": "In Waterfall and gorge, the lip is made of resistant rock above softer beds, with a plunge pool at the foot. Raising Retreat moves the lip and plunge pool up to 25 m upstream, and the gorge lengthens behind it, while the water still flows downstream.",
+        "reasoning": "Falling water and swirling stones erode the plunge pool and the weaker rock under the cap faster than the cap itself. Without support the overhanging cap breaks off, so the position of the fall moves upstream step by step."
+      }
     },
     {
       "slug": "river-deposition",
@@ -7630,6 +7957,10 @@
       ],
       "cases": [
         {
+          "slug": "louisiana-land-loss",
+          "label": "Louisiana land loss"
+        },
+        {
           "slug": "mississippi",
           "label": "Mississippi delta"
         },
@@ -7715,7 +8046,16 @@
       "modelNotes": [
         "A separate Stokes calculation uses isolated 10–50 μm quartz spheres, still fresh water at 20 °C, density 998 kg/m³ and dynamic viscosity 1.002 mPa·s.",
         "It estimates terminal settling speed and the distance traveled at 0.1 m/s through 2 m depth."
-      ]
+      ],
+      "predict": {
+        "prompt": "On a river bend, where do you think the water flows fastest: on the inside or the outside of the bend? Where would sand be dropped?"
+      },
+      "cer": {
+        "prompt": "Why does a river build point bars on the inside of bends, levees on its banks, and a delta at its mouth?",
+        "claim": "A river deposits sediment wherever it slows down: on the inside of bends, at the edge of the channel during floods, and where it enters still water at its mouth.",
+        "evidence": "The point bar lies on the slower inside of the bend, opposite the eroding cut bank on the outside. With Overbank water on, the coarsest sediment drops nearest the channel and builds levees. In the settling tube, larger grains settle faster: a 50 μm grain sinks much faster than a 10 μm grain.",
+        "reasoning": "Slower water has less energy to carry sediment, so it drops the heaviest grains first. Settling speed rises with grain size, so coarse grains settle close to where the flow slows and fine grains travel farther."
+      }
     },
     {
       "slug": "river-capture",
@@ -7915,7 +8255,16 @@
           }
         ]
       },
-      "modelNotes": []
+      "modelNotes": [],
+      "predict": {
+        "prompt": "Two rivers start on either side of the same hill. If one erodes back toward the hill much faster, what might happen to the other river?"
+      },
+      "cer": {
+        "prompt": "How can one river capture the headwaters of another?",
+        "claim": "A river that erodes headward faster can cut back through the divide and divert another river's headwaters into its own course.",
+        "evidence": "At Separate catchments, two rivers drain to different outlets. At Approaching the divide, the faster-eroding river has cut back close to the other's channel. After capture, the upper river turns sharply at an elbow of capture into the new route, and the beheaded river below is left smaller, with a dry notch called a wind gap.",
+        "reasoning": "Headward erosion lengthens a river at its source. A steeper river, or one on weaker rock, erodes back faster; once it breaks through the divide, the water takes the lower, steeper route, so the other river loses its headwaters."
+      }
     },
     {
       "slug": "coasts",
@@ -8183,7 +8532,16 @@
       },
       "modelNotes": [
         "The chalk headland, with flint bands, stands on a wave-cut platform. The cave and arch are real openings through the rock, drawn at a common scale (1 unit = 10 m)."
-      ]
+      ],
+      "predict": {
+        "prompt": "Waves hit a headland of hard rock. What shapes do you think the sea will carve over thousands of years?"
+      },
+      "cer": {
+        "prompt": "How does a headland change from a cave to a stump over time?",
+        "claim": "Waves erode weaknesses in a headland to form a cave, which becomes an arch, then a stack when the arch collapses, and finally a stump.",
+        "evidence": "Stepping Headland stage shows a cave cut into the base of the cliff, an opening right through the headland (arch), a pillar standing apart after the roof falls (stack), and a low remnant on the wave-cut platform (stump).",
+        "reasoning": "Wave attack concentrates on joints and faults, enlarging them into caves. When caves on both sides meet, an arch forms. Erosion at its base and weathering of the roof make it collapse, and the isolated stack is worn down further."
+      }
     },
     {
       "slug": "glaciers",
@@ -8433,7 +8791,16 @@
       "modelNotes": [
         "Default relief is enlarged 1.5 times; Physical scale restores a common kilometer scale.",
         "The Real: Yosemite Valley view uses USGS elevation and aerial imagery; its north–south cross-section shows the real U shape. Heights are exaggerated ×1.5 unless Compare physical scale is on."
-      ]
+      ],
+      "predict": {
+        "prompt": "If a glacier's snout is retreating up the valley, do you think the ice inside the glacier is moving up-valley or down-valley?"
+      },
+      "cer": {
+        "prompt": "How can a glacier's snout retreat while its ice keeps moving down-valley?",
+        "claim": "The ice always flows down-valley; the snout retreats when melting at the front removes ice faster than flow delivers it.",
+        "evidence": "Pressing Play moves the orange markers down-valley from the accumulation area past the equilibrium line to the snout. Lowering Ice extent moves the snout up-valley, yet the markers still move down-valley.",
+        "reasoning": "A glacier is a moving conveyor of ice. Its margin position depends on the balance between ice arriving and ice melting at the snout, not on the direction of flow."
+      }
     },
     {
       "slug": "karst",
@@ -8641,7 +9008,16 @@
       "modelNotes": [
         "Water containing dissolved carbon dioxide can dissolve calcite: CaCO₃ + CO₂ + H₂O → Ca²⁺ + 2HCO₃⁻.",
         "The 60 × 30 m block has its relief exaggerated 1.3 times unless Physical scale is selected."
-      ]
+      ],
+      "predict": {
+        "prompt": "Rainwater is slightly acidic. What do you think happens when it flows through cracks in limestone for thousands of years?"
+      },
+      "cer": {
+        "prompt": "Why do streams often disappear into the ground in limestone country?",
+        "claim": "Streams disappear because slightly acidic water has dissolved and widened the joints in the limestone, letting water sink underground.",
+        "evidence": "Raising Joint opening widens the grykes between clints. With Cutaway on, the dashed water route runs from the doline down through widened joints into a cave passage and out at a spring, past stalactites and stalagmites.",
+        "reasoning": "Water with dissolved carbon dioxide forms weak carbonic acid, which dissolves calcite: CaCO₃ + CO₂ + H₂O → Ca²⁺ + 2HCO₃⁻. Dissolution is fastest along joints, so they grow into fissures, sinkholes and caves."
+      }
     },
     {
       "slug": "folds-faults",
@@ -8859,7 +9235,16 @@
       "modelNotes": [
         "In the faults, a 60° dipping plane separates the footwall below it from the hanging wall above.",
         "The maximum relative fault slip is 700 m, and the readout separates that slip from its vertical throw."
-      ]
+      ],
+      "predict": {
+        "prompt": "If rock layers are squeezed from the sides, do you think they will fold, break, or both? What if they are pulled apart?"
+      },
+      "cer": {
+        "prompt": "How can you tell from rocks whether the crust was squeezed, stretched or moved sideways?",
+        "claim": "Folds and reverse faults show compression, normal faults show extension, and strike-slip faults show sideways motion.",
+        "evidence": "In the anticline the oldest beds are in the core, and in the syncline the youngest are. In a normal fault the hanging wall moves down the 60° fault plane; in a reverse fault it moves up; in a strike-slip fault the blocks slide sideways. The readout separates slip from vertical throw.",
+        "reasoning": "Squeezing shortens the crust by folding layers or pushing one block up over another. Stretching lengthens it, so the hanging wall slides down. Sideways shear moves blocks horizontally past each other, as along the San Andreas Fault."
+      }
     },
     {
       "slug": "aeolian",
@@ -9082,7 +9467,16 @@
       "modelNotes": [
         "The example dune has a gentle windward (stoss) slope and a 32° slip face on its lee side at true scale.",
         "The Real: Great Sand Dunes view uses USGS elevation and aerial imagery; its dunefield is shaped by winds from two directions, unlike the single-wind barchan model."
-      ]
+      ],
+      "predict": {
+        "prompt": "A crescent-shaped sand dune has two pointed horns. Which way do you think the wind is blowing: toward the horns or away from them?"
+      },
+      "cer": {
+        "prompt": "How can you tell the wind direction from the shape of a barchan dune?",
+        "claim": "A barchan's horns point downwind, and its gentle slope faces into the wind.",
+        "evidence": "The model barchan has a gentle windward (stoss) slope and a steep 32° slip face on its lee side, with its horns pointing the way the wind arrow blows. Play shows enlarged grains bouncing up the gentle slope and over the crest.",
+        "reasoning": "Wind pushes sand up the windward slope; at the crest the grains fall onto the sheltered lee side until it reaches the angle of repose and slips. The thinner edges of the dune move faster than its middle, so they run ahead as horns."
+      }
     },
     {
       "slug": "rock-cycle",
@@ -9334,7 +9728,16 @@
       },
       "modelNotes": [
         "The pressure readout gives an equivalent depth using a uniform 2800 kg/m³ overburden and 9.81 m/s² gravity."
-      ]
+      ],
+      "predict": {
+        "prompt": "Can a sedimentary rock become an igneous rock without first becoming a metamorphic rock? Explain your guess."
+      },
+      "cer": {
+        "prompt": "Does every rock follow the same path around the rock cycle?",
+        "claim": "No: rocks can take many routes, skipping or repeating stages, depending on the temperature, pressure and surface conditions they meet.",
+        "evidence": "Material pathway offers routes such as Melting: sedimentary rock straight to magma, Metamorphism: igneous rock without melting, and Weathering of any rock group to sediment. The readout shows that metamorphism needs heat and pressure below melting, while melting needs roughly 650 °C or more.",
+        "reasoning": "Each change is driven by the conditions a rock meets. Burial and heating can change a rock in the solid state or melt it; uplift exposes any rock to weathering. So the cycle is a network of possible paths, not a single loop."
+      }
     },
     {
       "slug": "soil-profile",
@@ -9555,7 +9958,16 @@
         ],
         "playback": false
       },
-      "modelNotes": []
+      "modelNotes": [],
+      "predict": {
+        "prompt": "Why do you think grassland soils, like those of Iowa, have such a thick, dark top layer?"
+      },
+      "cer": {
+        "prompt": "Why do soils in different places develop different horizons?",
+        "claim": "Climate, vegetation, parent material and time control how a soil develops, so different places build different horizons.",
+        "evidence": "The temperate brown soil has O, A, Bw and C horizons. The Mollisol example has a thick, dark A horizon. The Oxisol example has a deep red, strongly weathered subsoil with gradual boundaries.",
+        "reasoning": "Under grassland, dense roots die and decay deep in the soil, building a thick, dark, organic-rich A horizon. In warm, wet tropics, intense chemical weathering over a long time removes most minerals and leaves iron and aluminum oxides that color the soil red."
+      }
     },
     {
       "slug": "soil-texture",
@@ -9749,7 +10161,16 @@
       "modelNotes": [
         "The USDA texture triangle is a ternary plot: the three percentages must sum to 100.",
         "Silt is calculated as the remainder, so the three always sum to 100."
-      ]
+      ],
+      "predict": {
+        "prompt": "Which do you think drains faster after heavy rain: a sandy soil or a clay soil? Why?"
+      },
+      "cer": {
+        "prompt": "How do the proportions of sand, silt and clay affect how a soil holds water?",
+        "claim": "Sandy soils drain quickly and hold little water, while clay-rich soils drain slowly and hold water tightly.",
+        "evidence": "With 90% sand, the point lies near the sand corner of the triangle (sand or loamy sand). Raising Clay % moves the point toward the clay corner. Sand grains are 0.05–2 mm, silt 0.002–0.05 mm and clay smaller than 0.002 mm.",
+        "reasoning": "Large sand grains leave large pores that water drains through quickly. Tiny clay particles leave very small pores and a large surface area, which hold water tightly and let it move only slowly."
+      }
     },
     {
       "slug": "weathering",
@@ -9958,7 +10379,16 @@
         "Using densities 1000 kg/m³ for liquid and 917 kg/m³ for ice, freezing increases occupied volume by about 9%.",
         "The joint starts 20 mm wide. The teaching view exaggerates its widening ten times; Compare physical scale shows the real change.",
         "Solid calcite plus dissolved calcite always adds up to the starting mass (calcite density 2710 kg/m³)."
-      ]
+      ],
+      "predict": {
+        "prompt": "Water seeps into a crack in a rock and freezes overnight. Predict what happens to the crack over many winters."
+      },
+      "cer": {
+        "prompt": "How can water break rock apart without moving it anywhere?",
+        "claim": "Water breaks rock in place by freezing in cracks (mechanical weathering) and by dissolving minerals such as calcite (chemical weathering).",
+        "evidence": "In Freezing in a joint, water expands by about 9% as it turns to ice and pushes the joint walls apart (shown ×10 unless Compare physical scale is on). In Carbonate dissolution, calcite dissolves while solid plus dissolved calcite always adds up to the starting mass.",
+        "reasoning": "Ice is less dense than water (917 compared with 1000 kg/m³), so freezing water takes up more space and wedges cracks open. Weak carbonic acid reacts with calcite and carries it away in solution. Both break down rock without transporting it, which is the difference from erosion."
+      }
     },
     {
       "slug": "soil-erosion",
@@ -10160,7 +10590,16 @@
         "The chosen detachment coefficient is 0.004 per minute for rain and runoff, or 0.002 for dry wind; cover multiplies it by 0.15.",
         "Sediment leaves the transport store at 0.15 per minute for rain and runoff, or 0.3 for wind.",
         "The teaching view exaggerates surface lowering 30 times; Compare physical scale shows the true lowering."
-      ]
+      ],
+      "predict": {
+        "prompt": "Two identical slopes get the same heavy rain. One is bare and one is covered by plants. How much less soil do you think the covered slope loses?"
+      },
+      "cer": {
+        "prompt": "Why does a bare field lose more soil in heavy rain than a field covered by plants?",
+        "claim": "Bare soil loses far more sediment because nothing shields it from raindrops or slows the runoff.",
+        "evidence": "Over 60 model minutes, the bare plot exports much more sediment than the covered plot, where plant cover multiplies the detachment rate by 0.15. Each plot starts with 6,000 kg of surface soil, and the in-place, in-transport and exported stores always add up to that total.",
+        "reasoning": "Raindrops hitting bare ground knock particles loose, and fast runoff carries them away. Leaves and residue absorb the impact and roots hold the soil, so fewer particles are detached and less is carried off. The value 0.15 is a model choice, not a measured constant."
+      }
     },
     {
       "slug": "earthquakes",
@@ -10364,7 +10803,16 @@
         "The Process slider covers 30 seconds; play it or drag it, and change Focus depth.",
         "Compare P and S arrivals at the station 50 km horizontally from the epicenter; the straight-ray distance is √(depth² + 50²).",
         "The violet surface-wave ring is simplified: it starts when the S-wave first reaches the epicenter and then travels at 3.2 km/s."
-      ]
+      ],
+      "predict": {
+        "prompt": "A seismometer is 50 km from an earthquake. Which wave do you think arrives first, the P-wave or the S-wave? How far apart might they arrive?"
+      },
+      "cer": {
+        "prompt": "How can the gap between P-wave and S-wave arrivals tell you how far away an earthquake is?",
+        "claim": "The time gap between the P-wave and S-wave arrivals grows with distance, so a longer gap means a more distant earthquake.",
+        "evidence": "With Focus depth at 20 km, the station 50 km from the epicenter is about 54 km from the focus. The P-wave (6 km/s) arrives after about 9 seconds and the S-wave (3.5 km/s) after about 15 seconds, a gap of about 6 seconds. Increasing the depth lengthens the path and widens the gap.",
+        "reasoning": "P-waves travel faster than S-waves, so the two separate as they travel. The gap equals the distance multiplied by (1/3.5 − 1/6) seconds per kilometer, so measuring the gap gives the distance; gaps from three stations locate the epicenter."
+      }
     },
     {
       "slug": "volcanoes",
@@ -10515,6 +10963,10 @@
       ],
       "cases": [
         {
+          "slug": "mount-st-helens-1980",
+          "label": "Mount St. Helens 1980"
+        },
+        {
           "slug": "hawaii",
           "label": "Hawaiʻi shields"
         },
@@ -10599,7 +11051,16 @@
       },
       "modelNotes": [
         "Turn on Real volcanoes to compare Mauna Loa and Mount St. Helens from USGS elevation data at the same scale (heights from sea level, exaggerated ×3 unless Compare physical scale is on)."
-      ]
+      ],
+      "predict": {
+        "prompt": "Do you think runny lava or thick, sticky lava builds a steeper volcano? Which is more likely to explode?"
+      },
+      "cer": {
+        "prompt": "Why do Mauna Loa and Mount St. Helens look so different and erupt so differently?",
+        "claim": "Mauna Loa is a broad shield built by runny basalt lava flows, while Mount St. Helens is a steep composite cone built by sticky, gas-rich magma that erupts explosively.",
+        "evidence": "Low Viscosity builds a broad, gently sloping shield; high Viscosity builds a steeper cone of lava and ash layers. Raising Gas drive makes eruptions more explosive. With Real volcanoes on, Mauna Loa rises about 4 km above sea level over a very wide base, while Mount St. Helens is much smaller and steeper.",
+        "reasoning": "Runny lava flows far before it cools, spreading into gentle slopes. Sticky magma flows a short distance and traps gas, so pressure builds until it escapes explosively, piling ash and lava into a steep cone."
+      }
     },
     {
       "slug": "tsunami",
@@ -10749,6 +11210,10 @@
       ],
       "cases": [
         {
+          "slug": "kamchatka-tsunami-hawaii-2025",
+          "label": "Kamchatka → Hawaiʻi 2025"
+        },
+        {
           "slug": "cascadia",
           "label": "Cascadia"
         },
@@ -10789,7 +11254,16 @@
         "In the first 15% of Process the seafloor rises by up to 1 m and lifts the water above it; the gold block and arrow show the uplift, enlarged. The hump then splits into two waves of about half its height, and the model follows the one heading for the coast (0.5 m).",
         "In the teaching view depth is enlarged ×20 and wave height a further ×600; Physical scale shows both at true scale.",
         "Gradually varying depth, no reflection and no lateral spreading are strong assumptions; the transect ends in 100 m water before the coast."
-      ]
+      ],
+      "predict": {
+        "prompt": "Out in the deep ocean, do you think a tsunami is tall or short, fast or slow? What happens as it reaches shallow water?"
+      },
+      "cer": {
+        "prompt": "Why does a tsunami that is barely noticeable at sea become dangerous at the coast?",
+        "claim": "A tsunami slows down in shallow water, and the slowing squeezes its energy into a shorter, taller wave.",
+        "evidence": "In 4,000 m of water the wave travels at about 200 m/s with an amplitude of about 0.5 m. Over the shelf it slows to about 30 m/s at 100 m depth, and the chart shows its height growing as the water shallows.",
+        "reasoning": "Tsunami speed depends on water depth: c = √(g h). The back of the wave, still in deeper water, catches up with the slower front, so the wavelength shortens. The same energy is packed into a shorter wave, so the wave grows taller."
+      }
     },
     {
       "slug": "tropical-cyclone",
@@ -11007,7 +11481,16 @@
         "Intensity selects maximum tangential wind from 38 to 80 m/s.",
         "Pressure comes from a steady gradient-wind balance with air density 1.15 kg/m³, a Coriolis parameter of 0.00005 per second and 101300 Pa at 300 km radius.",
         "Cloud depth is 12 km, drawn five times taller in the teaching view (Physical scale, or the T key, shows it 1:1). The cloud tops are a NASA MODIS image of Hurricane Katrina (28 August 2005) at the model's scale; their heights are illustrative, and the clouds are not simulated droplets or rainfall."
-      ]
+      ],
+      "predict": {
+        "prompt": "Why do you think hurricanes form over warm oceans and weaken after they move over land?"
+      },
+      "cer": {
+        "prompt": "Where are a hurricane's strongest winds, and why does a stronger storm have lower central pressure?",
+        "claim": "The strongest winds are in the eyewall around the calm eye, and a stronger storm needs a deeper low-pressure center to keep its fast winds circling.",
+        "evidence": "The wind profile rises from a calm center to its maximum at 30 km, the eyewall, then falls away outward. Raising Intensity raises the maximum wind from 38 to 80 m/s and lowers the model's center pressure.",
+        "reasoning": "Air spirals inward and speeds up as it gets closer to the center. To keep fast-moving air on a tight circular path, pressure must drop steeply toward the center. Warm ocean water supplies the moisture whose condensation releases heat to power the eyewall."
+      }
     },
     {
       "slug": "graticule",
@@ -11218,7 +11701,16 @@
         "Longitude is the angle from the Greenwich meridian, 0° to 180° east or west.",
         "The equator is 0° latitude, not a line of longitude.",
         "Greenwich is 0° longitude by agreement; Earth’s rotation does not depend on which meridian we call zero."
-      ]
+      ],
+      "predict": {
+        "prompt": "The point 0° latitude, 0° longitude is often thought to be in London. Where do you think it really is?"
+      },
+      "cer": {
+        "prompt": "How do latitude and longitude locate a place, and why does 1° of longitude cover less ground near the poles?",
+        "claim": "Latitude gives the angle north or south of the equator and longitude the angle east or west of the prime meridian; a degree of longitude shrinks toward the poles because all meridians meet there.",
+        "evidence": "Moving Latitude slides the marker along a meridian and grows the gold arc from the equator; moving Longitude grows the blue arc along the equator. The readout shows 1° of longitude as about 111 km at the equator, 84 km at 40.7° N (New York) and 56 km at 60°. The point 0°, 0° lies in the Gulf of Guinea.",
+        "reasoning": "Latitude and longitude are angles measured from Earth's center. Meridians converge at the poles, so the distance between them falls with the cosine of latitude, while degrees of latitude stay about 111 km apart."
+      }
     },
     {
       "slug": "map-projections",
@@ -11434,7 +11926,16 @@
       },
       "modelNotes": [
         "The surface uses Earth imagery and the projection formulas, cut off at 85° N and S because Mercator stretches the poles to infinity."
-      ]
+      ],
+      "predict": {
+        "prompt": "On many world maps Greenland looks about as big as Africa. Do you think it really is? Explain your guess."
+      },
+      "cer": {
+        "prompt": "Why does every flat map distort something, and why does Mercator make Greenland look so big?",
+        "claim": "No flat map can keep area, shape, distance and direction all correct; Mercator keeps local shapes and compass bearings but enlarges areas toward the poles.",
+        "evidence": "With Flatten at 1.00, Mercator's equal-sized gold circles stay round but grow much larger at 60° N and S than at the equator. The cylindrical equal-area projection keeps the circles' areas equal but squashes them flat at high latitudes. On the globe, Greenland is much smaller than Africa.",
+        "reasoning": "A sphere cannot be flattened without stretching or squashing. A cylindrical map stretches every parallel to the length of the equator, doubling east–west scale at 60°. Mercator stretches north–south by the same amount to keep shapes, so areas there appear about four times too large."
+      }
     },
     {
       "slug": "grid-references",
@@ -11667,7 +12168,16 @@
         "Four figures such as 1234 identify the 1 km square with southwest corner at easting 12 and northing 34.",
         "Six figures subdivide to 100 m, and eight figures to 10 m.",
         "This fictional map covers one 100 km square; its main grid lines are 10 km apart."
-      ]
+      ],
+      "predict": {
+        "prompt": "On a grid map, would you read the number along the bottom edge or the number up the side first? Why might the order matter?"
+      },
+      "cer": {
+        "prompt": "How does a six-figure grid reference identify a place, and why is it a square rather than an exact point?",
+        "claim": "A six-figure reference gives the easting then the northing, each to a tenth of a 1 km square, which identifies a 100 m square by its southwest corner.",
+        "evidence": "Setting Easting and Northing moves the pin, and the readout shows the six figures. The pin marks the southwest corner of the selected 100 m square. A full US National Grid reference adds the zone and 100 km square letters, such as 18T WL 246 513.",
+        "reasoning": "Eastings increase eastward and northings northward, so you go along before you go up. Each extra pair of figures divides the square by ten, so six figures narrow it to 100 m, not to a single point."
+      }
     },
     {
       "slug": "mass-movement",
@@ -11821,6 +12331,10 @@
       ],
       "cases": [
         {
+          "slug": "mount-st-helens-1980",
+          "label": "Mount St. Helens landslide"
+        },
+        {
           "slug": "hong-kong-landslide",
           "label": "Hong Kong slopes"
         },
@@ -11868,7 +12382,16 @@
       "modelNotes": [
         "A simplified Bishop calculation divides the initial sliding mass into 160 vertical slices.",
         "Effective cohesion is 2 kPa, friction angle 15°, and soil unit weight 20 kN/m³."
-      ]
+      ],
+      "predict": {
+        "prompt": "After days of heavy rain, do you think a clay slope becomes more or less likely to slide? Why?"
+      },
+      "cer": {
+        "prompt": "Why can heavy rain make a stable slope fail?",
+        "claim": "Rain raises the water pressure in the soil's pores, which lowers the friction holding the slope together until the factor of safety falls below 1 and the slope slumps.",
+        "evidence": "The starting factor of safety is above 1. Raising Pore pressure lowers it; once it drops below 1, Play shows the slump rotating on its curved shear surface, with the head dropping and the toe pushed outward.",
+        "reasoning": "Friction depends on how hard soil grains are pressed together. Water pressure in the pores pushes the grains apart, reducing this effective stress, while the weight driving the slide stays almost the same. When resistance falls below the driving force, the slope fails."
+      }
     },
     {
       "slug": "rain-shadow",
@@ -12076,7 +12599,16 @@
         "Unsaturated air cools at about 9.8 °C per kilometer as it rises.",
         "Above cloud base, the model uses a fixed saturated lapse rate of 6 °C/km; real values vary with temperature and pressure.",
         "Relief is drawn 2.5 times taller than true; Physical scale uses the same scale in every direction. Ground color and trees are schematic: the lee side is drawn drier only in proportion to the water the air loses on the way up."
-      ]
+      ],
+      "predict": {
+        "prompt": "Moist ocean air blows over a mountain range. Which side of the mountains do you think will be wetter, and which side warmer?"
+      },
+      "cer": {
+        "prompt": "Why is the land on the far (leeward) side of a mountain range often drier and warmer?",
+        "claim": "Air loses its moisture as rain on the windward side, then sinks and warms on the leeward side, arriving warmer and drier than it started.",
+        "evidence": "At 20% humidity and a 900 m ridge, the air never reaches cloud base, so no cloud forms. At 70% humidity and a 2,100 m ridge, the parcel reaches cloud base, cools more slowly (6 °C/km) above it while rain falls, then warms at 9.8 °C/km all the way down, reaching the leeward foot warmer than at the windward foot.",
+        "reasoning": "Rising air expands and cools; once saturated, condensation releases latent heat, so it cools more slowly. After the water has rained out, the sinking air warms at the faster dry rate the whole way down, so it ends up warmer with lower relative humidity."
+      }
     },
     {
       "slug": "groundwater",
@@ -12285,7 +12817,16 @@
       },
       "modelNotes": [
         "Hydraulic conductivity is 10 m/day, well radius 0.2 m, outer radius 500 m and confined thickness 12 m."
-      ]
+      ],
+      "predict": {
+        "prompt": "If a farmer pumps a lot of water from a well, what do you think happens to the water table around the well?"
+      },
+      "cer": {
+        "prompt": "How does pumping from a well change the groundwater around it?",
+        "claim": "Pumping lowers the water table around the well into a cone of depression, and groundwater flows toward the well from all sides.",
+        "evidence": "With Pump at 0, the water table is level with the Boundary head. Raising Pump toward 800 m³/day lowers the head at the well and the drawdown in the readout increases, with the water table sloping down toward the well. In the confined aquifer, the gold potentiometric surface falls but the sand below the clay stays saturated.",
+        "reasoning": "Groundwater flows from higher to lower head through connected pores. Pumping removes water at the well, lowering the head there, so the water table slopes toward it. In a confined aquifer, pumping lowers the water pressure rather than draining the pores."
+      }
     },
     {
       "slug": "isostasy",
@@ -12484,7 +13025,16 @@
         "This local Airy experiment keeps a 35 km crustal column unchanged and adds up to 3000 m of ice.",
         "Crust, mantle and ice densities are 2800, 3300 and 917 kg/m³.",
         "Equal mass above a compensation depth gives an equilibrium depression of ice thickness × 917/3300."
-      ]
+      ],
+      "predict": {
+        "prompt": "A thick ice sheet covers a continent. Do you think the land under it stays where it is, sinks or rises? What happens after the ice melts?"
+      },
+      "cer": {
+        "prompt": "Why is land that was covered by thick ice during the last ice age still rising today?",
+        "claim": "The weight of an ice sheet pushes the crust down into the mantle, and after the ice melts the land slowly rises back as mantle rock flows back underneath.",
+        "evidence": "Raising Ice thickness to 3,000 m lowers the crustal column by about 830 m in the readout, which matches 3,000 × 917 ÷ 3,300. Removing the ice returns the column to its starting level. Land around Hudson Bay and the Gulf of Bothnia is still rising today.",
+        "reasoning": "The crust floats in balance on the denser mantle. Adding ice adds mass, so the column sinks until it has displaced an equal mass of mantle. Because the mantle flows very slowly, rebound after melting takes thousands of years."
+      }
     },
     {
       "slug": "wilson-cycle",
@@ -12701,7 +13251,16 @@
       "modelNotes": [
         "The unstretched reference continent is 35 km thick and the oceanic crust about 7 km thick; both overlie solid mantle. Collision thickens the crust to about 65 km beneath peaks about 5–6 km high. Lithosphere and slab thicknesses are simplified to fit the section.",
         "Physical scale removes the ×2 vertical exaggeration. The 300 km section shows only part of a basin."
-      ]
+      ],
+      "predict": {
+        "prompt": "The Atlantic Ocean is getting wider today. Do you think oceans can also close? What would happen when the continents meet?"
+      },
+      "cer": {
+        "prompt": "How do oceans open and close, and how does that build mountain ranges?",
+        "claim": "Oceans open when a continent rifts apart and close when oceanic crust is subducted; when the continents collide, the crust thickens into a mountain belt.",
+        "evidence": "The stages run from Continental rift through Young ocean and Open ocean, with a ridge and thin (about 7 km) oceanic crust, to Subduction begins and Ocean closes. At Continental collision the crust thickens to about 65 km beneath peaks about 5–6 km high.",
+        "reasoning": "Spreading at the ridge widens the ocean. Old, dense oceanic crust eventually sinks at a subduction zone, closing the ocean. Continental crust is too buoyant to subduct, so it crumples and stacks up, forming high mountains with a deep root, as in the Himalaya and the old Appalachians."
+      }
     },
     {
       "slug": "soil-catena",
@@ -12890,7 +13449,16 @@
       },
       "modelNotes": [
         "The model hillslope is 120 m long, with soils shown at the crest, backslope and toe."
-      ]
+      ],
+      "predict": {
+        "prompt": "On a hillside, do you think the soil will be thicker at the top, on the steep middle slope, or at the bottom? Why?"
+      },
+      "cer": {
+        "prompt": "Why do soils change from the top to the bottom of the same slope?",
+        "claim": "Soil and water move downslope, so soils are thin on the steep backslope and thicker and wetter at the toe, even though they formed from the same parent material.",
+        "evidence": "The crest, backslope and toe profiles share one parent material. Raising Slope thins the backslope soil and thickens the toe soil, as the readout's soil thicknesses show.",
+        "reasoning": "On steeper slopes, gravity, runoff and soil creep move soil downhill faster than it forms. The material collects at the foot of the slope, where water also gathers, giving deeper and often waterlogged soils."
+      }
     },
     {
       "slug": "periglacial",
@@ -13038,6 +13606,10 @@
       ],
       "cases": [
         {
+          "slug": "newtok-mertarvik",
+          "label": "Newtok to Mertarvik"
+        },
+        {
           "slug": "alaska-permafrost",
           "label": "Arctic Alaska permafrost"
         },
@@ -13106,7 +13678,16 @@
         "The section is 10 m wide and 5 m deep at a common geometric scale.",
         "It assumes permafrost lies beneath an active layer that thaws to a maximum depth of 0.7 m each summer.",
         "Wedge development sets the top width between 0.1 and 0.9 m; it does not convert to a number of winters or a growth rate."
-      ]
+      ],
+      "predict": {
+        "prompt": "In Alaska, the ground stays frozen for years at a time. What do you think happens to the top layer of soil each summer?"
+      },
+      "cer": {
+        "prompt": "How do ice wedges grow in permafrost?",
+        "claim": "Ice wedges grow because the frozen ground cracks in winter, meltwater fills the crack in spring and freezes, and the cycle repeats over many years.",
+        "evidence": "Playing a year thaws the active layer down to about 0.7 m each summer while the permafrost below stays frozen. Raising Wedge development widens a tapering wedge of ice from 0.1 m to 0.9 m at the top, and the Polygon network view shows the wedges joining into polygons.",
+        "reasoning": "Very cold ground contracts and cracks in winter. Meltwater trickles into the crack and freezes because the permafrost below stays at or below 0 °C. Each year adds a thin vein of ice, so the wedge widens and the cracks join into a pattern of polygons."
+      }
     },
     {
       "slug": "storm-surge",
@@ -13259,6 +13840,10 @@
       ],
       "cases": [
         {
+          "slug": "louisiana-land-loss",
+          "label": "Louisiana marsh loss"
+        },
+        {
           "slug": "katrina-sandy",
           "label": "Katrina / Sandy surge"
         },
@@ -13327,7 +13912,16 @@
       "modelNotes": [
         "This steady experiment has a flat 100 km shelf, an offshore sea level held at zero and a closed coast. The pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.",
         "Wind stress uses air density 1.225 kg/m³ and a constant drag coefficient of 0.0015."
-      ]
+      ],
+      "predict": {
+        "prompt": "A hurricane approaches two coasts: one with deep water offshore and one with a wide, shallow shelf. Which coast gets the higher storm surge?"
+      },
+      "cer": {
+        "prompt": "Why is storm surge highest where strong onshore winds blow over a shallow shelf?",
+        "claim": "Onshore wind piles water against the coast, and a shallow shelf makes the pile-up much higher; low air pressure adds a smaller extra rise.",
+        "evidence": "Raising Onshore wind raises the setup at the coast, and with the same wind a shallow shelf gives a much larger setup than a 100 m shelf. With wind at zero, a 3,000 Pa pressure drop raises the sea by only about 0.3 m, roughly 1 cm per hectopascal.",
+        "reasoning": "Wind drags surface water toward the coast until the sloping sea surface pushes back as hard as the wind pushes forward. In shallow water the same wind stress needs a steeper slope to balance it, so the water piles up higher. Lower air pressure lets the sea surface bulge up slightly."
+      }
     }
   ]
 }

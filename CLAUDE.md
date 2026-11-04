@@ -24,6 +24,8 @@ Run typecheck, lint, test and build before pushing.
 - `src/lib/photo-assign.ts` – which verified photo appears where.
 - `public/` – photos, GLB models, textures, map data, fonts.
 - `server/middleware/security-headers.ts` – CSP and `X-Robots-Tag`; add any new external origin to the CSP.
+- `server/routes/api/enso.ts` – cached proxy for NOAA CPC's ENSO status (CPC sends no CORS headers). Tides (NOAA CO-OPS) and river gauges (USGS Water Data) are fetched from the browser in `src/components/lab/live-data.tsx`. Locally, run the preview with `NODE_USE_ENV_PROXY=1` if the container needs an HTTPS proxy.
+- `src/lib/hand-in.ts` – hand-in code format; `HANDIN_LABS` is append-only, so never reorder it.
 
 ## Conventions
 

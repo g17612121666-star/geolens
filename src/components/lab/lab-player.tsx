@@ -5,6 +5,8 @@ import { defaultParams } from "@/lib/labs/defaults";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { StepRail } from "./step-rail";
 import { WhyPanel } from "./why-panel";
+import { GuidedGate, GuidedPanel } from "./guided";
+import { LiveData } from "./live-data";
 import { ControlBar } from "./control-bar";
 import { useIsCompact, useMediaQuery } from "@/hooks/use-media";
 import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state";
@@ -253,6 +255,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
           }}
         >
           {scene}
+          <GuidedGate lab={lab} />
         </div>
         <div className="relative z-10 border-t border-white/10 bg-basalt">
           <div className="p-3">
@@ -290,6 +293,8 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             </button>
           </p>
           <div className="grid gap-3 p-3 sm:grid-cols-2">
+            <GuidedPanel lab={lab} />
+            <LiveData slug={lab.slug} />
             <StepRail lab={lab} />
             <WhyPanel lab={lab} />
           </div>
@@ -310,7 +315,10 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
       style={{ "--lab-controls-height": `${barHeight}px` } as CSSProperties}
       className="relative h-dvh overflow-hidden bg-void"
     >
-      <div className="absolute inset-0">{scene}</div>
+      <div className="absolute inset-0">
+        {scene}
+        <GuidedGate lab={lab} />
+      </div>
 
       {projector && (
         <div className="pointer-events-none absolute inset-x-0 top-14 z-10 px-4 pt-3 md:px-6">
@@ -327,6 +335,8 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             style={{ scrollbarWidth: "thin" }}
             className="pointer-events-auto absolute bottom-4 right-6 top-20 z-10 flex w-[22rem] flex-col gap-4 overflow-x-hidden overflow-y-auto pr-1"
           >
+            <GuidedPanel lab={lab} />
+            <LiveData slug={lab.slug} />
             <StepRail lab={lab} />
             <WhyPanel lab={lab} />
           </div>

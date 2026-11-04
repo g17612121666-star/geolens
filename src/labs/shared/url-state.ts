@@ -15,6 +15,7 @@ export function applyLabUrl(lab?: LabMeta) {
   if (u.speed != null) s.setSpeed(u.speed);
   if (u.layout) s.setLayout(u.layout);
   if (u.geometryScale != null) s.setTrueScale(u.geometryScale);
+  s.setGuided(u.guided);
   for (const [k, v] of Object.entries(u.params)) {
     const extra = lab?.controls.extra?.find((e) => e.key === k),
       toggle = lab?.controls.toggles?.find((e) => e.key === k);
@@ -35,6 +36,7 @@ function write() {
   if (s.trueScale) q.set("geometryScale", "1");
   if (s.speed !== 1) q.set("speed", String(s.speed));
   if (s.layout === "projector") q.set("layout", "projector");
+  if (s.guided) q.set("guided", "1");
   for (const [k, v] of Object.entries(s.params)) {
     if (typeof v === "number" && Number.isFinite(v)) q.set(k, String(Number(v.toFixed(3))));
   }
@@ -52,13 +54,14 @@ export function readLabUrl(): {
   speed?: number;
   geometryScale?: boolean;
   layout?: "hud" | "projector";
+  guided: boolean;
   params: Record<string, number>;
 } {
-  if (typeof window === "undefined") return { params: {} };
+  if (typeof window === "undefined") return { params: {}, guided: false };
   const q = new URLSearchParams(window.location.search);
   const params: Record<string, number> = {};
   q.forEach((v, k) => {
-    if ((KEYS as readonly string[]).includes(k) || k === "layout") return;
+    if ((KEYS as readonly string[]).includes(k) || k === "layout" || k === "guided") return;
     const n = Number(v);
     if (Number.isFinite(n)) params[k] = n;
   });
@@ -77,6 +80,7 @@ export function readLabUrl(): {
     speed: num("speed"),
     geometryScale: q.has("geometryScale") ? q.get("geometryScale") === "1" : undefined,
     layout: q.get("layout") === "projector" ? "projector" : undefined,
+    guided: q.get("guided") === "1",
     params,
   };
 }

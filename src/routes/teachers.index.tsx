@@ -74,6 +74,16 @@ function TeachersIndex() {
           "Start with a real landscape, explore the process in 3D, and give students something to explain. These free lesson notes help teachers and geography clubs prepare a discussion, lead a demonstration or print a handout. You can use every resource without an account."
         }
       </p>
+      <div className="mt-5 flex max-w-3xl flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-white/10 p-4 text-sm text-mist">
+        <span>
+          {
+            "Collect results without accounts: students get a hand-in code at the end of each lab, or share a Guided link for a 15-minute prediction → model → explanation activity."
+          }
+        </span>
+        <Link to="/teachers/check" className="text-ice hover:underline">
+          {"Check hand-in codes"}
+        </Link>
+      </div>
       <ol
         className="mt-7 grid grid-cols-2 gap-3 md:grid-cols-4"
         aria-label={"A lesson in four stages"}

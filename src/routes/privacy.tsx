@@ -39,11 +39,16 @@ function Privacy() {
         </p>
         <p>
           {
-            "Quiz answers, glossary practice marks and the labs you opened recently are saved only in this browser, so a student can pick up where they left off on the same device. They are never sent to a server. Pages and files you open are also kept by your browser so they still work without a connection. Start again in a lab’s Check tab clears that lab, and clearing the site’s data removes them all."
+            "Quiz answers, written predictions and explanations, the name a student types on a hand-in slip, glossary practice marks and the labs you opened recently are saved only in this browser, so a student can pick up where they left off on the same device. They are never sent to a server. Pages and files you open are also kept by your browser so they still work without a connection. Start again in a lab’s Check tab clears the visible answers but keeps the first answer to each question, which the hand-in code records; clearing the site’s data removes everything."
           }
         </p>
         <p>
           {"We do not track what students do. There is no analytics software recording clicks."}
+        </p>
+        <p>
+          {
+            "A hand-in code is made on the student’s device. It records the lab, the date, the first answer to each Check question and whether a prediction and explanation were written, but no name and no written text. It reaches a teacher only if the student hands it over, and the teacher’s checker decodes it in the teacher’s own browser."
+          }
         </p>
         <p>
           {
@@ -52,7 +57,7 @@ function Privacy() {
         </p>
         <p>
           {
-            "Maps load tiles from OpenFreeMap / OpenStreetMap, and the live-weather tool loads forecasts from Open-Meteo. Like any web request, these share your IP address with those services. If the map tiles fail to load, the atlas shows a simple Natural Earth coastline built into the site."
+            "Maps load tiles from OpenFreeMap / OpenStreetMap, and the live-weather tool loads forecasts from Open-Meteo. When you open a live-data panel in a lab, tide predictions come from NOAA Tides & Currents and river readings from USGS Water Data; the ENSO update is fetched from NOAA by Geolens itself. Like any web request, these share your IP address with those services. If the map tiles fail to load, the atlas shows a simple Natural Earth coastline built into the site."
           }
         </p>
         <p>

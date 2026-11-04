@@ -85,6 +85,13 @@ export type LabMeta = {
   };
   /** Optional override; otherwise resolved from src/lib/labs/status.ts */
   status?: LabStatus;
+  /** Guided mode: a prediction made before the model opens. */
+  predict?: { prompt: string };
+  /**
+   * Guided mode: a claim–evidence–reasoning question answered from the model, with a model
+   * answer for teachers (shown in the Teach tab and teacher notes, never to students first).
+   */
+  cer?: { prompt: string; claim: string; evidence: string; reasoning: string };
 };
 
 export type RealmMeta = {
