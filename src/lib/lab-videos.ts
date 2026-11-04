@@ -1,7 +1,9 @@
 /** Topic-specific, English-language videos from educational publishers. Each lab lists its best
  * match first; a second film is added only when it covers a different part of the topic.
  * Checked in October 2026: every ID resolves on YouTube to the named publisher's channel and plays
- * in an embedded player, and every Crash Course film was matched against its transcript.
+ * in an embedded player, and every Crash Course film was matched against its transcript. Films from
+ * NASA, NOAA, USGS, the National Park Service, USDA NRCS, UCAR, the Met Office and universities were
+ * added in November 2026 after the same embed and channel check.
  * An absent entry is deliberate: a loosely related film should not fill an empty slot.
  * Review evidence is recorded in reports/geolens-media-review.md and reports/VIDEO-REVIEW-2026-10.md.
  */
@@ -227,11 +229,23 @@ export const LAB_VIDEOS: Record<string, LabVideo[]> = {
 
   // Atmosphere and weather
   "atmosphere-layers": [atmosphere],
-  "energy-budget": [atmosphere],
-  "thermal-circulation": [wind],
+  "energy-budget": [
+    onYouTube("82jE-yvB8xU", "Why does the Sun matter for Earth’s energy budget?", "NASA Goddard"),
+    atmosphere,
+  ],
+  "thermal-circulation": [
+    onYouTube("X2Wfp2rPvMY", "How does a sea breeze work?", "Met Office"),
+    wind,
+  ],
   wind: [wind],
-  "three-cell": [wind],
-  fronts: [cyclones],
+  "three-cell": [
+    onYouTube("xqM83_og1Fc", "What is global circulation? Part two: the three cells", "Met Office"),
+    onYouTube("xp50_ixPOhY", "Global wind patterns", "Khan Academy"),
+  ],
+  fronts: [
+    onYouTube("8KNzii1yJuw", "What’s with weather fronts?", "NSF NCAR & UCAR Science Education"),
+    onYouTube("G7Ewqm0YHUI", "What are weather fronts?", "Met Office"),
+  ],
   "cyclone-anticyclone": [cyclones],
   "tropical-cyclone": [cyclones],
   "storm-surge": [
@@ -242,7 +256,10 @@ export const LAB_VIDEOS: Record<string, LabVideo[]> = {
       "why-isn-t-the-netherlands-underwater-stefan-al",
     ),
   ],
-  "rain-shadow": [precipitation],
+  "rain-shadow": [
+    onYouTube("iMu4dShS74w", "Rain shadow", "University of Illinois Extension"),
+    precipitation,
+  ],
   "climate-types": [
     cc(
       "xiGhLGFkJjo",
@@ -252,9 +269,15 @@ export const LAB_VIDEOS: Record<string, LabVideo[]> = {
   ],
 
   // Water, oceans and carbon
-  "water-cycle": [waterShapesLand],
-  groundwater: [waterShapesLand],
-  "drainage-basin": [rivers],
+  "water-cycle": [onYouTube("oaDkph9yQBs", "Earth’s water cycle", "NASA Goddard"), waterShapesLand],
+  groundwater: [
+    onYouTube("bG19b06NG_w", "How wells and aquifers actually work", "Practical Engineering"),
+    waterShapesLand,
+  ],
+  "drainage-basin": [
+    onYouTube("b98kdNGYZt0", "Understanding the watershed", "Oregon State University Ecampus"),
+    rivers,
+  ],
   hydrograph: [floods],
   "river-hydrology": [rivers],
   "ocean-currents": [
@@ -265,7 +288,10 @@ export const LAB_VIDEOS: Record<string, LabVideo[]> = {
       "how-do-ocean-currents-work-jennifer-verduin",
     ),
   ],
-  thermohaline: [oceans],
+  thermohaline: [
+    onYouTube("HgoANl_97kM", "Flow: currents and climate", "NOAA Science On a Sphere"),
+    oceans,
+  ],
   enso: [onYouTube("57S0Rw9L_hw", "What is El Niño?", "NOAA SciJinks")],
   "carbon-cycle": [
     tedEd(
@@ -284,6 +310,22 @@ export const LAB_VIDEOS: Record<string, LabVideo[]> = {
     ),
   ],
   rivers: [rivers],
+  coasts: [
+    onYouTube(
+      "k2AQnpcW_HY",
+      "Time-lapse of bluff erosion on Barter Island, Alaska",
+      "US Geological Survey",
+    ),
+    onYouTube("BNyK1xO08Qg", "What are coastal erosion landforms?", "BBC Bitesize"),
+  ],
+  aeolian: [
+    onYouTube(
+      "42I4qMy8_VQ",
+      "Animation showing the formation of the Great Sand Dunes",
+      "Great Sand Dunes National Park and Preserve",
+    ),
+    onYouTube("L6Now-gHtx0", "Sand dunes shouldn’t exist (here’s why they do)", "Be Smart (PBS)"),
+  ],
   "river-erosion": [waterShapesLand, rivers],
   "river-deposition": [rivers, onYouTube("8a3r-cG8Wic", "Why Do Rivers Curve?", "MinuteEarth")],
   glaciers: [
@@ -330,8 +372,18 @@ export const LAB_VIDEOS: Record<string, LabVideo[]> = {
       "what-is-weathering-crash-course-geography-22",
     ),
   ],
-  "soil-profile": [soil],
+  "soil-profile": [
+    onYouTube("ZlyDyQT6_WE", "How to identify soil horizons in the field", "USDA NRCS"),
+    soil,
+  ],
   "soil-texture": [soil],
+  "soil-catena": [
+    onYouTube(
+      "tNDg-P20Z5c",
+      "Soil catena lab, part 1, with Professor Ray Weil",
+      "University of Maryland Environmental Science & Technology",
+    ),
+  ],
   "soil-erosion": [
     onYouTube("UncSFxc1Luw", "Soil Erosion and the Dust Bowl", "Pierce Conservation District"),
   ],

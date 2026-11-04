@@ -3508,5 +3508,715 @@
     "alt": "Visualization of the Hawaiian Islands with colored rings marking tsunami signals detected in the upper atmosphere, tide-gauge pins, and a timeline along the bottom.",
     "caption": "NASA's GUARDIAN system tracks the 29 July 2025 Kamchatka tsunami approaching Hawaiʻi. GPS signals passing through the upper atmosphere showed the wave's ripples; the Kauaʻi station picked them up 32 minutes before the first tide gauge did, about six hours after the earthquake.",
     "kind": "scientific-image"
+  },
+  {
+    "id": "uluru-sunset",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Petermann_Ranges_%28AU%29%2C_Uluru-Kata_Tjuta_National_Park%2C_Uluru_--_2019_--_3688.jpg/1280px-Petermann_Ranges_%28AU%29%2C_Uluru-Kata_Tjuta_National_Park%2C_Uluru_--_2019_--_3688.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Petermann_Ranges_(AU),_Uluru-Kata_Tjuta_National_Park,_Uluru_--_2019_--_3688.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Dietmar Rabich / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Uluru, a huge red sandstone monolith, glowing at sunset above dry grassland in central Australia.",
+    "caption": "Uluru, Northern Territory. This rock is a remnant of sandstone layers tilted almost on end and left standing as the land around it wore down.",
+    "kind": "photo"
+  },
+  {
+    "id": "moraine-lake-banff",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Canada_-_Alberta_-_Moraine_Lake_-_42571758945.jpg/1280px-Canada_-_Alberta_-_Moraine_Lake_-_42571758945.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canada_-_Alberta_-_Moraine_Lake_-_42571758945.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "Terry Ott / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "A turquoise glacial lake below steep gray peaks and a snow-filled gully, with spruce forest and driftwood logs.",
+    "caption": "Moraine Lake in Banff National Park, Alberta, in the Canadian Rockies. Glaciers carved the valley, and fine rock flour from their meltwater gives the lake its color.",
+    "kind": "photo"
+  },
+  {
+    "id": "popocatepetl-paso-cortes",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Mexico-Popocatepetl.jpg/1280px-Mexico-Popocatepetl.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mexico-Popocatepetl.jpg",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "credit": "Jakub Hejtmánek / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "The snow-capped cone of Popocatépetl volcano rising above pine forest and pasture.",
+    "caption": "Popocatépetl from Paso de Cortés. It is one of Mexico's most active volcanoes, fed by subduction along the Pacific coast.",
+    "kind": "photo"
+  },
+  {
+    "id": "naples-vesuvius-bay",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Naples%2C_Italy%2C_A_view_over_Bay_of_Naples%2C_Port_of_Naples_and_Mt._Vesuvius.jpg/1280px-Naples%2C_Italy%2C_A_view_over_Bay_of_Naples%2C_Port_of_Naples_and_Mt._Vesuvius.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naples,_Italy,_A_view_over_Bay_of_Naples,_Port_of_Naples_and_Mt._Vesuvius.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Vyacheslav Argenberg / Wikimedia Commons · CC BY 4.0 · resized",
+    "alt": "The city and port of Naples spread around the bay, with the cone of Mount Vesuvius in the haze behind.",
+    "caption": "Naples and Mount Vesuvius. About three million people live within reach of the volcano that buried Pompeii in 79 CE.",
+    "kind": "photo"
+  },
+  {
+    "id": "burren-limestone-pavement",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Limestone_pavement_in_the_East_Burren_complex_01.jpg/1280px-Limestone_pavement_in_the_East_Burren_complex_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Limestone_pavement_in_the_East_Burren_complex_01.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Limnoporus / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Bare gray limestone pavement split into blocks by deep joints, stretching to the horizon in the Burren.",
+    "caption": "Limestone pavement in the East Burren, County Clare. Rainwater dissolved the rock along its joints, opening the cracks (grikes) between the blocks (clints).",
+    "kind": "photo"
+  },
+  {
+    "id": "bhagirathi-peaks-garhwal",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/Bhagirathi_group_of_Himalaya_peaks_Uttarakhand_India.jpg/1280px-Bhagirathi_group_of_Himalaya_peaks_Uttarakhand_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bhagirathi_group_of_Himalaya_peaks_Uttarakhand_India.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "Sharada Prasad CS / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "Snow and rock peaks of the Bhagirathi group rising above a steep forested valley in the Himalaya.",
+    "caption": "The Bhagirathi peaks in Uttarakhand, India. The Himalaya are still rising as India pushes north into Asia.",
+    "kind": "photo"
+  },
+  {
+    "id": "stockholm-skerry",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Skerry_Archipelago_%2844577005774%29.jpg/1280px-Skerry_Archipelago_%2844577005774%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skerry_Archipelago_(44577005774).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "Sonse / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "A small rocky island of smooth bare rock and pine trees in the Stockholm archipelago.",
+    "caption": "A skerry in the Stockholm archipelago, Sweden. Ice sheets smoothed this ancient shield rock, and thousands of such islands now rise from the Baltic.",
+    "kind": "photo"
+  },
+  {
+    "id": "djerdap-kazan-gorge",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Djerdap_%28Iron_Gate%29_gorge.JPG/1280px-Djerdap_%28Iron_Gate%29_gorge.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Djerdap_(Iron_Gate)_gorge.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Geologicharka / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "The Danube flowing through a narrow gorge between steep forested limestone walls.",
+    "caption": "The Kazan section of the Djerdap (Iron Gate) gorge, seen from the Serbian side. Here the Danube cuts through the Carpathian–Balkan mountains.",
+    "kind": "photo"
+  },
+  {
+    "id": "strbske-pleso-tatras",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/%C5%A0trbsk%C3%A9_pleso_%26_Hotel_Patria_2022.jpg/1280px-%C5%A0trbsk%C3%A9_pleso_%26_Hotel_Patria_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%C5%A0trbsk%C3%A9_pleso_%26_Hotel_Patria_2022.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Adrian Tync / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A calm mountain lake reflecting forest, a large hotel and the jagged peaks of the High Tatras.",
+    "caption": "Štrbské pleso, a glacial lake in Slovakia's High Tatras, with the granite peaks behind.",
+    "kind": "photo"
+  },
+  {
+    "id": "orheiul-vechi-raut",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Orheiul_vechi.jpg/1280px-Orheiul_vechi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Orheiul_vechi.jpg",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "credit": "Ricardoq / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "The Răut River winding through a wide valley below steep limestone slopes at Orheiul Vechi.",
+    "caption": "The Răut River meandering below the limestone cliffs of Orheiul Vechi, Moldova.",
+    "kind": "photo"
+  },
+  {
+    "id": "hortobagy-puszta",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Hortob%C3%A1gy_National_Park_kz07.jpg/1280px-Hortob%C3%A1gy_National_Park_kz07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hortob%C3%A1gy_National_Park_kz07.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Krzysztof Ziarnek, Kenraiz / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Flat green grassland stretching to a level horizon under a clear sky.",
+    "caption": "The Hortobágy puszta in eastern Hungary, part of the Great Hungarian Plain inside the arc of the Carpathians.",
+    "kind": "photo"
+  },
+  {
+    "id": "arenal-volcano",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Arenal_volcano_%2870785p%29_%28cropped%29.jpg/1280px-Arenal_volcano_%2870785p%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arenal_volcano_(70785p)_(cropped).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Rhododendrites / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "The steep symmetrical cone of Arenal volcano rising above tropical forest under white clouds.",
+    "caption": "Arenal, a young stratovolcano in northern Costa Rica built above the subducting Cocos plate.",
+    "kind": "photo"
+  },
+  {
+    "id": "kerio-valley-escarpment",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/KERIO_VIEW_POINT_ON_THE_KIEYO_ESCARPMENT_-_ITEN_KENYA.jpg/1280px-KERIO_VIEW_POINT_ON_THE_KIEYO_ESCARPMENT_-_ITEN_KENYA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:KERIO_VIEW_POINT_ON_THE_KIEYO_ESCARPMENT_-_ITEN_KENYA.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Elias Yator / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "View from the top of an escarpment over farmland toward the broad floor of a rift valley.",
+    "caption": "The Kerio Valley from the Elgeyo escarpment near Iten, Kenya, part of the Great Rift Valley.",
+    "kind": "photo"
+  },
+  {
+    "id": "tonle-sap-floating-houses",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Cottages_on_Lake_Tonl%C3%A9_Sap_in_Cambodia.jpg/1280px-Cottages_on_Lake_Tonl%C3%A9_Sap_in_Cambodia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cottages_on_Lake_Tonl%C3%A9_Sap_in_Cambodia.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Ondřej Havelka / Wikimedia Commons · CC BY 4.0 · resized",
+    "alt": "Small floating houses on the wide, muddy water of Tonlé Sap lake.",
+    "caption": "Floating homes on Tonlé Sap, Cambodia. The lake grows several times larger each monsoon when the Mekong pushes water back up into it.",
+    "kind": "photo"
+  },
+  {
+    "id": "simien-escarpment",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Simiensk%C3%A9_hory.jpg/1280px-Simiensk%C3%A9_hory.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Simiensk%C3%A9_hory.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.5",
+    "credit": "Ondřej Žváček / Wikimedia Commons · CC BY 2.5 · resized",
+    "alt": "A sheer basalt escarpment dropping from a high grassy plateau into deep valleys in the Simien Mountains.",
+    "caption": "The Simien Mountains, Ethiopia. Layers of ancient lava form a high plateau that ends in cliffs more than 1,000 m high.",
+    "kind": "photo"
+  },
+  {
+    "id": "providence-canyon",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Providence_Canyon_from_rim.jpg/1280px-Providence_Canyon_from_rim.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Providence_Canyon_from_rim.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Robbie Honerkamp / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Steep gullies with red, orange and white sediment walls cutting through pine woodland.",
+    "caption": "Providence Canyon, Georgia. These gullies formed mainly in the 1800s, when farming removed the plant cover from soft coastal-plain sediment.",
+    "kind": "photo"
+  },
+  {
+    "id": "cape-cod-dune",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/USA_Cape_Cod_1_MA.jpg/1280px-USA_Cape_Cod_1_MA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:USA_Cape_Cod_1_MA.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "credit": "Daniel Schwen / Wikimedia Commons · CC BY-SA 2.5 · resized",
+    "alt": "A sand dune with clumps of beach grass under a deep blue sky.",
+    "caption": "A dune on Cape Cod near Provincetown. Waves and wind rework sand from the glacial deposits that built the Cape.",
+    "kind": "photo"
+  },
+  {
+    "id": "rainy-lake-shield-rock",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Canadian_Sheild_P7160635.jpg/1280px-Canadian_Sheild_P7160635.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canadian_Sheild_P7160635.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Chris Light / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Pink and gray granite and gneiss outcrop at the water's edge beneath spruce and birch forest.",
+    "caption": "Canadian Shield rock on the Minnesota shore of Rainy Lake. These gneisses and granites are 1 to 3 billion years old and were scraped bare by ice sheets.",
+    "kind": "photo"
+  },
+  {
+    "id": "franconia-notch",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Franconia_Notch_Parkway_Freeway_Scenic_Byway_in_Franconia_Notch_State_Park_View_to_Franconia_Range_White_Mountains_New_Hampshire.jpg/1280px-Franconia_Notch_Parkway_Freeway_Scenic_Byway_in_Franconia_Notch_State_Park_View_to_Franconia_Range_White_Mountains_New_Hampshire.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Franconia_Notch_Parkway_Freeway_Scenic_Byway_in_Franconia_Notch_State_Park_View_to_Franconia_Range_White_Mountains_New_Hampshire.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "EgorovaSvetlana / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A deep mountain pass between steep forested slopes, with low cloud over the ridge.",
+    "caption": "Franconia Notch, White Mountains, New Hampshire. Glaciers deepened this valley through the granite.",
+    "kind": "photo"
+  },
+  {
+    "id": "wheeler-peak-great-basin",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/2013-07-14_09_37_43_Wheeler_Peak_viewed_from_Wheeler_Peak_Scenic_Drive_in_Great_Basin_National_Park.jpg/1280px-2013-07-14_09_37_43_Wheeler_Peak_viewed_from_Wheeler_Peak_Scenic_Drive_in_Great_Basin_National_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2013-07-14_09_37_43_Wheeler_Peak_viewed_from_Wheeler_Peak_Scenic_Drive_in_Great_Basin_National_Park.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Famartin / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Gray rocky peaks above a forested slope under a blue sky.",
+    "caption": "Wheeler Peak, Great Basin National Park. It is one of the Basin and Range mountains that rise between dry valleys in Nevada.",
+    "kind": "photo"
+  },
+  {
+    "id": "great-smoky-mountains-tn",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Blue_Ridge_%28Great_Smoky_Mountains%2C_Tennessee%2C_USA%29_3.jpg/1280px-Blue_Ridge_%28Great_Smoky_Mountains%2C_Tennessee%2C_USA%29_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Ridge_(Great_Smoky_Mountains,_Tennessee,_USA)_3.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "James St. John / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "Rows of forested mountain ridges fading into blue haze.",
+    "caption": "The Great Smoky Mountains in Tennessee, part of the Blue Ridge province of the Appalachians.",
+    "kind": "photo"
+  },
+  {
+    "id": "dust-storm-cimarron-1936",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Farmer_and_sons_walking_in_the_face_of_a_dust_storm%2C_Cimarron_County%2C_Oklahoma%2C_00241u.tif/lossy-page1-1280px-Farmer_and_sons_walking_in_the_face_of_a_dust_storm%2C_Cimarron_County%2C_Oklahoma%2C_00241u.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Farmer_and_sons_walking_in_the_face_of_a_dust_storm,_Cimarron_County,_Oklahoma,_00241u.tif",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Farmer_and_sons_walking_in_the_face_of_a_dust_storm,_Cimarron_County,_Oklahoma,_00241u.tif",
+    "credit": "Arthur Rothstein / Wikimedia Commons · Public domain · resized",
+    "alt": "Black-and-white photo of a farmer and two children walking past a shed half-buried by drifting dust.",
+    "caption": "Cimarron County, Oklahoma, in April 1936 (historical photograph). Drought and wind stripped plowed soil from the plains during the Dust Bowl.",
+    "kind": "photo"
+  },
+  {
+    "id": "prairie-potholes-nd",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Prairie_Potholes_%2812642422074%29.jpg/1280px-Prairie_Potholes_%2812642422074%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prairie_Potholes_(12642422074).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Prairie_Potholes_(12642422074).jpg",
+    "credit": "USFWS Mountain-Prairie / Wikimedia Commons · Public domain · resized",
+    "alt": "Aerial view of many small ponds and wetlands scattered across green farmland.",
+    "caption": "Prairie potholes in North Dakota: shallow wetlands in hollows left by melting blocks of glacier ice.",
+    "kind": "photo"
+  },
+  {
+    "id": "nebraska-sand-hills",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Sand_Hills_Grassland_Near_Seneca%2C_Nebraska_04.jpg/1280px-Sand_Hills_Grassland_Near_Seneca%2C_Nebraska_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sand_Hills_Grassland_Near_Seneca,_Nebraska_04.jpg",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "credit": "Z3lvs / Wikimedia Commons · CC0 · resized",
+    "alt": "Rolling grass-covered hills stretching to the horizon under a pale sky.",
+    "caption": "The Sand Hills near Seneca, Nebraska: grass-covered dunes, the largest dune field in the Western Hemisphere.",
+    "kind": "photo"
+  },
+  {
+    "id": "buffalo-river-big-bluff",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Buffalo_River_%26_Big_Bluff_%289aac643a-1dd8-b71b-0b0d-89e5dde3e79f%29.jpg/1280px-Buffalo_River_%26_Big_Bluff_%289aac643a-1dd8-b71b-0b0d-89e5dde3e79f%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Buffalo_River_%26_Big_Bluff_(9aac643a-1dd8-b71b-0b0d-89e5dde3e79f).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Buffalo_River_%26_Big_Bluff_(9aac643a-1dd8-b71b-0b0d-89e5dde3e79f).jpg",
+    "credit": "National Park Service / Wikimedia Commons · Public domain · resized",
+    "alt": "A river winding through a forested valley below a long pale limestone bluff.",
+    "caption": "The Buffalo River and Big Bluff in the Ozarks of Arkansas.",
+    "kind": "photo"
+  },
+  {
+    "id": "great-salt-lake-shore",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Great_Salt_Lake.jpg/1280px-The_Great_Salt_Lake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Great_Salt_Lake.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Fsendek1904 / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A dry, stony shore and wide pale flats in front of the shallow water of the Great Salt Lake.",
+    "caption": "The shore of the Great Salt Lake. With no outlet to the sea, the lake loses water only by evaporation, so it is saltier than the ocean.",
+    "kind": "photo"
+  },
+  {
+    "id": "braslaw-dryviaty-lake",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/2023.07.10_Dryviaty_Lake%2C_Braslaw_Lakes_National_Park.jpg/1280px-2023.07.10_Dryviaty_Lake%2C_Braslaw_Lakes_National_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023.07.10_Dryviaty_Lake,_Braslaw_Lakes_National_Park.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Tess Mattew / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Reeds in the shallows of a wide lake under a cloudy sky.",
+    "caption": "Dryviaty Lake in Braslaw Lakes National Park, Belarus, one of many lakes left among moraines by the ice sheets.",
+    "kind": "photo"
+  },
+  {
+    "id": "storm-king-hudson",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Storm_King_Mountain_from_Breakneck_Ridge.JPG/1280px-Storm_King_Mountain_from_Breakneck_Ridge.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Storm_King_Mountain_from_Breakneck_Ridge.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "PointsofNoReturn / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A rounded rocky mountain rising steeply from the wide Hudson River.",
+    "caption": "Storm King Mountain above the Hudson River. Ice deepened this valley, and the river below is now a tidal estuary.",
+    "kind": "photo"
+  },
+  {
+    "id": "mammoth-cave-passage",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Passage%2C_Mammoth_Cave%2C_Mammoth_Cave_National_Park%2C_Mammoth_Cave%2C_KY_-_52726706010.jpg/1280px-Passage%2C_Mammoth_Cave%2C_Mammoth_Cave_National_Park%2C_Mammoth_Cave%2C_KY_-_52726706010.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Passage,_Mammoth_Cave,_Mammoth_Cave_National_Park,_Mammoth_Cave,_KY_-_52726706010.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "w_lemay / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "Visitors standing in a huge cave passage with a curved limestone ceiling.",
+    "caption": "A passage in Mammoth Cave, Kentucky, the longest known cave system on Earth, dissolved from limestone by groundwater.",
+    "kind": "photo"
+  },
+  {
+    "id": "badlands-sage-creek",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Badlands_National_Park_kz03.jpg/1280px-Badlands_National_Park_kz03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Badlands_National_Park_kz03.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Krzysztof Ziarnek, Kenraiz / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Steep eroded ridges and gullies of pale layered rock under a blue sky.",
+    "caption": "Badlands National Park, South Dakota. Soft sediment layers erode quickly into a maze of ridges and gullies.",
+    "kind": "photo"
+  },
+  {
+    "id": "hamilton-pool",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Hamilton_Pool.jpeg/1280px-Hamilton_Pool.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hamilton_Pool.jpeg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "credit": "Trey Perry / Wikimedia Commons · CC BY 3.0 · resized",
+    "alt": "A waterfall pouring from a limestone overhang into a green pool surrounded by trees.",
+    "caption": "Hamilton Pool, Texas: a pool in Edwards Plateau limestone formed where the roof of an underground river collapsed.",
+    "kind": "photo"
+  },
+  {
+    "id": "mount-rainier-paradise",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Mount_Rainier_from_Paradise_Park_%286_October_2024%29.jpg/1280px-Mount_Rainier_from_Paradise_Park_%286_October_2024%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mount_Rainier_from_Paradise_Park_(6_October_2024).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Buidhe / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Snow- and ice-covered Mount Rainier above conifers and autumn meadows.",
+    "caption": "Mount Rainier from Paradise. It is the highest volcano of the Cascade arc, above the Cascadia subduction zone.",
+    "kind": "photo"
+  },
+  {
+    "id": "shenandoah-valley-overlook",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/2016-10-25_13_49_25_View_north_from_the_Shenandoah_Valley_Overlook_along_Shenandoah_National_Park%27s_Skyline_Drive_in_Warren_County%2C_Virginia.jpg/1280px-2016-10-25_13_49_25_View_north_from_the_Shenandoah_Valley_Overlook_along_Shenandoah_National_Park%27s_Skyline_Drive_in_Warren_County%2C_Virginia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2016-10-25_13_49_25_View_north_from_the_Shenandoah_Valley_Overlook_along_Shenandoah_National_Park%27s_Skyline_Drive_in_Warren_County,_Virginia.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Famartin / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "View from a forested ridge over a wide, flat farmed valley to distant hills.",
+    "caption": "The Shenandoah Valley, part of the Great Appalachian Valley, seen from Skyline Drive on the Blue Ridge in Virginia.",
+    "kind": "photo"
+  },
+  {
+    "id": "flatirons-boulder",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/The_Flatirons_in_autumn..JPG/1280px-The_Flatirons_in_autumn..JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Flatirons_in_autumn..JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Eddyl / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Tilted slabs of reddish rock on a mountain front rising behind the trees and buildings of Boulder.",
+    "caption": "The Flatirons above Boulder, Colorado: steeply tilted sandstone where the Rocky Mountains meet the Great Plains.",
+    "kind": "photo"
+  },
+  {
+    "id": "everglades-sawgrass",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Sawgrass_Prairie_%2849831594452%29.jpg/1280px-Sawgrass_Prairie_%2849831594452%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sawgrass_Prairie_(49831594452).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Sawgrass_Prairie_(49831594452).jpg",
+    "credit": "National Park Service / Wikimedia Commons · Public domain · resized",
+    "alt": "Flat sawgrass prairie stretching to the horizon under big white clouds.",
+    "caption": "Sawgrass prairie in Everglades National Park, Florida. Water spreads slowly south across this low limestone platform.",
+    "kind": "photo"
+  },
+  {
+    "id": "rio-grande-gorge",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Rio_Grande_Gorge_Bridge%2C_Taos%2C_New_Mexico.jpg/1280px-Rio_Grande_Gorge_Bridge%2C_Taos%2C_New_Mexico.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rio_Grande_Gorge_Bridge,_Taos,_New_Mexico.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "credit": "Adamnewbie / Wikimedia Commons · CC BY 4.0 · resized",
+    "alt": "A narrow river gorge cut into dark lava rock across a flat plain, with a bridge and distant mountains.",
+    "caption": "The Rio Grande Gorge near Taos, cut into basalt that filled the Rio Grande rift.",
+    "kind": "photo"
+  },
+  {
+    "id": "smugglers-notch",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Smugglers_Notch%28fromSouth%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Smugglers_Notch(fromSouth).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Aiken1986 / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "A steep-sided mountain pass with autumn forest and cliffs, seen from high above.",
+    "caption": "Smugglers Notch in Vermont's Green Mountains, seen from Mount Mansfield.",
+    "kind": "photo"
+  },
+  {
+    "id": "sonoran-desert-monument",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/BLM_Winter_Bucket_List_-27-_Sonoran_Desert_National_Monument%2C_Arizona%2C_for_Day_Hikes_Among_the_Saguaro_%2816369228335%29.jpg/1280px-BLM_Winter_Bucket_List_-27-_Sonoran_Desert_National_Monument%2C_Arizona%2C_for_Day_Hikes_Among_the_Saguaro_%2816369228335%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:BLM_Winter_Bucket_List_-27-_Sonoran_Desert_National_Monument,_Arizona,_for_Day_Hikes_Among_the_Saguaro_(16369228335).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:BLM_Winter_Bucket_List_-27-_Sonoran_Desert_National_Monument,_Arizona,_for_Day_Hikes_Among_the_Saguaro_(16369228335).jpg",
+    "credit": "Bureau of Land Management / Wikimedia Commons · Public domain · resized",
+    "alt": "Saguaro cacti and desert shrubs scattered across a gentle slope.",
+    "caption": "Sonoran Desert National Monument, Arizona, southwest of Phoenix.",
+    "kind": "photo"
+  },
+  {
+    "id": "island-beach-dunes",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/2013-08-21_13_33_08_Dunes_along_the_beach_0.42_miles_from_the_southern_tip_of_Island_Beach_State_Park.jpg/1280px-2013-08-21_13_33_08_Dunes_along_the_beach_0.42_miles_from_the_southern_tip_of_Island_Beach_State_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:2013-08-21_13_33_08_Dunes_along_the_beach_0.42_miles_from_the_southern_tip_of_Island_Beach_State_Park.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Famartin / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Sand dunes topped with grass beside a wide beach on a barrier island.",
+    "caption": "Dunes at Island Beach State Park, a barrier island on the New Jersey coast.",
+    "kind": "photo"
+  },
+  {
+    "id": "seven-sisters-chalk",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Seven_Sisters_March_2017_01.jpg/1280px-Seven_Sisters_March_2017_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Seven_Sisters_March_2017_01.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Arild Vågen / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "White chalk cliffs running along the coast above a shingle beach.",
+    "caption": "The Seven Sisters chalk cliffs on the East Sussex coast, England. Waves cut the chalk back into steep white cliffs.",
+    "kind": "photo"
+  },
+  {
+    "id": "cwm-idwal-aerial",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Aerial_view_of_Cwm_Idwal%2C_Eryri%2C_Gwynedd%2C_Wales_-_Awyrlun_o_Gwm_Idwal_yng_Ngorffennaf_2023_14.jpg/1280px-Aerial_view_of_Cwm_Idwal%2C_Eryri%2C_Gwynedd%2C_Wales_-_Awyrlun_o_Gwm_Idwal_yng_Ngorffennaf_2023_14.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Cwm_Idwal,_Eryri,_Gwynedd,_Wales_-_Awyrlun_o_Gwm_Idwal_yng_Ngorffennaf_2023_14.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Llywelyn2000 / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Aerial view of a lake in a deep rock hollow below steep mountain walls in Eryri.",
+    "caption": "Cwm Idwal, Eryri (Snowdonia): a corrie carved by a glacier, with the lake Llyn Idwal on its floor.",
+    "kind": "photo"
+  },
+  {
+    "id": "chesil-beach-portland",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Chesil_Beach_and_Portland_-_geograph.org.uk_-_4104336.jpg/1280px-Chesil_Beach_and_Portland_-_geograph.org.uk_-_4104336.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chesil_Beach_and_Portland_-_geograph.org.uk_-_4104336.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Philip Pankhurst / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "A long, narrow shingle beach running along the coast, with a lagoon behind it.",
+    "caption": "Chesil Beach seen from Portland, Dorset. The shingle barrier is about 29 km long and holds the Fleet lagoon behind it.",
+    "kind": "photo"
+  },
+  {
+    "id": "ladram-bay-stacks",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Ladram_bay%2C_England.jpg/1280px-Ladram_bay%2C_England.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ladram_bay,_England.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Zhanel.bissekenova / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Red sandstone sea stacks and cliffs in a misty bay.",
+    "caption": "Sea stacks at Ladram Bay, east Devon, cut from red Triassic sandstone near the western end of the Jurassic Coast.",
+    "kind": "photo"
+  },
+  {
+    "id": "great-glen-loch-ness",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/The_Great_Glen_way_above_Loch_Ness_-_geograph.org.uk_-_5438401.jpg/1280px-The_Great_Glen_way_above_Loch_Ness_-_geograph.org.uk_-_5438401.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Great_Glen_way_above_Loch_Ness_-_geograph.org.uk_-_5438401.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Tim Heaton / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "A path crossing moorland above a long, narrow loch between hills.",
+    "caption": "Loch Ness in the Great Glen. The glen follows a major fault, and ice deepened it into a long trough.",
+    "kind": "photo"
+  },
+  {
+    "id": "chaine-des-puys",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Cha%C3%AEne_des_Puys_from_Puy_de_Dome.jpg/1280px-Cha%C3%AEne_des_Puys_from_Puy_de_Dome.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cha%C3%AEne_des_Puys_from_Puy_de_Dome.jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Cha%C3%AEne_des_Puys_from_Puy_de_Dome.jpg",
+    "credit": "Tangopaso / Wikimedia Commons · Public domain · resized",
+    "alt": "Rounded volcanic hills covered in forest above farmland, seen from a summit.",
+    "caption": "The Chaîne des Puys from the Puy de Dôme, France: a line of about 80 young volcanoes in the Massif Central.",
+    "kind": "photo"
+  },
+  {
+    "id": "holderness-crumbling-cliff",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Crumbling_Holderness_cliffs_-_geograph.org.uk_-_7380777.jpg/1280px-Crumbling_Holderness_cliffs_-_geograph.org.uk_-_7380777.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crumbling_Holderness_cliffs_-_geograph.org.uk_-_7380777.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "credit": "Christine Johnstone / Wikimedia Commons · CC BY-SA 2.0 · resized",
+    "alt": "A low cliff of soft clay slumping onto a beach, with the sea beyond.",
+    "caption": "Crumbling till cliffs on the Holderness coast, one of the fastest-eroding coastlines in Europe.",
+    "kind": "photo"
+  },
+  {
+    "id": "durdle-door",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Durdle_Door_Overview.jpg/1280px-Durdle_Door_Overview.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Durdle_Door_Overview.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Saffron Blaze / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "A limestone arch reaching into blue sea from a curving beach below grassy cliffs.",
+    "caption": "Durdle Door, Dorset: an arch cut by the sea through steeply tilted limestone on the Jurassic Coast.",
+    "kind": "photo"
+  },
+  {
+    "id": "santorini-caldera-cliffs",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Cliffs_in_Santorini%2C_Greece.jpg/1280px-Cliffs_in_Santorini%2C_Greece.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cliffs_in_Santorini,_Greece.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "dronepicr / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "Steep layered cliffs of volcanic rock dropping into deep blue sea, with white villages on top.",
+    "caption": "The caldera cliffs of Santorini, Greece. A huge eruption about 3,600 years ago caused the center of the volcano to collapse.",
+    "kind": "photo"
+  },
+  {
+    "id": "cappadocia-fairy-chimneys",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Fairy_chimneys_in_Cappadocia.JPG/1280px-Fairy_chimneys_in_Cappadocia.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fairy_chimneys_in_Cappadocia.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Wolfgang Moroder / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Tall cones of pale volcanic rock with darker caps, standing in a valley.",
+    "caption": "Fairy chimneys in Cappadocia, Türkiye: soft volcanic tuff eroded into pillars below harder caps.",
+    "kind": "photo"
+  },
+  {
+    "id": "bardenas-reales",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Bardenas_Reales_10.jpg/1280px-Bardenas_Reales_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bardenas_Reales_10.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Pere.page / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Eroded clay hills and flat-topped ridges in a dry, open landscape.",
+    "caption": "Bardenas Reales, Navarra: a semi-desert of eroded clay and gypsum in the dry Ebro basin.",
+    "kind": "photo"
+  },
+  {
+    "id": "jebel-toubkal",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Jebel_Toubkal_in_Atlas_Mountains%2C_31.10.2022.jpg/1280px-Jebel_Toubkal_in_Atlas_Mountains%2C_31.10.2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jebel_Toubkal_in_Atlas_Mountains,_31.10.2022.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Kaur Virunurm / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A rocky snow-dusted summit and ridges of the High Atlas under a blue sky.",
+    "caption": "Jebel Toubkal, the highest peak in North Africa, in Morocco's High Atlas.",
+    "kind": "photo"
+  },
+  {
+    "id": "tassili-sandstone",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Tassili_Desert_Algeria.jpg/1280px-Tassili_Desert_Algeria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tassili_Desert_Algeria.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "magharebia / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "Tall eroded sandstone cliffs above flat sand, with camels in the distance.",
+    "caption": "Sandstone cliffs and sand in Tassili n'Ajjer National Park, in the Algerian Sahara.",
+    "kind": "photo"
+  },
+  {
+    "id": "table-mountain-blouberg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Table_Mountain_DanieVDM.jpg/1280px-Table_Mountain_DanieVDM.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Table_Mountain_DanieVDM.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "Danie van der Merwe / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "Flat-topped Table Mountain rising above Cape Town across the bay from a sandy beach.",
+    "caption": "Table Mountain from Bloubergstrand, South Africa. Its flat top is a layer of hard sandstone.",
+    "kind": "photo"
+  },
+  {
+    "id": "perito-moreno-glacier",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG/1280px-Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perito_Moreno_Glacier_Patagonia_Argentina_Luca_Galuzzi_2005.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "credit": "Luca Galuzzi / Wikimedia Commons · CC BY-SA 2.5 · resized",
+    "alt": "The jagged white ice front of a glacier ending in a lake, with mountains behind.",
+    "caption": "Perito Moreno Glacier, Los Glaciares National Park, Argentina: an outlet glacier of the Southern Patagonian Ice Field.",
+    "kind": "photo"
+  },
+  {
+    "id": "meeting-of-waters-manaus",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Meeting_of_waters_from_the_air_manaus_brazil.JPG/1280px-Meeting_of_waters_from_the_air_manaus_brazil.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Meeting_of_waters_from_the_air_manaus_brazil.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Immelman284 / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Aerial view of a dark river and a muddy river flowing side by side without mixing.",
+    "caption": "The Meeting of the Waters near Manaus, where the dark Rio Negro joins the sediment-laden Amazon (Solimões).",
+    "kind": "photo"
+  },
+  {
+    "id": "machhapuchhre",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Machhapuchhre_or_Fishtail_Mountain_6%2C993_m_%2822%2C943_ft%29-_IMG_5246.jpg/1280px-Machhapuchhre_or_Fishtail_Mountain_6%2C993_m_%2822%2C943_ft%29-_IMG_5246.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Machhapuchhre_or_Fishtail_Mountain_6,993_m_(22,943_ft)-_IMG_5246.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Bijay Chaurasia / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A sharp, snow-covered mountain peak above steep valley slopes.",
+    "caption": "Machhapuchhre (6,993 m) from Annapurna Base Camp, Nepal.",
+    "kind": "photo"
+  },
+  {
+    "id": "hunza-valley",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg/1280px-Hunza_Valley%2C_view_from_Eagle%27s_Nest.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hunza_Valley,_view_from_Eagle%27s_Nest.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Alllexxxis / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A green valley floor with poplar trees surrounded by bare, high mountains.",
+    "caption": "The Hunza Valley in the Karakoram, Pakistan, with irrigated villages below some of the world's highest peaks.",
+    "kind": "photo"
+  },
+  {
+    "id": "mayon-volcano",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Mayon_Volcano_as_of_March_2020.jpg/1280px-Mayon_Volcano_as_of_March_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mayon_Volcano_as_of_March_2020.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Marisa Mercado / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "The near-perfect cone of Mayon volcano rising behind green rice fields and palm trees.",
+    "caption": "Mayon, an active stratovolcano on Luzon above a subduction zone in the Philippines.",
+    "kind": "photo"
+  },
+  {
+    "id": "moynaq-aral-ships",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Moynaq%2C_Aral_Sea_%286226807306%29.jpg/1280px-Moynaq%2C_Aral_Sea_%286226807306%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moynaq,_Aral_Sea_(6226807306).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "Arian Zwegers / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "Two rusting ships stranded on sand where a sea once was.",
+    "caption": "The ship graveyard at Moynaq, Uzbekistan, on the former bed of the Aral Sea. River water diverted for irrigation shrank the sea.",
+    "kind": "photo"
+  },
+  {
+    "id": "charyn-canyon",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Charyn_Canyon%2C_Kazakhstan_03.jpg/1280px-Charyn_Canyon%2C_Kazakhstan_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Charyn_Canyon,_Kazakhstan_03.jpg",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "credit": "Bgag / Wikimedia Commons · CC0 · resized",
+    "alt": "A dry canyon of red eroded rock towers with a dirt road along its floor.",
+    "caption": "Charyn Canyon in southeast Kazakhstan, cut by the Charyn River through layered sedimentary rock.",
+    "kind": "photo"
+  },
+  {
+    "id": "iraq-marshes",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/The_marshes_of_Iraq.jpg/1280px-The_marshes_of_Iraq.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_marshes_of_Iraq.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Taisir Mahdi / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A reed house and a boat on calm water, with water buffalo by the reeds.",
+    "caption": "The Mesopotamian Marshes of southern Iraq, where the Tigris and Euphrates spread across their low delta plain.",
+    "kind": "photo"
+  },
+  {
+    "id": "parnidis-dune",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Nida_wydma_Parnidis_08.jpg/1280px-Nida_wydma_Parnidis_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nida_wydma_Parnidis_08.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Andrzej Otrębski / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "Grassy sand dunes rolling down toward a calm lagoon.",
+    "caption": "The Parnidis dune near Nida on the Curonian Spit, Lithuania, with the Curonian Lagoon beyond.",
+    "kind": "photo"
+  },
+  {
+    "id": "lion-rock-kowloon",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Lion_Rock%2C_viewing_from_Lung_Cheung_Road_%28Hong_Kong%29.jpg/1280px-Lion_Rock%2C_viewing_from_Lung_Cheung_Road_%28Hong_Kong%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lion_Rock,_viewing_from_Lung_Cheung_Road_(Hong_Kong).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Mk2010 / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "A rocky granite peak rising directly behind tall public housing blocks.",
+    "caption": "Lion Rock above Chuk Yuen Estate, Kowloon. Hong Kong's steep granite hills rise right behind its housing.",
+    "kind": "photo"
+  },
+  {
+    "id": "nile-aswan-desert",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Nile_Meets_the_Desert%2C_Aswan.jpg/1280px-Nile_Meets_the_Desert%2C_Aswan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nile_Meets_the_Desert,_Aswan.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "AmiraAdel93 / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A strip of green reeds along the river with a tall sand dune rising right behind.",
+    "caption": "The Nile at Aswan, Egypt. A narrow band of green follows the river; desert begins right at its edge.",
+    "kind": "photo"
+  },
+  {
+    "id": "angel-falls-tepui",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Kerepakupai_Ven%C3%A1_II.JPG/1280px-Kerepakupai_Ven%C3%A1_II.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kerepakupai_Ven%C3%A1_II.JPG",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "credit": "Sinfinitu / Wikimedia Commons · CC BY 3.0 · resized",
+    "alt": "A waterfall dropping from a sheer cliff of a flat-topped sandstone mountain above rainforest.",
+    "caption": "Angel Falls (Kerepakupai Merú) dropping about 979 m from Auyán-tepui, Venezuela, the world's highest waterfall.",
+    "kind": "photo"
+  },
+  {
+    "id": "gauja-sandstone-cliffs",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Gauja_National_Park_11.jpg/1280px-Gauja_National_Park_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gauja_National_Park_11.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Ewa Dryjanska / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "A brown river flowing between forested banks with a pale sandstone cliff.",
+    "caption": "The Gauja River in Gauja National Park, Latvia, where the river has cut into soft Devonian sandstone.",
+    "kind": "photo"
+  },
+  {
+    "id": "cape-henlopen-dunes",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Cape_Henlopen_State_Park_-_panoramio.jpg/1280px-Cape_Henlopen_State_Park_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Henlopen_State_Park_-_panoramio.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "credit": "Art Anderson / Wikimedia Commons · CC BY-SA 3.0 · resized",
+    "alt": "Beach grass on a sand dune beside a wide sandy beach and calm bay.",
+    "caption": "Dunes at Cape Henlopen State Park, Delaware, where Delaware Bay meets the Atlantic.",
+    "kind": "photo"
+  },
+  {
+    "id": "helvellyn-red-tarn",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Helvellyn_July_2022_7.jpg/1280px-Helvellyn_July_2022_7.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Helvellyn_July_2022_7.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Amakuru / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "View from a mountain summit down to a small lake in a hollow between two sharp ridges.",
+    "caption": "Red Tarn from Helvellyn, Lake District: a corrie lake between the arêtes of Striding Edge and Swirral Edge.",
+    "kind": "photo"
+  },
+  {
+    "id": "danube-sulina-branch",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/East_end_of_Dun%C4%83rea_Veche_oxbow_from_Sulina_Branch_of_the_Danube.jpg/1280px-East_end_of_Dun%C4%83rea_Veche_oxbow_from_Sulina_Branch_of_the_Danube.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:East_end_of_Dun%C4%83rea_Veche_oxbow_from_Sulina_Branch_of_the_Danube.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "credit": "Joe Mabel / Wikimedia Commons · CC BY-SA 4.0 · resized",
+    "alt": "A wide, calm river with low wooded banks under a pale sky.",
+    "caption": "The Sulina branch of the Danube in Romania's Danube Delta.",
+    "kind": "photo"
+  },
+  {
+    "id": "oregon-coast-sea-stacks",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Oregon_coastline_near_Cannon_Beach.jpg/1280px-Oregon_coastline_near_Cannon_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oregon_coastline_near_Cannon_Beach.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "credit": "Abhinaba Basu / Wikimedia Commons · CC BY 2.0 · resized",
+    "alt": "Sea stacks and rocky headlands along a curving beach with waves rolling in, below forested hills.",
+    "caption": "The Oregon coast south from Ecola State Park toward Cannon Beach. Waves cut back the headlands and leave sea stacks such as Haystack Rock offshore.",
+    "kind": "photo"
+  },
+  {
+    "id": "noaa-ctd-rosette-deploy",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Fish2807_%289787590075%29.jpg/1280px-Fish2807_%289787590075%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fish2807_(9787590075).jpg",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Fish2807_(9787590075).jpg",
+    "credit": "NOAA Photo Library / Wikimedia Commons · Public domain · resized",
+    "alt": "A cylindrical CTD rosette of gray water-sampling bottles hangs from a ship's crane above the sea at sunset.",
+    "caption": "A CTD rosette being deployed from NOAA Ship Pisces. CTD stands for conductivity, temperature and depth: together these give seawater density.",
+    "kind": "photo"
   }
 ]

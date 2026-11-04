@@ -366,7 +366,7 @@
   ],
   "thermohaline": [
     {
-      "id": "noaa-ctd-rosette",
+      "id": "noaa-ctd-rosette-deploy",
       "caption": "A NOAA CTD rosette measures temperature and salinity with depth, which together set seawater density."
     },
     {
