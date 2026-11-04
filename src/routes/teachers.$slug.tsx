@@ -302,7 +302,7 @@ function TeacherArticlePage() {
       )}
 
       <section className="mt-10">
-        <h2 className="font-display text-2xl">{"Sources to keep beside the lesson"}</h2>
+        <h2 className="font-display text-2xl">{"Sources for the lesson"}</h2>
         <ul className="mt-3 space-y-2 text-sm leading-6">
           {lab.sources.map((source, i) => (
             <li key={`${source.label}-${i}`}>

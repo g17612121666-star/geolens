@@ -19,7 +19,7 @@ const TIPS: [string, string, string[]][] = [
     "Field trips",
     [
       "Pick a trip, or search for a place or word to jump straight to a stop.",
-      "The bar on each card shows how far you have got.",
+      "The bar on each card shows how far along you are.",
     ],
   ],
   [

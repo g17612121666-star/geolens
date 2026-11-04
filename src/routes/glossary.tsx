@@ -309,7 +309,7 @@ function Glossary() {
               <p className="font-mono text-xs text-glacier">{`Recall ${(index % list.length) + 1} / ${list.length}`}</p>
               <h2 className="mt-4 font-display text-4xl">{current.term}</h2>
               <p className="mt-4 text-mist">
-                {"Explain it aloud. Name one process or observation that distinguishes it."}
+                {"Explain it out loud, and name one process or observation that sets it apart."}
               </p>
               {revealed ? (
                 <>
@@ -339,7 +339,7 @@ function Glossary() {
                 </button>
               )}
               <p className="mt-4 text-xs text-mist">
-                {"Self-assessment for revision, not a scored test. No account is needed."}
+                {"A self-check for review, not a scored test. No account needed."}
               </p>
             </section>
           ) : (

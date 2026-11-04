@@ -44,7 +44,7 @@ export const Route = createFileRoute("/atlas")({
     headFor({
       title: "Atlas",
       description:
-        "Read real landscapes, compare places and explore the Earth processes that explain them with free interactive 3D labs.",
+        "Read real landscapes, compare places and explore the Earth processes behind them in free interactive 3D labs.",
       path: "/atlas",
     }),
 });
@@ -376,7 +376,7 @@ function AtlasPage() {
             </div>
           ) : (
             <div className="atlas-comparison-suggestion">
-              <span>Compare two places to connect their similarities and differences.</span>
+              <span>Compare two places to see what they share and how they differ.</span>
               <button
                 className="field-text-button"
                 onClick={() => update({ place: shown.id, vs: shown.id === "is" ? "uk" : "is" })}
@@ -391,7 +391,9 @@ function AtlasPage() {
               <div className="atlas-map-controls">
                 <span>
                   <MapPin size={16} aria-hidden="true" />{" "}
-                  {vs ? "Maps share the same zoom and basemap." : "Explore the reference point."}
+                  {vs
+                    ? "Maps share the same zoom and basemap."
+                    : "Showing one place. Pick a second place to compare."}
                 </span>
                 <div className="field-actions">
                   <label className="field-inline-label">
@@ -515,14 +517,14 @@ function PlaceCard({
       slug: "climate-types",
       label: "Climate at the reference point",
       note: climate?.code
-        ? `${placeName} is classified as ${climate.code} in the ${climateName(p).toLowerCase()} climate family. Explore how temperature and rainfall define this pattern.`
+        ? `${placeName} is classified as ${climate.code} in the ${climateName(p).toLowerCase()} climate family. See how temperature and rainfall set it apart.`
         : "Explore how long-term temperature and rainfall patterns distinguish climate families around the world.",
     },
     ...processes.slice(0, 3).map((l) => ({
       ...l,
       note:
         PROCESS_NOTES[l.slug] ??
-        `Explore ${l.label.toLowerCase()} in 3D, then return to the landscape and identify evidence that supports your explanation.`,
+        `Explore ${l.label.toLowerCase()} in 3D, then look back at the landscape for signs of it.`,
     })),
   ];
   return (

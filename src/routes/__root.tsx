@@ -15,7 +15,7 @@ export const Route = createRootRoute({
       { title: APP_NAME },
       {
         name: "description",
-        content: "Free 3D labs for geography and Earth science students. See how the Earth works.",
+        content: "Free 3D labs for geography and Earth science students. See how Earth works.",
       },
       { name: "theme-color", content: "#07090C" },
       { name: "apple-mobile-web-app-title", content: APP_NAME },

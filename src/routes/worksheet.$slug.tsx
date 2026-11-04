@@ -160,7 +160,7 @@ function WorksheetPage() {
       {lab.questions.length > 0 && (
         <section className="mt-10 print:break-before-page print:mt-0">
           <h2 className="font-display text-2xl">{"Check your understanding"}</h2>
-          <p className="mt-2 text-sm text-mist">{"Tick one answer for each question."}</p>
+          <p className="mt-2 text-sm text-mist">{"Circle one answer for each question."}</p>
           <ol className="mt-4 space-y-6">
             {lab.questions.map((q, i) => (
               <li key={q.prompt} className="break-inside-avoid">

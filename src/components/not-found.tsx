@@ -24,7 +24,7 @@ export function NotFoundPage() {
         </h1>
         <p className="mt-4 text-mist">
           {
-            "We could not find that page. It may have moved, or the link may be mistyped. Pick a lab or go back to the home page."
+            "We couldn’t find that page. It may have moved, or the link may have a typo. Pick a lab or go back to the home page."
           }
         </p>
         <div className="mt-8 flex gap-3">

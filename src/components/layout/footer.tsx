@@ -9,8 +9,8 @@ export function Footer() {
             Geolens
           </Link>
           <p className="mt-3 max-w-sm text-sm leading-6 text-mist">
-            Free 3D Earth science for students, teachers and school geography clubs. Explore without
-            an account, adverts or a paywall.
+            Free 3D Earth science for students, teachers and school geography clubs. No account, ads
+            or paywall.
           </p>
           <p className="mt-4 text-sm text-mist">
             Created by{" "}

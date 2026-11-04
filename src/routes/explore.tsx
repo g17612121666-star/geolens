@@ -32,7 +32,8 @@ const COLLECTIONS = [
   {
     id: "hazards",
     title: "Why natural hazards happen",
-    description: "Begin with plate movement and investigate the processes behind damaging events.",
+    description:
+      "Start with moving plates, then investigate the processes behind earthquakes, volcanoes and other hazards.",
     labs: [
       "plate-boundaries",
       "earthquakes",

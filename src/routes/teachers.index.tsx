@@ -77,7 +77,7 @@ function TeachersIndex() {
       <div className="mt-5 flex max-w-3xl flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-white/10 p-4 text-sm text-mist">
         <span>
           {
-            "Collect results without accounts: students get a hand-in code at the end of each lab, or share a Guided link for a 15-minute prediction → model → explanation activity."
+            "Collect work without accounts: every lab ends with a hand-in code, and a Guided link turns a lab into a 15-minute predict, explore and explain activity."
           }
         </span>
         <Link to="/teachers/check" className="text-ice hover:underline">
