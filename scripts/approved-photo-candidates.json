@@ -380,16 +380,6 @@
     ]
   },
   {
-    "candidate": "sun-earth-1",
-    "id": "sdo-solar-disc",
-    "kind": "scientific-image",
-    "alt": "Extreme-ultraviolet observation of the full Sun showing bright active regions, displayed in yellow.",
-    "caption": "SDO's Atmospheric Imaging Assembly, 18 December 2015. This false-colour ultraviolet observation reveals the hot solar atmosphere, not the Sun's visible colour.",
-    "labs": [
-      "sun-earth"
-    ]
-  },
-  {
     "candidate": "thermal-circulation-2",
     "id": "bering-cloud-streets",
     "kind": "photo",
@@ -689,13 +679,6 @@
     "caption": "Little Matterhorn, Glacier National Park, USA. Glacial erosion on several sides can leave a sharp pyramidal peak; this is not the Matterhorn in the Alps."
   },
   {
-    "candidate": "inversion-2",
-    "id": "cruach-ardrain-inversion",
-    "kind": "photo",
-    "alt": "Cloud lies below the summit of Cruach Ardrain in Scotland.",
-    "caption": "Low cloud beneath Cruach Ardrain. A temperature inversion can trap cool, moist air below warmer air; a photograph alone cannot measure the temperature profile."
-  },
-  {
     "candidate": "isobar-1",
     "id": "noaa-surface-analysis-2022",
     "kind": "scientific-image",
@@ -890,13 +873,6 @@
     "kind": "scientific-image",
     "alt": "NOAA bathymetry map of the South Atlantic showing continental shelves and the mid-ocean ridge.",
     "caption": "NOAA South Atlantic bathymetry. Colour represents seafloor depth, revealing continental margins, abyssal basins and the Mid-Atlantic Ridge."
-  },
-  {
-    "candidate": "ctd-instrument-3",
-    "id": "noaa-ctd-rosette",
-    "kind": "photo",
-    "alt": "A circular CTD instrument and water-sampling rosette is lowered into the ocean.",
-    "caption": "NOAA CTD rosette. Conductivity, temperature and pressure measurements describe salinity and density through the water column; bottle samples provide independent checks."
   },
   {
     "candidate": "equal-area-map-1",
@@ -1127,24 +1103,10 @@
     "kind": "photo"
   },
   {
-    "id": "place-ar",
-    "candidate": "atlas-ar-3",
-    "alt": "Clear water in the Río Manso among forested banks in Argentine Patagonia.",
-    "caption": "Río Manso, Argentine Patagonia. A mountain river flows through a forested valley.",
-    "kind": "photo"
-  },
-  {
     "id": "place-at",
     "candidate": "atlas-at-1",
     "alt": "The Salzach valley at Werfen, Austria, seen from Hohenwerfen Castle.",
     "caption": "Werfen, Austria. Settlements and transport follow the floor of an Alpine river valley.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-au",
-    "candidate": "atlas-au-2",
-    "alt": "Green pasture and scattered trees at Nirimba, Western Australia.",
-    "caption": "Nirimba, Western Australia. This coastal farming landscape has cool-season rainfall and a dry summer.",
     "kind": "photo"
   },
   {
@@ -1190,13 +1152,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-by",
-    "candidate": "atlas-by-1",
-    "alt": "Flat green fields and scattered rural buildings in Belarus.",
-    "caption": "Belarus. Low relief supports broad fields and a dispersed rural landscape.",
-    "kind": "photo"
-  },
-  {
     "id": "place-cd",
     "candidate": "atlas-cd-3",
     "alt": "Green hills above Kamanyola in South Kivu, Democratic Republic of the Congo.",
@@ -1215,13 +1170,6 @@
     "candidate": "atlas-co-1",
     "alt": "The Guáitara canyon and farmed slopes surrounding Las Lajas near Ipiales, Colombia.",
     "caption": "Guáitara canyon, Colombia. A deeply incised river separates steep, cultivated slopes.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-cr",
-    "candidate": "atlas-cr-1",
-    "alt": "Rolling green pasture and wooded hills in Costa Rica.",
-    "caption": "Costa Rica. This hill pasture is one local landscape within a country with strong elevation and rainfall contrasts.",
     "kind": "photo"
   },
   {
@@ -1246,13 +1194,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-dz",
-    "candidate": "atlas-dz-1",
-    "alt": "Low coastal hills overlooking the sea in Algeria.",
-    "caption": "Coastal Algeria. Mediterranean hills contrast with the much drier interior of the country.",
-    "kind": "photo"
-  },
-  {
     "id": "place-ec",
     "candidate": "atlas-ec-1",
     "alt": "Cloud and sunlight across wooded mountain slopes in Ecuador.",
@@ -1264,13 +1205,6 @@
     "candidate": "atlas-ee-1",
     "alt": "Still water and pine trees at Viru Bog in Estonia's Lahemaa National Park.",
     "caption": "Viru Bog, Estonia. Waterlogged peatland stores carbon and drains slowly.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-eg",
-    "candidate": "atlas-eg-3",
-    "alt": "Bare, stony plains and rocky mountains in Egypt's Sinai Desert.",
-    "caption": "Sinai, Egypt. Sparse vegetation exposes an arid landscape shaped by weathering and occasional runoff.",
     "kind": "photo"
   },
   {
@@ -1323,31 +1257,10 @@
     "kind": "photo"
   },
   {
-    "id": "place-hu",
-    "candidate": "atlas-hu-2",
-    "alt": "A broad flowering rapeseed field near Rum, Hungary.",
-    "caption": "Rum, Hungary. Agricultural fields occupy gently rolling lowland terrain.",
-    "kind": "photo"
-  },
-  {
     "id": "place-id",
     "candidate": "atlas-id-2",
     "alt": "Sangeang volcano rises behind coastal islands near Sumbawa, Indonesia.",
     "caption": "Sangeang, Indonesia. A volcanic island rises sharply from the surrounding sea.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-ie",
-    "candidate": "atlas-ie-1",
-    "alt": "Rocky coast and low cliffs at Baltimore, Ireland.",
-    "caption": "Baltimore, Ireland. Atlantic waves act on an exposed rocky shoreline.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-in",
-    "candidate": "atlas-in-1",
-    "alt": "Rounded exposed rock and vegetation at Mahabalipuram in Tamil Nadu, India.",
-    "caption": "Mahabalipuram, India. Weathered crystalline rock is exposed near the Tamil Nadu coast.",
     "kind": "photo"
   },
   {
@@ -1365,13 +1278,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-it",
-    "candidate": "atlas-it-2",
-    "alt": "Harvested fields and scattered trees in Tuscany, Italy.",
-    "caption": "Tuscany, Italy. Rolling agricultural land reflects a Mediterranean seasonal climate.",
-    "kind": "photo"
-  },
-  {
     "id": "place-jo",
     "candidate": "atlas-jo-1",
     "alt": "Sand and rocky mountains near Wadi Rum in southern Jordan.",
@@ -1379,31 +1285,10 @@
     "kind": "photo"
   },
   {
-    "id": "place-ke",
-    "candidate": "atlas-ke-1",
-    "alt": "Sunset over open grassland and scattered trees in the Maasai Mara, Kenya.",
-    "caption": "Maasai Mara, Kenya. Seasonal rainfall supports a grassland and woodland mosaic.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-kh",
-    "candidate": "atlas-kh-1",
-    "alt": "Water and tropical trees beside the Angkor Wat complex in Cambodia.",
-    "caption": "Angkor, Cambodia. Water storage and seasonal rainfall shape the surrounding lowland landscape.",
-    "kind": "photo"
-  },
-  {
     "id": "place-kr",
     "candidate": "atlas-kr-1",
     "alt": "Dark rock walls and trees surround the water at Soesokkak on Jeju, South Korea.",
     "caption": "Soesokkak, Jeju. Water drains through the volcanic island's rocky coastal landscape.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-kz",
-    "candidate": "atlas-kz-3",
-    "alt": "Horses in a poppy-covered valley beneath hills near Almaty, Kazakhstan.",
-    "caption": "Near Almaty, Kazakhstan. Grasslands meet the foothills of the Tian Shan.",
     "kind": "photo"
   },
   {
@@ -1435,13 +1320,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-lv",
-    "candidate": "atlas-lv-3",
-    "alt": "Autumn fields, woodland and a rural house in Latgale, Latvia.",
-    "caption": "Latgale, Latvia. Fields and woodland form a mosaic across gently rolling terrain.",
-    "kind": "photo"
-  },
-  {
     "id": "place-ly",
     "candidate": "atlas-ly-2",
     "alt": "Wind-blown sand and ripples in Libya's desert.",
@@ -1453,13 +1331,6 @@
     "candidate": "atlas-ma-1",
     "alt": "A sharp dune crest and rippled sand at Erg Chebbi, Morocco.",
     "caption": "Erg Chebbi, Morocco. Wind sorts sand and maintains dune crests and slip faces.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-md",
-    "candidate": "atlas-md-1",
-    "alt": "Fields, woodland and a village in Hîncești District, Moldova.",
-    "caption": "Hîncești, Moldova. Settlements and farmland occupy valleys between low wooded hills.",
     "kind": "photo"
   },
   {
@@ -1491,13 +1362,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-mx",
-    "candidate": "atlas-mx-1",
-    "alt": "Large cumulus clouds above open fields in Mexico.",
-    "caption": "Mexico. Cloud development over farmland illustrates the contrast between clear ground and moist rising air.",
-    "kind": "photo"
-  },
-  {
     "id": "place-my",
     "candidate": "atlas-my-3",
     "alt": "Forested slopes in the Titiwangsa Range of Pahang, Malaysia.",
@@ -1526,31 +1390,10 @@
     "kind": "photo"
   },
   {
-    "id": "place-np",
-    "candidate": "atlas-np-2",
-    "alt": "Cultivated slopes, buildings and low clouds at Angare, Nepal.",
-    "caption": "Angare, Nepal. Steep slopes create short-distance contrasts in access, land use and drainage.",
-    "kind": "photo"
-  },
-  {
     "id": "place-pg",
     "candidate": "atlas-pg-1",
     "alt": "Grass-covered ridges and cloud near Mount Piora in Papua New Guinea.",
     "caption": "Mount Piora, Papua New Guinea. High mountain ridges stand above cloud-filled valleys.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-ph",
-    "candidate": "atlas-ph-3",
-    "alt": "Green fields, palm trees and distant hills in central Palawan, Philippines.",
-    "caption": "Central Palawan, Philippines. Tropical vegetation and farming occupy low ground between hills.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-pk",
-    "candidate": "atlas-pk-2",
-    "alt": "A green mountain valley and bare high slopes in Pakistan.",
-    "caption": "Pakistan. Elevation creates strong contrasts between cultivated valley floors and exposed mountain slopes.",
     "kind": "photo"
   },
   {
@@ -1575,13 +1418,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-ro",
-    "candidate": "atlas-ro-1",
-    "alt": "Dry grassland and low rolling hills near Iași, Romania.",
-    "caption": "Near Iași, Romania. Low hills and open fields form part of the country's eastern agricultural landscape.",
-    "kind": "photo"
-  },
-  {
     "id": "place-sa",
     "candidate": "atlas-sa-1",
     "alt": "Tall weathered rock formations at AlUla, Saudi Arabia.",
@@ -1589,31 +1425,10 @@
     "kind": "photo"
   },
   {
-    "id": "place-se",
-    "candidate": "atlas-se-2",
-    "alt": "Green fields and rural buildings near Mjölby, Sweden.",
-    "caption": "Mjölby, Sweden. Southern lowlands support agriculture alongside woodland.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-gr",
-    "candidate": "atlas-gr-1",
-    "alt": "Rocky shoreline and small breaking waves near Lentas on Crete, Greece.",
-    "caption": "Lentas, Crete. Mediterranean waves act on a rocky island coast.",
-    "kind": "photo"
-  },
-  {
     "id": "place-sg",
     "candidate": "atlas-sg-2",
     "alt": "Singapore's illuminated Downtown Core across Marina Bay at night.",
     "caption": "Singapore. Dense urban development occupies low coastal ground around Marina Bay.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-sk",
-    "candidate": "atlas-sk-3",
-    "alt": "Fields and village buildings at Čelovce near Prešov, Slovakia.",
-    "caption": "Čelovce, Slovakia. Cultivation and settlement occupy low ground between wooded hills.",
     "kind": "photo"
   },
   {
@@ -1642,13 +1457,6 @@
     "candidate": "atlas-to-1",
     "alt": "A low wooded island and coastal water in Tonga.",
     "caption": "Tonga. Low islands and coastal settlements are exposed to waves and changing sea level.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-tr",
-    "candidate": "atlas-tr-1",
-    "alt": "Rocky mountain slopes above pine trees in Türkiye.",
-    "caption": "Türkiye. Mountain relief creates strong local contrasts in drainage and vegetation.",
     "kind": "photo"
   },
   {
@@ -1687,20 +1495,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-ar",
-    "candidate": "atlas-us-ar-3",
-    "alt": "Open pine woodland in the Ozark National Forest, Arkansas.",
-    "caption": "Ozark National Forest, Arkansas. Forest restoration manages vegetation within an upland landscape.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-co",
-    "candidate": "atlas-us-co-3",
-    "alt": "Layered cliffs along Serpents Trail in Colorado National Monument.",
-    "caption": "Colorado National Monument. Erosion exposes thick rock layers at the edge of the Colorado Plateau.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-fl",
     "candidate": "atlas-us-fl-1",
     "alt": "Waves and wet sand beneath Naples Pier on Florida's Gulf coast at sunset.",
@@ -1729,13 +1523,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-ma",
-    "candidate": "atlas-us-ma-1",
-    "alt": "An open field and trees after an ice storm in Boxborough, Massachusetts, in 2008.",
-    "caption": "Boxborough, Massachusetts, 2008. Freezing precipitation coats trees during an ice storm.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-md",
     "candidate": "atlas-us-md-3",
     "alt": "A marsh creek in low-lying Dorchester County, Maryland.",
@@ -1750,38 +1537,10 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-mn",
-    "candidate": "atlas-us-mn-1",
-    "alt": "Reeds beside a lake at the Minnesota Landscape Arboretum.",
-    "caption": "Minnesota Landscape Arboretum. Wetland vegetation occupies the margin between open water and woodland.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-il",
     "candidate": "atlas-us-ms-2",
     "alt": "A bend of the Mississippi River viewed from Mississippi Palisades State Park in Illinois.",
     "caption": "Mississippi Palisades, Illinois. A broad river flows beneath a wooded bluff.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-nd",
-    "candidate": "atlas-us-nd-2",
-    "alt": "Open grassland under dark clouds in North Dakota's Dakota Prairie Grasslands.",
-    "caption": "Dakota Prairie Grasslands, North Dakota. Open prairie spans gently rolling terrain.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-ne",
-    "candidate": "atlas-us-ne-1",
-    "alt": "Fields and low exposed bluffs near Sidney, Nebraska.",
-    "caption": "Sidney, Nebraska. Agricultural plains meet low scarps and exposed sedimentary ground.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-nh",
-    "candidate": "atlas-us-nh-1",
-    "alt": "Autumn forest covering mountains in New Hampshire.",
-    "caption": "New Hampshire. Deciduous woodland changes colour across the slopes of the Appalachian uplands.",
     "kind": "photo"
   },
   {
@@ -1792,31 +1551,10 @@
     "kind": "photo"
   },
   {
-    "id": "place-rs",
-    "candidate": "atlas-rs-1",
-    "alt": "Fields and the village of Elemir in Serbia.",
-    "caption": "Elemir, Serbia. Settlement and farming occupy the flat lowlands of the Pannonian Basin.",
-    "kind": "photo"
-  },
-  {
     "id": "place-pa",
     "candidate": "atlas-pa-3",
     "alt": "A low palm-covered island in Panama's Guna Yala archipelago.",
     "caption": "Guna Yala, Panama. Small low islands sit in shallow Caribbean coastal waters.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-nm",
-    "candidate": "atlas-us-nm-2",
-    "alt": "Layered, sparsely vegetated hills beneath storm clouds in northern New Mexico.",
-    "caption": "Northern New Mexico. Dry terrain exposes sedimentary layers shaped by runoff and weathering.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-nv",
-    "candidate": "atlas-us-nv-2",
-    "alt": "Sagebrush on gently rolling ground near Reno, Nevada.",
-    "caption": "Reno, Nevada. Sagebrush vegetation is adapted to a dry interior basin environment.",
     "kind": "photo"
   },
   {
@@ -1827,38 +1565,10 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-ok",
-    "candidate": "atlas-us-ok-3",
-    "alt": "Shallow water, wetland plants and trees at Salt Plains National Wildlife Refuge, Oklahoma.",
-    "caption": "Salt Plains, Oklahoma. Wetland habitats occur within a saline inland basin.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-sc",
     "candidate": "atlas-us-sc-2",
     "alt": "Broad spreading live-oak branches at Boone Hall in Mount Pleasant, South Carolina.",
     "caption": "Mount Pleasant, South Carolina. Live oaks are characteristic of the warm, humid coastal plain.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-sd",
-    "candidate": "atlas-us-sd-2",
-    "alt": "An aerial view of wetlands and farmland in South Dakota's Prairie Pothole Region.",
-    "caption": "South Dakota. Small wetlands occupy depressions left in a formerly glaciated landscape.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-tn",
-    "candidate": "atlas-us-tn-1",
-    "alt": "Rime ice and snow on trees along the Cherohala Skyway in Tennessee.",
-    "caption": "Cherohala Skyway, Tennessee, November 2014. Cloud droplets freeze onto exposed vegetation at elevation.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-vt",
-    "candidate": "atlas-us-vt-2",
-    "alt": "Lake Champlain and Vermont's distant mountains viewed east from Poke-O-Moonshine Mountain in New York.",
-    "caption": "Vermont lies beyond Lake Champlain in this view from New York. The lake occupies a long valley between mountain ranges.",
     "kind": "photo"
   },
   {
@@ -1876,13 +1586,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-ve",
-    "candidate": "atlas-ve-2",
-    "alt": "Grassy and wooded hills at Caricuao, Venezuela.",
-    "caption": "Caricuao, Venezuela. Hills near Caracas form part of the country's northern mountain landscape.",
-    "kind": "photo"
-  },
-  {
     "id": "place-vn",
     "candidate": "atlas-vn-1",
     "alt": "Steep limestone towers reflected in water at Tràng An, northern Vietnam.",
@@ -1894,13 +1597,6 @@
     "candidate": "atlas-ws-3",
     "alt": "Palm trees and rocky shoreline beside blue coastal water in Samoa.",
     "caption": "Samoa. Volcanic shores meet shallow tropical coastal waters.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-za",
-    "candidate": "atlas-za-2",
-    "alt": "Open vegetation and a broad mountain ridge in South Africa's Western Cape.",
-    "caption": "Western Cape, South Africa. Upland relief and seasonal water availability shape the vegetation.",
     "kind": "photo"
   },
   {
@@ -2001,13 +1697,6 @@
     "candidate": "place-somerset-levels-3",
     "alt": "Floodwater surrounds Burrowbridge in the Somerset Levels in February 2014.",
     "caption": "Burrowbridge, Somerset, February 2014. Low relief slows the drainage of extensive floodwater.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-es",
-    "candidate": "place-spain-teide-1",
-    "alt": "Mount Teide's volcanic slopes on Tenerife in Spain's Canary Islands.",
-    "caption": "Tenerife, Spain. Teide records volcanic construction on an oceanic island; mainland Spain has a different geological setting.",
     "kind": "photo"
   },
   {
@@ -2123,13 +1812,6 @@
     "candidate": "place-negev-crater-2",
     "alt": "Aerial view across the dry erosional basin of Makhtesh Ramon in Israel's Negev Desert.",
     "caption": "Makhtesh Ramon, Israel. Differential erosion has excavated a large basin in folded sedimentary rocks; it is not an impact crater.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-nj",
-    "candidate": "place-newjersey-mullica-3",
-    "alt": "The Mullica River among trees in Wharton State Forest, New Jersey.",
-    "caption": "New Jersey Pine Barrens. Sandy ground and shallow groundwater support forest and low-gradient streams.",
     "kind": "photo"
   },
   {

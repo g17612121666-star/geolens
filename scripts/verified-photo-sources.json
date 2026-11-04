@@ -390,16 +390,6 @@
     "kind": "photo"
   },
   {
-    "id": "sdo-solar-disc",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Full_disk_of_the_Sun_%28eso1703e-comparisona%29.jpg/1280px-Full_disk_of_the_Sun_%28eso1703e-comparisona%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Full_disk_of_the_Sun_(eso1703e-comparisona).jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "NASA/SDO, ALMA (ESO/NAOJ/NRAO) / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Extreme-ultraviolet observation of the full Sun showing bright active regions, displayed in yellow.",
-    "caption": "SDO's Atmospheric Imaging Assembly, 18 December 2015. This false-color ultraviolet observation reveals the hot solar atmosphere, not the Sun's visible color.",
-    "kind": "scientific-image"
-  },
-  {
     "id": "bering-cloud-streets",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/CloudStreets_BeringSea_20060120.jpg/1280px-CloudStreets_BeringSea_20060120.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:CloudStreets_BeringSea_20060120.jpg",
@@ -720,16 +710,6 @@
     "kind": "photo"
   },
   {
-    "id": "cruach-ardrain-inversion",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Temperature_inversion_on_Cruach_Ardrain_-_geograph.org.uk_-_6482813.jpg/1280px-Temperature_inversion_on_Cruach_Ardrain_-_geograph.org.uk_-_6482813.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temperature_inversion_on_Cruach_Ardrain_-_geograph.org.uk_-_6482813.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "Colin Kinnear / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "Cloud lies below the summit of Cruach Ardrain in Scotland.",
-    "caption": "Low cloud beneath Cruach Ardrain. A temperature inversion can trap cool, moist air below warmer air; a photograph alone cannot measure the temperature profile.",
-    "kind": "photo"
-  },
-  {
     "id": "scollard-kpg-boundary",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Scollard_Formation_K-Pg_boundary_by_Nick_Longrich.jpg/1280px-Scollard_Formation_K-Pg_boundary_by_Nick_Longrich.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Scollard_Formation_K-Pg_boundary_by_Nick_Longrich.jpg",
@@ -958,16 +938,6 @@
     "alt": "NOAA bathymetry map of the South Atlantic showing continental shelves and the mid-ocean ridge.",
     "caption": "NOAA South Atlantic bathymetry. Color represents seafloor depth, revealing continental margins, abyssal basins and the Mid-Atlantic Ridge.",
     "kind": "scientific-image"
-  },
-  {
-    "id": "noaa-ctd-rosette",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/CTD_Device.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CTD_Device.jpg",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:CTD_Device.jpg",
-    "credit": "NOAA's National Ocean Service / Wikimedia Commons · Public domain · resized",
-    "alt": "A circular CTD instrument and water-sampling rosette is lowered into the ocean.",
-    "caption": "NOAA CTD rosette. Conductivity, temperature and pressure measurements describe salinity and density through the water column; bottle samples provide independent checks.",
-    "kind": "photo"
   },
   {
     "id": "mollweide-blue-marble",
@@ -1320,16 +1290,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-ar",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/%22R%C3%ADo_Manso%2C_Patagonia_argentina%22.jpg/1280px-%22R%C3%ADo_Manso%2C_Patagonia_argentina%22.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%22R%C3%ADo_Manso,_Patagonia_argentina%22.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Erisanchezweb / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Clear water in the Río Manso among forested banks in Argentine Patagonia.",
-    "caption": "Río Manso, Argentine Patagonia. A mountain river flows through a forested valley.",
-    "kind": "photo"
-  },
-  {
     "id": "place-at",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Vista_de_Werfen%2C_Austria%2C_2019-05-17%2C_DD_150.jpg/1280px-Vista_de_Werfen%2C_Austria%2C_2019-05-17%2C_DD_150.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vista_de_Werfen,_Austria,_2019-05-17,_DD_150.jpg",
@@ -1337,16 +1297,6 @@
     "credit": "Diego Delso / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "The Salzach valley at Werfen, Austria, seen from Hohenwerfen Castle.",
     "caption": "Werfen, Austria. Settlements and transport follow the floor of an Alpine river valley.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-au",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Rural_landscape_at_Nirimba%2C_Western_Australia%2C_August_2023_08.jpg/1280px-Rural_landscape_at_Nirimba%2C_Western_Australia%2C_August_2023_08.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rural_landscape_at_Nirimba,_Western_Australia,_August_2023_08.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Calistemon / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Green pasture and scattered trees at Nirimba, Western Australia.",
-    "caption": "Nirimba, Western Australia. This coastal farming landscape has cool-season rainfall and a dry summer.",
     "kind": "photo"
   },
   {
@@ -1400,16 +1350,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-by",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/4547_Hamlet_rural_landscape_Belarus_May_2019.JPG/1280px-4547_Hamlet_rural_landscape_Belarus_May_2019.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:4547_Hamlet_rural_landscape_Belarus_May_2019.JPG",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "credit": "Rakoon / Wikimedia Commons · CC0 · resized",
-    "alt": "Flat green fields and scattered rural buildings in Belarus.",
-    "caption": "Belarus. Low relief supports broad fields and a dispersed rural landscape.",
-    "kind": "photo"
-  },
-  {
     "id": "place-cd",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Kamanyola_Hills.jpg/1280px-Kamanyola_Hills.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kamanyola_Hills.jpg",
@@ -1440,16 +1380,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-cr",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Pastoral_landscape_Costa_Rica_IMG_0178.jpg/1280px-Pastoral_landscape_Costa_Rica_IMG_0178.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pastoral_landscape_Costa_Rica_IMG_0178.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Passengerpigeon / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Rolling green pasture and wooded hills in Costa Rica.",
-    "caption": "Costa Rica. This hill pasture is one local landscape within a country with strong elevation and rainfall contrasts.",
-    "kind": "photo"
-  },
-  {
     "id": "place-cy",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/04_Cyprus_landscape_-_Pedoulas_or_Pedhoulas_village_in_Cyprus_-_countryside_landscape_-_Zypern_Landschaft.jpg/1280px-04_Cyprus_landscape_-_Pedoulas_or_Pedhoulas_village_in_Cyprus_-_countryside_landscape_-_Zypern_Landschaft.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:04_Cyprus_landscape_-_Pedoulas_or_Pedhoulas_village_in_Cyprus_-_countryside_landscape_-_Zypern_Landschaft.jpg",
@@ -1470,16 +1400,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-dz",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Algeria_coastal_landscape_view.jpg/1280px-Algeria_coastal_landscape_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Algeria_coastal_landscape_view.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Momotlemcen13 / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Low coastal hills overlooking the sea in Algeria.",
-    "caption": "Coastal Algeria. Mediterranean hills contrast with the much drier interior of the country.",
-    "kind": "photo"
-  },
-  {
     "id": "place-ee",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Viru_Bog%2C_Parque_Nacional_Lahemaa%2C_Estonia%2C_2012-08-12%2C_DD_60.JPG/1280px-Viru_Bog%2C_Parque_Nacional_Lahemaa%2C_Estonia%2C_2012-08-12%2C_DD_60.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Viru_Bog,_Parque_Nacional_Lahemaa,_Estonia,_2012-08-12,_DD_60.JPG",
@@ -1487,16 +1407,6 @@
     "credit": "Diego Delso / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Still water and pine trees at Viru Bog in Estonia's Lahemaa National Park.",
     "caption": "Viru Bog, Estonia. Waterlogged peatland stores carbon and drains slowly.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-eg",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Sinai_Desert%2C_Egypt%2C_Lunar_landscape_of_Sinai_desert.jpg/1280px-Sinai_Desert%2C_Egypt%2C_Lunar_landscape_of_Sinai_desert.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sinai_Desert,_Egypt,_Lunar_landscape_of_Sinai_desert.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "Vyacheslav Argenberg / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Bare, stony plains and rocky mountains in Egypt's Sinai Desert.",
-    "caption": "Sinai, Egypt. Sparse vegetation exposes an arid landscape shaped by weathering and occasional runoff.",
     "kind": "photo"
   },
   {
@@ -1550,16 +1460,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-hu",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Landscape_Rum_Hungary.jpg/1280px-Landscape_Rum_Hungary.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_Rum_Hungary.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Nxr-at / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "A broad flowering rapeseed field near Rum, Hungary.",
-    "caption": "Rum, Hungary. A flowering rapeseed field stretches across flat lowland farmland.",
-    "kind": "photo"
-  },
-  {
     "id": "place-id",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Landscape_view_with_Sengeang_volcano_in_Sumbawa%2C_Indonesia%3B_January_2020.jpg/1280px-Landscape_view_with_Sengeang_volcano_in_Sumbawa%2C_Indonesia%3B_January_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_view_with_Sengeang_volcano_in_Sumbawa,_Indonesia;_January_2020.jpg",
@@ -1567,26 +1467,6 @@
     "credit": "Tiket2 / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "Sangeang volcano rises behind coastal islands near Sumbawa, Indonesia.",
     "caption": "Sangeang, Indonesia. A volcanic island rises sharply from the surrounding sea.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-ie",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Landscape_in_Ireland_Baltimore.jpg/1280px-Landscape_in_Ireland_Baltimore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_in_Ireland_Baltimore.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Peter van der Sluijs / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Rocky coast and low cliffs at Baltimore, Ireland.",
-    "caption": "Baltimore, Ireland. Atlantic waves act on an exposed rocky shoreline.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-in",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Mahabalipuram_Landscape%2C_India.jpg/1280px-Mahabalipuram_Landscape%2C_India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mahabalipuram_Landscape,_India.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "Vyacheslav Argenberg / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Rounded exposed rock and vegetation at Mahabalipuram in Tamil Nadu, India.",
-    "caption": "Mahabalipuram, India. Weathered crystalline rock is exposed near the Tamil Nadu coast.",
     "kind": "photo"
   },
   {
@@ -1600,16 +1480,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-it",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Tuscan_Landscape_7.JPG/1280px-Tuscan_Landscape_7.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tuscan_Landscape_7.JPG",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Martin Falbisoner / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Harvested fields and scattered trees in Tuscany, Italy.",
-    "caption": "Tuscany, Italy. Rolling agricultural land reflects a Mediterranean seasonal climate.",
-    "kind": "photo"
-  },
-  {
     "id": "place-jo",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Desert_landscape_in_Jordan_off_Desert_Highway_near_Wadi_Rum.jpg/1280px-Desert_landscape_in_Jordan_off_Desert_Highway_near_Wadi_Rum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Desert_landscape_in_Jordan_off_Desert_Highway_near_Wadi_Rum.jpg",
@@ -1620,26 +1490,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-ke",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Landscape_of_Masai_Mara%2C_Kenya%2C_at_sunset.jpg/1280px-Landscape_of_Masai_Mara%2C_Kenya%2C_at_sunset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_of_Masai_Mara,_Kenya,_at_sunset.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Daniel Case / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Sunset over open grassland and scattered trees in the Maasai Mara, Kenya.",
-    "caption": "Maasai Mara, Kenya. Seasonal rainfall supports a grassland and woodland mosaic.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-kh",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Landscape_at_Angkor_Wat_-_Cambodia_-_02.JPG/1280px-Landscape_at_Angkor_Wat_-_Cambodia_-_02.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_at_Angkor_Wat_-_Cambodia_-_02.JPG",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Adam Jones Adam63 / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Water and tropical trees beside the Angkor Wat complex in Cambodia.",
-    "caption": "Angkor, Cambodia. Water storage and seasonal rainfall shape the surrounding lowland landscape.",
-    "kind": "photo"
-  },
-  {
     "id": "place-kr",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/%EC%87%A0%EC%86%8C%EA%B9%8D_%285%29.jpg/1280px-%EC%87%A0%EC%86%8C%EA%B9%8D_%285%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:%EC%87%A0%EC%86%8C%EA%B9%8D_(5).jpg",
@@ -1647,16 +1497,6 @@
     "credit": "Jocelyndurrey / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Dark rock walls and trees surround the water at Soesokkak on Jeju, South Korea.",
     "caption": "Soesokkak, Jeju, South Korea. A stream has cut a steep-sided gorge through volcanic rock just before it reaches the sea.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-kz",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Horses_in_Kazakhstan.jpg/1280px-Horses_in_Kazakhstan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Horses_in_Kazakhstan.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Togzhan Ibrayeva / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Horses in a poppy-covered valley beneath hills near Almaty, Kazakhstan.",
-    "caption": "Near Almaty, Kazakhstan. Grasslands meet the foothills of the Tian Shan.",
     "kind": "photo"
   },
   {
@@ -1680,16 +1520,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-lv",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Landscape_in_Latgale%2C_Latvia.jpg/1280px-Landscape_in_Latgale%2C_Latvia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_in_Latgale,_Latvia.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "credit": "Artis Pupins / Wikimedia Commons · CC BY 2.0 · resized",
-    "alt": "Autumn fields, woodland and a rural house in Latgale, Latvia.",
-    "caption": "Latgale, Latvia. Fields and woodland form a mosaic across gently rolling terrain.",
-    "kind": "photo"
-  },
-  {
     "id": "place-ly",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Desert_in_Libya_-_3040933674.jpg/1280px-Desert_in_Libya_-_3040933674.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Desert_in_Libya_-_3040933674.jpg",
@@ -1707,16 +1537,6 @@
     "credit": "Rosa Cabecinhas and Alcino Cunha / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A sharp dune crest and rippled sand at Erg Chebbi, Morocco.",
     "caption": "Erg Chebbi, Morocco. Wind sorts sand and maintains dune crests and slip faces.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-md",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Moldova_-_landscape_in_H%C3%AEnce%C8%99ti_District_01.jpg/1280px-Moldova_-_landscape_in_H%C3%AEnce%C8%99ti_District_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Moldova_-_landscape_in_H%C3%AEnce%C8%99ti_District_01.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Pudelek / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Fields, woodland and a village in Hîncești District, Moldova.",
-    "caption": "Hîncești, Moldova. Settlements and farmland occupy valleys between low wooded hills.",
     "kind": "photo"
   },
   {
@@ -1747,16 +1567,6 @@
     "credit": "Richard Mortel / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "Open grassland and sparsely vegetated hills near Jargalant, northern Mongolia.",
     "caption": "Jargalant, Mongolia. A continental interior supports open steppe with strong seasonal temperature contrasts.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-mx",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Large_cloud_over_Mexican_landscape.jpg/1280px-Large_cloud_over_Mexican_landscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Large_cloud_over_Mexican_landscape.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Tomascastelazo / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Large cumulus clouds above open fields in Mexico.",
-    "caption": "Mexico. Cumulus clouds form where warm, moist air rises and cools above the land.",
     "kind": "photo"
   },
   {
@@ -1800,16 +1610,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-np",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Landscape_Angare_-_Nepal.jpg/1280px-Landscape_Angare_-_Nepal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_Angare_-_Nepal.jpg",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Landscape_Angare_-_Nepal.jpg",
-    "credit": "Nikolaï POSNER / Wikimedia Commons · Public domain · resized",
-    "alt": "Cultivated slopes, buildings and low clouds at Angare, Nepal.",
-    "caption": "Angare, Nepal. Steep slopes create short-distance contrasts in access, land use and drainage.",
-    "kind": "photo"
-  },
-  {
     "id": "place-pg",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/%28Landscape_of_Mount_Piora_in_Papua_New_Guinea%29_-_DPLA_-_721349ed5549e3f0db8e6063ae67ddc4.jpg/1280px-%28Landscape_of_Mount_Piora_in_Papua_New_Guinea%29_-_DPLA_-_721349ed5549e3f0db8e6063ae67ddc4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:(Landscape_of_Mount_Piora_in_Papua_New_Guinea)_-_DPLA_-_721349ed5549e3f0db8e6063ae67ddc4.jpg",
@@ -1817,26 +1617,6 @@
     "credit": "Carlquist, Sherwin John, 1930-2021 / Wikimedia Commons · CC BY 4.0 · resized",
     "alt": "Grass-covered ridges and cloud near Mount Piora in Papua New Guinea.",
     "caption": "Mount Piora, Papua New Guinea. High mountain ridges stand above cloud-filled valleys.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-ph",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Palawan%2C_Philippines%2C_Pastoral_scenery.jpg/1280px-Palawan%2C_Philippines%2C_Pastoral_scenery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Palawan,_Philippines,_Pastoral_scenery.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "Vyacheslav Argenberg / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Green fields, palm trees and distant hills in central Palawan, Philippines.",
-    "caption": "Central Palawan, Philippines. Tropical vegetation and farming occupy low ground between hills.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-pk",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Pakistan_landscape.jpg/1280px-Pakistan_landscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pakistan_landscape.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Joham javed / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "A green mountain valley and bare high slopes in Pakistan.",
-    "caption": "Pakistan. Elevation creates strong contrasts between cultivated valley floors and exposed mountain slopes.",
     "kind": "photo"
   },
   {
@@ -1860,16 +1640,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-ro",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Romania_-_landscape_near_Ia%C8%99i.jpg/1280px-Romania_-_landscape_near_Ia%C8%99i.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Romania_-_landscape_near_Ia%C8%99i.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Pudelek / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Dry grassland and low rolling hills near Iași, Romania.",
-    "caption": "Near Iași, Romania. Low hills and open fields form part of the country's eastern agricultural landscape.",
-    "kind": "photo"
-  },
-  {
     "id": "place-sa",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Landscape_at_al-Ula%2C_Saudi_Arabia_%287%29.jpg/1280px-Landscape_at_al-Ula%2C_Saudi_Arabia_%287%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_at_al-Ula,_Saudi_Arabia_(7).jpg",
@@ -1880,26 +1650,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-se",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Swedish_landscape_near_Mj%C3%B6lby_%28by_Pudelek%29_02.jpg/1280px-Swedish_landscape_near_Mj%C3%B6lby_%28by_Pudelek%29_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Swedish_landscape_near_Mj%C3%B6lby_(by_Pudelek)_02.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Pudelek / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Green fields and rural buildings near Mjölby, Sweden.",
-    "caption": "Mjölby, Sweden. Southern lowlands support agriculture alongside woodland.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-gr",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Crete_Landscape_R05.jpg/1280px-Crete_Landscape_R05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crete_Landscape_R05.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Marc Ryckaert / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Rocky shoreline and small breaking waves near Lentas on Crete, Greece.",
-    "caption": "Lentas, Crete. Mediterranean waves act on a rocky island coast.",
-    "kind": "photo"
-  },
-  {
     "id": "place-sg",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Downtown_Core_Singapore_March_2011_%28Landscape%29.jpg/1280px-Downtown_Core_Singapore_March_2011_%28Landscape%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Downtown_Core_Singapore_March_2011_(Landscape).jpg",
@@ -1907,16 +1657,6 @@
     "credit": "Limtohhan (Lim Toh Han). / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Singapore's illuminated Downtown Core across Marina Bay at night.",
     "caption": "Singapore. Dense urban development occupies low coastal ground around Marina Bay.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-sk",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Slovakia_Celovce_1.JPG/1280px-Slovakia_Celovce_1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Slovakia_Celovce_1.JPG",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Slovakia_Celovce_1.JPG",
-    "credit": "Jozef Kotulič / Wikimedia Commons · Public domain · resized",
-    "alt": "Fields and village buildings at Čelovce near Prešov, Slovakia.",
-    "caption": "Čelovce, Slovakia. Cultivation and settlement occupy low ground between wooded hills.",
     "kind": "photo"
   },
   {
@@ -1947,16 +1687,6 @@
     "credit": "chris fleizach from Cupertino, USA / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A low wooded island and coastal water in Tonga.",
     "caption": "Tonga. Low, palm-covered islands rise only a few meters above a calm lagoon, so they are exposed to storm waves and rising sea level.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-tr",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Turkey_landscape_%284%29.jpg/1280px-Turkey_landscape_%284%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Turkey_landscape_(4).jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Helar Lukats / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Rocky mountain slopes above pine trees in Türkiye.",
-    "caption": "Türkiye. Mountain relief creates strong local contrasts in drainage and vegetation.",
     "kind": "photo"
   },
   {
@@ -2000,26 +1730,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-ar",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/CFLRP_%28Collaborative_Forest_Landscape_Restoration_Program%29_%2820120408-FS-Ozark-LM-002%29.jpg/1280px-CFLRP_%28Collaborative_Forest_Landscape_Restoration_Program%29_%2820120408-FS-Ozark-LM-002%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CFLRP_(Collaborative_Forest_Landscape_Restoration_Program)_(20120408-FS-Ozark-LM-002).jpg",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:CFLRP_(Collaborative_Forest_Landscape_Restoration_Program)_(20120408-FS-Ozark-LM-002).jpg",
-    "credit": "Forest Service Photography / Wikimedia Commons · Public domain · resized",
-    "alt": "Open pine woodland in the Ozark National Forest, Arkansas.",
-    "caption": "Ozark National Forest, Arkansas. Forest restoration manages vegetation within an upland landscape.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-co",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Beautiful_Colorado_Landscape-Serpents_Trail_Colorado_National_Monument.jpg/1280px-Beautiful_Colorado_Landscape-Serpents_Trail_Colorado_National_Monument.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beautiful_Colorado_Landscape-Serpents_Trail_Colorado_National_Monument.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "AirInSky / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Layered cliffs along Serpents Trail in Colorado National Monument.",
-    "caption": "Colorado National Monument. Erosion exposes thick rock layers at the edge of the Colorado Plateau.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-fl",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Naples_Pier_At_Sunset_Florida_United_States_Travel_Photography_%28194139203%29.jpeg/1280px-Naples_Pier_At_Sunset_Florida_United_States_Travel_Photography_%28194139203%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Naples_Pier_At_Sunset_Florida_United_States_Travel_Photography_(194139203).jpeg",
@@ -2040,16 +1750,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-ma",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Landscape_after_an_ice_storm%2C_Boxborough%2C_Massachusetts%2C_2008.jpg/1280px-Landscape_after_an_ice_storm%2C_Boxborough%2C_Massachusetts%2C_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_after_an_ice_storm,_Boxborough,_Massachusetts,_2008.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "credit": "liz west / Wikimedia Commons · CC BY 2.0 · resized",
-    "alt": "An open field and trees after an ice storm in Boxborough, Massachusetts, in 2008.",
-    "caption": "Boxborough, Massachusetts, 2008. Freezing precipitation coats trees during an ice storm.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-md",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Underground_Railroad_Tour%2C_landscape_%2821604295375%29.jpg/1280px-Underground_Railroad_Tour%2C_landscape_%2821604295375%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Underground_Railroad_Tour,_landscape_(21604295375).jpg",
@@ -2057,16 +1757,6 @@
     "credit": "Preservation Maryland / Wikimedia Commons · CC BY-SA 2.0 · resized",
     "alt": "A marsh creek in low-lying Dorchester County, Maryland.",
     "caption": "Dorchester County, Maryland. Tidal channels drain a low coastal wetland landscape.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-mn",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Minnesota_Landscape_Arboretum2.jpg/1280px-Minnesota_Landscape_Arboretum2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Minnesota_Landscape_Arboretum2.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "credit": "Sharon Mollerus / Wikimedia Commons · CC BY 2.0 · resized",
-    "alt": "Reeds beside a lake at the Minnesota Landscape Arboretum.",
-    "caption": "Minnesota Landscape Arboretum. Wetland vegetation occupies the margin between open water and woodland.",
     "kind": "photo"
   },
   {
@@ -2080,46 +1770,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-nd",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Dakota_Grasslands.jpg/1280px-Dakota_Grasslands.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dakota_Grasslands.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "credit": "John Fowler / Wikimedia Commons · CC BY 2.0 · resized",
-    "alt": "Open grassland under dark clouds in North Dakota's Dakota Prairie Grasslands.",
-    "caption": "Dakota Prairie Grasslands, North Dakota. Open prairie spans gently rolling terrain.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-ne",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Nebraska_Countryside_-_Sidney_%2848710658331%29.jpg/1280px-Nebraska_Countryside_-_Sidney_%2848710658331%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nebraska_Countryside_-_Sidney_(48710658331).jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
-    "credit": "formulanone from Huntsville, United States / Wikimedia Commons · CC BY-SA 2.0 · resized",
-    "alt": "Fields and low exposed bluffs near Sidney, Nebraska.",
-    "caption": "Sidney, Nebraska. Agricultural plains meet low scarps and exposed sedimentary ground.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-nh",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/New_hampshire_in_autumn.jpg/1280px-New_hampshire_in_autumn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_hampshire_in_autumn.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Someone35 / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Autumn forest covering mountains in New Hampshire.",
-    "caption": "New Hampshire. Deciduous woodland changes color across the slopes of the Appalachian uplands.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-rs",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Elemir_landscape_001.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elemir_landscape_001.jpeg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Elemirus / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Fields and the village of Elemir in Serbia.",
-    "caption": "Elemir, Serbia. Settlement and farming occupy the flat lowlands of the Pannonian Basin.",
-    "kind": "photo"
-  },
-  {
     "id": "place-pa",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Island_in_Panama.jpg/1280px-Island_in_Panama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Island_in_Panama.jpg",
@@ -2130,26 +1780,6 @@
     "kind": "photo"
   },
   {
-    "id": "place-us-nm",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Northern_New_Mexico.jpg/1280px-Northern_New_Mexico.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Northern_New_Mexico.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Netherzone / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Layered, sparsely vegetated hills beneath storm clouds in northern New Mexico.",
-    "caption": "Northern New Mexico. Dry terrain exposes sedimentary layers shaped by runoff and weathering.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-nv",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Sagebrush_landscape_near_Reno%2C_Nevada_%2849892641822%29.jpg/1280px-Sagebrush_landscape_near_Reno%2C_Nevada_%2849892641822%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sagebrush_landscape_near_Reno,_Nevada_(49892641822).jpg",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Sagebrush_landscape_near_Reno,_Nevada_(49892641822).jpg",
-    "credit": "USFWS Pacific Southwest Region / Wikimedia Commons · Public domain · resized",
-    "alt": "Sagebrush on gently rolling ground near Reno, Nevada.",
-    "caption": "Reno, Nevada. Sagebrush vegetation is adapted to a dry interior basin environment.",
-    "kind": "photo"
-  },
-  {
     "id": "place-us-ny",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Battery_Park.JPG/1280px-Battery_Park.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Battery_Park.JPG",
@@ -2157,56 +1787,6 @@
     "credit": "Gryffindor / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Lower Manhattan and the Battery seen from above beside New York Harbor.",
     "caption": "New York Harbor. Dense development occupies the meeting point of a river estuary and the Atlantic coast.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-ok",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Salt_Plains_02.jpg/1280px-Salt_Plains_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Salt_Plains_02.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "AndrewKPepper / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Shallow water, wetland plants and trees at Salt Plains National Wildlife Refuge, Oklahoma.",
-    "caption": "Salt Plains National Wildlife Refuge, Oklahoma. Shallow marsh and cottonwood woodland lie around the edge of a wide inland salt flat, which is out of view here.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-sd",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Prairie_Pothole_Landscape_South_Dakota_%2853107513660%29.jpg/1280px-Prairie_Pothole_Landscape_South_Dakota_%2853107513660%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Prairie_Pothole_Landscape_South_Dakota_(53107513660).jpg",
-    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Prairie_Pothole_Landscape_South_Dakota_(53107513660).jpg",
-    "credit": "USFWS Mountain Prairie / Wikimedia Commons · Public domain · resized",
-    "alt": "An aerial view of wetlands and farmland in South Dakota's Prairie Pothole Region.",
-    "caption": "South Dakota from the air. A small stream meanders across flat farmland in a formerly glaciated landscape, where shallow wetlands fill some of the low hollows.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-tn",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Rime_Ice_and_Snow_-_Cherohala_Skyway%2C_Tennessee_-_November_2%2C_2014.jpg/1280px-Rime_Ice_and_Snow_-_Cherohala_Skyway%2C_Tennessee_-_November_2%2C_2014.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rime_Ice_and_Snow_-_Cherohala_Skyway,_Tennessee_-_November_2,_2014.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-    "credit": "Lee Ann Ratledge / Wikimedia Commons · CC BY 4.0 · resized",
-    "alt": "Rime ice and snow on trees along the Cherohala Skyway in Tennessee.",
-    "caption": "Cherohala Skyway, Tennessee, November 2014. Cloud droplets freeze onto exposed vegetation at elevation.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-vt",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/View_of_Lake_Champlain_and_Vermont_from_Poke-O-Moonshine_Mountain_fire_tower.jpg/1280px-View_of_Lake_Champlain_and_Vermont_from_Poke-O-Moonshine_Mountain_fire_tower.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Lake_Champlain_and_Vermont_from_Poke-O-Moonshine_Mountain_fire_tower.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "credit": "Rosie De Lise from Eugene, OR, USA. Cropped and color-corrected by Daniel Case prior tp upload / Wikimedia Commons · CC BY 2.0 · resized",
-    "alt": "Lake Champlain and Vermont's distant mountains viewed east from Poke-O-Moonshine Mountain in New York.",
-    "caption": "Vermont lies beyond Lake Champlain in this view from New York. The lake occupies a long valley between mountain ranges.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-ve",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Ecomonta%C3%B1a_Caricuao_-_Venezuela_03.JPG/1280px-Ecomonta%C3%B1a_Caricuao_-_Venezuela_03.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ecomonta%C3%B1a_Caricuao_-_Venezuela_03.JPG",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "credit": "Maatrals / Wikimedia Commons · CC BY-SA 3.0 · resized",
-    "alt": "Grassy and wooded hills at Caricuao, Venezuela.",
-    "caption": "Caricuao, Venezuela. Hills near Caracas form part of the country's northern mountain landscape.",
     "kind": "photo"
   },
   {
@@ -2227,16 +1807,6 @@
     "credit": "Claire Charters / Wikimedia Commons · CC BY 2.0 · resized",
     "alt": "Palm trees and rocky shoreline beside blue coastal water in Samoa.",
     "caption": "Samoa. Volcanic shores meet shallow tropical coastal waters.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-za",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Landscape_in_the_Western_Cape_%28South-Africa%29.jpg/1280px-Landscape_in_the_Western_Cape_%28South-Africa%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Landscape_in_the_Western_Cape_(South-Africa).jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Photo memories / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Open vegetation and a broad mountain ridge in South Africa's Western Cape.",
-    "caption": "Western Cape, South Africa. Upland relief and seasonal water availability shape the vegetation.",
     "kind": "photo"
   },
   {
@@ -2357,16 +1927,6 @@
     "credit": "Rodw / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Floodwater surrounds Burrowbridge in the Somerset Levels in February 2014.",
     "caption": "Burrowbridge, Somerset, February 2014. Low relief slows the drainage of extensive floodwater.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-es",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/El_Teide_Mount.jpg/1280px-El_Teide_Mount.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:El_Teide_Mount.jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "credit": "Ireneusz Jerzy Borysiewicz / Wikimedia Commons · CC BY-SA 4.0 · resized",
-    "alt": "Mount Teide's volcanic slopes on Tenerife in Spain's Canary Islands.",
-    "caption": "Tenerife, Spain. Teide records volcanic construction on an oceanic island; mainland Spain has a different geological setting.",
     "kind": "photo"
   },
   {
@@ -2507,16 +2067,6 @@
     "credit": "Godot13 / Wikimedia Commons · CC BY-SA 4.0 · resized",
     "alt": "Aerial view across the dry erosional basin of Makhtesh Ramon in Israel's Negev Desert.",
     "caption": "Makhtesh Ramon, Israel. Differential erosion has excavated a large basin in folded sedimentary rocks; it is not an impact crater.",
-    "kind": "photo"
-  },
-  {
-    "id": "place-us-nj",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Mullica_River_%286312502902%29.jpg/1280px-Mullica_River_%286312502902%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mullica_River_(6312502902).jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "credit": "Chris M Morris / Wikimedia Commons · CC BY 2.0 · resized",
-    "alt": "The Mullica River among trees in Wharton State Forest, New Jersey.",
-    "caption": "New Jersey Pine Barrens. Sandy ground and shallow groundwater support forest and low-gradient streams.",
     "kind": "photo"
   },
   {
@@ -3257,16 +2807,6 @@
     "credit": "Bill Whittaker / Wikimedia Commons · CC BY-SA 3.0 · resized",
     "alt": "Steep, grassy Loess Hills rising behind a cornfield east of Mondamin, Iowa.",
     "caption": "The Loess Hills near Mondamin, western Iowa. The hills are built of loess: wind-blown sediment made mostly of silt.",
-    "kind": "photo"
-  },
-  {
-    "id": "cumberland-falls",
-    "url": "https://commons.wikimedia.org/w/thumb.php?f=Cumberland+Falls+%28east+of+Honeybee%2C+Kentucky%2C+USA%29+1+%2819414070703%29.jpg&w=1280",
-    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cumberland_Falls_(east_of_Honeybee,_Kentucky,_USA)_1_(19414070703).jpg",
-    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-    "credit": "James St. John / Wikimedia Commons · CC BY 2.0 · resized",
-    "alt": "A broad waterfall pouring over a sandstone ledge into a rocky gorge in Kentucky.",
-    "caption": "Cumberland Falls, Kentucky. The Cumberland River drops about 20 m over a resistant sandstone ledge on the Cumberland Plateau.",
     "kind": "photo"
   },
   {
