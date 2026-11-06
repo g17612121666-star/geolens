@@ -1,12 +1,14 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-medium transition-[transform,background-color,color,border-color,opacity] duration-180 ease-[cubic-bezier(0.22,1,0.36,1)] disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-glacier active:scale-[0.98]",
+  "inline-flex items-center justify-center gap-2 font-medium transition-[transform,background-color,color,border-color,opacity,box-shadow] duration-180 ease-[cubic-bezier(0.22,1,0.36,1)] disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-glacier active:scale-[0.98]",
   {
     variants: {
       variant: {
-        primary: "bg-glacier text-basalt hover:bg-ice",
-        secondary: "bg-white/8 text-chalk border border-white/10 hover:bg-white/12",
+        primary:
+          "bg-glacier text-basalt shadow-[0_8px_20px_-10px_var(--color-glacier)] hover:-translate-y-px hover:brightness-110 hover:shadow-[0_12px_26px_-10px_var(--color-glacier)]",
+        secondary:
+          "bg-basalt text-chalk border border-white/12 shadow-[var(--shadow-card)] hover:-translate-y-px hover:border-glacier/50",
         ghost: "bg-transparent text-chalk hover:bg-white/8",
         magma: "bg-magma text-void hover:brightness-110",
       },

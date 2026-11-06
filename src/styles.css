@@ -2,20 +2,20 @@
 @import "./fonts.css";
 
 @theme {
-  --color-void: #07090c;
-  --color-basalt: #0e1412;
-  --color-trench: #121a1c;
-  --color-slate: #1c2628;
-  --color-mist: #8b9a97;
-  --color-chalk: #f4efe6;
+  --color-void: #0a0f13;
+  --color-basalt: #11191e;
+  --color-trench: #162027;
+  --color-slate: #213039;
+  --color-mist: #97a8a4;
+  --color-chalk: #eef2ed;
   --color-paper: #faf7f2;
-  --color-glacier: #3ee0c6;
-  --color-ice: #7fd4ff;
-  --color-magma: #ff6a3d;
-  --color-sandstone: #e8b86d;
-  --color-moss: #7c9a6a;
-  --color-fault: #ec5f5f;
-  --color-glass: rgb(255 255 255 / 0.08);
+  --color-glacier: #4fe3c9;
+  --color-ice: #8bd4ff;
+  --color-magma: #ff7a4d;
+  --color-sandstone: #efc17c;
+  --color-moss: #8aaa76;
+  --color-fault: #ef6a6a;
+  --color-glass: rgb(255 255 255 / 0.06);
   --color-glass-border: rgb(255 255 255 / 0.1);
   --color-ink: #ffffff;
 
@@ -25,7 +25,7 @@
 
   --radius-sm: 10px;
   --radius-md: 16px;
-  --radius-lg: 20px;
+  --radius-lg: 22px;
   --radius-pill: 999px;
 
   --ease-studio: cubic-bezier(0.22, 1, 0.36, 1);
@@ -139,9 +139,9 @@
 
 @utility section-label {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   line-height: 1rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-mist);
 }
@@ -164,8 +164,8 @@
 /* Fade the trailing edge so a partly visible card reads as 'scroll for more'. */
 @media(min-width:768px){ .lab-showcase-window { mask-image:linear-gradient(to right,#000 calc(100% - 72px),transparent); } }
 .lab-showcase-row { display:flex; flex:none; gap:20px; padding-right:20px; }
-.lab-showcase-card { display:flex; flex-direction:column; flex:none; width:300px; border:1px solid var(--color-glass-border); border-radius:16px; overflow:hidden; background:var(--color-basalt); transition:border-color 180ms; }
-.lab-showcase-card:hover, .lab-showcase-card:focus-visible { border-color:var(--color-glacier); }
+.lab-showcase-card { display:flex; flex-direction:column; flex:none; width:300px; border:1px solid var(--color-glass-border); border-radius:18px; overflow:hidden; background:var(--color-basalt); box-shadow:var(--shadow-card); transition:border-color 200ms, box-shadow 200ms, transform 200ms; }
+.lab-showcase-card:hover, .lab-showcase-card:focus-visible { border-color:color-mix(in oklab,var(--color-glacier) 55%,transparent); box-shadow:var(--shadow-lift); transform:translateY(-3px); }
 .lab-showcase-card:focus-visible { outline:2px solid var(--color-glacier); outline-offset:2px; }
 @media(max-width:640px){ .lab-showcase-card { width:260px; } }
 
@@ -189,11 +189,14 @@
 
 /* The palette changes; photographs, physical materials and formula fonts do not. */
 :root[data-theme="light"] {
- --color-void:#f4f6f3;--color-basalt:#ffffff;--color-trench:#eaf0eb;--color-slate:#dde7e1;
- --color-chalk:#19342b;--color-paper:#18392e;--color-mist:#52685e;
- --color-glacier:#006a5c;--color-ice:#17658a;--color-magma:#b63d19;
- --color-sandstone:#886020;--color-moss:#49683a;--color-fault:#b83232;
- --color-ink:#19342b;--color-glass:rgb(25 52 43 / .035);--color-glass-border:rgb(25 52 43 / .16);
+ --color-void:#f6f3ec;--color-basalt:#ffffff;--color-trench:#efebe2;--color-slate:#e2ddd1;
+ --color-chalk:#13271f;--color-paper:#163a2f;--color-mist:#55685f;
+ --color-glacier:#07705f;--color-ice:#155f86;--color-magma:#b8441c;
+ --color-sandstone:#8f5c18;--color-moss:#49683a;--color-fault:#b83232;
+ --color-ink:#13271f;--color-glass:rgb(20 40 31 / .035);--color-glass-border:rgb(20 40 31 / .12);
+ --shadow-card:0 1px 2px rgb(20 40 31 / .05),0 8px 24px -12px rgb(20 40 31 / .16);
+ --shadow-lift:0 2px 6px rgb(20 40 31 / .06),0 22px 44px -18px rgb(20 40 31 / .28);
+ --contour-ink:rgb(7 112 95 / .16);
 }
 /* Existing white-tint utility surfaces become ink tints in daylight. */
 :root[data-theme="light"] :is([class*="border-white"],[class*="divide-white"]) {border-color:var(--color-glass-border);}
@@ -202,16 +205,60 @@
 :root[data-theme="light"] .bg-glacier {color:#fff;}
 :root[data-theme="light"] .bg-magma {color:#fff;}
 
+/* Depth: soft layered shadows instead of hairlines alone. */
+:root {
+ --shadow-card:0 1px 0 rgb(255 255 255 / .03) inset,0 10px 28px -14px rgb(0 0 0 / .7);
+ --shadow-lift:0 1px 0 rgb(255 255 255 / .05) inset,0 24px 48px -18px rgb(0 0 0 / .8);
+ --contour-ink:rgb(79 227 201 / .12);
+}
+.site-bg {
+ background:
+  radial-gradient(1100px 520px at 88% -8%, color-mix(in oklab, var(--color-glacier) 11%, transparent), transparent 62%),
+  radial-gradient(900px 480px at -8% 2%, color-mix(in oklab, var(--color-sandstone) 12%, transparent), transparent 60%),
+  var(--color-void);
+ background-repeat:no-repeat;
+}
+/* Surfaces that are cards get the shared shadow without touching every component. */
+:is(.rounded-2xl,.rounded-xl,.rounded-3xl):is(.bg-basalt,[class*="bg-basalt/"]) {box-shadow:var(--shadow-card);}
+.surface-card {background:var(--color-basalt);border:1px solid var(--color-glass-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);}
+/* Topographic contour backdrop, tinted per theme through a mask. */
+.contour-layer {position:absolute;inset:0;pointer-events:none;background:var(--contour-ink);
+ -webkit-mask:url('/textures/contours.svg') center/cover no-repeat;mask:url('/textures/contours.svg') center/cover no-repeat;}
+.contour-fade {-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent);}
+/* Eyebrow labels carry a short rule so section starts are easy to scan. */
+p.section-label {display:flex;align-items:center;gap:.65em;font-weight:600;}
+p.section-label::before {content:"";width:1.4em;height:2px;border-radius:2px;background:currentColor;opacity:.55;flex:none;}
+.text-center > p.section-label, p.section-label.justify-center {justify-content:center;}
+/* Form fields: one consistent hover and focus treatment. */
+:where(input:not([type=range],[type=checkbox],[type=radio],[type=color]),select,textarea) {transition:border-color 160ms,box-shadow 160ms;}
+:where(input:not([type=range],[type=checkbox],[type=radio],[type=color]),select,textarea):hover {border-color:color-mix(in oklab,var(--color-glacier) 45%,var(--color-glass-border));}
+:where(input:not([type=range],[type=checkbox],[type=radio],[type=color]),select,textarea):focus-visible {outline:none;border-color:var(--color-glacier);box-shadow:0 0 0 4px color-mix(in oklab,var(--color-glacier) 18%,transparent);}
+input[type=range] {accent-color:var(--color-glacier);}
+/* The footer is a deep ink band in both themes. */
+.ink-band {
+ --color-basalt:#0f2019;--color-void:#0b1813;--color-trench:#16291f;--color-chalk:#eef4ef;--color-mist:#a7b9b1;
+ --color-glacier:#62e2c9;--color-ice:#93d6ff;--color-glass-border:rgb(255 255 255 / .12);--color-glass:rgb(255 255 255 / .06);
+ background:radial-gradient(800px 300px at 90% 0%,rgb(98 226 201 / .10),transparent 70%),#0f2019;color:#eef4ef;
+}
+.ink-band a:hover {color:#62e2c9;}
+/* Hero chip and stat strip. */
+.hero-chip {display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.35rem .85rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;
+ color:var(--color-glacier);background:color-mix(in oklab,var(--color-glacier) 10%,transparent);border:1px solid color-mix(in oklab,var(--color-glacier) 28%,transparent);}
+.hero-chip::before {content:"";width:.45rem;height:.45rem;border-radius:999px;background:currentColor;box-shadow:0 0 0 4px color-mix(in oklab,currentColor 22%,transparent);}
+.hero-glow {position:absolute;inset:-4%;border-radius:999px;background:radial-gradient(circle,color-mix(in oklab,var(--color-glacier) 22%,transparent) 0%,transparent 68%);filter:blur(30px);}
+
 /* Links inside running text are underlined, so they never rely on color alone. */
 :where(p, li, dd) > a.text-ice {text-decoration-line:underline;text-underline-offset:3px;}
 
 /* Shared editorial rhythm for the Geolens collections. */
-.editorial-card {transition: border-color 180ms, transform 180ms;}
-.editorial-card:hover {border-color:var(--color-glacier);transform:translateY(-3px);}
+.editorial-card {transition: border-color 220ms, transform 220ms var(--ease-studio), box-shadow 220ms;}
+.editorial-card img {transition: transform 600ms var(--ease-studio);}
+.editorial-card:hover {border-color:color-mix(in oklab,var(--color-glacier) 55%,transparent);transform:translateY(-4px);box-shadow:var(--shadow-lift);}
+.editorial-card:hover img {transform:scale(1.04);}
 .hero-earth-poster {background:url('/textures/earth-day.jpg') 50% 50% / 200% 100%;box-shadow:inset -28px -12px 40px #071c32,inset 10px 5px 25px #ffffff30;}
 .hero-globe {max-height:600px;}
 @media(max-width:767px){.hero-globe {width:min(100%,360px);margin-inline:auto;}.home-intro{gap:0;}.home-intro h1{font-size:clamp(2.75rem,10vw,3.6rem);}}
-@media(prefers-reduced-motion:reduce){.editorial-card:hover{transform:none;}}
+@media(prefers-reduced-motion:reduce){.editorial-card:hover,.editorial-card:hover img{transform:none;}}
 
 .realm-cover img{width:100%;aspect-ratio:16/10;max-height:24rem;object-fit:cover;}
 

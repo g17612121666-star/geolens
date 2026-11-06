@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown, Search } from "lucide-react";
 import { REALMS } from "@/lib/labs/catalog";
 import { cn } from "@/lib/utils";
 import { PreferencesMenu } from "@/components/preferences-menu";
+import { LogoMark } from "@/components/layout/logo-mark";
 
 const TOOLS = [
   {
@@ -47,7 +48,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
       className={cn(
         "fixed inset-x-0 top-0 z-40 h-14 transition-[background-color,backdrop-filter,border-color] duration-280 ease-[cubic-bezier(0.22,1,0.36,1)]",
         lab || scrolled
-          ? "border-b border-white/10 bg-basalt/80 backdrop-blur-xl"
+          ? "border-b border-white/10 bg-void/80 shadow-[0_8px_24px_-18px_rgb(0_0_0/0.35)] backdrop-blur-xl backdrop-saturate-150"
           : "border-b border-transparent bg-transparent",
       )}
     >
@@ -57,7 +58,8 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
           lab ? "px-6" : "max-w-[1280px] px-5",
         )}
       >
-        <Link to="/" className="flex items-baseline gap-2.5" aria-label={"Geolens home"}>
+        <Link to="/" className="group flex items-center gap-2.5" aria-label={"Geolens home"}>
+          <LogoMark className="size-7 transition-transform duration-500 group-hover:rotate-[20deg]" />
           <span className="font-display text-[22px] leading-none text-chalk">{"Geolens"}</span>
         </Link>
 
@@ -91,7 +93,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                       key={r.slug}
                       to="/realms/$realm"
                       params={{ realm: r.slug }}
-                      className="block rounded-[10px] px-3 py-2 hover:bg-white/8"
+                      className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-glacier/8"
                     >
                       <div className="text-sm text-chalk">{r.title}</div>
                       <div className="text-xs text-mist">{r.kicker}</div>
@@ -107,7 +109,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                     <Link
                       key={t.to}
                       to={t.to}
-                      className="block rounded-[10px] px-3 py-2 hover:bg-white/8"
+                      className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-glacier/8"
                     >
                       <div className="text-sm text-chalk">{t.label}</div>
                       <div className="text-xs text-mist">{t.hint}</div>
@@ -137,7 +139,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
       </div>
 
       {open && !lab && (
-        <div className="border-t border-white/10 bg-basalt/95 backdrop-blur-xl lg:hidden">
+        <div className="border-t border-white/10 bg-void/95 shadow-[var(--shadow-lift)] backdrop-blur-xl lg:hidden">
           <nav
             className="flex max-h-[calc(100dvh-3.5rem)] flex-col gap-1 overflow-y-auto px-4 py-4"
             aria-label={"Mobile"}
@@ -209,8 +211,9 @@ function NavLink({
   return (
     <Link
       to={to}
+      activeProps={{ className: "bg-glacier/10 !text-glacier font-medium" }}
       className={cn(
-        "inline-flex h-11 items-center rounded-[10px] px-3 text-sm text-chalk/90 hover:bg-white/8",
+        "inline-flex h-10 items-center rounded-full px-3.5 text-sm text-chalk/85 transition-colors hover:bg-white/8 hover:text-chalk",
         className,
       )}
     >
@@ -240,7 +243,7 @@ function HoverMenu({
     >
       <button
         type="button"
-        className="inline-flex h-11 items-center gap-1 rounded-[10px] px-3 text-sm text-chalk/90 hover:bg-white/8"
+        className="inline-flex h-10 items-center gap-1 rounded-full px-3.5 text-sm text-chalk/85 transition-colors hover:bg-white/8 hover:text-chalk"
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen(!open)}
@@ -253,7 +256,7 @@ function HoverMenu({
       {open && (
         <div
           className={cn(
-            "absolute left-0 top-full rounded-2xl border border-white/10 bg-basalt/95 p-2 shadow-2xl backdrop-blur-xl",
+            "absolute left-0 top-full rounded-2xl border border-white/10 bg-basalt/95 p-2 shadow-[var(--shadow-lift)] backdrop-blur-xl",
             width,
           )}
         >

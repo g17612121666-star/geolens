@@ -13,7 +13,7 @@ export function LabCard({ lab, className }: { lab: LabMeta; className?: string }
       to="/lab/$slug"
       params={{ slug: lab.slug }}
       className={cn(
-        "group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] transition-[border-color,background-color,transform] duration-280 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-glacier/40 hover:bg-white/[0.07]",
+        "editorial-card group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-basalt",
         className,
       )}
     >

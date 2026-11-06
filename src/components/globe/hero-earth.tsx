@@ -13,7 +13,7 @@ export function HeroEarth() {
   if (!webgl) return <GlobePoster />;
   return (
     <div className="absolute inset-0">
-      <ClientCanvas camera={{ position: [0, 0, 3.7], fov: 36 }} frameloop="always">
+      <ClientCanvas camera={{ position: [0, 0, 3.7], fov: 36 }} frameloop="always" transparent>
         <ambientLight intensity={0.4} />
         <directionalLight position={[-3, 2, 7]} intensity={2.2} />
         <group rotation={[0, 0.45, 0.2]}>

@@ -25,6 +25,7 @@ export function ClientCanvas({
   gl,
   dpr,
   shadows,
+  transparent,
 }: {
   children: ReactNode;
   className?: string;
@@ -34,6 +35,8 @@ export function ClientCanvas({
   gl?: CanvasProps["gl"];
   dpr?: CanvasProps["dpr"];
   shadows?: boolean;
+  /** Let the page show through (used where the scene floats over page artwork). */
+  transparent?: boolean;
 }) {
   const theme = usePreferences((s) => s.resolvedTheme);
   const [mounted, setMounted] = useState(false);
@@ -92,7 +95,7 @@ export function ClientCanvas({
           shadows={shadows ? "percentage" : false}
           gl={{
             antialias: true,
-            alpha: false,
+            alpha: !!transparent,
             powerPreference: "high-performance",
             localClippingEnabled: true,
             ...gl,
@@ -105,7 +108,9 @@ export function ClientCanvas({
             onCreated?.(state);
           }}
         >
-          <color attach="background" args={[theme === "light" ? "#f4f6f3" : "#07090C"]} />
+          {!transparent && (
+            <color attach="background" args={[theme === "light" ? "#f6f3ec" : "#0a0f13"]} />
+          )}
           <Suspense fallback={<ScenePending set={ready} />}>
             {children}
             <SceneReady set={ready} />

@@ -31,7 +31,7 @@ function applyPreferences() {
   document.documentElement.style.colorScheme = resolvedTheme;
   document
     .querySelector('meta[name="theme-color"]')
-    ?.setAttribute("content", resolvedTheme === "dark" ? "#07090c" : "#f4f6f3");
+    ?.setAttribute("content", resolvedTheme === "dark" ? "#0a0f13" : "#f6f3ec");
   usePreferences.setState({ resolvedTheme });
 }
 export function initialisePreferences() {
