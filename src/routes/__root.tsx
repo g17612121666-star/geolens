@@ -17,7 +17,7 @@ export const Route = createRootRoute({
         name: "description",
         content: "Free 3D labs for geography and Earth science students. See how Earth works.",
       },
-      { name: "theme-color", content: "#07090C" },
+      { name: "theme-color", content: "#0a0f13" },
       { name: "apple-mobile-web-app-title", content: APP_NAME },
       { name: "application-name", content: APP_NAME },
       robotsMeta(),

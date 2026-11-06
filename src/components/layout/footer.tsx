@@ -1,11 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { MailLink } from "@/components/mail-link";
+import { LogoMark } from "@/components/layout/logo-mark";
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-basalt">
-      <div className="mx-auto grid max-w-[1280px] gap-8 px-5 py-10 md:grid-cols-[2fr_1fr_1fr_1fr]">
+    <footer className="ink-band mt-8">
+      <div className="mx-auto grid max-w-[1280px] gap-10 px-5 py-14 md:grid-cols-[2fr_1fr_1fr_1fr]">
         <div>
-          <Link to="/" className="font-display text-3xl text-chalk">
+          <Link to="/" className="inline-flex items-center gap-3 font-display text-3xl text-chalk">
+            <LogoMark className="size-9" />
             Geolens
           </Link>
           <p className="mt-3 max-w-sm text-sm leading-6 text-mist">

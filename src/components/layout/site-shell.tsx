@@ -43,7 +43,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   }, []);
   const isLab = pathname.startsWith("/lab/");
   return (
-    <div className="min-h-dvh bg-void text-chalk">
+    <div className={isLab ? "min-h-dvh bg-void text-chalk" : "site-bg min-h-dvh text-chalk"}>
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-glacier focus:px-4 focus:py-2 focus:text-basalt"
