@@ -576,8 +576,8 @@ export function LibreMap({
                 })
                   .setLngLat(e.lngLat)
                   .setHTML(
-                    `<p style="font:500 13px Geist,sans-serif;margin:0 0 4px;color:#F4EFE6">${props.title || props.name}</p>
-                   <p style="font:400 12px Geist,sans-serif;margin:0;color:#C4D0CC">${props.note || props.kind || ""}</p>`,
+                    `<p style="font:500 13px 'Public Sans',sans-serif;margin:0 0 4px;color:#F4EFE6">${props.title || props.name}</p>
+                   <p style="font:400 12px 'Public Sans',sans-serif;margin:0;color:#C4D0CC">${props.note || props.kind || ""}</p>`,
                   )
                   .addTo(m);
               } catch {

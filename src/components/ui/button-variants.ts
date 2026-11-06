@@ -5,10 +5,9 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary:
-          "bg-glacier text-basalt shadow-[0_8px_20px_-10px_var(--color-glacier)] hover:-translate-y-px hover:brightness-110 hover:shadow-[0_12px_26px_-10px_var(--color-glacier)]",
+        primary: "bg-chalk text-void hover:bg-signal hover:text-white",
         secondary:
-          "bg-basalt text-chalk border border-white/12 shadow-[var(--shadow-card)] hover:-translate-y-px hover:border-glacier/50",
+          "bg-transparent text-chalk border border-chalk/30 hover:border-chalk hover:bg-chalk/5",
         ghost: "bg-transparent text-chalk hover:bg-white/8",
         magma: "bg-magma text-void hover:brightness-110",
       },
@@ -16,7 +15,7 @@ export const buttonVariants = cva(
         sm: "h-9 px-3.5 text-sm rounded-[10px]",
         md: "h-11 px-5 text-[15px] rounded-[10px]",
         lg: "h-12 px-6 text-base rounded-[10px]",
-        pill: "h-11 px-5 text-[15px] rounded-full",
+        pill: "h-11 px-5 text-[15px] rounded-[4px]",
         icon: "size-11 rounded-[10px]",
         "icon-sm": "size-9 rounded-[10px]",
       },

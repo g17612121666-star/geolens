@@ -37,58 +37,62 @@ function Home() {
   const classroom = labFigure("soil-texture");
   return (
     <main id="main">
-      <div className="relative overflow-hidden">
-        <div aria-hidden className="contour-fade pointer-events-none absolute inset-0">
-          <div className="contour-layer" />
-        </div>
-        <section className="home-intro relative mx-auto grid max-w-[1280px] items-center gap-4 px-5 pb-12 pt-24 md:grid-cols-2 md:gap-8 md:pb-20 md:pt-32">
-          <div className="relative z-10">
-            <p className="hero-chip">An open classroom for Earth science</p>
-            <h1 className="mt-6 max-w-xl font-display text-5xl leading-[1.05] tracking-[-0.015em] text-chalk lg:text-[5.25rem]">
-              Understand the Earth <span className="text-glacier">in 3D.</span>
-            </h1>
-            <p className="mt-6 max-w-lg text-lg leading-8 text-mist">
-              Rotate a model, change a variable and see how Earth works. Explore geography through
-              interactive labs and the real landscapes they explain.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="pill">
-                <Link to="/explore">
-                  Explore the labs <ArrowUpRight size={18} />
-                </Link>
-              </Button>
-              <Button asChild size="pill" variant="secondary">
-                <Link to="/teachers">Plan a lesson</Link>
-              </Button>
-            </div>
-            <p className="mt-6 max-w-md text-sm leading-6 text-mist">
-              Completely free for students, teachers and school geography clubs, with no account,
-              ads or paywall.
-            </p>
-            <dl className="mt-10 grid max-w-lg grid-cols-4 gap-4 border-t border-white/10 pt-6">
-              {[
-                [LABS.length, "3D labs"],
-                [CASES.length, "case studies"],
-                [FIELD_TRIPS.length, "field trips"],
-                [GLOSSARY.length, "key terms"],
-              ].map(([n, label]) => (
-                <div key={label} className="flex flex-col-reverse">
-                  <dt className="mt-1.5 text-xs text-mist">{label}</dt>
-                  <dd className="font-display text-3xl leading-none text-chalk md:text-4xl">{n}</dd>
-                </div>
-              ))}
-            </dl>
+      <div className="mx-auto max-w-[1280px] px-5 pb-8 pt-20 md:pt-24">
+        <div className="map-sheet relative overflow-hidden bg-basalt/40">
+          <div aria-hidden className="contour-soft-left absolute inset-0">
+            <div className="contour-layer" />
           </div>
-          <div className="relative">
-            <div aria-hidden className="hero-glow" />
+          <section className="home-intro relative grid items-center gap-4 px-6 pb-10 pt-12 md:grid-cols-[1.1fr_1fr] md:gap-8 md:px-12 md:pb-14 md:pt-16">
+            <div className="relative z-10">
+              <p className="section-label">An open classroom for Earth science</p>
+              <h1 className="mt-5 max-w-xl font-display text-5xl leading-[0.98] text-chalk lg:text-[5.5rem]">
+                Understand the Earth in 3D<span className="text-signal">.</span>
+              </h1>
+              <p className="mt-6 max-w-lg text-lg leading-8 text-mist">
+                Rotate a model, change a variable and see how Earth works. Explore geography through
+                interactive labs and the real landscapes they explain.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild size="pill">
+                  <Link to="/explore">
+                    Explore the labs <ArrowUpRight size={18} />
+                  </Link>
+                </Button>
+                <Button asChild size="pill" variant="secondary">
+                  <Link to="/teachers">Plan a lesson</Link>
+                </Button>
+              </div>
+              <p className="mt-6 max-w-md text-sm leading-6 text-mist">
+                Completely free for students, teachers and school geography clubs, with no account,
+                ads or paywall.
+              </p>
+            </div>
             <div
               className="hero-globe relative aspect-square min-w-0 overflow-hidden rounded-full"
               aria-label="Interactive model of Earth"
             >
               <HomeHero />
             </div>
-          </div>
-        </section>
+          </section>
+          <dl className="map-collar relative grid grid-cols-2 border-t border-white/15 sm:grid-cols-4">
+            {[
+              [LABS.length, "3D labs"],
+              [CASES.length, "Case studies"],
+              [FIELD_TRIPS.length, "Field trips"],
+              [GLOSSARY.length, "Key terms"],
+            ].map(([n, label], i) => (
+              <div
+                key={label}
+                className={`flex items-baseline gap-3 px-6 py-4 md:px-12 ${i > 0 ? "sm:border-l sm:border-white/15" : ""} ${i % 2 ? "border-l border-white/15 sm:border-l" : ""} ${i > 1 ? "border-t border-white/15 sm:border-t-0" : ""}`}
+              >
+                <dt className="order-2">{label}</dt>
+                <dd className="order-1 font-display text-2xl normal-case tracking-normal text-chalk">
+                  {n}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
       <TodayStrip />
       <RecentLabs />
