@@ -48,8 +48,8 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
       className={cn(
         "fixed inset-x-0 top-0 z-40 h-14 transition-[background-color,backdrop-filter,border-color] duration-280 ease-[cubic-bezier(0.22,1,0.36,1)]",
         lab || scrolled
-          ? "border-b border-white/15 bg-void"
-          : "border-b border-transparent bg-void",
+          ? "border-b border-white/10 bg-void/80 shadow-[0_8px_24px_-18px_rgb(0_0_0/0.35)] backdrop-blur-xl backdrop-saturate-150"
+          : "border-b border-transparent bg-transparent",
       )}
     >
       <div
@@ -59,10 +59,8 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
         )}
       >
         <Link to="/" className="group flex items-center gap-2.5" aria-label={"Geolens home"}>
-          <LogoMark className="size-[22px]" />
-          <span className="font-display text-[19px] font-extrabold uppercase leading-none tracking-[0.04em] text-chalk">
-            {"Geolens"}
-          </span>
+          <LogoMark className="size-7 transition-transform duration-500 group-hover:rotate-[20deg]" />
+          <span className="font-display text-[22px] leading-none text-chalk">{"Geolens"}</span>
         </Link>
 
         <div className="flex items-center gap-1">
@@ -75,7 +73,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
               </NavLink>
               <Link
                 to="/search"
-                className="ml-1 inline-flex size-11 items-center justify-center rounded-[4px] text-mist hover:bg-white/8 hover:text-chalk"
+                className="ml-1 inline-flex size-11 items-center justify-center rounded-[10px] text-mist hover:bg-white/8 hover:text-chalk"
                 aria-label={"Search"}
               >
                 <Search className="size-4" />
@@ -95,7 +93,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                       key={r.slug}
                       to="/realms/$realm"
                       params={{ realm: r.slug }}
-                      className="block rounded-[4px] px-3 py-2.5 transition-colors hover:bg-chalk/6"
+                      className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-glacier/8"
                     >
                       <div className="text-sm text-chalk">{r.title}</div>
                       <div className="text-xs text-mist">{r.kicker}</div>
@@ -111,7 +109,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                     <Link
                       key={t.to}
                       to={t.to}
-                      className="block rounded-[4px] px-3 py-2.5 transition-colors hover:bg-chalk/6"
+                      className="block rounded-xl px-3 py-2.5 transition-colors hover:bg-glacier/8"
                     >
                       <div className="text-sm text-chalk">{t.label}</div>
                       <div className="text-xs text-mist">{t.hint}</div>
@@ -121,7 +119,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                 <NavLink to="/teachers">{"Teachers"}</NavLink>
                 <Link
                   to="/search"
-                  className="ml-1 inline-flex size-11 items-center justify-center rounded-[4px] text-mist hover:bg-white/8 hover:text-chalk"
+                  className="ml-1 inline-flex size-11 items-center justify-center rounded-[10px] text-mist hover:bg-white/8 hover:text-chalk"
                   aria-label={"Search"}
                 >
                   <Search className="size-4" />
@@ -129,7 +127,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
               </nav>
               <button
                 type="button"
-                className="inline-flex size-11 items-center justify-center rounded-[4px] text-chalk lg:hidden"
+                className="inline-flex size-11 items-center justify-center rounded-[10px] text-chalk lg:hidden"
                 aria-label={open ? "Close menu" : "Open menu"}
                 onClick={() => setOpen((v) => !v)}
               >
@@ -141,7 +139,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
       </div>
 
       {open && !lab && (
-        <div className="border-t border-white/15 bg-void lg:hidden">
+        <div className="border-t border-white/10 bg-void/95 shadow-[var(--shadow-lift)] backdrop-blur-xl lg:hidden">
           <nav
             className="flex max-h-[calc(100dvh-3.5rem)] flex-col gap-1 overflow-y-auto px-4 py-4"
             aria-label={"Mobile"}
@@ -152,21 +150,21 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                 key={r.slug}
                 to="/realms/$realm"
                 params={{ realm: r.slug }}
-                className="rounded-[4px] px-3 py-3 text-chalk hover:bg-white/8"
+                className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8"
               >
                 {r.title}
               </Link>
             ))}
-            <Link to="/explore" className="rounded-[4px] px-3 py-3 text-chalk hover:bg-white/8">
+            <Link to="/explore" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
               {"Explore"}
             </Link>
-            <Link to="/trips" className="rounded-[4px] px-3 py-3 text-chalk hover:bg-white/8">
+            <Link to="/trips" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
               {"Field trips"}
             </Link>
-            <Link to="/practice" className="rounded-[4px] px-3 py-3 text-chalk hover:bg-white/8">
+            <Link to="/practice" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
               {"Practice"}
             </Link>
-            <Link to="/atlas" className="rounded-[4px] px-3 py-3 text-chalk hover:bg-white/8">
+            <Link to="/atlas" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
               {"Atlas"}
             </Link>
             <p className="section-label px-3 pb-2 pt-3">{"Tools"}</p>
@@ -174,24 +172,24 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
               <Link
                 key={t.to}
                 to={t.to}
-                className="rounded-[4px] px-3 py-3 text-chalk hover:bg-white/8"
+                className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8"
               >
                 {t.label}
               </Link>
             ))}
-            <Link to="/teachers" className="rounded-[4px] px-3 py-3 text-chalk hover:bg-white/8">
+            <Link to="/teachers" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
               {"Teachers"}
             </Link>
-            <Link to="/search" className="rounded-[4px] px-3 py-3 text-chalk hover:bg-white/8">
+            <Link to="/search" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
               {"Search"}
             </Link>
-            <Link to="/glossary" className="rounded-[4px] px-3 py-3 text-chalk hover:bg-white/8">
+            <Link to="/glossary" className="rounded-[10px] px-3 py-3 text-chalk hover:bg-white/8">
               {"Glossary"}
             </Link>
-            <Link to="/about" className="rounded-[4px] px-3 py-3 text-mist hover:bg-white/8">
+            <Link to="/about" className="rounded-[10px] px-3 py-3 text-mist hover:bg-white/8">
               {"About"}
             </Link>
-            <Link to="/privacy" className="rounded-[4px] px-3 py-3 text-mist hover:bg-white/8">
+            <Link to="/privacy" className="rounded-[10px] px-3 py-3 text-mist hover:bg-white/8">
               {"Privacy"}
             </Link>
           </nav>
@@ -213,9 +211,9 @@ function NavLink({
   return (
     <Link
       to={to}
-      activeProps={{ className: "!text-chalk shadow-[inset_0_-2px_0_var(--color-signal)]" }}
+      activeProps={{ className: "bg-glacier/10 !text-glacier font-medium" }}
       className={cn(
-        "inline-flex h-14 items-center px-3 text-sm text-chalk/75 transition-colors hover:text-chalk",
+        "inline-flex h-10 items-center rounded-full px-3.5 text-sm text-chalk/85 transition-colors hover:bg-white/8 hover:text-chalk",
         className,
       )}
     >
@@ -245,7 +243,7 @@ function HoverMenu({
     >
       <button
         type="button"
-        className="inline-flex h-14 items-center gap-1 px-3 text-sm text-chalk/75 transition-colors hover:text-chalk"
+        className="inline-flex h-10 items-center gap-1 rounded-full px-3.5 text-sm text-chalk/85 transition-colors hover:bg-white/8 hover:text-chalk"
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen(!open)}
@@ -258,7 +256,7 @@ function HoverMenu({
       {open && (
         <div
           className={cn(
-            "absolute left-0 top-full rounded-b-md border border-white/15 bg-basalt p-1.5 shadow-[0_12px_24px_-12px_rgb(0_0_0/0.35)]",
+            "absolute left-0 top-full rounded-2xl border border-white/10 bg-basalt/95 p-2 shadow-[var(--shadow-lift)] backdrop-blur-xl",
             width,
           )}
         >

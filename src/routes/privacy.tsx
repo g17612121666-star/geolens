@@ -62,7 +62,7 @@ function Privacy() {
         </p>
         <p>
           {
-            "Fonts (Archivo, Public Sans and IBM Plex Mono) are served by Geolens itself, so they still load where Google Fonts is blocked."
+            "Fonts (Fraunces, Geist and Geist Mono) are served by Geolens itself, so they still load where Google Fonts is blocked."
           }
         </p>
         <p>
