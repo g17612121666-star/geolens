@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import * as THREE from "three";
 import { GrassPatch, GeomorphicTerrain } from "../shared/geomorphic-terrain";
-import { SectionMaterial } from "../shared/section-material";
 import { useSectionUniforms } from "../shared/section-utils";
 import { ShallowWater } from "../shared/shallow-water";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
@@ -53,12 +52,13 @@ const frozenGround = (
 ) => `uniform float uThaw,uFreeze,uWedge,uActive,uDepth,uWinter,uCrack;
 ${EDGE_GLSL}
 vec3 sectionColour(vec3 p,vec3 w){
-  float d=-w.y,g=grain(vec2(w.x+w.z,w.y));
+  // Depth below the ground surface directly above, so layers follow the microrelief.
+  float d=sectionDepth,g=grain(vec2(w.x+w.z,w.y));
   float e=${wedge};
   float hw=uWedge*clamp(1.-(d-uActive)/uDepth,0.,1.);
   // Beds are dragged upward beside each wedge as it grows.
   float lift=.35*uWedge*exp(-max(e,0.)/.25);
-  float lam=fract((d-lift)*9.);
+  float lam=fract((d-lift)*5.5+(sNoise(vec2((w.x+w.z)*.7,d*2.5))-.5)*.9);
   // Winter contraction crack: through the active layer and down the middle of the wedge.
   if(uWinter>.5&&d<1.9*uActive/.7&&abs(e)<uCrack)return vec3(.08,.1,.12);
   if(d>uActive-.02&&e<hw){
@@ -74,7 +74,9 @@ vec3 sectionColour(vec3 p,vec3 w){
     // layer refreezes from the surface downward, leaving a thawed band beneath.
     c*=d<uThaw&&d>uFreeze?.78:1.;
   }else{
-    c=mix(vec3(.50,.48,.44),vec3(.44,.42,.39),step(.5,lam))*mix(.93,1.06,g);
+    c=mix(vec3(.5,.47,.42),vec3(.43,.41,.38),smoothstep(.35,.65,lam))*mix(.93,1.06,g);
+    // An ice-rich, peaty layer just below the deepest thaw (the transient layer).
+    c=mix(c,vec3(.34,.3,.26),smoothstep(.0,.06,d-uActive)*(1.-smoothstep(.12,.3,d-uActive))*.7);
     float lens=smoothstep(.86,.93,sNoise(vec2((w.x+w.z)*4.,(d-lift)*30.)));
     c=mix(c,vec3(.80,.86,.88),lens*.6);
   }
@@ -82,7 +84,7 @@ vec3 sectionColour(vec3 p,vec3 w){
   return c;
 }
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
-const SECTION_GLSL = frozenGround("abs(w.x)");
+const SECTION_GLSL = frozenGround("abs(w.x-.12*sin(w.z*1.1+.6))");
 const NETWORK_GLSL = frozenGround("edgeDistance(w.xz)");
 
 const TUNDRA = new THREE.Color("#7f8452"),
@@ -99,6 +101,23 @@ function polygonHeight(x: number, z: number, growth: number) {
     0.045 * g * Math.exp(-(((e - 0.2) / 0.08) ** 2)) -
     0.03 * g * THREE.MathUtils.smoothstep(e, 0.3, 0.6) +
     0.006 * (noise(x * 6, z * 6) - 0.5)
+  );
+}
+
+/**
+ * Cross-section microrelief of low-centered polygons at 1:1 scale (meters): a trough above
+ * the wedge, raised rims either side, and wet, low polygon centers toward the ends.
+ */
+function sectionSurface(x: number, z: number, growth: number) {
+  const g = 0.3 + 0.7 * growth,
+    sway = 0.12 * Math.sin(z * 1.1 + 0.6),
+    u = x - sway;
+  return (
+    -0.2 * g * Math.exp(-((u / 0.5) ** 2)) +
+    0.15 * g * (Math.exp(-(((u - 1) / 0.45) ** 2)) + Math.exp(-(((u + 1) / 0.45) ** 2))) -
+    0.09 * g * THREE.MathUtils.smoothstep(Math.abs(u), 1.7, 3.4) +
+    0.02 * (noise(x * 2.6, z * 2.6) - 0.5) +
+    0.008 * (noise(x * 9, z * 9) - 0.5)
   );
 }
 
@@ -133,6 +152,41 @@ export default function Periglacial() {
     uCrack: 0.006,
   });
   const ground = useMemo(() => (x: number, z: number) => polygonHeight(x, z, growth), [growth]);
+  const sectionGround = useMemo(
+    () => (x: number, z: number) => sectionSurface(x, z, growth),
+    [growth],
+  );
+  const sectionColor = useMemo(
+    () => (x: number, y: number, z: number) => {
+      const u = x - 0.12 * Math.sin(z * 1.1 + 0.6),
+        rim = Math.exp(-(((Math.abs(u) - 1) / 0.45) ** 2)),
+        trough = Math.exp(-((u / 0.5) ** 2)),
+        c = TUNDRA.clone().lerp(RIM, rim * 0.75);
+      c.lerp(TROUGH, trough * 0.85);
+      c.multiplyScalar(0.9 + 0.2 * noise(x * 5, z * 5));
+      if (winter) c.lerp(SNOW, 0.72 + 0.25 * trough);
+      return c.getStyle();
+    },
+    [winter],
+  );
+  const sectionTussocks = useMemo(
+    () =>
+      Array.from({ length: 600 }, (_, i): [number, number, number] => {
+        const x = -4.9 + random(i + 7) * 9.8,
+          z = -1.75 + random(i + 97) * 3.5;
+        return [x, sectionGround(x, z), z];
+      }).filter(([x, y]) => y > -0.06 * (0.3 + 0.7 * growth) && Math.abs(x) > 0.25),
+    [sectionGround, growth],
+  );
+  // The deepest summer thaw (0.7 m) follows the ground surface along the front face.
+  const thawLine = useMemo(
+    () =>
+      Array.from({ length: 101 }, (_, i): [number, number, number] => {
+        const x = -5 + i * 0.1;
+        return [x, sectionGround(x, 1.8) - 0.7, 1.812];
+      }),
+    [sectionGround],
+  );
   const color = useMemo(
     () => (x: number, y: number, z: number) => {
       const e = edgeDistance(x, z),
@@ -173,35 +227,34 @@ export default function Periglacial() {
       >
         {view === 0 ? (
           <>
-            <mesh position={[0, -2.5, 0]} castShadow receiveShadow>
-              <boxGeometry args={[10, 5, 2]} />
-              <SectionMaterial
-                glsl={SECTION_GLSL}
-                uniforms={sectionUniforms}
-                cacheKey="periglacial-section"
-                cliff={0.6}
-                color={winter ? "#e9eef0" : "#7f8452"}
-              />
-            </mesh>
+            <GeomorphicTerrain
+              height={sectionGround}
+              color={sectionColor}
+              width={10}
+              depth={3.6}
+              resolution={200}
+              base={-5}
+              cliff={0.3}
+              mottle={0.05}
+              sideGlsl={SECTION_GLSL}
+              sideUniforms={sectionUniforms}
+            />
+            <ShallowWater
+              land={sectionGround}
+              level={() => -0.075 * (0.3 + 0.7 * growth)}
+              width={10}
+              depth={3.6}
+              resolution={160}
+              deep={0.03}
+              shallowColour={winter ? "#dfe9ec" : "#7e9a8a"}
+              deepColour={winter ? "#c4d8de" : "#3f6a70"}
+            />
             <GrassPatch
-              positions={Array.from({ length: 140 }, (_, i) => [
-                -4.85 + random(i + 7) * 9.7,
-                0,
-                -0.95 + random(i + 97) * 1.9,
-              ])}
-              height={0.06}
+              positions={sectionTussocks}
+              height={0.09}
               color={winter ? "#c9c2a8" : "#858b56"}
             />
-            <Line
-              points={[
-                [-5, -0.7, 1.012],
-                [5, -0.7, 1.012],
-              ]}
-              color="#e8dcc0"
-              dashed
-              dashSize={0.1}
-              gapSize={0.08}
-            />
+            <Line points={thawLine} color="#e8dcc0" dashed dashSize={0.1} gapSize={0.08} />
             <Tag
               pos={[-2.7, 0.65, 0]}
               text={
@@ -216,20 +269,20 @@ export default function Periglacial() {
             />
             {winter && (
               <Tag
-                pos={[0.6, 0.25, 1.2]}
+                pos={[0.6, 0.25, 1.8]}
                 text="Winter crack"
                 note="In intense winter cold the frozen ground contracts and cracks, usually along the same line through the wedge each year. Real cracks are only millimeters to a centimeter or two wide; the crack is drawn wider here so it can be seen. Next spring, meltwater runs into it and freezes as a new vein of ice."
                 occlude={false}
               />
             )}
             <Tag
-              pos={[2.7, -2, 1.2]}
+              pos={[2.7, -2, 1.8]}
               text="Permafrost"
               note="Permafrost is ground that stays at or below 0 °C for at least two consecutive years; it is not necessarily solid ice. The pale streaks are lenses of ground ice beneath the active layer."
               occlude={false}
             />
             <Tag
-              pos={[-2.6, -3.8, 1.2]}
+              pos={[-2.6, -3.8, 1.8]}
               text={`Ice wedge · ${width.toFixed(2)} m at top`}
               note="Intense winter cold makes frozen ground contract and crack. Meltwater enters the cracks and freezes as thin vertical veins, so the wedge widens year after year and pushes the neighboring layers upward. It is not caused by water simply expanding as it freezes, nor by a glacier."
               occlude={false}
