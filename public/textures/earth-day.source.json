@@ -4,5 +4,5 @@
   "credit": "Reto St\u00f6ckli / NASA Earth Observatory",
   "license": "Public domain",
   "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
-  "description": "Blue Marble Next Generation July 2004 cloud-free base map; 4096 \u00d7 2048, no shaded relief. Resized from 5400 \u00d7 2700."
+  "description": "Blue Marble Next Generation July 2004 cloud-free base map; 4096 \u00d7 2048, no shaded relief. Resized from 5400 \u00d7 2700. Served as WebP: earth-day.webp (4096 \u00d7 2048) and earth-day-small.webp (2048 \u00d7 1024); the JPEG is the master."
 }

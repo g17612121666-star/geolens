@@ -1,4 +1,4 @@
-import { useIsCompact } from "@/hooks/use-media";
+import { useClientMediaQuery } from "@/hooks/use-media";
 
 export type Quality = {
   sphere: number;
@@ -19,7 +19,8 @@ function capableDevice(): boolean {
 }
 
 export function useQuality(): Quality {
-  const compact = useIsCompact();
+  // Quality only shapes canvas content, which is never server-rendered.
+  const compact = useClientMediaQuery("(max-width: 1099px)");
   if (compact) {
     return {
       sphere: 64,

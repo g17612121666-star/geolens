@@ -51,7 +51,7 @@ type Fade = {
   material?: React.Ref<THREE.MeshStandardMaterial>;
   onReady?: (snapshot: number) => void;
 };
-const MODERN = ["/textures/earth-day.jpg", "/textures/earth-bump.jpg"];
+const MODERN = ["/textures/earth-day.webp", "/textures/earth-bump.webp"];
 const snapshotUrl = (snapshot: number) => `/geo/reconstruction/paleo-${snapshot}.webp`;
 function useReady(snapshot: number, onReady?: (snapshot: number) => void) {
   useEffect(() => onReady?.(snapshot), [snapshot, onReady]);

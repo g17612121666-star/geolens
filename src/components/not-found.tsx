@@ -11,7 +11,7 @@ export function NotFoundPage() {
     <main id="main" className="relative flex min-h-dvh items-center px-6 pt-14">
       <div className="pointer-events-none absolute inset-0">
         <img
-          src="/textures/earth-day.jpg"
+          src="/textures/earth-day-small.webp"
           alt={"Earth from space: the sunlit Blue Marble behind empty ocean."}
           className="size-full object-cover opacity-30"
         />
