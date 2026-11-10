@@ -9,13 +9,18 @@ import { headFor } from "@/lib/seo";
 
 export const Route = createFileRoute("/slip/$slug")({
   beforeLoad: ({ params }) => {
-    if (!LAB_BY_SLUG[params.slug] || !LAB_SCENES[params.slug] || !isListed(params.slug))
-      throw notFound();
+    if (!LAB_SCENES[params.slug] || !isListed(params.slug)) throw notFound();
+  },
+  loader: async ({ params }) => {
+    const { LAB_BY_SLUG: labs } = await import("@/lib/labs/catalog");
+    const lab = labs[params.slug];
+    if (!lab) throw notFound();
+    return { title: lab.title };
   },
   component: SlipPage,
-  head: ({ params }) =>
+  head: ({ params, loaderData }) =>
     headFor({
-      title: `Hand-in slip · ${LAB_BY_SLUG[params.slug]?.title ?? "Lab"}`,
+      title: `Hand-in slip · ${loaderData?.title ?? "Lab"}`,
       description: "A printable record of one student's work in a Geolens lab.",
       path: `/slip/${params.slug}`,
     }),

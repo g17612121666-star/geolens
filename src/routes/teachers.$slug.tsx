@@ -13,21 +13,27 @@ import { LESSON_PHASES, lessonLink, lessonOutline } from "@/lib/teachers/workflo
 
 export const Route = createFileRoute("/teachers/$slug")({
   beforeLoad: ({ params }) => {
-    const lab = LAB_BY_SLUG[params.slug];
-    if (!lab || !LAB_SCENES[params.slug] || !isListed(params.slug)) throw notFound();
+    if (!LAB_SCENES[params.slug] || !isListed(params.slug)) throw notFound();
+  },
+  loader: async ({ params }) => {
+    const [{ LAB_BY_SLUG: labs }, { labFigures: figures }] = await Promise.all([
+      import("@/lib/labs/catalog"),
+      import("@/lib/figures"),
+    ]);
+    const lab = labs[params.slug];
+    if (!lab) throw notFound();
+    return { title: lab.title, image: figures(lab.slug)[0]?.src };
   },
   component: TeacherArticlePage,
-  head: ({ params }) => {
-    const lab = LAB_BY_SLUG[params.slug];
-    return headFor({
-      title: lab ? `Teacher notes · ${lab.title}` : "Teacher notes",
-      description: lab
-        ? `Illustrated lesson notes, a 3D demonstration and discussion questions for ${lab.title}. Free for teachers and geography clubs.`
+  head: ({ params, loaderData }) =>
+    headFor({
+      title: loaderData ? `Teacher notes · ${loaderData.title}` : "Teacher notes",
+      description: loaderData
+        ? `Illustrated lesson notes, a 3D demonstration and discussion questions for ${loaderData.title}. Free for teachers and geography clubs.`
         : "Free teacher notes from Geolens.",
       path: `/teachers/${params.slug}`,
-      image: lab ? labFigures(lab.slug)[0]?.src : undefined,
-    });
-  },
+      image: loaderData?.image,
+    }),
 });
 
 function TeacherArticlePage() {

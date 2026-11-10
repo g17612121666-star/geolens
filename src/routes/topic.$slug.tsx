@@ -4,18 +4,19 @@ import { LabCard } from "@/components/lab-card";
 import { headFor } from "@/lib/seo";
 
 export const Route = createFileRoute("/topic/$slug")({
-  beforeLoad: ({ params }) => {
-    if (!LAB_BY_SLUG[params.slug]) throw notFound();
+  loader: async ({ params }) => {
+    const { LAB_BY_SLUG: labs } = await import("@/lib/labs/catalog");
+    const lab = labs[params.slug];
+    if (!lab) throw notFound();
+    return { title: lab.title, hook: lab.hook };
   },
   component: TopicPage,
-  head: ({ params }) => {
-    const lab = LAB_BY_SLUG[params.slug];
-    return headFor({
-      title: lab?.title ?? "Topic",
-      description: lab?.hook ?? "A Geolens topic.",
+  head: ({ params, loaderData }) =>
+    headFor({
+      title: loaderData?.title ?? "Topic",
+      description: loaderData?.hook ?? "A Geolens topic.",
       path: `/topic/${params.slug}`,
-    });
-  },
+    }),
 });
 
 function TopicPage() {

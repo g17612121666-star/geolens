@@ -12,24 +12,31 @@ export const Route = createFileRoute("/lab/$slug")({
   beforeLoad: ({ params }) => {
     const alias = LAB_ALIASES[params.slug];
     if (alias) throw redirect({ to: "/lab/$slug", params: { slug: alias } });
-    if (!LAB_BY_SLUG[params.slug] || !LAB_SCENES[params.slug]) throw notFound();
+    if (!LAB_SCENES[params.slug]) throw notFound();
   },
-  head: ({ params }) => {
-    const lab = LAB_BY_SLUG[params.slug];
-    if (!lab) {
-      return headFor({
-        title: "Lab not found",
-        description: "We could not find this lab on Geolens.",
-        path: `/lab/${params.slug}`,
-      });
-    }
-    return headFor({
-      title: lab.title,
-      description: lab.objective,
-      path: `/lab/${lab.slug}`,
-      image: LAB_FIGURE[lab.slug]?.src,
-    });
+  // The lab catalog and photo register are large, so only lab pages load them.
+  loader: async ({ params }) => {
+    const [{ LAB_BY_SLUG: labs }, { LAB_FIGURE: figures }] = await Promise.all([
+      import("@/lib/labs/catalog"),
+      import("@/lib/figures"),
+    ]);
+    const lab = labs[params.slug];
+    if (!lab) throw notFound();
+    return { title: lab.title, objective: lab.objective, image: figures[lab.slug]?.src };
   },
+  head: ({ params, loaderData }) =>
+    loaderData
+      ? headFor({
+          title: loaderData.title,
+          description: loaderData.objective,
+          path: `/lab/${params.slug}`,
+          image: loaderData.image,
+        })
+      : headFor({
+          title: "Lab not found",
+          description: "We could not find this lab on Geolens.",
+          path: `/lab/${params.slug}`,
+        }),
   component: LabPage,
 });
 

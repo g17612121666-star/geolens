@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown, Search } from "lucide-react";
-import { REALMS } from "@/lib/labs/catalog";
+import { REALMS } from "@/lib/labs/realms";
 import { cn } from "@/lib/utils";
 import { PreferencesMenu } from "@/components/preferences-menu";
 import { LogoMark } from "@/components/layout/logo-mark";

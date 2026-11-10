@@ -11,19 +11,24 @@ import { Gallery } from "@/components/gallery";
 import { CASE_GALLERY } from "@/lib/media-galleries";
 
 export const Route = createFileRoute("/case/$slug")({
-  beforeLoad: ({ params }) => {
-    if (!CASE_BY_SLUG[params.slug]) throw notFound();
+  // Case texts and the photo register are large, so only case pages load them.
+  loader: async ({ params }) => {
+    const [{ CASE_BY_SLUG: cases }, { caseFigure: figure }] = await Promise.all([
+      import("@/lib/cases"),
+      import("@/lib/case-figures"),
+    ]);
+    const c = cases[params.slug];
+    if (!c) throw notFound();
+    return { title: c.title, lede: c.lede, image: figure(c.slug)?.src };
   },
   component: CasePage,
-  head: ({ params }) => {
-    const c = CASE_BY_SLUG[params.slug];
-    return headFor({
-      title: c?.title ?? "Case",
-      description: c?.lede ?? "A Geolens case study.",
+  head: ({ params, loaderData }) =>
+    headFor({
+      title: loaderData?.title ?? "Case",
+      description: loaderData?.lede ?? "A Geolens case study.",
       path: `/case/${params.slug}`,
-      image: c ? caseFigure(c.slug)?.src : undefined,
-    });
-  },
+      image: loaderData?.image,
+    }),
 });
 
 function CasePage() {

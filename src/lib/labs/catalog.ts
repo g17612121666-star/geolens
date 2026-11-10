@@ -1,9 +1,10 @@
 import CONTENT from './content.json';
 import DEFINITIONS from '../../../scripts/glossary-definitions.json';
 import type { LabMeta, RealmMeta } from './types';
+import { REALMS } from './realms';
 
 /** Reviewed content lives together so outdated draft copy cannot override a lesson. */
-export const REALMS: RealmMeta[] = CONTENT.realms as RealmMeta[];
+export { REALMS };
 export const LABS: LabMeta[] = (CONTENT.labs as LabMeta[]).map(lab => ({
   ...lab,
   glossary: lab.glossary.map(term => ({

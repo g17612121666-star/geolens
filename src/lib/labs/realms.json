@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "planet",
+    "title": "Planet",
+    "kicker": "Earth moves through space",
+    "blurb": "Explore how Earth’s motion and its relationship with the Sun and Moon produce days, seasons, phases and eclipses."
+  },
+  {
+    "slug": "interior",
+    "title": "Interior & Plates",
+    "kicker": "Explore beneath the surface",
+    "blurb": "Look inside Earth and follow the movement of tectonic plates to understand how oceans open and mountain belts form."
+  },
+  {
+    "slug": "atmosphere",
+    "title": "Atmosphere",
+    "kicker": "Understand the changing atmosphere",
+    "blurb": "Investigate how sunlight, air pressure and circulation shape weather and the world’s broad climate patterns."
+  },
+  {
+    "slug": "water",
+    "title": "Water & Carbon",
+    "kicker": "Follow water and carbon",
+    "blurb": "Trace water and carbon through connected stores, then compare the behavior of rivers, oceans and catchments."
+  },
+  {
+    "slug": "landforms",
+    "title": "Landforms",
+    "kicker": "Read the shape of a landscape",
+    "blurb": "Examine how rivers, waves, glaciers and rock deformation shape the land around us."
+  },
+  {
+    "slug": "soils",
+    "title": "Soils & Rocks",
+    "kicker": "Discover how rocks and soils change",
+    "blurb": "Inspect rock textures and soil profiles, and compare the processes that break down, transport and transform their material."
+  },
+  {
+    "slug": "hazards",
+    "title": "Hazards",
+    "kicker": "Understand hazardous processes",
+    "blurb": "Explore what drives earthquakes, eruptions, tsunamis and storms, and separate the physical process from its local impacts."
+  },
+  {
+    "slug": "skills",
+    "title": "Skills",
+    "kicker": "Connect maps with the world",
+    "blurb": "Build confidence with contours, coordinates and projections by comparing each map with the terrain or globe it represents."
+  }
+]

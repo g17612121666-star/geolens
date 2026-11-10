@@ -13,17 +13,18 @@ export const Route = createFileRoute("/trips/$slug")({
     const n = Number(s.stop);
     return Number.isFinite(n) && n >= 1 ? { stop: Math.floor(n) } : {};
   },
-  beforeLoad: ({ params }) => {
-    if (!findTrip(params.slug)) throw notFound();
+  loader: async ({ params }) => {
+    const { findTrip: find } = await import("@/lib/field-trips");
+    const t = find(params.slug);
+    if (!t) throw notFound();
+    return { title: t.title, summary: t.summary };
   },
-  head: ({ params }) => {
-    const t = findTrip(params.slug);
-    return headFor({
-      title: t ? `${t.title} · Field trip` : "Field trip",
-      description: t?.summary ?? "A guided field trip on the map.",
+  head: ({ params, loaderData }) =>
+    headFor({
+      title: loaderData ? `${loaderData.title} · Field trip` : "Field trip",
+      description: loaderData?.summary ?? "A guided field trip on the map.",
       path: `/trips/${params.slug}`,
-    });
-  },
+    }),
 });
 
 function TripPlayer() {
