@@ -5,7 +5,7 @@ import { useThree } from "@react-three/fiber";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { wellHead } from "@/lib/hydrology-science";
-import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
+import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { terrainGeometry } from "../shared/science-geometry";
 import { Tag, InspectHotspot } from "../shared/kit";
 import { WaterRibbon } from "../shared/geomorphic-terrain";
@@ -42,7 +42,7 @@ export default function Groundwater() {
       >
         <group position={[0, -1.5 * f, 0]}>
           <LocalClipping />
-          <AquiferBlock f={f} confined={confined} head={head} />
+          <AquiferBlock f={f} confined={confined} head={head} pump={pump} time={t * 24} />
           {confined && (
             <InspectHotspot
               name="Aquitard"
@@ -94,17 +94,6 @@ export default function Groundwater() {
               lineWidth={2.5}
             />
           ))}
-          {pump > 0 &&
-            Array.from({ length: 24 }, (_, i) => {
-              const a = (i / 24) * 2 * Math.PI,
-                r = 0.1 + 1.85 * (1 - ((t + i * 0.173) % 1)) ** 0.65;
-              return (
-                <mesh key={`flow-${i}`} position={[r * Math.cos(a), 0.56 * f, r * Math.sin(a)]}>
-                  <sphereGeometry args={[0.02, 8, 6]} />
-                  <meshBasicMaterial color="#d8eef0" />
-                </mesh>
-              );
-            })}
           {[0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 1.0].map((y) => (
             <mesh key={y} position={[0, y * f, 0]} rotation={[Math.PI / 2, 0, 0]}>
               <torusGeometry args={[0.034, 0.005, 5, 20]} />
@@ -126,15 +115,6 @@ export default function Groundwater() {
           </mesh>
           {pump > 0 && (
             <>
-              {[0, Math.PI / 2, Math.PI, Math.PI * 1.5].map((a) => (
-                <Arrow
-                  key={a}
-                  from={[0.85 * Math.cos(a), 0.55 * f, 0.85 * Math.sin(a)]}
-                  to={[0.15 * Math.cos(a), 0.55 * f, 0.15 * Math.sin(a)]}
-                  color="#85c5d7"
-                  width={0.4}
-                />
-              ))}
               <mesh position={[0, 4.1 * f, 0]}>
                 <sphereGeometry args={[0.025 + (0.5 + 0.5 * Math.sin(t * 50)) * 0.02, 12, 12]} />
                 <meshBasicMaterial color="#9fdae8" />
@@ -175,8 +155,8 @@ export default function Groundwater() {
           "K = 10 m/day, fixed head at 500 m, well radius 0.2 m. Steady Thiem / Dupuit approximation. "
         }
         {pump > 0
-          ? "Play shows water moving toward the well."
-          : "Raise Pump above zero to see tracers flow toward the well."}{" "}
+          ? "Play to watch water in the pores move toward the well, fastest close to it."
+          : "Raise Pump above zero to see water flow toward the well."}{" "}
         {""}
       </ScienceReadout>
     </>
@@ -203,7 +183,14 @@ function LocalClipping() {
 /** Layers in section (heights in meters ÷ 10, times the vertical factor f): bedrock below 0,
  * sand and gravel aquifer, a clay aquitard (confined case), dry sand above the water table and
  * a soil cap. The water table comes from the lab's head model through a radial profile. */
-const AQUIFER_GLSL = `uniform sampler2D uProfile; uniform float uF,uConfined,uTop,uLift;
+const AQUIFER_GLSL = `uniform sampler2D uProfile; uniform float uF,uConfined,uTop,uLift,uTime,uPump;
+// Water moving toward the pumping well: dashes along horizontal lanes. Speed rises as 1/r
+// near the well, so dash phase advances evenly in r squared.
+float flowDash(float r,float y,float f){
+  float lane=abs(fract(y/max(f,.05)*2.6+.3)-.5);
+  float d=fract(r*r*1.2+uTime*.3);
+  return uPump*(1.-smoothstep(.035,.06,lane))*smoothstep(.6,.66,d)*(1.-smoothstep(.88,.94,d))*smoothstep(.02,.12,r);
+}
 vec3 sectionColour(vec3 p0,vec3 w){
   vec3 p=vec3(w.x,w.y-uLift,w.z);
   float y=p.y,r=length(p.xz),g=grain(p.xy*1.5+p.zy*1.5),f=uF;
@@ -216,14 +203,15 @@ vec3 sectionColour(vec3 p0,vec3 w){
   if(y<0.){c=mix(vec3(.42,.40,.40),vec3(.32,.31,.32),g);c*=mix(.7,1.,smoothstep(0.,.01,abs(fract(p.x*1.7+y*3.)-.5)*2.));}
   else if(y>uTop-.08*f-.02)c=mix(vec3(.40,.30,.21),vec3(.32,.24,.17),g);
   else if(uConfined>.5){
-    if(y<1.2*f)c=mix(wet,vec3(.52,.72,.80),pore*.3);
+    if(y<1.2*f){c=mix(wet,vec3(.52,.72,.80),pore*.3);c=mix(c,vec3(.8,.94,.98),flowDash(r,y,f)*.85);}
     else if(y<1.44*f)c=mix(vec3(.50,.45,.42),vec3(.42,.38,.36),step(.5,fract(y/f*40.)));
     else c=mix(vec3(.78,.70,.55),vec3(.66,.58,.45),g);
   }else{
     float fringe=smoothstep(wt+.06*f+.02,wt,y);
-    c=y<wt?mix(wet,vec3(.52,.72,.80),pore*.3):mix(dry,wet*1.15,fringe*.6);
+    c=y<wt?mix(wet,vec3(.52,.72,.80),pore*.3)*mix(.82,1.,smoothstep(0.,wt,y)):mix(dry,wet*1.15,fringe*.6);
     float gravel=smoothstep(.6,.8,sFbm(vec2(p.x*2.,y/f*1.2)))*step(y,.5*f);
     c=mix(c,mix(vec3(.58,.56,.52),vec3(.42,.40,.38),step(.5,sHash(floor(q*.4)))),gravel*.7);
+    if(y<wt)c=mix(c,vec3(.8,.94,.98),flowDash(r,y,f)*.85);
   }
   return c;
 }
@@ -233,10 +221,15 @@ function AquiferBlock({
   f,
   confined,
   head,
+  pump,
+  time,
 }: {
   f: number;
   confined: boolean;
   head: (x: number, z: number) => number;
+  /** 0..1 share of the maximum pumping rate. */
+  pump: number;
+  time: number;
 }) {
   const top = 4 * f;
   const ground = useMemo(
@@ -282,6 +275,8 @@ function AquiferBlock({
     uConfined: confined ? 1 : 0,
     uTop: top,
     uLift: -1.5 * f,
+    uTime: time,
+    uPump: Math.min(1, pump * 2.5),
   });
   const farm = useMemo(
     () => settlement(0.55, -0.55, 4, 0.25, 0.08, 3, (x, z) => Math.hypot(x, z) > 0.25),
@@ -313,7 +308,7 @@ function AquiferBlock({
           attach="material-1"
           glsl={AQUIFER_GLSL}
           uniforms={uniforms}
-          cacheKey="groundwater-aquifer-v1"
+          cacheKey="groundwater-aquifer-v2"
           clippingPlanes={CUT}
           clipIntersection
         />
@@ -331,7 +326,7 @@ function AquiferBlock({
           <SectionMaterial
             glsl={AQUIFER_GLSL}
             uniforms={uniforms}
-            cacheKey="groundwater-aquifer-v1"
+            cacheKey="groundwater-aquifer-v2"
             side={THREE.DoubleSide}
           />
         </mesh>
