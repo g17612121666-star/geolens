@@ -184,6 +184,7 @@ function Home() {
             <ProgressImage
               src={classroom.src}
               alt={classroom.alt}
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="aspect-video w-full rounded-2xl object-cover"
             />
           )}

@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Flame, MapPinned, Mountain, Sparkles } from "
 import { dayKey, level, placeOfTheDay, readDaily, streak } from "@/lib/daily";
 import { tripPhoto } from "@/lib/field-trips";
 import { headFor } from "@/lib/seo";
+import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
 export const Route = createFileRoute("/practice/")({
   component: PracticeHub,
@@ -71,11 +72,7 @@ function PracticeHub() {
             {lv.next ? `${state.xp} / ${lv.next} points` : `${state.xp} points`}
           </p>
         </div>
-        <Stat
-          icon={Flame}
-          value={state.streak}
-          label="day streak"
-        />
+        <Stat icon={Flame} value={state.streak} label="day streak" />
         <Stat
           icon={CheckCircle2}
           value={(state.quiz != null ? 1 : 0) + (state.where != null ? 1 : 0)}
@@ -111,7 +108,14 @@ function PracticeHub() {
       </div>
       <section className="mt-10 grid overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] md:grid-cols-[minmax(0,1fr)_1.2fr]">
         {photo && (
-          <img src={photo.src} alt={photo.alt} className="aspect-[16/10] size-full object-cover" />
+          <img
+            src={photo.src}
+            srcSet={photoSrcSet(photo.src)}
+            sizes={CARD_SIZES}
+            loading="lazy"
+            alt={photo.alt}
+            className="aspect-[16/10] size-full object-cover"
+          />
         )}
         <div className="flex flex-col p-6">
           <p className="section-label">{"Place of the day"}</p>

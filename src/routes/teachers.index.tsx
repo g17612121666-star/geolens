@@ -6,6 +6,7 @@ import { isListed } from "@/lib/labs/status";
 import { headFor } from "@/lib/seo";
 import { LESSON_PHASES, lessonLink } from "@/lib/teachers/workflow";
 import { teacherHero } from "@/lib/figures";
+import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
 type TeacherSearch = { q?: string; realm?: string; age?: string; curriculum?: string };
 export const Route = createFileRoute("/teachers/")({
@@ -209,6 +210,8 @@ function TeachersIndex() {
                       >
                         <img
                           src={teacherHero(lab.slug)!.src}
+                          srcSet={photoSrcSet(teacherHero(lab.slug)!.src)}
+                          sizes={CARD_SIZES}
                           alt=""
                           loading="lazy"
                           decoding="async"

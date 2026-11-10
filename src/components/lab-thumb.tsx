@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { LoadingProgress } from "./loading-progress";
 import { labFigure } from "@/lib/figures";
+import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
 /** Explore cards use the lab’s field photograph, not a schematic SVG. */
 export function LabThumb({ slug }: { slug: string }) {
@@ -18,6 +19,10 @@ export function LabThumb({ slug }: { slug: string }) {
         <img
           ref={ref}
           src={fig.src}
+          srcSet={photoSrcSet(fig.src)}
+          sizes={CARD_SIZES}
+          loading="lazy"
+          decoding="async"
           alt={fig.alt}
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}

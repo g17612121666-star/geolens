@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, FlaskConical, MapPin, X } from "lucide-react";
 import { LibreMap } from "@/components/map/libre-map";
 import { findTrip, saveTripProgress, tripPhoto, type FieldTrip } from "@/lib/field-trips";
 import { headFor } from "@/lib/seo";
+import { photoSrcSet } from "@/lib/responsive-image";
 
 type TripSearch = { stop?: number };
 export const Route = createFileRoute("/trips/$slug")({
@@ -126,6 +127,8 @@ function Player({ trip }: { trip: FieldTrip }) {
                 <figure>
                   <img
                     src={photo.src}
+                    srcSet={photoSrcSet(photo.src)}
+                    sizes="(min-width: 1024px) 420px, 100vw"
                     alt={photo.alt}
                     className="aspect-[16/10] w-full object-cover"
                   />

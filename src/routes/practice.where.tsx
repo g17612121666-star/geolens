@@ -14,6 +14,7 @@ import {
 import { tripPhoto } from "@/lib/field-trips";
 import { haversineKm } from "@/lib/geo";
 import { headFor } from "@/lib/seo";
+import { photoSrcSet } from "@/lib/responsive-image";
 
 export const Route = createFileRoute("/practice/where")({
   component: WhereOnEarth,
@@ -111,6 +112,9 @@ function WhereOnEarth() {
               <li key={x.title} className="flex items-center gap-3 border-t border-white/10 pt-3">
                 <img
                   src={tripPhoto(x.photo)?.src}
+                  srcSet={photoSrcSet(tripPhoto(x.photo)?.src)}
+                  sizes="56px"
+                  loading="lazy"
                   alt=""
                   className="size-14 rounded-lg object-cover"
                 />
@@ -144,6 +148,8 @@ function WhereOnEarth() {
             {photo && (
               <img
                 src={photo.src}
+                srcSet={photoSrcSet(photo.src)}
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 alt="A landscape photograph to locate"
                 className="aspect-[4/3] w-full object-cover"
               />

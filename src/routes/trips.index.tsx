@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Check, Search } from "lucide-react";
 import { FIELD_TRIPS, readTripProgress, tripPhoto, type TripProgress } from "@/lib/field-trips";
 import { headFor } from "@/lib/seo";
+import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
 export const Route = createFileRoute("/trips/")({
   component: TripsIndex,
@@ -77,6 +78,8 @@ function TripsIndex() {
                 >
                   <img
                     src={tripPhoto(s.photo)?.src}
+                    srcSet={photoSrcSet(tripPhoto(s.photo)?.src)}
+                    sizes="64px"
                     alt=""
                     className="size-16 shrink-0 rounded-lg object-cover"
                     loading="lazy"
@@ -106,6 +109,8 @@ function TripsIndex() {
               <div className="relative aspect-[16/9] overflow-hidden">
                 <img
                   src={cover?.src}
+                  srcSet={photoSrcSet(cover?.src)}
+                  sizes={CARD_SIZES}
                   alt={cover?.alt ?? ""}
                   className="size-full object-cover"
                   loading="lazy"

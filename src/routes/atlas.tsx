@@ -562,6 +562,7 @@ function PlaceCard({
             src={photo.src}
             alt={photo.alt}
             className="atlas-landscape-image"
+            sizes="(min-width: 1024px) 900px, 100vw"
             describedBy={`atlas-photo-${p.id}`}
           />
           <figcaption id={`atlas-photo-${p.id}`}>{photo.caption}</figcaption>

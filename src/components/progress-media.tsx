@@ -6,11 +6,14 @@ import {
   type IframeHTMLAttributes,
 } from "react";
 import { LoadingProgress } from "./loading-progress";
+import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 export function ProgressImage({
   className = "",
   src,
   alt = "",
   loading = "lazy",
+  srcSet,
+  sizes,
   onLoad,
   onError,
   ...props
@@ -28,6 +31,8 @@ export function ProgressImage({
         ref={ref}
         {...props}
         src={src}
+        srcSet={srcSet ?? photoSrcSet(src)}
+        sizes={sizes ?? (srcSet || photoSrcSet(src) ? CARD_SIZES : undefined)}
         alt={alt}
         loading={loading}
         decoding="async"
