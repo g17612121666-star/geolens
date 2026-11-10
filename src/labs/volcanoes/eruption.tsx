@@ -1,23 +1,10 @@
 import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { cloudNoiseGLSL } from "../shared/cloud-material";
 import { fbm } from "../shared/hazard-utils";
+import { useKeyLight } from "../shared/key-light";
 
 type V3 = [number, number, number];
-
-/** Tracks the studio key light (up and to the left of the camera) for shader-lit volumes. */
-function useKeyLight() {
-  const sun = useMemo(() => new THREE.Vector3(-0.5, 0.8, 0.4).normalize(), []);
-  const right = useMemo(() => new THREE.Vector3(), []),
-    up = useMemo(() => new THREE.Vector3(), []),
-    back = useMemo(() => new THREE.Vector3(), []);
-  useFrame(({ camera }) => {
-    camera.matrixWorld.extractBasis(right, up, back);
-    sun.copy(back).addScaledVector(right, -0.95).addScaledVector(up, 1.05).normalize();
-  });
-  return sun;
-}
 
 const COLUMN_VERTEX = /* glsl */ `
 varying vec3 vWorld;

@@ -6,7 +6,8 @@ import { useLabTick } from "@/labs/tick";
 import { frontSection } from "@/lib/front-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
-import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
+import { RainStreaks } from "../atmosphere-layers/weather-volumes";
+import { FrontClouds } from "./front-clouds";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { Buildings } from "../shared/hazard-parts";
@@ -77,35 +78,24 @@ export default function Fronts() {
         {!s.occluded && (
           <FrontSurface height={s.cool} from={s.warmFront} to={300} factor={f} color="#d0614f" />
         )}
-        {/* Cirrus streaks far ahead of the warm front, then thickening altostratus. */}
-        {!s.occluded &&
-          Array.from({ length: 4 }, (_, i) => {
-            const x = Math.min(290, s.warmFront + 150 + i * 32);
-            return (
-              <CloudVolume
-                key={`ci-${i}`}
-                position={[
-                  x / 100,
-                  (Math.min(6.2, s.cool(x) + 1.2) / 100) * f + 0.04,
-                  i % 2 ? 0.35 : -0.3,
-                ]}
-                scale={[0.42, 0.035, 0.22]}
-                seed={i + 60}
-                density={24}
-                opacity={0.45}
-              />
-            );
-          })}
         {volumes.map((geometry, i) => (
           <mesh key={i} geometry={geometry}>
             <meshBasicMaterial
-              color={["#6eaac9", "#8cc8b9", "#dbab79"][i]}
+              color={["#5f9fd6", "#86c5b3", "#e2a46a"][i]}
               transparent
-              opacity={0.2}
+              opacity={[0.26, 0.2, 0.17][i]}
               depthWrite={false}
             />
           </mesh>
         ))}
+        <FrontClouds
+          cold={s.coldFront}
+          warm={s.warmFront}
+          occluded={s.occluded}
+          factor={f}
+          ceiling={s.ceiling}
+          time={t * 40}
+        />
         <Line points={interfacePoints(s.cold)} color="#75b9d6" lineWidth={2} />
         <Line
           points={interfacePoints(s.cool).filter(
@@ -129,12 +119,6 @@ export default function Fronts() {
             ceiling = (h / 100) * f + 0.02;
           return (
             <group key={i}>
-              <CloudVolume
-                position={[x / 100, ceiling, 0]}
-                scale={[0.36, 0.12 + (0.12 * f) / 20, 0.75]}
-                seed={i + 20}
-                density={30}
-              />
               <RainStreaks
                 t={t}
                 position={[x / 100, ceiling, 0]}
@@ -149,20 +133,6 @@ export default function Fronts() {
         {/* Towering convective cloud and heavy showers along the steep cold front. */}
         {!s.occluded && (
           <group>
-            <CloudVolume
-              position={[s.coldFront / 100 + 0.12, (4 / 100) * f + 0.05, 0]}
-              scale={[0.32, 0.18 + (0.55 * f) / 20, 0.7]}
-              seed={5}
-              density={40}
-            />
-            {/* Anvil: the storm top spreads out where rising air reaches the stable layer above. */}
-            <CloudVolume
-              position={[s.coldFront / 100 + 0.32, (6.3 / 100) * f + 0.02, 0]}
-              scale={[0.6, 0.07, 0.8]}
-              seed={9}
-              density={36}
-              opacity={0.7}
-            />
             <RainStreaks
               t={t}
               position={[s.coldFront / 100 + 0.12, (2.5 / 100) * f + 0.02, 0]}
