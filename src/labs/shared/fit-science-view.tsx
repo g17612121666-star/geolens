@@ -2,7 +2,11 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
-/** Fit projected geometry vertices so wide classroom canvases use the available space. */
+/**
+ * Fit projected geometry vertices so wide classroom canvases use the available space.
+ * A scene can mark a group with userData.noFit (for example a large sea that should run off
+ * the edges) and add an invisible mesh with userData.fitProxy to stand for its subject.
+ */
 export function FitScienceView({
   children,
   revision,
@@ -28,7 +32,7 @@ export function FitScienceView({
       frame = requestAnimationFrame(() => {
         if (!root.current || !(camera instanceof THREE.PerspectiveCamera)) return;
         root.current.updateWorldMatrix(true, true);
-        const box = new THREE.Box3().setFromObject(root.current);
+        const box = fittedBox(root.current);
         root.current.traverse((object) => {
           if (object.userData.fitLabelWidth)
             box.expandByPoint(object.getWorldPosition(new THREE.Vector3()));
@@ -80,7 +84,8 @@ export function FitScienceView({
             );
           }
           const geometry = (object as THREE.Mesh).geometry;
-          if (!geometry || !object.visible) return;
+          if (!geometry || (!object.visible && !object.userData.fitProxy) || excluded(object))
+            return;
           if (object instanceof THREE.InstancedMesh) {
             geometry.computeBoundingBox();
             const bounds = geometry.boundingBox,
@@ -141,6 +146,31 @@ export function FitScienceView({
       {ground && floor && <GroundShadow {...floor} />}
     </>
   );
+}
+
+/** True when the object or one of its ancestors asks to be left out of the framing. */
+function excluded(object: THREE.Object3D) {
+  for (let o: THREE.Object3D | null = object; o; o = o.parent) if (o.userData.noFit) return true;
+  return false;
+}
+
+/** World bounds of everything that takes part in the framing, labels included. */
+function fittedBox(root: THREE.Object3D) {
+  const box = new THREE.Box3(),
+    part = new THREE.Box3();
+  let skipping = false;
+  root.traverse((object) => {
+    if (object.userData.noFit) skipping = true;
+  });
+  if (!skipping) return box.setFromObject(root);
+  root.traverse((object) => {
+    const geometry = (object as THREE.Mesh).geometry as THREE.BufferGeometry | undefined;
+    if (!geometry || (!object.visible && !object.userData.fitProxy) || excluded(object)) return;
+    if (!geometry.boundingBox) geometry.computeBoundingBox();
+    if (geometry.boundingBox)
+      box.union(part.copy(geometry.boundingBox).applyMatrix4(object.matrixWorld));
+  });
+  return box;
 }
 
 let shadowTexture: THREE.CanvasTexture | null = null;
