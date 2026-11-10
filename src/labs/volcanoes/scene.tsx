@@ -1,342 +1,52 @@
-import { useEffect, useMemo, useRef } from "react";
-import RealVolcanoes from "./real-volcanoes";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useDeferredValue, useEffect, useMemo } from "react";
 import * as THREE from "three";
+import { useThree } from "@react-three/fiber";
+import RealVolcanoes from "./real-volcanoes";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { RockMaterial } from "../shared/rock-material";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
-import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 import { TerrainMaterial, PlantStand } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
-import { farmland, fbm } from "../shared/hazard-utils";
-import { volcanoHeight } from "./geometry";
+import { fbm } from "../shared/hazard-utils";
+import { useQuality } from "../shared/perf";
+import { useIsCompact } from "@/hooks/use-media";
+import { meanSlope } from "./geometry";
+import {
+  BASE,
+  CHAMBER,
+  FISSURE_HALF,
+  SX,
+  SZ,
+  TRUE_RELIEF,
+  makeLandscape,
+  meshSurface,
+  STYLE,
+  wedgeFaces,
+  type Face,
+  paintLandscape,
+  traceFlow,
+} from "./landscape";
+import { SectionFaces } from "./section";
+import {
+  EruptionColumn,
+  LavaDome,
+  LavaFlow,
+  LavaFountain,
+  LavaLake,
+  PyroclasticFlows,
+} from "./eruption";
 
-const SIZE = 7,
-  DEPTH = 4.6,
-  BASE = -1.18,
-  CHAMBER: [number, number, number] = [0.78, 0.26, 0.78],
-  CHAMBER_Y = -0.84;
+type V3 = [number, number, number];
+const smooth = THREE.MathUtils.smoothstep;
+/** Azimuths (radians from +z toward +x) kept clear of the cutaway wedge. */
+const FLOW_AZIMUTHS = [1.8, -2.5];
+const PDC_AZIMUTHS = [-1.9, 1.95, 2.85];
 
-const OLD_FLOWS = [
-  { start: 0.35, reach: 0.92, wiggle: 0.05, color: "#4a3a31", width: 0.07 },
-  { start: 2.55, reach: 0.78, wiggle: 0.06, color: "#57463b", width: 0.06 },
-  { start: 3.4, reach: 1, wiggle: 0.04, color: "#3f332d", width: 0.08 },
-  { start: 4.35, reach: 0.7, wiggle: 0.07, color: "#5e4d40", width: 0.055 },
-  { start: 5.3, reach: 0.88, wiggle: 0.05, color: "#4d3d33", width: 0.065 },
-];
-
-/** Teaching heights are about 2.5× the real slopes; "Compare physical scale" removes this. */
-const TRUE_RELIEF = 0.4;
-const dims = (v: number, k = 1) => ({ radius: 2.1 - v * 0.65, height: (0.36 + v * 1.3) * k });
-
-/** Landscape heights: the edifice profile from geometry.ts on a gently rolling plain. */
-function landscape(v: number, fissure: boolean, k = 1) {
-  const plain = (x: number, z: number) =>
-    0.05 * (fbm(x * 0.6 + 4, z * 0.6 - 2) - 0.5) + 0.015 * (fbm(x * 3, z * 3) - 0.5);
-  if (fissure)
-    return (x: number, z: number) => {
-      const along = 1 - THREE.MathUtils.smoothstep(Math.abs(x), 1.55, 1.85);
-      return (
-        plain(x, z) * 0.6 +
-        along *
-          (0.045 * Math.exp(-(((Math.abs(z) - 0.1) / 0.045) ** 2)) -
-            0.05 * Math.exp(-((z / 0.035) ** 2)))
-      );
-    };
-  return (x: number, z: number) => {
-    const r = Math.hypot(x, z);
-    let phi = Math.atan2(x, z);
-    if (phi < 0) phi += Math.PI * 2;
-    const { radius } = dims(v),
-      blend = THREE.MathUtils.smoothstep(r, radius * 0.9, radius * 1.15);
-    return Math.max(0, volcanoHeight(v, r, phi, 0)) * k + blend * plain(x, z) + 0.004;
-  };
-}
-
-function flowLine(
-  h: (x: number, z: number) => number,
-  radius: number,
-  start: number,
-  reach: number,
-  wiggle: number,
-  n = 80,
-): [number, number, number][] {
-  return Array.from({ length: n }, (_, i): [number, number, number] => {
-    const r = 0.17 + (i / (n - 1)) * (radius - 0.15) * reach,
-      phi = start + Math.sin(r * 7 + start) * wiggle,
-      x = Math.sin(phi) * r,
-      z = Math.cos(phi) * r;
-    return [x, h(x, z) + 0.012, z];
-  });
-}
-
-/** Vertex colors: fresh dark lava near the vent, older flows, ash, vegetation and snow. */
-function paint(
-  g: THREE.BufferGeometry,
-  h: (x: number, z: number) => number,
-  v: number,
-  fissure: boolean,
-  k: number,
-) {
-  const p = g.attributes.position,
-    c = new Float32Array(p.count * 3),
-    { radius, height } = dims(v, k),
-    composite = v >= 0.5;
-  const flows = fissure
-    ? []
-    : OLD_FLOWS.map((f) => ({
-        ...f,
-        line: flowLine(h, radius, f.start, composite ? f.reach * 0.62 : f.reach, f.wiggle, 36),
-      }));
-  const col = new THREE.Color(),
-    tone = new THREE.Color();
-  for (let i = 0; i < p.count; i++) {
-    const x = p.getX(i),
-      y = p.getY(i),
-      z = p.getZ(i),
-      r = Math.hypot(x, z),
-      n = fbm(x * 2.2 + 1, z * 2.2);
-    if (fissure) {
-      col.set("#3b3633").lerp(tone.set("#56504a"), n);
-      const plateau = THREE.MathUtils.smoothstep(Math.abs(z), 0.9, 1.6);
-      col.lerp(farmland(x, z), plateau * 0.85);
-      if (Math.abs(z) < 0.16 && Math.abs(x) < 1.8) col.lerp(tone.set("#6a3b2a"), 0.55);
-    } else {
-      const outer = THREE.MathUtils.smoothstep(r / radius, 0.95, 1.2),
-        lower = THREE.MathUtils.smoothstep(r / radius, 0.45, 0.95);
-      if (composite) {
-        col.set("#8b847a").lerp(tone.set("#6c655c"), n * 0.8);
-        col.lerp(tone.set("#4f6a3b"), lower * THREE.MathUtils.smoothstep(n, 0.25, 0.6) * 0.9);
-      } else {
-        col.set("#3c3735").lerp(tone.set("#5a4b40"), n * 0.7);
-        col.lerp(tone.set("#5f7a43"), lower * 0.75 * THREE.MathUtils.smoothstep(n, 0.35, 0.65));
-      }
-      for (const f of flows) {
-        let best = 9;
-        for (const q of f.line) best = Math.min(best, Math.hypot(x - q[0], z - q[2]));
-        if (best < f.width * 1.6)
-          col.lerp(
-            tone.set(f.color),
-            0.85 * (1 - THREE.MathUtils.smoothstep(best, f.width, f.width * 1.6)),
-          );
-      }
-      if (composite && y > height * 0.72)
-        col.lerp(
-          tone.set("#eef1f2"),
-          THREE.MathUtils.smoothstep(y, height * 0.72, height * 0.8) * 0.95,
-        );
-      if (r < 0.32) col.lerp(tone.set(composite ? "#5c4f45" : "#2b2523"), 0.7);
-      col.lerp(farmland(x, z), outer * 0.9);
-    }
-    if (y < BASE + 1e-3) col.set("#7a6a58");
-    c.set([col.r, col.g, col.b], i * 3);
-  }
-  g.setAttribute("color", new THREE.BufferAttribute(c, 3));
-}
-
-/** The exposed cut face: layered edifice, basement, conduit and magma chamber. */
-function CutFace({
-  h,
-  cut,
-  composite,
-  fissure,
-  clip,
-}: {
-  h: (x: number, z: number) => number;
-  cut: number;
-  composite: boolean;
-  fissure: boolean;
-  clip: THREE.Plane[];
-}) {
-  const profile = useMemo(() => {
-    const t = new THREE.DataTexture(
-      new Float32Array(512),
-      512,
-      1,
-      THREE.RedFormat,
-      THREE.FloatType,
-    );
-    t.magFilter = t.minFilter = THREE.NearestFilter;
-    return t;
-  }, []);
-  useEffect(() => () => profile.dispose(), [profile]);
-  const data = profile.image.data as Float32Array;
-  for (let i = 0; i < 512; i++) data[i] = h(-SIZE / 2 + (i / 511) * SIZE, cut);
-  profile.needsUpdate = true;
-  let top = 0;
-  for (let i = 0; i < 512; i++) top = Math.max(top, data[i]);
-  top += 0.02;
-  const zc = cut / CHAMBER[2],
-    chamber = Math.sqrt(Math.max(0, 1 - zc * zc)),
-    conduit = fissure
-      ? Math.abs(cut) < 0.05
-        ? 1
-        : 0
-      : Math.sqrt(Math.max(0, 1 - (cut / 0.05) ** 2));
-  const uniforms = useMemo(
-    () => ({
-      uProfile: { value: profile },
-      uComposite: { value: 0 },
-      uFissure: { value: 0 },
-      uChamber: { value: 0 },
-      uConduit: { value: 0 },
-    }),
-    [profile],
-  );
-  uniforms.uComposite.value = composite ? 1 : 0;
-  uniforms.uFissure.value = fissure ? 1 : 0;
-  uniforms.uChamber.value = chamber;
-  uniforms.uConduit.value = conduit;
-  const compile = useMemo(
-    () => (s: THREE.WebGLProgramParametersWithUniforms) => {
-      Object.assign(s.uniforms, uniforms);
-      s.vertexShader =
-        "varying vec3 cutWorld;\n" +
-        s.vertexShader.replace(
-          "#include <begin_vertex>",
-          "#include <begin_vertex>\ncutWorld=(modelMatrix*vec4(transformed,1.)).xyz;",
-        );
-      s.fragmentShader =
-        `varying vec3 cutWorld; uniform sampler2D uProfile; uniform float uComposite,uFissure,uChamber,uConduit;
-float vHash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
-float vNoise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
-  return mix(mix(vHash(i),vHash(i+vec2(1.,0.)),f.x),mix(vHash(i+vec2(0.,1.)),vHash(i+vec2(1.,1.)),f.x),f.y);}
-float magma(vec3 w,float top){
-  float e=uChamber>0.?length(vec2(w.x/(${CHAMBER[0]}*uChamber),(w.y-(${CHAMBER_Y}))/(${CHAMBER[1]}*uChamber))):9.;
-  float m=1.-smoothstep(.92,1.,e);
-  float half_=uFissure>.5?1.8:.045;
-  float pipe=uConduit*(1.-smoothstep(half_*uConduit*.8,half_*uConduit,abs(w.x)))*step(${CHAMBER_Y},w.y);
-  return max(m,pipe);
-}
-` + s.fragmentShader;
-      s.fragmentShader = s.fragmentShader
-        .replace(
-          "#include <clipping_planes_fragment>",
-          `#include <clipping_planes_fragment>
-  float cutTop=texture2D(uProfile,vec2((cutWorld.x+${(SIZE / 2).toFixed(2)})/${SIZE.toFixed(2)},.5)).r;
-  if(cutWorld.y>cutTop)discard;`,
-        )
-        .replace(
-          "#include <color_fragment>",
-          `#include <color_fragment>
-  float dd=cutTop-cutWorld.y, grain=vNoise(cutWorld.xy*60.)*.5+vNoise(cutWorld.xy*14.)*.5;
-  vec3 rock;
-  if(cutWorld.y>.02&&uFissure<.5){
-    if(uComposite>.5){
-      float band=fract(dd*15.+.35*sin(cutWorld.x*5.));
-      rock=band<.45?mix(vec3(.58,.48,.36),vec3(.47,.39,.30),grain):mix(vec3(.22,.20,.20),vec3(.15,.14,.14),grain);
-    }else{
-      float band=fract(dd*30.+.2*sin(cutWorld.x*3.));
-      rock=mix(mix(vec3(.20,.18,.18),vec3(.13,.12,.12),grain),vec3(.45,.22,.14),step(.8,band));
-    }
-  }else{
-    float bed=fract(cutWorld.y*9.+.1*sin(cutWorld.x*2.));
-    rock=mix(vec3(.47,.37,.28),vec3(.36,.29,.23),step(.5,bed))*(.85+.3*grain);
-    if(uFissure>.5&&cutWorld.y>-.35)rock=mix(vec3(.26,.24,.23),vec3(.38,.27,.21),step(.82,fract(dd*22.)));
-  }
-  float mg=magma(cutWorld,cutTop);
-  rock=mix(rock,vec3(.55,.12,.04),mg);
-  diffuseColor.rgb*=rock;`,
-        )
-        .replace(
-          "#include <emissivemap_fragment>",
-          `#include <emissivemap_fragment>
-  float glow=magma(cutWorld,cutTop);
-  totalEmissiveRadiance+=glow*mix(vec3(1.,.32,.06),vec3(1.,.72,.25),.5+.5*sin(cutWorld.x*9.+cutWorld.y*13.));`,
-        );
-    },
-    [uniforms],
-  );
-  return (
-    <mesh position={[0, (BASE + top) / 2, cut - 0.0008]}>
-      <planeGeometry args={[SIZE, top - BASE]} />
-      <meshStandardMaterial
-        color="white"
-        roughness={0.95}
-        clippingPlanes={clip}
-        onBeforeCompile={compile}
-        customProgramCacheKey={() => "volcano-cut-v1"}
-      />
-    </mesh>
-  );
-}
-
-function LavaChannel({
-  points,
-  active = false,
-  clip,
-}: {
-  points: [number, number, number][];
-  active?: boolean;
-  clip: THREE.Plane[];
-}) {
-  // Not flattened with g.scale: that would also scale the points and bury the flow in the flank.
-  const geometry = useMemo(
-    () =>
-      new THREE.TubeGeometry(
-        new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(...p))),
-        Math.max(8, points.length * 2),
-        active ? 0.032 : 0.024,
-        8,
-        false,
-      ),
-    [points, active],
-  );
-  useEffect(() => () => geometry.dispose(), [geometry]);
-  return (
-    <mesh geometry={geometry} castShadow>
-      <meshStandardMaterial
-        color={active ? "#c4471d" : "#2c2421"}
-        emissive={active ? "#ff5a1a" : "#000000"}
-        emissiveIntensity={active ? 1.1 : 0}
-        roughness={active ? 0.55 : 0.95}
-        clippingPlanes={clip}
-      />
-    </mesh>
-  );
-}
-
-/** Ballistic spatter: incandescent clots on parabolic paths from the vent or fissure. */
-function Fountain({
-  origins,
-  height,
-  count,
-  clip,
-}: {
-  origins: (i: number) => [number, number, number];
-  height: number;
-  count: number;
-  clip: THREE.Plane[];
-}) {
-  const ref = useRef<THREE.InstancedMesh>(null);
-  useFrame(() => {
-    if (!ref.current) return;
-    const t = useLabControls.getState().t,
-      m = new THREE.Object3D();
-    for (let i = 0; i < count; i++) {
-      const u = (t * 6 + i * 0.618) % 1,
-        a = i * 2.399,
-        spread = 0.08 + 0.12 * ((i * 0.37) % 1),
-        [ox, oy, oz] = origins(i);
-      m.position.set(
-        ox + Math.cos(a) * spread * u,
-        oy + height * (0.6 + 0.4 * ((i * 0.53) % 1)) * 4 * u * (1 - u),
-        oz + Math.sin(a) * spread * u,
-      );
-      m.scale.setScalar(0.014 * (1 - 0.5 * u));
-      m.updateMatrix();
-      ref.current.setMatrixAt(i, m.matrix);
-    }
-    ref.current.instanceMatrix.needsUpdate = true;
-  });
-  return (
-    <instancedMesh ref={ref} args={[undefined, undefined, count]} frustumCulled={false}>
-      <icosahedronGeometry args={[1, 1]} />
-      <meshBasicMaterial color="#ffb347" clippingPlanes={clip} toneMapped={false} />
-    </instancedMesh>
-  );
+export default function Volcanoes() {
+  const real = useLabControls((s) => (s.params.real ?? 0) > 0.5);
+  return real ? <RealVolcanoes /> : <ModelVolcanoes />;
 }
 
 function LocalClipping() {
@@ -351,71 +61,259 @@ function LocalClipping() {
   return null;
 }
 
-export default function Volcanoes() {
-  const real = useLabControls((s) => (s.params.real ?? 0) > 0.5);
-  return real ? <RealVolcanoes /> : <ModelVolcanoes />;
-}
-
 function ModelVolcanoes() {
   const { params, slice, t, trueScale } = useLabControls();
   useLabTick(1 / 9);
+  const q = useQuality(),
+    compact = useIsCompact();
   const v = params.visc ?? 0.25,
     gas = params.gas ?? 0.45,
     fissure = params.fissure > 0.5,
-    composite = v >= 0.5,
     k = trueScale ? TRUE_RELIEF : 1,
-    { radius, height } = dims(v, k);
-  const h = useMemo(() => landscape(v, fissure, k), [v, fissure, k]);
-  const cut = slice > 0.001 ? (DEPTH / 2 + 0.1) * (1 - slice) ** 1.5 : SIZE;
-  const clip = useMemo(() => [new THREE.Plane(new THREE.Vector3(0, 0, -1), SIZE)], []);
-  clip[0].constant = cut;
-  const geometry = useMemo(() => {
-    const g = terrainBlockGeometry(h, SIZE, DEPTH, 176, BASE);
-    paint(g, h, v, fissure, k);
-    return g;
-  }, [h, v, fissure, k]);
-  useEffect(() => () => geometry.dispose(), [geometry]);
-  // Gas alone can fragment even runny basalt; viscosity lowers the gas needed for an ash plume.
+    time = t * 9;
+  // Rebuilding the terrain takes a few frames; while a slider is dragged it may lag behind.
+  const shapeV = useDeferredValue(v);
+  const L = useMemo(() => makeLandscape(shapeV, fissure, k), [shapeV, fissure, k]);
+  const { e } = L,
+    composite = v >= 0.5;
+
+  // Gas drives fragmentation; sticky magma traps gas, so less of it is needed to explode.
   const energetic = gas * (0.5 + 0.5 * v),
-    plume = energetic > 0.48,
-    fountaining = !plume && gas > 0.25 && v < 0.5;
-  // Viscous lava cools and stops closer to the vent.
-  const flow = useMemo(() => flowLine(h, radius, 1.6, 1 - 0.5 * v, 0.035), [h, radius, v]);
-  const activeFlow = useMemo(
-    () => flow.slice(0, Math.max(3, Math.round(3 + t * (flow.length - 3)))),
-    [flow, t],
+    style =
+      energetic > 0.48
+        ? STYLE.explosive
+        : composite
+          ? STYLE.dome
+          : gas > 0.25
+            ? STYLE.fountain
+            : STYLE.effusive,
+    power = smooth(energetic, 0.48, 1),
+    collapse = style === STYLE.explosive && composite && energetic > 0.58 && !fissure;
+
+  // Cutaway: a wedge opening toward the viewer for a central vent; for a fissure, a straight
+  // cut across the crack, so the dike shows in section.
+  const sliced = slice > 0.001,
+    opening = (slice * Math.PI) / 2,
+    cut = SZ / 2 - slice * (SZ / 2 + 0.9);
+  const clip = useMemo(() => [new THREE.Plane(), new THREE.Plane()], []);
+  if (!sliced) clip.forEach((p) => p.set(new THREE.Vector3(0, 1, 0), 1000));
+  else if (fissure) clip.forEach((p) => p.set(new THREE.Vector3(0, 0, -1), cut));
+  else {
+    clip[0].set(new THREE.Vector3(Math.cos(opening), 0, -Math.sin(opening)), 0);
+    clip[1].set(new THREE.Vector3(-Math.cos(opening), 0, -Math.sin(opening)), 0);
+  }
+  const removed = (x: number, z: number, margin = 0.04) =>
+    sliced &&
+    (fissure ? z > cut - margin : Math.abs(x) * Math.cos(opening) < z * Math.sin(opening) + margin);
+  const faces: Face[] = !sliced
+    ? []
+    : fissure
+      ? [{ origin: [-SX / 2, cut], dir: [1, 0], length: SX }]
+      : wedgeFaces(opening);
+  const chamberTop = CHAMBER.y + CHAMBER.b,
+    fragmentation = L.vent - (L.vent - chamberTop) * (0.22 + 0.4 * power);
+
+  const grid = Math.min(200, q.terrain);
+  const geometry = useMemo(() => {
+    const g = terrainBlockGeometry(L.h, SX, SZ, grid, BASE);
+    paintLandscape(g, L, grid);
+    return g;
+  }, [L, grid]);
+  const drape = useMemo(() => meshSurface(geometry, grid), [geometry, grid]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+
+  // Active lava flows: long, fast and hot for runny lava; short and crusty for sticky lava.
+  const flows = useMemo(() => {
+    if (fissure)
+      return [
+        [-1, -0.75],
+        [1, -0.1],
+        [-1, 0.75],
+        [1, 1.25],
+        [1, -1.4],
+      ].map(([side, z0], i) => ({
+        points: traceFlow(L.h, [side * 0.1, z0], 1.75 - 0.9 * v, 60 + i, [side, 0]),
+        width: 0.09 + 0.05 * v,
+      }));
+    return FLOW_AZIMUTHS.map((a, i) => {
+      const r0 = e.craterRadius * 1.02;
+      return {
+        points: traceFlow(
+          L.h,
+          [Math.sin(a) * r0, Math.cos(a) * r0],
+          e.radius * (1.05 - 0.55 * v),
+          40 + i,
+          [Math.sin(a), Math.cos(a)],
+        ),
+        width: 0.08 + 0.08 * v,
+      };
+    });
+  }, [L, e, v, fissure]);
+  const showFlows = fissure
+    ? style !== STYLE.explosive
+    : style === STYLE.effusive || style === STYLE.fountain;
+
+  const pdcPaths = useMemo(
+    () =>
+      PDC_AZIMUTHS.map((a, i) => {
+        const r0 = e.craterRadius * 1.1;
+        return traceFlow(L.h, [Math.sin(a) * r0, Math.cos(a) * r0], e.radius * 1.45, 80 + i, [
+          Math.sin(a),
+          Math.cos(a),
+        ]);
+      }),
+    [L, e],
   );
+
   const trees = useMemo(() => {
-    const out: [number, number, number][] = [];
-    for (let i = 0; out.length < 170 && i < 1600; i++) {
-      const x = -3.4 + 6.8 * ((i * 0.618034) % 1),
-        z = -2.2 + 4.4 * ((i * 0.7548777) % 1),
-        r = Math.hypot(x, z),
-        n = fbm(x * 2.2 + 1, z * 2.2);
+    const out: V3[] = [];
+    const nearFlow = (x: number, z: number) =>
+      showFlows &&
+      flows.some((f) => f.points.some(([px, pz]) => Math.hypot(x - px, z - pz) < f.width * 1.6));
+    for (let i = 0; out.length < 170 && i < 2600; i++) {
+      const x = -SX / 2 + 0.12 + (SX - 0.24) * ((i * 0.618034) % 1),
+        z = -SZ / 2 + 0.12 + (SZ - 0.24) * ((i * 0.7548777) % 1),
+        n = fbm(x * 2.2 + 1, z * 2.2),
+        u = Math.hypot(x, z) / e.radius,
+        y = L.h(x, z);
+      if (L.lavaAge(x, z) > 0.45 || removed(x, z, 0.08)) continue;
       const ok = fissure
-        ? Math.abs(z) > 1.2 && n > 0.55
-        : r > radius * (composite ? 0.5 : 0.6) && r < radius * 1.25 && n > 0.48;
-      if (ok && z < cut - 0.05) out.push([x, h(x, z) - 0.01, z]);
+        ? Math.abs(x) > 1.05 && n > 0.5
+        : n > 0.47 &&
+          (u > 1.02 || (composite ? y / L.rim < 0.36 && u > 0.42 : u > 0.62 && n > 0.52));
+      if (ok && !nearFlow(x, z)) out.push([x, y - 0.01, z]);
     }
     return out;
-  }, [h, radius, composite, fissure, cut]);
-  const craterY = fissure ? 0 : h(0, 0);
-  const sliced = slice > 0.001;
+    // `removed` depends only on the cut values listed.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [L, e, composite, fissure, sliced, opening, cut, flows, showFlows]);
+
+  // Eruption geometry (teaching sizes, not to scale).
+  const fountainHeight = fissure ? 0.14 + 0.32 * gas : 0.25 + 0.7 * gas,
+    columnHeight = 0.8 + 0.75 * power,
+    domeRadius = e.craterRadius * (0.62 + 0.5 * t);
+  const fissureOrigins = useMemo(
+    () =>
+      Array.from({ length: 420 }, (_, i): V3 => {
+        const z = -FISSURE_HALF + 0.1 + ((i * 0.618034) % 1) * (FISSURE_HALF * 2 - 0.2);
+        return [0, L.ground(0, z) - 0.01, z];
+      }),
+    [L],
+  );
+  const ventOrigins = useMemo(() => Array.from({ length: 320 }, (): V3 => [0, L.vent, 0]), [L]);
+  const glow =
+    style === STYLE.fountain
+      ? 2.4
+      : style === STYLE.effusive
+        ? 1.4
+        : style === STYLE.dome
+          ? 0.7
+          : 1.2;
+
+  // Labels.
+  const leftFace = (s: number, y: number): V3 =>
+    fissure ? [-s, y, cut] : [-Math.sin(opening) * s, y, Math.cos(opening) * s];
+  const rightFace = (s: number, y: number): V3 =>
+    fissure ? [s, y, cut] : [Math.sin(opening) * s, y, Math.cos(opening) * s];
+  const typeName = e.form > 0.5 ? "Composite cone" : "Shield volcano";
+  // With pyroclastic flows labeled on the left flank, the volcano's name moves to the right.
+  const typeAt = (collapse ? 1 : -1) * e.radius * 0.62,
+    pdcMid = pdcPaths[0][Math.floor(pdcPaths[0].length * 0.72)];
+  const styleTag: { pos: V3; text: string; note: string } | null = fissure
+    ? null
+    : style === STYLE.effusive
+      ? {
+          pos: [0.32, L.rim + 0.22, -0.2] as V3,
+          text: "Lava lake",
+          note: "Runny basalt with little gas pours out quietly. Molten lava fills a pit in the summit caldera, its dark crust splitting to show the glow beneath, and overflows as lava flows.",
+        }
+      : style === STYLE.fountain
+        ? {
+            pos: [0.28, L.vent + fountainHeight * 0.95, 0] as V3,
+            text: "Lava fountain",
+            note: "In runny basalt, gas bubbles grow and escape easily. Near the vent they burst out together and throw molten spatter upward; fountains at Kīlauea have reached hundreds of meters.",
+          }
+        : style === STYLE.dome
+          ? {
+              pos: [0.3, L.vent + domeRadius * 0.7 + 0.16, 0] as V3,
+              text: "Lava dome",
+              note: "Sticky magma that has lost most of its gas on the way up oozes out slowly and piles up over the vent. A growing dome can collapse and send out pyroclastic flows.",
+            }
+          : {
+              pos: [0.62, L.rim + columnHeight * 0.45, 0] as V3,
+              text: "Eruption column",
+              note: "Expanding gas shatters the magma into ash and pumice, which rise in a hot jet until the mixture spreads out as an umbrella cloud. Real columns rise 10–40 km, far higher than drawn here.",
+            };
+
+  const scale = fissure
+    ? "Idealized fissure eruption · relative geometry · fountains, dike width and trees not to scale"
+    : "Idealized forms · heights exaggerated about 2.5× · conduit, magma chamber and eruptions not to scale";
+  const trueScaleText = fissure
+    ? "Teaching view unchanged: the fissure plain is already low relief · fountains and trees not to scale"
+    : "Slopes reduced to about real proportions (shields about 4–8°, composite cones about 13–25° on average) · magma chamber, eruptions and trees still schematic";
+
+  type Label = { pos: V3; text: string; note: string; tone?: "magma" };
+  const labels: Label[] = [
+    fissure
+      ? {
+          pos: [-0.9, 0.5, -1.4],
+          text: "Fissure vents",
+          note: "A long crack can erupt basalt as a ‘curtain of fire’, building low spatter ramparts and small cones along its length. A fissure is a vent shape, not a type of magma.",
+        }
+      : {
+          pos: [typeAt, L.h(typeAt, -0.45) + 0.24, -0.45],
+          text: typeName,
+          note: `A volcano’s shape builds up over many eruptions. ${
+            e.form > 0.5
+              ? "A composite cone (stratovolcano) is built from alternating layers of explosive ash and pumice and thick, sticky lava flows, so it grows steep and tall; the cutaway shows these layers."
+              : "A shield is built from thousands of thin, runny basalt flows that spread far before they set, so it grows broad and gentle; in the cutaway, red rubbly flow tops separate the layers."
+          } Viscosity, eruption rate, gas and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative.`,
+        },
+  ];
+  if (styleTag) labels.push(styleTag);
+  if (collapse && pdcMid)
+    labels.push({
+      pos: [pdcMid[0], L.h(pdcMid[0], pdcMid[1]) + 0.36, pdcMid[1]],
+      text: "Pyroclastic flow",
+      tone: "magma",
+      note: "When part of the column collapses, hot ash, rock and gas race down the slopes at 100 km/h or more. Pyroclastic flows and volcanic mudflows have killed far more people than lava flows.",
+    });
+  if (sliced) {
+    if (!fissure || Math.abs(cut) < 2.0)
+      labels.push({
+        pos: leftFace(fissure ? 1.3 : CHAMBER.a * 1.45, CHAMBER.y - 0.03),
+        text: "Magma chamber",
+        tone: "magma",
+        note: "Molten and partly crystalline rock collects in the crust below the volcano, with gas dissolved in it under pressure. Its size and depth here are schematic: real chambers are often several kilometers down.",
+      });
+    labels.push(
+      style === STYLE.explosive
+        ? {
+            pos: rightFace(0.85, fragmentation),
+            text: "Fragmentation level",
+            tone: "magma",
+            note: "Magma rises through the conduit and, as the pressure on it falls, its gas comes out as bubbles that keep growing. Here they have grown so much that the froth bursts: the magma shatters into ash and pumice, carried up by fast-expanding gas.",
+          }
+        : {
+            pos: rightFace(0.85, (chamberTop + L.vent) / 2),
+            text: fissure ? "Feeder dike · bubbles grow" : "Conduit · bubbles grow",
+            tone: "magma",
+            note: fissure
+              ? "Below a fissure, magma rises through a long, thin, sheet-like crack called a dike. As the pressure on it falls, dissolved gas forms bubbles that grow on the way up. Its width here is exaggerated."
+              : "Magma rises from the chamber through this pipe. As the pressure on it falls, dissolved gas comes out as bubbles that grow on the way up. In runny magma they escape easily; in sticky magma they are trapped. Its width here is exaggerated.",
+          },
+    );
+  }
+
+  const slopeReal = meanSlope(e, TRUE_RELIEF),
+    slopeDrawn = meanSlope(e, k);
   return (
     <>
       <ScienceStudio
         slug="volcanoes"
-        scale={
-          fissure
-            ? "Idealized linear vents · relative geometry · fountains and trees not to scale"
-            : "Idealized forms · heights exaggerated about 2.5× · cut-away exposes the conduit and magma chamber"
-        }
-        trueScale={
-          fissure
-            ? "Teaching view unchanged: the fissure plain is already low relief · fountains and trees not to scale"
-            : "Slopes reduced to about real proportions (shields about 4–8°, composite cones about 13–25° on average) · magma chamber and trees still schematic"
-        }
-        camera={[2.4, 2.6, 6.2]}
+        scale={scale}
+        trueScale={trueScaleText}
+        camera={[1.1, 3.3, 6.5]}
       >
         <LocalClipping />
         <mesh geometry={geometry} castShadow receiveShadow>
@@ -425,166 +323,168 @@ function ModelVolcanoes() {
             color="#d0d0d0"
             vertexColors
             clippingPlanes={clip}
+            clipIntersection
           />
-          <RockMaterial attach="material-1" color="#a08a72" strata clippingPlanes={clip} />
+          <RockMaterial
+            attach="material-1"
+            color="#a08a72"
+            strata
+            clippingPlanes={clip}
+            clipIntersection
+          />
         </mesh>
-        {sliced && <CutFace h={h} cut={cut} composite={composite} fissure={fissure} clip={clip} />}
+        {sliced && (
+          <SectionFaces
+            faces={faces}
+            state={{
+              L,
+              style,
+              gas,
+              time,
+              fragmentation,
+              chamberScale: fissure ? Math.sqrt(Math.max(0, 1 - (cut / 2.1) ** 2)) : 1,
+            }}
+          />
+        )}
         <PlantStand
           kind={fissure ? "broadleaf" : composite ? "conifer" : "broadleaf"}
           positions={trees}
-          scale={0.09}
+          scale={0.07}
           seed={6}
         />
-        {!fissure ? (
-          <group key="central-vent">
-            <mesh position={[0, craterY + 0.012, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-              <circleGeometry args={[composite ? 0.1 : 0.13, 32]} />
-              <meshStandardMaterial
-                color="#d0461a"
-                emissive="#ff6a1f"
-                emissiveIntensity={1.4}
-                clippingPlanes={clip}
-              />
-            </mesh>
-            <pointLight
-              position={[0, craterY + 0.25, 0]}
-              color="#ff7a30"
-              intensity={1.4}
-              distance={1.6}
-            />
-            <LavaChannel points={activeFlow} active clip={clip} />
-            {fountaining && (
-              <Fountain
-                origins={() => [0, craterY, 0]}
-                height={0.25 + gas * 0.4}
-                count={60}
-                clip={clip}
-              />
-            )}
-            <Tag
-              pos={
-                sliced && cut < 0.05
-                  ? [radius * 0.8, height * 0.6 + 0.3, 0]
-                  : [-radius * 0.9, height * 0.25 + 0.25, 0]
-              }
-              text={composite ? "Composite cone" : "Shield volcano"}
-              note="A volcano’s shape builds up over many eruptions. Viscosity, eruption rate, gas, fragmentation and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative."
-              occlude={false}
-            />
-          </group>
-        ) : (
-          <group key="fissure-vents">
-            {Array.from({ length: 9 }, (_, i) => {
-              const x = -1.45 + i * 0.36,
-                side = i % 2 ? 1 : -1,
-                reach = 0.12 + 0.6 * t * (0.7 + 0.3 * Math.sin(i * 2.1));
-              return (
-                <mesh
-                  key={i}
-                  position={[x, h(x, side * (0.1 + reach / 2)) + 0.008, side * (0.1 + reach / 2)]}
-                  scale={[0.16, 0.012, reach / 2]}
-                >
-                  <sphereGeometry args={[1, 24, 12]} />
-                  <meshStandardMaterial
-                    color="#b8441f"
-                    emissive="#ff5a1a"
-                    emissiveIntensity={0.9}
-                    clippingPlanes={clip}
-                  />
-                </mesh>
-              );
-            })}
-            <mesh position={[0, -0.01, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-              <planeGeometry args={[3.2, 0.05]} />
-              <meshStandardMaterial
-                color="#ff7a2a"
-                emissive="#ff6a1f"
-                emissiveIntensity={1.6}
-                clippingPlanes={clip}
-              />
-            </mesh>
-            <Fountain
-              origins={(i) => [-1.5 + ((i * 0.618034) % 1) * 3, 0, 0]}
-              height={0.18 + gas * 0.25}
-              count={140}
+        {showFlows &&
+          flows.map((f, i) => (
+            <LavaFlow
+              key={`${i}-${fissure}`}
+              points={f.points}
+              surface={drape}
+              width={f.width}
+              thickness={0.006 + 0.02 * v}
+              front={0.18 + 0.82 * t}
+              viscosity={v}
+              time={time}
               clip={clip}
             />
-            <Tag
-              pos={[0, 0.55, 0]}
-              text="Fissure vents"
-              note="A linear crack can erupt basalt as a 'curtain of fire', building low spatter ramparts. A fissure is a vent shape, not a type of magma."
-              occlude={false}
+          ))}
+        <pointLight
+          position={fissure ? [0, 0.45, 0] : [0, L.vent + 0.45, 0]}
+          color="#ff7a30"
+          intensity={glow}
+          distance={fissure ? 3.2 : 2.2}
+        />
+        {!fissure && (style === STYLE.effusive || style === STYLE.fountain) && (
+          <LavaLake
+            position={[0, L.vent + 0.004, 0]}
+            radius={e.craterRadius * (style === STYLE.effusive ? 0.55 : 0.32)}
+            time={time}
+            clip={clip}
+          />
+        )}
+        {!fissure && style === STYLE.dome && (
+          <LavaDome
+            position={[0, L.vent - domeRadius * 0.15, 0]}
+            radius={domeRadius}
+            time={time}
+            clip={clip}
+          />
+        )}
+        <group userData={{ noFit: true }}>
+          {!fissure && style === STYLE.fountain && (
+            <LavaFountain origins={ventOrigins} height={fountainHeight} spread={0.45} time={time} />
+          )}
+          {fissure && style !== STYLE.explosive && (
+            <LavaFountain
+              origins={fissureOrigins}
+              height={fountainHeight * (style === STYLE.effusive || composite ? 0.45 : 1)}
+              spread={0.12}
+              time={time}
+              size={0.026}
             />
-          </group>
+          )}
+          {style === STYLE.explosive ? (
+            <EruptionColumn
+              vent={fissure ? [0, 0.12, 0] : [0, L.rim, 0]}
+              height={columnHeight}
+              power={power}
+              wind={-0.55}
+              time={time}
+              steps={q.shadows ? 44 : 30}
+            />
+          ) : (
+            <EruptionColumn
+              vent={fissure ? [0, 0.1, 0] : [0, L.rim, 0]}
+              height={0.42}
+              power={0.05}
+              wind={-0.95}
+              time={time}
+              gas
+              opacity={style === STYLE.effusive ? 0.32 : 0.22}
+              steps={q.shadows ? 32 : 24}
+            />
+          )}
+          {collapse && (
+            <PyroclasticFlows
+              paths={pdcPaths}
+              surface={drape}
+              reach={0.3 + 0.7 * t}
+              time={time}
+              perPath={q.shadows ? 46 : 30}
+            />
+          )}
+        </group>
+        {style === STYLE.explosive && (
+          <mesh
+            userData={{ fitProxy: true }}
+            visible={false}
+            position={[-0.35, (fissure ? 0.12 : L.rim) + columnHeight * 0.55, 0]}
+          >
+            <boxGeometry args={[1.6, columnHeight * 1.1, 0.8]} />
+          </mesh>
         )}
-        {sliced && cut < CHAMBER[2] && (
+
+        {labels.map((l, i) => (
           <Tag
-            pos={[CHAMBER[0] + 0.35, CHAMBER_Y, cut]}
-            text="Magma chamber"
-            tone="magma"
-            note="Molten and partly crystalline rock collects in the crust below the volcano. Its size and depth here are schematic."
+            key={l.text}
+            pos={l.pos}
+            text={compact ? String(i + 1) : l.text}
+            title={compact ? `${i + 1} · ${l.text.split(" · ")[0]}` : undefined}
+            tone={l.tone}
+            note={l.note}
             occlude={false}
           />
-        )}
-        {sliced && cut < 0.05 && (
-          <Tag
-            pos={[fissure ? -1 : -0.5, fissure ? -0.4 : -0.3, cut]}
-            text={fissure ? "Feeder dyke" : "Conduit"}
-            tone="magma"
-            note={
-              fissure
-                ? "Below a fissure, magma rises through a long, thin sheet-like crack called a dyke. Its width here is exaggerated."
-                : "Magma and gas rise from the chamber to the vent through this pipe. Its width here is exaggerated."
-            }
-            occlude={false}
-          />
-        )}
-        {sliced && cut < 0.05 && !fissure && (
-          <Tag
-            pos={[-0.7, height * 0.2, cut]}
-            text={composite ? "Ash and lava layers" : "Thin basalt flows"}
-            note={
-              composite
-                ? "A composite cone (stratovolcano) is built from alternating explosive ash layers and viscous lava flows."
-                : "A shield is built from many thin, fluid basalt flows; dark lines mark weathered tops of older flows."
-            }
-            occlude={false}
-          />
-        )}
-        {plume &&
-          Array.from({ length: 11 }, (_, i) => {
-            const u = (t + i / 11) % 1,
-              rise = 0.08 + u * 2,
-              a = i * 2.399,
-              width = 0.1 + rise * 0.24;
-            return (
-              <CloudVolume
-                key={i}
-                position={[
-                  (fissure ? -1.4 + (i % 5) * 0.7 : 0) + Math.cos(a) * rise * 0.08 + u * 0.35,
-                  (fissure ? 0.05 : craterY) + rise,
-                  Math.sin(a) * rise * 0.07,
-                ]}
-                scale={[width, 0.28 + rise * 0.12, width]}
-                seed={i * 7 + 3}
-                opacity={0.7 * (1 - u * 0.55)}
-                tint="#8a8075"
-              />
-            );
-          })}
+        ))}
       </ScienceStudio>
       <ScienceReadout>
+        {compact && labels.length > 0 && (
+          <div className="mb-2 text-chalk">
+            {labels.map((l, i) => `${i + 1} · ${l.text.split(" · ")[0]}`).join(" · ")}
+          </div>
+        )}
         {"Viscosity "}
         {v.toFixed(2)} {"· Gas drive "}
         {gas.toFixed(2)} ·{" "}
-        {fissure ? "fissure vents" : composite ? "steeper composite cone" : "broad shield"}.{" "}
-        {plume
-          ? "Gas is shattering the magma into an ash plume (shown qualitatively)."
-          : fountaining
-            ? "Gas-rich fluid basalt throws up lava fountains."
-            : fissure
-              ? "Lava emerges along the linear opening."
-              : "The lava flow advances as the Process slider moves forward."}{" "}
+        {fissure ? "fissure vents" : e.form > 0.5 ? "steep composite cone" : "broad shield"}.{" "}
+        {!fissure &&
+          `Average flank slope about ${Math.round(slopeReal)}° at real proportions${
+            trueScale ? "" : ` (${Math.round(slopeDrawn)}° as drawn)`
+          }. `}
+        {style === STYLE.explosive
+          ? collapse
+            ? "Sticky, gas-rich magma traps its bubbles until it shatters into ash: the column spreads into an umbrella cloud while parts of it collapse as pyroclastic flows (shown qualitatively)."
+            : composite
+              ? "Sticky, gas-rich magma traps its bubbles until it shatters into ash, feeding an eruption column (shown qualitatively)."
+              : "With this much gas even runny basalt shatters into ash and an eruption column rises (shown qualitatively)."
+          : style === STYLE.dome
+            ? fissure
+              ? "Sticky, gas-poor lava squeezes out along the crack as short, thick flows."
+              : "Sticky magma with little gas oozes out slowly and piles up as a lava dome in the crater."
+            : style === STYLE.fountain
+              ? fissure
+                ? "Gas-rich runny basalt erupts as a curtain of fire along the crack, feeding lava flows."
+                : "Gas-rich runny basalt throws up a lava fountain that feeds lava flows."
+              : fissure
+                ? "Runny basalt pours out along the crack and spreads as lava flows."
+                : "Runny basalt with little gas fills a lava lake and pours out as long lava flows."}{" "}
         {
           "Use Cutaway to look inside the volcano. Gas, contact with water and ascent conditions also affect how explosive an eruption is; basalt can erupt explosively too."
         }

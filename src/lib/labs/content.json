@@ -10836,12 +10836,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Move Viscosity to compare a broad shield with a steeper composite cone. Then raise Gas drive on its own: with enough gas, even runny basalt can erupt explosively."
+          "body": "Move Viscosity to compare a broad shield with a steeper composite cone. Then raise Gas drive on its own: with enough gas, even runny basalt can erupt explosively. Sticky magma with little gas builds a lava dome instead."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Use the Cutaway slider to find the conduit and magma chamber. Then turn on Fissure vents: a fissure is a crack in the ground, not a type of magma."
+          "body": "Use the Cutaway slider to look inside. Follow the magma from the chamber up the conduit and watch its gas bubbles grow; in an explosive eruption, find where the froth shatters into ash. Then turn on Fissure vents: a fissure is a crack in the ground, not a type of magma."
         },
         {
           "id": "explain",
@@ -10976,7 +10976,7 @@
         }
       ],
       "teacher": {
-        "script": "Move Viscosity to compare a broad shield with a steeper composite cone. Then raise Gas drive on its own: with enough gas, even runny basalt can erupt explosively.\n\nUse the Cutaway slider to find the conduit and magma chamber. Then turn on Fissure vents: a fissure is a crack in the ground, not a type of magma.",
+        "script": "Move Viscosity to compare a broad shield with a steeper composite cone. Then raise Gas drive on its own: with enough gas, even runny basalt can erupt explosively. Sticky magma with little gas builds a lava dome instead.\n\nUse the Cutaway slider to look inside. Follow the magma from the chamber up the conduit and watch its gas bubbles grow; in an explosive eruption, find where the froth shatters into ash. Then turn on Fissure vents: a fissure is a crack in the ground, not a type of magma.",
         "pitfalls": [
           "Compare effusive and explosive activity rather than assuming every volcano erupts in the same way.",
           "Include hotspot and divergent-boundary examples as well as volcanoes around subduction zones.",
@@ -11050,7 +11050,8 @@
         ]
       },
       "modelNotes": [
-        "Turn on Real volcanoes to compare Mauna Loa and Mount St. Helens from USGS elevation data at the same scale (heights from sea level, exaggerated ×3 unless Compare physical scale is on)."
+        "Eruption styles follow simple rules rather than a simulation: gas drives fragmentation, and sticky magma traps its gas, so less gas is needed for an explosive eruption. Lava lakes, fountains, domes, eruption columns and pyroclastic flows are drawn to show the processes, not to scale.",
+    "Turn on Real volcanoes to compare Mauna Loa and Mount St. Helens from USGS elevation data at the same scale (heights from sea level, exaggerated ×3 unless Compare physical scale is on)."
       ],
       "predict": {
         "prompt": "Do you think runny lava or thick, sticky lava builds a steeper volcano? Which is more likely to explode?"

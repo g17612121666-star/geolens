@@ -1,21 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {volcanoGeometry,volcanoHeight} from '../src/labs/volcanoes/geometry.ts';
 import {projectedPosition,geographicCircle} from '../src/labs/map-projections/projection.ts';
 import {skyPosition} from '../src/labs/solar-altitude/sky.ts';
 import {SPIN_HOURS,AXIAL_TILT,spinAngle} from '../src/labs/solar-system/rotation.ts';
-
-test('incised volcanic surfaces stay finite through end members and cut openings',()=>{
- for(const v of [0,.25,.7,1])for(const opening of [0,.5*Math.PI,.72*Math.PI]){
-  const {body,caps,radius}=volcanoGeometry(v,opening);
-  for(const g of [body,...caps]){for(const key of ['position','normal'])for(const n of g.attributes[key].array)assert.ok(Number.isFinite(n));g.computeBoundingSphere();assert.ok(Number.isFinite(g.boundingSphere.radius));g.dispose();}
-  // The numerical outer-radius overshoot of float32 vertices must never raise a
-  // negative base to a fractional exponent (the previous terrain NaN class).
-  assert.ok(Number.isFinite(volcanoHeight(v,Math.fround(radius)+1e-7,1.5,opening)));
-  if(opening){const r=radius*.5;assert.ok(Math.abs(volcanoHeight(v,r,opening/2,opening)-volcanoHeight(v,r,2*Math.PI-opening/2,opening))<1e-12);}
- }
-});
 
 test('projection overlays agree with surface positions and preserve the selected invariants',()=>{
  for(const kind of [0,1,2])for(const morph of [0,.3,1])for(const lat of [-75,0,75])for(const lon of [-150,0,150]){
