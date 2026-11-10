@@ -11473,6 +11473,10 @@
           {
             "key": "sh",
             "label": "Southern hemisphere"
+          },
+          {
+            "key": "satellite",
+            "label": "Real cloud tops"
           }
         ]
       },
