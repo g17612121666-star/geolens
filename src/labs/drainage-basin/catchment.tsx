@@ -49,13 +49,30 @@ export default function DrainageBasin() {
         camera={[3, 3.8, 5]}
       >
         <CatchmentLandscape />
-        {params.overlay > 0.5 && <Line points={divide} color="#ffc93c" lineWidth={4} />}
+        {params.overlay > 0.5 && (
+          <>
+            <Line points={divide} color="#ffc93c" lineWidth={4} />
+            <Tag
+              pos={[0, catchmentHeight(0, -1.55) + 0.2, -1.55]}
+              text="Drainage divide"
+              short="Divide"
+              tone="sandstone"
+              note="The ridge line around the basin. Rain falling inside it drains toward this river's outlet; rain falling outside it drains to a neighboring river."
+              occlude={false}
+            />
+          </>
+        )}
         <Tag
           pos={parts[focus].p}
           text={parts[focus].name}
           note={parts[focus].note}
           occlude={false}
+          priority={1}
         />
+        {/* The outlet stays named, because every slope inside the divide drains to it. */}
+        {focus !== 3 && (
+          <Tag pos={parts[3].p} text={parts[3].name} note={parts[3].note} occlude={false} />
+        )}
         <mesh
           position={
             focus === 1 && t < 0.5

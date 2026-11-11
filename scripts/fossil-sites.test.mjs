@@ -34,3 +34,25 @@ test('Mesosaurus sites in Brazil and southern Africa were close at 250 Ma and fa
   assert.ok(today > 55, `today ${today.toFixed(1)}°`);
   assert.ok(pangaea < 15, `250 Ma ${pangaea.toFixed(1)}°`);
 });
+
+const continents = JSON.parse(
+  readFileSync(new URL('../src/labs/continental-drift/continent-labels.json', import.meta.url), 'utf8'),
+);
+
+test('continent labels use the same snapshots and plate model as the fossil sites', () => {
+  assert.deepEqual(continents.ages, data.ages);
+  assert.equal(continents.model, data.model);
+  for (const c of continents.continents) {
+    assert.ok(c.plate > 0, c.name);
+    assert.equal(c.positions.length, continents.ages.length, c.name);
+    for (const [lat, lon] of c.positions) assert.ok(lat >= -90 && lat <= 90 && lon >= -180 && lon <= 180, c.name);
+  }
+});
+
+test('South America and Africa sit together in Pangaea and an ocean apart today', () => {
+  const at = (name) => continents.continents.find((c) => c.name === name).positions;
+  const today = angle(at('South America')[0], at('Africa')[0]);
+  const pangaea = angle(at('South America').at(-1), at('Africa').at(-1));
+  assert.ok(today > 70, `today ${today.toFixed(1)}°`);
+  assert.ok(pangaea < 40, `250 Ma ${pangaea.toFixed(1)}°`);
+});

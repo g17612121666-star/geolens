@@ -96,12 +96,12 @@ export default function Groundwater() {
           ))}
           {[0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 1.0].map((y) => (
             <mesh key={y} position={[0, y * f, 0]} rotation={[Math.PI / 2, 0, 0]}>
-              <torusGeometry args={[0.034, 0.005, 5, 20]} />
+              <torusGeometry args={[0.049, 0.006, 5, 20]} />
               <meshStandardMaterial color="#667c80" metalness={0.55} roughness={0.4} />
             </mesh>
           ))}
           <mesh position={[0, 2 * f, 0]}>
-            <cylinderGeometry args={[0.03, 0.03, 4 * f, 24, 1, true]} />
+            <cylinderGeometry args={[0.045, 0.045, 4 * f, 24, 1, true]} />
             <meshStandardMaterial
               color="#c2c7c5"
               metalness={0.8}
@@ -110,7 +110,7 @@ export default function Groundwater() {
             />
           </mesh>
           <mesh position={[0, (atWell / 20) * f, 0]}>
-            <cylinderGeometry args={[0.022, 0.022, (atWell / 10) * f, 16]} />
+            <cylinderGeometry args={[0.034, 0.034, (atWell / 10) * f, 16]} />
             <meshBasicMaterial color="#71c5e0" />
           </mesh>
           {pump > 0 && (
@@ -121,8 +121,50 @@ export default function Groundwater() {
               </mesh>
             </>
           )}
+          {/* Zones named on the front face of the section. */}
+          {(confined
+            ? [
+                {
+                  y: 1.32,
+                  text: "Clay aquitard",
+                  short: "Clay",
+                  note: "Clay has tiny, poorly connected pores, so water passes through it very slowly. It seals the aquifer below, keeping its water under pressure.",
+                },
+                {
+                  y: 0.35,
+                  text: "Confined aquifer",
+                  short: "Aquifer",
+                  note: "Sand and gravel saturated with water and capped by clay. Its pores stay full; pumping lowers the pressure (the potentiometric surface), not the water inside.",
+                },
+              ]
+            : [
+                {
+                  y: (H / 10 + 4) / 2,
+                  text: "Unsaturated zone",
+                  short: "Unsaturated",
+                  note: "Above the water table the pores hold air as well as some water clinging to the grains. Rain soaks down through this zone to reach the water table.",
+                },
+                {
+                  y: H / 20,
+                  text: "Saturated zone",
+                  short: "Saturated",
+                  note: "Below the water table every connected pore is full of water. This water is groundwater; it moves slowly through the pores, not as an underground lake or river.",
+                },
+              ]
+          ).map((z) => (
+            <Tag
+              key={z.text}
+              pos={[-1.35, z.y * f, 2.03]}
+              text={z.text}
+              short={z.short}
+              note={z.note}
+              occlude={false}
+              priority={1}
+            />
+          ))}
           <Tag
-            pos={[-2.7, (H / 10) * f + 0.2, 1.9]}
+            priority={2}
+            pos={[2.62, (H / 10) * f + 0.12, -1.1]}
             text={confined ? "Potentiometric surface" : "Water table"}
             note={
               confined
@@ -131,6 +173,20 @@ export default function Groundwater() {
             }
             occlude={false}
           />
+          {pump > 0 && (
+            <Tag
+              pos={[0.55, (wellHead(110, pump, H, confined) / 10) * f + 0.12, 0.02]}
+              text="Cone of depression"
+              short="Cone"
+              note={
+                confined
+                  ? "Pumping lowers the potentiometric surface most near the well, so water in the aquifer flows toward it. The aquifer itself stays full beneath the clay."
+                  : "Pumping lowers the water table most near the well, so the head slopes toward it and water in the pores flows in from all sides. The drop is drawn 20 times deeper than true scale."
+              }
+              occlude={false}
+              priority={1}
+            />
+          )}
           <Tag
             pos={[0.9, 4.3 * f, 0]}
             text="Pumping well"
@@ -195,20 +251,33 @@ vec3 sectionColour(vec3 p0,vec3 w){
   vec3 p=vec3(w.x,w.y-uLift,w.z);
   float y=p.y,r=length(p.xz),g=grain(p.xy*1.5+p.zy*1.5),f=uF;
   float wt=texture2D(uProfile,vec2(clamp(r/3.4,0.,1.),.5)).r;
-  vec2 q=(p.xy+p.zy)*vec2(18.,18./max(f,.05));
-  float pore=smoothstep(.35,.15,length(fract(q)-.5));
-  vec3 dry=mix(vec3(.86,.76,.56),vec3(.74,.63,.44),g);
-  vec3 wet=mix(vec3(.46,.58,.62),vec3(.36,.47,.52),g);
+  // Pore spaces between grains, jittered so they do not form a grid.
+  // Round grains at scattered centers (nearest of the neighboring cells); the gaps between
+  // them are the pores, roughly a third of the volume as in sand.
+  vec2 q=(p.xy+p.zy)*vec2(11.,11./max(f,.05)),cell=floor(q),fq=fract(q);
+  float near=9.,grainHash=0.;
+  for(int i=-1;i<=1;i++)for(int j=-1;j<=1;j++){
+    vec2 n=vec2(float(i),float(j)),c=cell+n;
+    float d=length(fq-n-.15-.7*vec2(sHash(c),sHash(c+3.1)));
+    if(d<near){near=d;grainHash=sHash(c+7.);}
+  }
+  float pore=smoothstep(.4,.5,near),tone=mix(.86,1.08,grainHash);
+  // Sand is pale where dry and darker where wet. Pores hold air above the water table and water
+  // below it, so the saturated zone reads as wet sand with water in its pores, not a lake.
+  vec3 dry=mix(vec3(.86,.76,.56),vec3(.74,.63,.44),g)*tone;
+  vec3 airPores=mix(dry,vec3(.5,.43,.33),pore*.55);
+  vec3 wetSand=mix(vec3(.62,.52,.39),vec3(.5,.42,.32),g)*tone;
+  vec3 wet=mix(wetSand,vec3(.3,.58,.78),.1+pore*.8);
   vec3 c;
   if(y<0.){c=mix(vec3(.42,.40,.40),vec3(.32,.31,.32),g);c*=mix(.7,1.,smoothstep(0.,.01,abs(fract(p.x*1.7+y*3.)-.5)*2.));}
   else if(y>uTop-.08*f-.02)c=mix(vec3(.40,.30,.21),vec3(.32,.24,.17),g);
   else if(uConfined>.5){
-    if(y<1.2*f){c=mix(wet,vec3(.52,.72,.80),pore*.3);c=mix(c,vec3(.8,.94,.98),flowDash(r,y,f)*.85);}
+    if(y<1.2*f){c=wet;c=mix(c,vec3(.8,.94,.98),flowDash(r,y,f)*.85);}
     else if(y<1.44*f)c=mix(vec3(.50,.45,.42),vec3(.42,.38,.36),step(.5,fract(y/f*40.)));
-    else c=mix(vec3(.78,.70,.55),vec3(.66,.58,.45),g);
+    else c=mix(airPores,vec3(.66,.58,.45),g*.4);
   }else{
     float fringe=smoothstep(wt+.06*f+.02,wt,y);
-    c=y<wt?mix(wet,vec3(.52,.72,.80),pore*.3)*mix(.82,1.,smoothstep(0.,wt,y)):mix(dry,wet*1.15,fringe*.6);
+    c=y<wt?wet*mix(.84,1.,smoothstep(0.,wt,y)):mix(airPores,wet,fringe*.55);
     float gravel=smoothstep(.6,.8,sFbm(vec2(p.x*2.,y/f*1.2)))*step(y,.5*f);
     c=mix(c,mix(vec3(.58,.56,.52),vec3(.42,.40,.38),step(.5,sHash(floor(q*.4)))),gravel*.7);
     if(y<wt)c=mix(c,vec3(.8,.94,.98),flowDash(r,y,f)*.85);
@@ -308,7 +377,7 @@ function AquiferBlock({
           attach="material-1"
           glsl={AQUIFER_GLSL}
           uniforms={uniforms}
-          cacheKey="groundwater-aquifer-v2"
+          cacheKey="groundwater-aquifer-v6"
           clippingPlanes={CUT}
           clipIntersection
         />
@@ -326,7 +395,7 @@ function AquiferBlock({
           <SectionMaterial
             glsl={AQUIFER_GLSL}
             uniforms={uniforms}
-            cacheKey="groundwater-aquifer-v2"
+            cacheKey="groundwater-aquifer-v6"
             side={THREE.DoubleSide}
           />
         </mesh>
