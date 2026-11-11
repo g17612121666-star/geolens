@@ -9,10 +9,10 @@ import { SectionMaterial } from "../shared/section-material";
 import { withSurfaceY } from "../shared/section-utils";
 import { landSectionGlsl } from "../shared/land-section";
 import { REAL_TERRAIN_CREDIT, siteFrame, useRealHeights } from "../shared/real-terrain";
-
-const SIDES = landSectionGlsl({ rock: "sandstone", soil: 0.03, regolith: 0.05, beds: 12 });
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { contours, hillHeight } from "./geometry";
+
+const SIDES = landSectionGlsl({ rock: "sandstone", soil: 0.03, regolith: 0.05, beds: 12 });
 /** A height field in meters on the 6 × 4 block, with its scale and highest point. */
 interface Field {
   h: (x: number, z: number) => number;
@@ -62,7 +62,7 @@ export default function Contours() {
   }, [real, meters]);
   const [spot, setSpot] = useState<[number, number]>([0, 0]);
   // Start the measuring point on a flank, clear of the summit labels.
-  useEffect(() => setSpot(real ? [-1.9, 0.9] : [0, 0]), [real]);
+  useEffect(() => setSpot(real ? [-1.5, 0.9] : [0, 0]), [real]);
   const g = useMemo(() => {
     if (!field) return null;
     const surface = (x: number, z: number) => ((field.h(x, z) - field.lo) / field.unitM) * factor;
@@ -100,6 +100,12 @@ export default function Contours() {
         // Leave room for the clicked-height tag and the summit, and keep labels apart.
         .filter((l) => Math.hypot(l.at[0] - spot[0], l.at[1] - spot[1]) > 0.8)
         .filter((l) => Math.hypot(l.at[0] - field.summit[0], l.at[1] - field.summit[1]) > 0.45)
+        // …and for the A and B labels at the ends of the cross-section line.
+        .filter((l) =>
+          [-SECTION_END, SECTION_END].every(
+            (x) => Math.hypot(l.at[0] - x, l.at[1] - spot[1]) > 0.6,
+          ),
+        )
         .reduce<{ height: number; at: [number, number] }[]>(
           (kept, l) =>
             kept.every((k) => Math.hypot(k.at[0] - l.at[0], k.at[1] - l.at[1]) > 0.55)
@@ -189,12 +195,14 @@ export default function Contours() {
               <Tag
                 pos={[VALLEY[0], y(hillHeight(...VALLEY)) + 0.12, VALLEY[1]]}
                 text="Valley"
+                priority={1}
                 note="Low ground between two slopes. Where contours cross it, their V points uphill (upstream)."
                 tone="glacier"
               />
               <Tag
                 pos={[SPUR[0], y(hillHeight(...SPUR)) + 0.12, SPUR[1]]}
                 text="Spur"
+                priority={1}
                 note="A ridge of high ground sticking out from the hill. Its contours bend into a V or U that points downhill."
                 tone="moss"
               />
@@ -204,6 +212,7 @@ export default function Contours() {
             <Tag
               pos={[field.summit[0], y(field.hi) + 0.32, field.summit[1]]}
               text={`Summit · ${Math.round(field.hi)} m`}
+              priority={1}
               note="The highest point in this block of USGS elevation data. Look for spurs (contour Vs pointing downhill) and valleys (Vs pointing uphill) on its flanks."
               occlude={false}
             />
@@ -226,8 +235,9 @@ export default function Contours() {
             color="#e8613a"
             lineWidth={2.5}
           />
-          <Tag pos={[-3.05, 0.25, spot[1]]} text="A" occlude={false} />
-          <Tag pos={[3.05, 0.25, spot[1]]} text="B" occlude={false} />
+          {/* A and B sit just beyond the ends of the section line, clear of the contour labels. */}
+          <Tag pos={[-SECTION_END, 0.12, spot[1]]} text="A" occlude={false} priority={3} />
+          <Tag pos={[SECTION_END, 0.12, spot[1]]} text="B" occlude={false} priority={3} />
           <mesh position={[spot[0], y(sampled) + 0.025, spot[1]]}>
             <sphereGeometry args={[0.04, 20, 20]} />
             <meshStandardMaterial color="#ff9974" />
@@ -235,6 +245,7 @@ export default function Contours() {
           <Tag
             pos={[spot[0], y(sampled) + 0.22, spot[1]]}
             text={`${sampled.toFixed(1)} m`}
+            priority={2}
             note={
               real
                 ? "Click any point on the surface to measure its elevation above sea level."
@@ -262,7 +273,12 @@ export default function Contours() {
             color="#f4efe6"
             lineWidth={3}
           />
-          <Tag pos={[-2.55 + barUnits, 0.01, 2.2]} text={real ? "1 km" : "100 m"} occlude={false} />
+          <Tag
+            pos={[-2.55 + barUnits, 0.01, 2.2]}
+            text={real ? "1 km" : "100 m"}
+            occlude={false}
+            priority={1}
+          />
         </group>
       </ScienceStudio>
       <ScienceReadout>
@@ -301,6 +317,8 @@ export default function Contours() {
   );
 }
 
+/** Where the A and B tags sit, just beyond the ends of the 6-unit cross-section line. */
+const SECTION_END = 3.3;
 /** Feature labels, placed on the carved valley axis and the spur ridge in geometry.ts. */
 const VALLEY: [number, number] = [-0.2, 1.25];
 const SPUR: [number, number] = [1.4, -0.8];
