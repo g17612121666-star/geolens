@@ -20,8 +20,11 @@ import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { fbm } from "../shared/hazard-utils";
 import { Tag } from "../shared/kit";
-import { OceanSurface } from "../shared/ocean-section";
-import { CloudVolume, RainStreaks, FlowFilaments } from "../atmosphere-layers/weather-volumes";
+import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
+import { FlowStreaks } from "../thermal-circulation/air";
+import { cellPoint, type Cell } from "../thermal-circulation/cell";
+import { SeaSurface } from "./sea-surface";
+import { SST_GRADIENT } from "./sst";
 export default function Enso() {
   const { params, t, trueScale } = useLabControls();
   useLabTick(1 / 35);
@@ -32,18 +35,14 @@ export default function Enso() {
     bottom = -500 * f;
   const left = c.ascentX,
     right = 2.2,
-    center = (left + right) / 2,
-    radius = (right - left) / 2;
-  const air = (u: number): [number, number, number] => [
-    center + radius * Math.cos(u),
-    0.35 + 0.65 * (1 + Math.sin(u)),
-    0,
-  ];
+    center = (left + right) / 2;
+  // The schematic Walker loop: rising over the warmest water, sinking over the cool east.
+  const walker: Cell[] = [{ rise: left, sink: right, bottom: 0.35, top: 1.65 }];
   return (
     <>
       <ScienceStudio
         slug="enso"
-        camera={[1.3, 2.1, 7]}
+        camera={[1.3, 3.1, 6.6]}
         scale="Ocean depths ×10,000 · 15,000 km section · atmospheric loop and coastal relief schematic"
         trueScale="Ocean uses 1 scene unit = 3000 km · atmospheric arrows and coastal relief remain schematic"
       >
@@ -77,14 +76,7 @@ export default function Enso() {
           colour2={`hsl(${24 + 16 * (1 - (c.eastTemperature - 21) / 8)},40%,55%)`}
           opacity={0.85}
         />
-        <OceanSurface
-          points={[
-            [-2.5, 0],
-            [2.5, 0],
-          ]}
-          flow={[-c.tradeStrength, 0]}
-          opacity={0.35}
-        />
+        <SeaSurface west={c.westTemperature} east={c.eastTemperature} trade={c.tradeStrength} />
         {/* West: Indonesia / Australia; east: South America with the Andes. */}
         <LandBlock side="west" base={bottom} />
         <LandBlock side="east" base={bottom} />
@@ -109,25 +101,35 @@ export default function Enso() {
             width={0.4 + 1.0 * Math.max(0, c.upwelling)}
           />
         ))}
-        <CloudVolume position={[left, 1.38, 0]} scale={[0.62, 0.55, 0.75]} density={90} seed={4} />
-        <RainStreaks
-          t={t}
-          position={[left, 1.2, 0]}
-          width={0.7}
-          depth={0.9}
-          height={0.65}
-          count={80}
-        />
-        <FlowFilaments
-          paths={Array.from({ length: 4 }, (_, k) =>
-            Array.from({ length: 81 }, (_, i) => {
-              const p = air((-i / 80) * Math.PI * 2);
-              return [p[0], p[1], -0.5 + k / 3] as [number, number, number];
-            }),
-          )}
-          t={t}
-          speed={c.tradeStrength}
-          color="#c9dedb"
+        {/* Deep convection over the warmest water: a cluster of towering storm clouds. */}
+        {(
+          [
+            [0, 1.38, 0, 0.62, 0.55, 0.75, 4],
+            [-0.42, 1.12, -0.38, 0.4, 0.42, 0.45, 7],
+            [0.38, 1.18, 0.36, 0.38, 0.46, 0.45, 9],
+          ] as const
+        ).map(([dx, y, z, sx, sy, sz, seed]) => (
+          <group key={seed}>
+            <CloudVolume
+              position={[left + dx, y, z]}
+              scale={[sx, sy, sz]}
+              density={seed === 4 ? 90 : 60}
+              seed={seed}
+            />
+            <RainStreaks
+              t={t}
+              position={[left + dx, y - sy * 0.35, z]}
+              width={sx * 1.1}
+              depth={sz * 1.2}
+              height={y - sy * 0.35 - 0.02}
+              count={seed === 4 ? 80 : 36}
+            />
+          </group>
+        ))}
+        <FlowStreaks
+          cells={walker}
+          strength={Math.min(1, 0.25 + 0.55 * c.tradeStrength)}
+          lanes={[-0.45, 0.45]}
         />
         <Line
           points={[
@@ -137,20 +139,14 @@ export default function Enso() {
           color="#e1c99d"
           lineWidth={2}
         />
-        <Line
-          points={Array.from({ length: 81 }, (_, i) => air((i / 80) * Math.PI * 2))}
-          color="#91b9c7"
-          transparent
-          opacity={0.65}
-        />
-        {[0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2].map((u) => (
-          <Arrow key={u} from={air(u)} to={air(u - 0.22)} color="#a3d3dc" width={1} />
-        ))}
-        {Array.from({ length: 12 }, (_, i) => (
-          <mesh key={i} position={air(-(i / 12 + t * c.tradeStrength) * 2 * Math.PI)}>
-            <sphereGeometry args={[0.035, 12, 8]} />
-            <meshBasicMaterial color="#b3dbe0" />
-          </mesh>
+        {[0.02, 0.27, 0.52, 0.77].map((u) => (
+          <Arrow
+            key={u}
+            from={cellPoint(walker[0], u, 0.82)}
+            to={cellPoint(walker[0], u + 0.045, 0.82)}
+            color="#a3d3dc"
+            width={1}
+          />
         ))}
         {!trueScale && (
           <Arrow
@@ -195,9 +191,19 @@ export default function Enso() {
         {c.phase} {"· thermocline west "}
         {c.westDepth.toFixed(0)} {"m / east "}
         {c.eastDepth.toFixed(0)}{" "}
-        {"m. Gold: idealized thermocline; amber: warmer upper water; blue: colder water."} <br />
+        {"m. Gold: idealized thermocline; amber: warmer upper water; blue: colder water."}{" "}
+        <span className="whitespace-nowrap">
+          {"Sea surface 20 °C "}
+          <span
+            aria-hidden="true"
+            className="inline-block h-2.5 w-24 rounded-sm align-middle"
+            style={{ background: SST_GRADIENT }}
+          />
+          {" 30 °C, isotherms every 1 °C."}
+        </span>
+        <br />
         {
-          "The ENSO slider picks a set state; Play only moves the tracers and does not show years or a forecast. Teleconnections change the odds but do not decide a particular UK winter."
+          "The ENSO slider picks a set state; Play only moves the air and does not show years or a forecast. Teleconnections shift the odds (El Niño winters are more often wet across the southern United States) but do not decide any particular season."
         }
       </ScienceReadout>
     </>
