@@ -124,8 +124,29 @@ export default function Seasons() {
               )}
             </group>
             <AxisLine radius={radius * 1.4} markerRadius={radius * 0.035} tiltDeg={0} />
+            {close && (
+              // At the southern end of the axis, clear of the declination label above.
+              <Tag
+                pos={[0, -radius * 1.5, 0]}
+                text={`Axis · ${tilt.toFixed(1)}° tilt`}
+                short="Axis"
+                note="Earth spins about this axis once a day. It keeps pointing the same way in space (toward Polaris) all year, so the Northern Hemisphere leans toward the Sun in June and away from it in December."
+                occlude={false}
+              />
+            )}
           </group>
         </group>
+        {close && (
+          // The day–night line is the great circle at right angles to the sunlight; this point on
+          // it faces the default view.
+          <Tag
+            pos={new THREE.Vector3(0.121, -0.3, 0.993).normalize().multiplyScalar(1.1).toArray()}
+            text="Terminator · day–night line"
+            short="Terminator"
+            note="The edge between day and night. Where it crosses a line of latitude shows how long the day is there; at the equinoxes it cuts every parallel in half, giving 12 hours of daylight everywhere."
+            occlude={false}
+          />
+        )}
         {close && (
           <Tag
             pos={[center[0], 1.6, center[2]]}
