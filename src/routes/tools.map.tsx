@@ -157,7 +157,9 @@ function MapStudio() {
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLElement && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
-      if (e.key.toLowerCase() === "p") setProjector((v) => !v);
+      // Ctrl/Cmd+P is the browser's print shortcut, not projector mode.
+      if (e.key.toLowerCase() === "p" && !e.ctrlKey && !e.metaKey && !e.altKey)
+        setProjector((v) => !v);
       if (e.key === "Escape") setProjector(false);
     };
     window.addEventListener("keydown", key);
@@ -768,6 +770,7 @@ function MapStudio() {
       </div>
       <div
         className="mt-4 flex flex-wrap gap-x-5 gap-y-2 rounded-xl border border-white/10 p-4 text-sm text-mist"
+        role="group"
         aria-label={"Visible layer legend"}
       >
         {layers.rivers && (

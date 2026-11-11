@@ -40,7 +40,7 @@ async function trim(cacheName, max) {
   for (const key of keys.slice(0, Math.max(0, keys.length - max))) await cache.delete(key);
 }
 
-const OFFLINE_HTML = `<!doctype html><html lang="en-GB"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline · Geolens</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#07090c;color:#e8eeeb;font:17px/1.6 system-ui,sans-serif;padding:24px}main{max-width:32rem}h1{font:600 2rem Georgia,serif;margin:0 0 .5rem}a{color:#3ee0c6}</style><main><h1>You are offline</h1><p>This page has not been opened on this device yet, so it is not saved for offline use. Labs and pages you have opened before still work without a connection.</p><p><a href="/">Back to the home page</a></p></main></html>`;
+const OFFLINE_HTML = `<!doctype html><html lang="en-US"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline · Geolens</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#07090c;color:#e8eeeb;font:17px/1.6 system-ui,sans-serif;padding:24px}main{max-width:32rem}h1{font:600 2rem Georgia,serif;margin:0 0 .5rem}a{color:#3ee0c6}</style><main><h1>You are offline</h1><p>This page has not been opened on this device yet, so it is not saved for offline use. Labs and pages you have opened before still work without a connection.</p><p><a href="/">Back to the home page</a></p></main></html>`;
 
 async function page(request) {
   const cache = await caches.open(PAGES);

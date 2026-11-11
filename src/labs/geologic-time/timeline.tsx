@@ -122,7 +122,7 @@ export default function GeologicTime() {
               key={u.name}
               pos={[p[0] + out.x, p[1] - 0.22, p[2] + out.z]}
               text={u.old > span && span === TIME_WINDOWS[2] ? `Quaternary (${u.name})` : u.name}
-              note={`${u.name}: ${u.old.toLocaleString("en-GB")}–${u.young.toLocaleString("en-GB")} Ma, about ${(((u.old - u.young) / 4540) * 100).toFixed(1)}% of Earth history.`}
+              note={`${u.name}: ${u.old.toLocaleString("en-US")}–${u.young.toLocaleString("en-US")} Ma, about ${(((u.old - u.young) / 4540) * 100).toFixed(1)}% of Earth history.`}
             />
           );
         })}

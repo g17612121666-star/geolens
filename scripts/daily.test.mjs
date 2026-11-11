@@ -86,3 +86,17 @@ test("the night polygon contains the antisolar point, not the subsolar point", a
   const noon = subsolarPoint(new Date("2026-06-21T12:00:00Z"));
   assert.ok(Math.abs(noon.lat - 23.4) < 0.2 && Math.abs(noon.lon) < 1);
 });
+
+test("the day is the player's own calendar day, across daylight-saving changes", () => {
+  // Late evening locally is still that day, whatever the UTC date.
+  assert.equal(dayKey(new Date(2026, 9, 25, 23, 30)), "2026-10-25");
+  assert.equal(dayKey(new Date(2026, 0, 1, 0, 5)), "2026-01-01");
+  // A streak across the US clock change (November 1, 2026) counts each day once.
+  const days = {
+    "2026-10-30": { quiz: 1 },
+    "2026-10-31": { quiz: 1 },
+    "2026-11-01": { quiz: 1 },
+    "2026-11-02": { quiz: 1 },
+  };
+  assert.equal(streak({ days, xp: 0 }, new Date(2026, 10, 2, 21, 0)), 4);
+});

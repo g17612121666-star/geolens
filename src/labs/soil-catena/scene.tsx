@@ -158,6 +158,7 @@ export default function SoilCatena() {
               key={i}
               pos={end}
               text={`${names[i]} · ${c.thicknessM.toFixed(2)} m soil`}
+              short={names[i]}
               note={
                 i === 0
                   ? "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one example."

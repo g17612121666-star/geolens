@@ -57,7 +57,8 @@ function CheckCodes() {
     ];
     const lines = rows.map((r) =>
       [
-        r.label,
+        // Pasted names are text: a leading = + - or @ would run as a spreadsheet formula.
+        /^[=+\-@\t\r]/.test(r.label) ? `'${r.label}` : r.label,
         r.code,
         r.lab?.title ?? "Invalid code",
         r.result?.date.toISOString().slice(0, 10) ?? "",

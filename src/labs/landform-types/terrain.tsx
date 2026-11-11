@@ -11,15 +11,29 @@ import { Tag } from "../shared/kit";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 const NAMES = ["Mountain", "Hill", "Plateau", "Plain", "Basin"];
 const RIVER = (x: number) => 0.55 * Math.sin(x * 1.6) - 0.2;
+const smooth = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 function height(kind: number, x: number, z: number) {
   const r = x * x + z * z;
   if (kind === 0) {
-    const ridge = 0.17 * noise(x * 5, z * 6) + 0.06 * noise(x * 14, z * 17);
+    // A glaciated massif: a horn-like summit, spurs radiating from it with valleys carved
+    // between them (their lines wander with distance), crags high up and a lower second peak.
+    const dx = x + 0.15,
+      dz = z - 0.1,
+      d = Math.hypot(dx, dz),
+      warp = 0.7 * (noise(x * 0.9 + 4, z * 0.9) - 0.5) + 0.42 * d,
+      spur = Math.abs(Math.cos((Math.atan2(dz, dx) + warp) * 2.5)) ** 0.7,
+      massif = 0.84 * Math.exp(-(d * d) / 1.9) + 0.36 * Math.exp(-((d / 0.55) ** 1.6)),
+      valley = 0.42 * (1 - spur) * smooth(d, 0.12, 0.65) * (1 - smooth(d, 1.5, 2.3)),
+      ridged = 1 - Math.abs(2 * noise(x * 3.1, z * 3.1) - 1),
+      fine = 1 - Math.abs(2 * noise(x * 7.3 + 3, z * 7.3 - 2) - 1),
+      crags = (0.13 * ridged * ridged + 0.05 * fine * fine) * smooth(massif, 0.3, 0.9),
+      second = 0.36 * Math.exp(-((x - 1.1) ** 2 + (z + 0.6) ** 2) / 0.32);
     return (
-      0.08 +
-      1.7 * Math.exp(-r / 1.1) * (0.76 + 0.24 * Math.cos(x * 3 - z * 2) ** 2) +
-      0.44 * Math.exp(-((x - 1) ** 2 + (z + 0.5) ** 2) / 0.42) +
-      ridge * Math.exp(-r / 2)
+      0.1 +
+      massif * (1 - valley) +
+      second * (0.8 + 0.2 * spur) +
+      crags +
+      0.03 * (noise(x * 2, z * 2) - 0.5)
     );
   }
   if (kind === 1)
@@ -251,9 +265,9 @@ export default function LandformTypes() {
                 {i === 0 ? "Left" : "Right"}: {NAMES[kind]}
               </strong>{" "}
               <br />
-              Highest point {STATS[kind].hi.toLocaleString("en-GB")} m · lowest{" "}
-              {STATS[kind].lo.toLocaleString("en-GB")} m <br />
-              Local relief <strong>{STATS[kind].relief.toLocaleString("en-GB")} m</strong> <br />
+              Highest point {STATS[kind].hi.toLocaleString("en-US")} m · lowest{" "}
+              {STATS[kind].lo.toLocaleString("en-US")} m <br />
+              Local relief <strong>{STATS[kind].relief.toLocaleString("en-US")} m</strong> <br />
               Typical slope {STATS[kind].typical}° · steepest {STATS[kind].steepest}°
             </span>
           ))}

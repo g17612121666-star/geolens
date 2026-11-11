@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, Flame, MapPinned, Route as RouteIcon, Sparkles } from "lucide-react";
-import { dayKey, placeOfTheDay, readDaily, streak } from "@/lib/daily";
+import { placeOfTheDay, readDaily, streak } from "@/lib/daily";
+import { useToday } from "@/lib/use-today";
 import { FIELD_TRIPS, readTripProgress, tripPhoto } from "@/lib/field-trips";
 import { photoSrcSet } from "@/lib/responsive-image";
 
 /** Home-page row of today's challenges, the place of the day and the next field trip. */
 export function TodayStrip() {
-  const day = dayKey();
+  const day = useToday();
   const [s, setS] = useState({
     streak: 0,
     quiz: false,

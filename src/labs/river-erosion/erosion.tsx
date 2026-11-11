@@ -465,6 +465,7 @@ function ModelRiverErosion() {
                   <Tag
                     pos={[0, 1.6, 1.8]}
                     text="V-shaped valley"
+                    priority={1}
                     note="The river cuts down into its bed while weathering, soil creep and small slides lower the valley sides. Together they give a V-shaped cross-section. The river alone does not cut the whole valley side, and not every river valley is V-shaped."
                     occlude={false}
                   />

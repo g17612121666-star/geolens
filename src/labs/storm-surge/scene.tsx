@@ -276,12 +276,15 @@ export default function StormSurge() {
         <Tag
           pos={[-1.8, 1.0, 0]}
           text={`Onshore wind ${wind} m/s`}
+          short={`Wind ${wind} m/s`}
+          priority={1}
           note="Wind stress = air density × drag coefficient × wind speed², using 1.225 kg/m³ and a fixed drag coefficient of 0.0015. Whitecaps and clouds grow with the wind but are only illustrative."
           occlude={false}
         />
         <Tag
           pos={[gauge[0] - 0.45, Math.max(setupY, gaugeTop) + 0.2, gauge[1]]}
           text={`Setup ${result.coastalSetup.toFixed(2)} m`}
+          priority={2}
           tone="sandstone"
           note={`${trueScale ? "At Physical scale the tide-gauge post is enlarged so it stays visible, and its bands are not to scale." : "Read the tide-gauge post: each red or white band is 1 m."} The gold ring marks the modeled water level at the coast. The offshore end is held at mean sea level (dashed line), the coast is closed, and the pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.`}
           occlude={false}
@@ -289,12 +292,15 @@ export default function StormSurge() {
         <Tag
           pos={[0, -depth * s - 0.3, HALF]}
           text={`Shelf depth ${depth} m`}
+          short={`Shelf ${depth} m`}
+          priority={1}
           note="The shelf is flat. A shallow shelf lets the wind pile water up more. Real coastal bathymetry, storm track, duration, tide, Coriolis and wave breaking are excluded."
           occlude={false}
         />
         <Tag
           pos={[3.3, 0.85, -0.7]}
           text="Low-lying coast"
+          short="Coast"
           note="The town and dunes show what is exposed. The model holds the water at the coastline; it does not calculate flooding inland."
           occlude={false}
         />

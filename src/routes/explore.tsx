@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { ArrowUpRight, Search } from "lucide-react";
 import { LABS, REALMS } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
@@ -8,12 +8,21 @@ import { CASES, CASES_BY_REGION, REGIONS } from "@/lib/cases";
 import { labFigure } from "@/lib/figures";
 import { caseFigure } from "@/lib/case-figures";
 import { ProgressImage } from "@/components/progress-media";
+import { buildIndex, searchIndex } from "@/lib/site-search";
 import { headFor } from "@/lib/seo";
 import { useQuizScores } from "@/lib/quiz-progress";
 
 const ANSWER_KEYS = Object.fromEntries(LABS.map((l) => [l.slug, l.questions.map((q) => q.answer)]));
+type ExploreKey = "kind" | "q" | "realm" | "stage" | "collection" | "region";
+type ExploreSearch = Partial<Record<ExploreKey, string>>;
+const EXPLORE_KEYS: ExploreKey[] = ["kind", "q", "realm", "stage", "collection", "region"];
 export const Route = createFileRoute("/explore")({
   component: Explore,
+  // Filters live in the address, so Back, reload and shared links keep them.
+  validateSearch: (s: Record<string, unknown>): ExploreSearch =>
+    Object.fromEntries(
+      EXPLORE_KEYS.filter((k) => typeof s[k] === "string" && s[k]).map((k) => [k, s[k]]),
+    ),
   head: () =>
     headFor({
       title: "Explore the labs",
@@ -64,37 +73,58 @@ const COLLECTIONS = [
   },
 ];
 const field = "min-h-11 rounded-xl border border-white/20 bg-basalt px-3 text-sm text-chalk";
-const fold = (s: string) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+const LAB_INDEX = buildIndex(SHIPPED, (l) => [
+  { text: l.title, weight: 6 },
+  { text: `${l.hook} ${l.objective}`, weight: 3 },
+  { text: l.glossary.map((g) => g.term).join(" "), weight: 2 },
+]);
+const CASE_INDEX = buildIndex(CASES_BY_REGION, (c) => [
+  { text: c.title, weight: 6 },
+  { text: c.place, weight: 4 },
+  { text: c.lede, weight: 2 },
+]);
 function Explore() {
   const scores = useQuizScores(ANSWER_KEYS);
-  const [kind, setKind] = useState<"labs" | "cases">("labs"),
-    [query, setQuery] = useState(""),
-    [realm, setRealm] = useState("all"),
-    [stage, setStage] = useState("all"),
-    [collection, setCollection] = useState("all"),
-    [region, setRegion] = useState("all");
-  const selected = COLLECTIONS.find((c) => c.id === collection);
-  const list = useMemo(
-    () =>
-      SHIPPED.filter(
-        (l) =>
-          (realm === "all" || realm === l.realm) &&
-          (stage === "all" || l.ages.some((age) => age === stage)) &&
-          (!selected || selected.labs.includes(l.slug)) &&
-          fold([l.title, l.hook, ...l.glossary.map((g) => g.term)].join(" ")).includes(
-            fold(query.trim()),
+  const search = Route.useSearch(),
+    navigate = Route.useNavigate();
+  const kind: "labs" | "cases" = search.kind === "cases" ? "cases" : "labs",
+    query = search.q ?? "",
+    realm = search.realm ?? "all",
+    stage = search.stage ?? "all",
+    collection = search.collection ?? "all",
+    region = search.region ?? "all";
+  // Defaults ("all", "labs", empty) are left out of the address.
+  function update(changes: ExploreSearch) {
+    void navigate({
+      search: (prev) =>
+        Object.fromEntries(
+          Object.entries({ ...prev, ...changes }).filter(
+            ([k, v]) => v && v !== "all" && !(k === "kind" && v === "labs"),
           ),
-      ).sort((a, b) =>
-        selected
-          ? selected.labs.indexOf(a.slug) - selected.labs.indexOf(b.slug)
-          : a.title.localeCompare(b.title),
-      ),
-    [realm, stage, selected, query],
-  );
-  const cases = CASES_BY_REGION.filter(
-    (c) =>
-      (region === "all" || region === c.region) &&
-      fold([c.title, c.place, c.lede].join(" ")).includes(fold(query.trim())),
+        ),
+      replace: true,
+    });
+  }
+  const selected = COLLECTIONS.find((c) => c.id === collection);
+  const needle = query.trim();
+  const list = useMemo(() => {
+    // With a query, the best matches come first; otherwise the collection's order or A–Z.
+    const pool = needle
+      ? searchIndex(LAB_INDEX, needle)
+      : [...SHIPPED].sort((a, b) =>
+          selected
+            ? selected.labs.indexOf(a.slug) - selected.labs.indexOf(b.slug)
+            : a.title.localeCompare(b.title),
+        );
+    return pool.filter(
+      (l) =>
+        (realm === "all" || realm === l.realm) &&
+        (stage === "all" || l.ages.some((age) => age === stage)) &&
+        (!selected || selected.labs.includes(l.slug)),
+    );
+  }, [realm, stage, selected, needle]);
+  const cases = (needle ? searchIndex(CASE_INDEX, needle) : CASES_BY_REGION).filter(
+    (c) => region === "all" || region === c.region,
   );
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-16 pt-24">
@@ -118,7 +148,7 @@ function Explore() {
             key={k}
             role="tab"
             aria-selected={kind === k}
-            onClick={() => setKind(k)}
+            onClick={() => update({ kind: k })}
             className={
               "min-h-12 border-b-2 text-lg " +
               (kind === k ? "border-glacier text-glacier" : "border-transparent text-mist")
@@ -137,12 +167,7 @@ function Explore() {
           <select
             id="collection"
             value={collection}
-            onChange={(e) => {
-              setCollection(e.target.value);
-              setRealm("all");
-              setStage("all");
-              setQuery("");
-            }}
+            onChange={(e) => update({ collection: e.target.value, realm: "", stage: "", q: "" })}
             className={field + " mt-2 w-full sm:ml-4 sm:w-auto"}
           >
             <option value="all">Browse all labs</option>
@@ -166,7 +191,7 @@ function Explore() {
           <input
             type="search"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => update({ q: e.target.value })}
             placeholder="Search a topic or place"
             className={field + " w-full pl-10"}
           />
@@ -176,7 +201,7 @@ function Explore() {
             <select
               aria-label="Subject"
               value={realm}
-              onChange={(e) => setRealm(e.target.value)}
+              onChange={(e) => update({ realm: e.target.value })}
               className={field}
             >
               <option value="all">All subjects</option>
@@ -189,7 +214,7 @@ function Explore() {
             <select
               aria-label="Curriculum"
               value={stage}
-              onChange={(e) => setStage(e.target.value)}
+              onChange={(e) => update({ stage: e.target.value })}
               className={field}
             >
               <option value="all">All curricula</option>
@@ -203,7 +228,7 @@ function Explore() {
             aria-label="Region"
             className={field}
             value={region}
-            onChange={(e) => setRegion(e.target.value)}
+            onChange={(e) => update({ region: e.target.value })}
           >
             <option value="all">All regions</option>
             {REGIONS.map((r) => (
@@ -295,13 +320,7 @@ function Explore() {
           <p className="font-display text-2xl">No matches for these filters.</p>
           <button
             className="mt-4 min-h-11 rounded-full bg-glacier px-6 text-basalt"
-            onClick={() => {
-              setQuery("");
-              setRealm("all");
-              setStage("all");
-              setCollection("all");
-              setRegion("all");
-            }}
+            onClick={() => update({ q: "", realm: "", stage: "", collection: "", region: "" })}
           >
             Clear filters
           </button>

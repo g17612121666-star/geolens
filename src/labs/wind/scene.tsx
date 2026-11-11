@@ -176,12 +176,16 @@ export default function Wind() {
         <Tag
           pos={[-2.2, 0.1, -2.4]}
           text="Lower pressure · north"
+          short="Low · north"
+          priority={1}
           note="The fixed pressure gradient points north, across these parallel isobars. No fronts or curved pressure centers are included."
           occlude={false}
         />
         <Tag
           pos={[-2.2, 0.1, 2.4]}
           text="Higher pressure · south"
+          short="High · south"
+          priority={1}
           note="The pressure-gradient force is 0.001 m/s² (force per kilogram of air). All force arrows show force per unit mass."
           occlude={false}
         />
@@ -209,6 +213,7 @@ export default function Wind() {
         <Tag
           pos={[WIND_X - 0.3, 0.2, WIND_Z + 0.55]}
           text={`Wind ${w.speed.toFixed(1)} m/s`}
+          priority={2}
           note="The white arrow is velocity, not an additional force. It uses a different scale from the force arrows."
           occlude={false}
         />

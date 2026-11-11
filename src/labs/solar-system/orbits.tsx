@@ -136,7 +136,7 @@ export default function SolarSystem() {
                       <Tag
                         pos={[0, r + 0.18 + lift, 0]}
                         text={PLANETS[i].name}
-                        note={`Mean radius ${PLANETS[i].radius.toLocaleString("en-GB")} km; orbital period ${PLANETS[i].period.toFixed(3)} Earth years. Positions come from a fixed model, not today's sky.`}
+                        note={`Mean radius ${PLANETS[i].radius.toLocaleString("en-US")} km; orbital period ${PLANETS[i].period.toFixed(3)} Earth years. Positions come from a fixed model, not today's sky.`}
                         occlude={false}
                       />
                     )}
@@ -154,7 +154,7 @@ export default function SolarSystem() {
                   // Stagger the closely packed inner-planet labels in the eight-planet row.
                   pos={[0, v.r + 0.35 + (all && !mobile && k < 4 && k % 2 ? 0.6 : 0), 0]}
                   text={PLANETS[v.i].name}
-                  note={`Mean radius ${PLANETS[v.i].radius.toLocaleString("en-GB")} km; ${(PLANETS[v.i].radius / 6371.0084).toFixed(2)} Earth radii. The spacing here does not show distance.`}
+                  note={`Mean radius ${PLANETS[v.i].radius.toLocaleString("en-US")} km; ${(PLANETS[v.i].radius / 6371.0084).toFixed(2)} Earth radii. The spacing here does not show distance.`}
                   occlude={false}
                 />
               </group>
@@ -167,7 +167,7 @@ export default function SolarSystem() {
               <Tag
                 pos={[0, 1.7, 0]}
                 text={p.name}
-                note={`Mean radius ${p.radius.toLocaleString("en-GB")} km. Mercury uses an enhanced-color MESSENGER map. Mars and Saturn use NASA model geometry and mapped materials; Jupiter uses a NASA global map. Venus, Uranus and Neptune have modeled cloud colors, not observed maps.`}
+                note={`Mean radius ${p.radius.toLocaleString("en-US")} km. Mercury uses an enhanced-color MESSENGER map. Mars and Saturn use NASA model geometry and mapped materials; Jupiter uses a NASA global map. Venus, Uranus and Neptune have modeled cloud colors, not observed maps.`}
                 occlude={false}
               />
             </group>
@@ -202,7 +202,7 @@ export default function SolarSystem() {
         </div>
         {p.name}
         {": mean radius "}
-        {p.radius.toLocaleString("en-GB")} {"km · a = "}
+        {p.radius.toLocaleString("en-US")} {"km · a = "}
         {p.a.toFixed(3)} {"AU · period "}
         {p.period.toFixed(3)} {"years."}
         {mode === 0

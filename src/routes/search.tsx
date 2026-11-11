@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { LABS } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
@@ -11,9 +11,14 @@ import { teacherArticle } from "@/lib/teachers/article";
 import { CASES_BY_REGION as CASES } from "@/lib/cases";
 
 import { expandSearchNeedle } from "@/lib/search-aliases";
+import { buildIndex, searchIndex } from "@/lib/site-search";
+
+type SearchParams = { q?: string };
 
 export const Route = createFileRoute("/search")({
   component: SearchPage,
+  validateSearch: (s: Record<string, unknown>): SearchParams =>
+    typeof s.q === "string" && s.q ? { q: s.q } : {},
   head: () =>
     headFor({
       title: "Search",
@@ -38,24 +43,73 @@ const TOOL_HITS = [
   {
     to: "/tools/map" as const,
     title: "World map studio",
-    hay: "relief rivers plates koppen graticule holderness san andreas",
+    hay: "relief rivers plates koppen climate graticule san andreas holderness",
   },
   {
     to: "/atlas" as const,
     title: "Atlas",
-    hay: "countries uk nations us states japan iceland california hawaii hong kong shanghai taiwan macau",
+    hay: "countries us states california hawaii alaska japan iceland uk nations hong kong shanghai taiwan macau",
   },
 ];
 
 const POPULAR = [
   { q: "seasons", label: "seasons" },
-  { q: "coasts", label: "coasts" },
-  { q: "Holderness", label: "Holderness" },
+  { q: "Grand Canyon", label: "Grand Canyon" },
+  { q: "hurricanes", label: "hurricanes" },
   { q: "San Andreas", label: "San Andreas" },
 ] as const;
 
+// Indexes are built once: titles first, then summaries, then body text.
+const LAB_INDEX = buildIndex(SHIPPED, (l) => [
+  { text: l.title, weight: 6 },
+  { text: `${l.hook} ${l.objective}`, weight: 3 },
+  {
+    text: [l.realm, ...l.curriculum, ...l.ages, ...l.glossary.map((g) => g.term)].join(" "),
+    weight: 2,
+  },
+  { text: l.teacher.script, weight: 1 },
+]);
+const TERM_INDEX = buildIndex(GLOSSARY, (g) => [
+  { text: g.term, weight: 6 },
+  { text: g.def, weight: 2 },
+  { text: `${g.exam ?? ""} ${g.labTitle}`, weight: 1 },
+]);
+const PLACE_INDEX = buildIndex(ATLAS, (p) => [
+  { text: p.name, weight: 6 },
+  { text: [p.capital, ...(p.alias ?? [])].join(" "), weight: 4 },
+  { text: [p.hook, ...(p.geo ?? [])].join(" "), weight: 1 },
+]);
+const TOOL_INDEX = buildIndex(TOOL_HITS, (t) => [
+  { text: t.title, weight: 6 },
+  { text: t.hay, weight: 2 },
+]);
+const CASE_INDEX = buildIndex(CASES, (c) => [
+  { text: c.title, weight: 6 },
+  { text: `${c.place} ${c.region}`, weight: 4 },
+  { text: c.lede, weight: 2 },
+  { text: c.body.join(" "), weight: 1 },
+]);
+let noteIndex: ReturnType<typeof buildNoteIndex> | null = null;
+function buildNoteIndex() {
+  return buildIndex(
+    SHIPPED.map((l) => ({ lab: l, article: teacherArticle(l) })),
+    (n) => [
+      { text: n.lab.title, weight: 6 },
+      { text: `${n.article.title} ${n.article.kicker} ${n.lab.objective}`, weight: 3 },
+      { text: n.article.sections.map((s) => s.paragraphs.join(" ")).join(" "), weight: 1 },
+    ],
+  );
+}
+
 function SearchPage() {
-  const [q, setQ] = useState("");
+  const initial = Route.useSearch().q ?? "";
+  const [q, setQState] = useState(initial);
+  const navigate = useNavigate({ from: "/search" });
+  // Keep the query in the address, so a search can be shared or returned to with Back.
+  const setQ = (value: string) => {
+    setQState(value);
+    void navigate({ search: value.trim() ? { q: value } : {}, replace: true });
+  };
   const inputRef = useRef<HTMLInputElement>(null);
   const needle = expandSearchNeedle(q);
 
@@ -72,79 +126,57 @@ function SearchPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const labs = useMemo(() => {
-    const pool = SHIPPED;
-    if (!needle) return pool.filter((l) => ["seasons", "coasts", "hydrograph"].includes(l.slug));
-    return pool.filter((l) =>
-      [
-        l.title,
-        l.hook,
-        l.objective,
-        l.realm,
-        l.teacher.script,
-        ...l.curriculum,
-        ...l.ages,
-        ...l.glossary.map((g) => g.term),
-      ]
-        .join(" ")
-        .toLowerCase()
-        .includes(needle),
-    );
-  }, [needle]);
+  const labs = useMemo(
+    () =>
+      needle
+        ? searchIndex(LAB_INDEX, needle)
+        : SHIPPED.filter((l) => ["seasons", "coasts", "hydrograph"].includes(l.slug)),
+    [needle],
+  );
 
-  const terms = useMemo(() => {
-    if (!needle)
-      return GLOSSARY.filter((g) => /spit|stack|cirque|hydrograph|terminator/i.test(g.term)).slice(
-        0,
-        8,
-      );
-    return GLOSSARY.filter((g) =>
-      [g.term, g.def, g.exam ?? ""].join(" ").toLowerCase().includes(needle),
-    );
-  }, [needle]);
+  const terms = useMemo(
+    () =>
+      needle
+        ? searchIndex(TERM_INDEX, needle)
+        : GLOSSARY.filter((g) => /spit|stack|cirque|hydrograph|terminator/i.test(g.term)).slice(
+            0,
+            8,
+          ),
+    [needle],
+  );
 
-  const places = useMemo(() => {
-    if (!needle)
-      return ATLAS.filter((p) =>
-        /holderness|japan|iceland|california|hawaii/i.test(
-          `${p.name} ${(p.alias ?? []).join(" ")}`,
-        ),
-      );
-    return ATLAS.filter((p) =>
-      [p.name, p.capital, p.hook, ...(p.alias ?? []), ...(p.geo ?? [])]
-        .join(" ")
-        .toLowerCase()
-        .includes(needle),
-    ).slice(0, 12);
-  }, [needle]);
+  const places = useMemo(
+    () =>
+      needle
+        ? searchIndex(PLACE_INDEX, needle).slice(0, 12)
+        : ATLAS.filter((p) =>
+            /california|hawaii|alaska|japan|iceland/i.test(
+              `${p.name} ${(p.alias ?? []).join(" ")}`,
+            ),
+          ),
+    [needle],
+  );
 
-  const tools = useMemo(() => {
-    if (!needle) return TOOL_HITS;
-    return TOOL_HITS.filter((t) => `${t.title} ${t.hay}`.toLowerCase().includes(needle));
-  }, [needle]);
+  const tools = useMemo(() => (needle ? searchIndex(TOOL_INDEX, needle) : TOOL_HITS), [needle]);
 
   const notes = useMemo(() => {
-    const pool = SHIPPED.map((l) => ({ lab: l, article: teacherArticle(l) }));
     if (!needle)
-      return pool.filter((p) => ["seasons", "coasts", "earthquakes"].includes(p.lab.slug));
-    return pool
-      .filter((p) =>
-        `${p.lab.title} ${p.lab.objective} ${p.article.title} ${p.article.kicker} ${p.article.sections.map((s) => s.paragraphs.join(" ")).join(" ")}`
-          .toLowerCase()
-          .includes(needle),
-      )
-      .slice(0, 10);
+      return SHIPPED.filter((l) => ["seasons", "coasts", "earthquakes"].includes(l.slug)).map(
+        (l) => ({ lab: l, article: teacherArticle(l) }),
+      );
+    noteIndex ??= buildNoteIndex();
+    return searchIndex(noteIndex, needle).slice(0, 10);
   }, [needle]);
 
-  const caseHits = useMemo(() => {
-    if (!needle)
-      return CASES.filter((c) =>
-        /holderness|san andreas|shanghai|hong kong/i.test(`${c.title} ${c.place}`),
-      );
-    return CASES.filter((c) =>
-      [c.title, c.place, c.lede, ...c.body, c.region].join(" ").toLowerCase().includes(needle),
-    ).slice(0, 8);
-  }, [needle]);
+  const caseHits = useMemo(
+    () =>
+      needle
+        ? searchIndex(CASE_INDEX, needle).slice(0, 8)
+        : CASES.filter((c) =>
+            /grand canyon|san andreas|katrina|st\. helens/i.test(`${c.title} ${c.place}`),
+          ),
+    [needle],
+  );
 
   const empty =
     needle.length > 0 &&
@@ -171,7 +203,7 @@ function SearchPage() {
           autoFocus
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder={"Seasons, Holderness, Coriolis, San Andreas…"}
+          placeholder={"Seasons, Grand Canyon, Coriolis, San Andreas…"}
           className="h-12 w-full rounded-[16px] border border-white/10 bg-white/6 px-4 pr-24 text-chalk placeholder:text-mist/70"
           suppressHydrationWarning
         />

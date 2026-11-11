@@ -171,11 +171,12 @@ function SelectedRing({ quake }: { quake: Quake | null }) {
 }
 
 const fmtTime = (t: number) =>
-  new Date(t).toLocaleString("en-GB", {
+  new Date(t).toLocaleString("en-US", {
     day: "numeric",
     month: "short",
     hour: "2-digit",
     minute: "2-digit",
+    hourCycle: "h23",
     timeZone: "UTC",
   }) + " UTC";
 

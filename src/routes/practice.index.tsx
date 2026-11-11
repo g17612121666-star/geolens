@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, CheckCircle2, Flame, MapPinned, Mountain, Sparkles } from "lucide-react";
-import { dayKey, level, placeOfTheDay, readDaily, streak } from "@/lib/daily";
+import { level, placeOfTheDay, readDaily, streak } from "@/lib/daily";
+import { useToday } from "@/lib/use-today";
 import { tripPhoto } from "@/lib/field-trips";
 import { headFor } from "@/lib/seo";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
@@ -18,7 +19,7 @@ export const Route = createFileRoute("/practice/")({
 });
 
 function PracticeHub() {
-  const day = dayKey();
+  const day = useToday();
   const [state, setState] = useState({
     xp: 0,
     streak: 0,
@@ -94,7 +95,7 @@ function PracticeHub() {
           blurb="Five landscape photos. Pin each one on the map: the closer you are, the more points."
           status={
             state.where != null
-              ? `Done today: ${state.where.toLocaleString("en-GB")} points`
+              ? `Done today: ${state.where.toLocaleString("en-US")} points`
               : "New today"
           }
         />

@@ -233,24 +233,29 @@ export default function Isostasy() {
         <Tag
           pos={[2.1, topBare - crust - 1.05, D / 2 + 0.05]}
           text="Mantle · solid, creeping"
+          short="Mantle"
           note="Under the extra weight the mantle slowly flows aside while remaining solid. The arrows show the direction of that creep, not its speed."
           occlude={false}
         />
         <Tag
           pos={[-2.2, topBare - crust * 0.5, D / 2 + 0.05]}
           text="Crust · 35 km thick"
+          short="Crust · 35 km"
+          priority={1}
           note="Continental crust, less dense (2800 kg/m³) than the mantle below it. Its upper and lower layers are shown in different colors; its total thickness does not change when ice is added."
           occlude={false}
         />
         <Tag
           pos={[mohoX, mohoAt + 0.15, D / 2 + 0.05]}
           text={ice > 0 ? "Moho bends down" : "Moho"}
+          priority={1}
           note="The crust keeps its thickness, so its base (the Moho) is pushed down by the same amount as the surface. Dashed lines show both levels without ice."
           occlude={false}
         />
         <Tag
           pos={[0, iceTop + 0.35, 0]}
           text={`${Math.round(ice)} m of ice`}
+          priority={2}
           note="Each column sinks by the ice thickness × 917/3300 (ice density ÷ mantle density). Real adjustment takes thousands of years and spreads sideways as the lithosphere bends."
           occlude={false}
         />

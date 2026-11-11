@@ -140,7 +140,7 @@ export default function RiverHydrology() {
     // Fixed axis (undammed snow-fed peak) so switching the dam on visibly lowers the peak.
     max = Math.max(...a.series.map((s) => s.flow), ...free.series.map((s) => s.flow)) * 1.1,
     date = (d: number) =>
-      new Date(Date.UTC(2001, 0, d + 1)).toLocaleDateString("en-GB", {
+      new Date(Date.UTC(2001, 0, d + 1)).toLocaleDateString("en-US", {
         day: "numeric",
         month: "short",
         timeZone: "UTC",

@@ -33,9 +33,10 @@ export function SpeakButton({
     }
     synth.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-GB";
+    // American pronunciation first, to match the site's American English.
+    u.lang = "en-US";
     const voice =
-      synth.getVoices().find((v) => v.lang === "en-GB") ??
+      synth.getVoices().find((v) => v.lang === "en-US") ??
       synth.getVoices().find((v) => v.lang.startsWith("en"));
     if (voice) u.voice = voice;
     u.rate = 0.95;

@@ -25,7 +25,15 @@ export const Route = createFileRoute("/practice/landforms")({
 type Mode = "study" | "quiz" | "speed";
 const KINDS = Object.keys(KIND_LABEL) as FeatureKind[];
 const LEVELS = ["Easy", "Medium", "Hard"];
-const shuffle = <T,>(a: T[]) => [...a].sort(() => Math.random() - 0.5);
+/** Fisher–Yates: every order equally likely (sorting by a random comparison is biased). */
+function shuffle<T>(a: T[]) {
+  const out = [...a];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
 
 function LandformsPractice() {
   const [mode, setMode] = useState<Mode>("study");
@@ -278,7 +286,7 @@ function Quiz({ pool, speed }: { pool: WorldFeature[]; speed: boolean }) {
                 <p className={`font-semibold ${ok ? "text-glacier" : "text-magma"}`}>
                   {ok
                     ? "Correct!"
-                    : `Not quite: about ${Math.round(km).toLocaleString("en-GB")} km from its center.`}
+                    : `Not quite: about ${Math.round(km).toLocaleString("en-US")} km from its center.`}
                 </p>
                 {!speed && <p className="mt-2 leading-6 text-mist">{f.note}</p>}
               </div>

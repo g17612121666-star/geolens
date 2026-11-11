@@ -129,12 +129,14 @@ export default function Tides() {
         <Tag
           pos={[position[0], position[1] + radius * 0.4 + 0.22, position[2]]}
           text={phase}
+          priority={2}
           note="The blue surface adds the Moon's and the Sun's tidal effects. Over one synodic month the Moon's direction changes relative to the Sun."
           occlude={false}
         />
         <Tag
           pos={[farLobe[0], farLobe[1] - radius * 0.35, farLobe[2]]}
           text="Two tidal lobes"
+          priority={1}
           note="The blue surface is an enlarged picture of the tide-raising effect, not a layer of ocean or a predicted water height. Ocean basins, friction and coastlines set real tide times and ranges."
           occlude={false}
         />

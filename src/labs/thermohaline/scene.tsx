@@ -106,18 +106,21 @@ export default function Thermohaline() {
             <Tag
               pos={[2.25, 0.4, 0]}
               text="High latitudes · deep-water formation"
+              short="Sinking"
               note="Cooling and sea-ice formation, which leaves salt behind in the water, make surface water dense enough to sink. The basin is schematic, not a map of real sinking sites."
               occlude={false}
             />
             <Tag
               pos={[-2, 0.4, 0]}
               text="Return and upwelling"
+              short="Upwelling"
               note="Winds and mixing bring deep water back toward the surface. In the real ocean much of this happens in the Southern Ocean, not only at low latitudes as drawn here."
               occlude={false}
             />
             <Tag
               pos={[0, y(4000) - 0.35, 0.9]}
               text="Deep return · centuries of transport"
+              short="Deep return"
               note="Deep water takes centuries to return, and the time differs between routes. The animation speed is not to scale."
               occlude={false}
             />

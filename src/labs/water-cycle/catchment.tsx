@@ -95,7 +95,7 @@ function ReservoirSurface({ abstraction }: { abstraction: number }) {
     </mesh>
   );
 }
-const fmt = (n: number) => Math.round(n).toLocaleString("en-GB");
+const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
 const paths: { name: string; points: Point[]; color: string; note: string }[] = [
   {
     name: "Evaporation",

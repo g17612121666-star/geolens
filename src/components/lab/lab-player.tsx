@@ -106,6 +106,8 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (root.current?.closest('[data-lab-entry="loading"]')) return;
+      // Leave browser shortcuts alone: Ctrl/Cmd+F is find, Ctrl/Cmd+P is print, and so on.
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
       const tag = (e.target as HTMLElement | null)?.tagName;
       if (
         tag === "INPUT" ||

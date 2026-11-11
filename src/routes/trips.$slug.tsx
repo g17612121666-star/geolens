@@ -50,6 +50,8 @@ function Player({ trip }: { trip: FieldTrip }) {
     const onKey = (e: KeyboardEvent) => {
       const el = e.target as HTMLElement | null;
       if (el && /INPUT|TEXTAREA|SELECT/.test(el.tagName)) return;
+      // Alt+Arrow is the browser's back and forward.
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === "ArrowRight") go(index + 1);
       if (e.key === "ArrowLeft") go(index - 1);
     };

@@ -4,7 +4,6 @@ import { ArrowRight, RotateCcw } from "lucide-react";
 import { LibreMap } from "@/components/map/libre-map";
 import {
   dailyPhotoRounds,
-  dayKey,
   randomPhotoRounds,
   readDaily,
   recordDaily,
@@ -14,6 +13,7 @@ import {
 import { tripPhoto } from "@/lib/field-trips";
 import { haversineKm } from "@/lib/geo";
 import { headFor } from "@/lib/seo";
+import { useToday } from "@/lib/use-today";
 import { photoSrcSet } from "@/lib/responsive-image";
 
 export const Route = createFileRoute("/practice/where")({
@@ -27,16 +27,25 @@ export const Route = createFileRoute("/practice/where")({
     }),
 });
 
-const fmt = (n: number) => n.toLocaleString("en-GB");
+const fmt = (n: number) => n.toLocaleString("en-US");
 
 function WhereOnEarth() {
-  const day = dayKey();
+  const day = useToday();
   const [daily, setDaily] = useState(true);
   const [rounds, setRounds] = useState<PhotoRound[]>(() => dailyPhotoRounds(day));
   const [i, setI] = useState(0);
   const [guess, setGuess] = useState<[number, number] | null>(null);
   const [locked, setLocked] = useState(false);
   const [scores, setScores] = useState<number[]>([]);
+  // Once mounted the local day is known; start that day's photos (before any guess is made).
+  useEffect(() => {
+    setDaily(true);
+    setRounds(dailyPhotoRounds(day));
+    setI(0);
+    setScores([]);
+    setGuess(null);
+    setLocked(false);
+  }, [day]);
   const [earlier, setEarlier] = useState<number | undefined>();
   useEffect(() => setEarlier(readDaily().days[day]?.where), [day]);
   const done = i >= rounds.length,

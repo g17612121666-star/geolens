@@ -703,6 +703,8 @@ export function LibreMap({
         .setLngLat(marker)
         .addTo(m as never);
       if (element) setPortalA(element);
+      // A labeled element needs a role; the marker is a picture of a place, not a control.
+      mk.getElement().setAttribute("role", "img");
       mk.getElement().setAttribute("aria-label", "Location A");
       if (draggableMarker)
         mk.on("dragend", () => {
@@ -750,6 +752,8 @@ export function LibreMap({
         .setLngLat(markerB)
         .addTo(m as never);
       if (element) setPortalB(element);
+      // A labeled element needs a role; the marker is a picture of a place, not a control.
+      mkB.getElement().setAttribute("role", "img");
       mkB.getElement().setAttribute("aria-label", "Location B");
       markerBRef.current = mkB;
     });

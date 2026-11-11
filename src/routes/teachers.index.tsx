@@ -4,6 +4,7 @@ import { LABS, REALMS } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
 import { headFor } from "@/lib/seo";
+import { buildIndex, searchIndex } from "@/lib/site-search";
 import { LESSON_PHASES, lessonLink } from "@/lib/teachers/workflow";
 import { teacherHero } from "@/lib/figures";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
@@ -27,12 +28,14 @@ export const Route = createFileRoute("/teachers/")({
 const field = "mt-2 min-h-11 w-full rounded-lg border border-white/15 bg-basalt px-3 text-chalk";
 const button =
   "inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm text-ice hover:bg-white/5";
-const fold = (s: string) =>
-  s
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
-
+const TEACHER_INDEX = buildIndex(
+  LABS.filter((lab) => LAB_SCENES[lab.slug] && isListed(lab.slug)),
+  (lab) => [
+    { text: lab.title, weight: 6 },
+    { text: lab.objective, weight: 3 },
+    { text: [...lab.glossary.map((g) => g.term), ...lab.curriculum].join(" "), weight: 2 },
+  ],
+);
 function TeachersIndex() {
   const search = Route.useSearch(),
     navigate = Route.useNavigate();
@@ -40,18 +43,12 @@ function TeachersIndex() {
   const shipped = LABS.filter((lab) => LAB_SCENES[lab.slug] && isListed(lab.slug));
   const ages = [...new Set(shipped.flatMap((lab) => lab.ages))];
   const curricula = [...new Set(shipped.flatMap((lab) => lab.curriculum))].sort();
-  const needle = fold(search.q ?? "").trim();
-  const filtered = shipped.filter(
+  const needle = (search.q ?? "").trim();
+  const filtered = (needle ? searchIndex(TEACHER_INDEX, needle) : shipped).filter(
     (lab) =>
       (!search.realm || lab.realm === search.realm) &&
       (!search.age || lab.ages.some((age) => age === search.age)) &&
-      (!search.curriculum || lab.curriculum.includes(search.curriculum)) &&
-      (!needle ||
-        fold(
-          [lab.title, lab.objective, ...lab.glossary.map((g) => g.term), ...lab.curriculum].join(
-            " ",
-          ),
-        ).includes(needle)),
+      (!search.curriculum || lab.curriculum.includes(search.curriculum)),
   );
   function update(changes: Partial<TeacherSearch>) {
     void navigate({ search: (prev) => ({ ...prev, ...changes }), replace: true });
