@@ -67,6 +67,18 @@ export default function Plates() {
             <Graticule radius={1.255} />
             {age < 5 && <PlateLines />}
             {age < 5 && <PlateMotion />}
+            {age < 5 &&
+              EXAMPLES.map((e) => (
+                <Tag
+                  key={e.text}
+                  pos={latLonToXYZ(e.lat, e.lon, 1.3)}
+                  text={e.text}
+                  short={e.short}
+                  note={e.note}
+                  tone={e.tone}
+                  priority={e.priority ?? 0}
+                />
+              ))}
             {hotspot && age < 5 && (
               <>
                 <CityMarker lat={HAWAII.lat} lon={HAWAII.lon} radius={1.26} color="#f99c75" />
@@ -121,6 +133,68 @@ export default function Plates() {
     </>
   );
 }
+
+/** Named examples of each boundary type, US first; hidden when they turn to the far side. */
+const EXAMPLES: {
+  lat: number;
+  lon: number;
+  text: string;
+  short: string;
+  note: string;
+  tone: "glacier" | "magma" | "sandstone";
+  priority?: number;
+}[] = [
+  {
+    lat: 35.8,
+    lon: -120.4,
+    text: "San Andreas Fault · transform",
+    short: "San Andreas",
+    tone: "sandstone",
+    priority: 1,
+    note: "The Pacific plate slides northwest past the North American plate, about 4–5 cm per year across the whole boundary. Crust is neither made nor destroyed, but stuck sections slip in earthquakes.",
+  },
+  {
+    lat: 45,
+    lon: -125.5,
+    text: "Cascadia · convergent",
+    short: "Cascadia",
+    tone: "magma",
+    note: "The small Juan de Fuca plate sinks beneath North America. Melting above it feeds the Cascade volcanoes, including Mount St. Helens and Mount Rainier.",
+  },
+  {
+    lat: -30,
+    lon: -13.5,
+    text: "Mid-Atlantic Ridge · divergent",
+    short: "Mid-Atlantic Ridge",
+    tone: "glacier",
+    priority: 1,
+    note: "The plates on either side move apart by a few centimeters a year. Magma rises into the gap and forms new ocean floor, so the Atlantic is slowly widening.",
+  },
+  {
+    lat: -20,
+    lon: -71.8,
+    text: "Peru–Chile Trench · convergent",
+    short: "Peru–Chile Trench",
+    tone: "magma",
+    note: "The Nazca plate dives beneath South America. The deep trench, the Andes and their volcanoes and large earthquakes all come from this subduction.",
+  },
+  {
+    lat: 28.5,
+    lon: 84,
+    text: "Himalaya · collision",
+    short: "Himalaya",
+    tone: "magma",
+    note: "Two continents meet: India pushes north into Eurasia. Continental crust is too buoyant to sink far, so it crumples and thickens into the highest mountains on Earth.",
+  },
+  {
+    lat: 1,
+    lon: 36.5,
+    text: "East African Rift · divergent",
+    short: "East African Rift",
+    tone: "glacier",
+    note: "A continent beginning to split: the Somali plate pulls away from the rest of Africa, opening rift valleys with volcanoes such as Kilimanjaro nearby.",
+  },
+];
 
 /**
  * Representative present-day plate motions (direction only, relative to a fixed hotspot
