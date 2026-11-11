@@ -36,6 +36,12 @@ export default function UniverseScale() {
         : stop === 1
           ? `${s.lightSeconds.toFixed(0)} seconds (about ${(s.lightSeconds / 60).toFixed(1)} minutes)`
           : `${s.lightSeconds.toFixed(2)} seconds`,
+    lightShort =
+      stop === 2
+        ? `${(s.lightSeconds / (365.25 * 86400)).toFixed(2)} years`
+        : stop === 1
+          ? `${(s.lightSeconds / 60).toFixed(1)} minutes`
+          : `${s.lightSeconds.toFixed(2)} s`,
     enlarge = (x: number) =>
       x.toLocaleString("en-US", { maximumSignificantDigits: x < 100 ? 3 : 2 });
   return (
@@ -127,7 +133,8 @@ export default function UniverseScale() {
           ) : null;
         })}
         <Tag
-          pos={[3, -0.82, 0]}
+          pos={[0, -0.82, 0]}
+          priority={1}
           text={
             s.unit === "km"
               ? `${s.value.toLocaleString("en-US")} km`
@@ -138,15 +145,19 @@ export default function UniverseScale() {
           note="The whole scale bar: the distance between the two centers. Each tick marks one sixth of it."
           occlude={false}
         />
+        {/* Above the light ray it measures; on a narrow screen it may give way to the scale bar
+            label, and the readout repeats it. */}
         <Tag
-          pos={[0, -1, 0]}
-          text={`Light time · ${lightTime}`}
+          pos={[0, 0.42, 0]}
+          text={`Light takes ${lightShort}`}
           note="The moving dot is a light signal traveling at constant speed. At 1× speed, playback squeezes the whole journey into 24 seconds; the readout shows the matching real travel time."
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Signal progress "}
+        {"Light travel time "}
+        {lightTime}
+        {" · signal progress "}
         {(t * 100).toFixed(0)}
         {"% · elapsed "}
         {stop === 2
