@@ -770,6 +770,7 @@ function MapStudio() {
       </div>
       <div
         className="mt-4 flex flex-wrap gap-x-5 gap-y-2 rounded-xl border border-white/10 p-4 text-sm text-mist"
+        role="group"
         aria-label={"Visible layer legend"}
       >
         {layers.rivers && (
