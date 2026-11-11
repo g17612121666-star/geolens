@@ -9448,12 +9448,12 @@
         {
           "id": "observe",
           "title": "Observe",
-          "body": "Identify three rock groups, loose sediment and magma."
+          "body": "Identify three rock groups, loose sediment and magma. In the landscape, notice where each one forms: on the sea floor, deep in the mountains or under the volcano."
         },
         {
           "id": "tinker",
           "title": "Tinker",
-          "body": "Use Material pathway (or click a bead on an arc) to try several routes, including a metamorphism path (no melting) and a melting path. Then move Selected temperature and Selected pressure and read whether those conditions suit the route."
+          "body": "Use Material pathway to try several routes, including a metamorphism path (no melting) and a melting path, and watch where each one happens. Then move Selected temperature and Selected pressure: where the orange temperature line crosses the white depth line, those conditions occur in the crust. Switch View to Rock specimens to compare the rocks up close."
         },
         {
           "id": "explain",
@@ -9606,6 +9606,24 @@
       "controls": {
         "time": "none",
         "extra": [
+          {
+            "key": "view",
+            "label": "View",
+            "min": 0,
+            "max": 1,
+            "step": 1,
+            "default": 1,
+            "options": [
+              {
+                "label": "Rock specimens",
+                "value": 0
+              },
+              {
+                "label": "In the landscape",
+                "value": 1
+              }
+            ]
+          },
           {
             "key": "process",
             "label": "Material pathway",
