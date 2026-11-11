@@ -406,6 +406,22 @@ function areaScale(lat: number, kind: number) {
   };
   return local(lat) / local(0);
 }
+/** Greenland and Africa, labeled near their centers. Areas: CIA World Factbook. */
+const LANDMASSES = [
+  {
+    name: "Greenland",
+    lat: 73,
+    lon: -41,
+    note: "About 2.2 million km², roughly one-fourteenth of Africa. Near 70° N, Mercator stretches lengths almost three times and areas more than eight times, so Greenland looks almost as large as Africa.",
+  },
+  {
+    name: "Africa",
+    lat: 4,
+    lon: 19,
+    note: "About 30.4 million km². It straddles the equator, where Mercator distorts least, so its size on that map stays close to the truth.",
+  },
+];
+
 export function ProjectionScene() {
   const { params } = useLabControls(),
     morph = params.morph ?? 0,
@@ -468,6 +484,20 @@ export function ProjectionScene() {
             lineWidth={0.8}
           />
         ))}
+        {/* The two landmasses the lab compares, labeled where they sit on the surface. */}
+        {LANDMASSES.map((m) => {
+          const v = projectedPosition(m.lat, m.lon, morph, kind);
+          return (
+            <Tag
+              key={m.name}
+              pos={[v[0] * 1.02, v[1] * 1.02, v[2] * 1.02 + 0.03 * morph]}
+              text={m.name}
+              note={m.note}
+              occlude={false}
+              priority={1}
+            />
+          );
+        })}
         {[-60, 0, 60].flatMap((lat) =>
           [-120, 0, 120].map((lon) => (
             <Line
