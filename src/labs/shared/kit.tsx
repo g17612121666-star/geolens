@@ -139,7 +139,7 @@ export function Tag({
           }}
           className={cn(
             "grid place-items-center rounded-full transition-[opacity,visibility] duration-150 motion-reduce:transition-none",
-            compact && note && "min-h-11",
+            compact && note && "min-h-11 min-w-11",
           )}
         >
           <span

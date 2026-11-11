@@ -141,7 +141,12 @@ export function RealLandscape({
             />
           </group>
         ) : (
-          <Tag pos={[0, 0.3, 0]} text={`Loading ${name}…`} occlude={false} />
+          <Tag
+            pos={[0, 0.3, 0]}
+            text={`Loading ${name}…`}
+            short="Loading terrain…"
+            occlude={false}
+          />
         )}
       </ScienceStudio>
       <ScienceReadout>

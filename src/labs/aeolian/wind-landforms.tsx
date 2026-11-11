@@ -135,12 +135,15 @@ function ModelAeolian() {
           <Tag
             pos={[-2.1, windY + 0.17, -1.45]}
             text="Wind"
+            priority={2}
             note="The prevailing wind blows along this arrow. Sand moves downwind, the steep slip face forms on the downwind side and the barchan's horns trail downwind."
             occlude={false}
           />
           <Tag
-            pos={mode === 0 ? [-1.25 + shift, 0.42, 0.1] : [-0.9, 0.78, 0.95]}
+            pos={mode === 0 ? [-1.45 + shift, 0.4, 0.1] : [-0.9, 0.78, 0.95]}
             text={mode === 0 ? "Gentler stoss slope" : "Wind-eroded ridges"}
+            short={mode === 0 ? "Windward" : "Eroded ridges"}
+            priority={1}
             note={
               mode === 0
                 ? "Wind carries sand up the gentle windward (stoss) slope by saltation and surface creep; the finest grains travel in suspension. The grains shown are enlarged to mark direction."
@@ -148,9 +151,22 @@ function ModelAeolian() {
             }
             occlude={false}
           />
+          {mode === 0 && (
+            // Partway down the lee face of the main barchan, in front of its center line.
+            <Tag
+              pos={[0.15 + shift, 0.27, 0.45]}
+              text="Steep slip face"
+              short="Slip face"
+              note="Sand blown over the crest piles up on the lee side until it slides down in small avalanches, so this face stays near the angle of repose, about 32° for dry sand. The relief here is doubled, so it looks steeper."
+              occlude={false}
+              priority={1}
+            />
+          )}
           <Tag
-            pos={mode === 0 ? [1.2 + shift, 0.22, 1.2] : [2.15, 0.3, 0.95]}
+            pos={mode === 0 ? [1.35 + shift, 0.2, 1.3] : [2.15, 0.3, 0.95]}
             text={mode === 0 ? "Horns point downwind" : "Tapered downwind ends"}
+            short={mode === 0 ? "Horns" : "Tapered ends"}
+            priority={1}
             note={
               mode === 0
                 ? "The crescent tips lie downwind of the central crest. The slip face is 32° at true scale; doubled relief makes it look steeper. Real angles of repose vary."

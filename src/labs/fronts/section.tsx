@@ -81,9 +81,9 @@ export default function Fronts() {
         {volumes.map((geometry, i) => (
           <mesh key={i} geometry={geometry}>
             <meshBasicMaterial
-              color={["#5f9fd6", "#86c5b3", "#e2a46a"][i]}
+              color={["#5f9fd6", "#86c5b3", "#e9a35f"][i]}
               transparent
-              opacity={[0.26, 0.2, 0.17][i]}
+              opacity={[0.3, 0.24, 0.26][i]}
               depthWrite={false}
             />
           </mesh>
