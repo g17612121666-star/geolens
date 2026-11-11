@@ -8,6 +8,7 @@ import { CASES, CASES_BY_REGION, REGIONS } from "@/lib/cases";
 import { labFigure } from "@/lib/figures";
 import { caseFigure } from "@/lib/case-figures";
 import { ProgressImage } from "@/components/progress-media";
+import { buildIndex, searchIndex } from "@/lib/site-search";
 import { headFor } from "@/lib/seo";
 import { useQuizScores } from "@/lib/quiz-progress";
 
@@ -64,7 +65,16 @@ const COLLECTIONS = [
   },
 ];
 const field = "min-h-11 rounded-xl border border-white/20 bg-basalt px-3 text-sm text-chalk";
-const fold = (s: string) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+const LAB_INDEX = buildIndex(SHIPPED, (l) => [
+  { text: l.title, weight: 6 },
+  { text: `${l.hook} ${l.objective}`, weight: 3 },
+  { text: l.glossary.map((g) => g.term).join(" "), weight: 2 },
+]);
+const CASE_INDEX = buildIndex(CASES_BY_REGION, (c) => [
+  { text: c.title, weight: 6 },
+  { text: c.place, weight: 4 },
+  { text: c.lede, weight: 2 },
+]);
 function Explore() {
   const scores = useQuizScores(ANSWER_KEYS);
   const [kind, setKind] = useState<"labs" | "cases">("labs"),
@@ -74,27 +84,25 @@ function Explore() {
     [collection, setCollection] = useState("all"),
     [region, setRegion] = useState("all");
   const selected = COLLECTIONS.find((c) => c.id === collection);
-  const list = useMemo(
-    () =>
-      SHIPPED.filter(
-        (l) =>
-          (realm === "all" || realm === l.realm) &&
-          (stage === "all" || l.ages.some((age) => age === stage)) &&
-          (!selected || selected.labs.includes(l.slug)) &&
-          fold([l.title, l.hook, ...l.glossary.map((g) => g.term)].join(" ")).includes(
-            fold(query.trim()),
-          ),
-      ).sort((a, b) =>
-        selected
-          ? selected.labs.indexOf(a.slug) - selected.labs.indexOf(b.slug)
-          : a.title.localeCompare(b.title),
-      ),
-    [realm, stage, selected, query],
-  );
-  const cases = CASES_BY_REGION.filter(
-    (c) =>
-      (region === "all" || region === c.region) &&
-      fold([c.title, c.place, c.lede].join(" ")).includes(fold(query.trim())),
+  const needle = query.trim();
+  const list = useMemo(() => {
+    // With a query, the best matches come first; otherwise the collection's order or A–Z.
+    const pool = needle
+      ? searchIndex(LAB_INDEX, needle)
+      : [...SHIPPED].sort((a, b) =>
+          selected
+            ? selected.labs.indexOf(a.slug) - selected.labs.indexOf(b.slug)
+            : a.title.localeCompare(b.title),
+        );
+    return pool.filter(
+      (l) =>
+        (realm === "all" || realm === l.realm) &&
+        (stage === "all" || l.ages.some((age) => age === stage)) &&
+        (!selected || selected.labs.includes(l.slug)),
+    );
+  }, [realm, stage, selected, needle]);
+  const cases = (needle ? searchIndex(CASE_INDEX, needle) : CASES_BY_REGION).filter(
+    (c) => region === "all" || region === c.region,
   );
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-16 pt-24">

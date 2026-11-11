@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Check, Search } from "lucide-react";
 import { FIELD_TRIPS, readTripProgress, tripPhoto, type TripProgress } from "@/lib/field-trips";
 import { headFor } from "@/lib/seo";
+import { buildIndex, searchIndex } from "@/lib/site-search";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
 export const Route = createFileRoute("/trips/")({
@@ -16,27 +17,25 @@ export const Route = createFileRoute("/trips/")({
     }),
 });
 
-const fold = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+// Every stop of every trip, searchable by its title, place, trip and facts.
+const STOP_INDEX = buildIndex(
+  FIELD_TRIPS.flatMap((t) => t.stops.map((s, i) => ({ t, s, i }))),
+  ({ t, s }) => [
+    { text: s.title, weight: 6 },
+    { text: s.place, weight: 4 },
+    { text: t.title, weight: 3 },
+    { text: s.fact, weight: 2 },
+    { text: s.body, weight: 1 },
+  ],
+);
 
 function TripsIndex() {
   const [q, setQ] = useState("");
   const [progress, setProgress] = useState<TripProgress>({});
   useEffect(() => setProgress(readTripProgress()), []);
-  const needle = fold(q.trim());
+  const needle = q.trim();
   // Search matches trips and individual stops, so "Everest" or "delta" finds the right stop.
-  const hits = useMemo(
-    () =>
-      needle
-        ? FIELD_TRIPS.flatMap((t) =>
-            t.stops
-              .map((s, i) => ({ t, s, i }))
-              .filter(({ s }) =>
-                fold(`${s.title} ${s.place} ${s.fact} ${s.body} ${t.title}`).includes(needle),
-              ),
-          )
-        : [],
-    [needle],
-  );
+  const hits = useMemo(() => (needle ? searchIndex(STOP_INDEX, needle) : []), [needle]);
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
       <div className="grid gap-5 border-b border-white/10 pb-8 md:grid-cols-[1.1fr_1fr]">

@@ -6,6 +6,7 @@ import { headFor } from "@/lib/seo";
 import { Figure } from "@/components/figure";
 import { termFigure } from "@/lib/figures";
 import { SpeakButton } from "@/components/speak-button";
+import { buildIndex, searchIndex } from "@/lib/site-search";
 
 type GlossarySearch = { q?: string; letter?: string; realm?: string; term?: string };
 export const Route = createFileRoute("/glossary")({
@@ -88,19 +89,26 @@ function Glossary() {
     void navigate({ search: (prev) => ({ ...prev, ...changes }), replace: true });
   }
   const all = useMemo(() => GLOSSARY.map((g) => ({ ...g, related: related(g) })), []);
+  // Term names first, then exam wording, definitions and the labs that use the word.
+  const searchable = useMemo(
+    () =>
+      buildIndex(all, (g) => [
+        { text: g.term, weight: 6 },
+        { text: g.exam ?? "", weight: 4 },
+        { text: g.def, weight: 2 },
+        { text: g.related.map((l) => l.title).join(" "), weight: 1 },
+      ]),
+    [all],
+  );
   const list = useMemo(() => {
-    const needle = fold(q.trim());
-    return all.filter(
+    const needle = q.trim();
+    return (needle ? searchIndex(searchable, needle) : all).filter(
       (g) =>
-        (!needle ||
-          fold(
-            `${g.term} ${g.def} ${g.exam ?? ""} ${g.related.map((l) => l.title).join(" ")}`,
-          ).includes(needle)) &&
         (needle || letter === "all" || fold(g.term).charAt(0).toUpperCase() === letter) &&
         (realm === "all" || g.related.some((l) => l.realm === realm)) &&
         (!onlyPractice || !known.includes(key(g.term))),
     );
-  }, [all, q, letter, realm, onlyPractice, known]);
+  }, [all, searchable, q, letter, realm, onlyPractice, known]);
   const selected = all.find((g) => fold(g.term) === fold(search.term ?? ""));
   const current = list[index % Math.max(1, list.length)];
   const pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE)),
