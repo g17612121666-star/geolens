@@ -127,6 +127,18 @@ export default function UniverseScale() {
           ) : null;
         })}
         <Tag
+          pos={[3, -0.82, 0]}
+          text={
+            s.unit === "km"
+              ? `${s.value.toLocaleString("en-US")} km`
+              : s.unit === "AU"
+                ? `1 AU · ${(s.distanceKm / 1e6).toFixed(1)} million km`
+                : `${s.value} light-years · ${Math.round(s.distanceKm / 1e12)} trillion km`
+          }
+          note="The whole scale bar: the distance between the two centers. Each tick marks one sixth of it."
+          occlude={false}
+        />
+        <Tag
           pos={[0, -1, 0]}
           text={`Light time · ${lightTime}`}
           note="The moving dot is a light signal traveling at constant speed. At 1× speed, playback squeezes the whole journey into 24 seconds; the readout shows the matching real travel time."
