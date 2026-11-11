@@ -9,7 +9,23 @@ import { Tag } from "../shared/kit";
 import { TerrainMaterial } from "../shared/natural-world";
 import { CloudPuffMaterial } from "../shared/cloud-material";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
+import { ScientificText } from "@/components/scientific-text";
+import { useIsCompact } from "@/hooks/use-media";
 import { FluxBand } from "./flux-band";
+
+interface EnergyLabel {
+  pos: [number, number, number];
+  text: string;
+  tone?: "sandstone" | "magma" | "ice";
+  note: string;
+}
+
+const KEY_TONE = {
+  chalk: "text-chalk",
+  sandstone: "text-sandstone",
+  magma: "text-magma",
+  ice: "text-ice",
+};
 
 /**
  * A cut-away column of atmosphere over a patch of ground, in the spirit of the global energy
@@ -60,6 +76,57 @@ export default function EnergyBudget() {
       () => new THREE.Color("#6f8f4e").lerp(new THREE.Color("#e8eef0"), whiteness),
       [whiteness],
     );
+  const compact = useIsCompact();
+  // Numbered in order on a phone; the back-radiation label exists only with the IR layer.
+  const entries: (EnergyLabel | false)[] = [
+    {
+      pos: [-3.75, 1.2, 0.2],
+      text: `Sunlight in ${b.incoming.toFixed(0)} W/m²`,
+      tone: "sandstone",
+      note: "Earth intercepts 1361 W/m² across a disc but spreads it over a sphere with four times the area, so the global average is a quarter: 340 W/m².",
+    },
+    {
+      pos: [-1.35, SPACE + 0.45, 0.2],
+      text: `Reflected ${b.reflected.toFixed(0)} W/m²`,
+      note: "Planetary albedo is the fraction of incoming sunlight reflected to space, mostly by clouds, with some from air and bright surfaces such as snow and ice.",
+    },
+    {
+      pos: [0.25, 0.42, 0.2],
+      text: `Surface emits ${b.surfaceUp.toFixed(0)}`,
+      tone: "magma",
+      note: "The warm surface radiates infrared. A warmer surface radiates more (Stefan–Boltzmann law: emission rises with the fourth power of temperature).",
+    },
+    greenhouse && {
+      pos: [-0.95, 0.85, 0.2],
+      text: `Back radiation ${b.backRadiation.toFixed(0)}`,
+      tone: "ice",
+      note: "The layer emits infrared in both directions. The half sent downward warms the surface further, which is the greenhouse effect.",
+    },
+    {
+      pos: [1.9, SPACE + 0.45, 0.2],
+      text: `To space ${b.outgoing.toFixed(0)} W/m²`,
+      note: "Outgoing infrared = surface radiation escaping through the window + infrared the layer emits upward. At equilibrium it equals the sunlight absorbed.",
+    },
+    {
+      pos: [HALF_W + 0.25, greenhouse ? (LAYER_LOW + LAYER_HIGH) / 2 : 1.4, 0],
+      text: greenhouse ? "IR layer · ε = 0.78" : "No infrared absorption",
+      note: "One layer absorbs and emits the same share of infrared at every wavelength but lets sunlight through. The hugely enlarged molecules stand for greenhouse gases: carbon dioxide (linear), water vapor (bent) and methane; their vibrations absorb infrared. Convection, evaporation and wavelength detail are left out.",
+    },
+    {
+      pos: [HALF_W - 0.6, -0.25, HALF_D + 0.05],
+      text: `Surface ${surfaceC.toFixed(1)} °C`,
+      tone: "magma",
+      note: "The equilibrium surface temperature: the temperature at which the surface emits exactly what it receives from sunlight and back radiation.",
+    },
+    {
+      pos: [HALF_W + 0.35, TOP, 0],
+      text: "Top of atmosphere",
+      note: "The energy balance is measured here: sunlight absorbed must equal infrared leaving for the climate to be steady.",
+    },
+  ];
+  const labels = entries
+    .filter((l): l is EnergyLabel => l !== false)
+    .map((l, i) => ({ ...l, n: i + 1 }));
   return (
     <>
       <ScienceStudio
@@ -129,62 +196,30 @@ export default function EnergyBudget() {
           </>
         )}
 
-        <Tag
-          pos={[-3.75, 1.2, 0.2]}
-          text={`Sunlight in ${b.incoming.toFixed(0)} W/m²`}
-          tone="sandstone"
-          note="Earth intercepts 1361 W/m² across a disc but spreads it over a sphere with four times the area, so the global average is a quarter: 340 W/m²."
-          occlude={false}
-        />
-        <Tag
-          pos={[-1.35, SPACE + 0.45, 0.2]}
-          text={`Reflected ${b.reflected.toFixed(0)} W/m²`}
-          note="Planetary albedo is the fraction of incoming sunlight reflected to space, mostly by clouds, with some from air and bright surfaces such as snow and ice."
-          occlude={false}
-        />
-        <Tag
-          pos={[0.25, 0.42, 0.2]}
-          text={`Surface emits ${b.surfaceUp.toFixed(0)}`}
-          tone="magma"
-          note="The warm surface radiates infrared. A warmer surface radiates more (Stefan–Boltzmann law: emission rises with the fourth power of temperature)."
-          occlude={false}
-        />
-        {greenhouse && (
+        {/* On a phone the labels become numbers keyed below the model, so it can fill the
+            screen instead of shrinking to make room for long labels. */}
+        {labels.map((l) => (
           <Tag
-            pos={[-0.95, 0.85, 0.2]}
-            text={`Back radiation ${b.backRadiation.toFixed(0)}`}
-            tone="ice"
-            note="The layer emits infrared in both directions. The half sent downward warms the surface further, which is the greenhouse effect."
+            key={l.n}
+            pos={l.pos}
+            text={compact ? String(l.n) : l.text}
+            title={compact ? `${l.n} · ${l.text}` : undefined}
+            tone={l.tone}
+            note={l.note}
             occlude={false}
           />
-        )}
-        <Tag
-          pos={[1.9, SPACE + 0.45, 0.2]}
-          text={`To space ${b.outgoing.toFixed(0)} W/m²`}
-          note="Outgoing infrared = surface radiation escaping through the window + infrared the layer emits upward. At equilibrium it equals the sunlight absorbed."
-          occlude={false}
-        />
-        <Tag
-          pos={[HALF_W + 0.25, greenhouse ? (LAYER_LOW + LAYER_HIGH) / 2 : 1.4, 0]}
-          text={greenhouse ? "IR layer · ε = 0.78" : "No infrared absorption"}
-          note="One layer absorbs and emits the same share of infrared at every wavelength but lets sunlight through. The hugely enlarged molecules stand for greenhouse gases: carbon dioxide (linear), water vapor (bent) and methane; their vibrations absorb infrared. Convection, evaporation and wavelength detail are left out."
-          occlude={false}
-        />
-        <Tag
-          pos={[HALF_W - 0.6, -0.25, HALF_D + 0.05]}
-          text={`Surface ${surfaceC.toFixed(1)} °C`}
-          tone="magma"
-          note="The equilibrium surface temperature: the temperature at which the surface emits exactly what it receives from sunlight and back radiation."
-          occlude={false}
-        />
-        <Tag
-          pos={[HALF_W + 0.35, TOP, 0]}
-          text="Top of atmosphere"
-          occlude={false}
-          note="The energy balance is measured here: sunlight absorbed must equal infrared leaving for the climate to be steady."
-        />
+        ))}
       </ScienceStudio>
       <ScienceReadout>
+        {compact && (
+          <ol className="mb-2 grid grid-cols-2 gap-x-3 gap-y-0.5">
+            {labels.map((l) => (
+              <li key={l.n} className={KEY_TONE[l.tone ?? "chalk"]}>
+                <span className="font-mono">{l.n}</span> <ScientificText>{l.text}</ScientificText>
+              </li>
+            ))}
+          </ol>
+        )}
         <span className="text-sandstone">
           {"Sunlight absorbed "}
           {b.absorbed.toFixed(1)}
