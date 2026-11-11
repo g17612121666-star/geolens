@@ -121,8 +121,50 @@ export default function Groundwater() {
               </mesh>
             </>
           )}
+          {/* Zones named on the front face of the section. */}
+          {(confined
+            ? [
+                {
+                  y: 1.32,
+                  text: "Clay aquitard",
+                  short: "Clay",
+                  note: "Clay has tiny, poorly connected pores, so water passes through it very slowly. It seals the aquifer below, keeping its water under pressure.",
+                },
+                {
+                  y: 0.35,
+                  text: "Confined aquifer",
+                  short: "Aquifer",
+                  note: "Sand and gravel saturated with water and capped by clay. Its pores stay full; pumping lowers the pressure (the potentiometric surface), not the water inside.",
+                },
+              ]
+            : [
+                {
+                  y: (H / 10 + 4) / 2,
+                  text: "Unsaturated zone",
+                  short: "Unsaturated",
+                  note: "Above the water table the pores hold air as well as some water clinging to the grains. Rain soaks down through this zone to reach the water table.",
+                },
+                {
+                  y: H / 20,
+                  text: "Saturated zone",
+                  short: "Saturated",
+                  note: "Below the water table every connected pore is full of water. This water is groundwater; it moves slowly through the pores, not as an underground lake or river.",
+                },
+              ]
+          ).map((z) => (
+            <Tag
+              key={z.text}
+              pos={[-1.35, z.y * f, 2.03]}
+              text={z.text}
+              short={z.short}
+              note={z.note}
+              occlude={false}
+              priority={1}
+            />
+          ))}
           <Tag
-            pos={[-2.7, (H / 10) * f + 0.2, 1.9]}
+            priority={2}
+            pos={[2.62, (H / 10) * f + 0.12, -1.1]}
             text={confined ? "Potentiometric surface" : "Water table"}
             note={
               confined
