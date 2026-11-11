@@ -278,7 +278,7 @@ function Quiz({ pool, speed }: { pool: WorldFeature[]; speed: boolean }) {
                 <p className={`font-semibold ${ok ? "text-glacier" : "text-magma"}`}>
                   {ok
                     ? "Correct!"
-                    : `Not quite: about ${Math.round(km).toLocaleString("en-GB")} km from its center.`}
+                    : `Not quite: about ${Math.round(km).toLocaleString("en-US")} km from its center.`}
                 </p>
                 {!speed && <p className="mt-2 leading-6 text-mist">{f.note}</p>}
               </div>

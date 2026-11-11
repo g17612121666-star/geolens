@@ -27,7 +27,7 @@ export const Route = createFileRoute("/practice/where")({
     }),
 });
 
-const fmt = (n: number) => n.toLocaleString("en-GB");
+const fmt = (n: number) => n.toLocaleString("en-US");
 
 function WhereOnEarth() {
   const day = dayKey();

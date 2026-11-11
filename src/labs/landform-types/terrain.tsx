@@ -251,9 +251,9 @@ export default function LandformTypes() {
                 {i === 0 ? "Left" : "Right"}: {NAMES[kind]}
               </strong>{" "}
               <br />
-              Highest point {STATS[kind].hi.toLocaleString("en-GB")} m · lowest{" "}
-              {STATS[kind].lo.toLocaleString("en-GB")} m <br />
-              Local relief <strong>{STATS[kind].relief.toLocaleString("en-GB")} m</strong> <br />
+              Highest point {STATS[kind].hi.toLocaleString("en-US")} m · lowest{" "}
+              {STATS[kind].lo.toLocaleString("en-US")} m <br />
+              Local relief <strong>{STATS[kind].relief.toLocaleString("en-US")} m</strong> <br />
               Typical slope {STATS[kind].typical}° · steepest {STATS[kind].steepest}°
             </span>
           ))}

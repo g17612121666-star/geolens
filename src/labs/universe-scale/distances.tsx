@@ -37,7 +37,7 @@ export default function UniverseScale() {
           ? `${s.lightSeconds.toFixed(0)} seconds (about ${(s.lightSeconds / 60).toFixed(1)} minutes)`
           : `${s.lightSeconds.toFixed(2)} seconds`,
     enlarge = (x: number) =>
-      x.toLocaleString("en-GB", { maximumSignificantDigits: x < 100 ? 3 : 2 });
+      x.toLocaleString("en-US", { maximumSignificantDigits: x < 100 ? 3 : 2 });
   return (
     <>
       <ScienceStudio
@@ -45,7 +45,7 @@ export default function UniverseScale() {
         camera={[0, 1.4, 8]}
         lights={false}
         space
-        scale={`${s.name} · center separation ${s.value.toLocaleString("en-GB")} ${s.unit} · bodies enlarged${stop === 1 ? " · Sun and Earth not in proportion: the Sun's radius is about 109 times Earth's" : " · both bodies enlarged by the same factor"}`}
+        scale={`${s.name} · center separation ${s.value.toLocaleString("en-US")} ${s.unit} · bodies enlarged${stop === 1 ? " · Sun and Earth not in proportion: the Sun's radius is about 109 times Earth's" : " · both bodies enlarged by the same factor"}`}
         trueScale={`${s.name} · body radii and center distance use one scale · locator rings enlarged`}
       >
         <ambientLight intensity={0.06} />
@@ -65,7 +65,7 @@ export default function UniverseScale() {
             <Tag
               pos={[0, 0.9, 0]}
               text={i ? s.target : s.origin}
-              note={`Physical radius ${Math.round(i ? s.targetRadiusKm : s.originRadiusKm).toLocaleString("en-GB")} km${stop === 2 && i ? " (approximate)" : ""}. The small wire locator is a visibility symbol; press T for physical radii at the distance scale.`}
+              note={`Physical radius ${Math.round(i ? s.targetRadiusKm : s.originRadiusKm).toLocaleString("en-US")} km${stop === 2 && i ? " (approximate)" : ""}. The small wire locator is a visibility symbol; press T for physical radii at the distance scale.`}
               occlude={false}
             />
           </group>

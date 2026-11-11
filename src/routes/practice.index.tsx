@@ -94,7 +94,7 @@ function PracticeHub() {
           blurb="Five landscape photos. Pin each one on the map: the closer you are, the more points."
           status={
             state.where != null
-              ? `Done today: ${state.where.toLocaleString("en-GB")} points`
+              ? `Done today: ${state.where.toLocaleString("en-US")} points`
               : "New today"
           }
         />

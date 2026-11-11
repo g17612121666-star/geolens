@@ -94,7 +94,7 @@ export function dayLengthHours(latDeg: number, declRad: number): number {
 export function formatDay(dayOfYear: number): string {
   const d = new Date(Date.UTC(2026, 0, 1));
   d.setUTCDate(Math.max(1, Math.min(365, Math.floor(dayOfYear))));
-  return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+  return d.toLocaleDateString("en-US", { day: "numeric", month: "short", timeZone: "UTC" });
 }
 
 export function fmtClock(hours: number): string {

@@ -39,7 +39,7 @@ const SW_REGISTER = `if("serviceWorker"in navigator){addEventListener("load",fun
 
 function Root() {
   return (
-    <html lang="en-GB" className="antialiased" suppressHydrationWarning>
+    <html lang="en-US" className="antialiased" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: preferenceBootScript }} />
         <HeadContent />
