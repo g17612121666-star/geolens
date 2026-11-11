@@ -3663,9 +3663,9 @@
         {
           "prompt": "Where does Yellowstone sit relative to plate boundaries?",
           "choices": [
-            "On a subduction zone",
-            "On a mid-ocean ridge",
-            "On a transform fault",
+            "On a subduction zone, like the Cascades",
+            "On a spreading ridge, like Iceland",
+            "On a transform fault, like San Andreas",
             "Inside the North American Plate"
           ],
           "answer": 3,
@@ -10001,10 +10001,10 @@
         {
           "prompt": "A soil with 90% sand is…",
           "choices": [
-            "Clay loam",
-            "Peat",
+            "Sandy clay loam",
+            "Silt loam",
             "Sand or loamy sand",
-            "Silt loam"
+            "Clay loam"
           ],
           "answer": 2,
           "explain": "With 90% sand, only 10% remains for silt and clay, placing the composition near the sand corner of the triangle. The precise sandy class depends on how that remaining fraction is divided."
