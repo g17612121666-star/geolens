@@ -21,6 +21,8 @@ float grain(vec2 p){return .6*sNoise(p*70.)+.4*sNoise(p*15.);}
  * Return a negative red channel from sectionColour to discard the fragment.
  * With `surface`, the geometry must carry a `surfaceY` attribute (see `withSurfaceY`), and the
  * GLSL can read `sectionDepth`, the local depth below the ground surface above each point.
+ * With `bump`, the GLSL must also define `float sectionBump(vec3 p, vec3 w)`, a height in
+ * scene units that roughens the lighting (scaled by `bump`) without moving any vertices.
  */
 export function SectionMaterial({
   glsl,
@@ -28,6 +30,7 @@ export function SectionMaterial({
   cacheKey,
   surface = false,
   cliff,
+  bump,
   ...props
 }: ThreeElements["meshStandardMaterial"] & {
   glsl: string;
@@ -38,6 +41,8 @@ export function SectionMaterial({
    * section color where the world-space normal's vertical component falls below this value
    * (so overhangs and arch roofs also show rock). */
   cliff?: number;
+  /** Scale of the `sectionBump` height field; leave unset for smooth shading. */
+  bump?: number;
 }) {
   const compile = useMemo(
     () => (s: THREE.WebGLProgramParametersWithUniforms) => {
@@ -73,6 +78,21 @@ float sectionK=1.-smoothstep(${(cliff - 0.14).toFixed(3)},${(cliff + 0.08).toFix
 diffuseColor.rgb=mix(diffuseColor.rgb,pow(sectionC,vec3(2.2)),sectionK);`,
           )
           .replace(
+            "#include <normal_fragment_maps>",
+            bump === undefined
+              ? "#include <normal_fragment_maps>"
+              : // Surface-gradient bump mapping (Mikkelsen) on the procedural height field.
+                `#include <normal_fragment_maps>
+{
+  float sectionH=sectionBump(sectionLocal,sectionWorld)*${bump.toFixed(4)};
+  vec3 sectionSx=dFdx(-vViewPosition),sectionSy=dFdy(-vViewPosition);
+  vec3 sectionR1=cross(sectionSy,normal),sectionR2=cross(normal,sectionSx);
+  float sectionDet=dot(sectionSx,sectionR1)*faceDirection;
+  vec3 sectionGrad=sign(sectionDet)*(dFdx(sectionH)*sectionR1+dFdy(sectionH)*sectionR2);
+  normal=normalize(abs(sectionDet)*normal-sectionGrad);
+}`,
+          )
+          .replace(
             "#include <emissivemap_fragment>",
             `#include <emissivemap_fragment>
 totalEmissiveRadiance+=sectionGlow(sectionLocal,sectionWorld);`,
@@ -80,7 +100,7 @@ totalEmissiveRadiance+=sectionGlow(sectionLocal,sectionWorld);`,
     },
     // Uniform objects are mutated in place by callers; the program only depends on the GLSL.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [glsl, surface, cliff],
+    [glsl, surface, cliff, bump],
   );
   return (
     <meshStandardMaterial
@@ -88,7 +108,9 @@ totalEmissiveRadiance+=sectionGlow(sectionLocal,sectionWorld);`,
       roughness={0.93}
       {...props}
       onBeforeCompile={compile}
-      customProgramCacheKey={() => `section-${cacheKey}${surface ? "-s" : ""}${cliff ?? ""}`}
+      customProgramCacheKey={() =>
+        `section-${cacheKey}${surface ? "-s" : ""}${cliff ?? ""}${bump === undefined ? "" : `-b${bump}`}`
+      }
     />
   );
 }
