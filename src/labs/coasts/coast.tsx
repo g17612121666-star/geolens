@@ -182,6 +182,15 @@ function Headland({ stage }: { stage: number }) {
         </>
       )}
       <Tag
+        pos={[-0.9, 0.08, 1.25]}
+        text="Wave-cut platform"
+        short="Platform"
+        tone="glacier"
+        note="A gently sloping rock shelf left behind as waves cut the cliff back. It lies just under the water here and is exposed at low tide, showing where the cliff once stood."
+        occlude={false}
+      />
+      <Tag
+        priority={1}
         pos={stage === 3 ? [0.57, 0.6, 0] : stage === 2 ? [0.6, 2.05, 0] : [0.35, 2.2, -0.6]}
         text={["Sea cave", "Sea arch", "Sea stack", "Stump"][stage]}
         note="Waves exploit joints in the chalk to enlarge a cave. It can break through to form an arch; the roof collapses to leave a stack, and erosion lowers the stack to a stump. Rock structure controls the details, and the stages are not dated."
