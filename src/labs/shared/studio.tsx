@@ -10,6 +10,7 @@ import { LabThumb } from "@/components/lab-thumb";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { GenericFallback } from "./fallback";
 import { LabLights, StudioOrbit } from "./kit";
+import { LabelLayout } from "./label-layout";
 import { useQuality } from "./perf";
 
 export function LabStudio({
@@ -93,14 +94,16 @@ export function LabStudio({
         shadows={q.shadows}
       >
         {lights && <LabLights />}
-        {backdrop}
-        {fit ? (
-          <FitScienceView revision={fitRevision} ground={fitGround}>
-            {children}
-          </FitScienceView>
-        ) : (
-          children
-        )}
+        <LabelLayout>
+          {backdrop}
+          {fit ? (
+            <FitScienceView revision={fitRevision} ground={fitGround}>
+              {children}
+            </FitScienceView>
+          ) : (
+            children
+          )}
+        </LabelLayout>
         {lights && groundShadows && q.shadows && (
           <ContactShadows
             opacity={0.42}

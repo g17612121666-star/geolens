@@ -1,13 +1,25 @@
 import { ScientificText } from "@/components/scientific-text";
 import { Environment, Html, OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { cn } from "@/lib/utils";
 import { useIsCompact } from "@/hooks/use-media";
+import { newLabelSlot, showLabelSlot } from "./label-crowding";
+import { useLabelLayout } from "./label-store";
 import { useRockNormal } from "./materials";
 import { IceBody, WaterBody } from "./parts";
+
+const TONES: Record<string, string> = {
+  chalk: "text-chalk",
+  glacier: "text-glacier",
+  magma: "text-magma",
+  sandstone: "text-sandstone",
+  ice: "text-ice",
+  moss: "text-moss",
+  fault: "text-fault",
+};
 
 export function Tag({
   pos,
@@ -16,14 +28,26 @@ export function Tag({
   tone = "chalk",
   occlude = true,
   note,
+  priority = 0,
+  short,
+  variant,
 }: {
   pos: [number, number, number];
   text: string;
+  /** Shorter text for phones and small tablets; the explanation card keeps the full name. */
+  short?: string;
   /** Full numbered subject for the explanation card when the scene uses a short label. */
   title?: string;
   tone?: "chalk" | "glacier" | "magma" | "sandstone" | "ice" | "moss" | "fault";
   occlude?: boolean;
   note?: string;
+  /**
+   * When two labels collide on screen, the one with the lower priority fades out until there
+   * is room for it (default 0; ties go to the label drawn first).
+   */
+  priority?: number;
+  /** "axis": a small, quiet label for tick values such as grid numbers. */
+  variant?: "axis";
 }) {
   const compact = useIsCompact();
   const labels = useLabControls((s) => s.labels);
@@ -32,6 +56,10 @@ export function Tag({
   const setInspect = useLabControls((s) => s.setInspect);
   const projector = layout === "projector";
   const hideBehind = occlude && !projector;
+  const name = title ?? text.split(" · ")[0] ?? text,
+    shown = compact && short ? short : text;
+  const active = inspect?.name === name,
+    axis = variant === "axis";
   // drei only re-checks occlusion when a label moves on screen. A label mounted before the
   // scene's meshes finish loading could stay visible through a globe, so check once more.
   const [recheck, setRecheck] = useState(0);
@@ -40,51 +68,108 @@ export function Tag({
     const id = window.setTimeout(() => setRecheck(1), 900);
     return () => window.clearTimeout(id);
   }, [hideBehind]);
+  // Collision layout: the label the student opened always stays in view.
+  const crowd = useLabelLayout();
+  const [slot] = useState(newLabelSlot);
+  const rank = priority + (active ? 1000 : 0);
+  useEffect(() => {
+    if (labels && crowd) return crowd.add(slot);
+  }, [labels, crowd, slot]);
+  useEffect(() => {
+    slot.priority = rank;
+    crowd?.invalidate();
+  }, [slot, crowd, rank]);
+  const anchorRef = useCallback(
+    (group: THREE.Group | null) => {
+      slot.anchor = group;
+    },
+    [slot],
+  );
+  // Ref cleanups (React 19) only forget their own element: drei mounts a label's replacement
+  // in a separate React root, which can attach before the old one detaches.
+  const hostRef = useCallback(
+    (el: HTMLButtonElement | null) => {
+      if (!el) return;
+      slot.host = el;
+      slot.occluded = false;
+      showLabelSlot(slot);
+      crowd?.invalidate();
+      return () => {
+        if (slot.host === el) slot.host = null;
+      };
+    },
+    [slot, crowd],
+  );
+  const pillRef = useCallback(
+    (el: HTMLSpanElement | null) => (el && crowd ? crowd.measure(el, slot) : undefined),
+    [crowd, slot],
+  );
   if (!labels) return null;
-  const tones: Record<string, string> = {
-    chalk: "text-chalk",
-    glacier: "text-glacier",
-    magma: "text-magma",
-    sandstone: "text-sandstone",
-    ice: "text-ice",
-    moss: "text-moss",
-    fault: "text-fault",
-  };
-  const name = title ?? text.split(" · ")[0] ?? text;
   const inspectNote = note ?? "";
-  const active = inspect?.name === name;
   return (
-    <Html
-      key={recheck}
-      position={pos}
-      userData={{
-        fitLabelWidth: text.length * (projector ? 9 : 8) + 28,
-        fitLabelHeight: compact ? 44 : projector ? 36 : 32,
-      }}
-      center
-      occlude={hideBehind ? true : undefined}
-      zIndexRange={projector ? [20, 0] : [10, 0]}
-      style={{ pointerEvents: "auto" }}
-    >
-      <button
-        type="button"
-        aria-label={name}
-        disabled={!note}
-        onClick={(e) => {
-          e.stopPropagation();
-          if (note) setInspect(active ? null : { name, note: inspectNote });
+    <group ref={anchorRef} position={pos}>
+      <Html
+        key={recheck}
+        userData={{
+          fitLabelWidth: axis
+            ? shown.length * (projector ? 8 : 7) + 14
+            : shown.length * (projector ? 9 : 8) + 28,
+          fitLabelHeight: axis ? (projector ? 26 : 22) : projector ? 36 : 32,
         }}
-        className={cn(
-          "whitespace-nowrap rounded-full border bg-basalt/90 px-2.5 py-1 font-mono shadow-lg",
-          projector ? "text-base leading-5 tracking-[0.02em]" : "text-[13px]",
-          compact && "min-h-11",
-          tones[tone],
-          active ? "border-glacier/60 text-glacier" : "border-white/15",
-        )}
+        center
+        occlude={hideBehind ? true : undefined}
+        onOcclude={(hidden) => {
+          slot.occluded = hidden;
+          showLabelSlot(slot);
+          crowd?.invalidate();
+        }}
+        zIndexRange={projector ? [20, 0] : [10, 0]}
+        style={{ pointerEvents: "auto" }}
       >
-        <ScientificText>{text}</ScientificText>
-      </button>
-    </Html>
+        {/* On a touch screen a label with an explanation is a 44 px tap target around a slimmer
+            pill, so it stays easy to tap without hiding the model. */}
+        <button
+          ref={hostRef}
+          type="button"
+          aria-label={name}
+          disabled={!note}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (note) setInspect(active ? null : { name, note: inspectNote });
+          }}
+          className={cn(
+            "grid place-items-center rounded-full transition-[opacity,visibility] duration-150 motion-reduce:transition-none",
+            compact && note && "min-h-11",
+          )}
+        >
+          <span
+            ref={pillRef}
+            data-scene-label=""
+            className={cn(
+              "whitespace-nowrap rounded-full border font-mono",
+              axis
+                ? cn(
+                    "bg-basalt/80 px-1.5",
+                    projector ? "text-sm leading-5" : "text-[11px] leading-[18px]",
+                    tone === "chalk" ? "text-mist" : TONES[tone],
+                  )
+                : cn(
+                    "bg-basalt/90 px-2.5 py-1 shadow-lg",
+                    projector ? "text-base leading-5 tracking-[0.02em]" : "text-[13px]",
+                    TONES[tone],
+                  ),
+              active
+                ? "border-glacier/60 text-glacier"
+                : axis
+                  ? "border-white/10"
+                  : "border-white/15",
+            )}
+          >
+            <ScientificText>{shown}</ScientificText>
+          </span>
+        </button>
+      </Html>
+    </group>
   );
 }
 
