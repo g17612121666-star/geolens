@@ -2,6 +2,7 @@ import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
+import { useIsCompact } from "@/hooks/use-media";
 import { useLabTick } from "@/labs/tick";
 import { latLonToXYZ } from "@/lib/geo";
 import { SUBTROPICAL_GYRES, GYRE_BRANCHES } from "@/lib/ocean-circulation-science";
@@ -54,6 +55,8 @@ function Gyre({ index, t }: { index: number; t: number }) {
   return (
     <group quaternion={rotation}>
       <Globe />
+      <OtherGyres selected={index} />
+      <DrivingWinds index={index} />
       {segments.map((p, i) => (
         <Line
           key={i}
@@ -179,7 +182,7 @@ export default function OceanCurrents() {
           : "This southern gyre turns counterclockwise, as Earth’s rotation deflects moving water to the left."}{" "}
         <br />
         {
-          "Viewed on a map, northern subtropical gyres turn clockwise and southern ones counterclockwise. Play shows direction only. UK winters reflect westerlies, ocean heat and geography together; the Gulf Stream is one contribution."
+          "Viewed on a map, northern subtropical gyres turn clockwise and southern ones counterclockwise; the faint loops show the other four. Trade winds blowing toward the west on the equator side and westerlies on the poleward side drive each gyre. Play shows direction only. Currents shape coastal climates: the cool California Current helps keep San Francisco's summers cool and foggy, while the Gulf Stream carries warm water along the U.S. East Coast and on across the Atlantic."
         }
       </ScienceReadout>
     </>
@@ -205,5 +208,104 @@ function CurrentTube({ points, color }: { points: [number, number, number][]; co
         depthWrite={false}
       />
     </mesh>
+  );
+}
+
+/** Gyre loops on the globe for the four basins not selected, so the global pattern shows. */
+function OtherGyres({ selected }: { selected: number }) {
+  const loops = useMemo(
+    () =>
+      SUBTROPICAL_GYRES.map((g, k) =>
+        k === selected
+          ? null
+          : {
+              key: g.name,
+              points: g.points.map(
+                ([lat, lon]) =>
+                  new THREE.Vector3(...latLonToXYZ(lat, lon, 1.668)).toArray() as [
+                    number,
+                    number,
+                    number,
+                  ],
+              ),
+            },
+      ).filter((l): l is NonNullable<typeof l> => l !== null),
+    [selected],
+  );
+  return (
+    <>
+      {loops.map((l) => (
+        <Line
+          key={l.key}
+          points={smoothLoop(l.points)}
+          color="#d9e4e1"
+          transparent
+          opacity={0.42}
+          lineWidth={1.6}
+        />
+      ))}
+    </>
+  );
+}
+
+/** A closed loop through the gyre's turning points, rounded and kept on the sphere. */
+function smoothLoop(points: [number, number, number][]) {
+  const curve = new THREE.CatmullRomCurve3(
+    points.slice(0, -1).map((p) => new THREE.Vector3(...p)),
+    true,
+    "centripetal",
+  );
+  return curve.getPoints(120).map((v) => v.setLength(1.668).toArray() as [number, number, number]);
+}
+
+/**
+ * The winds that drive the selected gyre: trade winds blowing toward the west on its
+ * equator side and westerlies blowing toward the east on its poleward side. Schematic.
+ */
+function DrivingWinds({ index }: { index: number }) {
+  const g = SUBTROPICAL_GYRES[index],
+    south = g.center[0] < 0,
+    lats = g.points.map(([lat]) => Math.abs(lat)),
+    lons = g.points.map(([, lon]) => lon),
+    west = Math.min(...lons) + 6,
+    east = Math.max(...lons) - 6,
+    band = (absLat: number, toward: 1 | -1) =>
+      Array.from({ length: 3 }, (_, k) => {
+        const lat = (south ? -1 : 1) * absLat,
+          span = (east - west) / 3,
+          a = west + span * (k + 0.15),
+          b = west + span * (k + 0.85),
+          [from, to] = toward > 0 ? [a, b] : [b, a];
+        return {
+          from: latLonToXYZ(lat, from, 1.775),
+          to: latLonToXYZ(lat + (toward > 0 ? 0 : south ? 2 : -2), to, 1.775),
+        };
+      }),
+    trades = band(Math.min(...lats) - 1, -1),
+    westerlies = band(Math.max(...lats) + 2, 1),
+    // On phones the readout names the winds; labels there would cover the arrows.
+    compact = useIsCompact();
+  return (
+    <>
+      {[...trades, ...westerlies].map((w, i) => (
+        <Arrow key={i} from={w.from} to={w.to} color="#e6eef0" width={1.3} />
+      ))}
+      {!compact && (
+        <Tag
+          pos={latLonToXYZ((south ? -1 : 1) * (Math.min(...lats) - 7), (west + east) / 2, 1.82)}
+          text="Trade winds"
+          note="Easterly trade winds blow toward the west (and toward the equator) on the gyre's equator side. Together with the westerlies they set the gyre turning; Earth's rotation and the coasts shape it."
+          occlude={false}
+        />
+      )}
+      {!compact && (
+        <Tag
+          pos={latLonToXYZ((south ? -1 : 1) * (Math.max(...lats) + 8), (west + east) / 2, 1.82)}
+          text="Westerlies"
+          note="In the middle latitudes, westerly winds blow toward the east on the gyre's poleward side."
+          occlude={false}
+        />
+      )}
+    </>
   );
 }
