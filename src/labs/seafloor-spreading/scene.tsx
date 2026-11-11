@@ -256,6 +256,7 @@ export default function SeafloorSpreading() {
         <Tag
           pos={[-0.15, 0.85, -1.25]}
           text={slowRidge ? "Ridge axis · rift valley" : "Ridge axis · axial rise"}
+          priority={2}
           note={
             slowRidge
               ? "At slow spreading rates the ridge crest is a faulted rift valley. Basalt forms at the axis and moves away on each flank. Decompression makes only a small fraction of the mantle melt."
@@ -266,6 +267,7 @@ export default function SeafloorSpreading() {
         <Tag
           pos={[OFFSET / 2 - 0.1, 0.22, TRANSFORM_Z + 0.55]}
           text="Transform fault"
+          priority={1}
           tone="sandstone"
           note="Between the two ridge segments the plates slide past each other; earthquakes occur here. Beyond the segments the same line continues as an inactive fracture zone (dashed), where crust of different ages meets."
           occlude={false}
@@ -279,12 +281,14 @@ export default function SeafloorSpreading() {
         <Tag
           pos={[-2.3, 0.15, D / 2 + 0.05]}
           text={`${((50 + OFFSET * 20) / half).toFixed(1)} Ma`}
+          priority={1}
           note="Age increases with distance from the axis: age = distance / half spreading rate. This ideal experiment has equal rates on both flanks."
           occlude={false}
         />
         <Tag
           pos={[2.3, 0.15, D / 2 + 0.05]}
           text={`${((50 - OFFSET * 20) / half).toFixed(1)} Ma`}
+          priority={1}
           note="A stripe of the same age is found at the same distance from its own ridge segment on the opposite flank. Stripe width depends on both reversal duration and spreading rate."
           occlude={false}
         />

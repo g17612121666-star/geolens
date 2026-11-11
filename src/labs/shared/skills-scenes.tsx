@@ -180,15 +180,17 @@ export function GridReferenceScene() {
             />
             {/* Every line is labeled; the last one is 00 of the next 100 km square. */}
             <Tag
-              pos={[-2 + i * 0.4, 0.03, 2.25]}
+              pos={[-2 + i * 0.4, 0.03, 2.22]}
               text={String((i * 10) % 100).padStart(2, "0")}
               occlude={false}
+              variant="axis"
             />
             {i > 0 && (
               <Tag
-                pos={[-2.3, 0.03, 2 - i * 0.4]}
+                pos={[-2.25, 0.03, 2 - i * 0.4]}
                 text={String((i * 10) % 100).padStart(2, "0")}
                 occlude={false}
+                variant="axis"
               />
             )}
           </group>
@@ -259,7 +261,7 @@ export function GridReferenceScene() {
             <coneGeometry args={[0.12, 0.42, 3]} />
             <meshStandardMaterial color="#d9d4ca" />
           </mesh>
-          <Tag pos={[0, 0.05, -0.42]} text="N" occlude={false} />
+          <Tag pos={[0, 0.05, -0.42]} text="N" occlude={false} priority={1} />
         </group>
         <Line
           points={[
@@ -278,11 +280,12 @@ export function GridReferenceScene() {
           lineWidth={4}
         />
         {/* Two 10 km segments (dark, then gray), so each segment matches one grid square. */}
-        <Tag pos={[0.8, 0.02, 2.75]} text="0" occlude={false} />
-        <Tag pos={[1.6, 0.02, 2.75]} text="20 km" occlude={false} />
+        <Tag pos={[0.8, 0.02, 2.75]} text="0" occlude={false} variant="axis" />
+        <Tag pos={[1.6, 0.02, 2.75]} text="20 km" occlude={false} variant="axis" />
         <Tag
           pos={[x, y + 0.75, z]}
           text={`${String(e).padStart(3, "0")} ${String(n).padStart(3, "0")}`}
+          priority={2}
           note="Six figures identify a 100 m grid square. The marker shows its southwest corner; it is not a surveyed point accurate to one meter."
           occlude={false}
         />

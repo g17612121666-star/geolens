@@ -255,12 +255,14 @@ export default function PressureCentres() {
         <Tag
           pos={[0, 2.1, 0]}
           text={high ? "H · sinking" : "L · rising"}
+          priority={2}
           note="Air converging at the surface under a low rises and flows out aloft; air diverging under a high is replaced by air sinking from above. The vertical arrow is exaggerated."
           occlude={false}
         />
         <Tag
-          pos={[-2.5, 0.1, -2.6]}
+          pos={[-3.2, 0.1, -0.5]}
           text={`${south ? "SH" : "NH"} · ${spin > 0 ? "counterclockwise" : "clockwise"}`}
+          priority={2}
           note="Viewed from above. Switching hemisphere reverses the spin, but a low still converges and a high still diverges near the surface."
           occlude={false}
         />
@@ -268,6 +270,8 @@ export default function PressureCentres() {
           <Tag
             pos={south ? [3, 0.1, -1.1] : [2.6, 0.1, 1.8]}
             text="Fronts · cold blue / warm coral"
+            short="Fronts"
+            priority={1}
             note="Example cold and warm fronts of a developing midlatitude depression, not a hurricane eyewall. The cold front trails toward the equator, so the pattern flips north–south in the Southern Hemisphere. Real fronts do not rotate rigidly like spokes. Open the Fronts lab to see their slopes."
             occlude={false}
           />

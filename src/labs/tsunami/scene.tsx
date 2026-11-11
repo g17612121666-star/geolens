@@ -281,6 +281,7 @@ export default function Tsunami() {
             <Tag
               pos={[X0 + 0.32, 0.05, HALF]}
               text="Seafloor uplift (enlarged)"
+              short="Uplift"
               tone="sandstone"
               note="Sudden slip on the fault pushes the seafloor up by about 1 m in a few minutes. The whole water column above is lifted, making a broad hump on the sea surface. The gold block and arrow show this uplift, greatly enlarged."
               occlude={false}
@@ -317,18 +318,21 @@ export default function Tsunami() {
         <Tag
           pos={[-1.7, 0.45, -0.4]}
           text="Deep ocean · 4000 m"
+          short="Deep ocean"
           note="An idealized offshore disturbance sends out a 20-minute wave packet with a 0.5 m amplitude. In deep water the wave is fast (about 200 m/s) but low. Seamounts and the trench are illustrative; the front face follows the modeled depth profile exactly."
           occlude={false}
         />
         <Tag
           pos={[1.8, 0.45, -0.4]}
           text="Shelf · 100–200 m"
+          short="Shelf"
           note="Wave speed is √(g h), so it falls as the water shallows. Green’s law makes the amplitude grow as depth to the power −1/4, which keeps the wave’s energy flux constant while depth changes slowly."
           occlude={false}
         />
         <Tag
           pos={[3.15, -0.2, HALF]}
           text="Coast · run-up not modeled"
+          short="Coast"
           note="The coastal town shows what is at risk. This model stops at 100 m depth; breaking, run-up and inundation are not calculated."
           occlude={false}
         />
@@ -336,6 +340,7 @@ export default function Tsunami() {
           <Tag
             pos={[crestX, waveY(elevation(crest)) + 0.3, HALF]}
             text={`${crest.speed.toFixed(0)} m/s`}
+            priority={2}
             tone="sandstone"
             note="Speed of the wave crest at this depth: c = √(g h). It slows as the water shallows, so the wave bunches up and grows taller."
             occlude={false}

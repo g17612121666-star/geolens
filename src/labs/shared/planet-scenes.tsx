@@ -95,13 +95,14 @@ export function SolarAltitudeScene() {
           dashSize={0.08}
           gapSize={0.04}
         />
-        <Tag pos={[0, 0, 2.1]} text="North" occlude={false} />
-        <Tag pos={[0, 0, -2.1]} text="South" occlude={false} />
-        <Tag pos={[-2.1, 0, 0]} text="East" occlude={false} />
-        <Tag pos={[2.1, 0, 0]} text="West" occlude={false} />
+        <Tag pos={[0, 0, 2.1]} text="North" occlude={false} priority={1} />
+        <Tag pos={[0, 0, -2.1]} text="South" occlude={false} priority={1} />
+        <Tag pos={[-2.1, 0, 0]} text="East" occlude={false} priority={1} />
+        <Tag pos={[2.1, 0, 0]} text="West" occlude={false} priority={1} />
         <Tag
           pos={[noon[0], noon[1] + (noonAltitude < 12 ? 0.55 : 0.3), noon[2]]}
           text={`Noon ${noonAltitude.toFixed(1)}°`}
+          priority={2}
           occlude={false}
         />
       </ScienceStudio>

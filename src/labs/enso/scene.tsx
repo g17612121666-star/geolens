@@ -83,12 +83,16 @@ export default function Enso() {
         <Tag
           pos={[-2.78, 0.45, 0.85]}
           text="Indonesia · Australia"
+          short="Indonesia"
+          priority={1}
           note="The western Pacific warm pool normally brings heavy rain here. During El Niño the rain shifts east and drought becomes more likely."
           occlude={false}
         />
         <Tag
           pos={[2.85, 0.95, 0.85]}
           text="Peru · Andes"
+          short="Peru"
+          priority={1}
           note="Trade winds push surface water west, so cold, nutrient-rich water upwells off Peru. Weaker trades in El Niño reduce this upwelling and warm the coastal sea."
           occlude={false}
         />
@@ -159,18 +163,21 @@ export default function Enso() {
         <Tag
           pos={[left, 1.95, 0]}
           text="Convection shifts with warm water"
+          short="Convection"
           note="A schematic Walker circulation. In El Niño the main rising air shifts toward the central Pacific and the easterly trade winds weaken. Real events differ in strength and location."
           occlude={false}
         />
         <Tag
           pos={[center, 0.3, 0.3]}
           text="← Trade winds"
+          priority={2}
           note="The lower branch of the schematic Walker loop: easterly surface trade winds blow from east to west and push warm surface water toward the west. They weaken in El Niño and strengthen in La Niña."
           occlude={false}
         />
         <Tag
           pos={[-0.9, west + ((east - west) * 1.6) / 5, 0.85]}
           text="Thermocline"
+          priority={1}
           note="The gold line marks an idealized thermocline, the sharp boundary between warm upper water and colder deep water. Its depth is enlarged ×10,000 unless Physical scale is on."
           occlude={false}
         />

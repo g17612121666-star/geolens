@@ -404,6 +404,7 @@ export default function Coasts() {
         <Tag
           pos={[-2.7, 1.1, 2.4]}
           text="Wave approach"
+          priority={1}
           note="Waves reach the shore at an angle. The arrow is a symbol, not to scale."
           occlude={false}
         />
@@ -413,6 +414,7 @@ export default function Coasts() {
             <Tag
               pos={[-1.7, 0.05, 1.1]}
               text="Longshore drift"
+              priority={2}
               note="Sediment moved along the coast by oblique waves keeps traveling in the same direction where the coast turns inland, and is deposited to build the spit."
               occlude={false}
             />

@@ -338,6 +338,7 @@ function Track({
         <Tag
           pos={[0.1, (continental ? top : SEA) + 1.27 + tagLift, 0]}
           text={continental ? "Plate moves SW" : "Plate moves NW"}
+          priority={2}
           note={
             continental
               ? "The North American Plate moves southwest relative to the Yellowstone heat source, so the active center appears to migrate northeast."
@@ -349,6 +350,8 @@ function Track({
       <Tag
         pos={[-2.2, (continental ? top : SEA) + 1.3 + tagLift, -0.6]}
         text={continental ? "Yellowstone · NE" : "Hawaiʻi · SE"}
+        short={continental ? "Yellowstone" : "Hawaiʻi"}
+        priority={3}
         note={
           continental
             ? "Young end of the Yellowstone volcanic track: a caldera with a lake, geysers and a magma reservoir in the crust. Older volcanic centers extend southwest along the flat basalt Snake River Plain."
@@ -359,6 +362,7 @@ function Track({
       <Tag
         pos={[1.9, (continental ? top : SEA) + 0.85 + tagLift, 0.6]}
         text={continental ? "Older · SW" : "Older · NW"}
+        short="Older"
         note={
           continental
             ? "The southwest end of the recognized Yellowstone track reaches roughly 17 Ma. Older calderas are buried by later basalt; these depressions are symbols, not surveyed caldera outlines."
@@ -387,6 +391,7 @@ function Track({
       <Tag
         pos={[PLUME_X - 0.75, -1.2, D / 2 + 0.05]}
         text="Mantle plume"
+        priority={1}
         tone="magma"
         note="In the plume hypothesis, hot but mostly solid mantle rises slowly. Partial melting near the top feeds magma up through the plate; it is not a hollow pipe or a column of liquid magma. Geometry and colors are schematic."
         occlude={false}

@@ -140,18 +140,24 @@ export default function TropicalCyclone() {
         <Tag
           pos={[0, 0.35 + 17 * km, 0]}
           text={open ? "Eye · sinking air" : "Eye"}
+          short="Eye"
+          priority={2}
           note="The eye has light winds and sinking air that warms as it is compressed, so it is often clear. It is surrounded by the strongest winds and deepest clouds of the eyewall; it is not a funnel touching the sea."
           occlude={false}
         />
         <Tag
           pos={open ? onFace(-1, 1.6, 0.04 + 16.8 * km) : [1.6, 0.04 + 15.5 * km, -0.9]}
           text="Eyewall · tallest clouds"
+          short="Eyewall"
+          priority={2}
           note="Warm, moist air rises fastest here. As its water vapor condenses it releases latent heat, which warms the core of the storm and keeps the air rising. In this model the wind peaks 30 km from the center; that heat is described, not calculated."
           occlude={false}
         />
         <Tag
           pos={[-3.4, 0.04 + 10 * km, -2.3]}
           text="Spiral rainbands"
+          short="Rainbands"
+          priority={1}
           note="Bands of thunderstorms spiral in toward the eyewall, separated by gaps with lighter rain. In the Northern Hemisphere they curve counterclockwise inward; in the Southern Hemisphere, clockwise."
           occlude={false}
         />
@@ -160,6 +166,7 @@ export default function TropicalCyclone() {
             <Tag
               pos={onFace(-1, 4.3, 0.55)}
               text="Inflow · warm, moist air"
+              short="Inflow"
               tone="sandstone"
               note="Near the surface, air spirals in toward low pressure at the center, picking up heat and water vapor from the warm sea as it goes."
               occlude={false}
@@ -167,6 +174,7 @@ export default function TropicalCyclone() {
             <Tag
               pos={onFace(1, 4.4, 0.04 + 13 * km)}
               text="Outflow aloft"
+              short="Outflow"
               tone="ice"
               note="At the top of the storm, the air that rose in the eyewall spreads outward, often as a cirrus canopy. Removing air aloft lets more air flow in near the surface."
               occlude={false}
@@ -174,6 +182,7 @@ export default function TropicalCyclone() {
             <Tag
               pos={onFace(1, 3.1, -0.55 * OCEAN_DEPTH_UNITS)}
               text="Warm sea ≥ 26.5 °C"
+              short="Warm sea"
               tone="magma"
               note="Tropical cyclones usually need surface water of about 26.5 °C or warmer, through a deep enough layer, to keep supplying heat and moisture. The dashed line marks 26.5 °C. Under the core, strong winds mix up cooler water from below, which can weaken a slow-moving storm."
               occlude={false}
