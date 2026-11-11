@@ -82,6 +82,56 @@ function WindArrow({
     </group>
   );
 }
+/** Surface wind belts of the idealized three-cell model, labeled on the side facing the viewer. */
+const WIND_BELTS = [
+  {
+    lat: 15,
+    lon: 25,
+    text: "Trade winds",
+    short: "Trades",
+    tone: "sandstone",
+    note: "Air returning toward the equator in the Hadley cell is turned west by Earth's rotation, giving the steady northeast trade winds (southeast trades south of the equator).",
+  },
+  {
+    lat: 45,
+    lon: 25,
+    text: "Westerlies",
+    short: "Westerlies",
+    tone: "glacier",
+    note: "Surface air in the midlatitudes flows poleward and is turned east by Earth's rotation. These westerlies steer most US weather systems from west to east.",
+  },
+  {
+    lat: 68,
+    lon: 40,
+    text: "Polar easterlies",
+    short: "Easterlies",
+    tone: "sandstone",
+    note: "Cold air spreading away from the polar high is turned west by Earth's rotation. These winds are weaker and less steady than the trades.",
+  },
+] as const;
+
+/** Pressure belts where the model cells meet the surface; the high sits over the Sahara. */
+const PRESSURE_BELTS = [
+  {
+    lat: 30,
+    lon: 0,
+    text: "High · 30°",
+    title: "Subtropical high",
+    short: "H",
+    tone: "glacier",
+    note: "Subtropical high: air sinking where the Hadley and Ferrel cells meet warms and dries as it descends. Many of the world's hot deserts lie near 30°, such as the Sonoran and the Sahara.",
+  },
+  {
+    lat: 60,
+    lon: -35,
+    text: "Low · 60°",
+    title: "Subpolar low",
+    short: "L",
+    tone: "magma",
+    note: "Subpolar low: air rising where cold polar air meets milder midlatitude air brings clouds, storms and frequent rain near 60°.",
+  },
+] as const;
+
 export default function ThreeCell() {
   const { params, t, trueScale } = useLabControls();
   useLabTick(1 / 55);
@@ -162,6 +212,31 @@ export default function ThreeCell() {
                 );
               }),
             )}
+          {three &&
+            WIND_BELTS.map((w) => (
+              <Tag
+                key={w.text}
+                pos={latLonToXYZ(w.lat, w.lon, radius * 1.07)}
+                text={w.text}
+                short={w.short}
+                tone={w.tone}
+                note={w.note}
+                priority={1}
+              />
+            ))}
+          {three &&
+            PRESSURE_BELTS.map((p) => (
+              <Tag
+                key={p.text}
+                pos={latLonToXYZ(p.lat, p.lon, radius * 1.03)}
+                text={p.text}
+                title={p.title}
+                short={p.short}
+                tone={p.tone}
+                note={p.note}
+                priority={1}
+              />
+            ))}
           {bands.map((b, i) => {
             const inner = i === 0 ? itcz : b.a,
               mid = (inner + b.b) / 2;
@@ -170,6 +245,7 @@ export default function ThreeCell() {
                 key={b.name}
                 pos={latLonToXYZ(mid, -80, radius * 1.004 + height * 0.5)}
                 text={b.name}
+                priority={2}
                 note={
                   b.name === "Ferrel"
                     ? "The Ferrel cell is an average, ‘indirect’ circulation kept going mainly by heat and momentum carried by midlatitude weather systems. Real air follows those systems, not a neat permanent loop."
@@ -183,6 +259,7 @@ export default function ThreeCell() {
         <Tag
           pos={[2.1, Math.sin((itcz * Math.PI) / 180) * radius + 0.1, 0]}
           text={`ITCZ ${Math.abs(itcz).toFixed(1)}°${itcz < 0 ? "S" : "N"}`}
+          priority={2}
           note="The model moves the ITCZ 10° either side of the equator each year. The real ITCZ varies with longitude, land, ocean and season; it does not simply follow the overhead Sun."
           occlude={false}
         />
@@ -192,7 +269,9 @@ export default function ThreeCell() {
           ? "Hadley and Polar cells are driven by rising warm air and sinking cold air; the Ferrel cell is sustained by heat and momentum transferred by weather systems."
           : "Without rotation, this model shows one large circulation cell in each hemisphere, with rising tropical air and sinking polar air."}{" "}
         <br />
-        {three ? "Gold: tropical / polar surface easterlies · blue: midlatitude westerlies. " : ""}
+        {three
+          ? "Gold: trade winds and polar easterlies · blue: midlatitude westerlies. Sinking air near 30° builds the subtropical highs, where many deserts lie, from the Sonoran to the Sahara; rising air at the ITCZ and near 60° brings frequent rain. "
+          : ""}
         {
           "The enlarged cloud belt marks the model ITCZ; it is not observed cloud. It is hidden at Physical scale."
         }
