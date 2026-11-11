@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import * as THREE from "three";
 import { cloudNoiseGLSL } from "../shared/cloud-material";
-import { useKeyLight } from "../shared/key-light";
 
 const VERTEX = /* glsl */ `
 varying vec3 vWorld;
@@ -10,7 +9,7 @@ void main(){vec4 w=modelMatrix*vec4(position,1.);vWorld=w.xyz;gl_Position=projec
 const FRAGMENT = /* glsl */ `
 precision highp float;
 uniform vec3 uMin,uMax,uSun;
-uniform float uCold,uWarm,uF,uCeil,uOcc,uTime;
+uniform float uCold,uWarm,uF,uCeil,uOcc,uTime,uPart;
 varying vec3 vWorld;
 ${cloudNoiseGLSL}
 // Frontal surfaces in km: heights of the cold and cool air below the warm air.
@@ -31,11 +30,12 @@ float clouds(vec3 w){
   float n=cloudNoise(q*1.6+warp*.9+vec3(uTime*.04,0.,0.)),n2=cloudNoise(q*2.2+4.);
   // Clouds end in rounded edges before the front and back faces of the section.
   float ends=1.-smoothstep(52.,86.,abs(zk));
+  // Each box draws only its own cloud, so where the boxes overlap nothing is drawn twice.
   // Cold front: separate cumulonimbus cells just ahead of the surface front, where warm air
   // is forced up steeply. They tower toward the top of the section and spread forward as
   // anvils under it.
   float cb=0.;
-  if(uOcc<.5){
+  if(uOcc<.5&&uPart<.5){
     float dx=xk-(uCold+16.);
     cb=max(cell(dx,zk+46.,hk,17.,uCeil-.25,n),
        max(cell(dx-6.,zk-2.,hk,20.,uCeil,n),cell(dx+4.,zk-44.,hk,15.,uCeil-1.,n)));
@@ -43,6 +43,7 @@ float clouds(vec3 w){
     float anvil=(1.-length(vec2(ax,(hk-(uCeil-.7))/.5)))*1.35+(n2-.5)*1.1;
     cb=max(cb,anvil)*ends;
   }
+  if(uPart<.5)return cb;
   // Warm front: warm air glides up over the cool air. Thick, rain-bearing nimbostratus sits
   // on the frontal surface near the surface front; ahead, the cloud base rises above the
   // surface through altostratus to thin, streaky cirrus.
@@ -60,7 +61,7 @@ float clouds(vec3 w){
   float streak=cloudNoise(vec3(w.x*1.2+uTime*.03,hk*2.4,w.z*9.)+5.);
   float tex=mix(sheet,streak,smoothstep(110.,240.,ahead));
   float deck=layer*span*ends*(.62+(tex-.5)*2.)*mix(1.,.62,smoothstep(40.,140.,ahead))*mix(1.,.7,smoothstep(150.,240.,ahead));
-  return max(cb,deck);
+  return deck;
 }
 void main(){
   vec3 ro=cameraPosition,rd=normalize(vWorld-cameraPosition);
@@ -75,11 +76,15 @@ void main(){
     float d=clouds(p);
     if(d>.02){
       float dens=smoothstep(0.,.5,d);
-      float shade=exp(-max(clouds(p+uSun*.07),0.)*1.6);
-      float hk=p.y*100./uF;
+      // Two samples toward a high sun: cloud above a point shades it, so bases turn gray.
+      float shade=exp(-(max(clouds(p+uSun*.05),0.)+max(clouds(p+uSun*.14),0.))*2.);
+      float hk=p.y*100./uF,ahead=p.x*100.-uWarm;
       // Deep storm clouds are dark underneath; thin high cloud is bright.
-      vec3 dark=mix(vec3(.34,.38,.45),vec3(.62,.67,.74),smoothstep(1.,5.,hk));
-      vec3 c=mix(dark,vec3(.98,.98,1.),shade);
+      vec3 dark=mix(vec3(.3,.34,.4),vec3(.58,.63,.7),smoothstep(1.,5.,hk));
+      // Rain-bearing nimbostratus near the warm front is gray even where lit; the thin
+      // altostratus and cirrus farther ahead are bright.
+      vec3 lit=uPart<.5?vec3(.98,.98,1.):mix(vec3(.78,.8,.85),vec3(.98,.98,1.),smoothstep(90.,220.,ahead));
+      vec3 c=mix(dark,lit,shade);
       float alpha=1.-exp(-dens*stepSize*48.);
       acc+=T*alpha*c;T*=1.-alpha;
       if(T<.02)break;
@@ -90,6 +95,10 @@ void main(){
   #include <tonemapping_fragment>
   #include <colorspace_fragment>
 }`;
+
+/** Clouds are lit by a high sun from the upper left, not the camera-following key light, so
+ * their bases darken and towers keep their shape from any viewpoint. */
+const SUN = new THREE.Vector3(-0.35, 1, 0.2).normalize();
 
 type Props = {
   /** Surface positions of the fronts, km along the section. */
@@ -119,7 +128,7 @@ export function FrontClouds(props: Props) {
     <>
       {boxes.map(([x0, x1], i) =>
         x1 > x0 && (i === 1 || !props.occluded) ? (
-          <CloudBox key={i} x0={x0} x1={x1} y1={top} steps={i ? 72 : 52} {...props} />
+          <CloudBox key={i} part={i} x0={x0} x1={x1} y1={top} steps={i ? 72 : 52} {...props} />
         ) : null,
       )}
     </>
@@ -137,21 +146,22 @@ function CloudBox({
   factor,
   ceiling,
   time,
-}: Props & { x0: number; x1: number; y1: number; steps: number }) {
-  const sun = useKeyLight();
+  part,
+}: Props & { x0: number; x1: number; y1: number; steps: number; part: number }) {
   const uniforms = useMemo(
     () => ({
       uMin: { value: new THREE.Vector3() },
       uMax: { value: new THREE.Vector3() },
-      uSun: { value: sun },
+      uSun: { value: SUN },
       uCold: { value: 0 },
       uWarm: { value: 0 },
       uF: { value: 20 },
       uCeil: { value: 6.5 },
       uOcc: { value: 0 },
       uTime: { value: 0 },
+      uPart: { value: 0 },
     }),
-    [sun],
+    [],
   );
   const y0 = 0.02;
   uniforms.uMin.value.set(x0, y0, -0.9);
@@ -162,6 +172,7 @@ function CloudBox({
   uniforms.uCeil.value = ceiling;
   uniforms.uOcc.value = occluded ? 1 : 0;
   uniforms.uTime.value = time;
+  uniforms.uPart.value = part;
   return (
     <mesh
       position={[(x0 + x1) / 2, (y0 + y1) / 2, 0]}
