@@ -232,8 +232,20 @@ export default function WilsonCycle() {
             occlude={false}
           />
         )}
+        {stage >= 1 && stage <= 4 && (
+          // In the dark band beneath the ocean floor, right of the ridge (the left side holds the
+          // continental crust label).
+          <Tag
+            pos={[gap * 0.6, (stage < 3 ? -0.17 : -0.18) * f, D / 2 + 0.05]}
+            text="Oceanic crust · 7 km"
+            short="Oceanic crust"
+            note="Basalt and gabbro about 7 km thick (dark gray): thinner and denser than the 35 km continental crust. It forms at ridges and is recycled at trenches, so most ocean floor is less than 200 million years old."
+            occlude={false}
+          />
+        )}
         {(stage === 1 || stage === 2) && (
           <Tag
+            priority={1}
             pos={[0.3, 0.2, D / 2]}
             text="Mid-ocean ridge"
             tone="magma"
