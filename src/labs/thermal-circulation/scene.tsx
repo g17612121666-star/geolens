@@ -1,11 +1,12 @@
 import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { coastalContrast } from "@/lib/circulation-science";
 import { useLabTick } from "@/labs/tick";
-import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
+import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
+import { AirSection, FlowStreaks, WindFlag } from "./air";
+import type { Cell } from "./cell";
 import { Tag } from "../shared/kit";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { FlowWaterMaterial } from "../shared/flow-water";
@@ -39,10 +40,10 @@ function City({ ground }: { ground: (x: number, z: number) => number }) {
     const out: { x: number; z: number; w: number; d: number; h: number; c: string }[] = [];
     for (let i = 0; i < 8; i++)
       for (let j = 0; j < 7; j++) {
-        const x = 0.55 + i * 0.27,
+        const x = -0.95 + i * 0.27,
           z = -1.05 + j * 0.32,
           k = Math.abs(Math.sin(i * 12.9 + j * 78.2) * 43758.5) % 1,
-          center = Math.exp(-(((x - 1.5) / 0.8) ** 2) - (z / 0.9) ** 2);
+          center = Math.exp(-((x / 0.8) ** 2) - (z / 0.9) ** 2);
         out.push({
           x,
           z,
@@ -78,41 +79,6 @@ function City({ ground }: { ground: (x: number, z: number) => number }) {
   );
 }
 
-/** Tracer parcels following the circulation loop, colored warm on the rising side. */
-function Tracers({
-  path,
-  direction,
-}: {
-  path: (u: number, z?: number) => [number, number, number];
-  direction: number;
-}) {
-  const ref = useRef<THREE.InstancedMesh>(null),
-    N = 48;
-  useFrame(() => {
-    if (!ref.current) return;
-    const t = useLabControls.getState().t,
-      m = new THREE.Object3D(),
-      c = new THREE.Color();
-    for (let i = 0; i < N; i++) {
-      const lane = (i % 3) - 1,
-        phase = (t * 4 * direction + i / N) * Math.PI * 2;
-      m.position.set(...path(phase, lane * 0.7));
-      m.scale.setScalar(0.035);
-      m.updateMatrix();
-      ref.current.setMatrixAt(i, m.matrix);
-      ref.current.setColorAt(i, c.set(Math.cos(phase) * direction > 0 ? "#f0a46e" : "#7cc7e0"));
-    }
-    ref.current.instanceMatrix.needsUpdate = true;
-    if (ref.current.instanceColor) ref.current.instanceColor.needsUpdate = true;
-  });
-  return (
-    <instancedMesh ref={ref} args={[undefined, undefined, N]} frustumCulled={false}>
-      <sphereGeometry args={[1, 12, 8]} />
-      <meshStandardMaterial emissive="#ffffff" emissiveIntensity={0.15} />
-    </instancedMesh>
-  );
-}
-
 export default function ThermalCirculation() {
   const { params, t, trueScale } = useLabControls();
   useLabTick(1 / 50);
@@ -139,7 +105,7 @@ export default function ThermalCirculation() {
         z = p.getZ(i);
       if (y < -0.005) cc.set("#6d7a74").lerp(tone.set("#c9b58c"), ss(y, -0.14, -0.01));
       else if (coast && y < 0.035 && x < 0.4) cc.set("#e0cfa4");
-      else if (urban && x > 0.35) cc.set("#6c7072").lerp(tone.set("#6f8a4c"), 0.25);
+      else if (urban && Math.abs(x) < 1.15) cc.set("#6c7072").lerp(tone.set("#6f8a4c"), 0.25);
       else cc.copy(farmland(x, z, 0.38));
       if (y > 0.12) cc.lerp(tone.set("#55703f"), 0.6);
       col.set([cc.r, cc.g, cc.b], i * 3);
@@ -148,27 +114,27 @@ export default function ThermalCirculation() {
     return g;
   }, [height, coast, urban]);
   useEffect(() => () => geometry.dispose(), [geometry]);
-  const path = (u: number, z = 0): [number, number, number] => [
-    2.2 * Math.cos(u),
-    0.16 + (1 + Math.sin(u)) * 1.2 * f,
-    z,
-  ];
-  const loop = useMemo(() => {
-    const curve = new THREE.CatmullRomCurve3(
-      Array.from({ length: 64 }, (_, i) => new THREE.Vector3(...path((i / 64) * Math.PI * 2))),
-      true,
-    );
-    return new THREE.TubeGeometry(curve, 160, 0.05, 12, true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- path is redefined each render and reads only f, which is listed
-  }, [f]);
-  useEffect(() => () => loop.dispose(), [loop]);
+  // Circulation cells sized to the block: one for a coast, two for a city.
+  const top = 1.25 * f,
+    bottom = 0.14 * f + 0.04,
+    cells: Cell[] = urban
+      ? [
+          { rise: 0, sink: -2.25, bottom, top },
+          { rise: 0, sink: 2.25, bottom, top },
+        ]
+      : direction > 0
+        ? [{ rise: 1.25, sink: -1.95, bottom, top }]
+        : direction < 0
+          ? // A land breeze is shallower and weaker than a sea breeze.
+            [{ rise: -1.4, sink: 1.6, bottom, top: top * 0.7 }]
+          : [];
   const trees = useMemo(() => {
     const out: [number, number, number][] = [];
     for (let i = 0; out.length < 60 && i < 900; i++) {
       const x = -2.9 + 5.8 * ((i * 0.618034) % 1),
         z = -1.3 + 2.6 * ((i * 0.7548777) % 1),
         y = height(x, z);
-      if (y > 0.04 && !(urban && x > 0.35 && x < 2.6) && fbm(x * 2.5, z * 2.5) > 0.55)
+      if (y > 0.04 && !(urban && Math.abs(x) < 1.3) && fbm(x * 2.5, z * 2.5) > 0.55)
         out.push([x, y - 0.004, z]);
     }
     return out;
@@ -185,8 +151,7 @@ export default function ThermalCirculation() {
       0.4 + 2.6 * Math.sin(Math.PI * day),
       -1.6,
     ];
-  const warmX = direction > 0 ? 1.6 : -1.6,
-    cumulus = Math.abs(c.contrast) > 1.2;
+  const cumulus = Math.abs(c.contrast) > 1.2;
   return (
     <>
       <ScienceStudio
@@ -218,39 +183,33 @@ export default function ThermalCirculation() {
             <StarMesh radius={0.16} />
           </group>
         )}
-        {direction !== 0 && (
-          <>
-            <mesh geometry={loop}>
-              <meshPhysicalMaterial
-                color="#dce9ee"
-                transparent
-                opacity={0.08 + 0.14 * strength}
-                roughness={0.3}
-                depthWrite={false}
-              />
-            </mesh>
-            {[0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2].map((a) => (
-              <Arrow
-                key={a}
-                from={path(a)}
-                to={path(a + direction * 0.6)}
-                color={Math.cos(a) * direction > 0 ? "#e3aa82" : "#83c6d9"}
-                width={0.8 + 1.6 * strength}
-              />
-            ))}
-            <Tracers path={path} direction={direction} />
-            {cumulus &&
-              [0, 1, 2].map((i) => (
-                <CloudVolume
-                  key={i}
-                  position={[warmX + (i - 1) * 0.45, 2.45 * f + 0.15 + 0.08 * i, (i - 1) * 0.5]}
-                  scale={[0.42, 0.28 + 0.06 * i, 0.36]}
-                  seed={i * 7 + 2}
-                  opacity={0.75}
-                />
-              ))}
-          </>
+        <AirSection
+          contrast={c.contrast}
+          strength={direction === 0 ? 0 : strength}
+          urban={urban}
+          city={0}
+          factor={f}
+          width={W}
+          depth={D}
+          top={1.7 * f}
+        />
+        {cells.length > 0 && <FlowStreaks cells={cells} strength={strength} />}
+        {coast && (
+          <WindFlag position={[0.05, height(0.05, 1.05), 1.05]} wind={direction * strength} />
         )}
+        {urban && <WindFlag position={[-1.9, height(-1.9, 1.05), 1.05]} wind={strength} />}
+        {cumulus &&
+          cells.map((cell, ci) =>
+            [0, 1].map((i) => (
+              <CloudVolume
+                key={`${ci}-${i}`}
+                position={[cell.rise + (i - 0.5) * 0.4, cell.top + 0.2 * f + 0.06, (i - 0.5) * 0.9]}
+                scale={[0.36, 0.24 + 0.05 * i, 0.32]}
+                seed={ci * 5 + i * 7 + 2}
+                opacity={0.75}
+              />
+            )),
+          )}
         <Line
           points={[
             [-W / 2, 0.003, D / 2 + 0.01],
@@ -263,19 +222,19 @@ export default function ThermalCirculation() {
           gapSize={0.05}
         />
         <Tag
-          pos={[-1.7, 0.12, 1.6]}
+          pos={[urban ? -2.1 : -1.7, 0.12, 1.6]}
           text={`${urban ? "Rural" : coast ? "Sea" : "Left"} ${c.left.toFixed(1)} °C`}
           note="These temperatures follow a set daily cycle; they are not calculated from an energy budget. Water warms and cools more slowly than land."
           occlude={false}
         />
         <Tag
-          pos={[1.7, 0.2, 1.6]}
-          text={`${urban ? "Urban" : coast ? "Land" : "Right"} ${c.right.toFixed(1)} °C`}
+          pos={[urban ? 0 : 1.7, urban ? 0.75 : 0.2, 1.6]}
+          text={`${urban ? "City" : coast ? "Land" : "Right"} ${c.right.toFixed(1)} °C`}
           note="Warmer air expands and rises; the pressure differences this creates drive the loop. Cumulus clouds often build where air rises over the warmer side. Real breezes also depend on background wind, moisture and terrain."
           occlude={false}
         />
         <Tag
-          pos={[0, 2.4 * f + 0.75, 0]}
+          pos={[0, 1.7 * f + 0.25, -D / 2]}
           text={
             direction === 0
               ? "Equal heating · no loop"
@@ -285,7 +244,7 @@ export default function ThermalCirculation() {
                   ? "Sea breeze · surface flow → onshore"
                   : "Land breeze · surface flow ← offshore"
           }
-          note="The surface branch flows toward the warmer side, ascent occurs there, and flow returns aloft. Loop height and speed are illustrative."
+          note="Heated air expands, so above the warm side the pressure surfaces (white lines at the back) bulge upward: aloft the pressure is higher over the warm side, near the ground lower. Air flows from higher to lower pressure, so it moves toward the warm side along the ground, rises there, returns aloft and sinks over the cool side. Loop height and speed are illustrative."
           occlude={false}
         />
       </ScienceStudio>
