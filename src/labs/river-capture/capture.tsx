@@ -190,6 +190,30 @@ export default function RiverCapture() {
             occlude={false}
           />
           <Tag
+            pos={[2.7, 1.32, donorZ(2.7)]}
+            text={stage === 2 ? "East outlet · misfit stream" : "East outlet"}
+            short="Outlet"
+            tone="glacier"
+            note={
+              stage === 2
+                ? "Only a small misfit stream now leaves the scene here, flowing east. The water from the captured headwaters leaves by the captor's outlet instead."
+                : "The neighboring river leaves the scene here, flowing east. Everything upstream of this point drains through it."
+            }
+            occlude={false}
+          />
+          <Tag
+            pos={[captorX(1.8) + 0.55, captor(1.8) + 0.05, 1.8]}
+            text={stage === 2 ? "South outlet · both rivers" : "South outlet"}
+            short="Outlet"
+            tone="glacier"
+            note={
+              stage === 2
+                ? "After capture, the captor stream leaves the scene here, flowing south, with the water of both catchments."
+                : "The captor stream leaves the scene here, flowing south. Its catchment is separate from the neighboring river's until the divide is breached."
+            }
+            occlude={false}
+          />
+          <Tag
             pos={[-0.45, 0.6, 1.5]}
             text="Captor stream"
             priority={1}
