@@ -8,56 +8,84 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { shellSection } from "../shared/science-geometry";
 import { Tag } from "../shared/kit";
+/** `color` marks the key, leader lines and profile; `fill` is the cut face, darkening with
+ * height as the sky does when the air thins. */
 const layers = [
   {
     name: "Troposphere",
     lo: 0,
     hi: 12,
-    color: "#5fb2e6",
+    color: "#6cc4f2",
+    fill: "#8cc8ec",
     note: "Tropopause drawn at 12 km; really about 8 km at the poles and 16–18 km in the tropics. Most weather happens here.",
   },
   {
     name: "Stratosphere",
     lo: 12,
     hi: 50,
-    color: "#7d8ee0",
+    color: "#93a4f4",
+    fill: "#4f70d4",
     note: "Ozone absorbs ultraviolet radiation; temperature generally rises with height.",
   },
   {
     name: "Mesosphere",
     lo: 50,
     hi: 85,
-    color: "#b088d8",
+    color: "#c69cf0",
+    fill: "#7350c4",
     note: "Temperature generally falls with height; many meteors become luminous here.",
   },
   {
     name: "Thermosphere",
     lo: 85,
     hi: 500,
-    color: "#e3a06c",
+    color: "#eda874",
+    fill: "#3c3d96",
     note: "Shown only to 500 km; its top varies with solar activity and the air thins out beyond. Temperatures are very high, but the gas is so thin it would not feel hot.",
   },
 ];
+/** Opening camera, and the globe's offset in the scene. */
+const LAYER_CAMERA: [number, number, number] = [0.5, 1.1, 5.5];
+const GLOBE_X = -0.25;
+/** Direction of the opening camera around the globe's axis, as an angle from +x toward +z. */
+const VIEW_AZIMUTH = Math.atan2(LAYER_CAMERA[2], LAYER_CAMERA[0] - GLOBE_X);
 const CUT_VERTEX = `varying vec3 vLocal; void main(){vLocal=position; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
-/** Cut face: density falls off with height (about 8 km scale height), with the ozone layer,
- * meteor trails and polar aurora drawn where they occur. Colors are illustrative. */
-const CUT_FRAGMENT = `uniform float factor; uniform vec3 base; uniform float light; varying vec3 vLocal;
+/** Cut face: each layer has its own color, deeper where the air is denser, with a bright line
+ * at its lower boundary (tropopause, stratopause, mesopause). The ozone layer, meteor trails and
+ * polar aurora are drawn where they occur, and the thermosphere fades out with height because it
+ * has no sharp top. Colors are illustrative. */
+const CUT_FRAGMENT = `uniform float factor,lo,hi,light; uniform vec3 base; varying vec3 vLocal;
 float ah(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 void main(){
   float r=length(vLocal), km=(r-1.)*6371./factor, lat=asin(clamp(vLocal.y/r,-1.,1.));
-  float density=exp(-km/8.5);
-  vec3 c=base;
-  float a=.16+.5*density;
-  float ozone=exp(-pow((km-25.)/7.,2.));
-  c=mix(c,vec3(1.,.62,.32),ozone*.65); a+=ozone*.25;
-  float meteor=step(.985,ah(floor(vec2(atan(vLocal.x,vLocal.z)*220.,km*.6))))*exp(-pow((km-90.)/9.,2.));
+  float depth=clamp((km-lo)/(hi-lo),0.,1.);
+  vec3 c=base*mix(1.08,.82,depth);
+  float a=mix(.62,.42,depth);
+  float ozone=exp(-pow((km-25.)/6.,2.))*step(12.,km);
+  c=mix(c,vec3(.98,.78,.5),ozone*.55); a+=ozone*.15;
+  vec2 mg=vec2(lat*60.,km*.12),mc=floor(mg),mf=fract(mg);
+  // Short streaks with a bright head, scattered through the upper mesosphere.
+  float meteor=step(.94,ah(mc))*(1.-smoothstep(.04,.13,abs(mf.x-mf.y)))*mf.x*exp(-pow((km-80.)/8.,2.));
   c=mix(c,vec3(1.,.95,.75),meteor); a+=meteor*.6;
   float polar=smoothstep(1.05,1.2,abs(lat))*(1.-smoothstep(1.3,1.45,abs(lat)));
-  float curtain=.6+.4*sin(atan(vLocal.x,vLocal.z)*90.+km*.05);
+  // Auroral rays run along the magnetic field, close to vertical at high latitudes.
+  float curtain=.55+.45*sin(lat*140.+km*.02);
   float green=exp(-pow((km-140.)/45.,2.)),red=exp(-pow((km-300.)/70.,2.));
   vec3 aur=vec3(.2,1.,.45)*green+vec3(1.,.25,.3)*red*.7;
   c=mix(c,aur,polar*curtain*(green+red*.7)*.85); a+=polar*curtain*(green+red*.5)*.5;
-  gl_FragColor=vec4(c,clamp(a,0.,.85));
+  if(hi>400.)a*=1.-.85*smoothstep(110.,500.,km);
+  float edge=lo>0.?1.-smoothstep(0.,1.6*fwidth(km),abs(km-lo)):0.;
+  c=mix(c,light>.5?vec3(.1,.13,.22):vec3(.93,.96,1.),edge*.85); a=max(a,edge*.9);
+  gl_FragColor=vec4(c,clamp(a,0.,.9));
+  #include <colorspace_fragment>
+}`;
+/** Outer surface of a layer: a faint limb glow, strongest where the line of sight grazes the
+ * shell, so the globe inside stays clear. */
+const SHELL_VERTEX = `varying vec3 vNormal; varying vec3 vWorld; void main(){vNormal=normalize(mat3(modelMatrix)*position); vec4 w=modelMatrix*vec4(position,1.); vWorld=w.xyz; gl_Position=projectionMatrix*viewMatrix*w;}`;
+const SHELL_FRAGMENT = `uniform vec3 color; uniform float strength; varying vec3 vNormal; varying vec3 vWorld;
+void main(){
+  float facing=abs(dot(normalize(vNormal),normalize(cameraPosition-vWorld)));
+  gl_FragColor=vec4(color,strength*(.05+.95*pow(1.-facing,2.5)));
   #include <colorspace_fragment>
 }`;
 
@@ -77,47 +105,61 @@ function GasLayer({
     inner = 1 + (l.lo / 6371) * factor,
     outer = 1 + (l.hi / 6371) * factor;
   const geo = useMemo(() => {
-    const g = shellSection(inner + 1e-5, outer, Math.PI * 0.62, 96);
+    const g = shellSection(inner + 1e-5, outer, Math.PI, 96);
     g.groups[0].count /= 2;
     return g;
   }, [inner, outer]);
   useEffect(() => () => geo.dispose(), [geo]);
   const labels = useLabControls((s) => s.labels);
-  // Leader starts mid-layer on the cut face that faces the camera (the cut-away wedge is
-  // centered on +x, so a point at z = 0 would sit in empty space).
+  // Leader starts mid-layer on the right half of the cut face.
   const mid = (inner + outer) / 2,
     theta = 0.4 + i * 0.65,
-    phi = Math.PI * 0.31,
+    phi = VIEW_AZIMUTH - Math.PI / 2,
     anchor: [number, number, number] = [
       mid * Math.sin(theta) * Math.cos(phi),
       mid * Math.cos(theta),
       mid * Math.sin(theta) * Math.sin(phi),
     ];
-  const color =
+  // A steeper lapse rate makes a colder upper troposphere, shown as a deeper blue.
+  const fill = (
     i === 0
-      ? new THREE.Color("#b1d8e6").lerp(new THREE.Color("#658ebd"), (lapse - 4) / 6)
-      : l.color;
+      ? new THREE.Color("#a9dcf2").lerp(new THREE.Color("#5f93cf"), (lapse - 4) / 6)
+      : new THREE.Color(l.fill)
+  ).getHex();
+  const shellUniforms = useMemo(
+    () => ({
+      color: { value: new THREE.Color(l.color).multiplyScalar(light ? 0.55 : 1) },
+      strength: { value: i === 3 ? 0.22 : 0.4 },
+    }),
+    [l.color, light, i],
+  );
+  const cutUniforms = useMemo(
+    () => ({
+      factor: { value: factor },
+      lo: { value: l.lo },
+      hi: { value: l.hi },
+      base: { value: new THREE.Color(fill).multiplyScalar(light ? 0.8 : 1) },
+      light: { value: light ? 1 : 0 },
+    }),
+    [factor, l.lo, l.hi, fill, light],
+  );
   return (
     <group position={[0, i * explode * 0.3, 0]}>
-      <mesh geometry={geo}>
-        <meshBasicMaterial
+      {/* The near half is cut away: the cut faces the opening camera, so the layers read as
+          bands of true relative thickness around the globe. */}
+      <mesh geometry={geo} rotation={[0, -VIEW_AZIMUTH, 0]}>
+        <shaderMaterial
           attach="material-0"
-          color={light ? new THREE.Color(color).multiplyScalar(0.6) : color}
+          uniforms={shellUniforms}
+          vertexShader={SHELL_VERTEX}
+          fragmentShader={SHELL_FRAGMENT}
           side={THREE.FrontSide}
           transparent
-          opacity={i === 3 ? 0.14 : 0.23}
           depthWrite={false}
         />
         <shaderMaterial
           attach="material-1"
-          uniforms={useMemo(
-            () => ({
-              factor: { value: factor },
-              base: { value: new THREE.Color(color).multiplyScalar(light ? 0.75 : 1) },
-              light: { value: light ? 1 : 0 },
-            }),
-            [factor, color, light],
-          )}
+          uniforms={cutUniforms}
           vertexShader={CUT_VERTEX}
           fragmentShader={CUT_FRAGMENT}
           side={THREE.DoubleSide}
@@ -170,10 +212,10 @@ export default function AtmosphereLayers() {
             ? "Reference temperature profile · axes use different labeled units"
             : "Earth and altitude share a scale · layer boundaries are approximate"
         }
-        camera={profile ? [0, 0, 5] : [0.5, 1.1, 5.5]}
+        camera={profile ? [0, 0, 5] : LAYER_CAMERA}
       >
         {!profile && (
-          <group position={[-0.25, 0, 0]}>
+          <group position={[GLOBE_X, 0, 0]}>
             <CloudLayer radius={1 + (3 / 6371) * factor} />
             <mesh>
               <sphereGeometry args={[1 + (10 / 6371) * factor, 128, 96]} />
@@ -313,15 +355,33 @@ export default function AtmosphereLayers() {
   );
 }
 
-/** Northern auroral oval: a curtain about 23° from the pole, green near 110–200 km, red above. */
+const AURORA_VERTEX = `varying vec2 vUv; void main(){vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
+/** Curtain of rays: a sharp lower edge near 100 km, green below and red above, fading upward.
+ * Ray brightness varies smoothly along the oval. */
+const AURORA_FRAGMENT = `uniform float light; varying vec2 vUv;
+float h(float x){return fract(sin(x*127.1)*43758.5453);}
+void main(){
+  float u=vUv.x*110.,i=floor(u),f=fract(u);
+  float ray=mix(h(i),h(i+1.),smoothstep(0.,1.,f));
+  ray=.3+.7*ray*ray;
+  float v=vUv.y;
+  float body=smoothstep(0.,.07,v)*(1.-smoothstep(.4,1.,v));
+  vec3 c=mix(vec3(.42,1.,.36),vec3(1.,.32,.42),smoothstep(.3,.85,v));
+  float a=body*ray;
+  gl_FragColor=light>.5?vec4(c*.62,a*.85):vec4(c,a*.95);
+  #include <colorspace_fragment>
+}`;
+
+/** Northern auroral oval: a curtain about 23° from the pole, green near 100–200 km, red above. */
 function AuroraOval({ factor }: { factor: number }) {
+  const light = usePreferences((s) => s.resolvedTheme === "light");
   const lo = 1 + (100 / 6371) * factor,
     hi = 1 + (300 / 6371) * factor,
     colat = (23 * Math.PI) / 180;
   const geometry = useMemo(() => {
     const n = 160,
       pos: number[] = [],
-      col: number[] = [],
+      uv: number[] = [],
       idx: number[] = [];
     for (let i = 0; i <= n; i++) {
       const a = (i / n) * Math.PI * 2,
@@ -329,27 +389,29 @@ function AuroraOval({ factor }: { factor: number }) {
         c = colat + wob;
       for (const [k, r] of [lo, hi].entries()) {
         pos.push(r * Math.sin(c) * Math.cos(a), r * Math.cos(c), r * Math.sin(c) * Math.sin(a));
-        if (k === 0) col.push(0.25, 1, 0.5);
-        else col.push(0.9, 0.25, 0.35);
+        uv.push(i / n, k);
       }
       if (i < n) idx.push(i * 2, i * 2 + 1, i * 2 + 2, i * 2 + 1, i * 2 + 3, i * 2 + 2);
     }
     const g = new THREE.BufferGeometry();
     g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-    g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
+    g.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2));
     g.setIndex(idx);
     return g;
   }, [lo, hi, colat]);
   useEffect(() => () => geometry.dispose(), [geometry]);
+  const uniforms = useMemo(() => ({ light: { value: light ? 1 : 0 } }), [light]);
   return (
     <group>
       <mesh geometry={geometry}>
-        <meshBasicMaterial
-          vertexColors
+        <shaderMaterial
+          uniforms={uniforms}
+          vertexShader={AURORA_VERTEX}
+          fragmentShader={AURORA_FRAGMENT}
           transparent
-          opacity={0.7}
           side={THREE.DoubleSide}
           depthWrite={false}
+          blending={light ? THREE.NormalBlending : THREE.AdditiveBlending}
         />
       </mesh>
       <Tag
@@ -365,7 +427,8 @@ function AuroraOval({ factor }: { factor: number }) {
 /** The International Space Station orbits about 410 km up, inside the thermosphere. */
 function Satellite({ factor }: { factor: number }) {
   const r = 1 + (410 / 6371) * factor,
-    direction = new THREE.Vector3(Math.sin(1.05), Math.cos(1.05) * 0.2, 0.9).normalize();
+    // Lower left, in front of the cut, clear of the layer key on the right.
+    direction = new THREE.Vector3(-0.78, -0.42, 0.62).normalize();
   return (
     <group position={direction.multiplyScalar(r).toArray()}>
       <mesh>
