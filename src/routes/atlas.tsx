@@ -124,7 +124,9 @@ function AtlasPage() {
         (/INPUT|SELECT|TEXTAREA|BUTTON/.test(e.target.tagName) || e.target.isContentEditable)
       )
         return;
-      if (e.key.toLowerCase() === "p") setProjector((v) => !v);
+      // Ctrl/Cmd+P is the browser's print shortcut, not projector mode.
+      if (e.key.toLowerCase() === "p" && !e.ctrlKey && !e.metaKey && !e.altKey)
+        setProjector((v) => !v);
       if (e.key === "Escape") setProjector(false);
     };
     window.addEventListener("keydown", key);

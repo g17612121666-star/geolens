@@ -90,7 +90,9 @@ function EarthMotion() {
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLElement && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
-      if (e.key.toLowerCase() === "p") setProjector((v) => !v);
+      // Ctrl/Cmd+P is the browser's print shortcut, not projector mode.
+      if (e.key.toLowerCase() === "p" && !e.ctrlKey && !e.metaKey && !e.altKey)
+        setProjector((v) => !v);
       if (e.key === "Escape") setProjector(false);
     };
     window.addEventListener("keydown", key);
