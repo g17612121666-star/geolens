@@ -6,7 +6,9 @@ import { ReconstructionGlobe } from "../shared/geo-globe";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Graticule } from "@/components/globe/earth";
 import { latLonToXYZ } from "@/lib/geo";
+import { Tag } from "../shared/kit";
 import FOSSILS from "./fossil-sites.json";
+import CONTINENTS from "./continent-labels.json";
 
 const TAXON_COLOUR: Record<string, string> = {
   mesosaurus: "#5fe3d0",
@@ -106,6 +108,28 @@ function FossilSites({ age }: { age: number }) {
     </group>
   );
 }
+/** Continent names at each snapshot, rotated with the same plate model as the coastlines. */
+function ContinentLabels({ age }: { age: number }) {
+  const index = siteIndex(age),
+    when = index ? `${FOSSILS.ages[index]} million years ago` : "today";
+  return (
+    <>
+      {CONTINENTS.continents.map((c) => {
+        const [lat, lon] = c.positions[index];
+        return (
+          <Tag
+            key={c.name}
+            pos={latLonToXYZ(lat, lon, 1.3)}
+            text={c.name}
+            short={c.short}
+            note={`${c.name} ${when}. The label rides on the same plate as the reconstructed coastline, so it marks the same rocks at every step.`}
+          />
+        );
+      })}
+    </>
+  );
+}
+
 export default function ContinentalDrift() {
   const { params, setParam } = useLabControls(),
     age = params.ageMa ?? 200;
@@ -120,6 +144,7 @@ export default function ContinentalDrift() {
         <FacingGlobe age={age} focus={params.fossils > 0.5}>
           <ReconstructionGlobe age={age} />
           <Graticule radius={1.255} />
+          <ContinentLabels age={age} />
           {params.fossils > 0.5 && <FossilSites age={age} />}
         </FacingGlobe>
       </ScienceStudio>
