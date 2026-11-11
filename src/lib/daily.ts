@@ -5,7 +5,12 @@
 import content from "./labs/content.json" with { type: "json" };
 import { FIELD_TRIPS, type TripStop } from "./field-trips.ts";
 
-export const dayKey = (d = new Date()) => d.toISOString().slice(0, 10);
+/**
+ * The calendar day in the player's own time zone, so a new challenge arrives at their
+ * midnight (not at 7 pm in New York, as a UTC day would).
+ */
+export const dayKey = (d = new Date()) =>
+  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
 /** Small deterministic generator (mulberry32) seeded from a string. */
 function seeded(text: string) {
@@ -102,11 +107,12 @@ export function recordDaily(kind: "quiz" | "where", score: number, xp: number, d
 /** Consecutive days with at least one challenge done, ending today (or yesterday if today is still open). */
 export function streak(s = readDaily(), today = new Date()) {
   let n = 0;
-  const d = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()));
-  if (!s.days[dayKey(d)]) d.setUTCDate(d.getUTCDate() - 1);
+  // Local calendar days; noon avoids skipping or repeating a day at a daylight-saving change.
+  const d = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12);
+  if (!s.days[dayKey(d)]) d.setDate(d.getDate() - 1);
   while (s.days[dayKey(d)]) {
     n++;
-    d.setUTCDate(d.getUTCDate() - 1);
+    d.setDate(d.getDate() - 1);
   }
   return n;
 }

@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, FlaskConical } from "lucide-react";
-import { dailyQuestions, dayKey, readDaily, recordDaily } from "@/lib/daily";
+import { dailyQuestions, readDaily, recordDaily } from "@/lib/daily";
+import { useToday } from "@/lib/use-today";
 import { headFor } from "@/lib/seo";
 
 export const Route = createFileRoute("/practice/daily")({
@@ -15,7 +16,7 @@ export const Route = createFileRoute("/practice/daily")({
 });
 
 function DailyFive() {
-  const day = dayKey();
+  const day = useToday();
   const qs = useMemo(() => dailyQuestions(day), [day]);
   const [i, setI] = useState(0);
   const [picks, setPicks] = useState<number[]>([]);
