@@ -7,6 +7,7 @@ import { noonIrradiance, dailyMeanIrradiance } from "@/lib/insolation-science";
 import { VERIFIED_PHOTOS } from "@/lib/verified-photos";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
+import { photoSrcSet } from "@/lib/responsive-image";
 export default function SunEarth() {
   const { params } = useLabControls(),
     lat = params.latitude ?? 40.7,
@@ -136,6 +137,8 @@ export default function SunEarth() {
           <span className="mx-auto mt-2 flex max-w-xl items-center gap-3 text-left">
             <img
               src={photo.src}
+              srcSet={photoSrcSet(photo.src)}
+              sizes="64px"
               alt={photo.alt}
               className="h-16 w-16 shrink-0 rounded object-contain"
             />

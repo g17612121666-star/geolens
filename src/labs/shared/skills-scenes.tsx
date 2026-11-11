@@ -303,7 +303,7 @@ export function GridReferenceScene() {
 }
 
 function ProjectionSurface({ morph, kind }: { morph: number; kind: number }) {
-  const map = useTexture("/textures/earth-day.jpg");
+  const map = useTexture("/textures/earth-day.webp");
   map.colorSpace = THREE.SRGBColorSpace;
   const g = useMemo(() => {
     const p: number[] = [],

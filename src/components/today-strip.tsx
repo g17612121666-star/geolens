@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Flame, MapPinned, Route as RouteIcon, Sparkles } from "lucide-react";
 import { dayKey, placeOfTheDay, readDaily, streak } from "@/lib/daily";
 import { FIELD_TRIPS, readTripProgress, tripPhoto } from "@/lib/field-trips";
+import { photoSrcSet } from "@/lib/responsive-image";
 
 /** Home-page row of today's challenges, the place of the day and the next field trip. */
 export function TodayStrip() {
@@ -70,7 +71,13 @@ export function TodayStrip() {
           className={card}
         >
           {photo && (
-            <img src={photo.src} alt="" className="size-14 shrink-0 rounded-lg object-cover" />
+            <img
+              src={photo.src}
+              srcSet={photoSrcSet(photo.src)}
+              sizes="56px"
+              alt=""
+              className="size-14 shrink-0 rounded-lg object-cover"
+            />
           )}
           <span>
             <span className="block text-chalk">{place.title}</span>

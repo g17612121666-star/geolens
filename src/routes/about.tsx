@@ -8,6 +8,7 @@ import {
   PRODUCER_X_HANDLE,
   PRODUCER_SITE,
 } from "@/lib/contact";
+import { photoSrcSet } from "@/lib/responsive-image";
 export const Route = createFileRoute("/about")({
   component: About,
   head: () =>
@@ -52,6 +53,8 @@ function About() {
       <article className="mt-12 grid overflow-hidden rounded-2xl border border-white/15 bg-basalt md:grid-cols-[0.8fr_1.2fr]">
         <img
           src="/photos/li-zeyu-field.jpg"
+          srcSet={photoSrcSet("/photos/li-zeyu-field.jpg")}
+          sizes="(min-width: 768px) 40vw, 100vw"
           alt="Li Zeyu examining a rock outcrop in the field."
           className="h-full min-h-80 w-full object-cover object-top"
         />

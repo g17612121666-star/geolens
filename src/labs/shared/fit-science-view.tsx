@@ -2,7 +2,11 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
-/** Fit projected geometry vertices so wide classroom canvases use the available space. */
+/**
+ * Fit projected geometry vertices so wide classroom canvases use the available space.
+ * A scene can mark a group with userData.noFit (for example a large sea that should run off
+ * the edges) and add an invisible mesh with userData.fitProxy to stand for its subject.
+ */
 export function FitScienceView({
   children,
   revision,
@@ -28,7 +32,7 @@ export function FitScienceView({
       frame = requestAnimationFrame(() => {
         if (!root.current || !(camera instanceof THREE.PerspectiveCamera)) return;
         root.current.updateWorldMatrix(true, true);
-        const box = new THREE.Box3().setFromObject(root.current);
+        const box = fittedBox(root.current);
         root.current.traverse((object) => {
           if (object.userData.fitLabelWidth)
             box.expandByPoint(object.getWorldPosition(new THREE.Vector3()));
@@ -66,21 +70,38 @@ export function FitScienceView({
         const inverse = camera.quaternion.clone().invert(),
           tan = Math.tan((camera.fov * Math.PI) / 360),
           aspect = size.width / size.height;
-        let distance = 0.1;
+        // In camera axes around `center` (x right, y up, z toward the camera), a point fits when
+        // |p.x - u| <= (D - p.z) * kx and |p.y - v| <= (D - p.z) * ky for a camera at (u, v, D).
+        // Geometry shares one k per axis, so only its two extreme lines matter; labels shrink k by
+        // their size on screen. Choosing u and v as well as D centers what is actually seen,
+        // instead of the bounding box, which perspective leaves off-center.
+        const kx = (tan * aspect) / 1.1,
+          ky = tan / 1.1,
+          lines = { x: [-Infinity, Infinity], y: [-Infinity, Infinity] },
+          labels: { x: number; y: number; z: number; kx: number; ky: number }[] = [];
         const point = new THREE.Vector3();
+        const add = (p: THREE.Vector3) => {
+          lines.x[0] = Math.max(lines.x[0], p.x + p.z * kx);
+          lines.x[1] = Math.min(lines.x[1], p.x - p.z * kx);
+          lines.y[0] = Math.max(lines.y[0], p.y + p.z * ky);
+          lines.y[1] = Math.min(lines.y[1], p.y - p.z * ky);
+        };
         root.current.traverse((object) => {
           if (object.userData.fitLabelWidth) {
             object.getWorldPosition(point).sub(center).applyQuaternion(inverse);
             const availableX = Math.max(0.15, 1 - object.userData.fitLabelWidth / size.width),
               availableY = Math.max(0.15, 1 - object.userData.fitLabelHeight / size.height);
-            distance = Math.max(
-              distance,
-              point.z + (Math.abs(point.y) / (tan * availableY)) * 1.14,
-              point.z + (Math.abs(point.x) / (tan * aspect * availableX)) * 1.14,
-            );
+            labels.push({
+              x: point.x,
+              y: point.y,
+              z: point.z,
+              kx: (tan * aspect * availableX) / 1.14,
+              ky: (tan * availableY) / 1.14,
+            });
           }
           const geometry = (object as THREE.Mesh).geometry;
-          if (!geometry || !object.visible) return;
+          if (!geometry || (!object.visible && !object.userData.fitProxy) || excluded(object))
+            return;
           if (object instanceof THREE.InstancedMesh) {
             geometry.computeBoundingBox();
             const bounds = geometry.boundingBox,
@@ -92,14 +113,10 @@ export function FitScienceView({
                 world.multiplyMatrices(object.matrixWorld, instance);
                 for (const x of [bounds.min.x, bounds.max.x])
                   for (const y of [bounds.min.y, bounds.max.y])
-                    for (const z of [bounds.min.z, bounds.max.z]) {
-                      point.set(x, y, z).applyMatrix4(world).sub(center).applyQuaternion(inverse);
-                      distance = Math.max(
-                        distance,
-                        point.z + (Math.abs(point.y) / tan) * 1.1,
-                        point.z + (Math.abs(point.x) / (tan * aspect)) * 1.1,
+                    for (const z of [bounds.min.z, bounds.max.z])
+                      add(
+                        point.set(x, y, z).applyMatrix4(world).sub(center).applyQuaternion(inverse),
                       );
-                    }
               }
             return;
           }
@@ -110,25 +127,35 @@ export function FitScienceView({
           for (const attribute of attributes) {
             if (!attribute) continue;
             const stride = Math.max(1, Math.floor(attribute.count / 5000));
-            for (let i = 0; i < attribute.count; i += stride) {
-              point
-                .fromBufferAttribute(attribute, i)
-                .applyMatrix4(object.matrixWorld)
-                .sub(center)
-                .applyQuaternion(inverse);
-              distance = Math.max(
-                distance,
-                point.z + (Math.abs(point.y) / tan) * 1.1,
-                point.z + (Math.abs(point.x) / (tan * aspect)) * 1.1,
+            for (let i = 0; i < attribute.count; i += stride)
+              add(
+                point
+                  .fromBufferAttribute(attribute, i)
+                  .applyMatrix4(object.matrixWorld)
+                  .sub(center)
+                  .applyQuaternion(inverse),
               );
-            }
           }
         });
-        camera.position.copy(center).addScaledVector(direction, distance);
+        const x = fitAxis(
+            lines.x,
+            kx,
+            labels.map((l) => [l.x, l.z, l.kx]),
+          ),
+          y = fitAxis(
+            lines.y,
+            ky,
+            labels.map((l) => [l.y, l.z, l.ky]),
+          ),
+          distance = Math.max(0.1, x.distance, y.distance),
+          target = center
+            .clone()
+            .add(new THREE.Vector3(x.offset, y.offset, 0).applyQuaternion(camera.quaternion));
+        camera.position.copy(target).addScaledVector(direction, distance);
         camera.near = Math.max(0.001, distance / 1000);
         camera.far = Math.max(100, distance * 100);
         camera.updateProjectionMatrix();
-        orbit?.target?.copy(center);
+        orbit?.target?.copy(target);
         orbit?.update?.();
         invalidate();
       });
@@ -141,6 +168,61 @@ export function FitScienceView({
       {ground && floor && <GroundShadow {...floor} />}
     </>
   );
+}
+
+/**
+ * Smallest camera distance along one screen axis, and the sideways offset that achieves it.
+ * Geometry gives two lines, (a - u) / k and (u - b) / k; each label gives z + |c - u| / k.
+ * The distance is the upper envelope of these lines, which is convex in u.
+ */
+function fitAxis(
+  [a, b]: number[],
+  k: number,
+  labels: [c: number, z: number, k: number][],
+): { offset: number; distance: number } {
+  const geometry = Number.isFinite(a) && Number.isFinite(b);
+  const distanceAt = (u: number) => {
+    let d = geometry ? Math.max((a - u) / k, (u - b) / k) : -Infinity;
+    for (const [c, z, kl] of labels) d = Math.max(d, z + Math.abs(c - u) / kl);
+    return d;
+  };
+  const ends = [...(geometry ? [a, b] : []), ...labels.map(([c]) => c)];
+  if (!ends.length) return { offset: 0, distance: 0 };
+  let lo = Math.min(...ends) - 1,
+    hi = Math.max(...ends) + 1;
+  for (let i = 0; i < 80; i++) {
+    const m1 = lo + (hi - lo) / 3,
+      m2 = hi - (hi - lo) / 3;
+    if (distanceAt(m1) <= distanceAt(m2)) hi = m2;
+    else lo = m1;
+  }
+  const offset = (lo + hi) / 2;
+  return { offset, distance: distanceAt(offset) };
+}
+
+/** True when the object or one of its ancestors asks to be left out of the framing. */
+function excluded(object: THREE.Object3D) {
+  for (let o: THREE.Object3D | null = object; o; o = o.parent) if (o.userData.noFit) return true;
+  return false;
+}
+
+/** World bounds of everything that takes part in the framing, labels included. */
+function fittedBox(root: THREE.Object3D) {
+  const box = new THREE.Box3(),
+    part = new THREE.Box3();
+  let skipping = false;
+  root.traverse((object) => {
+    if (object.userData.noFit) skipping = true;
+  });
+  if (!skipping) return box.setFromObject(root);
+  root.traverse((object) => {
+    const geometry = (object as THREE.Mesh).geometry as THREE.BufferGeometry | undefined;
+    if (!geometry || (!object.visible && !object.userData.fitProxy) || excluded(object)) return;
+    if (!geometry.boundingBox) geometry.computeBoundingBox();
+    if (geometry.boundingBox)
+      box.union(part.copy(geometry.boundingBox).applyMatrix4(object.matrixWorld));
+  });
+  return box;
 }
 
 let shadowTexture: THREE.CanvasTexture | null = null;

@@ -7,7 +7,7 @@ import { StepRail } from "./step-rail";
 import { WhyPanel } from "./why-panel";
 import { GuidedGate, GuidedPanel } from "./guided";
 import { LiveData } from "./live-data";
-import { ControlBar } from "./control-bar";
+import { ControlBar, ViewTools } from "./control-bar";
 import { useIsCompact, useMediaQuery } from "@/hooks/use-media";
 import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state";
 import { recordLabVisit } from "@/lib/recent-labs";
@@ -332,6 +332,17 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             {titleBlock}
           </div>
           <div
+            className="absolute left-6 z-10"
+            style={{ top: "calc(var(--lab-heading-bottom, 160px) + 8px)" }}
+          >
+            <ViewTools
+              vertical
+              fullscreen={fs}
+              onToggleFullscreen={() => void toggleFs()}
+              onOpenKeys={() => setKeysOpen((v) => !v)}
+            />
+          </div>
+          <div
             style={{ scrollbarWidth: "thin" }}
             className="pointer-events-auto absolute bottom-4 right-6 top-20 z-10 flex w-[22rem] flex-col gap-4 overflow-x-hidden overflow-y-auto pr-1"
           >
@@ -384,6 +395,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
           fullscreen={fs}
           onToggleFullscreen={() => void toggleFs()}
           onOpenKeys={() => setKeysOpen((v) => !v)}
+          viewTools={projector}
         />
       </div>
 

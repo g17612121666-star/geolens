@@ -255,7 +255,7 @@ input[type=range] {accent-color:var(--color-glacier);}
 .editorial-card img {transition: transform 600ms var(--ease-studio);}
 .editorial-card:hover {border-color:color-mix(in oklab,var(--color-glacier) 55%,transparent);transform:translateY(-4px);box-shadow:var(--shadow-lift);}
 .editorial-card:hover img {transform:scale(1.04);}
-.hero-earth-poster {background:url('/textures/earth-day.jpg') 50% 50% / 200% 100%;box-shadow:inset -28px -12px 40px #071c32,inset 10px 5px 25px #ffffff30;}
+.hero-earth-poster {background:url('/textures/earth-day-small.webp') 50% 50% / 200% 100%;box-shadow:inset -28px -12px 40px #071c32,inset 10px 5px 25px #ffffff30;}
 .hero-globe {max-height:600px;}
 @media(max-width:767px){.hero-globe {width:min(100%,360px);margin-inline:auto;}.home-intro{gap:0;}.home-intro h1{font-size:clamp(2.75rem,10vw,3.6rem);}}
 @media(prefers-reduced-motion:reduce){.editorial-card:hover,.editorial-card:hover img{transform:none;}}

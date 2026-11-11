@@ -25,34 +25,29 @@ export function ControlBar({
   fullscreen,
   onToggleFullscreen,
   onOpenKeys,
+  viewTools = true,
 }: {
   lab: LabMeta;
   fullscreen: boolean;
   onToggleFullscreen: () => void;
   onOpenKeys: () => void;
+  /** Show labels, scale, projector, share, fullscreen and shortcuts here; off when a ViewTools rail shows them. */
+  viewTools?: boolean;
 }) {
   const playing = useLabControls((s) => s.playing);
   const speed = useLabControls((s) => s.speed);
   const t = useLabControls((s) => s.t);
-  const labels = useLabControls((s) => s.labels);
   const explode = useLabControls((s) => s.explode);
   const slice = useLabControls((s) => s.slice);
   const params = useLabControls((s) => s.params);
-  const layout = useLabControls((s) => s.layout);
   const toggle = useLabControls((s) => s.toggle);
   const setSpeed = useLabControls((s) => s.setSpeed);
   const setT = useLabControls((s) => s.setT);
-  const setLabels = useLabControls((s) => s.setLabels);
   const setExplode = useLabControls((s) => s.setExplode);
   const setSlice = useLabControls((s) => s.setSlice);
   const setParam = useLabControls((s) => s.setParam);
   const reset = useLabControls((s) => s.reset);
   const resetView = useLabControls((s) => s.resetView);
-  const setLayout = useLabControls((s) => s.setLayout);
-  const trueScale = useLabControls((s) => s.trueScale);
-  const setTrueScale = useLabControls((s) => s.setTrueScale);
-  const [copied, setCopied] = useState(false);
-  const [shareFailed, setShareFailed] = useState(false);
 
   const playback = hasPlayback(lab, params, explode);
   // Hide controls that do nothing in the current view (for example a slider for one experiment).
@@ -213,7 +208,13 @@ export function ControlBar({
         );
       })}
 
-      <div className="flex flex-wrap items-center gap-1 md:ml-auto md:border-l md:border-white/10 md:pl-3">
+      <div
+        className={cn(
+          "flex flex-wrap items-center gap-1 md:ml-auto",
+          (viewTools || lab.controls.explode || lab.controls.slice) &&
+            "md:border-l md:border-white/10 md:pl-3",
+        )}
+      >
         {lab.controls.explode && (
           <label className="flex items-center gap-1.5 pr-2">
             <Layers2 className="size-3.5 text-mist" />
@@ -258,55 +259,103 @@ export function ControlBar({
             </output>
           </label>
         )}
-        <IconBtn
-          label={labels ? "Labels on" : "Labels off"}
-          onClick={() => setLabels(!labels)}
-          active={labels}
-        >
-          <Tags className="size-4" />
-        </IconBtn>
-        <IconBtn
-          label={trueScale ? "Physical scale" : "Teaching scale"}
-          onClick={() => setTrueScale(!trueScale)}
-          active={trueScale}
-        >
-          <span className="text-[11px] font-semibold tabular-nums">{trueScale ? "1:1" : "×N"}</span>
-        </IconBtn>
-        <IconBtn
-          label={layout === "projector" ? "Exit projector" : "Projector"}
-          onClick={() => setLayout(layout === "projector" ? "hud" : "projector")}
-          active={layout === "projector"}
-        >
-          <Projector className="size-4" />
-        </IconBtn>
-        <IconBtn
-          label={copied ? "Link copied" : shareFailed ? "Copy from address bar" : "Share"}
-          onClick={() => {
-            const url = labShareUrl();
-            if (!navigator.clipboard) {
-              setShareFailed(true);
-              return;
-            }
-            void navigator.clipboard
-              .writeText(url)
-              .then(() => {
-                setCopied(true);
-                setShareFailed(false);
-                window.setTimeout(() => setCopied(false), 1600);
-              })
-              .catch(() => setShareFailed(true));
-          }}
-          active={copied}
-        >
-          <Link2 className="size-4" />
-        </IconBtn>
-        <IconBtn label={fullscreen ? "Exit fullscreen" : "Fullscreen"} onClick={onToggleFullscreen}>
-          {fullscreen ? <Minimize className="size-4" /> : <Maximize className="size-4" />}
-        </IconBtn>
-        <IconBtn label="Shortcuts" onClick={onOpenKeys}>
-          <Keyboard className="size-4" />
-        </IconBtn>
+        {viewTools && (
+          <ViewTools
+            fullscreen={fullscreen}
+            onToggleFullscreen={onToggleFullscreen}
+            onOpenKeys={onOpenKeys}
+          />
+        )}
       </div>
+    </div>
+  );
+}
+
+/**
+ * View tools: labels, teaching or physical scale, projector, share, fullscreen and shortcuts.
+ * Inline in the control bar on phones and in projector mode; a slim rail beside the model on
+ * laptops, so the controls fit on one row and the model gets the height.
+ */
+export function ViewTools({
+  fullscreen,
+  onToggleFullscreen,
+  onOpenKeys,
+  vertical = false,
+}: {
+  fullscreen: boolean;
+  onToggleFullscreen: () => void;
+  onOpenKeys: () => void;
+  vertical?: boolean;
+}) {
+  const labels = useLabControls((s) => s.labels);
+  const setLabels = useLabControls((s) => s.setLabels);
+  const layout = useLabControls((s) => s.layout);
+  const setLayout = useLabControls((s) => s.setLayout);
+  const trueScale = useLabControls((s) => s.trueScale);
+  const setTrueScale = useLabControls((s) => s.setTrueScale);
+  const [copied, setCopied] = useState(false);
+  const [shareFailed, setShareFailed] = useState(false);
+  const group = (
+    <>
+      <IconBtn
+        label={labels ? "Labels on" : "Labels off"}
+        onClick={() => setLabels(!labels)}
+        active={labels}
+      >
+        <Tags className="size-4" />
+      </IconBtn>
+      <IconBtn
+        label={trueScale ? "Physical scale" : "Teaching scale"}
+        onClick={() => setTrueScale(!trueScale)}
+        active={trueScale}
+      >
+        <span className="text-[11px] font-semibold tabular-nums">{trueScale ? "1:1" : "×N"}</span>
+      </IconBtn>
+      <IconBtn
+        label={layout === "projector" ? "Exit projector" : "Projector"}
+        onClick={() => setLayout(layout === "projector" ? "hud" : "projector")}
+        active={layout === "projector"}
+      >
+        <Projector className="size-4" />
+      </IconBtn>
+      <IconBtn
+        label={copied ? "Link copied" : shareFailed ? "Copy from address bar" : "Share"}
+        onClick={() => {
+          const url = labShareUrl();
+          if (!navigator.clipboard) {
+            setShareFailed(true);
+            return;
+          }
+          void navigator.clipboard
+            .writeText(url)
+            .then(() => {
+              setCopied(true);
+              setShareFailed(false);
+              window.setTimeout(() => setCopied(false), 1600);
+            })
+            .catch(() => setShareFailed(true));
+        }}
+        active={copied}
+      >
+        <Link2 className="size-4" />
+      </IconBtn>
+      <IconBtn label={fullscreen ? "Exit fullscreen" : "Fullscreen"} onClick={onToggleFullscreen}>
+        {fullscreen ? <Minimize className="size-4" /> : <Maximize className="size-4" />}
+      </IconBtn>
+      <IconBtn label="Shortcuts" onClick={onOpenKeys}>
+        <Keyboard className="size-4" />
+      </IconBtn>
+    </>
+  );
+  if (!vertical) return group;
+  return (
+    <div
+      role="toolbar"
+      aria-label="View"
+      aria-orientation="vertical"
+      className="pointer-events-auto flex w-12 flex-col items-center gap-1 rounded-2xl border border-white/10 bg-basalt/90 p-1 shadow-[0_8px_30px_rgb(0_0_0/0.12)] backdrop-blur-xl"
+    >
+      {group}
     </div>
   );
 }

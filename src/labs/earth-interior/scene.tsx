@@ -266,8 +266,8 @@ function Layer({
   offset: number;
   heat: boolean;
 }) {
-  const day = useTexture("/textures/earth-day.jpg"),
-    bump = useTexture("/textures/earth-bump.jpg"),
+  const day = useTexture("/textures/earth-day.webp"),
+    bump = useTexture("/textures/earth-bump.webp"),
     normal = useRockNormal();
   const g = useMemo(() => shellSection(inner, outer, opening), [inner, outer, opening]);
   useEffect(() => () => g.dispose(), [g]);

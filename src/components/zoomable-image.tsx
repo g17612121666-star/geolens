@@ -1,5 +1,6 @@
 import { LoadingProgress } from "@/components/loading-progress";
 import { useEffect, useRef, useState } from "react";
+import { photoSrcSet } from "@/lib/responsive-image";
 
 type View = { scale: number; x: number; y: number };
 const initial: View = { scale: 1, x: 0, y: 0 };
@@ -18,11 +19,14 @@ export function ZoomableImage({
   alt,
   className,
   describedBy,
+  sizes = "(min-width: 1024px) 560px, 100vw",
 }: {
   src: string;
   alt: string;
   className: string;
   describedBy?: string;
+  /** Display width hint; zooming in always switches to the full-size original. */
+  sizes?: string;
 }) {
   const image = useRef<HTMLImageElement>(null),
     [imageState, setImageState] = useState<"loading" | "ready" | "error">("loading"),
@@ -143,6 +147,8 @@ export function ZoomableImage({
         onLoad={() => setImageState("ready")}
         onError={() => setImageState("error")}
         src={src}
+        srcSet={view.scale > 1 ? undefined : photoSrcSet(src)}
+        sizes={sizes}
         alt={alt}
         className={className}
         loading="lazy"

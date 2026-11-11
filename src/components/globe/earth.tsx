@@ -7,9 +7,15 @@ import { useCloudMap } from "@/labs/shared/materials";
 import { useQuality } from "@/labs/shared/perf";
 import { useLabControls } from "@/lib/store/lab-controls";
 
-const DAY = "/textures/earth-day.jpg";
-const NIGHT = "/textures/earth-night.jpg";
-const BUMP = "/textures/earth-bump.jpg";
+/** 4096 × 2048 WebP maps for desktop; 2048 × 1024 for phones and tablets. */
+const EARTH_MAPS = {
+  full: ["/textures/earth-day.webp", "/textures/earth-night.webp", "/textures/earth-bump.webp"],
+  light: [
+    "/textures/earth-day-small.webp",
+    "/textures/earth-night-small.webp",
+    "/textures/earth-bump-small.webp",
+  ],
+};
 
 const earthVert = /* glsl */ `
   varying vec2 vUv;
@@ -175,9 +181,11 @@ export function EarthMesh({
    */
   lighting?: "sun" | "viewer";
 }) {
-  const [dayMap, nightMap, bumpMap] = useTexture([DAY, NIGHT, BUMP]);
-  const showClouds = clouds ?? lighting === "sun";
   const q = useQuality();
+  const [dayMap, nightMap, bumpMap] = useTexture(
+    q.sphere < 128 ? EARTH_MAPS.light : EARTH_MAPS.full,
+  );
+  const showClouds = clouds ?? lighting === "sun";
   const segs = segments ?? q.sphere;
   const mat = useRef<THREE.ShaderMaterial>(null);
   const sunRef = useRef(sunDirection);

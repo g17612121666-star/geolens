@@ -1,5 +1,6 @@
 import { createFileRoute, redirect, notFound } from "@tanstack/react-router";
-import { REALMS, labsInRealm } from "@/lib/labs/catalog";
+import { labsInRealm } from "@/lib/labs/catalog";
+import { REALMS } from "@/lib/labs/realms";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
 import { REALM_ALIASES } from "@/lib/redirects";
@@ -14,13 +15,17 @@ export const Route = createFileRoute("/realms/$realm")({
     if (alias) throw redirect({ to: "/realms/$realm", params: { realm: alias } });
     if (!REALMS.some((r) => r.slug === params.realm)) throw notFound();
   },
-  head: ({ params }) => {
+  loader: async ({ params }) => {
+    const { REALM_FIGURE: figures } = await import("@/lib/figures");
+    return { image: figures[params.realm as keyof typeof figures]?.src };
+  },
+  head: ({ params, loaderData }) => {
     const meta = REALMS.find((r) => r.slug === params.realm);
     return headFor({
       title: meta?.title ?? "Subject",
       description: meta?.blurb ?? "A Geolens subject.",
       path: `/realms/${params.realm}`,
-      image: meta ? REALM_FIGURE[meta.slug]?.src : undefined,
+      image: loaderData?.image,
     });
   },
   component: RealmPage,

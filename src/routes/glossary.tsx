@@ -19,7 +19,8 @@ export const Route = createFileRoute("/glossary")({
   head: () =>
     headFor({
       title: "Glossary",
-      description: `${GLOSSARY.length} Earth science terms, real observations and related labs. Search, read or practice recall.`,
+      description:
+        "Earth science terms with real observations and related labs. Search, read or practice recall.",
       path: "/glossary",
     }),
 });

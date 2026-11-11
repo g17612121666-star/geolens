@@ -9,20 +9,23 @@ import { headFor, siteOrigin } from "@/lib/seo";
 
 export const Route = createFileRoute("/worksheet/$slug")({
   beforeLoad: ({ params }) => {
-    if (!LAB_BY_SLUG[params.slug] || !LAB_SCENES[params.slug] || !isListed(params.slug))
-      throw notFound();
+    if (!LAB_SCENES[params.slug] || !isListed(params.slug)) throw notFound();
+  },
+  loader: async ({ params }) => {
+    const { LAB_BY_SLUG: labs } = await import("@/lib/labs/catalog");
+    const lab = labs[params.slug];
+    if (!lab) throw notFound();
+    return { title: lab.title };
   },
   component: WorksheetPage,
-  head: ({ params }) => {
-    const lab = LAB_BY_SLUG[params.slug];
-    return headFor({
-      title: lab ? `Worksheet · ${lab.title}` : "Worksheet",
-      description: lab
-        ? `A printable student worksheet for the ${lab.title} lab, with tasks, key words, quiz questions and an optional answer key.`
+  head: ({ params, loaderData }) =>
+    headFor({
+      title: loaderData ? `Worksheet · ${loaderData.title}` : "Worksheet",
+      description: loaderData
+        ? `A printable student worksheet for the ${loaderData.title} lab, with tasks, key words, quiz questions and an optional answer key.`
         : "A printable Geolens worksheet.",
       path: `/worksheet/${params.slug}`,
-    });
-  },
+    }),
 });
 
 const LETTERS = ["A", "B", "C", "D", "E", "F"];

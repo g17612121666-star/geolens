@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { landscapeNoise, landscapeRandom } from "./landscape-noise";
+import { landscapeNoise, landscapeRandom } from "./landscape-noise.ts";
 
 /** Two-octave value noise, roughly 0–1. */
 export const fbm = (x: number, z: number) =>

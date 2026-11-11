@@ -56,7 +56,8 @@ export function ScienceStudio({
             ? "calc(var(--science-readout-height, 64px) + 8px)"
             : "calc(var(--lab-controls-height, 130px) + var(--science-readout-height, 64px) + 2rem)",
         }}
-        className={`absolute ${compact ? "inset-x-0" : projector ? "inset-x-6" : "left-6 right-[25rem]"}`}
+        // On laptops the view-tools rail sits at the left edge, so the model starts beside it.
+        className={`absolute ${compact ? "inset-x-0" : projector ? "inset-x-6" : "left-[4.5rem] right-[25rem]"}`}
       >
         <LabStudio
           slug={slug}
