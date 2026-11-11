@@ -144,23 +144,91 @@ vec3 waveGlow(vec3 w){
   );
 }
 
-function Wavefront({ radius, depth, color }: { radius: number; depth: number; color: string }) {
-  if (radius < 0.001) return null;
-  const start = radius > depth ? Math.acos(depth / radius) : 0,
-    // Stop the shell at the base of the block so it never hangs below the model.
-    end = Math.acos(Math.max(-1, (BASE + depth) / radius));
-  // Faint shells show the same fronts in the cut-away half (z > 0) of the block.
+/** Drum record at the station: the last 8 s of ground motion, with the P, S and surface-wave
+ * arrivals ticked in their front colors and the pen at the current moment. */
+function Seismogram({
+  seconds,
+  arrivals,
+}: {
+  seconds: number;
+  arrivals: { time: number; color: string }[];
+}) {
+  const span = 8,
+    half = 0.56,
+    xAt = (time: number) => -half + ((time - (seconds - span)) / span) * 2 * half,
+    trace = Array.from({ length: 161 }, (_, i): [number, number, number] => {
+      const time = seconds - span + (i / 160) * span;
+      return [xAt(time), groundMotion(time, arrivals), 0.02];
+    }),
+    pen = trace[trace.length - 1];
   return (
-    <mesh position={[0, -depth, 0]}>
-      <sphereGeometry args={[radius, 96, 48, 0, Math.PI, start, end - start]} />
-      <meshBasicMaterial
-        color={color}
-        transparent
-        opacity={0.07}
-        depthWrite={false}
-        side={THREE.DoubleSide}
-      />
-    </mesh>
+    <group>
+      <mesh position={[0, 0, -0.035]} castShadow>
+        <boxGeometry args={[1.34, 0.6, 0.05]} />
+        <meshStandardMaterial color="#2b3439" roughness={0.55} metalness={0.2} />
+      </mesh>
+      <mesh position={[0, 0, -0.008]}>
+        <planeGeometry args={[1.24, 0.5]} />
+        <meshStandardMaterial color="#f1ebdc" roughness={0.95} />
+      </mesh>
+      {[-0.15, 0, 0.15].map((y) => (
+        <Line
+          key={y}
+          points={[
+            [-half, y, 0],
+            [half, y, 0],
+          ]}
+          color="#d8cfba"
+          lineWidth={0.6}
+        />
+      ))}
+      {Array.from({ length: span + 1 }, (_, k) => {
+        const x = xAt(Math.floor(seconds) - k);
+        return x >= -half && x <= half ? (
+          <Line
+            key={k}
+            points={[
+              [x, -0.24, 0],
+              [x, -0.2, 0],
+            ]}
+            color="#b9ae97"
+            lineWidth={0.8}
+          />
+        ) : null;
+      })}
+      {arrivals.map(({ time, color }) => {
+        const x = xAt(time);
+        return x >= -half && x <= half ? (
+          <Line
+            key={color}
+            points={[
+              [x, -0.24, 0.01],
+              [x, 0.24, 0.01],
+            ]}
+            color={color}
+            lineWidth={1.4}
+            dashed
+            dashSize={0.03}
+            gapSize={0.025}
+          />
+        ) : null;
+      })}
+      <Line points={trace} color="#24333a" lineWidth={1.6} />
+      <mesh position={pen}>
+        <sphereGeometry args={[0.018, 12, 8]} />
+        <meshBasicMaterial color="#c8432f" />
+      </mesh>
+    </group>
+  );
+}
+
+/** Pen displacement at a moment: small P, larger S, then the largest, slowest surface wave. */
+function groundMotion(time: number, arrivals: { time: number }[]) {
+  const [p, s, r] = arrivals.map((a) => time - a.time);
+  return (
+    (p > 0 ? 0.05 * Math.exp(-p / 4) * Math.sin(p * 10) : 0) +
+    (s > 0 ? 0.11 * Math.exp(-s / 5) * Math.sin(s * 6) : 0) +
+    (r > 0 ? 0.17 * Math.min(1, r / 0.6) * Math.exp(-r / 6) * Math.sin(r * 3.2) : 0)
   );
 }
 
@@ -285,17 +353,11 @@ export default function Earthquakes() {
     ground(STATION[0], STATION[1]),
     STATION[1],
   ];
-  const trace = Array.from({ length: 161 }, (_, i): [number, number, number] => {
-    const time = seconds - 8 + (i / 160) * 8,
-      pt = time - w.pArrival,
-      st = time - w.sArrival,
-      rt = time - surfaceArrival,
-      amp =
-        (pt > 0 ? 0.05 * Math.exp(-pt / 4) * Math.sin(pt * 10) : 0) +
-        (st > 0 ? 0.11 * Math.exp(-st / 5) * Math.sin(st * 6) : 0) +
-        (rt > 0 ? 0.17 * Math.min(1, rt / 0.6) * Math.exp(-rt / 6) * Math.sin(rt * 3.2) : 0);
-    return [-0.56 + (i / 160) * 1.12, amp, 0.02];
-  });
+  const arrivals = [
+    { time: w.pArrival, color: "#d98a2b" },
+    { time: w.sArrival, color: "#3d8fc4" },
+    { time: surfaceArrival, color: "#9a62b3" },
+  ];
   return (
     <>
       <ScienceStudio
@@ -312,8 +374,6 @@ export default function Earthquakes() {
         <WaterRibbon path={riverPath} width={0.07} color="#4f93ad" />
         <PlantStand kind="broadleaf" positions={trees} scale={0.07} seed={4} />
         <Buildings items={towns} ground={ground} motion={motion} revision={seconds} />
-        <Wavefront radius={w.pRadius * KM} depth={d} color="#edb56f" />
-        <Wavefront radius={w.sRadius * KM} depth={d} color="#79c2e0" />
         <SurfaceRing radius={w.pSurfaceRadius * KM} color="#e7a352" height={ground} width={1.6} />
         <SurfaceRing radius={w.sSurfaceRadius * KM} color="#4fa6d6" height={ground} width={1.8} />
         <SurfaceRing radius={w.surfaceRadius * KM} color="#b07cc2" height={ground} width={3} />
@@ -351,27 +411,12 @@ export default function Earthquakes() {
             <boxGeometry args={[0.16, 0.06, 0.16]} />
             <meshStandardMaterial color="#c9c4b4" roughness={0.8} />
           </mesh>
-          <mesh position={[0, 0.16, 0]} castShadow>
-            <cylinderGeometry args={[0.012, 0.012, 0.2, 10]} />
+          <mesh position={[0, 0.2, -0.035]} castShadow>
+            <cylinderGeometry args={[0.014, 0.014, 0.28, 10]} />
             <meshStandardMaterial color="#9ea3a6" metalness={0.5} roughness={0.4} />
           </mesh>
-          <group position={[0, 0.62, 0]}>
-            <mesh position={[0, 0, -0.02]}>
-              <boxGeometry args={[1.24, 0.5, 0.03]} />
-              <meshStandardMaterial color="#f4efe2" roughness={0.9} />
-            </mesh>
-            {[-0.15, 0, 0.15].map((y) => (
-              <Line
-                key={y}
-                points={[
-                  [-0.58, y, 0.0],
-                  [0.58, y, 0.0],
-                ]}
-                color="#d5cbb5"
-                lineWidth={0.6}
-              />
-            ))}
-            <Line points={trace} color="#24333a" lineWidth={1.6} />
+          <group position={[0.22, 0.62, 0]}>
+            <Seismogram seconds={seconds} arrivals={arrivals} />
           </group>
         </group>
         <Tag
@@ -429,7 +474,7 @@ export default function Earthquakes() {
         {w.sArrival.toFixed(2)} {"s; surface wave "}
         {surfaceArrival.toFixed(1)} {"s."} <br />
         {
-          "The cut face shows each wave front where it crosses the rock; faint shells show the cut-away half. The violet ring is the slower surface wave, which often brings the strongest, longest shaking; here it is what sways the buildings."
+          "The cut face shows each wave front where it crosses the rock, and the rings show where each front reaches the surface. The violet ring is the slower surface wave, which often brings the strongest, longest shaking; here it is what sways the buildings."
         }
       </ScienceReadout>
     </>
