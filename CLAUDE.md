@@ -19,7 +19,8 @@ Run typecheck, lint, test and build before pushing.
 
 - `src/routes/` – TanStack Start file routes. `lab.$slug.tsx` is the shared lab player.
 - `src/labs/<slug>/scene.tsx` – one 3D scene per lab, lazily registered in `src/labs/registry.ts`. Scenes render inside `ScienceStudio` (`src/labs/shared/science-kit.tsx`), which auto-fits the camera, and report numbers through `ScienceReadout`.
-- `src/lib/labs/content.json` – lab metadata, steps, quiz questions, glossary and teacher notes. Quiz `answer` is a zero-based index into `choices`.
+- `src/lib/labs/content.json` – lab metadata, steps, quiz questions, glossary terms and teacher notes. Quiz `answer` is a zero-based index into `choices`. Glossary definitions live only in `scripts/glossary-definitions.json`.
+- `scripts/vite-lab-content.mjs` serves content.json in pieces so each page downloads only what it shows: `LABS`/`LAB_BY_SLUG` in `src/lib/labs/catalog.ts` are summaries (`LabSummary`); a page that shows a lesson gets it from `loadLab(slug)` in its route loader. Never import content.json from page code (`scripts/route-payload.test.mjs` checks).
 - `src/lib/*-science.ts` – small physical models; each has tests in `scripts/`.
 - `src/lib/photo-assign.ts` – which verified photo appears where.
 - `public/` – photos, GLB models, textures, map data, fonts.

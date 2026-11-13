@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, FlaskConical } from "lucide-react";
-import { dailyQuestions, readDaily, recordDaily } from "@/lib/daily";
+import { readDaily, recordDaily } from "@/lib/daily";
+import { dailyQuestions } from "@/lib/daily-quiz";
 import { useToday } from "@/lib/use-today";
 import { headFor } from "@/lib/seo";
 

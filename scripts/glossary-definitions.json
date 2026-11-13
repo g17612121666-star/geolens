@@ -417,5 +417,11 @@
   "Windward": "The side of a feature that faces the approaching wind. Moist air forced upward there may form cloud and rain. Windward is relative to wind direction, so it does not always mean the same compass-facing slope.",
   "Yardang": "An elongated ridge shaped by wind erosion in relatively soft material, typically aligned with the prevailing erosive wind. Abrasion and deflation carve the surrounding grooves. A yardang is an erosional landform, unlike a dune built by deposition.",
   "Arete": "An alternative spelling of arête: a sharp ridge separating glacially eroded valleys or cirques.",
-  "Oxbow lake": "A lake occupying a meander loop cut off from the main river channel, usually on a floodplain."
+  "Oxbow lake": "A lake occupying a meander loop cut off from the main river channel, usually on a floodplain.",
+  "Time coil": "A timeline wound into a helix to save space. In this lab every turn has the same radius and equal distance along the coil means equal time; turns that sit next to each other are not close in time.",
+  "Extratropical": "Outside the tropics. An extratropical cyclone is a storm system usually associated with fronts and horizontal temperature contrasts.",
+  "Bw / Bo horizon": "A subsoil (B) horizon. Bw is weathered in place, changed in color or structure but with little added material; Bo is a deeply weathered oxic horizon rich in iron and aluminum oxides, typical of old tropical soils.",
+  "C horizon": "Loose or partly weathered parent material below the soil, little changed by soil-forming processes. Hard bedrock beneath it is called R.",
+  "UTM": "A worldwide system that divides Earth into 60 north–south zones, each 6° of longitude wide, and projects each one onto a flat grid measured in meters. USGS topographic maps print its grid.",
+  "US National Grid": "The US grid-reference system built on UTM. A reference gives the zone, the 100 km square letters, then equal numbers of easting and northing figures, for example 18T WL 246 513."
 }

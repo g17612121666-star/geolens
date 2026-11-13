@@ -1,6 +1,6 @@
 import { ProgressFrame } from "@/components/progress-media";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { LAB_BY_SLUG, LABS } from "@/lib/labs/catalog";
+import { LABS, loadLab } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
 import { teacherArticle } from "@/lib/teachers/article";
@@ -16,20 +16,19 @@ export const Route = createFileRoute("/teachers/$slug")({
     if (!LAB_SCENES[params.slug] || !isListed(params.slug)) throw notFound();
   },
   loader: async ({ params }) => {
-    const [{ LAB_BY_SLUG: labs }, { labFigures: figures }] = await Promise.all([
-      import("@/lib/labs/catalog"),
+    const [lab, { labFigures: figures }] = await Promise.all([
+      loadLab(params.slug),
       import("@/lib/figures"),
     ]);
-    const lab = labs[params.slug];
     if (!lab) throw notFound();
-    return { title: lab.title, image: figures(lab.slug)[0]?.src };
+    return { lab, image: figures(lab.slug)[0]?.src };
   },
   component: TeacherArticlePage,
   head: ({ params, loaderData }) =>
     headFor({
-      title: loaderData ? `Teacher notes · ${loaderData.title}` : "Teacher notes",
+      title: loaderData ? `Teacher notes · ${loaderData.lab.title}` : "Teacher notes",
       description: loaderData
-        ? `Illustrated lesson notes, a 3D demonstration and discussion questions for ${loaderData.title}. Free for teachers and geography clubs.`
+        ? `Illustrated lesson notes, a 3D demonstration and discussion questions for ${loaderData.lab.title}. Free for teachers and geography clubs.`
         : "Free teacher notes from Geolens.",
       path: `/teachers/${params.slug}`,
       image: loaderData?.image,
@@ -38,8 +37,8 @@ export const Route = createFileRoute("/teachers/$slug")({
 
 function TeacherArticlePage() {
   const { slug } = Route.useParams();
-  const lab = LAB_BY_SLUG[slug];
-  if (!lab || !LAB_SCENES[slug] || !isListed(slug)) throw notFound();
+  const { lab } = Route.useLoaderData();
+  if (!LAB_SCENES[slug] || !isListed(slug)) throw notFound();
   const article = teacherArticle(lab);
   const figs = labFigures(lab.slug);
   const hero = teacherHero(lab.slug) ?? figs[0];

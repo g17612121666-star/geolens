@@ -235,8 +235,7 @@ function TeachersIndex() {
                         <span className="mb-1 block font-medium text-chalk">
                           {"Start a discussion"}
                         </span>
-                        {lab.questions[0]?.prompt ??
-                          (lab.misconceptions?.[0] ?? lab.misconception).claim}
+                        {lab.preview}
                       </p>
                       <div className="mt-auto flex flex-wrap gap-2">
                         <Link to="/teachers/$slug" params={{ slug: lab.slug }} className={button}>

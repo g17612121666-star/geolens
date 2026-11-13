@@ -21,7 +21,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
   const setTab = useLabControls((s) => s.setPanelTab);
   const exam = useLabControls((s) => s.examLanguage);
   const setExam = useLabControls((s) => s.setExam);
-  const pairs = lab.misconceptions?.length ? lab.misconceptions : [lab.misconception];
+  const pairs = lab.misconceptions;
   const figs = labFigures(lab.slug);
   const videos = labVideos(lab.slug);
   const gallery = (LAB_GALLERY[lab.slug] ?? []).filter((g) => g.src !== figs[0]?.src);

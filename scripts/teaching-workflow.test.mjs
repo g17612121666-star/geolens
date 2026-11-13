@@ -5,7 +5,10 @@ import Module, {createRequire} from 'node:module';
 import {readFileSync} from 'node:fs';
 Module._extensions['.ts']=(m,file)=>m._compile(ts.transpileModule(readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,resolveJsonModule:true,esModuleInterop:true}}).outputText,file);
 const require=createRequire(import.meta.url);
-const {LABS}=require('../src/lib/labs/catalog.ts');
+const {withDefinitions}=require('../src/lib/labs/summary.ts');
+// The full lessons, built the way scripts/vite-lab-content.mjs builds them for the site.
+const DEFINITIONS=require('./glossary-definitions.json');
+const LABS=require('../src/lib/labs/content.json').labs.map(lab=>withDefinitions(lab,DEFINITIONS));
 const {lessonLink,lessonOutline}=require('../src/lib/teachers/workflow.ts');
 const {teacherArticle}=require('../src/lib/teachers/article.ts');
 const {useLabControls}=require('../src/lib/store/lab-controls.ts');

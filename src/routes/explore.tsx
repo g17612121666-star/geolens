@@ -12,7 +12,7 @@ import { buildIndex, searchIndex } from "@/lib/site-search";
 import { headFor } from "@/lib/seo";
 import { useQuizScores } from "@/lib/quiz-progress";
 
-const ANSWER_KEYS = Object.fromEntries(LABS.map((l) => [l.slug, l.questions.map((q) => q.answer)]));
+const ANSWER_KEYS = Object.fromEntries(LABS.map((l) => [l.slug, l.answers]));
 type ExploreKey = "kind" | "q" | "realm" | "stage" | "collection" | "region";
 type ExploreSearch = Partial<Record<ExploreKey, string>>;
 const EXPLORE_KEYS: ExploreKey[] = ["kind", "q", "realm", "stage", "collection", "region"];

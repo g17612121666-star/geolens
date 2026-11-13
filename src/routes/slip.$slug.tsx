@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { LAB_BY_SLUG } from "@/lib/labs/catalog";
+import { loadLab } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
 import { encodeHandIn } from "@/lib/hand-in";
@@ -12,15 +12,14 @@ export const Route = createFileRoute("/slip/$slug")({
     if (!LAB_SCENES[params.slug] || !isListed(params.slug)) throw notFound();
   },
   loader: async ({ params }) => {
-    const { LAB_BY_SLUG: labs } = await import("@/lib/labs/catalog");
-    const lab = labs[params.slug];
+    const lab = await loadLab(params.slug);
     if (!lab) throw notFound();
-    return { title: lab.title };
+    return { lab };
   },
   component: SlipPage,
   head: ({ params, loaderData }) =>
     headFor({
-      title: `Hand-in slip · ${loaderData?.title ?? "Lab"}`,
+      title: `Hand-in slip · ${loaderData?.lab.title ?? "Lab"}`,
       description: "A printable record of one student's work in a Geolens lab.",
       path: `/slip/${params.slug}`,
     }),
@@ -31,8 +30,7 @@ const LETTERS = ["A", "B", "C", "D"];
 /** A printable record of this student's work, built from this browser only. */
 function SlipPage() {
   const { slug } = Route.useParams();
-  const lab = LAB_BY_SLUG[slug];
-  if (!lab) throw notFound();
+  const { lab } = Route.useLoaderData();
   const { first } = useQuizAnswers(slug);
   const { work } = useStudentWork(slug);
   const [name, setName] = useStudentName();

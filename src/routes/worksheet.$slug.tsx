@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import QRCode from "qrcode";
-import { LAB_BY_SLUG } from "@/lib/labs/catalog";
+import { loadLab } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
 import { LESSON_PHASES } from "@/lib/teachers/workflow";
@@ -12,17 +12,16 @@ export const Route = createFileRoute("/worksheet/$slug")({
     if (!LAB_SCENES[params.slug] || !isListed(params.slug)) throw notFound();
   },
   loader: async ({ params }) => {
-    const { LAB_BY_SLUG: labs } = await import("@/lib/labs/catalog");
-    const lab = labs[params.slug];
+    const lab = await loadLab(params.slug);
     if (!lab) throw notFound();
-    return { title: lab.title };
+    return { lab };
   },
   component: WorksheetPage,
   head: ({ params, loaderData }) =>
     headFor({
-      title: loaderData ? `Worksheet · ${loaderData.title}` : "Worksheet",
+      title: loaderData ? `Worksheet · ${loaderData.lab.title}` : "Worksheet",
       description: loaderData
-        ? `A printable student worksheet for the ${loaderData.title} lab, with tasks, key words, quiz questions and an optional answer key.`
+        ? `A printable student worksheet for the ${loaderData.lab.title} lab, with tasks, key words, quiz questions and an optional answer key.`
         : "A printable Geolens worksheet.",
       path: `/worksheet/${params.slug}`,
     }),
@@ -41,9 +40,7 @@ function Lines({ count }: { count: number }) {
 }
 
 function WorksheetPage() {
-  const { slug } = Route.useParams();
-  const lab = LAB_BY_SLUG[slug];
-  if (!lab) throw notFound();
+  const { lab } = Route.useLoaderData();
   const [answers, setAnswers] = useState(false);
   const [qr, setQr] = useState("");
   const url = `${siteOrigin()}/lab/${lab.slug}`;

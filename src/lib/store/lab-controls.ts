@@ -139,8 +139,6 @@ export const useLabControls = create<LabControlsState>((set, get) => ({
     }),
 }));
 
-export type LabState = LabControlsState;
-
 /**
  * Subscribe to the named fields only: the component re-renders when one of them changes, not on
  * every store update. Lab time `t` changes every frame while a lab plays, so name it only where

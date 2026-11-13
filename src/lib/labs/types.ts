@@ -67,10 +67,10 @@ export type LabMeta = {
   why: string[];
   /** Scientific assumptions and calculation details, available on demand. */
   modelNotes?: string[];
+  /** Definitions come from scripts/glossary-definitions.json, added at build time. */
   glossary: { term: string; def: string; exam?: string }[];
-  misconception: { claim: string; truth: string };
-  /** Three pupil-said wrong sentences. Falls back to `misconception` if omitted. */
-  misconceptions?: { claim: string; truth: string }[];
+  /** Wrong sentences students often say, each with its correction; the first is the headline. */
+  misconceptions: { claim: string; truth: string }[];
   cases: { slug: string; label: string }[];
   teacher: { script: string; pitfalls: string[] };
   sources: { label: string; href?: string }[];
@@ -92,6 +92,22 @@ export type LabMeta = {
    * answer for teachers (shown in the Teach tab and teacher notes, never to students first).
    */
   cer?: { prompt: string; claim: string; evidence: string; reasoning: string };
+};
+
+/**
+ * What lists, search and teacher tools need about every lab. Pages that list labs load these
+ * summaries only; a lab's full lesson (`LabMeta`) loads with the pages that show it.
+ */
+export type LabSummary = Pick<
+  LabMeta,
+  "slug" | "title" | "hook" | "objective" | "realm" | "ages" | "curriculum"
+> & {
+  /** Glossary terms and their exam wording, without definitions. */
+  glossary: { term: string; exam?: string }[];
+  /** Index of the correct choice for each Check question (progress and hand-in codes). */
+  answers: number[];
+  /** The first Check question, or the headline misconception, shown on teacher cards. */
+  preview: string;
 };
 
 export type RealmMeta = {

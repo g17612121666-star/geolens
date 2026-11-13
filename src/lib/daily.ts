@@ -2,7 +2,6 @@
  * Daily challenges: the same puzzles for everyone on a given UTC day, chosen by a seed from the
  * date. Progress (scores, streak, experience points) stays in this browser only.
  */
-import content from "./labs/content.json" with { type: "json" };
 import { FIELD_TRIPS, type TripStop } from "./field-trips.ts";
 
 /**
@@ -13,7 +12,7 @@ export const dayKey = (d = new Date()) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
 /** Small deterministic generator (mulberry32) seeded from a string. */
-function seeded(text: string) {
+export function seeded(text: string) {
   let h = 1779033703 ^ text.length;
   for (let i = 0; i < text.length; i++) {
     h = Math.imul(h ^ text.charCodeAt(i), 3432918353);
@@ -28,44 +27,13 @@ function seeded(text: string) {
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
 }
-function pick<T>(items: T[], n: number, rand: () => number) {
+export function pick<T>(items: T[], n: number, rand: () => number) {
   const pool = [...items],
     out: T[] = [];
   while (out.length < n && pool.length)
     out.push(pool.splice(Math.floor(rand() * pool.length), 1)[0]);
   return out;
 }
-
-export type DailyQuestion = {
-  lab: string;
-  labTitle: string;
-  prompt: string;
-  choices: string[];
-  answer: number;
-  explain: string;
-};
-type RawLab = {
-  slug: string;
-  title: string;
-  questions: { prompt: string; choices: string[]; answer: number; explain?: string }[];
-};
-// Questions that refer to a lab's own controls or scene make no sense out of context.
-const NEEDS_LAB =
-  /\b(slider|toggle|readout|this model|the model|the scene|this lab|press play|in the lab)\b/i;
-const POOL: DailyQuestion[] = (content.labs as unknown as RawLab[]).flatMap((l) =>
-  l.questions
-    .filter((q) => !NEEDS_LAB.test(q.prompt) && !q.choices.some((c) => NEEDS_LAB.test(c)))
-    .map((q) => ({
-      lab: l.slug,
-      labTitle: l.title,
-      prompt: q.prompt,
-      choices: q.choices,
-      answer: q.answer,
-      explain: q.explain ?? "",
-    })),
-);
-
-export const dailyQuestions = (day = dayKey()) => pick(POOL, 5, seeded(`quiz:${day}`));
 
 export type PhotoRound = TripStop & { trip: string; stop: number };
 const STOPS: PhotoRound[] = FIELD_TRIPS.flatMap((t) =>

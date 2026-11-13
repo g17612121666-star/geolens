@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { LabFilmstrip } from "@/components/lab-filmstrip";
 import { LAB_BY_SLUG, LABS, REALMS, labsInRealm } from "@/lib/labs/catalog";
 import { FIELD_TRIPS } from "@/lib/field-trips";
-import { GLOSSARY } from "@/lib/glossary-data";
+import { GLOSSARY_TERMS } from "@/lib/glossary-terms";
 import { REALM_FIGURE, labFigure } from "@/lib/figures";
 import { CASES } from "@/lib/cases";
 import { caseFigure } from "@/lib/case-figures";
@@ -70,7 +70,7 @@ function Home() {
                 [LABS.length, "3D labs"],
                 [CASES.length, "case studies"],
                 [FIELD_TRIPS.length, "field trips"],
-                [GLOSSARY.length, "key terms"],
+                [GLOSSARY_TERMS.length, "key terms"],
               ].map(([n, label]) => (
                 <div key={label} className="flex flex-col-reverse">
                   <dt className="mt-1.5 text-xs text-mist">{label}</dt>

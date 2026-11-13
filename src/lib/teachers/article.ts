@@ -1,9 +1,9 @@
-import type { LabMeta } from '@/lib/labs/types';
+import type { LabMeta } from '../labs/types.ts';
 
 export type ArticleSection = { heading: string; paragraphs: string[] };
 
 export function teacherArticle(lab: LabMeta) {
-  const myths = lab.misconceptions?.length ? lab.misconceptions : [lab.misconception];
+  const myths = lab.misconceptions;
   const sections: ArticleSection[] = [
     { heading: 'Before the lesson', paragraphs: [
       lab.objective,

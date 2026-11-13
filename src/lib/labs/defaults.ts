@@ -1,6 +1,6 @@
 import type { LabMeta } from "./types";
 
-export function defaultParams(lab: LabMeta): Record<string, number> {
+export function defaultParams(lab: Pick<LabMeta, "controls">): Record<string, number> {
   const d: Record<string, number> = {};
   for (const e of lab.controls.extra ?? []) {
     if (e.default !== undefined) d[e.key] = e.default;

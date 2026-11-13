@@ -25,9 +25,9 @@ function CheckCodes() {
       findHandIns(text).map((row) => {
         const lab = row.result ? LAB_BY_SLUG[row.result.slug] : undefined;
         const marks = lab
-          ? lab.questions.map((q, i) => {
+          ? lab.answers.map((correct, i) => {
               const a = row.result!.answers[i];
-              return a == null ? null : a === q.answer;
+              return a == null ? null : a === correct;
             })
           : [];
         return {
