@@ -1,5 +1,6 @@
 import type { LabMeta } from '../labs/types';
 import { defaultParams } from '../labs/defaults';
+import { STANDARD_BY_ID, sortStandards, standardLabel } from '../labs/standards';
 
 export const LESSON_PHASES = [
   { name: 'Observe' },
@@ -26,6 +27,7 @@ export function lessonOutline(lab: LabMeta, origin: string) {
   const exit = lab.questions[0];
   return [
     `${lab.title} — Geolens lesson notes`, `Aim: ${lab.objective}`,
+    'Standards', ...sortStandards(lab.standards).map(id => [standardLabel(id), STANDARD_BY_ID[id]?.title].filter(Boolean).join(' — ')),
     ...LESSON_PHASES.flatMap((phase, i) => [
       `${i + 1}. ${phase.name}`, lab.steps[i]?.body ?? '', `${origin}${lessonLink(lab, i)}`,
     ]),

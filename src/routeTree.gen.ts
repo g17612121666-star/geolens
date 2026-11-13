@@ -31,6 +31,7 @@ import { Route as SlipSlugRouteImport } from './routes/slip.$slug'
 import { Route as TeachersIndexRouteImport } from './routes/teachers.index'
 import { Route as TeachersSlugRouteImport } from './routes/teachers.$slug'
 import { Route as TeachersCheckRouteImport } from './routes/teachers.check'
+import { Route as TeachersStandardsRouteImport } from './routes/teachers.standards'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ToolsAtlasRouteImport } from './routes/tools.atlas'
 import { Route as ToolsEarthMotionRouteImport } from './routes/tools.earth-motion'
@@ -153,6 +154,11 @@ const TeachersCheckRoute = TeachersCheckRouteImport.update({
   path: '/check',
   getParentRoute: () => TeachersRoute,
 } as any)
+const TeachersStandardsRoute = TeachersStandardsRouteImport.update({
+  id: '/standards',
+  path: '/standards',
+  getParentRoute: () => TeachersRoute,
+} as any)
 const ToolsIndexRoute = ToolsIndexRouteImport.update({
   id: '/tools/',
   path: '/tools/',
@@ -230,6 +236,7 @@ export interface FileRoutesByFullPath {
   '/slip/$slug': typeof SlipSlugRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/teachers/check': typeof TeachersCheckRoute
+  '/teachers/standards': typeof TeachersStandardsRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
   '/tools/earthquakes': typeof ToolsEarthquakesRoute
@@ -264,6 +271,7 @@ export interface FileRoutesByTo {
   '/slip/$slug': typeof SlipSlugRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/teachers/check': typeof TeachersCheckRoute
+  '/teachers/standards': typeof TeachersStandardsRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
   '/tools/earthquakes': typeof ToolsEarthquakesRoute
@@ -300,6 +308,7 @@ export interface FileRoutesById {
   '/slip/$slug': typeof SlipSlugRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/teachers/check': typeof TeachersCheckRoute
+  '/teachers/standards': typeof TeachersStandardsRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
   '/tools/earthquakes': typeof ToolsEarthquakesRoute
@@ -337,6 +346,7 @@ export interface FileRouteTypes {
     | '/slip/$slug'
     | '/teachers/$slug'
     | '/teachers/check'
+    | '/teachers/standards'
     | '/tools/atlas'
     | '/tools/earth-motion'
     | '/tools/earthquakes'
@@ -371,6 +381,7 @@ export interface FileRouteTypes {
     | '/slip/$slug'
     | '/teachers/$slug'
     | '/teachers/check'
+    | '/teachers/standards'
     | '/tools/atlas'
     | '/tools/earth-motion'
     | '/tools/earthquakes'
@@ -406,6 +417,7 @@ export interface FileRouteTypes {
     | '/slip/$slug'
     | '/teachers/$slug'
     | '/teachers/check'
+    | '/teachers/standards'
     | '/tools/atlas'
     | '/tools/earth-motion'
     | '/tools/earthquakes'
@@ -610,6 +622,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeachersCheckRouteImport
       parentRoute: typeof TeachersRoute
     }
+    '/teachers/standards': {
+      id: '/teachers/standards'
+      path: '/standards'
+      fullPath: '/teachers/standards'
+      preLoaderRoute: typeof TeachersStandardsRouteImport
+      parentRoute: typeof TeachersRoute
+    }
     '/tools/': {
       id: '/tools/'
       path: '/tools'
@@ -693,12 +712,14 @@ declare module '@tanstack/react-router' {
 interface TeachersRouteChildren {
   TeachersSlugRoute: typeof TeachersSlugRoute
   TeachersCheckRoute: typeof TeachersCheckRoute
+  TeachersStandardsRoute: typeof TeachersStandardsRoute
   TeachersIndexRoute: typeof TeachersIndexRoute
 }
 
 const TeachersRouteChildren: TeachersRouteChildren = {
   TeachersSlugRoute: TeachersSlugRoute,
   TeachersCheckRoute: TeachersCheckRoute,
+  TeachersStandardsRoute: TeachersStandardsRoute,
   TeachersIndexRoute: TeachersIndexRoute,
 }
 

@@ -6,6 +6,7 @@ import { encodeHandIn } from "@/lib/hand-in";
 import { useQuizAnswers } from "@/lib/quiz-progress";
 import { useStudentName, useStudentWork, written } from "@/lib/student-work";
 import { headFor } from "@/lib/seo";
+import { isUsStandard, standardLabel } from "@/lib/labs/standards";
 
 export const Route = createFileRoute("/slip/$slug")({
   beforeLoad: ({ params }) => {
@@ -43,7 +44,7 @@ function SlipPage() {
     predicted: written(work.prediction),
     explained: written(work.claim) && written(work.evidence) && written(work.reasoning),
   });
-  const ngss = lab.curriculum.filter((c) => c.startsWith("NGSS"));
+  const us = lab.standards.filter(isUsStandard).map(standardLabel);
   const answerBlock = (label: string, text?: string) => (
     <div className="mt-3">
       <p className="text-sm font-medium text-chalk">{label}</p>
@@ -78,7 +79,7 @@ function SlipPage() {
       <h1 className="mt-2 font-display text-3xl">{lab.title}</h1>
       <p className="mt-1 text-sm text-mist">
         {new Date().toLocaleDateString("en-US", { dateStyle: "long" })}
-        {ngss.length > 0 && ` · ${ngss.join(", ")}`}
+        {us.length > 0 && ` · ${us.join(", ")}`}
       </p>
       <label className="mt-5 block text-sm text-mist">
         {"Name"}

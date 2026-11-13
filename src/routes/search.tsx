@@ -12,6 +12,11 @@ import { CASES_BY_REGION as CASES } from "@/lib/cases";
 
 import { expandSearchNeedle } from "@/lib/search-aliases";
 import { buildIndex, searchIndex } from "@/lib/site-search";
+import { STANDARD_BY_ID, standardLabel } from "@/lib/labs/standards";
+
+// A standard is found by its code ("HS-ESS2-6", "APES 4.7") or its title.
+const standardSearchText = (id: string) =>
+  `${standardLabel(id)} ${STANDARD_BY_ID[id]?.title ?? ""}`;
 
 type SearchParams = { q?: string };
 
@@ -64,7 +69,12 @@ const LAB_INDEX = buildIndex(SHIPPED, (l) => [
   { text: l.title, weight: 6 },
   { text: `${l.hook} ${l.objective}`, weight: 3 },
   {
-    text: [l.realm, ...l.curriculum, ...l.ages, ...l.glossary.map((g) => g.term)].join(" "),
+    text: [
+      l.realm,
+      ...l.standards.map(standardSearchText),
+      ...l.ages,
+      ...l.glossary.map((g) => g.term),
+    ].join(" "),
     weight: 2,
   },
   { text: TEACHER_SCRIPTS[l.slug] ?? "", weight: 1 },

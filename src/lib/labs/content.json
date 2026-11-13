@@ -8,15 +8,16 @@
       "realm": "planet",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "APES",
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-1",
+        "NGSS HS-ESS2-4",
         "APES 4.7",
-        "KS3 Earth and atmosphere",
-        "GCSE"
+        "KS3 Space physics"
       ],
       "steps": [
         {
@@ -212,10 +213,9 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-1",
-        "KS3 Earth and atmosphere",
-        "GCSE"
+        "KS3 Space physics"
       ],
       "steps": [
         {
@@ -394,10 +394,9 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-1",
-        "KS3 Earth and atmosphere",
-        "GCSE"
+        "KS3 Space physics"
       ],
       "steps": [
         {
@@ -586,13 +585,14 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-1",
+        "NGSS HS-ESS2-3",
         "KS3 Earth and atmosphere",
-        "AQA GCSE 3.1.1.2 Tectonic hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
-        "OCR GCSE B Global hazards"
+        "AQA GCSE 3.1.1.2",
+        "Edexcel GCSE B Topic 1",
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -782,16 +782,21 @@
       "ages": [
         "NGSS MS",
         "HS Earth Sci",
+        "APES",
         "KS3",
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-3",
-        "AQA GCSE 3.1.1.2 Tectonic hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
-        "OCR GCSE B Global hazards"
+        "NGSS HS-ESS1-5",
+        "NGSS HS-ESS2-1",
+        "APES 4.1",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.1.2",
+        "Edexcel GCSE B Topic 1",
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -1024,9 +1029,10 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
-        "KS3 map skills",
-        "AQA GCSE 3.4 Geographical skills"
+      "standards": [
+        "C3 D2.Geo.3.6-8",
+        "KS3 Geographical skills",
+        "AQA GCSE 3.4"
       ],
       "steps": [
         {
@@ -1241,15 +1247,18 @@
       "realm": "landforms",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "KS3",
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
-        "AQA GCSE 3.1.3.3 River landscapes in the UK",
-        "Edexcel GCSE A Topic 1 Changing landscapes of the UK",
-        "Edexcel GCSE B Topic 4 UK’s evolving physical landscape",
+        "NGSS HS-ESS2-5",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.3.3",
+        "Edexcel GCSE A Topic 1",
+        "Edexcel GCSE B Topic 4",
         "OCR GCSE A Landscapes of the UK",
         "OCR GCSE B Distinctive landscapes"
       ],
@@ -1432,12 +1441,12 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-4",
-        "APES 1.7 / 4.6",
-        "KS3",
-        "AQA A-level 3.1.1 Water and carbon cycles",
-        "GCSE"
+        "APES 1.7",
+        "APES 4.6",
+        "KS3 Physical geography",
+        "AQA A-level 3.1.1"
       ],
       "steps": [
         {
@@ -1675,12 +1684,14 @@
       "realm": "planet",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "KS3"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-2",
-        "KS3 Earth and atmosphere",
-        "GCSE"
+        "NGSS MS-ESS1-3",
+        "NGSS HS-ESS1-4",
+        "KS3 Space physics"
       ],
       "steps": [
         {
@@ -1958,10 +1969,10 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-1",
         "APES 4.7",
-        "KS3"
+        "KS3 Space physics"
       ],
       "steps": [
         {
@@ -2165,9 +2176,9 @@
         "NGSS MS",
         "KS3"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-3",
-        "KS3"
+        "KS3 Space physics"
       ],
       "steps": [
         {
@@ -2378,11 +2389,10 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-4",
         "NGSS HS-ESS1-6",
-        "KS3",
-        "GCSE"
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -2600,9 +2610,9 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-1",
-        "KS3"
+        "KS3 Space physics"
       ],
       "steps": [
         {
@@ -2828,11 +2838,11 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-1",
-        "KS3",
-        "AQA GCSE 3.1.3.2 Coastal landscapes in the UK",
-        "AQA A-level 3.1.3 Coastal systems and landscapes"
+        "KS3 Space physics",
+        "AQA GCSE 3.1.3.2",
+        "AQA A-level 3.1.3"
       ],
       "steps": [
         {
@@ -3007,10 +3017,10 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-1",
-        "KS3",
-        "GCSE"
+        "APES 4.7",
+        "KS3 Space physics"
       ],
       "steps": [
         {
@@ -3205,15 +3215,18 @@
       "realm": "interior",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-3",
-        "AQA GCSE 3.1.1.2 Tectonic hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
-        "OCR GCSE B Global hazards"
+        "NGSS HS-ESS1-5",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.1.2",
+        "Edexcel GCSE B Topic 1",
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -3417,12 +3430,13 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-3",
-        "AQA GCSE 3.1.1.2 Tectonic hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
-        "OCR GCSE B Global hazards"
+        "NGSS HS-ESS1-5",
+        "AQA GCSE 3.1.1.2",
+        "Edexcel GCSE B Topic 1",
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -3613,15 +3627,17 @@
       "realm": "interior",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-3",
-        "AQA GCSE 3.1.1.2 Tectonic hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
-        "OCR GCSE B Global hazards"
+        "NGSS HS-ESS1-5",
+        "AQA GCSE 3.1.1.2",
+        "Edexcel GCSE B Topic 1",
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -3814,11 +3830,10 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-5",
         "APES 4.4",
-        "KS3",
-        "GCSE"
+        "KS3 Earth and atmosphere"
       ],
       "steps": [
         {
@@ -4007,17 +4022,20 @@
       "realm": "atmosphere",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "APES",
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
-        "NGSS MS-ESS2-6",
-        "APES 4.7 / 9.3",
-        "KS3",
-        "AQA GCSE 3.1.1.4 Climate change",
-        "Edexcel GCSE A Topic 2 Weather hazards and climate change",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
+      "standards": [
+        "NGSS MS-ESS3-5",
+        "NGSS HS-ESS2-4",
+        "APES 4.7",
+        "APES 9.3",
+        "KS3 Earth and atmosphere",
+        "AQA GCSE 3.1.1.4",
+        "Edexcel GCSE A Topic 2",
+        "Edexcel GCSE B Topic 1",
         "OCR GCSE A Environmental threats to our planet",
         "OCR GCSE B Changing climate"
       ],
@@ -4216,10 +4234,10 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-5",
-        "KS3",
-        "GCSE"
+        "NGSS MS-ESS2-6",
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -4405,13 +4423,14 @@
       "ages": [
         "NGSS MS",
         "HS Earth Sci",
+        "APES",
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
-        "NGSS HS-ESS2",
-        "GCSE",
-        "A-level"
+      "standards": [
+        "NGSS MS-ESS2-6",
+        "APES 4.5",
+        "AQA GCSE 3.1.1.3"
       ],
       "steps": [
         {
@@ -4610,15 +4629,14 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-6",
         "APES 4.5",
-        "AQA GCSE 3.1.1.3 Weather hazards",
-        "Edexcel GCSE A Topic 2 Weather hazards and climate change",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
+        "AQA GCSE 3.1.1.3",
+        "Edexcel GCSE A Topic 2",
+        "Edexcel GCSE B Topic 1",
         "OCR GCSE A Environmental threats to our planet",
-        "OCR GCSE B Global hazards",
-        "A-level"
+        "OCR GCSE B Global hazards"
       ],
       "steps": [
         {
@@ -4814,10 +4832,9 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-5",
-        "KS3",
-        "GCSE"
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -4992,10 +5009,9 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-5",
-        "KS3",
-        "GCSE"
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -5175,10 +5191,10 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-6",
         "APES 4.8",
-        "GCSE"
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -5383,18 +5399,20 @@
       "realm": "water",
       "ages": [
         "NGSS MS",
+        "APES",
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-4",
-        "KS3",
-        "AQA GCSE 3.1.3.3 River landscapes in the UK",
-        "AQA A-level 3.1.1 Water and carbon cycles",
-        "Edexcel GCSE A Topic 1 Changing landscapes of the UK",
-        "Edexcel GCSE B Topic 4 UK’s evolving physical landscape",
+        "APES 4.6",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.3.3",
+        "Edexcel GCSE A Topic 1",
+        "Edexcel GCSE B Topic 4",
         "OCR GCSE A Landscapes of the UK",
-        "OCR GCSE B Distinctive landscapes"
+        "OCR GCSE B Distinctive landscapes",
+        "AQA A-level 3.1.1"
       ],
       "steps": [
         {
@@ -5608,14 +5626,17 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
+        "NGSS MS-ESS2-4",
+        "NGSS MS-ESS3-3",
+        "APES 4.6",
         "APES 5.13",
-        "AQA GCSE 3.1.3.3 River landscapes in the UK",
-        "AQA A-level 3.1.1 Water and carbon cycles",
-        "Edexcel GCSE A Topic 1 Changing landscapes of the UK",
-        "Edexcel GCSE B Topic 4 UK’s evolving physical landscape",
+        "AQA GCSE 3.1.3.3",
+        "Edexcel GCSE A Topic 1",
+        "Edexcel GCSE B Topic 4",
         "OCR GCSE A Landscapes of the UK",
-        "OCR GCSE B Distinctive landscapes"
+        "OCR GCSE B Distinctive landscapes",
+        "AQA A-level 3.1.1"
       ],
       "steps": [
         {
@@ -5820,13 +5841,16 @@
       "objective": "Compare annual patterns of river discharge and explain how rainfall, snowmelt and dams can change their timing.",
       "realm": "water",
       "ages": [
+        "NGSS MS",
         "APES",
-        "A-level",
-        "GCSE"
+        "GCSE",
+        "A-level"
       ],
-      "curriculum": [
-        "AQA GCSE 3.1.3.3 River landscapes in the UK",
-        "AQA A-level 3.1.1 Water and carbon cycles"
+      "standards": [
+        "NGSS MS-ESS2-4",
+        "APES 4.6",
+        "AQA GCSE 3.1.3.3",
+        "AQA A-level 3.1.1"
       ],
       "steps": [
         {
@@ -6014,11 +6038,9 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-6",
-        "APES 4.5",
-        "GCSE",
-        "A-level"
+        "APES 4.5"
       ],
       "steps": [
         {
@@ -6221,14 +6243,13 @@
       "objective": "Explain how cooling and changes in salinity affect seawater density, then relate sinking and rising water to ocean overturning.",
       "realm": "water",
       "ages": [
-        "APES",
         "HS Earth Sci",
+        "APES",
         "A-level"
       ],
-      "curriculum": [
-        "NGSS HS-ESS2",
-        "APES",
-        "A-level"
+      "standards": [
+        "NGSS HS-ESS2-4",
+        "NGSS HS-ESS2-5"
       ],
       "steps": [
         {
@@ -6460,14 +6481,19 @@
       "realm": "water",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "APES",
+        "KS3",
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
-        "APES 1.4 / 9.4",
-        "AQA A-level 3.1.1 Water and carbon cycles",
-        "GCSE"
+      "standards": [
+        "NGSS MS-ESS3-5",
+        "NGSS HS-ESS2-6",
+        "APES 1.4",
+        "APES 9.4",
+        "KS3 Earth and atmosphere",
+        "AQA A-level 3.1.1"
       ],
       "steps": [
         {
@@ -6702,14 +6728,13 @@
       "objective": "Compare normal Pacific conditions with El Niño and La Niña, and explain how changes in winds and ocean temperature affect rainfall.",
       "realm": "water",
       "ages": [
-        "APES",
         "HS Earth Sci",
+        "APES",
         "A-level"
       ],
-      "curriculum": [
-        "NGSS HS-ESS2",
-        "APES 4.9",
-        "A-level"
+      "standards": [
+        "NGSS HS-ESS2-4",
+        "APES 4.9"
       ],
       "steps": [
         {
@@ -6893,10 +6918,9 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
-        "KS3",
-        "GCSE"
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -7127,14 +7151,17 @@
       "realm": "landforms",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
-        "AQA GCSE 3.1.3.3 River landscapes in the UK",
-        "Edexcel GCSE A Topic 1 Changing landscapes of the UK",
-        "Edexcel GCSE B Topic 4 UK’s evolving physical landscape",
+        "NGSS HS-ESS2-5",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.3.3",
+        "Edexcel GCSE A Topic 1",
+        "Edexcel GCSE B Topic 4",
         "OCR GCSE A Landscapes of the UK",
         "OCR GCSE B Distinctive landscapes"
       ],
@@ -7368,15 +7395,15 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
         "NGSS HS-ESS2-5",
-        "AQA GCSE 3.1.3.3 River landscapes in the UK",
-        "Edexcel GCSE A Topic 1 Changing landscapes of the UK",
-        "Edexcel GCSE B Topic 4 UK’s evolving physical landscape",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.3.3",
+        "Edexcel GCSE A Topic 1",
+        "Edexcel GCSE B Topic 4",
         "OCR GCSE A Landscapes of the UK",
-        "OCR GCSE B Distinctive landscapes",
-        "A-level"
+        "OCR GCSE B Distinctive landscapes"
       ],
       "steps": [
         {
@@ -7607,12 +7634,13 @@
       "realm": "landforms",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
-        "GCSE",
-        "A-level"
+      "standards": [
+        "NGSS MS-ESS2-2",
+        "NGSS HS-ESS2-5"
       ],
       "steps": [
         {
@@ -7808,14 +7836,15 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
-        "AQA GCSE 3.1.3.2 Coastal landscapes in the UK",
-        "AQA A-level 3.1.3 Coastal systems and landscapes",
-        "Edexcel GCSE A Topic 1 Changing landscapes of the UK",
-        "Edexcel GCSE B Topic 4 UK’s evolving physical landscape",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.3.2",
+        "Edexcel GCSE A Topic 1",
+        "Edexcel GCSE B Topic 4",
         "OCR GCSE A Landscapes of the UK",
-        "OCR GCSE B Distinctive landscapes"
+        "OCR GCSE B Distinctive landscapes",
+        "AQA A-level 3.1.3"
       ],
       "steps": [
         {
@@ -8073,11 +8102,12 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
-        "AQA GCSE 3.1.3.4 Glacial landscapes in the UK",
-        "AQA A-level 3.1.4 Glacial systems and landscapes",
-        "Edexcel GCSE A Topic 1 Changing landscapes of the UK"
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.3.4",
+        "Edexcel GCSE A Topic 1",
+        "AQA A-level 3.1.4"
       ],
       "steps": [
         {
@@ -8322,11 +8352,10 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
         "NGSS HS-ESS2-5",
-        "GCSE",
-        "A-level"
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -8527,9 +8556,9 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
-        "GCSE"
+        "NGSS HS-ESS2-1"
       ],
       "steps": [
         {
@@ -8741,9 +8770,9 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
-        "AQA A-level 3.1.2 Hot desert systems and landscapes"
+        "AQA A-level 3.1.2"
       ],
       "steps": [
         {
@@ -8962,10 +8991,9 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-1",
-        "KS3",
-        "GCSE"
+        "KS3 Earth and atmosphere"
       ],
       "steps": [
         {
@@ -9231,10 +9259,9 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
-        "APES 4.2",
-        "GCSE",
-        "A-level"
+      "standards": [
+        "NGSS MS-ESS2-1",
+        "APES 4.2"
       ],
       "steps": [
         {
@@ -9447,9 +9474,8 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
-        "APES 4.3",
-        "GCSE"
+      "standards": [
+        "APES 4.3"
       ],
       "steps": [
         {
@@ -9638,10 +9664,9 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-1",
-        "KS3",
-        "GCSE"
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -9846,10 +9871,11 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
-        "NGSS",
+      "standards": [
+        "NGSS MS-ESS2-2",
+        "NGSS MS-ESS3-3",
         "APES 4.2",
-        "GCSE"
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -10043,15 +10069,19 @@
       "ages": [
         "NGSS MS",
         "HS Earth Sci",
+        "APES",
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS3-2",
-        "AQA GCSE 3.1.1.2 Tectonic hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
-        "OCR GCSE B Global hazards"
+        "NGSS HS-ESS3-1",
+        "APES 4.1",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.1.2",
+        "Edexcel GCSE B Topic 1",
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -10244,15 +10274,21 @@
       "realm": "hazards",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
+        "APES",
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
-        "AQA GCSE 3.1.1.2 Tectonic hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
-        "OCR GCSE B Global hazards"
+        "NGSS MS-ESS3-2",
+        "NGSS HS-ESS3-1",
+        "APES 4.1",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.1.2",
+        "Edexcel GCSE B Topic 1",
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -10485,12 +10521,13 @@
         "HS Earth Sci",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS3-2",
-        "AQA GCSE 3.1.1.2 Tectonic hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
-        "OCR GCSE B Global hazards"
+        "NGSS HS-ESS3-1",
+        "AQA GCSE 3.1.1.2",
+        "Edexcel GCSE B Topic 1",
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -10674,19 +10711,22 @@
       "realm": "hazards",
       "ages": [
         "NGSS MS",
+        "HS Earth Sci",
         "APES",
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
+        "NGSS MS-ESS2-5",
         "NGSS MS-ESS3-2",
-        "APES",
-        "AQA GCSE 3.1.1.3 Weather hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE A Topic 2 Weather hazards and climate change",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
+        "NGSS HS-ESS3-1",
+        "KS3 Physical geography",
+        "AQA GCSE 3.1.1.3",
+        "Edexcel GCSE A Topic 2",
+        "Edexcel GCSE B Topic 1",
         "OCR GCSE A Environmental threats to our planet",
-        "OCR GCSE B Global hazards"
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -10897,10 +10937,10 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS1-1",
-        "KS3 map skills",
-        "AQA GCSE 3.4 Geographical skills"
+        "KS3 Geographical skills",
+        "AQA GCSE 3.4"
       ],
       "steps": [
         {
@@ -11105,8 +11145,11 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
-        "AQA GCSE 3.4 Geographical skills"
+      "standards": [
+        "APHG 1.1",
+        "C3 D2.Geo.3.6-8",
+        "KS3 Geographical skills",
+        "AQA GCSE 3.4"
       ],
       "steps": [
         {
@@ -11318,10 +11361,10 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
-        "C3 Framework D2.Geo.1.6-8 (maps)",
-        "KS3",
-        "AQA GCSE 3.4 Geographical skills"
+      "standards": [
+        "C3 D2.Geo.1.6-8",
+        "KS3 Geographical skills",
+        "AQA GCSE 3.4"
       ],
       "steps": [
         {
@@ -11547,14 +11590,17 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-2",
-        "AQA GCSE 3.1.3.2 Coastal landscapes in the UK",
-        "AQA A-level 3.1.3 Coastal systems and landscapes",
-        "Edexcel GCSE A Topic 1 Changing landscapes of the UK",
-        "Edexcel GCSE B Topic 4 UK’s evolving physical landscape",
+        "NGSS MS-ESS3-2",
+        "NGSS HS-ESS2-5",
+        "NGSS HS-ESS3-1",
+        "AQA GCSE 3.1.3.2",
+        "Edexcel GCSE A Topic 1",
+        "Edexcel GCSE B Topic 4",
         "OCR GCSE A Landscapes of the UK",
-        "OCR GCSE B Distinctive landscapes"
+        "OCR GCSE B Distinctive landscapes",
+        "AQA A-level 3.1.3"
       ],
       "steps": [
         {
@@ -11750,10 +11796,11 @@
         "KS3",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-4",
+        "NGSS MS-ESS2-6",
         "APES 4.8",
-        "GCSE"
+        "KS3 Physical geography"
       ],
       "steps": [
         {
@@ -11956,11 +12003,11 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS2-4",
+        "NGSS MS-ESS3-1",
         "APES 1.7",
-        "AQA A-level 3.1.1 Water and carbon cycles",
-        "GCSE"
+        "AQA A-level 3.1.1"
       ],
       "steps": [
         {
@@ -12162,9 +12209,9 @@
         "HS Earth Sci",
         "A-level"
       ],
-      "curriculum": [
-        "NGSS HS-ESS2-1",
-        "A-level"
+      "standards": [
+        "NGSS MS-ESS2-2",
+        "NGSS HS-ESS2-1"
       ],
       "steps": [
         {
@@ -12358,9 +12405,10 @@
         "HS Earth Sci",
         "A-level"
       ],
-      "curriculum": [
+      "standards": [
+        "NGSS HS-ESS1-5",
         "NGSS HS-ESS2-1",
-        "AQA A-level 3.1.5 Hazards"
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {
@@ -12574,10 +12622,9 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
-        "APES 4.2 / 4.3",
-        "GCSE",
-        "A-level"
+      "standards": [
+        "APES 4.2",
+        "APES 4.3"
       ],
       "steps": [
         {
@@ -12761,9 +12808,10 @@
         "GCSE",
         "A-level"
       ],
-      "curriculum": [
-        "AQA GCSE 3.1.2.4 Cold environments",
-        "AQA A-level 3.1.4 Glacial systems and landscapes"
+      "standards": [
+        "NGSS HS-ESS2-5",
+        "AQA GCSE 3.1.2.4",
+        "AQA A-level 3.1.4"
       ],
       "steps": [
         {
@@ -12976,18 +13024,19 @@
       "realm": "hazards",
       "ages": [
         "NGSS MS",
-        "APES",
         "HS Earth Sci",
+        "APES",
         "GCSE"
       ],
-      "curriculum": [
+      "standards": [
         "NGSS MS-ESS3-2",
-        "AQA GCSE 3.1.1.3 Weather hazards",
-        "AQA A-level 3.1.5 Hazards",
-        "Edexcel GCSE A Topic 2 Weather hazards and climate change",
-        "Edexcel GCSE B Topic 1 Hazardous Earth",
+        "NGSS HS-ESS3-1",
+        "AQA GCSE 3.1.1.3",
+        "Edexcel GCSE A Topic 2",
+        "Edexcel GCSE B Topic 1",
         "OCR GCSE A Environmental threats to our planet",
-        "OCR GCSE B Global hazards"
+        "OCR GCSE B Global hazards",
+        "AQA A-level 3.1.5"
       ],
       "steps": [
         {

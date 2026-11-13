@@ -10,6 +10,7 @@ import { labVideos } from "@/lib/lab-videos";
 import { headFor } from "@/lib/seo";
 import { useState } from "react";
 import { LESSON_PHASES, lessonLink, lessonOutline } from "@/lib/teachers/workflow";
+import { STANDARD_BY_ID, isUsStandard, sortStandards, standardLabel } from "@/lib/labs/standards";
 
 export const Route = createFileRoute("/teachers/$slug")({
   beforeLoad: ({ params }) => {
@@ -171,6 +172,7 @@ function TeacherArticlePage() {
       )}
 
       {hero && <Figure {...hero} className="mt-8" />}
+      <Standards ids={lab.standards} />
       {(lab.predict || lab.cer) && (
         <section className="mt-8" aria-label={"Guided activity"}>
           <h2 className="font-display text-2xl">{"Guided activity and model answer"}</h2>
@@ -372,5 +374,37 @@ function TeacherArticlePage() {
         </section>
       )}
     </main>
+  );
+}
+
+/** The lab's standards: US frameworks first, England's curriculum and specifications folded. */
+function Standards({ ids }: { ids: string[] }) {
+  const sorted = sortStandards(ids),
+    us = sorted.filter(isUsStandard),
+    uk = sorted.filter((id) => !isUsStandard(id));
+  const item = (id: string) => (
+    <li key={id}>
+      <span className="font-mono text-glacier">{standardLabel(id)}</span>
+      {STANDARD_BY_ID[id]?.title && (
+        <span className="text-mist"> · {STANDARD_BY_ID[id].title}</span>
+      )}
+    </li>
+  );
+  return (
+    <section className="mt-8" aria-label={"Standards"}>
+      <h2 className="font-display text-2xl">{"Standards"}</h2>
+      {us.length > 0 && <ul className="mt-3 space-y-1.5 text-sm leading-6">{us.map(item)}</ul>}
+      {uk.length > 0 && (
+        <details className="mt-3 text-sm leading-6">
+          <summary className="cursor-pointer text-mist">{"England: KS3, GCSE and A-level"}</summary>
+          <ul className="mt-2 space-y-1.5">{uk.map(item)}</ul>
+        </details>
+      )}
+      <p className="mt-3 text-sm" data-print-hide>
+        <Link to="/teachers/standards" className="text-ice hover:underline">
+          {"Every lab by standard"}
+        </Link>
+      </p>
+    </section>
   );
 }

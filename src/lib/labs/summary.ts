@@ -33,7 +33,7 @@ export function summarize(lab: LabSource): LabSummary {
     objective: lab.objective,
     realm: lab.realm,
     ages: lab.ages,
-    curriculum: lab.curriculum,
+    standards: lab.standards,
     glossary: lab.glossary.map(({ term, exam }) => (exam ? { term, exam } : { term })),
     answers: lab.questions.map((q) => q.answer),
     preview: lab.questions[0]?.prompt ?? lab.misconceptions[0]?.claim ?? "",

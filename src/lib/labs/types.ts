@@ -61,7 +61,8 @@ export type LabMeta = {
   objective: string;
   realm: RealmSlug;
   ages: AgeBand[];
-  curriculum: string[];
+  /** Standard IDs from src/lib/labs/standards.ts, US frameworks first. */
+  standards: string[];
   steps: LabStep[];
   questions: LabQuestion[];
   why: string[];
@@ -100,7 +101,7 @@ export type LabMeta = {
  */
 export type LabSummary = Pick<
   LabMeta,
-  "slug" | "title" | "hook" | "objective" | "realm" | "ages" | "curriculum"
+  "slug" | "title" | "hook" | "objective" | "realm" | "ages" | "standards"
 > & {
   /** Glossary terms and their exam wording, without definitions. */
   glossary: { term: string; exam?: string }[];

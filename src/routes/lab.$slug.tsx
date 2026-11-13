@@ -6,6 +6,7 @@ import { LAB_ALIASES } from "@/lib/redirects";
 import { LabPlayer } from "@/components/lab/lab-player";
 import { LabLoadFallback, LabEntry } from "@/components/lab/load-gate";
 import { headFor, learningResourceJsonLd, siteOrigin } from "@/lib/seo";
+import { FRAMEWORK_BY_ID, STANDARD_BY_ID } from "@/lib/labs/standards";
 
 export const Route = createFileRoute("/lab/$slug")({
   beforeLoad: ({ params }) => {
@@ -54,6 +55,12 @@ function LabPage() {
     educationalLevel: lab.ages,
     about: lab.realm,
     image,
+    alignments: lab.standards.flatMap((id) => {
+      const s = STANDARD_BY_ID[id];
+      return s
+        ? [{ framework: FRAMEWORK_BY_ID[s.framework].name, code: s.code, name: s.title }]
+        : [];
+    }),
   });
 
   return (
