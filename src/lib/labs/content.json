@@ -69,7 +69,7 @@
           "choices": [
             "Yes. Being closer to the Sun makes the north colder.",
             "No. Northern winter comes from tilt; the south has summer then.",
-            "Yes. Perihelion always brings winter to both hemispheres.",
+            "Yes. Perihelion always brings winter to both hemispheres at once.",
             "No. Earth is at aphelion, its farthest point, in January."
           ],
           "answer": 1,
@@ -78,9 +78,9 @@
         {
           "prompt": "At the equator, how do day length and solar altitude change through the year compared with New York?",
           "choices": [
-            "The equator has long days in June and short days in December.",
+            "The equator has long days in June and short days in December, like New York.",
             "Both places change by the same amount; only temperature differs.",
-            "Equator days stay near 12 h all year; New York’s range from about 9 to 15 h.",
+            "Equator days stay near 12 h; New York’s range from about 9 to 15 h.",
             "The equator’s noon Sun is always directly overhead, all year."
           ],
           "answer": 2,
@@ -268,7 +268,7 @@
             "Earth’s orbit around the Sun causes day and night.",
             "Earth’s rotation carries each place into and out of sunlight.",
             "The Sun travels around Earth once each day.",
-            "Time zones decide when each place gets daylight."
+            "Time zones decide the hours when each place on Earth gets daylight."
           ],
           "answer": 1,
           "explain": "Rotation carries a location into and out of sunlight, producing day and night. Time zones assign clock readings to locations; they do not cause the illumination to change."
@@ -448,7 +448,7 @@
           "choices": [
             "The Moon’s orbit is tilted about 5°, so it usually misses alignment.",
             "The Moon is too small to block sunlight most months.",
-            "Eclipses happen monthly but are usually hidden by cloud.",
+            "Eclipses happen every month, but clouds usually hide them from our view.",
             "Eclipses can only happen when Earth is at perihelion."
           ],
           "answer": 0,
@@ -471,7 +471,7 @@
             "Directly behind Earth, opposite the Sun",
             "A little way past the Sun–Earth line after new Moon",
             "At right angles to the Sun, at last quarter",
-            "Inside Earth’s shadow, as in a partial eclipse"
+            "Partly inside Earth’s shadow, as in a partial eclipse"
           ],
           "answer": 1,
           "explain": "A few days after new Moon the Moon has moved only a small angle away from the Sun in our sky, so it sets soon after the Sun and shows a thin sunlit crescent."
@@ -846,7 +846,7 @@
         {
           "prompt": "The San Andreas Fault is best described as…",
           "choices": [
-            "A divergent ridge where new crust forms under California.",
+            "A divergent ridge where new oceanic crust is forming beneath California.",
             "A subduction zone like the one beneath the Cascades.",
             "A continental rift that is splitting California away.",
             "A transform boundary between the Pacific and North American plates."
@@ -868,7 +868,7 @@
         {
           "prompt": "Why are there no volcanoes along the Himalaya, even though plates are converging?",
           "choices": [
-            "The mountains are too cold for magma to form.",
+            "The mountains and crust there are far too cold for magma to form.",
             "Neither continent subducts deeply enough to melt the mantle.",
             "Volcanoes there were all eroded away by glaciers.",
             "Convergent boundaries never produce volcanoes."
@@ -1072,7 +1072,7 @@
           "prompt": "A spur is…",
           "choices": [
             "A closed hollow shown by rings of falling height.",
-            "A valley; its contour Vs point uphill.",
+            "A valley between two ridges; its contour Vs point uphill.",
             "A steep slope where contours crowd together.",
             "A ridge of high ground; its contour Vs point downhill."
           ],
@@ -1335,7 +1335,7 @@
             "It becomes narrower, shallower and rockier.",
             "It stays the same width but becomes steeper.",
             "It becomes wider and deeper, with more discharge.",
-            "It loses water, so the channel gets smaller."
+            "It loses water downstream, so the channel gets smaller."
           ],
           "answer": 2,
           "explain": "Tributaries add water downstream, so discharge increases. The channel usually becomes wider and deeper, while the gradient becomes gentler."
@@ -2044,7 +2044,7 @@
         {
           "prompt": "Why is it usually colder at the poles than at the equator, averaged over a year?",
           "choices": [
-            "The poles are further from the Sun than the equator.",
+            "The poles are further from the Sun than the equator is, all year.",
             "Sunlight arrives at a low angle and spreads over more ground.",
             "The poles have no daylight for half of every year.",
             "Snow at the poles creates cold air on its own."
@@ -2432,7 +2432,7 @@
           "prompt": "On the timeline, Pangaea sits…",
           "choices": [
             "Near Earth’s formation, about 4500 Ma",
-            "At the start of the Precambrian",
+            "At the very start of the long Precambrian eon",
             "Within the last few hundred million years",
             "In the last few thousand years"
           ],
@@ -2675,7 +2675,7 @@
           "choices": [
             "A lunar eclipse, because the Moon is full",
             "A solar eclipse, because the Moon is aligned",
-            "A partial lunar eclipse, because the orbit is tilted",
+            "A partial lunar eclipse, because the Moon’s orbit is tilted",
             "Usually a miss: the Moon passes above or below the shadow"
           ],
           "answer": 3,
@@ -2904,7 +2904,7 @@
           "prompt": "If you pause when the Sun and Moon are at right angles, the range is…",
           "choices": [
             "Spring — the two pulls add, so a larger range",
-            "Zero — the Sun and Moon cancel out exactly",
+            "Zero — the pulls of the Sun and Moon cancel out exactly",
             "Unchanged — the Sun has no effect on tides",
             "Neap — the pulls partly cancel, so a smaller range"
           ],
@@ -2917,7 +2917,7 @@
             "Earth’s rotation is slowing down each day.",
             "The Sun pulls the tide back by 50 minutes.",
             "The Moon moves along its orbit, so Earth must turn further.",
-            "Ocean water takes 50 minutes to cross each basin."
+            "Ocean water takes about 50 minutes longer to cross each basin."
           ],
           "answer": 2,
           "explain": "While Earth spins once, the Moon moves about 13° along its orbit in the same direction. Earth has to rotate a little further, roughly 50 minutes, to bring a place back under the Moon."
@@ -3082,7 +3082,7 @@
           "prompt": "If you drag Latitude from 40.7° toward 0°, how does the Sun’s path change?",
           "choices": [
             "The winter noon Sun climbs higher and days stay nearer 12 h",
-            "The noon Sun drops lower and winter days get shorter",
+            "The noon Sun drops lower and the winter days get even shorter",
             "The Sun is directly overhead at noon every day",
             "Day length swings more between summer and winter"
           ],
@@ -3256,7 +3256,7 @@
           "choices": [
             "A late Paleozoic supercontinent, one of several",
             "Earth’s first continental crust",
-            "The only supercontinent in Earth’s history",
+            "The only supercontinent in all of Earth’s history",
             "A supercontinent of the last million years"
           ],
           "answer": 0,
@@ -3689,7 +3689,7 @@
           "choices": [
             "Changes in ocean temperature",
             "Magnetic reversals frozen in basalt",
-            "The age of overlying sediment",
+            "The age of the sediment layers on top",
             "Variations in seawater salinity"
           ],
           "answer": 1,
@@ -3701,7 +3701,7 @@
             "Mid-ocean ridges",
             "Transform faults",
             "Subduction trenches",
-            "Continental rifts"
+            "Continental rift valleys"
           ],
           "answer": 2,
           "explain": "At a subduction trench, oceanic lithosphere bends and descends into the mantle. Transform boundaries mainly accommodate sideways motion and do not perform that recycling process."
@@ -3710,7 +3710,7 @@
           "prompt": "Where is the oldest oceanic crust usually found?",
           "choices": [
             "At the crest of a mid-ocean ridge",
-            "Close to the ridge, under thin sediment",
+            "Close to the ridge axis, under a thin cover of sediment",
             "Spread evenly across every ocean floor",
             "Far from ridges, near some trenches and margins"
           ],
@@ -3907,7 +3907,7 @@
           "choices": [
             "About 10%",
             "About 33%",
-            "About 75–80%",
+            "About 75%",
             "All of it"
           ],
           "answer": 2,
@@ -4099,7 +4099,7 @@
           "prompt": "Greenhouse return in this lab is…",
           "choices": [
             "Sunlight reflected back by clouds.",
-            "Sunlight absorbed in the stratosphere.",
+            "Sunlight absorbed by ozone in the stratosphere.",
             "Infrared from the atmosphere to the surface.",
             "Heat carried up by convection."
           ],
@@ -4289,7 +4289,7 @@
           "choices": [
             "A city cooled by sea breezes.",
             "A warm patch of sea near a coast.",
-            "A dome of cold air over a valley.",
+            "A dome of cold air trapped over a valley.",
             "A city warmer than the land around it."
           ],
           "answer": 3,
@@ -4299,7 +4299,7 @@
           "prompt": "Why does this lab leave out the Coriolis effect?",
           "choices": [
             "To focus on heating; rotation can still turn real breezes.",
-            "Coriolis is exactly zero along every coastline.",
+            "The Coriolis effect is exactly zero along every single coastline.",
             "The sea does not rotate along with Earth.",
             "Pressure differences cannot form near a coast."
           ],
@@ -4309,7 +4309,7 @@
         {
           "prompt": "Why does warm air rise?",
           "choices": [
-            "Heat always moves upward on its own.",
+            "Heat naturally rises and carries the warm air up with it.",
             "The Sun pulls warm air toward it.",
             "Warm air contains less water vapor.",
             "It is less dense than the cooler air around it."
@@ -4483,7 +4483,7 @@
             "Faster and more geostrophic",
             "Cross isobars toward low pressure",
             "Lose all Coriolis deflection",
-            "Blow straight from high to low"
+            "Blow straight from high to low pressure"
           ],
           "answer": 1,
           "explain": "Surface friction slows the wind and weakens its Coriolis deflection. The pressure-gradient force then gives the flow a component across the isobars toward lower pressure."
@@ -4677,7 +4677,7 @@
           "choices": [
             "The Moon’s pull shifts the trade winds",
             "Ocean tides move the zone of rising air",
-            "Earth’s rotation speed changes with season",
+            "Earth’s rotation speed changes from season to season",
             "Seasonal heating moves the zone of convergence"
           ],
           "answer": 3,
@@ -5084,7 +5084,7 @@
           "prompt": "On a weather chart, isobars packed closely around a low pressure center mean…",
           "choices": [
             "Light, calm winds",
-            "High pressure building",
+            "High pressure building quickly",
             "Strong winds near the low",
             "Clear, settled skies"
           ],
@@ -5268,7 +5268,7 @@
           "choices": [
             "It is raining heavily in Chicago today.",
             "Tomorrow will be windy in Denver.",
-            "Last night was the coldest of the week.",
+            "Last night was the coldest night of the whole winter.",
             "Seattle averages about 1,000 mm of rain a year."
           ],
           "answer": 3,
@@ -5441,7 +5441,7 @@
           "prompt": "A watershed is…",
           "choices": [
             "The river mouth",
-            "The main channel",
+            "The main river channel",
             "The river source",
             "The drainage divide"
           ],
@@ -5462,7 +5462,7 @@
         {
           "prompt": "The mouth is…",
           "choices": [
-            "The spring or bog where the river begins",
+            "The spring, bog or lake where the river first begins",
             "Where it enters the sea, a lake or a larger river",
             "Always a delta built out into the sea",
             "The steepest, fastest stretch of the river"
@@ -5686,7 +5686,7 @@
         {
           "prompt": "A falling limb is…",
           "choices": [
-            "Discharge rising after rain",
+            "Discharge rising after heavy rain",
             "Discharge falling after the peak",
             "The flow between storms",
             "The time of peak rainfall"
@@ -5698,7 +5698,7 @@
           "prompt": "Stage and discharge are…",
           "choices": [
             "The same number with two names",
-            "Flow speed versus the channel’s width",
+            "Flow speed versus the channel’s width at the gauge",
             "Water height versus flow volume per second",
             "Rainfall total versus surface runoff"
           ],
@@ -5708,7 +5708,7 @@
         {
           "prompt": "Why might the same storm give a higher peak after a wet week?",
           "choices": [
-            "Rain falls faster on wet ground.",
+            "Rain falls faster and harder onto wet ground.",
             "Rivers are always deeper in winter.",
             "Saturated soil lets less water infiltrate.",
             "Wet weather lowers the river’s bed."
@@ -5903,7 +5903,7 @@
             "A huge basin of snowmelt and rain, managed by dams",
             "A small upland stream’s flashy regime",
             "A spring-fed flow that barely varies all year",
-            "A regime set mainly by glacier melt in summer"
+            "A regime set mainly by glacier melt in the summer months"
           ],
           "answer": 0,
           "explain": "The Mississippi integrates runoff from a very large basin with contrasting rainfall and snowmelt patterns. Reservoirs, water use and river engineering also modify its seasonal flow."
@@ -5913,7 +5913,7 @@
           "choices": [
             "They are the same plot at different scales",
             "One covers hours after a storm; the other a typical year",
-            "One shows rainfall; the other shows discharge",
+            "One plots rainfall totals; the other plots river discharge",
             "One is measured; the other is always modeled"
           ],
           "answer": 1,
@@ -6113,7 +6113,7 @@
           "prompt": "Why are the Atacama and Namib deserts beside cold ocean currents?",
           "choices": [
             "Cold currents bring heavy rain to the coast.",
-            "Cold water evaporates faster than warm water.",
+            "Cold water evaporates faster than warm water, drying the air.",
             "Cold currents cool the air, keeping it stable and dry.",
             "The currents wash desert sand onto the coast."
           ],
@@ -6524,7 +6524,7 @@
             "A fast store in living plants",
             "A fast store in the upper ocean",
             "A slow geological store we release quickly",
-            "A store that refills within a century"
+            "A store that naturally refills within a century"
           ],
           "answer": 2,
           "explain": "Fossil fuels contain carbon stored in geological deposits over long timescales. Extraction and burning transfer that carbon rapidly into the atmosphere and other active stores."
@@ -6546,7 +6546,7 @@
             "A slow transfer toward rock and ocean stores",
             "A fast daily exchange with plants",
             "A fast release of carbon to the air",
-            "A transfer that only happens in deserts"
+            "A transfer that only happens in hot, dry deserts"
           ],
           "answer": 0,
           "explain": "Chemical weathering carries dissolved material from rocks to rivers and the ocean. Silicate weathering uses up carbon dioxide, and the carbon is eventually buried as carbonate in ocean sediments over geological timescales."
@@ -6557,7 +6557,7 @@
             "Creates new carbon atoms",
             "Moves geological carbon into the air",
             "Destroys the carbon in the fuel",
-            "Moves carbon from air into rock"
+            "Moves carbon from the air back into rock"
           ],
           "answer": 1,
           "explain": "Combustion combines carbon in the fuel with oxygen, releasing carbon dioxide. The carbon atoms are transferred from the fuel store into the atmosphere rather than being newly created."
@@ -6764,7 +6764,7 @@
           "choices": [
             "A north–south polar circulation",
             "An east–west tropical Pacific loop",
-            "A north–south tropical loop",
+            "A north–south tropical Atlantic loop",
             "An Atlantic surface current"
           ],
           "answer": 1,
@@ -6962,7 +6962,7 @@
             "A lower area surrounded by higher land",
             "A high, isolated mountain peak",
             "A flat, raised tableland",
-            "A narrow ridge between two valleys"
+            "A narrow ridge between two deep valleys"
           ],
           "answer": 0,
           "explain": "A basin is a lower area relative to the land around it. Water may converge toward its floor, although not every basin is completely enclosed or internally drained."
@@ -6995,7 +6995,7 @@
             "A broad river floodplain",
             "A deep river canyon",
             "A glacial cirque",
-            "A wave-cut sea cliff"
+            "A wave-cut cliff on a rocky coast"
           ],
           "answer": 0,
           "explain": "A floodplain is built from sediment that a river drops during floods and as its meanders migrate. Canyons, cirques and cliffs are carved mainly by erosion."
@@ -7203,7 +7203,7 @@
           "prompt": "Potholes form by…",
           "choices": [
             "Pebbles swirling and abrading the bed",
-            "Water dissolving the rock bed",
+            "Acidic water slowly dissolving the rock bed",
             "Frost shattering the river bed",
             "Ice scraping the bed in winter"
           ],
@@ -7224,7 +7224,7 @@
         {
           "prompt": "The Grand Canyon formed mainly by…",
           "choices": [
-            "A glacier cutting a U",
+            "A glacier cutting a U-shaped trough",
             "A rift pulling apart",
             "A river incising a plateau",
             "Wind carving a yardang"
@@ -7236,8 +7236,8 @@
           "prompt": "What is attrition?",
           "choices": [
             "Water forcing air into cracks in the bank",
-            "Stones knocking together, becoming smaller and rounder",
-            "Sediment scraping the bed and banks",
+            "Stones colliding and wearing each other down",
+            "Sediment dragged along, scraping the bed and banks",
             "Weak acids in the water dissolving rock"
           ],
           "answer": 1,
@@ -7443,7 +7443,7 @@
           "prompt": "Levees form when…",
           "choices": [
             "Waves build ridges at the coast",
-            "The river erodes its own banks upward",
+            "The river slowly erodes its own banks upward",
             "Floodwater drops coarser load by the banks",
             "Fine clay settles in the channel bed"
           ],
@@ -7668,7 +7668,7 @@
         {
           "prompt": "An elbow of capture is…",
           "choices": [
-            "A meander loop on a floodplain",
+            "A meander loop on a wide floodplain",
             "A waterfall at a rock band",
             "A sharp bend at the capture point",
             "Where two equal rivers meet"
@@ -7886,7 +7886,7 @@
             "A pillar left when an arch collapses",
             "A cave cut into a headland",
             "A ridge of sand joined to land",
-            "A low stump covered at high tide"
+            "A low rock stump covered at high tide"
           ],
           "answer": 0,
           "explain": "Wave erosion can enlarge a cave into an arch through a headland. When the arch roof collapses, an isolated pillar remains as a stack."
@@ -7897,7 +7897,7 @@
             "Add sand all along the coast",
             "Trap sand up-drift, starving down-drift",
             "Stop all erosion on the coast",
-            "Push sand offshore into deep water"
+            "Push the sand offshore into deeper water"
           ],
           "answer": 1,
           "explain": "Groynes interrupt sediment transported along the beach and encourage accumulation on their up-drift side. Unless sediment is supplied from elsewhere, less may reach the coast down-drift."
@@ -7919,7 +7919,7 @@
             "Where longshore drift carries sand past a bend in the coast",
             "Where waves erode a cave right through a headland",
             "Where a river drops its load into a lake",
-            "Where two neighboring arches collapse into the sea"
+            "Where two neighboring arches collapse and their rubble piles up"
           ],
           "answer": 0,
           "explain": "Where the coastline changes direction, for example at a river mouth, longshore drift keeps carrying sand out into open water. It builds a narrow ridge of sand or shingle, such as Sandy Hook in New Jersey or Spurn Point in England."
@@ -8406,7 +8406,7 @@
           "prompt": "Karst develops mainly on carbonate rocks because…",
           "choices": [
             "Carbonate rocks are especially soft",
-            "Carbonate rocks have no joints at all",
+            "Carbonate rocks have no joints or cracks at all",
             "Carbonic acid dissolves calcium carbonate",
             "Carbonate rocks freeze more easily"
           ],
@@ -8823,7 +8823,7 @@
           "prompt": "Wind erosion and transport need…",
           "choices": [
             "Dense vegetation and moist soil cover",
-            "Steep slopes and frequent heavy rain",
+            "Steep slopes, frequent heavy rain and running water",
             "Frozen ground under a snow cover",
             "Loose sediment, strong wind, little vegetation"
           ],
@@ -8844,7 +8844,7 @@
         {
           "prompt": "How do most sand grains move during a desert sandstorm?",
           "choices": [
-            "High in the air for hundreds of kilometers",
+            "Carried high in the air, often for hundreds of kilometers",
             "By bouncing along within about a meter of the ground",
             "By rolling uphill against the wind",
             "Dissolved in the occasional rain"
@@ -9023,7 +9023,7 @@
           "choices": [
             "Change in solid rock’s minerals or texture.",
             "Complete melting of rock into magma.",
-            "Laying down of new layers of sediment.",
+            "Laying down and pressing of new layers of sediment.",
             "Cooling of lava flows at the surface."
           ],
           "answer": 0,
@@ -9043,7 +9043,7 @@
         {
           "prompt": "Which statement about the rock cycle is sound?",
           "choices": [
-            "Every rock follows the same ordered circuit.",
+            "Every rock follows the same ordered circuit, in one direction.",
             "All sedimentary rocks have identical layers.",
             "Different paths can skip stages or repeat changes.",
             "All metamorphic rocks are foliated."
@@ -9517,7 +9517,7 @@
             "Mostly clay with little sand",
             "A balanced mix of sand, silt and clay",
             "Mostly sand that drains freely",
-            "Organic matter with no minerals"
+            "Mostly organic matter, with almost no minerals"
           ],
           "answer": 1,
           "explain": "Loam occupies a texture class containing appreciable sand, silt and clay rather than being dominated by one extreme. Its mix can balance drainage and water retention, although soil productivity also depends on structure, nutrients and management."
@@ -9707,7 +9707,7 @@
           "choices": [
             "Carbonate rocks, via carbonic acid",
             "Granite, through frost action",
-            "Iron minerals, through rusting",
+            "Iron minerals, through rusting in air",
             "Salt crystals in sandstone"
           ],
           "answer": 0,
@@ -9925,7 +9925,7 @@
         {
           "prompt": "Compare physical scale (the T key) changes…",
           "choices": [
-            "The calculated mass of soil lost.",
+            "The calculated mass of soil lost from the plot.",
             "The physical size of the plot.",
             "How the soil is detached by rain.",
             "How much surface lowering is exaggerated."
@@ -9950,7 +9950,7 @@
             "Raindrops hit it directly and splash particles loose.",
             "Bare soil is always made only of sand.",
             "Crops attract the rain away from the soil.",
-            "Bare soil is warmer, so it dissolves faster."
+            "Bare soil warms in the sun, so its particles dissolve faster."
           ],
           "answer": 0,
           "explain": "Plant leaves and litter absorb the impact of raindrops. On bare ground each drop strikes the soil and splashes particles loose, ready to be carried away by runoff."
@@ -10132,7 +10132,7 @@
           "prompt": "Surface waves…",
           "choices": [
             "Arrive first, well before P-waves",
-            "Travel through the liquid outer core",
+            "Travel straight through the liquid outer core",
             "Arrive later and often cause most damage",
             "Are just another name for S-waves"
           ],
@@ -10330,7 +10330,7 @@
             "They are older and more eroded",
             "Sticky, gassy magma builds lava and ash layers",
             "Runny lava flows a long way before cooling",
-            "Their magma comes from greater depths"
+            "Their magma rises from much greater depths in the mantle"
           ],
           "answer": 1,
           "explain": "More viscous lava tends to travel shorter distances, while explosive eruptions add layers of fragmented material. Repeated eruptions can therefore build a relatively steep composite cone."
@@ -10341,7 +10341,7 @@
             "Always needs a hotspot below",
             "Always produces a steep cone",
             "Can erupt basalt along a long fissure",
-            "Happens only at subduction zones"
+            "Happens only where one plate sinks under another"
           ],
           "answer": 2,
           "explain": "Extension at a divergent boundary opens fractures and allows magma to rise. Basalt may then erupt along an elongated fissure rather than from a single central vent."
@@ -10350,7 +10350,7 @@
           "prompt": "Sticky magma explodes more readily because…",
           "choices": [
             "It is hotter than runny magma",
-            "It contains less gas than basalt",
+            "It contains less dissolved gas than basalt",
             "It erupts only under water",
             "Gas cannot escape, so pressure builds"
           ],
@@ -10579,7 +10579,7 @@
           "choices": [
             "The Moon’s pull is stronger near the land",
             "Its speed increases in shallow water",
-            "Onshore winds push it higher and higher",
+            "Onshore winds keep pushing it higher and higher",
             "Slowing bunches its energy into a taller wave"
           ],
           "answer": 3,
@@ -10779,7 +10779,7 @@
             "A tropical cyclone",
             "A midlatitude cyclone",
             "An anticyclone",
-            "A tornado outbreak"
+            "A large tornado outbreak"
           ],
           "answer": 1,
           "explain": "Winter storms over the United States, like those over Europe, are usually extratropical cyclones associated with contrasts between air masses and with fronts. Their structure and energy sources differ from those of a tropical cyclone over warm water."
@@ -10787,8 +10787,8 @@
         {
           "prompt": "The Saffir–Simpson scale rates…",
           "choices": [
-            "Every US winter storm",
-            "Storms by total rainfall",
+            "Every US winter storm and nor’easter",
+            "Hurricanes by the total rain they drop",
             "Tropical cyclones, by wind speed",
             "Storm surge height only"
           ],
@@ -11178,7 +11178,7 @@
           "prompt": "On a Mercator world map Greenland looks…",
           "choices": [
             "Much smaller than it really is",
-            "Its true size compared with Africa",
+            "At its true size, compared with Africa and Europe",
             "About as large as Africa, which is far bigger",
             "Squashed flat, as if near the equator"
           ],
@@ -11673,7 +11673,7 @@
           "prompt": "Which change would most improve the stability of a wet clay slope?",
           "choices": [
             "Building heavy houses along the top",
-            "Cutting into the toe to widen a road",
+            "Cutting into the toe of the slope to widen a road",
             "Removing the trees and shrubs",
             "Installing drains to lower pore pressure"
           ],
@@ -11852,7 +11852,7 @@
           "choices": [
             "Both sides get equally wet from the cloud",
             "Cloud forms; the leeward air arrives warmer and drier",
-            "The leeward air arrives colder and wetter",
+            "Cloud forms; the leeward air arrives colder and wetter",
             "No cloud forms on either side of it"
           ],
           "answer": 1,
@@ -11864,7 +11864,7 @@
             "They are both far inland from the sea",
             "Cold valley air stops clouds forming",
             "Air loses rain over hills upwind, then sinks",
-            "Both lie under subtropical high pressure"
+            "Both lie under the subtropical high-pressure belt"
           ],
           "answer": 2,
           "explain": "Both examples involve moist air rising over a barrier and descending on its sheltered side. Their rainfall contrasts also depend on prevailing winds, moisture supply and the wider regional climate."
@@ -12038,7 +12038,7 @@
             "The top of the saturated zone in the pores",
             "An underground lake with a shore",
             "A river flowing under the ground",
-            "The boundary between soil and bedrock"
+            "The boundary between the soil and the bedrock"
           ],
           "answer": 0,
           "explain": "The water table is the upper surface of the saturated zone in an unconfined aquifer. Beneath it, connected pores and fractures are filled with water rather than air."
@@ -12049,7 +12049,7 @@
             "Any rock that contains some water",
             "Rock that stores and yields useful water",
             "Rock that water cannot flow through",
-            "An open underground lake or river"
+            "An open underground lake or river in a cave"
           ],
           "answer": 1,
           "explain": "An aquifer must both store groundwater and transmit it readily enough to supply useful quantities. High water content alone is insufficient if pore connections or fractures do not allow water to flow."
@@ -12082,7 +12082,7 @@
             "Water pumped out of a well",
             "Water flowing out at a spring",
             "Water entering an aquifer from above",
-            "Water evaporating from the soil"
+            "Water evaporating back up from the soil"
           ],
           "answer": 2,
           "explain": "Recharge is water that soaks down from rain, rivers or lakes and reaches the saturated zone. If pumping takes more than recharge replaces, the water table falls."
@@ -12275,7 +12275,7 @@
             "Both lost ice and are still rebounding",
             "Both are sinking under sediment",
             "Both sit on a rising hotspot",
-            "Both are folding as plates collide"
+            "Both are folding upward as plates collide"
           ],
           "answer": 0,
           "explain": "Both regions carried thick ice sheets whose removal initiated ongoing crustal uplift. Raised shorelines record the resulting change in land level relative to the sea, together with any sea-level changes."
@@ -12286,7 +12286,7 @@
             "Mantle rock is still flowing back after the ice sheet melted.",
             "A new volcano is forming beneath the gulf.",
             "River sediment is pushing the land upward.",
-            "The Baltic Sea is drying up and becoming lighter."
+            "The Baltic Sea is drying up, so less water weighs on the land."
           ],
           "answer": 0,
           "explain": "A thick ice sheet pushed the land down during the last glaciation. It melted around 10,000 years ago, and the slow flow of mantle rock back beneath the region is still lifting the land."
@@ -12450,7 +12450,7 @@
             "A hotspot track like Hawaiʻi’s islands",
             "An older ocean that opened and then closed",
             "A rift that never became an ocean",
-            "A transform fault like the San Andreas"
+            "A long transform fault like the San Andreas"
           ],
           "answer": 1,
           "explain": "Parts of the Caledonian and Appalachian mountain belts preserve evidence of convergence and collisions associated with closure of the Iapetus Ocean. Later Atlantic opening separated sections of that older mountain system."
@@ -12653,7 +12653,7 @@
           "prompt": "A catena is…",
           "choices": [
             "A single horizon within one soil",
-            "A class on the soil texture triangle",
+            "A class on the soil texture triangle, like loam",
             "The same soil across a whole region",
             "A sequence of linked soils down one slope"
           ],
@@ -12664,7 +12664,7 @@
           "prompt": "Why may an upper-slope soil be thinner than the toe soil?",
           "choices": [
             "Soil moves downslope and collects below",
-            "It has been forming for longer",
+            "It has been forming for longer than the toe soil",
             "More rain falls on the upper slope",
             "It sits on different bedrock"
           ],
@@ -12839,7 +12839,7 @@
         {
           "prompt": "Periglacial means…",
           "choices": [
-            "Land that is always under glacier ice",
+            "Land that is always buried under glacier ice",
             "Cold-climate processes without glacier ice",
             "Areas that glaciers once covered",
             "Only land with permanent snow cover"
@@ -12873,7 +12873,7 @@
           "prompt": "Alaskan ice-wedge polygons and Cairngorm blockfields are grouped together because…",
           "choices": [
             "Both are linked to cold ground, not glacier ice",
-            "Both were carved by valley glaciers",
+            "Both were carved by valley glaciers in the last ice age",
             "Both formed beneath thick ice sheets",
             "Both are active only during summer"
           ],
@@ -12885,7 +12885,7 @@
           "choices": [
             "Permanently frozen ground far below",
             "Snow that falls each winter",
-            "A layer of glacier ice under the soil",
+            "A layer of old glacier ice buried beneath the soil",
             "Ground above permafrost that thaws each summer"
           ],
           "answer": 3,
@@ -13064,7 +13064,7 @@
         {
           "prompt": "A storm surge is…",
           "choices": [
-            "A wave from a seafloor earthquake",
+            "A fast wave set off by a seafloor earthquake",
             "An unusually high spring tide",
             "Water piled up by wind and low pressure",
             "A wave from a coastal landslide"
@@ -13100,7 +13100,7 @@
             "Both were tsunamis from earthquakes",
             "Both were surges from wind and low pressure",
             "Both were caused by river floods",
-            "Both were caused by spring tides alone"
+            "Both were caused by unusually high spring tides alone"
           ],
           "answer": 1,
           "explain": "Both events involved storm winds and low pressure raising coastal water levels over shallow margins. Their different storm types and coastlines affected the timing, extent and severity of the flooding."
@@ -13108,7 +13108,7 @@
         {
           "prompt": "Why is a storm surge often higher over a wide, shallow continental shelf?",
           "choices": [
-            "Shallow water is warmer than deep water.",
+            "Shallow water is warmer, so it expands much more.",
             "Deep water has much stronger tides.",
             "Wind piles water up more where it is shallow.",
             "Shallow seas have no waves at all."
