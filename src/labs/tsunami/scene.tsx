@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { longWaveTransect, longWaveElevation } from "@/lib/ocean-wave-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -51,7 +51,7 @@ function floorMetres(x: number, z: number) {
 }
 
 export default function Tsunami() {
-  const { t, trueScale } = useLabControls();
+  const { t, trueScale } = useLabState("t", "trueScale");
   useLabTick(1 / 55);
   const source = t < 0.15,
     uplift = Math.min(1, t / 0.15),

@@ -1,7 +1,7 @@
 import { useMemo, useEffect } from "react";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { foldedBed, faultBed, faultSlip } from "./geometry";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -140,7 +140,7 @@ function Road({
 }
 
 export default function FoldsFaults() {
-  const { params, explode, t } = useLabControls();
+  const { params, explode, t } = useLabState("params", "explode", "t");
   useLabTick(1 / 40);
   const kind = params.structure ?? 0,
     amount = t,

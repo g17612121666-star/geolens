@@ -1,4 +1,4 @@
-import { PUBLIC_SITE_HOST, PUBLIC_SITE_URL } from './public-site';
+import { PUBLIC_SITE_HOST, PUBLIC_SITE_URL } from "./public-site";
 
 const SITE = import.meta.env.VITE_PUBLIC_SITE_URL || PUBLIC_SITE_URL;
 
@@ -9,8 +9,8 @@ function envIndexOn(): boolean {
 }
 
 function envPublicHost(): string {
-  if (typeof window !== 'undefined') return window.location.hostname;
-  return (typeof process !== 'undefined' && process.env.VITE_PUBLIC_HOSTNAME) || PUBLIC_SITE_HOST;
+  if (typeof window !== "undefined") return window.location.hostname;
+  return (typeof process !== "undefined" && process.env.VITE_PUBLIC_HOSTNAME) || PUBLIC_SITE_HOST;
 }
 
 /** Preview / loopback hosts stay noindex even if the build flag is on. */
@@ -81,6 +81,8 @@ export function learningResourceJsonLd(opts: {
   about?: string;
   type?: "LearningResource" | "Article" | "WebPage";
   image?: string;
+  /** Standards the resource teaches toward, as framework and code. */
+  alignments?: { framework: string; code: string; name: string }[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -95,6 +97,17 @@ export function learningResourceJsonLd(opts: {
     educationalLevel: opts.educationalLevel ?? [],
     about: opts.about ?? "Earth science",
     provider: { "@type": "Organization", name: "Geolens" },
+    ...(opts.alignments?.length
+      ? {
+          educationalAlignment: opts.alignments.map((a) => ({
+            "@type": "AlignmentObject",
+            alignmentType: "teaches",
+            educationalFramework: a.framework,
+            targetName: a.code,
+            targetDescription: a.name || undefined,
+          })),
+        }
+      : {}),
   };
 }
 

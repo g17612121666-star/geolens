@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
 import { EarthMesh, AxisLine, Graticule, CityMarker, Atmosphere } from "@/components/globe/earth";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { Arrow, ScienceReadout, ScienceStudio } from "../shared/science-kit";
 import { orbitPosition } from "../shared/science-geometry";
@@ -13,7 +13,7 @@ import { useIsCompact } from "@/hooks/use-media";
 export default function Seasons() {
   const [close, setClose] = useState(false);
   const compact = useIsCompact();
-  const { t, params, trueScale } = useLabControls();
+  const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 36);
   const tilt = params.tilt ?? 23.44,
     ecc = params.ecc ?? 0,
@@ -37,6 +37,16 @@ export default function Seasons() {
     [ecc],
   );
   const radius = close ? 1 : trueScale ? (2.65 * 6371) / 149597870.7 : 0.65;
+  // Tropics and polar circles move with the tilt, not with the day, so build them once per tilt.
+  const circles = useMemo(
+    () =>
+      [-tilt, tilt, -(90 - tilt), 90 - tilt].map((lat) =>
+        Array.from({ length: 161 }, (_, j) =>
+          latLonToXYZ(lat, -180 + (j / 160) * 360, radius * 1.008),
+        ),
+      ),
+    [tilt, radius],
+  );
   const center: [number, number, number] = close ? [0, 0, 0] : position;
   const daylight = (lat: number) => {
     const h = -Math.tan((lat * Math.PI) / 180) * Math.tan((declination * Math.PI) / 180);
@@ -104,12 +114,10 @@ export default function Seasons() {
               {!trueScale && <Atmosphere radius={radius * 1.035} />}
               <Graticule radius={radius * 1.004} />
               {!trueScale &&
-                [-tilt, tilt, -(90 - tilt), 90 - tilt].map((lat, i) => (
+                circles.map((points, i) => (
                   <Line
                     key={i}
-                    points={Array.from({ length: 161 }, (_, j) =>
-                      latLonToXYZ(lat, -180 + (j / 160) * 360, radius * 1.008),
-                    )}
+                    points={points}
                     color={i < 2 ? "#d9bb87" : "#82bed4"}
                     transparent
                     opacity={0.65}

@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { useTexture } from "@react-three/drei";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { EarthMesh, Atmosphere } from "@/components/globe/earth";
 import { StarMesh } from "@/components/globe/star";
 import {
@@ -368,7 +368,7 @@ function solarEclipseText(p: [number, number, number]) {
 }
 export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides" }) {
   const [near, setNear] = useState(false);
-  const { t, params, trueScale } = useLabControls();
+  const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 32);
   const node = params.node ?? 60,
     aligned = params.align > 0.5,

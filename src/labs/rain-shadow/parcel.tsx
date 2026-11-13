@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine } from "@/labs/shared/guide-line";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useIsCompact } from "@/hooks/use-media";
 import { useLabTick } from "@/labs/tick";
 import { mountainParcel } from "@/lib/atmosphere-science";
@@ -43,7 +43,7 @@ const SECTION = {
 } as const;
 
 export default function RainShadow() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 30);
   const crest = params.ridge ?? 2100,
     humidity = (params.wind ?? 70) / 100,
@@ -138,7 +138,7 @@ export default function RainShadow() {
         )}
         {zones.cloud && (
           <>
-            <OrographicCloud crest={crest} lcl={zones.lcl} f={f} t={t} />
+            <OrographicCloud crest={crest} lcl={zones.lcl} f={f} />
             <GuideLine
               points={[
                 [-3, cloudBase, 0.05],

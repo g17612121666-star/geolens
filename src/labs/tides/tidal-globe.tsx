@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { EarthMesh, Atmosphere } from "@/components/globe/earth";
 import { StarMesh } from "@/components/globe/star";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { LUNAR, lunarPosition, illuminatedFraction } from "@/lib/lunar-science";
 import { LunarSurface } from "../shared/lunar-model";
@@ -41,7 +41,7 @@ function PotentialEnvelope({ radius, moon }: { radius: number; moon: [number, nu
   );
 }
 export default function Tides() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 32);
   const distance = params.distance ?? LUNAR.distance,
     node = params.node ?? 60,

@@ -1,7 +1,7 @@
 import { useMemo, useEffect } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { frontSection } from "@/lib/front-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -43,7 +43,7 @@ function airVolume(bottom: (x: number) => number, top: (x: number) => number, fa
   return geometry;
 }
 export default function Fronts() {
-  const { t, trueScale } = useLabControls();
+  const { t, trueScale } = useLabState("t", "trueScale");
   useLabTick(1 / 45);
   const f = trueScale ? 1 : 20,
     s = useMemo(() => frontSection(t), [t]);
@@ -120,7 +120,6 @@ export default function Fronts() {
           return (
             <group key={i}>
               <RainStreaks
-                t={t}
                 position={[x / 100, ceiling, 0]}
                 width={0.2}
                 depth={1.3}
@@ -134,7 +133,6 @@ export default function Fronts() {
         {!s.occluded && (
           <group>
             <RainStreaks
-              t={t}
               position={[s.coldFront / 100 + 0.12, (2.5 / 100) * f + 0.02, 0]}
               width={0.22}
               depth={1.4}

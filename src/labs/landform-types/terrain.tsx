@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { PlantStand } from "../shared/natural-world";
 import { DebrisField, WaterRibbon, GeomorphicTerrain } from "../shared/geomorphic-terrain";
@@ -236,7 +236,7 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
   );
 }
 export default function LandformTypes() {
-  const { params, trueScale } = useLabControls(),
+  const { params, trueScale } = useLabState("params", "trueScale"),
     a = Math.round(params.left ?? 0),
     b = Math.round(params.right ?? 3),
     f = trueScale ? 1 : 2;

@@ -2,14 +2,14 @@ import { useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { EarthMesh, Graticule, Atmosphere } from "@/components/globe/earth";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { noonIrradiance, dailyMeanIrradiance } from "@/lib/insolation-science";
 import { VERIFIED_PHOTOS } from "@/lib/verified-photos";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { photoSrcSet } from "@/lib/responsive-image";
 export default function SunEarth() {
-  const { params } = useLabControls(),
+  const { params } = useLabState("params"),
     lat = params.latitude ?? 40.7,
     decl = params.declination ?? 0,
     d = (decl * Math.PI) / 180,

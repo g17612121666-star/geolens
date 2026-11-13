@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { FlowWaterMaterial } from "../shared/flow-water";
@@ -127,7 +127,7 @@ vec3 sectionGlow(vec3 p,vec3 w){
 }`;
 
 export default function WilsonCycle() {
-  const { params, trueScale, setParam } = useLabControls(),
+  const { params, trueScale, setParam } = useLabState("params", "trueScale", "setParam"),
     stage = Math.round(params.stage ?? 2),
     f = trueScale ? 1 : 2,
     gap = GAPS[stage],

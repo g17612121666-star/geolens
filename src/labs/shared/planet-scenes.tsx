@@ -3,7 +3,7 @@ import { Line as PlainLine } from "@react-three/drei";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
 import { StarMesh } from "@/components/globe/star";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "./science-kit";
 import { Tag } from "./kit";
@@ -14,7 +14,7 @@ import { skyPosition } from "../solar-altitude/sky";
 export { LunarModel as LunarScene } from "./lunar-model";
 
 export function SolarAltitudeScene() {
-  const { t, params } = useLabControls();
+  const { t, params } = useLabState("t", "params");
   useLabTick(1 / 36);
   const lat = params.latitude ?? 40.7,
     date = new Date(Date.UTC(2026, 0, 1) + t * 365 * 86400000),

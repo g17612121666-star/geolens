@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { GeomorphicTerrain, WaterRibbon, DebrisField } from "../shared/geomorphic-terrain";
@@ -27,7 +27,7 @@ function valley(floor: number, top: number, d: number, along: number, width: num
 }
 
 export default function RiverCapture() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 40);
   const stage = Math.round(params.stage ?? 0),
     head = [0.9, -0.2, -0.9][stage],

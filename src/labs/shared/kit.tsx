@@ -1,12 +1,13 @@
 import { ScientificText } from "@/components/scientific-text";
 import { Environment, Html, OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { cn } from "@/lib/utils";
 import { useIsCompact } from "@/hooks/use-media";
 import { newLabelSlot, showLabelSlot } from "./label-crowding";
+import { sameProps } from "./same-props";
 import { useLabelLayout } from "./label-store";
 import { useRockNormal } from "./materials";
 import { IceBody, WaterBody } from "./parts";
@@ -21,7 +22,7 @@ const TONES: Record<string, string> = {
   fault: "text-fault",
 };
 
-export function Tag({
+function TagLabel({
   pos,
   text,
   title,
@@ -172,6 +173,12 @@ export function Tag({
     </group>
   );
 }
+
+/**
+ * A scene label. drei's Html redraws its own React root whenever it renders, so labels are
+ * memoized by value: a scene that re-renders every frame leaves unchanged labels alone.
+ */
+export const Tag = memo(TagLabel, sameProps);
 
 export { Part } from "./parts";
 

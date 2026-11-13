@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from "react";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "./science-kit";
 import { Tag } from "./kit";
 import type { LandSection } from "./land-section";
@@ -54,7 +54,7 @@ export function RealLandscape({
   children: (stats: { lo: number; hi: number }) => ReactNode;
 }) {
   const W = 6;
-  const { trueScale } = useLabControls();
+  const { trueScale } = useLabState("trueScale");
   const meters = useRealHeights(id);
   const k = trueScale ? 1 : exaggeration;
   const frame = siteFrame(id, W, depth);

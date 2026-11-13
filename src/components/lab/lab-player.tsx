@@ -32,7 +32,6 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
   const toggle = useLabControls((s) => s.toggle);
   const reset = useLabControls((s) => s.reset);
   const setT = useLabControls((s) => s.setT);
-  const t = useLabControls((s) => s.t);
   const setLabels = useLabControls((s) => s.setLabels);
   const labels = useLabControls((s) => s.labels);
   const setExplode = useLabControls((s) => s.setExplode);
@@ -149,10 +148,10 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
         setTrueScale(!trueScale);
       } else if (e.key === "ArrowRight" && playback) {
         e.preventDefault();
-        setT(t + 0.02);
+        setT(useLabControls.getState().t + 0.02);
       } else if (e.key === "ArrowLeft" && playback) {
         e.preventDefault();
-        setT(t - 0.02);
+        setT(useLabControls.getState().t - 0.02);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -163,7 +162,6 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
     lab,
     playback,
     setT,
-    t,
     setLabels,
     labels,
     setExplode,

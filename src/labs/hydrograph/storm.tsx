@@ -2,11 +2,11 @@ import { useMemo } from "react";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { CatchmentLandscape } from "../shared/catchment-landscape";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { stormHydrograph } from "@/lib/hydrology-science";
 export default function Hydrograph() {
-  const { params, t, setT } = useLabControls();
+  const { params, t, setT } = useLabState("params", "t", "setT");
   useLabTick(1 / 40);
   const urban = params.urban ?? 0.2,
     rain = params.rain ?? 1,

@@ -1,7 +1,7 @@
 import { useMemo, useEffect } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { TIME_WINDOWS, timeHelix, timeUnit, GEOLOGIC_UNITS } from "@/lib/geologic-time-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { InspectHotspot, Tag } from "../shared/kit";
@@ -94,7 +94,7 @@ function Coil({ span, onPick }: { span: number; onPick: (fraction: number) => vo
   );
 }
 export default function GeologicTime() {
-  const { params, setParam } = useLabControls(),
+  const { params, setParam } = useLabState("params", "setParam"),
     span = TIME_WINDOWS[Math.round(params.window ?? 0)],
     progress = params.position ?? 0.55,
     age = span * (1 - progress),

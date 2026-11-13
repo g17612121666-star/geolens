@@ -2,7 +2,7 @@ import { useMemo, useEffect } from "react";
 import RealGrandCanyon from "./real-grand-canyon";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabControls, useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { waterfallLip, waterfallBed, waterfallLand } from "@/lib/fluvial-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -226,7 +226,7 @@ export default function RiverErosion() {
 }
 
 function ModelRiverErosion() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 45);
   const mode = Math.round(params.feature ?? 0),
     progress = params.retreat ?? 0.35,

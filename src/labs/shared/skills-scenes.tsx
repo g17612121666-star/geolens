@@ -2,7 +2,7 @@ import { useMemo, useEffect } from "react";
 import { useTexture } from "@react-three/drei";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "./science-kit";
 import { Tag } from "./kit";
 import { projectedPosition, geographicCircle } from "../map-projections/projection";
@@ -145,7 +145,7 @@ function drape(a: [number, number], b: [number, number], lift = 0.012, n = 48) {
 }
 
 export function GridReferenceScene() {
-  const { params } = useLabControls(),
+  const { params } = useLabState("params"),
     e = Math.round(params.easting ?? 246),
     n = Math.round(params.northing ?? 513),
     // US National Grid (UTM) by default, as printed on USGS US Topo maps; the toggle shows Britain's.
@@ -423,7 +423,7 @@ const LANDMASSES = [
 ];
 
 export function ProjectionScene() {
-  const { params } = useLabControls(),
+  const { params } = useLabState("params"),
     morph = params.morph ?? 0,
     kind = Math.round(params.projection ?? 0),
     names = ["Mercator", "Lambert cylindrical equal-area", "Winkel I compromise"];

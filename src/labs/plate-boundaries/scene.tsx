@@ -1,4 +1,4 @@
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { ReconstructionGlobe, PlateLines } from "../shared/geo-globe";
@@ -37,7 +37,7 @@ function GlobeSpin({ faceHawaii, children }: { faceHawaii: boolean; children: Re
 }
 
 export default function Plates() {
-  const { params } = useLabControls();
+  const { params } = useLabState("params");
   useLabTick(1 / 16);
   const age = params.ageMa ?? 0,
     section = params.section > 0.5,

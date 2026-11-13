@@ -1,8 +1,9 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef, type ComponentRef } from "react";
 import { GuideLine as Line } from "../shared/guide-line";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
-import { useLabTick } from "@/labs/tick";
+import { useLabControls, useLabState } from "@/lib/store/lab-controls";
+import { useLabFrame, useLabTick } from "@/labs/tick";
+import { TimeMarkers } from "../shared/time-markers";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { Tag, InspectHotspot } from "../shared/kit";
@@ -188,13 +189,11 @@ function Transfer({
   index: number;
   selected: boolean;
 }) {
-  const t = useLabControls((s) => s.t),
-    curve = useMemo(
-      () => new THREE.CatmullRomCurve3(path.points.map((p) => new THREE.Vector3(...p))),
-      [path],
-    );
-  const pts = useMemo(() => curve.getPoints(64), [curve]),
-    p = curve.getPoint((t + index * 0.13) % 1);
+  const curve = useMemo(
+    () => new THREE.CatmullRomCurve3(path.points.map((p) => new THREE.Vector3(...p))),
+    [path],
+  );
+  const pts = useMemo(() => curve.getPoints(64), [curve]);
   return (
     <InspectHotspot name={path.name} note={path.note}>
       <Line
@@ -212,15 +211,97 @@ function Transfer({
           width={0.7}
         />
       )}
-      <mesh position={p}>
-        <sphereGeometry args={[selected ? 0.045 : 0.025, 12, 12]} />
-        <meshBasicMaterial color={path.color} />
-      </mesh>
+      {/* A parcel of water travels along the transfer with lab time. */}
+      <TimeMarkers
+        count={1}
+        radius={selected ? 0.045 : 0.025}
+        color={path.color}
+        detail={[12, 12]}
+        at={(t) => {
+          const p = curve.getPoint((t + index * 0.13) % 1);
+          return [p.x, p.y, p.z];
+        }}
+      />
     </InspectHotspot>
   );
 }
+/** Upland rain: 18 drops falling from the cloud base to the ground, moved every drawn frame. */
+const RAIN_DROPS = Array.from({ length: 18 }, (_, i) => {
+  const x = -2.1 + (i % 6) * 0.22,
+    z = -0.17 + Math.floor(i / 6) * 0.2;
+  return { x, z, bottom: height(x, z), phase: i * 0.131 };
+});
+
+/** Writes each drop as a short segment (top, then bottom) into `out`, six numbers per drop. */
+function writeRain(t: number, out: Float32Array) {
+  RAIN_DROPS.forEach(({ x, z, bottom, phase }, i) => {
+    const y = bottom + (1 - ((t * 6 + phase) % 1)) * (1.9 - bottom);
+    out.set([x, y + 0.055, z, x, y, z], i * 6);
+  });
+}
+
+function FallingRain() {
+  const line = useRef<ComponentRef<typeof Line>>(null);
+  // Built once; afterwards the same buffer is rewritten in place, so no geometry is rebuilt.
+  const points = useMemo(() => {
+    const flat = new Float32Array(RAIN_DROPS.length * 6);
+    writeRain(useLabControls.getState().t, flat);
+    return Array.from({ length: flat.length / 3 }, (_, i): [number, number, number] => [
+      flat[i * 3],
+      flat[i * 3 + 1],
+      flat[i * 3 + 2],
+    ]);
+  }, []);
+  useLabFrame((t) => {
+    const geometry = line.current?.geometry,
+      start = geometry?.getAttribute("instanceStart") as
+        THREE.InterleavedBufferAttribute | undefined;
+    if (!geometry || !start) return;
+    writeRain(t, start.data.array as Float32Array);
+    start.data.needsUpdate = true;
+    geometry.computeBoundingSphere();
+  });
+  return (
+    <Line
+      ref={line}
+      segments
+      points={points}
+      color="#a1cedc"
+      lineWidth={0.9}
+      transparent
+      opacity={0.7}
+    />
+  );
+}
+
+/** Clouds drift slowly downwind with lab time. */
+function DriftingClouds() {
+  const drift = useRef<THREE.Group>(null);
+  useLabFrame((t) => {
+    if (drift.current) drift.current.position.x = -0.25 * t;
+  });
+  return (
+    <group ref={drift} position={[-0.25 * useLabControls.getState().t, 0, 0]}>
+      <CloudVolume
+        position={[-1.25, 2.04, -0.12]}
+        scale={[1.25, 0.76, 0.9]}
+        seed={7}
+        density={80}
+        opacity={0.28}
+      />
+      <CloudVolume
+        position={[0.8, 2.1, 0.02]}
+        scale={[0.8, 0.54, 0.72]}
+        seed={23}
+        density={64}
+        opacity={0.25}
+      />
+    </group>
+  );
+}
+
 export default function WaterCycle() {
-  const { params, t } = useLabControls();
+  const { params } = useLabState("params");
   useLabTick(1 / 20);
   const abstraction = params.abstraction ?? 0,
     basin = params.basin > 0.5,
@@ -363,43 +444,12 @@ export default function WaterCycle() {
               seed={i}
             />
           ))}
-          {Array.from({ length: 18 }, (_, i) => {
-            const x = -2.1 + (i % 6) * 0.22,
-              z = -0.17 + Math.floor(i / 6) * 0.2,
-              bottom = height(x, z),
-              y = bottom + (1 - ((t * 6 + i * 0.131) % 1)) * (1.9 - bottom);
-            return (
-              <Line
-                key={`rain-${i}`}
-                points={[
-                  [x, y + 0.055, z],
-                  [x, y, z],
-                ]}
-                color="#a1cedc"
-                lineWidth={0.9}
-                transparent
-                opacity={0.7}
-              />
-            );
-          })}
+          <FallingRain />
           <mesh position={[-2.35, height(-2.35, 1.2) + 0.02, 1.2]} scale={[0.55, 0.035, 0.3]}>
             <sphereGeometry args={[1, 32, 20]} />
             <meshStandardMaterial color="#dce7e5" roughness={0.62} />
           </mesh>
-          <CloudVolume
-            position={[-1.25 - 0.25 * t, 2.04, -0.12]}
-            scale={[1.25, 0.76, 0.9]}
-            seed={7}
-            density={80}
-            opacity={0.28}
-          />
-          <CloudVolume
-            position={[0.8 - 0.25 * t, 2.1, 0.02]}
-            scale={[0.8, 0.54, 0.72]}
-            seed={23}
-            density={64}
-            opacity={0.25}
-          />
+          <DriftingClouds />
           <Tag
             pos={[0, 2.55, 0]}
             text="Atmosphere"

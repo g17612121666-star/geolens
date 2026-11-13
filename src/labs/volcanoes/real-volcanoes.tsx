@@ -1,4 +1,4 @@
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import {
@@ -83,7 +83,7 @@ function Volcano({
 const REAL_SITE_WIDTH: Record<string, number> = { "mauna-loa": 60, "st-helens": 12 };
 
 export default function RealVolcanoes() {
-  const { trueScale } = useLabControls();
+  const { trueScale } = useLabState("trueScale");
   const loa = useRealHeights("mauna-loa"),
     helens = useRealHeights("st-helens");
   const exaggeration = trueScale ? 1 : 3;

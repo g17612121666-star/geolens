@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { Line, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabControls, useLabState } from "@/lib/store/lab-controls";
 import { useIsCompact } from "@/hooks/use-media";
-import { useLabTick } from "@/labs/tick";
+import { useLabFrame, useLabTick } from "@/labs/tick";
 import { Tag, InspectHotspot } from "../shared/kit";
 import { ScienceReadout, ScienceStudio } from "../shared/science-kit";
 import { shellSection } from "../shared/science-geometry";
@@ -452,16 +452,32 @@ function WavePaths({ opening }: { opening: number }) {
     </group>
   );
 }
+/** Advances the section shader with lab time on every drawn frame. */
+function SectionClock({ uniforms }: { uniforms: Record<string, { value: unknown }> }) {
+  useLabFrame((t) => {
+    uniforms.uTime.value = t * 40;
+  });
+  return null;
+}
+
 export default function EarthInterior() {
   const compact = useIsCompact();
-  const { trueScale, explode, slice, params } = useLabControls();
+  const { trueScale, explode, slice, params } = useLabState(
+    "trueScale",
+    "explode",
+    "slice",
+    "params",
+  );
   useLabTick(1 / 10);
   const radii = [1, 1 - (35 / 6371) * (trueScale ? 1 : 4), 3480 / 6371, 1221 / 6371, 0];
   const opening = slice * Math.PI * 0.95,
     waves = params.waves > 0.5;
   const [heat, setHeat] = useState(false);
-  const t = useLabControls((st) => st.t);
-  const uniforms = useSectionUniforms({ uTime: t * 40, uCrustR: radii[1] });
+  // The section shader's clock is set every drawn frame (SectionClock), not by re-rendering.
+  const uniforms = useSectionUniforms({
+    uTime: useLabControls.getState().t * 40,
+    uCrustR: radii[1],
+  });
   return (
     <>
       <ScienceStudio
@@ -470,6 +486,7 @@ export default function EarthInterior() {
         trueScale="Radii to scale · 35 km reference crust · colors identify materials"
         camera={[3.8, 1.5, 3]}
       >
+        <SectionClock uniforms={uniforms} />
         <directionalLight position={[3, 2, 5]} intensity={2.2} color="#fff1db" />
         <directionalLight position={[-2, -1, 3]} intensity={0.8} color="#d8e8f5" />
         <group rotation={[0, -0.3, 0]}>

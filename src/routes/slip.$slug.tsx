@@ -1,26 +1,26 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { LAB_BY_SLUG } from "@/lib/labs/catalog";
+import { loadLab } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
 import { encodeHandIn } from "@/lib/hand-in";
 import { useQuizAnswers } from "@/lib/quiz-progress";
 import { useStudentName, useStudentWork, written } from "@/lib/student-work";
 import { headFor } from "@/lib/seo";
+import { isUsStandard, standardLabel } from "@/lib/labs/standards";
 
 export const Route = createFileRoute("/slip/$slug")({
   beforeLoad: ({ params }) => {
     if (!LAB_SCENES[params.slug] || !isListed(params.slug)) throw notFound();
   },
   loader: async ({ params }) => {
-    const { LAB_BY_SLUG: labs } = await import("@/lib/labs/catalog");
-    const lab = labs[params.slug];
+    const lab = await loadLab(params.slug);
     if (!lab) throw notFound();
-    return { title: lab.title };
+    return { lab };
   },
   component: SlipPage,
   head: ({ params, loaderData }) =>
     headFor({
-      title: `Hand-in slip · ${loaderData?.title ?? "Lab"}`,
+      title: `Hand-in slip · ${loaderData?.lab.title ?? "Lab"}`,
       description: "A printable record of one student's work in a Geolens lab.",
       path: `/slip/${params.slug}`,
     }),
@@ -31,8 +31,7 @@ const LETTERS = ["A", "B", "C", "D"];
 /** A printable record of this student's work, built from this browser only. */
 function SlipPage() {
   const { slug } = Route.useParams();
-  const lab = LAB_BY_SLUG[slug];
-  if (!lab) throw notFound();
+  const { lab } = Route.useLoaderData();
   const { first } = useQuizAnswers(slug);
   const { work } = useStudentWork(slug);
   const [name, setName] = useStudentName();
@@ -45,7 +44,7 @@ function SlipPage() {
     predicted: written(work.prediction),
     explained: written(work.claim) && written(work.evidence) && written(work.reasoning),
   });
-  const ngss = lab.curriculum.filter((c) => c.startsWith("NGSS"));
+  const us = lab.standards.filter(isUsStandard).map(standardLabel);
   const answerBlock = (label: string, text?: string) => (
     <div className="mt-3">
       <p className="text-sm font-medium text-chalk">{label}</p>
@@ -80,7 +79,7 @@ function SlipPage() {
       <h1 className="mt-2 font-display text-3xl">{lab.title}</h1>
       <p className="mt-1 text-sm text-mist">
         {new Date().toLocaleDateString("en-US", { dateStyle: "long" })}
-        {ngss.length > 0 && ` · ${ngss.join(", ")}`}
+        {us.length > 0 && ` · ${us.join(", ")}`}
       </p>
       <label className="mt-5 block text-sm text-mist">
         {"Name"}

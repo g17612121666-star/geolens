@@ -2,7 +2,7 @@ import { useMemo, useEffect } from "react";
 import * as THREE from "three";
 import { Html, Line } from "@react-three/drei";
 import { SOIL_PROFILES } from "@/lib/soil-profile-science";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabControls, useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { SectionMaterial } from "../shared/section-material";
 import { RootNetwork, GrassPatch, DebrisField } from "../shared/geomorphic-terrain";
@@ -85,7 +85,7 @@ vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 }
 
 export default function SoilProfile() {
-  const { params } = useLabControls(),
+  const { params } = useLabState("params"),
     index = Math.round(params.profile ?? 0),
     profile = SOIL_PROFILES[index],
     labels = useLabControls((s) => s.labels);

@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { wellHead } from "@/lib/hydrology-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
@@ -16,7 +16,7 @@ import { useSectionUniforms } from "../shared/section-utils";
 import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
 export default function Groundwater() {
-  const { params, trueScale, t } = useLabControls();
+  const { params, trueScale, t } = useLabState("params", "trueScale", "t");
   useLabTick(1 / 24);
   const confined = params.confined > 0.5,
     pump = (params.pump ?? 0) / 800,

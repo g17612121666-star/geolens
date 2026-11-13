@@ -1,6 +1,7 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabFrame } from "@/labs/tick";
+import { TimeMarkers } from "./time-markers";
 import { Arrow } from "./science-kit";
 import { Tag } from "./kit";
 import { FlowWaterMaterial } from "./flow-water";
@@ -143,11 +144,16 @@ function Block({
   );
 }
 
-/** Geometry is a section, not a surveyed landscape. Every kinematic tracer uses t. */
+/**
+ * Geometry is a section, not a surveyed landscape. Every kinematic tracer uses lab time, applied
+ * each drawn frame (`useLabFrame`) so the section does not re-render while the lab plays.
+ */
 export function PlateSection({ kind = 0 }: { kind?: number }) {
-  const t = useLabControls((s) => s.t),
-    slip = t * 0.8,
-    height = useMemo(() => surface(kind), [kind]);
+  const height = useMemo(() => surface(kind), [kind]),
+    slipping = useRef<THREE.Group>(null);
+  useLabFrame((t) => {
+    if (slipping.current) slipping.current.position.z = t * 0.8;
+  });
   const trees = useMemo(() => {
     const out: [number, number, number][] = [];
     for (let i = 0; out.length < 60 && i < 1000; i++) {
@@ -159,37 +165,28 @@ export function PlateSection({ kind = 0 }: { kind?: number }) {
     }
     return out;
   }, [height]);
+  const westTrees = useMemo(() => trees.filter((p) => p[0] < 0), [trees]),
+    eastTrees = useMemo(() => trees.filter((p) => p[0] > 0), [trees]);
+  // A stream that once crossed straight over the fault, now offset with the block.
+  const stream = (side: number) => (
+    <mesh position={[side * (W / 4), 0.012, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <planeGeometry args={[W / 2 - 0.02, 0.09]} />
+      <FlowWaterMaterial color="#3f86a2" opacity={0.92} speed={0.4} />
+    </mesh>
+  );
   return (
     <group position={[0, 0.1, 0]}>
       {kind === 2 ? (
         <>
           <Block kind={2} from={-W / 2} to={0} />
-          <Block kind={2} from={0} to={W / 2} offset={[0, 0, slip]} />
-          <PlantStand
-            kind="broadleaf"
-            positions={trees.filter((p) => p[0] < 0)}
-            scale={0.1}
-            seed={5}
-          />
-          <group position={[0, 0, slip]}>
-            <PlantStand
-              kind="broadleaf"
-              positions={trees.filter((p) => p[0] > 0)}
-              scale={0.1}
-              seed={6}
-            />
+          <PlantStand kind="broadleaf" positions={westTrees} scale={0.1} seed={5} />
+          {stream(-1)}
+          {/* The east block slides along the fault with its trees and its half of the stream. */}
+          <group ref={slipping}>
+            <Block kind={2} from={0} to={W / 2} />
+            <PlantStand kind="broadleaf" positions={eastTrees} scale={0.1} seed={6} />
+            {stream(1)}
           </group>
-          {/* A stream that once crossed straight over the fault, now offset with the block. */}
-          {[-1, 1].map((side) => (
-            <mesh
-              key={side}
-              position={[side * (W / 4), 0.012, side > 0 ? slip : 0]}
-              rotation={[-Math.PI / 2, 0, 0]}
-            >
-              <planeGeometry args={[W / 2 - 0.02, 0.09]} />
-              <FlowWaterMaterial color="#3f86a2" opacity={0.92} speed={0.4} />
-            </mesh>
-          ))}
           {/* Long, wide arrows above each block: they run along the fault, nearly toward the
               camera, so they need extra length to read clearly. */}
           <Arrow from={[-1.2, 0.55, 0.7]} to={[-1.2, 0.55, -0.7]} color="#8ec8d1" width={2.2} />
@@ -222,30 +219,28 @@ export function PlateSection({ kind = 0 }: { kind?: number }) {
             <planeGeometry args={[kind === 0 ? W : W / 2 + TRENCH + 0.75, D]} />
             <FlowWaterMaterial color="#1f6584" opacity={0.55} speed={0.2} />
           </mesh>
-          {kind === 0 &&
-            [-1, 1].flatMap((side) =>
-              Array.from({ length: 3 }, (_, i) => {
-                const x = side * (0.12 + ((t + i / 3) % 1) * 2.4);
-                return (
-                  <mesh key={`${side}-${i}`} position={[x, height(x, 0.55) + 0.03, 0.55]}>
-                    <sphereGeometry args={[0.035, 16, 12]} />
-                    <meshBasicMaterial color="#e9c885" />
-                  </mesh>
-                );
-              }),
-            )}
-          {kind === 1 &&
-            Array.from({ length: 4 }, (_, i) => {
-              const u = (t + i / 4) % 1,
-                x = -2.4 + u * 3.6,
-                y = x < TRENCH ? height(x, 0.55) + 0.03 : -0.26 - (x - TRENCH) * SLOPE + 0.02;
-              return (
-                <mesh key={i} position={[x, y, D / 2 + 0.03]}>
-                  <sphereGeometry args={[0.035, 16, 12]} />
-                  <meshBasicMaterial color="#e9c885" />
-                </mesh>
-              );
-            })}
+          {kind === 0 && (
+            // Three markers ride away from the ridge on each flank.
+            <TimeMarkers
+              count={6}
+              at={(t, j) => {
+                const side = j < 3 ? -1 : 1,
+                  x = side * (0.12 + ((t + (j % 3) / 3) % 1) * 2.4);
+                return [x, height(x, 0.55) + 0.03, 0.55];
+              }}
+            />
+          )}
+          {kind === 1 && (
+            <TimeMarkers
+              count={4}
+              at={(t, i) => {
+                const u = (t + i / 4) % 1,
+                  x = -2.4 + u * 3.6,
+                  y = x < TRENCH ? height(x, 0.55) + 0.03 : -0.26 - (x - TRENCH) * SLOPE + 0.02;
+                return [x, y, D / 2 + 0.03];
+              }}
+            />
+          )}
           <Arrow
             from={[kind === 0 ? -0.5 : -2, kind === 0 ? 0.75 : 1.05, 0]}
             to={[kind === 0 ? -1.5 : -1.1, kind === 0 ? 0.75 : 1.05, 0]}

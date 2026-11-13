@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { catenaProfile } from "@/lib/soil-profile-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import {
@@ -61,7 +61,7 @@ const CREST = new THREE.Color("#8b8a55"),
   WET = new THREE.Color("#5d7a45");
 
 export default function SoilCatena() {
-  const { params, trueScale } = useLabControls(),
+  const { params, trueScale } = useLabState("params", "trueScale"),
     slope = params.slope ?? 0.55,
     thicknessScale = (trueScale ? 1 : 20) / 20;
   const height = useMemo(

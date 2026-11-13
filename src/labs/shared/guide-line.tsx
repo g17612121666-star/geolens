@@ -1,10 +1,11 @@
 import { Line } from "@react-three/drei";
 import { Color } from "three";
-import type { ComponentProps } from "react";
+import { memo, type ComponentProps } from "react";
 import { usePreferences } from "@/lib/preferences";
+import { sameProps } from "./same-props";
 
 /** Preserve semantic hue while keeping instructional guides visible on daylight canvas. */
-export function GuideLine({ color = "#ffffff", ...props }: ComponentProps<typeof Line>) {
+function GuideLineShape({ color = "#ffffff", ...props }: ComponentProps<typeof Line>) {
   const theme = usePreferences((s) => s.resolvedTheme),
     ink = new Color(color);
   if (theme === "light") {
@@ -26,3 +27,9 @@ export function GuideLine({ color = "#ffffff", ...props }: ComponentProps<typeof
     />
   );
 }
+
+/**
+ * drei's Line rebuilds its geometry whenever it receives a new `points` array, so guides are
+ * memoized by value: a line drawn from the same points in a new array is left alone.
+ */
+export const GuideLine = memo(GuideLineShape, sameProps);

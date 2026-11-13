@@ -1,14 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {
-  dailyQuestions,
-  dailyPhotoRounds,
-  roundScore,
-  streak,
-  level,
-  dayKey,
-} from "../src/lib/daily.ts";
+import { dailyPhotoRounds, roundScore, streak, level, dayKey } from "../src/lib/daily.ts";
 import { FIELD_TRIPS } from "../src/lib/field-trips.ts";
+import { pickDailyQuestions, questionPool } from "../src/lib/daily-questions.ts";
+import content from "../src/lib/labs/content.json" with { type: "json" };
+
+const pool = questionPool(content.labs);
+const dailyQuestions = (day) => pickDailyQuestions(pool, day);
 import { VERIFIED_PHOTOS } from "../src/lib/verified-photos.ts";
 
 test("daily puzzles are the same for everyone on a day and change between days", () => {
@@ -72,13 +70,16 @@ test("the night polygon contains the antisolar point, not the subsolar point", a
   const inside = (ring, [x, y]) => {
     let c = false;
     for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-      const [xi, yi] = ring[i], [xj, yj] = ring[j];
+      const [xi, yi] = ring[i],
+        [xj, yj] = ring[j];
       if (yi > y !== yj > y && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c;
     }
     return c;
   };
   for (const iso of ["2026-06-21T12:00:00Z", "2026-12-21T03:00:00Z", "2026-03-20T18:30:00Z"]) {
-    const d = new Date(iso), s = subsolarPoint(d), ring = nightPolygon(d).features[0].geometry.coordinates[0];
+    const d = new Date(iso),
+      s = subsolarPoint(d),
+      ring = nightPolygon(d).features[0].geometry.coordinates[0];
     const anti = [s.lon > 0 ? s.lon - 180 : s.lon + 180, Math.max(-80, Math.min(80, -s.lat))];
     assert.equal(inside(ring, [s.lon, s.lat]), false, iso);
     assert.equal(inside(ring, anti), true, iso);

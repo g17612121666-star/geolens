@@ -8,6 +8,7 @@ import { ClientCanvas } from "@/components/globe/client-canvas";
 import { useWebGL } from "@/components/globe/use-webgl";
 import { LabThumb } from "@/components/lab-thumb";
 import { useLabControls } from "@/lib/store/lab-controls";
+import { LabTimeInvalidator } from "@/labs/tick";
 import { GenericFallback } from "./fallback";
 import { LabLights, StudioOrbit } from "./kit";
 import { LabelLayout } from "./label-layout";
@@ -93,6 +94,7 @@ export function LabStudio({
         frameloop={playing ? "always" : "demand"}
         shadows={q.shadows}
       >
+        <LabTimeInvalidator />
         {lights && <LabLights />}
         <LabelLayout>
           {backdrop}

@@ -1,4 +1,4 @@
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useIsCompact } from "@/hooks/use-media";
 import { useLabTick } from "@/labs/tick";
 import { freezingJoint, calciteDissolution } from "@/lib/weathering-science";
@@ -47,7 +47,7 @@ const GROUND_SECTION = {
 } as const;
 
 export default function Weathering() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 45);
   const mode = Math.round(params.method ?? 0),
     ice = freezingJoint(t),

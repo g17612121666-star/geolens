@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { EarthMesh, AxisLine, Graticule, Atmosphere } from "@/components/globe/earth";
 import { StarMesh } from "@/components/globe/star";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
@@ -27,7 +27,7 @@ const ZONES = Array.from({ length: 24 }, (_, i) =>
 );
 
 export default function RotationScene() {
-  const { t, params } = useLabControls();
+  const { t, params } = useLabState("t", "params");
   useLabTick(1 / 28);
   // At t = 0 the 90°E meridian faces the Sun, so Greenwich is at 06:00 local solar time.
   const solar = (((6 + t * 24 + CITY.lon / 15) % 24) + 24) % 24,

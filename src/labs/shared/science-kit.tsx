@@ -1,7 +1,8 @@
-import { Children, isValidElement, useEffect, useRef, type ReactNode } from "react";
+import { Children, isValidElement, memo, useEffect, useRef, type ReactNode } from "react";
 import { ScientificText } from "@/components/scientific-text";
 import * as THREE from "three";
 import { LabStudio } from "./studio";
+import { sameProps } from "./same-props";
 import { Starfield } from "@/components/globe/earth";
 import { LAB_BY_SLUG } from "@/lib/labs/catalog";
 import { useLabControls } from "@/lib/store/lab-controls";
@@ -159,7 +160,10 @@ export function ScienceReadout({ children }: { children: ReactNode }) {
   );
 }
 
-export function Arrow({
+/** Memoized by value, so arrows whose ends do not move are not rebuilt when a scene re-renders. */
+export const Arrow = memo(ArrowShape, sameProps);
+
+function ArrowShape({
   from,
   to,
   color = "#7fd4ff",
@@ -187,14 +191,15 @@ export function Arrow({
     radius = Math.min(length * 0.065, 0.028 * width),
     // A thicker shaft keeps arrows readable when the camera fits a large scene from far away.
     shaft = Math.max(0.002, radius * 0.4);
+  // Unit shapes scaled to size: an arrow whose length changes every frame reuses its geometry.
   return (
     <group position={a} quaternion={q}>
-      <mesh position={[0, (length - head) / 2, 0]}>
-        <cylinderGeometry args={[shaft, shaft, length - head, 12]} />
+      <mesh position={[0, (length - head) / 2, 0]} scale={[shaft, length - head, shaft]}>
+        <cylinderGeometry args={[1, 1, 1, 12]} />
         <meshStandardMaterial color={ink} roughness={0.4} emissive={ink} emissiveIntensity={0.15} />
       </mesh>
-      <mesh position={[0, length - head / 2, 0]}>
-        <coneGeometry args={[radius, head, 20]} />
+      <mesh position={[0, length - head / 2, 0]} scale={[radius, head, radius]}>
+        <coneGeometry args={[1, 1, 20]} />
         <meshStandardMaterial color={ink} roughness={0.4} emissive={ink} emissiveIntensity={0.15} />
       </mesh>
     </group>

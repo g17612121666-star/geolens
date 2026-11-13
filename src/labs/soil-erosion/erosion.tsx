@@ -1,6 +1,6 @@
 import { Fragment, useMemo } from "react";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { soilExport } from "@/lib/soil-erosion-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -228,7 +228,7 @@ function Plot({
   );
 }
 export default function SoilErosion() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 55);
   const covered = params.veg > 0.5,
     wind = params.wind > 0.5,

@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { StarMesh } from "@/components/globe/star";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { radiationBudget } from "@/lib/energy-wind-science";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
@@ -63,7 +63,7 @@ function reflectedPath(absorbedWidth: number, reflectedWidth: number): [number, 
 }
 
 export default function EnergyBudget() {
-  const { params, t } = useLabControls();
+  const { params, t } = useLabState("params", "t");
   useLabTick(1 / 12);
   const albedo = params.albedo ?? 0.3,
     greenhouse = (params.greenhouse ?? 1) > 0.5,

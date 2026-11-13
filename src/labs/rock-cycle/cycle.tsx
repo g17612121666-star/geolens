@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { useIsCompact } from "@/hooks/use-media";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -43,7 +43,7 @@ function regimeFor(temp: number, pressure: number) {
 /** Condition bands in which each route in ROCK_ROUTES normally happens. */
 const ROUTE_REGIMES = [[3, 4], [0], [0], [0], [0, 1], [2], [2], [3, 4], [3, 4], [3, 4]];
 export default function RockCycle() {
-  const { params, t, setParam } = useLabControls();
+  const { params, t, setParam } = useLabState("params", "t", "setParam");
   useLabTick(1 / 40);
   const selectedRoute = Math.round(params.process ?? 0),
     landscape = Math.round(params.view ?? 1) === 1;

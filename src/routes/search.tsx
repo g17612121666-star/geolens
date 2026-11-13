@@ -7,11 +7,16 @@ import { ATLAS } from "@/lib/atlas-data";
 import { Button } from "@/components/ui/button";
 import { headFor } from "@/lib/seo";
 import { isListed } from "@/lib/labs/status";
-import { teacherArticle } from "@/lib/teachers/article";
+import { TEACHER_ARTICLES, TEACHER_SCRIPTS } from "virtual:lab-search";
 import { CASES_BY_REGION as CASES } from "@/lib/cases";
 
 import { expandSearchNeedle } from "@/lib/search-aliases";
 import { buildIndex, searchIndex } from "@/lib/site-search";
+import { STANDARD_BY_ID, standardLabel } from "@/lib/labs/standards";
+
+// A standard is found by its code ("HS-ESS2-6", "APES 4.7") or its title.
+const standardSearchText = (id: string) =>
+  `${standardLabel(id)} ${STANDARD_BY_ID[id]?.title ?? ""}`;
 
 type SearchParams = { q?: string };
 
@@ -64,10 +69,15 @@ const LAB_INDEX = buildIndex(SHIPPED, (l) => [
   { text: l.title, weight: 6 },
   { text: `${l.hook} ${l.objective}`, weight: 3 },
   {
-    text: [l.realm, ...l.curriculum, ...l.ages, ...l.glossary.map((g) => g.term)].join(" "),
+    text: [
+      l.realm,
+      ...l.standards.map(standardSearchText),
+      ...l.ages,
+      ...l.glossary.map((g) => g.term),
+    ].join(" "),
     weight: 2,
   },
-  { text: l.teacher.script, weight: 1 },
+  { text: TEACHER_SCRIPTS[l.slug] ?? "", weight: 1 },
 ]);
 const TERM_INDEX = buildIndex(GLOSSARY, (g) => [
   { text: g.term, weight: 6 },
@@ -92,7 +102,7 @@ const CASE_INDEX = buildIndex(CASES, (c) => [
 let noteIndex: ReturnType<typeof buildNoteIndex> | null = null;
 function buildNoteIndex() {
   return buildIndex(
-    SHIPPED.map((l) => ({ lab: l, article: teacherArticle(l) })),
+    SHIPPED.map((l) => ({ lab: l, article: TEACHER_ARTICLES[l.slug] })),
     (n) => [
       { text: n.lab.title, weight: 6 },
       { text: `${n.article.title} ${n.article.kicker} ${n.lab.objective}`, weight: 3 },
@@ -162,7 +172,7 @@ function SearchPage() {
   const notes = useMemo(() => {
     if (!needle)
       return SHIPPED.filter((l) => ["seasons", "coasts", "earthquakes"].includes(l.slug)).map(
-        (l) => ({ lab: l, article: teacherArticle(l) }),
+        (l) => ({ lab: l, article: TEACHER_ARTICLES[l.slug] }),
       );
     noteIndex ??= buildNoteIndex();
     return searchIndex(noteIndex, needle).slice(0, 10);

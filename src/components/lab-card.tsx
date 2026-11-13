@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import type { LabMeta } from "@/lib/labs/types";
+import type { LabSummary } from "@/lib/labs/types";
 import { REALMS } from "@/lib/labs/catalog";
 import { Badge } from "@/components/ui/badge";
 import { LabThumb } from "@/components/lab-thumb";
 import { cn } from "@/lib/utils";
 
-export function LabCard({ lab, className }: { lab: LabMeta; className?: string }) {
+export function LabCard({ lab, className }: { lab: LabSummary; className?: string }) {
   const realm = REALMS.find((r) => r.slug === lab.realm);
   return (
     <Link

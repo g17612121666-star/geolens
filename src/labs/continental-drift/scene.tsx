@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { ReconstructionGlobe } from "../shared/geo-globe";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Graticule } from "@/components/globe/earth";
@@ -131,7 +131,7 @@ function ContinentLabels({ age }: { age: number }) {
 }
 
 export default function ContinentalDrift() {
-  const { params, setParam } = useLabControls(),
+  const { params, setParam } = useLabState("params", "setParam"),
     age = params.ageMa ?? 200;
   return (
     <>

@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useIsCompact } from "@/hooks/use-media";
 import { useLabTick } from "@/labs/tick";
 import { latLonToXYZ } from "@/lib/geo";
@@ -150,7 +150,7 @@ function outside(p: [number, number, number], path: [number, number, number][]) 
   return point.add(away).setLength(1.78).toArray() as [number, number, number];
 }
 export default function OceanCurrents() {
-  const { params, t } = useLabControls();
+  const { params, t } = useLabState("params", "t");
   useLabTick(1 / 50);
   const index = Math.round(params.basin ?? 0),
     g = SUBTROPICAL_GYRES[index];

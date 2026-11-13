@@ -4,17 +4,31 @@ import { LABS, REALMS } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
 import { headFor } from "@/lib/seo";
+import {
+  FRAMEWORK_BY_ID,
+  STANDARD_BY_ID,
+  byFramework,
+  sortStandards,
+  standardLabel,
+  type FrameworkId,
+} from "@/lib/labs/standards";
 import { buildIndex, searchIndex } from "@/lib/site-search";
 import { LESSON_PHASES, lessonLink } from "@/lib/teachers/workflow";
 import { teacherHero } from "@/lib/figures";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
-type TeacherSearch = { q?: string; realm?: string; age?: string; curriculum?: string };
+type TeacherSearch = {
+  q?: string;
+  realm?: string;
+  age?: string;
+  framework?: string;
+  standard?: string;
+};
 export const Route = createFileRoute("/teachers/")({
   component: TeachersIndex,
   validateSearch: (s: Record<string, unknown>): TeacherSearch =>
     Object.fromEntries(
-      ["q", "realm", "age", "curriculum"]
+      ["q", "realm", "age", "framework", "standard"]
         .filter((k) => typeof s[k] === "string")
         .map((k) => [k, s[k]]),
     ),
@@ -25,6 +39,9 @@ export const Route = createFileRoute("/teachers/")({
       path: "/teachers",
     }),
 });
+/** "NGSS HS-ESS2-6 · Carbon cycling among Earth's spheres", for menus and search. */
+const standardText = (id: string) =>
+  [standardLabel(id), STANDARD_BY_ID[id]?.title].filter(Boolean).join(" · ");
 const field = "mt-2 min-h-11 w-full rounded-lg border border-white/15 bg-basalt px-3 text-chalk";
 const button =
   "inline-flex min-h-11 items-center justify-center rounded-full border border-white/15 px-4 py-2 text-sm text-ice hover:bg-white/5";
@@ -33,7 +50,8 @@ const TEACHER_INDEX = buildIndex(
   (lab) => [
     { text: lab.title, weight: 6 },
     { text: lab.objective, weight: 3 },
-    { text: [...lab.glossary.map((g) => g.term), ...lab.curriculum].join(" "), weight: 2 },
+    { text: lab.glossary.map((g) => g.term).join(" "), weight: 2 },
+    { text: lab.standards.map(standardText).join(" "), weight: 2 },
   ],
 );
 function TeachersIndex() {
@@ -42,13 +60,19 @@ function TeachersIndex() {
   const [status, setStatus] = useState("");
   const shipped = LABS.filter((lab) => LAB_SCENES[lab.slug] && isListed(lab.slug));
   const ages = [...new Set(shipped.flatMap((lab) => lab.ages))];
-  const curricula = [...new Set(shipped.flatMap((lab) => lab.curriculum))].sort();
+  const used = [...new Set(shipped.flatMap((lab) => lab.standards))];
+  const frameworks = [...new Set(used.map((id) => STANDARD_BY_ID[id].framework))].sort(byFramework);
+  const standards = sortStandards(
+    used.filter((id) => STANDARD_BY_ID[id].framework === search.framework),
+  );
   const needle = (search.q ?? "").trim();
   const filtered = (needle ? searchIndex(TEACHER_INDEX, needle) : shipped).filter(
     (lab) =>
       (!search.realm || lab.realm === search.realm) &&
       (!search.age || lab.ages.some((age) => age === search.age)) &&
-      (!search.curriculum || lab.curriculum.includes(search.curriculum)),
+      (!search.framework ||
+        lab.standards.some((id) => STANDARD_BY_ID[id]?.framework === search.framework)) &&
+      (!search.standard || lab.standards.includes(search.standard)),
   );
   function update(changes: Partial<TeacherSearch>) {
     void navigate({ search: (prev) => ({ ...prev, ...changes }), replace: true });
@@ -107,7 +131,7 @@ function TeachersIndex() {
         aria-label={"Find a lesson"}
         className="mt-8 rounded-2xl border border-white/10 bg-white/[.025] p-5"
       >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           <label className="text-sm text-mist">
             {"Search lessons"}
             <input
@@ -147,15 +171,37 @@ function TeachersIndex() {
             </select>
           </label>
           <label className="text-sm text-mist">
-            {"Curriculum tag"}
+            {"Curriculum"}
             <select
               className={field}
-              value={search.curriculum ?? ""}
-              onChange={(e) => update({ curriculum: e.target.value || undefined })}
+              value={search.framework ?? ""}
+              onChange={(e) =>
+                update({ framework: e.target.value || undefined, standard: undefined })
+              }
             >
-              <option value="">{"All tags"}</option>
-              {curricula.map((c) => (
-                <option key={c}>{c}</option>
+              <option value="">{"All curricula"}</option>
+              {frameworks.map((f) => (
+                <option key={f} value={f}>
+                  {FRAMEWORK_BY_ID[f as FrameworkId].short}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="text-sm text-mist">
+            {"Standard"}
+            <select
+              className={field}
+              value={search.standard ?? ""}
+              disabled={!search.framework}
+              onChange={(e) => update({ standard: e.target.value || undefined })}
+            >
+              <option value="">
+                {search.framework ? "All standards" : "Choose a curriculum first"}
+              </option>
+              {standards.map((id) => (
+                <option key={id} value={id}>
+                  {standardText(id)}
+                </option>
               ))}
             </select>
           </label>
@@ -171,6 +217,9 @@ function TeachersIndex() {
           <button className={button} onClick={() => void share()}>
             {"Share selection"}
           </button>
+          <Link to="/teachers/standards" className={button}>
+            {"Standards alignment"}
+          </Link>
         </div>
         <p className="mt-2 text-sm text-mist" aria-live="polite">
           {status}
@@ -235,8 +284,7 @@ function TeachersIndex() {
                         <span className="mb-1 block font-medium text-chalk">
                           {"Start a discussion"}
                         </span>
-                        {lab.questions[0]?.prompt ??
-                          (lab.misconceptions?.[0] ?? lab.misconception).claim}
+                        {lab.preview}
                       </p>
                       <div className="mt-auto flex flex-wrap gap-2">
                         <Link to="/teachers/$slug" params={{ slug: lab.slug }} className={button}>

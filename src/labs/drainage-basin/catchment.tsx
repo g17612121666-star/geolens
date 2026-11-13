@@ -1,4 +1,4 @@
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { CatchmentLandscape } from "../shared/catchment-landscape";
 import { catchmentHeight } from "../shared/catchment-height";
@@ -14,7 +14,7 @@ const divide: [number, number, number][] = [
   ...Array.from({ length: 33 }, (_, i) => [-1.94 + (i / 32) * 3.94, -1.55] as const),
 ].map(([x, z]) => [x, catchmentHeight(x, z) + 0.06, z]);
 export default function DrainageBasin() {
-  const { params, t } = useLabControls();
+  const { params, t } = useLabState("params", "t");
   useLabTick(1 / 20);
   const x = -2 + t * 4,
     focus = Math.round(params.feature ?? 0),

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import RealGreatSandDunes from "./real-great-sand-dunes";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabControls, useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { duneHeight, yardangHeight } from "@/lib/aeolian-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -25,7 +25,7 @@ export default function Aeolian() {
 }
 
 function ModelAeolian() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 40);
   const mode = Math.round(params.feature ?? 0),
     v = trueScale ? 1 : 2,
