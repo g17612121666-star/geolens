@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { shelfSetup } from "@/lib/ocean-wave-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
@@ -41,7 +41,7 @@ function floorMetres(x: number, z: number, depth: number) {
 }
 
 export default function StormSurge() {
-  const { params, trueScale } = useLabControls(),
+  const { params, trueScale } = useLabState("params", "trueScale"),
     wind = params.wind ?? 30,
     depth = params.depth ?? 20,
     pressure = params.pressure ?? 3000,

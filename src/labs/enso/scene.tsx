@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ensoSection } from "@/lib/ocean-circulation-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -26,7 +26,7 @@ import { cellPoint, type Cell } from "../thermal-circulation/cell";
 import { SeaSurface } from "./sea-surface";
 import { SST_GRADIENT } from "./sst";
 export default function Enso() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, trueScale } = useLabState("params", "trueScale");
   useLabTick(1 / 35);
   const c = ensoSection(params.enso ?? 0),
     f = (trueScale ? 1 : 10000) / 3000000,
@@ -121,7 +121,6 @@ export default function Enso() {
               seed={seed}
             />
             <RainStreaks
-              t={t}
               position={[left + dx, y - sy * 0.35, z]}
               width={sx * 1.1}
               depth={sz * 1.2}

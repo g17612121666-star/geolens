@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { coastalContrast } from "@/lib/circulation-science";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
@@ -80,7 +80,7 @@ function City({ ground }: { ground: (x: number, z: number) => number }) {
 }
 
 export default function ThermalCirculation() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 50);
   const urban = params.urban > 0.5,
     coast = (params.landsea ?? 1) > 0.5 && !urban,

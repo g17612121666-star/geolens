@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { PLANETS, planetPosition, planetRadiusAtOrbitScale } from "@/lib/planet-science";
 import { AU_KM } from "@/lib/distance-science";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { useIsCompact } from "@/hooks/use-media";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
@@ -29,7 +29,7 @@ function Orbit({ index, scale }: { index: number; scale: number }) {
   );
 }
 export default function SolarSystem() {
-  const { params, t, trueScale, setParam } = useLabControls();
+  const { params, t, trueScale, setParam } = useLabState("params", "t", "trueScale", "setParam");
   useLabTick(1 / 60);
   const mode = Math.round(params.view ?? 0),
     all = params.outer > 0.5,

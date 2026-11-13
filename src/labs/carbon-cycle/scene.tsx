@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { useIsCompact } from "@/hooks/use-media";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { carbonBudget, CARBON_STORES } from "@/lib/carbon-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -178,7 +178,7 @@ function StoreGauge({ radius, color }: { radius: number; color: string }) {
 const COLOURS = ["#a6cccf", "#829b69", "#568798", "#bda88b", "#45403a"];
 
 export default function CarbonCycle() {
-  const { params, t, setParam } = useLabControls();
+  const { params, t, setParam } = useLabState("params", "t", "setParam");
   useLabTick(1 / 65);
   const compact = useIsCompact(),
     positions = POS;

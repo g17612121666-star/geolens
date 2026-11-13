@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { StarMesh } from "@/components/globe/star";
 import { EarthMesh } from "@/components/globe/earth";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { distanceModel } from "@/lib/distance-science";
 import { LunarSurface } from "../shared/lunar-model";
@@ -19,7 +19,7 @@ function Body({ name, radius, stop }: { name: string; radius: number; stop: numb
   return <LunarSurface radius={radius} />;
 }
 export default function UniverseScale() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 24);
   const stop = Math.round(params.zoom ?? 0),
     s = distanceModel(stop, t),

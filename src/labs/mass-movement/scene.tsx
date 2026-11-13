@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { TerrainMaterial } from "../shared/natural-world";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { SLUMP, slumpBase, slumpSurface, slumpStability, rotateSlump } from "@/lib/slump-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
@@ -75,7 +75,7 @@ const ARC = Array.from({ length: 121 }, (_, i): [number, number] => {
   return [x, slumpBase(x)];
 });
 export default function MassMovement() {
-  const { params, t } = useLabControls();
+  const { params, t } = useLabState("params", "t");
   useLabTick(1 / 45);
   const rain = params.rain ?? 0.15,
     result = useMemo(() => slumpStability(rain), [rain]),

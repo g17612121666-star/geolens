@@ -134,12 +134,10 @@ export function OrographicCloud({
   crest,
   lcl,
   f,
-  t,
 }: {
   crest: number;
   lcl: number;
   f: number;
-  t: number;
 }) {
   // Where the ground along the parcel's path rises to cloud base.
   const start = -Math.sqrt(-1.05 * Math.log(Math.min(0.999, lcl / crest))),
@@ -167,7 +165,6 @@ export function OrographicCloud({
             />
             {cx < 0.02 && slope < floor - 0.02 && (
               <RainStreaks
-                t={t}
                 position={[cx, floor + 0.05, -0.05]}
                 width={width * 0.7}
                 depth={0.9}

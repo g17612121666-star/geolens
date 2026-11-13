@@ -1,5 +1,6 @@
-import { useEffect, useLayoutEffect, useMemo } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
+import { useLabFrame } from "@/labs/tick";
 import { cloudVertex, cloudFragment } from "../shared/cloud-material";
 
 // The same volume with a multiplying tint, e.g. gray-brown for volcanic ash instead of water cloud.
@@ -64,8 +65,8 @@ export function CloudVolume({
 }
 
 /** Deterministic rainfall streaks: a paused or scrubbed lesson always reproduces the same positions. */
+/** Falling rain, moved every drawn frame from lab time (it never re-renders while a lab plays). */
 export function RainStreaks({
-  t,
   position = [0, 0, 0],
   width = 1,
   depth = 0.8,
@@ -73,7 +74,6 @@ export function RainStreaks({
   count = 90,
   wind = 0.08,
 }: {
-  t: number;
   position?: [number, number, number];
   width?: number;
   depth?: number;
@@ -86,7 +86,12 @@ export function RainStreaks({
     g.setAttribute("position", new THREE.BufferAttribute(new Float32Array(count * 6), 3));
     return g;
   }, [count]);
-  useLayoutEffect(() => {
+  // The lab time and shape last written into the buffer, so an unchanged frame costs nothing.
+  const written = useRef("");
+  useLabFrame((t) => {
+    const key = `${t}|${width}|${depth}|${height}|${count}|${wind}`;
+    if (written.current === key) return;
+    written.current = key;
     const p = geometry.attributes.position;
     for (let i = 0; i < count; i++) {
       const phase = (t * 11 + random(i + 1)) % 1,
@@ -103,7 +108,7 @@ export function RainStreaks({
     }
     p.needsUpdate = true;
     geometry.computeBoundingSphere();
-  }, [geometry, t, width, depth, height, count, wind]);
+  });
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <lineSegments geometry={geometry} position={position}>

@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { isostaticColumn, AIRY } from "@/lib/isostasy-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
@@ -56,7 +56,7 @@ vec3 sectionColour(vec3 p,vec3 w){
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 
 export default function Isostasy() {
-  const { params, trueScale } = useLabControls(),
+  const { params, trueScale } = useLabState("params", "trueScale"),
     ice = params.ice ?? 1650,
     result = isostaticColumn(ice),
     bare = isostaticColumn(0),

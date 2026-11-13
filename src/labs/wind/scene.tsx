@@ -1,5 +1,5 @@
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { pressureWind } from "@/lib/energy-wind-science";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -123,7 +123,7 @@ function AirTracers({
   );
 }
 export default function Wind() {
-  const { params, t } = useLabControls();
+  const { params, t } = useLabState("params", "t");
   useLabTick(1 / 45);
   const coriolis = (params.coriolis ?? 1) > 0.5,
     friction = params.friction > 0.5,

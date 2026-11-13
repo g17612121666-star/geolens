@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { EarthMesh } from "@/components/globe/earth";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { latLonToXYZ } from "@/lib/geo";
@@ -42,7 +42,7 @@ const hemi = (v: number, pos: string, neg: string) =>
   `${Math.abs(v).toFixed(1)}°${Math.abs(v) < 0.05 ? "" : v < 0 ? neg : pos}`;
 
 export default function GraticuleScene() {
-  const { params } = useLabControls(),
+  const { params } = useLabState("params"),
     lat = params.lat ?? 40.7,
     lon = params.lon ?? -74;
   const parallel = useMemo(() => ring(lat, 1.265), [lat]);

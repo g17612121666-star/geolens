@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { EXPERIMENT_REVERSALS, spreadingCrust } from "@/lib/spreading-science";
 import { terrainBlockGeometry } from "../shared/science-geometry";
@@ -130,7 +130,7 @@ function BlackSmokers({ vents }: { vents: [number, number, number][] }) {
 }
 
 export default function SeafloorSpreading() {
-  const { t, params, trueScale } = useLabControls();
+  const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 40);
   const rate = params.rate ?? 25,
     age = 4 + t,

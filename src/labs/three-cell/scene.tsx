@@ -4,7 +4,7 @@ import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { EarthMesh, Graticule } from "@/components/globe/earth";
 import { latLonToXYZ } from "@/lib/geo";
 import { circulationCell } from "@/lib/circulation-science";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
@@ -133,7 +133,7 @@ const PRESSURE_BELTS = [
 ] as const;
 
 export default function ThreeCell() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 55);
   const three = (params.three ?? 1) > 0.5,
     itcz = 10 * Math.sin((t - 0.218) * Math.PI * 2),

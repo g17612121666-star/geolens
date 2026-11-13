@@ -1,7 +1,7 @@
 import { Line } from "@react-three/drei";
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { pressureCentreFlow } from "@/lib/circulation-science";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -95,7 +95,7 @@ function RegionMap() {
   );
 }
 export default function PressureCentres() {
-  const { params, t } = useLabControls();
+  const { params, t } = useLabState("params", "t");
   useLabTick(1 / 30);
   const high = params.anti > 0.5,
     south = params.sh > 0.5,
@@ -198,7 +198,6 @@ export default function PressureCentres() {
                 opacity={0.6}
               />
               <RainStreaks
-                t={t}
                 position={[x, 0.3, z * ns]}
                 width={0.22}
                 depth={0.22}

@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { useShallow } from "zustand/react/shallow";
 import type { LabLayout, PanelTab } from "@/lib/labs/types";
 
 export type LabParams = Record<string, number>;
@@ -70,7 +71,8 @@ export const useLabControls = create<LabControlsState>((set, get) => ({
   play: () => set({ playing: true }),
   pause: () => set({ playing: false }),
   toggle: () => set({ playing: !get().playing }),
-  setSpeed: (speed) => set({ speed: Number.isFinite(speed)?Math.max(.25,Math.min(4,speed)):1 }),
+  setSpeed: (speed) =>
+    set({ speed: Number.isFinite(speed) ? Math.max(0.25, Math.min(4, speed)) : 1 }),
   setT: (t) => set({ playing: false, t: Number.isFinite(t) ? Math.max(0, Math.min(1, t)) : 0 }),
   setExplode: (explode) => set({ explode: Math.min(1, Math.max(0, explode)) }),
   setSlice: (slice) => set({ slice: Math.min(1, Math.max(0, slice)) }),
@@ -79,13 +81,17 @@ export const useLabControls = create<LabControlsState>((set, get) => ({
   setGraticule: (graticule) => set({ graticule }),
   setTrueScale: (trueScale) => set({ trueScale }),
   setInspect: (inspect) => set({ inspect }),
-  setStep: (step) => set({ step: Math.max(0,Math.min(3,Math.floor(step))) }),
+  setStep: (step) => set({ step: Math.max(0, Math.min(3, Math.floor(step))) }),
   setPanelTab: (panelTab) => set({ panelTab }),
   setParam: (key, value) => {
-    if(!Number.isFinite(value))return;
-    const params={...get().params,[key]:value};
-    if((key==='sand'||key==='clay')&&'sand' in params&&'clay' in params){const other=key==='sand'?'clay':'sand';params[key]=Math.max(0,Math.min(100,value));params[other]=Math.min(params[other],100-params[key]);}
-    set({params});
+    if (!Number.isFinite(value)) return;
+    const params = { ...get().params, [key]: value };
+    if ((key === "sand" || key === "clay") && "sand" in params && "clay" in params) {
+      const other = key === "sand" ? "clay" : "sand";
+      params[key] = Math.max(0, Math.min(100, value));
+      params[other] = Math.min(params[other], 100 - params[key]);
+    }
+    set({ params });
   },
   setLayout: (layout) => set({ layout }),
   resetView: () => set({ viewKey: get().viewKey + 1 }),
@@ -132,3 +138,22 @@ export const useLabControls = create<LabControlsState>((set, get) => ({
       guided: false,
     }),
 }));
+
+export type LabState = LabControlsState;
+
+/**
+ * Subscribe to the named fields only: the component re-renders when one of them changes, not on
+ * every store update. Lab time `t` changes every frame while a lab plays, so name it only where
+ * the render really depends on it (motion that only moves an object belongs in `useFrame`).
+ */
+export function useLabState<K extends keyof LabControlsState>(
+  ...keys: K[]
+): Pick<LabControlsState, K> {
+  return useLabControls(
+    useShallow((s) => {
+      const picked = {} as Pick<LabControlsState, K>;
+      for (const key of keys) picked[key] = s[key];
+      return picked;
+    }),
+  );
+}

@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { SEISMIC_SPEEDS, waveExperiment } from "@/lib/seismic-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
@@ -187,7 +187,7 @@ function SurfaceRing({
 }
 
 export default function Earthquakes() {
-  const { t, params, trueScale } = useLabControls();
+  const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 45);
   // 30 s lets the surface wave reach the station even from the deepest focus (about 27 s at 40 km).
   const seconds = t * 30,

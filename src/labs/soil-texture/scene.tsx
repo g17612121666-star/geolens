@@ -1,7 +1,7 @@
 import { useMemo, useEffect } from "react";
 import { Html, Line } from "@react-three/drei";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { soilFractions, soilTexture, TEXTURE_COLOURS } from "@/lib/soil-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { DebrisField } from "../shared/geomorphic-terrain";
@@ -12,7 +12,7 @@ const xyz = (sand: number, clay: number): [number, number, number] => [
   1 - (2.95 * clay) / 100,
 ];
 export default function SoilTexture() {
-  const { params } = useLabControls(),
+  const { params } = useLabState("params"),
     { sand, clay, silt } = soilFractions(params.sand ?? 40, params.clay ?? 20),
     name = soilTexture(sand, clay);
   const g = useMemo(() => {

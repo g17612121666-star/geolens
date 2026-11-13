@@ -36,13 +36,11 @@ export function ControlBar({
 }) {
   const playing = useLabControls((s) => s.playing);
   const speed = useLabControls((s) => s.speed);
-  const t = useLabControls((s) => s.t);
   const explode = useLabControls((s) => s.explode);
   const slice = useLabControls((s) => s.slice);
   const params = useLabControls((s) => s.params);
   const toggle = useLabControls((s) => s.toggle);
   const setSpeed = useLabControls((s) => s.setSpeed);
-  const setT = useLabControls((s) => s.setT);
   const setExplode = useLabControls((s) => s.setExplode);
   const setSlice = useLabControls((s) => s.setSlice);
   const setParam = useLabControls((s) => s.setParam);
@@ -109,38 +107,7 @@ export function ControlBar({
         </IconBtn>
       </div>
 
-      {timeLabel && (
-        <label className="flex min-w-48 flex-1 items-center gap-3">
-          <span className="hidden shrink-0 text-[13px] text-mist sm:inline">{timeLabel}</span>
-          <input
-            type="range"
-            min={0}
-            max={1}
-            // A day slider steps in 5-minute increments so the arrow keys visibly turn Earth.
-            step={lab.controls.time === "day" ? 1 / 288 : 0.001}
-            value={t}
-            onChange={(e) => setT(Number(e.target.value))}
-            className="h-2 w-full accent-glacier"
-            aria-label={timeLabel}
-            aria-valuenow={t}
-            aria-valuetext={
-              lab.controls.time === "day"
-                ? `${(t * 24).toFixed(1)} hours${t >= 0.999 ? " (the same orientation as 0 hours)" : ""}`
-                : `${Math.round(t * 100)}% of the process`
-            }
-            suppressHydrationWarning
-          />
-          <span
-            className={cn(
-              "shrink-0 text-[13px] tabular-nums text-chalk",
-              lab.controls.time === "day" ? "w-12" : "w-9",
-            )}
-          >
-            {/* A day runs from 0 to 24 hours, so show hours rather than a 0–1 fraction. */}
-            {lab.controls.time === "day" ? `${(t * 24).toFixed(1)} h` : t.toFixed(2)}
-          </span>
-        </label>
-      )}
+      {timeLabel && <TimeSlider lab={lab} label={timeLabel} />}
 
       {lab.controls.extra?.filter(shown).map((ex) =>
         ex.options ? (
@@ -392,5 +359,43 @@ function IconBtn({
       {children}
       {showLabel && <span>{label}</span>}
     </button>
+  );
+}
+
+/** The only control that changes every frame while a lab plays, so it subscribes to time alone. */
+function TimeSlider({ lab, label: timeLabel }: { lab: LabMeta; label: string }) {
+  const t = useLabControls((s) => s.t);
+  const setT = useLabControls((s) => s.setT);
+  return (
+    <label className="flex min-w-48 flex-1 items-center gap-3">
+      <span className="hidden shrink-0 text-[13px] text-mist sm:inline">{timeLabel}</span>
+      <input
+        type="range"
+        min={0}
+        max={1}
+        // A day slider steps in 5-minute increments so the arrow keys visibly turn Earth.
+        step={lab.controls.time === "day" ? 1 / 288 : 0.001}
+        value={t}
+        onChange={(e) => setT(Number(e.target.value))}
+        className="h-2 w-full accent-glacier"
+        aria-label={timeLabel}
+        aria-valuenow={t}
+        aria-valuetext={
+          lab.controls.time === "day"
+            ? `${(t * 24).toFixed(1)} hours${t >= 0.999 ? " (the same orientation as 0 hours)" : ""}`
+            : `${Math.round(t * 100)}% of the process`
+        }
+        suppressHydrationWarning
+      />
+      <span
+        className={cn(
+          "shrink-0 text-[13px] tabular-nums text-chalk",
+          lab.controls.time === "day" ? "w-12" : "w-9",
+        )}
+      >
+        {/* A day runs from 0 to 24 hours, so show hours rather than a 0–1 fraction. */}
+        {lab.controls.time === "day" ? `${(t * 24).toFixed(1)} h` : t.toFixed(2)}
+      </span>
+    </label>
   );
 }

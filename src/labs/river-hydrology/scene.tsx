@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from "react";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { annualRiverRegime, catchmentRelief } from "@/lib/river-regime-science";
 import { terrainBlockGeometry } from "../shared/science-geometry";
@@ -127,7 +127,7 @@ function Basin({
   );
 }
 export default function RiverHydrology() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 65);
   const dam = params.dam > 0.5,
     a = useMemo(() => annualRiverRegime(false, false), []),

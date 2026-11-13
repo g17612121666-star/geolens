@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Line } from "@react-three/drei";
 import * as THREE from "three";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { TerrainMaterial } from "../shared/natural-world";
@@ -46,7 +46,7 @@ const MODEL: Field = (() => {
 const REAL_ID = "sugarloaf-md" as const;
 
 export default function Contours() {
-  const { params, trueScale } = useLabControls();
+  const { params, trueScale } = useLabState("params", "trueScale");
   const interval = params.interval ?? 10,
     real = (params.place ?? 0) > 0.5,
     mode = (params.mode3d ?? 1) > 0.5,

@@ -2,7 +2,7 @@ import { useDeferredValue, useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
 import RealVolcanoes from "./real-volcanoes";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabControls, useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { RockMaterial } from "../shared/rock-material";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
@@ -62,7 +62,7 @@ function LocalClipping() {
 }
 
 function ModelVolcanoes() {
-  const { params, slice, t, trueScale } = useLabControls();
+  const { params, slice, t, trueScale } = useLabState("params", "slice", "t", "trueScale");
   useLabTick(1 / 9);
   const q = useQuality(),
     compact = useIsCompact();

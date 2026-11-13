@@ -16,8 +16,8 @@ vec3 sectionColour(vec3 p,vec3 w){
   return mix(c,vec3(.50,.38,.27),smoothstep(-.05,.12,w.y)*.7);
 }
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
-import { useLabControls } from "@/lib/store/lab-controls";
 import * as THREE from "three";
+import { TimeMarkers } from "./time-markers";
 import { Buildings } from "./hazard-parts";
 import { farmland, settlement } from "./hazard-utils";
 import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
@@ -39,34 +39,35 @@ export function CatchmentLandscape({
   flow?: number;
   divide?: boolean;
 }) {
-  const t = useLabControls((s) => s.t),
-    geometry = useMemo(() => {
-      const g = terrainBlockGeometry(catchmentHeight, 4, 3.2, 160, -0.3),
-        p = g.attributes.position,
-        c = new Float32Array(p.count * 3),
-        col = new THREE.Color(),
-        tone = new THREE.Color();
-      for (let i = 0; i < p.count; i++) {
-        const x = p.getX(i),
-          y = p.getY(i),
-          z = p.getZ(i),
-          n = noise(x * 3 + 4, z * 3),
-          d = streamDistance(x, z);
-        // Valley meadows and fields, wooded mid-slopes, upland moor and rock near the divide.
-        col.copy(farmland(x * 1.4, z * 1.4, 0.32));
-        col.lerp(tone.set("#4f6b3c"), THREE.MathUtils.smoothstep(y, 0.28, 0.42) * 0.7);
-        col.lerp(tone.set("#8a7b5c"), THREE.MathUtils.smoothstep(y, 0.62, 0.78) * 0.8);
-        col.lerp(tone.set("#7a5f6b"), THREE.MathUtils.smoothstep(y, 0.75, 0.9) * n * 0.6);
-        if (y > 0.82 && n > 0.62) col.lerp(tone.set("#8d877c"), 0.8);
-        if (d < 0.1) col.lerp(tone.set("#5f8a4a"), 0.6);
-        // Impervious surfaces spread across the lower catchment as urban cover rises.
-        if (urban > 0 && y < 0.42 && z > 0.25 && x < 1.4 && noise(x * 5, z * 5) < urban * 1.2)
-          col.lerp(tone.set("#7b7d7c"), 0.75);
-        c.set([col.r, col.g, col.b], i * 3);
-      }
-      g.setAttribute("color", new THREE.BufferAttribute(c, 3));
-      return g;
-    }, [urban]);
+  // Nothing here reads lab time while rendering: the flow markers and the rain move every drawn
+  // frame, so the landscape re-renders only when its own settings change.
+  const geometry = useMemo(() => {
+    const g = terrainBlockGeometry(catchmentHeight, 4, 3.2, 160, -0.3),
+      p = g.attributes.position,
+      c = new Float32Array(p.count * 3),
+      col = new THREE.Color(),
+      tone = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i),
+        y = p.getY(i),
+        z = p.getZ(i),
+        n = noise(x * 3 + 4, z * 3),
+        d = streamDistance(x, z);
+      // Valley meadows and fields, wooded mid-slopes, upland moor and rock near the divide.
+      col.copy(farmland(x * 1.4, z * 1.4, 0.32));
+      col.lerp(tone.set("#4f6b3c"), THREE.MathUtils.smoothstep(y, 0.28, 0.42) * 0.7);
+      col.lerp(tone.set("#8a7b5c"), THREE.MathUtils.smoothstep(y, 0.62, 0.78) * 0.8);
+      col.lerp(tone.set("#7a5f6b"), THREE.MathUtils.smoothstep(y, 0.75, 0.9) * n * 0.6);
+      if (y > 0.82 && n > 0.62) col.lerp(tone.set("#8d877c"), 0.8);
+      if (d < 0.1) col.lerp(tone.set("#5f8a4a"), 0.6);
+      // Impervious surfaces spread across the lower catchment as urban cover rises.
+      if (urban > 0 && y < 0.42 && z > 0.25 && x < 1.4 && noise(x * 5, z * 5) < urban * 1.2)
+        col.lerp(tone.set("#7b7d7c"), 0.75);
+      c.set([col.r, col.g, col.b], i * 3);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+    return g;
+  }, [urban]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   const houses = useMemo(
     () =>
@@ -125,19 +126,20 @@ export function CatchmentLandscape({
         }).filter(([x, , z]) => streamDistance(x, z) > 0.13)}
         height={0.055}
       />
-      {[-1, 1].map((sign, k) =>
-        Array.from({ length: 7 }, (_, i) => {
-          const u = (t + i / 7) % 1,
+      {/* Seven markers run down each tributary toward the confluence. */}
+      <TimeMarkers
+        count={14}
+        radius={0.015}
+        color="#dbefdf"
+        detail={[8, 6]}
+        at={(t, j) => {
+          const sign = j < 7 ? -1 : 1,
+            u = (t + (j % 7) / 7) % 1,
             x = -1.7 + u * 1.7,
             z = sign * 1.2 * (1 - u);
-          return (
-            <mesh key={`${k}-${i}`} position={[x, catchmentHeight(x, z) + 0.035, z]}>
-              <sphereGeometry args={[0.015, 8, 6]} />
-              <meshBasicMaterial color="#dbefdf" />
-            </mesh>
-          );
-        }),
-      )}
+          return [x, catchmentHeight(x, z) + 0.035, z];
+        }}
+      />
       {rain > 0.02 &&
         [
           [-1.2, -0.7],
@@ -155,7 +157,6 @@ export function CatchmentLandscape({
                 opacity={0.55 + 0.3 * Math.min(1, rain)}
               />
               <RainStreaks
-                t={t}
                 position={[x, 1.3, z]}
                 width={0.9}
                 depth={0.8}

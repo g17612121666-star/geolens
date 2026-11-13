@@ -1,7 +1,7 @@
 import { useMemo, useEffect } from "react";
 import * as THREE from "three";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { GeomorphicTerrain, DebrisField, GrassPatch } from "../shared/geomorphic-terrain";
@@ -200,7 +200,7 @@ function Headland({ stage }: { stage: number }) {
   );
 }
 export default function Coasts() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 40);
   const mode = Math.round(params.view ?? 0),
     stage = Math.round(params.stage ?? 1),

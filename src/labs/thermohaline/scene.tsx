@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { classroomDensity } from "@/lib/ocean-circulation-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -13,7 +13,7 @@ import { OceanSurface } from "../shared/ocean-section";
 import { FlowFilaments } from "../atmosphere-layers/weather-volumes";
 import { densityParcelHeight } from "./transport";
 export default function Thermohaline() {
-  const { params, t, trueScale } = useLabControls();
+  const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 45);
   const temperature = params.temperature ?? 4,
     salinity = params.salinity ?? 35,

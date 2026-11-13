@@ -288,9 +288,13 @@ const VIEW_RIGHT = new THREE.Vector3();
 export function CloudLayer({ radius = 1.012 }: { radius?: number }) {
   const map = useCloudMap();
   const q = useQuality();
-  const t = useLabControls((s) => s.t);
+  const mesh = useRef<THREE.Mesh>(null);
+  // Turned every drawn frame from lab time, so the layer does not re-render while a lab plays.
+  useFrame(() => {
+    if (mesh.current) mesh.current.rotation.y = Math.PI / 2 + useLabControls.getState().t * 0.08;
+  });
   return (
-    <mesh rotation={[0, Math.PI / 2 + t * 0.08, 0]}>
+    <mesh ref={mesh} rotation={[0, Math.PI / 2 + useLabControls.getState().t * 0.08, 0]}>
       <sphereGeometry args={[radius, q.sphere, q.sphere]} />
       <meshStandardMaterial
         map={map}

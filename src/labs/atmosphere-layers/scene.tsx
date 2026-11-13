@@ -4,7 +4,7 @@ import { Html } from "@react-three/drei";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
 import { EarthMesh, CloudLayer } from "@/components/globe/earth";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabControls, useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { shellSection } from "../shared/science-geometry";
 import { Tag } from "../shared/kit";
@@ -144,7 +144,7 @@ function GasLayer({
 }
 export default function AtmosphereLayers() {
   const [profile, setProfile] = useState(false);
-  const { trueScale, explode, params } = useLabControls(),
+  const { trueScale, explode, params } = useLabState("trueScale", "explode", "params"),
     lapse = params.lapse ?? 6.5,
     factor = trueScale ? 1 : 8;
   const temperatures = [

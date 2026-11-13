@@ -1,5 +1,5 @@
 import { GuideLine as Line } from "@/labs/shared/guide-line";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { tropicalVortex } from "@/lib/tropical-cyclone-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
@@ -13,7 +13,7 @@ import { KM_TO_UNITS, OCEAN_DEPTH_UNITS, oceanTemperature } from "./field";
 type V3 = [number, number, number];
 
 export default function TropicalCyclone() {
-  const { params, t, trueScale, slice } = useLabControls();
+  const { params, t, trueScale, slice } = useLabState("params", "t", "trueScale", "slice");
   useLabTick(1 / 50);
   const strength = params.intensity ?? 0.7,
     maximum = 20 + 60 * strength,

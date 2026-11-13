@@ -1,5 +1,5 @@
 import { useMemo, useEffect } from "react";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { useIsCompact } from "@/hooks/use-media";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
@@ -74,7 +74,7 @@ function Bridge({ f }: { f: number }) {
 }
 export default function Rivers() {
   const compact = useIsCompact();
-  const { params, trueScale, t } = useLabControls();
+  const { params, trueScale, t } = useLabState("params", "trueScale", "t");
   useLabTick(1 / 12);
   const q = params.discharge ?? 0.7,
     f = trueScale ? 1 / 12 : 1;

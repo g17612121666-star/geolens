@@ -5,7 +5,7 @@ import { useSectionUniforms } from "../shared/section-utils";
 import { ShallowWater } from "../shared/shallow-water";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 import { Line } from "@react-three/drei";
-import { useLabControls } from "@/lib/store/lab-controls";
+import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
@@ -122,7 +122,7 @@ function sectionSurface(x: number, z: number, growth: number) {
 }
 
 export default function Periglacial() {
-  const { params, t } = useLabControls();
+  const { params, t } = useLabState("params", "t");
   useLabTick(1 / 50);
   const growth = params.cycles ?? 0.45,
     view = Math.round(params.view ?? 0),
