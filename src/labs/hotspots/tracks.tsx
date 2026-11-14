@@ -12,96 +12,120 @@ import { SectionMaterial } from "../shared/section-material";
 import { useSectionUniforms } from "../shared/section-utils";
 import { fbm } from "../shared/hazard-utils";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
+import {
+  D,
+  FLOWS,
+  LAND,
+  MANTLE_BASE,
+  OCEAN,
+  PIT,
+  PLUME_X,
+  SEA,
+  SEAMOUNT,
+  SPACING,
+  W,
+  flowAngle,
+  hawaiianVolcano,
+  paint,
+  plateHeight,
+  type Setting,
+} from "./islands";
 
-const W = 6,
-  D = 2,
-  PLUME_X = -1.8,
-  SPACING = 0.88,
-  SEA = 0.2,
-  MANTLE_BASE = -1.85;
+const COOLED = new THREE.Color("#2d2a2b"),
+  MOLTEN = new THREE.Color("#c2441c"),
+  ACTIVE_FLOW = FLOWS.find((f) => "active" in f) ?? FLOWS[FLOWS.length - 1];
 
-type Setting = {
-  continental: boolean;
-  top: number;
-  plateBase: number;
-};
-const OCEAN: Setting = { continental: false, top: -0.16, plateBase: -0.62 };
-const LAND: Setting = { continental: true, top: 0.42, plateBase: -0.78 };
-
-/** Plate-surface heights in the plate's own frame; volcano i sits at PLUME_X + i·SPACING. */
-function plateHeight(s: Setting) {
-  return (x: number, z: number) => {
-    const roll = 0.03 * (fbm(x * 1.4 + 5, z * 1.4) - 0.5) + 0.012 * (fbm(x * 5, z * 5) - 0.5);
-    let h = s.top + roll;
-    for (let i = 0; i < 5; i++) {
-      const dx = x - (PLUME_X + i * SPACING),
-        r = Math.hypot(dx, z),
-        a = Math.atan2(z, dx);
-      if (s.continental) {
-        // Calderas: the youngest is a sharp, lake-filled crater with a raised rim; older ones are
-        // buried under the flat basalt plain that the track leaves behind.
-        const fresh = [1, 0.55, 0.3, 0.18, 0.1][i],
-          rad = 0.32 + 0.02 * i;
-        h +=
-          fresh * (0.06 * Math.exp(-(((r - rad) / 0.07) ** 2)) - 0.1 * Math.exp(-((r / rad) ** 4)));
-      } else {
-        const peak = [1.05, 0.8, 0.52, 0.37, 0.27][i],
-          rad = 0.36 + 0.035 * i,
-          gullies = i === 0 ? 0 : (0.05 + 0.04 * i) * Math.max(0, Math.sin(a * 9 + i * 1.7)) ** 3,
-          shield = peak * Math.exp(-((r / rad) ** 2)) * (1 - gullies * Math.min(1, r / 0.15));
-        if (i === 3) {
-          // Atoll: the volcano has sunk; a coral ring at sea level encloses a shallow lagoon.
-          const mound = 0.33 * Math.exp(-((r / 0.34) ** 2)),
-            reef = 0.05 * Math.exp(-(((r - 0.21) / 0.04) ** 2));
-          h += Math.min(mound, 0.33) + reef;
-        } else if (i === 4) h += Math.min(0.23, 0.46 * Math.exp(-((r / 0.34) ** 2)));
-        else h += shield - (i === 0 ? 0.05 * Math.exp(-((r / 0.05) ** 2)) : 0);
+/**
+ * The active lava flow (see FLOWS) running down the east flank into the sea, in a channel between
+ * cooled, dark margins. It glows while the volcano sits over the plume and cools to black rock
+ * once the plate has carried the volcano away.
+ */
+function LavaFlow({ height, glow }: { height: (x: number, z: number) => number; glow: number }) {
+  const { crust, channel, entry } = useMemo(() => {
+    const path: THREE.Vector3[] = [];
+    let entry: [number, number, number] = [PLUME_X, SEA, 0];
+    for (let i = 0; i <= 64; i++) {
+      const r = ACTIVE_FLOW.start + 0.55 * (i / 64),
+        a = flowAngle(ACTIVE_FLOW, r),
+        x = PLUME_X + r * Math.cos(a),
+        z = r * Math.sin(a),
+        y = height(x, z);
+      if (y < SEA) {
+        entry = [x, SEA, z];
+        break;
       }
+      path.push(new THREE.Vector3(x, y, z));
     }
-    if (s.continental) {
-      // Mountain ranges flank the plain on both sides.
-      const ridge = Math.max(0, Math.abs(z) - 0.62);
-      h += 0.5 * ridge ** 1.4 * (0.7 + 0.6 * fbm(x * 2.2, z * 3));
-    }
-    return h;
-  };
-}
-
-function paint(g: THREE.BufferGeometry, s: Setting) {
-  const p = g.attributes.position,
-    c = new Float32Array(p.count * 3),
-    col = new THREE.Color(),
-    tone = new THREE.Color();
-  for (let i = 0; i < p.count; i++) {
-    const x = p.getX(i),
-      y = p.getY(i),
-      z = p.getZ(i),
-      n = fbm(x * 4 + 1, z * 4);
-    const nearest = Math.round((x - PLUME_X) / SPACING),
-      k = THREE.MathUtils.clamp(nearest, 0, 4),
-      r = Math.hypot(x - (PLUME_X + k * SPACING), z);
-    if (s.continental) {
-      col.set("#6f7f4e").lerp(tone.set("#9a8f6a"), n * 0.7);
-      if (Math.abs(z) < 0.6 && x > PLUME_X + 0.45) col.lerp(tone.set("#8e8a6f"), 0.6);
-      if (Math.abs(z) > 0.66) col.lerp(tone.set("#3f5a36"), 0.75);
-      if (Math.abs(z) > 0.92 && y > s.top + 0.12) col.lerp(tone.set("#c9c7c0"), 0.6);
-      if (k === 0 && r < 0.3) col.lerp(tone.set("#c8b48a"), 0.5);
-    } else if (y < SEA - 0.1) {
-      col.set("#3c4b55").lerp(tone.set("#5b6667"), n);
-    } else if (y < SEA - 0.006) {
-      col.set("#7ec3b5").lerp(tone.set("#cfe0c6"), n * 0.6);
-    } else if (y < SEA + 0.03) {
-      col.set(k === 0 ? "#2b2826" : "#e2d6b2");
-    } else if (k === 0) {
-      col.set("#2e2a28").lerp(tone.set("#4a3f38"), n);
-    } else {
-      col.set("#4f7a3c").lerp(tone.set("#6d8f45"), n);
-      if (k === 2) col.lerp(tone.set("#7b6a52"), THREE.MathUtils.smoothstep(n, 0.55, 0.8));
-    }
-    if (y < s.plateBase + 1e-3) col.set("#555");
-    c.set([col.r, col.g, col.b], i * 3);
-  }
-  g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+    const strip = (half: (u: number) => number, lift: number) => {
+      const positions: number[] = [],
+        index: number[] = [];
+      path.forEach((p, i) => {
+        const next = path[Math.min(i + 1, path.length - 1)],
+          prev = path[Math.max(i - 1, 0)],
+          side = new THREE.Vector3(-(next.z - prev.z), 0, next.x - prev.x).normalize(),
+          w = half(i / (path.length - 1));
+        for (const sign of [-1, 1]) {
+          const x = p.x + side.x * w * sign,
+            z = p.z + side.z * w * sign;
+          positions.push(x, height(x, z) + lift, z);
+        }
+        if (i > 0) {
+          const k = 2 * i;
+          index.push(k - 2, k - 1, k, k, k - 1, k + 1);
+        }
+      });
+      const g = new THREE.BufferGeometry();
+      g.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+      g.setIndex(index);
+      g.computeVertexNormals();
+      return g;
+    };
+    return {
+      crust: strip((u) => 0.022 + 0.03 * u, 0.006),
+      channel: strip((u) => 0.008 + 0.012 * u, 0.009),
+      entry,
+    };
+  }, [height]);
+  useEffect(
+    () => () => {
+      crust.dispose();
+      channel.dispose();
+    },
+    [crust, channel],
+  );
+  return (
+    <>
+      <mesh geometry={crust} receiveShadow>
+        <meshStandardMaterial
+          color="#262224"
+          roughness={0.85}
+          side={THREE.DoubleSide}
+          polygonOffset
+          polygonOffsetFactor={-2}
+        />
+      </mesh>
+      <mesh geometry={channel}>
+        <meshStandardMaterial
+          color={COOLED.clone().lerp(MOLTEN, Math.min(1, glow * 1.5))}
+          emissive="#ff5a1f"
+          emissiveIntensity={1.8 * glow * glow}
+          roughness={0.5}
+          side={THREE.DoubleSide}
+          polygonOffset
+          polygonOffsetFactor={-4}
+        />
+      </mesh>
+      {/* Where lava meets the sea, it boils seawater into a white plume. */}
+      {glow > 0.3 && (
+        <CloudVolume
+          position={[entry[0], entry[1] + 0.12, entry[2]]}
+          scale={[0.045, 0.13, 0.045]}
+          seed={17}
+          opacity={0.42}
+        />
+      )}
+    </>
+  );
 }
 
 /** Plate cut faces: oceanic or continental crust over lithospheric mantle, with the melt pathway. */
@@ -180,19 +204,31 @@ function Track({
     uPlume: PLUME_X,
   });
   const mantleUniforms = useSectionUniforms({ uPlume: PLUME_X, uTop: plateBase, uTime: t * 6 });
-  const trees = useMemo(() => {
-    const out: [number, number, number][] = [];
-    for (let i = 0; out.length < (continental ? 110 : 70) && i < 2000; i++) {
+  const { trees, forest } = useMemo(() => {
+    const trees: [number, number, number][] = [],
+      forest: [number, number, number][] = [];
+    for (let i = 0; trees.length < (continental ? 110 : 70) && i < 2000; i++) {
       const x = -W / 2 + 0.1 + (W - 0.2) * ((i * 0.618034) % 1),
         zz = -D / 2 + 0.08 + (D - 0.16) * ((i * 0.7548777) % 1),
         y = height(x, zz),
-        k = Math.round((x - PLUME_X) / SPACING),
+        k = continental ? 0 : hawaiianVolcano(x, zz)[0],
         ok = continental
           ? Math.abs(zz) > 0.64 && Math.abs(zz) < 0.95 && fbm(x * 3, zz * 3) > 0.42
           : (k === 1 || k === 2) && y > SEA + 0.05 && y < SEA + 0.5;
-      if (ok) out.push([x, y - 0.004, zz]);
+      if (ok) trees.push([x, y - 0.004, zz]);
+      // Rain forest on the active shield's wet windward flank, below the bare summit.
+      else if (
+        !continental &&
+        k === 0 &&
+        forest.length < 70 &&
+        zz > 0.12 &&
+        y > SEA + 0.05 &&
+        y < SEA + 0.2 &&
+        fbm((x - PLUME_X) * 7, zz * 7) > 0.47
+      )
+        forest.push([x, y - 0.003, zz]);
     }
-    return out;
+    return { trees, forest };
   }, [height, continental]);
   const mantleTop = plateBase;
   return (
@@ -238,6 +274,12 @@ function Track({
           scale={continental ? 0.11 : 0.08}
           seed={continental ? 39 : 12}
         />
+        {!continental && (
+          <>
+            <PlantStand kind="broadleaf" positions={forest} scale={0.035} seed={23} />
+            <LavaFlow height={height} glow={dying} />
+          </>
+        )}
       </group>
       {!continental && (
         <>
@@ -257,19 +299,19 @@ function Track({
           </mesh>
         </>
       )}
-      {/* Active vent: lava lake glow and, on land, steam from the geyser basin. */}
+      {/* Active vent: a lava lake in the summit pit crater; on land, steam from the geysers. */}
       <pointLight
-        position={[PLUME_X + shift, (continental ? top : SEA + 0.9) + 0.25, 0]}
+        position={[PLUME_X + shift + PIT.x, (continental ? top : height(PLUME_X, 0)) + 0.22, PIT.z]}
         color="#ff8a3a"
-        intensity={continental ? 0 : 1.2 * dying}
-        distance={1.4}
+        intensity={continental ? 0 : 0.25 * dying}
+        distance={0.35}
       />
       {!continental && dying > 0.02 && (
         <mesh
-          position={[PLUME_X + shift, height(PLUME_X, 0) + 0.006, 0]}
+          position={[PLUME_X + shift + PIT.x, height(PLUME_X + PIT.x, PIT.z) + 0.004, PIT.z]}
           rotation={[-Math.PI / 2, 0, 0]}
         >
-          <circleGeometry args={[0.05, 24]} />
+          <circleGeometry args={[0.034, 32]} />
           <meshStandardMaterial
             color="#d0461a"
             emissive="#ff6a1f"
@@ -283,8 +325,8 @@ function Track({
           position={[PLUME_X, top, 0]}
           scale={[0.5 + 0.5 * newborn, newborn, 0.5 + 0.5 * newborn]}
         >
-          <mesh position={[0, 0.16, 0]} castShadow>
-            <coneGeometry args={[0.26, 0.32, 32]} />
+          <mesh castShadow>
+            <latheGeometry args={[SEAMOUNT, 48]} />
             <meshStandardMaterial
               color="#2e2a28"
               emissive="#ff6a1f"
@@ -355,7 +397,7 @@ function Track({
         note={
           continental
             ? "Young end of the Yellowstone volcanic track: a caldera with a lake, geysers and a magma reservoir in the crust. Older volcanic centers extend southwest along the flat basalt Snake River Plain."
-            : "The southeastern end includes active Hawaiian volcanism: young black lava, a glowing summit and no forest yet. Kauaʻi, to the northwest, preserves rocks about 5–5.5 million years old."
+            : "The southeastern end is the active shield volcano, the broadest and tallest on the track: thousands of thin, runny basalt flows build its gentle slopes. Black recent lava runs down the flank to the sea, a lava lake glows in the summit caldera, and rain forest grows on the wet northeast side. The caldera and flows are drawn larger than they really are. Kauaʻi, to the northwest, preserves rocks about 5–5.5 million years old."
         }
         occlude={false}
       />
