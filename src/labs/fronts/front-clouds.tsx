@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import * as THREE from "three";
 import { cloudNoiseGLSL } from "../shared/cloud-material";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 const VERTEX = /* glsl */ `
 varying vec3 vWorld;
@@ -190,6 +191,7 @@ function CloudBox({
         vertexShader={VERTEX}
         fragmentShader={FRAGMENT}
         defines={{ STEPS: steps }}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         transparent
         depthWrite={false}
