@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {waterfallLip,waterfallBed,settlingVelocity,settlingDistance} from '../src/lib/fluvial-science.ts';
 import {duneHeight,yardangProfile} from '../src/lib/aeolian-science.ts';
-import {GYRE_BRANCHES,SUBTROPICAL_GYRES} from '../src/lib/ocean-circulation-science.ts';
+import {COOL_BRANCH,SUBTROPICAL_GYRES,WARM_BRANCH} from '../src/lib/ocean-circulation-science.ts';
 test('waterfall retreats upstream while both reaches descend downstream',()=>{
  assert.equal(waterfallLip(0)-waterfallLip(1),2.5);
  for(const t of [0,.5,1]){const x=waterfallLip(t);assert.ok(waterfallBed(x-.001,t)>waterfallBed(x+.001,t)+1);assert.ok(waterfallBed(-3,t)>waterfallBed(x-.01,t));assert.ok(waterfallBed(x+1,t)>waterfallBed(3,t));}
@@ -19,7 +19,9 @@ test('barchan center has a 32 degree lee slope and downwind horns',()=>{
  assert.ok(Math.abs(volume(.3)/volume(0)-1)<.002);
 });
 test('warm western branches move poleward and cool eastern branches equatorward',()=>{
- SUBTROPICAL_GYRES.forEach((g,k)=>{for(const i of GYRE_BRANCHES[k].warm)assert.ok(Math.abs(g.points[i+1][0])>Math.abs(g.points[i][0]),g.name);for(const i of GYRE_BRANCHES[k].cool)assert.ok(Math.abs(g.points[i+1][0])<Math.abs(g.points[i][0]),g.name);});
+ for(const g of SUBTROPICAL_GYRES)for(let i=1;i<g.route.length;i++){const a=g.route[i-1],b=g.route[i];
+  if(a[3]>=WARM_BRANCH&&b[3]>=WARM_BRANCH)assert.ok(Math.abs(b[0])>Math.abs(a[0]),g.name);
+  if(a[3]<=COOL_BRANCH&&b[3]<=COOL_BRANCH)assert.ok(Math.abs(b[0])<Math.abs(a[0]),g.name);}
 });
 test('yardang has a steep upwind head and a long tail tapering downwind',()=>{
  const head=(yardangProfile(.25)-yardangProfile(.05))/.2,tail=(yardangProfile(.25)-yardangProfile(.95))/.7;
