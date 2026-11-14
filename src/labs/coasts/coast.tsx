@@ -10,22 +10,28 @@ import { RockMaterial } from "../shared/rock-material";
 import { CoastalRock as RockPrism, CoastalRockMaterial } from "./coastal-rock";
 import { createHeadlandFront, cliffPoint } from "./cliff-geometry";
 import { WaterSides } from "../shared/shallow-water";
-import { landscapeNoise as noise } from "../shared/landscape-noise";
+import { landscapeNoise as noise, landscapeRandom } from "../shared/landscape-noise";
 
 const box = (x: number, z: number, cx: number, cz: number, hx: number, hz: number) => {
   const qx = Math.abs(x - cx) - hx,
     qz = Math.abs(z - cz) - hz;
   return Math.hypot(Math.max(qx, 0), Math.max(qz, 0)) + Math.min(Math.max(qx, qz), 0);
 };
+/** The rock outline in plan as a signed distance, negative inside; the seabed and the fallen
+ * debris both follow it. */
+const rockDistance = (x: number, z: number, stage: number) =>
+  Math.min(
+    box(x, z, -2.23, -0.83, 1.0, 1.8),
+    stage < 2 ? box(x, z, -1.05, 0, 1.95, 0.65) : box(x, z, 0.6, 0, 0.36, 0.55),
+  );
 /** Wave-cut platform around the rock, deepening offshore, with a sandy beach in the cove. */
 function seabed(stage: number) {
   return (x: number, z: number) => {
-    const rock = Math.min(
-        box(x, z, -2.23, -0.83, 1.0, 1.8),
-        stage < 2 ? box(x, z, -1.05, 0, 1.95, 0.65) : box(x, z, 0.6, 0, 0.36, 0.55),
-      ),
+    const rock = rockDistance(x, z, stage),
       ledges = 0.012 * Math.sin(x * 9 + Math.sin(z * 5)) + 0.025 * (noise(x * 3, z * 3) - 0.5),
-      platform = -0.05 - 0.32 * THREE.MathUtils.smoothstep(rock, 0.35, 1.7) + ledges;
+      // Next to the cliff the platform stands just above this low-tide water, with rock pools in
+      // its hollows; offshore it slopes gently down beneath the sea.
+      platform = 0.034 - 0.4 * THREE.MathUtils.smoothstep(rock, 0.1, 1.7) + ledges;
     const cove =
         THREE.MathUtils.smoothstep(-x, 1.5, 2.1) * THREE.MathUtils.smoothstep(z, 0.95, 1.2),
       beach = 0.07 - 0.16 * (z - 1.0) - 0.02 * (x + 2.4);
@@ -59,6 +65,7 @@ function spitHeight(x: number, z: number, tip: number) {
 }
 
 const SEABED_ROCK = new THREE.Color("#8f8c7a"),
+  PLATFORM = new THREE.Color("#b2afa1"),
   WEED = new THREE.Color("#5c6a44"),
   SEA_SAND = new THREE.Color("#b9a983"),
   BEACH = new THREE.Color("#dccb9f");
@@ -69,6 +76,8 @@ function Headland({ stage }: { stage: number }) {
   const bedColour = useMemo(
     () => (x: number, y: number, z: number) => {
       const c = SEA_SAND.clone().lerp(SEABED_ROCK, THREE.MathUtils.smoothstep(y, -0.3, -0.12));
+      // The exposed platform: pale chalk, wetter and weedier toward the sea.
+      c.lerp(PLATFORM, THREE.MathUtils.smoothstep(y, -0.02, 0.03) * 0.8);
       if (y > -0.12 && noise(x * 4 + 2, z * 4) > 0.55) c.lerp(WEED, 0.6);
       if (z > 1 && x < -1.4) c.lerp(BEACH, THREE.MathUtils.smoothstep(y, -0.06, 0.0));
       return c.getStyle();
@@ -186,7 +195,7 @@ function Headland({ stage }: { stage: number }) {
         text="Wave-cut platform"
         short="Platform"
         tone="glacier"
-        note="A gently sloping rock shelf left behind as waves cut the cliff back. It lies just under the water here and is exposed at low tide, showing where the cliff once stood."
+        note="A gently sloping rock shelf left behind as waves cut the cliff back, shown here at low tide: exposed at the cliff foot, with rock pools and fallen chalk blocks and flints, and sloping under the sea offshore. It shows where the cliff once stood."
         occlude={false}
       />
       <Tag
@@ -196,6 +205,30 @@ function Headland({ stage }: { stage: number }) {
         note="Waves exploit joints in the chalk to enlarge a cave. It can break through to form an arch; the roof collapses to leave a stack, and erosion lowers the stack to a stump. Rock structure controls the details, and the stages are not dated."
         occlude={false}
       />
+    </>
+  );
+}
+/** Chalk blocks and flint cobbles fallen from the cliffs, lying on the platform at their foot. */
+function CliffFootDebris({ stage }: { stage: number }) {
+  const { blocks, flints } = useMemo(() => {
+    const bed = seabed(stage),
+      blocks: [number, number, number][] = [],
+      flints: [number, number, number][] = [];
+    for (let i = 0; i < 900 && blocks.length < 46; i++) {
+      const x = -3.2 + 4.6 * landscapeRandom(i + 11),
+        z = -2.4 + 3.6 * landscapeRandom(i + 503),
+        d = rockDistance(x, z, stage);
+      // Close under the cliffs, thinning outward; none on the cove beach.
+      if (d < 0.04 || d > 0.42 || landscapeRandom(i + 77) > 1.15 - d * 2.2) continue;
+      if (z > 0.95 && x < -1.4) continue;
+      (landscapeRandom(i + 9) > 0.7 ? flints : blocks).push([x, bed(x, z) + 0.012, z]);
+    }
+    return { blocks, flints };
+  }, [stage]);
+  return (
+    <>
+      <DebrisField points={blocks} size={0.075} color="#cfccc0" />
+      <DebrisField points={flints} size={0.04} color="#55575a" />
     </>
   );
 }
@@ -397,17 +430,7 @@ export default function Coasts() {
             />
           </>
         )}
-        {mode === 0 && (
-          <DebrisField
-            points={Array.from({ length: 32 }, (_, i) => [
-              -1.35 + Math.sin(i * 2.399) * (0.3 + i / 50),
-              -0.08 + 0.02 * Math.sin(i),
-              0.2 + Math.cos(i * 2.399) * (0.2 + i / 55),
-            ])}
-            size={0.065}
-            color="#b3b29f"
-          />
-        )}
+        {mode === 0 && <CliffFootDebris stage={stage} />}
 
         <Arrow from={[-2, 0.55, 2]} to={[-1.3, 0.55, 0.8]} width={5} color="#a7d0d3" />
         <Tag
