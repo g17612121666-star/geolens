@@ -9,6 +9,7 @@ import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { FlowWaterMaterial } from "../shared/flow-water";
+import { WaterSides } from "../shared/shallow-water";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { SectionMaterial } from "../shared/section-material";
 import { farmland, fbm } from "../shared/hazard-utils";
@@ -18,8 +19,8 @@ const POS: [number, number, number][] = [
   [0, 2.3, 0],
   [-2.4, 0.75, 0],
   [2.6, 0.35, 0],
-  [2.6, -1.05, 1.25],
-  [-1.1, -0.95, 1.25],
+  [2.6, -1.05, 1.72],
+  [-1.1, -0.95, 1.55],
 ];
 const W = 8,
   D = 2.5,
@@ -27,12 +28,12 @@ const W = 8,
   COAST = 0.9;
 const ss = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 /** Land on the left rising to a volcano at the back; a shelf and ocean floor on the right. */
+const VOLCANO = { x: -3.2, z: -0.65 };
 function ground(x: number, z: number) {
-  const land =
-      0.14 +
-      0.08 * fbm(x * 0.8 + 3, z * 0.8) +
-      0.7 * Math.exp(-((x + 3.3) ** 2 + (z + 0.7) ** 2) / 0.35),
-    crater = -0.12 * Math.exp(-((x + 3.3) ** 2 + (z + 0.7) ** 2) / 0.02),
+  // A composite volcano: concave flanks rising to a summit crater.
+  const r = Math.hypot(x - VOLCANO.x, z - VOLCANO.z),
+    land = 0.14 + 0.08 * fbm(x * 0.8 + 3, z * 0.8) + 0.78 * Math.exp(-r / 0.3),
+    crater = -0.16 * Math.exp(-((r / 0.09) ** 2)),
     sea = -0.55 + 0.05 * fbm(x * 2, z * 2);
   const u = ss(x, COAST - 0.4, COAST + 0.6);
   return land * (1 - u) + sea * u + crater;
@@ -41,7 +42,9 @@ function ground(x: number, z: number) {
  * limestone under the sea. Thicknesses and depths are schematic. */
 const STRATA_GLSL = `
 vec3 sectionColour(vec3 p,vec3 w){
-  float g=grain(w.xy+w.zy), sea=smoothstep(.5,1.5,w.x), y=w.y;
+  float g=grain(w.xy+w.zy), y=w.y;
+  // Land and marine beds interfinger along a narrow, ragged facies boundary.
+  float sea=smoothstep(.85,1.05,w.x+.35*(sFbm(vec2(y*4.,w.z*.5+3.))-.5));
   vec3 sand=mix(vec3(.78,.66,.48),vec3(.66,.54,.38),step(.5,fract(y*12.)));
   vec3 shale=mix(vec3(.46,.46,.44),vec3(.38,.38,.37),g);
   vec3 lime=mix(vec3(.86,.84,.76),vec3(.76,.74,.66),step(.5,fract(y*9.)));
@@ -79,7 +82,11 @@ function Diorama({
       else if (y < 0.08 && x > 0) col.set("#ddcda3");
       else
         col.copy(farmland(x * 1.3, z * 1.3, 0.4)).lerp(tone.set("#4e6b3b"), ss(-x, 0.8, 1.6) * 0.8);
-      if (y > 0.4) col.lerp(tone.set("#4c4440"), ss(y, 0.4, 0.6));
+      // The volcano: scrub, then bare ash and lava slopes, darkening into the crater.
+      const r = Math.hypot(x - VOLCANO.x, z - VOLCANO.z);
+      col.lerp(tone.set("#8a7a66"), ss(y, 0.3, 0.42));
+      col.lerp(tone.set("#9b9087"), ss(y, 0.5, 0.65) * 0.8);
+      col.lerp(tone.set("#4e4541"), (1 - ss(r, 0.05, 0.12)) * ss(y, 0.5, 0.7));
       c.set([col.r, col.g, col.b], i * 3);
     }
     g.setAttribute("color", new THREE.BufferAttribute(c, 3));
@@ -102,12 +109,14 @@ function Diorama({
     <group>
       <mesh geometry={geometry} castShadow receiveShadow>
         <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
-        <SectionMaterial attach="material-1" glsl={STRATA_GLSL} cacheKey="carbon-strata-v1" />
+        <SectionMaterial attach="material-1" glsl={STRATA_GLSL} cacheKey="carbon-strata-v2" />
       </mesh>
       <mesh position={[(COAST - 0.1 + W / 2) / 2, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[W / 2 - COAST + 0.1, D - 0.002]} />
         <FlowWaterMaterial color="#1f5f7a" opacity={0.85} speed={0.2} />
       </mesh>
+      {/* The ocean's cut faces, so the sea is a body of water over its floor, not a sheet. */}
+      <WaterSides land={ground} level={() => 0} width={W} depth={D} color="#1f5f7a" opacity={0.7} />
       <PlantStand kind="broadleaf" positions={trees} scale={0.12} seed={7} />
       {/* Power station burning fossil carbon; smoke grows with the tap. */}
       <group position={[-0.2, ground(-0.2, -0.3), -0.3]}>
@@ -135,7 +144,7 @@ function Diorama({
       </group>
       {/* Volcano: a slow geological source of carbon dioxide. */}
       <CloudVolume
-        position={[-3.3, ground(-3.3, -0.7) + 0.35, -0.7]}
+        position={[VOLCANO.x, ground(VOLCANO.x + 0.09, VOLCANO.z) + 0.35, VOLCANO.z]}
         scale={[0.14, 0.22, 0.14]}
         seed={21}
         opacity={0.5}
