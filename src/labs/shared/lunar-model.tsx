@@ -366,6 +366,55 @@ function solarEclipseText(p: [number, number, number]) {
         ? "Partial solar eclipse: only the penumbra touches Earth"
         : "The Moon's shadow misses Earth";
 }
+/**
+ * The Moon at the eight principal phases, faint, lit by the same sunlight as everything else:
+ * whatever the phase, the half facing the Sun is lit. Only the share of that lit half that faces
+ * Earth changes.
+ */
+function PhaseRing({ points, radius }: { points: [number, number, number][]; radius: number }) {
+  return (
+    <>
+      {points.map((p, i) => (
+        <mesh key={i} position={p}>
+          <sphereGeometry args={[radius, 32, 24]} />
+          <meshStandardMaterial
+            color="#9b9a96"
+            roughness={1}
+            transparent
+            opacity={0.55}
+            depthWrite={false}
+          />
+        </mesh>
+      ))}
+    </>
+  );
+}
+
+/**
+ * The phase as it looks from Earth's Northern Hemisphere: lit on the right while waxing, on the
+ * left while waning. `fraction` is the illuminated fraction of the disc.
+ */
+function PhaseIcon({ fraction, waxing }: { fraction: number; waxing: boolean }) {
+  const r = 18,
+    c = 20,
+    rx = Math.abs(1 - 2 * fraction) * r,
+    lit = waxing ? 1 : 0,
+    terminator = fraction > 0.5 === waxing ? 1 : 0;
+  return (
+    <svg width={40} height={40} viewBox="0 0 40 40" aria-hidden="true" className="shrink-0">
+      <circle cx={c} cy={c} r={r} fill="#2a2d31" stroke="#5d646b" strokeWidth={1} />
+      {fraction > 0.995 ? (
+        <circle cx={c} cy={c} r={r} fill="#e9e4d6" />
+      ) : fraction > 0.005 ? (
+        <path
+          d={`M ${c} ${c - r} A ${r} ${r} 0 0 ${lit} ${c} ${c + r} A ${rx} ${r} 0 0 ${terminator} ${c} ${c - r} Z`}
+          fill="#e9e4d6"
+        />
+      ) : null}
+    </svg>
+  );
+}
+
 export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides" }) {
   const [near, setNear] = useState(false);
   const { t, params, trueScale } = useLabState("t", "params", "trueScale");
@@ -390,7 +439,23 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
   );
   const position = p.map((v) => (v * 2.2) / distance) as [number, number, number];
   const physical = trueScale || slug === "eclipses",
-    radius = physical ? (2.2 * LUNAR.earth) / distance : 0.43;
+    radius = physical ? (2.2 * LUNAR.earth) / distance : 0.43,
+    // Phases need the Moon's lit half to show: draw it larger than Earth's scale (and say so).
+    moonScale = slug === "moon-phases" && !physical ? 1.8 : 1,
+    moonRadius = ((radius * LUNAR.moon) / LUNAR.earth) * moonScale;
+  const ring = useMemo(
+    () =>
+      Array.from(
+        { length: 8 },
+        (_, i) =>
+          lunarPosition(i / 8, node, aligned, distance).map((v) => (v * 2.2) / distance) as [
+            number,
+            number,
+            number,
+          ],
+      ),
+    [node, aligned, distance],
+  );
   const focus = slug === "eclipses" && params.shadow > 0.5;
   // A narrow time window resolves the several-hour transit without distorting distances.
   const solar = params.eclipse > 0.5,
@@ -442,7 +507,9 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               ? `${solar ? "New" : "Full"}-Moon shadow close-up · kilometers share one scale`
               : physical
                 ? "Earth–Moon radii and separation share one scale"
-                : "Earth and Moon enlarged · correct size ratio · separation shortened"
+                : moonScale > 1
+                  ? "Earth and Moon enlarged · Moon drawn 1.8× its size relative to Earth · separation shortened"
+                  : "Earth and Moon enlarged · correct size ratio · separation shortened"
         }
         trueScale={
           disc
@@ -471,9 +538,10 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
             <Line points={orbit} color="#8aa3aa" lineWidth={1.3} />
             <EarthMesh radius={radius} sunDirection={new THREE.Vector3(1, 0, 0)} />
             {!physical && <Atmosphere radius={radius * 1.035} />}
+            {slug === "moon-phases" && <PhaseRing points={ring} radius={moonRadius * 0.8} />}
             <LunarSurface
               position={position}
-              radius={(radius * LUNAR.moon) / LUNAR.earth}
+              radius={moonRadius}
               angle={t * 2 * Math.PI}
               dim={slug === "moon-phases" && lunarEclipse(p) === "Total lunar eclipse"}
             />
@@ -489,7 +557,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               gapSize={0.055}
             />
             <Tag
-              pos={[position[0], position[1] + 0.3, position[2]]}
+              pos={[position[0], position[1] + 0.3 + moonRadius, position[2]]}
               text={phaseName}
               occlude={false}
               note="The phase is the illuminated fraction viewed from Earth. It is not Earth's shadow falling on the Moon."
@@ -509,6 +577,15 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
         )}
       </ScienceStudio>
       <ScienceReadout>
+        {slug === "moon-phases" && !disc && (
+          <div className="mb-2 flex items-center justify-center gap-3">
+            <PhaseIcon fraction={fraction} waxing={t < 0.5} />
+            <span>
+              {"As seen from Earth (Northern Hemisphere): "}
+              <strong>{phaseName.toLowerCase()}</strong>
+            </span>
+          </div>
+        )}
         {slug === "moon-phases" && (
           <div className="pointer-events-auto mb-2 flex justify-center gap-2">
             <button
