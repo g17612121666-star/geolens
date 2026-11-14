@@ -42,7 +42,7 @@ const GROUND_SECTION = {
   rock: "sandstone",
   soil: 0.08,
   regolith: 0.12,
-  beds: 5.5,
+  beds: 3.1,
   bedOffset: 0.2,
 } as const;
 
