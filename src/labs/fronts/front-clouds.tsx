@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import * as THREE from "three";
 import { cloudNoiseGLSL } from "../shared/cloud-material";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 const VERTEX = /* glsl */ `
 varying vec3 vWorld;
@@ -39,8 +40,10 @@ float clouds(vec3 w){
     float dx=xk-(uCold+16.);
     cb=max(cell(dx,zk+46.,hk,17.,uCeil-.25,n),
        max(cell(dx-6.,zk-2.,hk,20.,uCeil,n),cell(dx+4.,zk-44.,hk,15.,uCeil-1.,n)));
-    float ax=(dx-10.)/(dx>10.?115.:30.);
-    float anvil=(1.-length(vec2(ax,(hk-(uCeil-.7))/.5)))*1.35+(n2-.5)*1.1;
+    // The anvil spreads forward under the tropopause: thin, flat-topped and fraying at its tip.
+    float ax=(dx-10.)/(dx>10.?135.:30.);
+    float anvil=(1.-length(vec2(ax,(hk-(uCeil-.55))/.32)))*1.3+(n2-.5)*.8;
+    anvil*=1.-smoothstep(uCeil-.2,uCeil,hk);
     cb=max(cb,anvil)*ends;
   }
   if(uPart<.5)return cb;
@@ -52,7 +55,7 @@ float clouds(vec3 w){
   // cirrus (thin, high) with distance ahead of the surface front.
   float gap=mix(.3,1.6,smoothstep(40.,130.,ahead))+mix(0.,2.4,smoothstep(140.,240.,ahead));
   float baseK=coolTop(xk)+gap+.45*(1.-smoothstep(-40.,30.,ahead));
-  float thick=mix(4.,1.5,smoothstep(30.,110.,ahead));
+  float thick=mix(3.2,1.4,smoothstep(30.,110.,ahead));
   thick=mix(thick,.4,smoothstep(150.,240.,ahead));
   float topK=min(uCeil-.05,baseK+thick);
   float layer=smoothstep(baseK-.1,baseK+.35,hk)*(1.-smoothstep(topK-.45,topK+.05,hk));
@@ -61,7 +64,9 @@ float clouds(vec3 w){
   float streak=cloudNoise(vec3(w.x*1.2+uTime*.03,hk*2.4,w.z*9.)+5.);
   float tex=mix(sheet,streak,smoothstep(110.,240.,ahead));
   float deck=layer*span*ends*(.62+(tex-.5)*2.)*mix(1.,.62,smoothstep(40.,140.,ahead))*mix(1.,.7,smoothstep(150.,240.,ahead));
-  return deck;
+  // Stratiform cloud forms in sheets: thin laminae run along the sloping frontal surface.
+  float sheets=.72+.28*sin((hk-coolTop(xk))*7.+tex*2.5);
+  return deck*mix(1.,sheets,smoothstep(20.,90.,ahead));
 }
 void main(){
   vec3 ro=cameraPosition,rd=normalize(vWorld-cameraPosition);
@@ -80,12 +85,13 @@ void main(){
       float shade=exp(-(max(clouds(p+uSun*.05),0.)+max(clouds(p+uSun*.14),0.))*2.);
       float hk=p.y*100./uF,ahead=p.x*100.-uWarm;
       // Deep storm clouds are dark underneath; thin high cloud is bright.
-      vec3 dark=mix(vec3(.3,.34,.4),vec3(.58,.63,.7),smoothstep(1.,5.,hk));
+      vec3 dark=mix(vec3(.26,.29,.34),vec3(.58,.63,.7),smoothstep(1.,5.,hk));
       // Rain-bearing nimbostratus near the warm front is gray even where lit; the thin
       // altostratus and cirrus farther ahead are bright.
-      vec3 lit=uPart<.5?vec3(.98,.98,1.):mix(vec3(.78,.8,.85),vec3(.98,.98,1.),smoothstep(90.,220.,ahead));
+      vec3 lit=uPart<.5?vec3(.98,.98,1.):mix(mix(vec3(.6,.63,.68),vec3(.8,.82,.86),smoothstep(30.,110.,ahead)),vec3(.98,.98,1.),smoothstep(140.,240.,ahead));
       vec3 c=mix(dark,lit,shade);
-      float alpha=1.-exp(-dens*stepSize*48.);
+      // Towering cumulonimbus is dense; the stratiform deck lets light through where thin.
+      float alpha=1.-exp(-dens*stepSize*(uPart<.5?48.:30.));
       acc+=T*alpha*c;T*=1.-alpha;
       if(T<.02)break;
     }
@@ -185,6 +191,7 @@ function CloudBox({
         vertexShader={VERTEX}
         fragmentShader={FRAGMENT}
         defines={{ STEPS: steps }}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         transparent
         depthWrite={false}
