@@ -3,7 +3,6 @@
  * photograph, states one key fact, explains it briefly and opens the matching lab, set up for
  * that place. Coordinates locate the photographed area approximately, not a surveyed point.
  */
-import { VERIFIED_PHOTOS } from "./verified-photos.ts";
 
 export type TripStop = {
   title: string;
@@ -711,8 +710,6 @@ export const FIELD_TRIPS: FieldTrip[] = [
     },
   },
 ];
-
-export const tripPhoto = (id: string) => VERIFIED_PHOTOS[id];
 
 export function findTrip(slug: string) {
   return FIELD_TRIPS.find((t) => t.slug === slug);

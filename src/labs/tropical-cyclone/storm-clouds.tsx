@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { FIELD_GLSL, KM_TO_UNITS } from "./field";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 type StormProps = {
   spin: number;
@@ -62,6 +63,7 @@ export function CloudTops(props: StormProps) {
       <shaderMaterial
         transparent
         side={THREE.DoubleSide}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         vertexShader={
           HEADER +
@@ -123,6 +125,7 @@ export function CloudSection(props: StormProps) {
             transparent
             depthWrite={false}
             side={THREE.DoubleSide}
+            ref={liveUniforms(uniforms)}
             uniforms={uniforms}
             vertexShader={
               HEADER +

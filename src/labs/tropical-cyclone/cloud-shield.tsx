@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 /** NASA MODIS true-color image of Hurricane Katrina, 28 August 2005, centered on the eye and
  * cropped to 550 km across (the model disc at 1 unit = 50 km). See its .source.json. */
@@ -140,6 +141,7 @@ export function WindSea({ spin, maximum, t }: { spin: number; maximum: number; t
       <shaderMaterial
         transparent
         depthWrite={false}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         vertexShader={`varying vec2 vP; void main(){vP=position.xy; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`}
         fragmentShader={`varying vec2 vP; uniform float uSpin,uVmax,uTime;

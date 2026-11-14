@@ -7,9 +7,8 @@ import { LabFilmstrip } from "@/components/lab-filmstrip";
 import { LAB_BY_SLUG, LABS, REALMS, labsInRealm } from "@/lib/labs/catalog";
 import { FIELD_TRIPS } from "@/lib/field-trips";
 import { GLOSSARY_TERMS } from "@/lib/glossary-terms";
-import { REALM_FIGURE, labFigure } from "@/lib/figures";
-import { CASES } from "@/lib/cases";
-import { caseFigure } from "@/lib/case-figures";
+import { caseCard, labCard, realmCard } from "@/lib/photo-cards";
+import { CASE_SUMMARIES } from "@/lib/case-index";
 import { headFor } from "@/lib/seo";
 import { LabCard } from "@/components/lab-card";
 import { useRecentLabs } from "@/lib/recent-labs";
@@ -34,7 +33,7 @@ const SUMMARIES: Record<string, string> = {
   "tohoku-2011": "Trace how a subduction-zone earthquake sent a tsunami onto the coast of Japan.",
 };
 function Home() {
-  const classroom = labFigure("soil-texture");
+  const classroom = labCard("soil-texture");
   return (
     <main id="main">
       <div className="relative overflow-hidden">
@@ -68,7 +67,7 @@ function Home() {
             <dl className="mt-10 grid max-w-lg grid-cols-4 gap-4 border-t border-white/10 pt-6">
               {[
                 [LABS.length, "3D labs"],
-                [CASES.length, "case studies"],
+                [CASE_SUMMARIES.length, "case studies"],
                 [FIELD_TRIPS.length, "field trips"],
                 [GLOSSARY_TERMS.length, "key terms"],
               ].map(([n, label]) => (
@@ -109,7 +108,7 @@ function Home() {
         </div>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {REALMS.map((r) => {
-            const photo = REALM_FIGURE[r.slug];
+            const photo = realmCard(r.slug);
             return (
               <Link
                 key={r.slug}
@@ -148,9 +147,9 @@ function Home() {
         <h2 className="mt-3 font-display text-3xl md:text-4xl">Earth science in real places.</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {FEATURED.map((slug) => {
-            const c = CASES.find((x) => x.slug === slug);
+            const c = CASE_SUMMARIES.find((x) => x.slug === slug);
             if (!c) return null;
-            const fig = caseFigure(slug);
+            const fig = caseCard(slug);
             return (
               <Link
                 key={slug}

@@ -2,7 +2,7 @@ import { ProgressImage } from "@/components/progress-media";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { LABS, REALMS } from "@/lib/labs/catalog";
-import { labFigure } from "@/lib/figures";
+import { labCard } from "@/lib/photo-cards";
 
 const FEATURED_SLUGS = [
   "seasons",
@@ -92,7 +92,7 @@ export function LabFilmstrip() {
         {[0, 1].map((copy) => (
           <div className="lab-showcase-row" key={copy} aria-hidden={copy === 1 ? true : undefined}>
             {LABS.filter((lab) => FEATURED_SLUGS.includes(lab.slug)).map((lab) => {
-              const photo = labFigure(lab.slug);
+              const photo = labCard(lab.slug);
               return (
                 <Link
                   className="lab-showcase-card group"

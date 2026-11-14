@@ -67,10 +67,11 @@ export function labContent() {
       return moduleFor(id.slice(1));
     },
     // In development, editing the content or the definitions refreshes every derived module.
-    hotUpdate({ file }) {
+    hotUpdate({ file, modules }) {
       if (file !== CONTENT && file !== DEFINITIONS) return;
+      // Keep the edited file's own importers (glossary-data.ts imports the definitions).
       const graph = this.environment.moduleGraph,
-        derived = [];
+        derived = [...modules];
       for (const [id, mod] of graph.idToModuleMap) {
         if (!id.startsWith("\0virtual:lab-")) continue;
         graph.invalidateModule(mod);

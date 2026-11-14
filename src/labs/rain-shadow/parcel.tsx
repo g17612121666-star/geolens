@@ -25,20 +25,27 @@ import {
   toScene,
 } from "./terrain";
 
-/** The range in section: a granite core under the crest, flanked by foliated schist. */
+/**
+ * The range in section: a granite pluton under the crest, with a lobate contact, intruded into
+ * foliated schist that the magma baked darker next to it (a contact aureole).
+ */
 const SECTION = {
   soil: 0.035,
   regolith: 0.07,
   soilTone: "thin",
   custom: `
   vec2 q=vec2(p.x+p.z,p.y);
-  float w=.55+.42*max(0.,1.3-p.y)+.05*sin(p.y*9.+p.z*3.),core=1.-smoothstep(w-.03,w+.03,abs(p.x-.08));
-  vec3 granite=mix(vec3(.76,.73,.7),vec3(.64,.62,.6),g)*mix(.93,1.05,sNoise(q*4.));
-  granite=mix(granite,vec3(.27,.26,.26),smoothstep(.78,.88,sNoise(q*40.))*.35);
-  granite=mix(granite,vec3(.82,.68,.62),smoothstep(.76,.86,sNoise(q*30.+7.))*.3);
+  float lobes=.12*(sFbm(vec2(p.y*2.2,p.z*.8+4.))-.5)+.04*sin(p.y*7.+p.z*2.);
+  float d=abs(p.x-.08)-(.42+.32*max(0.,1.25-p.y)+lobes),core=1.-smoothstep(-.015,.015,d);
+  vec3 granite=mix(vec3(.66,.63,.6),vec3(.57,.55,.53),g)*mix(.93,1.05,sNoise(q*3.));
+  vec2 cq=q*60.,ci=floor(cq),cf=fract(cq)-.5;
+  float hc=sHash(ci+3.),crystal=1.-smoothstep(.17,.25,length(cf-(vec2(sHash(ci),sHash(ci+7.))-.5)*.45));
+  granite=mix(granite,vec3(.2,.2,.21),crystal*step(.68,hc)*.75);
+  granite=mix(granite,vec3(.88,.85,.8),crystal*step(hc,.22)*.45);
+  granite=mix(granite,vec3(.8,.64,.57),crystal*step(.22,hc)*step(hc,.32)*.35);
   float fol=fract(p.y*6.5-abs(p.x)*.55+.3*sin(p.x*2.4)+.25*sNoise(q*3.));
-  vec3 schist=mix(vec3(.45,.46,.44),vec3(.57,.56,.52),smoothstep(.15,.55,fol)*smoothstep(1.,.75,fol));
-  schist*=mix(.9,1.06,g);
+  vec3 schist=mix(vec3(.43,.44,.42),vec3(.55,.54,.5),smoothstep(.15,.55,fol)*smoothstep(1.,.75,fol));
+  schist*=mix(.9,1.06,g)*mix(.78,1.,smoothstep(0.,.14,d));
   return mix(schist,granite,core);`,
 } as const;
 

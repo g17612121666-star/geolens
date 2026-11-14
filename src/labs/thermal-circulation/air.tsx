@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { usePreferences } from "@/lib/preferences";
 import { cellPoint, type Cell } from "./cell";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 type V3 = [number, number, number];
 
@@ -110,6 +111,7 @@ export function FlowStreaks({
       <shaderMaterial
         vertexShader={STREAK_VERTEX}
         fragmentShader={STREAK_FRAGMENT}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         transparent
         depthWrite={false}
@@ -199,6 +201,7 @@ export function AirSection({
       <shaderMaterial
         vertexShader={SECTION_VERTEX}
         fragmentShader={SECTION_FRAGMENT}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         transparent
         depthWrite={false}

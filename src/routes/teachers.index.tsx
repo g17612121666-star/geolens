@@ -14,7 +14,7 @@ import {
 } from "@/lib/labs/standards";
 import { buildIndex, searchIndex } from "@/lib/site-search";
 import { LESSON_PHASES, lessonLink } from "@/lib/teachers/workflow";
-import { teacherHero } from "@/lib/figures";
+import { teacherCard } from "@/lib/photo-cards";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
 type TeacherSearch = {
@@ -247,7 +247,7 @@ function TeachersIndex() {
                     key={lab.slug}
                     className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[.035]"
                   >
-                    {teacherHero(lab.slug) && (
+                    {teacherCard(lab.slug) && (
                       <Link
                         to="/teachers/$slug"
                         params={{ slug: lab.slug }}
@@ -255,8 +255,8 @@ function TeachersIndex() {
                         aria-hidden="true"
                       >
                         <img
-                          src={teacherHero(lab.slug)!.src}
-                          srcSet={photoSrcSet(teacherHero(lab.slug)!.src)}
+                          src={teacherCard(lab.slug)!.src}
+                          srcSet={photoSrcSet(teacherCard(lab.slug)!.src)}
                           sizes={CARD_SIZES}
                           alt=""
                           loading="lazy"

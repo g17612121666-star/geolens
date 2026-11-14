@@ -21,7 +21,7 @@ const HX = BLOCK.width / 2,
 /** Height of each block's center: its geometry is built around it. */
 export const BLOCK_Y = (BLOCK.top + BLOCK.base) / 2;
 /** Weathering rounds the outer edges; the lips of the joint stay fairly sharp. */
-const EDGE = 0.055,
+const EDGE = 0.1,
   LIP = 0.02;
 
 /**
@@ -34,15 +34,17 @@ export const jointRelief = (y: number, z: number) =>
   0.004 * Math.sin(z * 17.1 + y * 3.3);
 export const JOINT_RELIEF_GLSL = `float jointRelief(float y,float z){return .011*sin(y*6.3+z*2.1+.4)+.006*sin(y*13.7-z*9.2+1.3)+.004*sin(z*17.1+y*3.3);}`;
 
-/** Bedding coordinate. Beds run on across the joint, so it uses x as if the joint were shut. */
+/** Bedding coordinate. Beds run on across the joint, so it uses x as if the joint were shut.
+ * Beds are a few decimeters thick, and their thickness varies up the outcrop. */
 export const bedCoord = (y: number, xClosed: number, z: number) =>
-  y * 5.5 + 0.2 + 0.05 * Math.sin(xClosed * 3.1 + z * 2.3);
+  y * 3.1 + 0.2 + 0.32 * Math.sin(y * 2.3 + 0.7) + 0.05 * Math.sin(xClosed * 3.1 + z * 2.3);
 /** One value per bed: below 0.38 hard sandstone, then medium, above 0.7 soft silty beds. */
 export const bedType = (i: number) => fract(i * 0.618034 + 0.31);
 export const BED_GLSL = `
-float bedCoord(float y,float xc,float z){return y*5.5+.2+.05*sin(xc*3.1+z*2.3);}
+float bedCoord(float y,float xc,float z){return y*3.1+.2+.32*sin(y*2.3+.7)+.05*sin(xc*3.1+z*2.3);}
 float bedType(float i){return fract(i*.618034+.31);}`;
-const bedDepth = (h: number) => (h < 0.38 ? 0 : h < 0.7 ? 0.008 : 0.024);
+/** Only the soft, silty beds weather back far enough to leave the harder ones as ledges. */
+const bedDepth = (h: number) => (h < 0.38 ? 0 : h < 0.7 ? 0.003 : 0.016);
 /** How far a face has weathered back: soft beds recede and leave the hard ones as ledges. */
 export function bedRecession(yb: number) {
   const i = Math.floor(yb),
@@ -109,9 +111,14 @@ export function blockSurface(
       (noise3(px * 12, wy * 12, pz * 12) - 0.5) * 0.024,
     dome = 0.012 * up * (1 - (px / HX) ** 2) * (1 - (pz / HZ) ** 2),
     recess = bedRecession(bedCoord(wy, px + side * HX, pz)) * (1 - up),
+    // Weathering attacks the foot less than the exposed upper faces, so the block flares a little
+    // toward its base; the joint wall keeps its shape so the two blocks still fit.
+    flare = 0.03 * (1 - smooth(wy / BLOCK.top)) * (1 - up) * smooth(wall / 0.25),
     // The base, buried in the soil, stays flat.
     bump =
-      normal.y < -0.5 ? lift : (lump * (1 - 0.5 * up) - recess) * smooth(wall / 0.12) + dome + lift;
+      normal.y < -0.5
+        ? lift
+        : (lump * (1 - 0.5 * up) - recess) * smooth(wall / 0.12) + dome + flare + lift;
   return out.set(
     px + normal.x * bump + jointRelief(wy, pz) * (1 - smooth(wall / 0.2)),
     py + normal.y * bump,
@@ -157,7 +164,7 @@ vec3 sectionColour(vec3 p,vec3 w){
   float lam=fract(yb*6.+(xc*.8+w.z*.5)*(h<.7?(h-.3)*3.:0.)+.25*sNoise(q*4.));
   c*=.97+.05*smoothstep(.1,.45,lam)*smoothstep(.95,.6,lam);
   c*=mix(.93,1.04,g)*mix(.95,1.03,sNoise(q*vec2(2.,6.)));
-  c*=mix(.7,1.,smoothstep(0.,.05,min(fy,1.-fy)));
+  c*=mix(.82,1.,smoothstep(0.,.035,min(fy,1.-fy)));
   // Water moving down the joint leaves an orange-brown iron stain along it.
   c=mix(c,vec3(.6,.39,.21),(1.-smoothstep(0.,.07,dj))*.5);
   // Upward faces: a pale weathered crust with gray-green and orange lichens.

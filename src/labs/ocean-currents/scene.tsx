@@ -3,13 +3,18 @@ import * as THREE from "three";
 import { Line } from "@react-three/drei";
 import { useLabState } from "@/lib/store/lab-controls";
 import { useIsCompact } from "@/hooks/use-media";
-import { useLabTick } from "@/labs/tick";
+import { useLabFrame, useLabTick } from "@/labs/tick";
 import { latLonToXYZ } from "@/lib/geo";
-import { SUBTROPICAL_GYRES, GYRE_BRANCHES } from "@/lib/ocean-circulation-science";
+import { liveUniforms } from "@/lib/shader-uniforms";
+import { COOL_BRANCH, SUBTROPICAL_GYRES, WARM_BRANCH } from "@/lib/ocean-circulation-science";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { EarthMesh, Atmosphere } from "@/components/globe/earth";
-import { FlowFilaments } from "../atmosphere-layers/weather-volumes";
+
+type Gyre = (typeof SUBTROPICAL_GYRES)[number];
+type Waypoint = Gyre["route"][number];
+const SURFACE = 1.672;
+
 function Globe() {
   return (
     <>
@@ -18,139 +23,180 @@ function Globe() {
     </>
   );
 }
-function Gyre({ index, t }: { index: number; t: number }) {
-  const g = SUBTROPICAL_GYRES[index];
-  const segments = useMemo(
-    () =>
-      g.points.slice(0, -1).map((p, i) => {
-        const n = g.points.length - 1,
-          previous = g.points[(i + n - 1) % n],
-          next = g.points[i + 1];
-        const a = new THREE.Vector3(...latLonToXYZ(p[0], p[1], 1)),
-          b = new THREE.Vector3(...latLonToXYZ(next[0], next[1], 1)),
-          before = new THREE.Vector3(...latLonToXYZ(previous[0], previous[1], 1));
-        // Round only inside each existing corner: no spline overshoot across coastlines.
-        const entry = a.clone().lerp(before, 0.08),
-          exit = a.clone().lerp(b, 0.08),
-          end = a.clone().lerp(b, 0.92);
-        const points = new THREE.QuadraticBezierCurve3(entry, a, exit)
-          .getPoints(8)
-          .concat(Array.from({ length: 16 }, (_, j) => exit.clone().lerp(end, (j + 1) / 16)));
-        return points.map(
-          (v) => v.normalize().multiplyScalar(1.671).toArray() as [number, number, number],
-        );
-      }),
-    [g.points],
+
+/** A smooth closed curve through a gyre's waypoints, kept on the sphere. */
+function routeCurve(route: readonly Waypoint[], radius = SURFACE) {
+  const points = route
+    .slice(0, -1)
+    .map(([lat, lon]) => new THREE.Vector3(...latLonToXYZ(lat, lon, radius)));
+  return new THREE.CatmullRomCurve3(points, true, "centripetal");
+}
+
+const WARM = new THREE.Color("#f0703f"),
+  NEUTRAL = new THREE.Color("#dfe7e3"),
+  COOL = new THREE.Color("#3d9be0");
+/** Travel time along the route, in units that keep the moving pattern at one speed scale. */
+const TIME_UNIT = 0.6;
+
+/**
+ * The gyre as a band lying on the sea surface: narrow where the current is fast, broad where it
+ * is slow, orange where it carries warm water poleward and blue where it carries cool water
+ * toward the equator. Chevrons drift along it at the local current speed, so they race up the
+ * western boundary current and crawl along the eastern one; their spacing grows with speed.
+ */
+function gyreRibbon(route: readonly Waypoint[]) {
+  const waypoints = route.slice(0, -1),
+    curve = routeCurve(route),
+    n = 600,
+    samples = Array.from({ length: n }, (_, i) => {
+      const u = i / n,
+        at = u * waypoints.length,
+        k = Math.floor(at),
+        f = THREE.MathUtils.smoothstep(at - k, 0, 1),
+        a = waypoints[k],
+        b = waypoints[(k + 1) % waypoints.length];
+      return {
+        p: curve.getPoint(u).setLength(SURFACE),
+        speed: THREE.MathUtils.lerp(a[2], b[2], f),
+        warmth: THREE.MathUtils.lerp(a[3], b[3], f),
+      };
+    });
+  samples.push({ ...samples[0], p: samples[0].p.clone() });
+  // Travel time from the start; the pattern repeats a whole number of times around the loop.
+  const time = [0];
+  for (let i = 1; i < samples.length; i++) {
+    const a = samples[i - 1],
+      b = samples[i];
+    time.push(time[i - 1] + a.p.distanceTo(b.p) / ((a.speed + b.speed) / 2));
+  }
+  const repeats = Math.max(8, Math.round(time[n] / TIME_UNIT)),
+    positions: number[] = [],
+    phases: number[] = [],
+    colors: number[] = [],
+    index: number[] = [],
+    side = new THREE.Vector3(),
+    color = new THREE.Color();
+  samples.forEach((s, i) => {
+    const before = samples[(i + n - 1) % n].p,
+      after = samples[(i + 1) % n].p,
+      half = 0.01 + 0.036 * (1 - s.speed) ** 1.5;
+    side.subVectors(after, before).cross(s.p).normalize();
+    for (const sign of [-1, 1]) {
+      positions.push(
+        ...s.p
+          .clone()
+          .addScaledVector(side, sign * half)
+          .setLength(SURFACE)
+          .toArray(),
+      );
+      phases.push((time[i] / time[n]) * repeats, sign < 0 ? 0 : 1);
+    }
+    color
+      .copy(NEUTRAL)
+      .lerp(s.warmth > 0 ? WARM : COOL, THREE.MathUtils.smoothstep(Math.abs(s.warmth), 0.15, 0.85));
+    colors.push(color.r, color.g, color.b, color.r, color.g, color.b);
+    if (i > 0) index.push(2 * i - 2, 2 * i - 1, 2 * i, 2 * i, 2 * i - 1, 2 * i + 1);
+  });
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  g.setAttribute("uv", new THREE.Float32BufferAttribute(phases, 2));
+  g.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+  g.setIndex(index);
+  return g;
+}
+
+const RIBBON_VERTEX = /* glsl */ `
+attribute vec3 color;
+varying vec2 vUv; varying vec3 vColor;
+void main(){ vUv=uv; vColor=color; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`;
+const RIBBON_FRAGMENT = /* glsl */ `
+uniform float uTime;
+varying vec2 vUv; varying vec3 vColor;
+void main(){
+  float across=abs(vUv.y-.5)*2.;
+  // Chevrons pointing downstream: the center of each runs ahead of its edges.
+  float ph=fract(vUv.x-uTime+across*.45);
+  float chevron=smoothstep(.0,.1,ph)*(1.-smoothstep(.22,.34,ph));
+  float edge=1.-smoothstep(.62,1.,across);
+  gl_FragColor=vec4(vColor*(.72+.5*chevron),edge*(.5+.45*chevron));
+  #include <colorspace_fragment>
+}`;
+
+function CurrentRibbon({ route }: { route: readonly Waypoint[] }) {
+  const geometry = useMemo(() => gyreRibbon(route), [route]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  const uniforms = useMemo(() => ({ uTime: { value: 0 } }), []);
+  useLabFrame((t) => {
+    uniforms.uTime.value = t * 12;
+  });
+  return (
+    <mesh geometry={geometry} renderOrder={2}>
+      <shaderMaterial
+        ref={liveUniforms(uniforms)}
+        vertexShader={RIBBON_VERTEX}
+        fragmentShader={RIBBON_FRAGMENT}
+        uniforms={uniforms}
+        transparent
+        depthWrite={false}
+        side={THREE.DoubleSide}
+      />
+    </mesh>
   );
-  const path = segments.flat(),
-    rotation = new THREE.Quaternion().setFromEuler(
-      new THREE.Euler(
-        (g.center[0] * Math.PI) / 180,
-        Math.PI - (g.center[1] * Math.PI) / 180,
-        0,
-        "XYZ",
-      ),
-    );
-  const branches = GYRE_BRANCHES[index];
+}
+
+function Gyre({ index }: { index: number }) {
+  const g = SUBTROPICAL_GYRES[index];
+  const { western, eastern, center } = useMemo(() => {
+    const at = ([lat, lon]: Waypoint) => latLonToXYZ(lat, lon, SURFACE);
+    const path = g.route.map(at),
+      center = path
+        .reduce((sum, q) => sum.add(new THREE.Vector3(...q)), new THREE.Vector3())
+        .divideScalar(path.length);
+    // Name the western current at its fastest point and the eastern one mid-way along it.
+    const warm = g.route.filter((w) => w[3] >= WARM_BRANCH),
+      cool = g.route.filter((w) => w[3] <= COOL_BRANCH),
+      fastest = warm.reduce((a, b) => (b[2] > a[2] ? b : a));
+    return { western: at(fastest), eastern: at(cool[Math.floor(cool.length / 2)]), center };
+  }, [g]);
+  const rotation = new THREE.Quaternion().setFromEuler(
+    new THREE.Euler(
+      (g.center[0] * Math.PI) / 180,
+      Math.PI - (g.center[1] * Math.PI) / 180,
+      0,
+      "XYZ",
+    ),
+  );
   return (
     <group quaternion={rotation}>
       <Globe />
       <OtherGyres selected={index} />
       <DrivingWinds index={index} />
-      {segments.map((p, i) => (
-        <Line
-          key={i}
-          points={p}
-          color={
-            branches.warm.includes(i)
-              ? "#f0703f"
-              : branches.cool.includes(i)
-                ? "#3d9be0"
-                : "#d6dfdb"
-          }
-          lineWidth={5.5}
-        />
-      ))}
-      {segments.map((p, i) => (
-        <CurrentTube
-          key={`tube-${i}`}
-          points={p}
-          color={
-            branches.warm.includes(i)
-              ? "#f0703f"
-              : branches.cool.includes(i)
-                ? "#3d9be0"
-                : "#c9d6d2"
-          }
-        />
-      ))}
-      {/* Dark arrowheads lifted just above the bands, so the flow direction reads in a still view. */}
-      {segments.map((p, i) => (
-        <Arrow
-          key={i}
-          from={lift(p[6], 1.705)}
-          to={lift(p[18], 1.705)}
-          color="#13222c"
-          width={1.5}
-        />
-      ))}
+      <CurrentRibbon route={g.route} />
       <Tag
-        pos={outside(segments[branches.warm[Math.floor(branches.warm.length / 2)]][12], path)}
+        pos={outside(western, center)}
         text={g.western}
         tone="magma"
-        note="Western boundary current: narrow, fast and warm, carrying water poleward."
+        note="Western boundary current: narrow, fast and warm, carrying water poleward along the edge of the continent."
         occlude={false}
       />
       <Tag
-        pos={outside(segments[branches.cool[Math.floor(branches.cool.length / 2)]][12], path)}
+        pos={outside(eastern, center)}
         text={g.eastern}
         tone="glacier"
-        note="Eastern boundary current: broader, slower and cooler, carrying water toward the equator."
+        note="Eastern boundary current: broad, slow and cool, carrying water toward the equator."
         occlude={false}
       />
-      <FlowFilaments
-        paths={[-0.014, 0, 0.014].map((offset) =>
-          path.map((p) => {
-            const v = new THREE.Vector3(...p),
-              axis = new THREE.Vector3(0, 1, 0);
-            return v.applyAxisAngle(axis, offset).toArray() as [number, number, number];
-          }),
-        )}
-        t={t}
-        color="#f5e6bf"
-      />
-      {Array.from({ length: 18 }, (_, i) => {
-        const u = ((t + i / 18) % 1) * (path.length - 1),
-          a = Math.floor(u),
-          b = Math.min(path.length - 1, a + 1),
-          point = new THREE.Vector3(...path[a])
-            .lerp(new THREE.Vector3(...path[b]), u - a)
-            .normalize()
-            .multiplyScalar(1.675);
-        return (
-          <mesh key={i} position={point}>
-            <sphereGeometry args={[0.014, 12, 8]} />
-            <meshBasicMaterial color="#f5e6bf" />
-          </mesh>
-        );
-      })}
     </group>
   );
 }
-function lift(p: [number, number, number], radius: number) {
-  return new THREE.Vector3(...p).setLength(radius).toArray() as [number, number, number];
-}
 /** Place a current's label just outside the loop, so it names the branch without covering it. */
-function outside(p: [number, number, number], path: [number, number, number][]) {
-  const center = path
-    .reduce((sum, q) => sum.add(new THREE.Vector3(...q)), new THREE.Vector3())
-    .divideScalar(path.length);
+function outside(p: [number, number, number], center: THREE.Vector3) {
   const point = new THREE.Vector3(...p),
     away = point.clone().sub(center).setLength(0.8);
   return point.add(away).setLength(1.78).toArray() as [number, number, number];
 }
 export default function OceanCurrents() {
-  const { params, t } = useLabState("params", "t");
+  const { params } = useLabState("params");
   useLabTick(1 / 50);
   const index = Math.round(params.basin ?? 0),
     g = SUBTROPICAL_GYRES[index];
@@ -159,55 +205,31 @@ export default function OceanCurrents() {
       <ScienceStudio
         slug="ocean-currents"
         camera={[0, 0.8, 6]}
-        scale="Geographic globe · current routes schematic · widths and tracers enlarged"
-        trueScale="Globe at one scale · current symbols still enlarged for reading"
+        scale="Geographic globe · current routes schematic · band width and chevron speed show relative current speed, not measured widths"
+        trueScale="Globe at one scale · band widths are symbols, not measured current widths"
       >
-        <Gyre index={index} t={t} />
+        <Gyre index={index} />
         <Tag
           pos={[0, 2.05, 0]}
           text={`${g.name} subtropical gyre`}
-          note="The routes show the broad direction of the surface currents. Trace the western branch flowing poleward and the eastern branch flowing toward the equator."
+          note="The routes show the broad direction of the surface currents. Trace the western branch flowing poleward and the eastern branch flowing toward the equator. Band width and the chevrons' speed show where the current is fast or slow, on one scale for all five gyres."
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
         {g.western}
-        {": warmer western boundary current flowing poleward (orange). "}
+        {": warm western boundary current, narrow and fast, flowing poleward (orange). "}
         {g.eastern}
-        {
-          ": cooler eastern boundary current flowing toward the equator (blue). Gray links the branches. "
-        }
+        {": cool eastern boundary current, broad and slow, flowing toward the equator (blue). "}
         {g.center[0] > 0
           ? "This northern gyre turns clockwise, as Earth’s rotation deflects moving water to the right."
           : "This southern gyre turns counterclockwise, as Earth’s rotation deflects moving water to the left."}{" "}
         <br />
         {
-          "Viewed on a map, northern subtropical gyres turn clockwise and southern ones counterclockwise; the faint loops show the other four. Trade winds blowing toward the west on the equator side and westerlies on the poleward side drive each gyre. Play shows direction only. Currents shape coastal climates: the cool California Current helps keep San Francisco's summers cool and foggy, while the Gulf Stream carries warm water along the U.S. East Coast and on across the Atlantic."
+          "The same circulation squeezes into a narrow, fast current on the western side of each ocean basin (westward intensification, also a result of Earth's rotation) and spreads slowly across the rest. Viewed on a map, northern subtropical gyres turn clockwise and southern ones counterclockwise; the faint loops show the other four. Trade winds blowing toward the west on the equator side and westerlies on the poleward side drive each gyre. Currents shape coastal climates: the cool California Current helps keep San Francisco's summers cool and foggy, while the Gulf Stream carries warm water along the U.S. East Coast and on across the Atlantic."
         }
       </ScienceReadout>
     </>
-  );
-}
-
-/** A broad, softly glowing band along one current branch, lying on the sea surface. */
-function CurrentTube({ points, color }: { points: [number, number, number][]; color: string }) {
-  const geometry = useMemo(() => {
-    const curve = new THREE.CatmullRomCurve3(points.map((p) => new THREE.Vector3(...p)));
-    return new THREE.TubeGeometry(curve, Math.max(8, points.length * 2), 0.026, 10, false);
-  }, [points]);
-  useEffect(() => () => geometry.dispose(), [geometry]);
-  return (
-    <mesh geometry={geometry}>
-      <meshStandardMaterial
-        color={color}
-        emissive={color}
-        emissiveIntensity={0.45}
-        transparent
-        opacity={0.55}
-        roughness={0.4}
-        depthWrite={false}
-      />
-    </mesh>
   );
 }
 
@@ -215,21 +237,18 @@ function CurrentTube({ points, color }: { points: [number, number, number][]; co
 function OtherGyres({ selected }: { selected: number }) {
   const loops = useMemo(
     () =>
-      SUBTROPICAL_GYRES.map((g, k) =>
+      SUBTROPICAL_GYRES.flatMap((g, k) =>
         k === selected
-          ? null
-          : {
-              key: g.name,
-              points: g.points.map(
-                ([lat, lon]) =>
-                  new THREE.Vector3(...latLonToXYZ(lat, lon, 1.668)).toArray() as [
-                    number,
-                    number,
-                    number,
-                  ],
-              ),
-            },
-      ).filter((l): l is NonNullable<typeof l> => l !== null),
+          ? []
+          : [
+              {
+                key: g.name,
+                points: routeCurve(g.route, 1.668)
+                  .getPoints(160)
+                  .map((v) => v.setLength(1.668).toArray() as [number, number, number]),
+              },
+            ],
+      ),
     [selected],
   );
   return (
@@ -237,7 +256,7 @@ function OtherGyres({ selected }: { selected: number }) {
       {loops.map((l) => (
         <Line
           key={l.key}
-          points={smoothLoop(l.points)}
+          points={l.points}
           color="#d9e4e1"
           transparent
           opacity={0.42}
@@ -248,16 +267,6 @@ function OtherGyres({ selected }: { selected: number }) {
   );
 }
 
-/** A closed loop through the gyre's turning points, rounded and kept on the sphere. */
-function smoothLoop(points: [number, number, number][]) {
-  const curve = new THREE.CatmullRomCurve3(
-    points.slice(0, -1).map((p) => new THREE.Vector3(...p)),
-    true,
-    "centripetal",
-  );
-  return curve.getPoints(120).map((v) => v.setLength(1.668).toArray() as [number, number, number]);
-}
-
 /**
  * The winds that drive the selected gyre: trade winds blowing toward the west on its
  * equator side and westerlies blowing toward the east on its poleward side. Schematic.
@@ -265,8 +274,8 @@ function smoothLoop(points: [number, number, number][]) {
 function DrivingWinds({ index }: { index: number }) {
   const g = SUBTROPICAL_GYRES[index],
     south = g.center[0] < 0,
-    lats = g.points.map(([lat]) => Math.abs(lat)),
-    lons = g.points.map(([, lon]) => lon),
+    lats = g.route.map(([lat]) => Math.abs(lat)),
+    lons = g.route.map(([, lon]) => lon),
     west = Math.min(...lons) + 6,
     east = Math.max(...lons) - 6,
     band = (absLat: number, toward: 1 | -1) =>

@@ -51,6 +51,49 @@ const EXAMPLES = [
   { name: "Nuuk", lat: 64.18, lon: -51.72, code: "ET", atlas: null },
 ];
 
+/**
+ * Köppen families over the globe. Every family keeps its own color so the map reads as a whole;
+ * the chosen family is solid with a light outline, the others lighter and translucent. Classes
+ * are sampled several times across each screen pixel, so coasts and borders stay smooth instead
+ * of sparkling where many texels fall in one pixel.
+ */
+const CLASSIFICATION_FRAGMENT = /* glsl */ `
+uniform sampler2D grid; uniform float family; varying vec2 vUv;
+vec3 familyColor(float k){
+  return k<1.5?vec3(.267,.616,.502):k<2.5?vec3(.835,.675,.416):k<3.5?vec3(.576,.729,.455)
+    :k<4.5?vec3(.522,.624,.788):vec3(.867,.863,.89);
+}
+void main(){
+  vec2 dx=dFdx(vUv),dy=dFdy(vUv);
+  // The texture wraps at the date line: ignore the jump in u there.
+  if(abs(dx.x)>.25)dx.x=0.;
+  if(abs(dy.x)>.25)dy.x=0.;
+  vec3 sum=vec3(0.);float alpha=0.,chosen=0.,land=0.;
+  for(int i=0;i<3;i++)for(int j=0;j<3;j++){
+    vec2 o=(float(i)-1.)/3.*dx+(float(j)-1.)/3.*dy;
+    float k=floor(texture2D(grid,vUv+o).r*255.+.5);
+    if(k<.5)continue;
+    vec3 c=familyColor(k);
+    bool pick=abs(k-family)<.1;
+    float grey=dot(c,vec3(.299,.587,.114));
+    sum+=pick?c:mix(c,vec3(grey),.35)*1.05;
+    alpha+=pick?.97:.6;
+    chosen+=pick?1.:0.;
+    land+=1.;
+  }
+  if(land<.5)discard;
+  vec3 color=sum/land;
+  // A light outline, about two pixels wide, inside the edge of the chosen family's regions.
+  float edge=0.;
+  if(chosen>4.5)for(int a=0;a<8;a++){
+    float t=float(a)*.7853982;
+    float k=floor(texture2D(grid,vUv+(cos(t)*dx+sin(t)*dy)*2.2).r*255.+.5);
+    if(abs(k-family)>.1)edge=1.;
+  }
+  color=mix(color,vec3(1.),edge*.65);
+  gl_FragColor=vec4(color,alpha/9.);
+}`;
+
 function Classification({ family }: { family: number }) {
   const map = useTexture("/textures/climate-families.png");
   useMemo(() => {
@@ -71,7 +114,7 @@ function Classification({ family }: { family: number }) {
         transparent
         depthWrite={false}
         vertexShader={`varying vec2 vUv; void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`}
-        fragmentShader={`uniform sampler2D grid;uniform float family;varying vec2 vUv;void main(){float k=floor(texture2D(grid,vUv).r*255.+.5);if(k<.5)discard;vec3 c=k<1.5?vec3(.267,.616,.502):k<2.5?vec3(.835,.675,.416):k<3.5?vec3(.576,.729,.455):k<4.5?vec3(.522,.624,.788):vec3(.867,.863,.89);bool chosen=abs(k-family)<.1;gl_FragColor=vec4(chosen?c:mix(c,vec3(.14,.2,.23),.68),chosen?.96:.78);}`}
+        fragmentShader={CLASSIFICATION_FRAGMENT}
       />
     </mesh>
   );

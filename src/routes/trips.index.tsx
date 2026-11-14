@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Check, Search } from "lucide-react";
-import { FIELD_TRIPS, readTripProgress, tripPhoto, type TripProgress } from "@/lib/field-trips";
+import { FIELD_TRIPS, readTripProgress, type TripProgress } from "@/lib/field-trips";
+import { tripCard } from "@/lib/photo-cards";
 import { headFor } from "@/lib/seo";
 import { buildIndex, searchIndex } from "@/lib/site-search";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
@@ -76,8 +77,8 @@ function TripsIndex() {
                   className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/[0.04] p-3 hover:border-glacier/50"
                 >
                   <img
-                    src={tripPhoto(s.photo)?.src}
-                    srcSet={photoSrcSet(tripPhoto(s.photo)?.src)}
+                    src={tripCard(s.photo)?.src}
+                    srcSet={photoSrcSet(tripCard(s.photo)?.src)}
                     sizes="64px"
                     alt=""
                     className="size-16 shrink-0 rounded-lg object-cover"
@@ -99,7 +100,7 @@ function TripsIndex() {
         {FIELD_TRIPS.map((t) => {
           const p = progress[t.slug],
             seen = Math.min(t.stops.length, p?.seen ?? 0),
-            cover = tripPhoto(t.stops[0].photo);
+            cover = tripCard(t.stops[0].photo);
           return (
             <article
               key={t.slug}

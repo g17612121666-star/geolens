@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { FIELD_GLSL, OCEAN_DEPTH_M, OCEAN_DEPTH_UNITS, OCEAN_GLSL } from "./field";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 type OceanProps = { spin: number; vmax: number; strength: number; slice: number; t: number };
 
@@ -41,6 +42,7 @@ export function OceanSurface(props: OceanProps) {
       <circleGeometry args={[6.4, 200]} />
       <shaderMaterial
         transparent
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         vertexShader={`varying vec2 vP; void main(){vP=position.xy; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`}
         fragmentShader={
@@ -114,6 +116,7 @@ void main(){
           <shaderMaterial
             transparent
             side={THREE.DoubleSide}
+            ref={liveUniforms(uniforms)}
             uniforms={uniforms}
             vertexShader={
               HEADER +
@@ -140,6 +143,7 @@ void main(){
         <shaderMaterial
           transparent
           side={THREE.DoubleSide}
+          ref={liveUniforms(base)}
           uniforms={base}
           vertexShader={`varying vec2 vP; void main(){vP=position.xy; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`}
           fragmentShader={

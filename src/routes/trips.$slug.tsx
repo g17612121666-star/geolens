@@ -2,7 +2,8 @@ import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-ro
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, FlaskConical, MapPin, X } from "lucide-react";
 import { LibreMap } from "@/components/map/libre-map";
-import { findTrip, saveTripProgress, tripPhoto, type FieldTrip } from "@/lib/field-trips";
+import { findTrip, saveTripProgress, type FieldTrip } from "@/lib/field-trips";
+import { tripPhoto } from "@/lib/trip-photos";
 import { headFor } from "@/lib/seo";
 import { photoSrcSet } from "@/lib/responsive-image";
 

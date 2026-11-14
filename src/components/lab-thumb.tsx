@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { LoadingProgress } from "./loading-progress";
-import { labFigure } from "@/lib/figures";
+import { labCard } from "@/lib/photo-cards";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
 /** Explore cards use the lab’s field photograph, not a schematic SVG. */
@@ -12,7 +12,7 @@ export function LabThumb({ slug }: { slug: string }) {
     setLoaded(Boolean(ref.current?.complete && ref.current.naturalWidth));
     setFailed(false);
   }, [slug]);
-  const fig = labFigure(slug);
+  const fig = labCard(slug);
   if (fig) {
     return (
       <div className="relative size-full">

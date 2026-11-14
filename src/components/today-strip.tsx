@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Flame, MapPinned, Route as RouteIcon, Sparkles } from "lucide-react";
 import { placeOfTheDay, readDaily, streak } from "@/lib/daily";
 import { useToday } from "@/lib/use-today";
-import { FIELD_TRIPS, readTripProgress, tripPhoto } from "@/lib/field-trips";
+import { FIELD_TRIPS, readTripProgress } from "@/lib/field-trips";
+import { tripCard } from "@/lib/photo-cards";
 import { photoSrcSet } from "@/lib/responsive-image";
 
 /** Home-page row of today's challenges, the place of the day and the next field trip. */
@@ -29,7 +30,7 @@ export function TodayStrip() {
     });
   }, [day]);
   const place = placeOfTheDay(day),
-    photo = tripPhoto(place.photo),
+    photo = tripCard(place.photo),
     trip = FIELD_TRIPS.find((t) => t.slug === s.next) ?? FIELD_TRIPS[0];
   const card =
     "editorial-card flex min-h-24 items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4";
