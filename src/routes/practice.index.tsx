@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, CheckCircle2, Flame, MapPinned, Mountain, Sparkles } from "lucide-react";
 import { level, placeOfTheDay, readDaily, streak } from "@/lib/daily";
 import { useToday } from "@/lib/use-today";
-import { tripPhoto } from "@/lib/field-trips";
+import { tripCard } from "@/lib/photo-cards";
 import { headFor } from "@/lib/seo";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
@@ -32,7 +32,7 @@ function PracticeHub() {
   }, [day]);
   const lv = level(state.xp),
     place = placeOfTheDay(day),
-    photo = tripPhoto(place.photo),
+    photo = tripCard(place.photo),
     span = lv.next ? lv.next - lv.floor : 1;
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">

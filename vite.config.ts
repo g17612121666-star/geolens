@@ -4,6 +4,7 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 import { labContent } from "./scripts/vite-lab-content.mjs";
+import { cardData } from "./scripts/vite-card-data.mjs";
 
 export default defineConfig(({ command, isPreview }) => ({
   server: {
@@ -18,6 +19,8 @@ export default defineConfig(({ command, isPreview }) => ({
   plugins: [
     // Lab content in pieces: summaries for lists, one lazy lesson per lab.
     labContent(),
+    // Photo cards and case summaries for list pages.
+    cardData(),
     tailwindcss(),
     tanstackStart(),
     ...(command === "build" || isPreview

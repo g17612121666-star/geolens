@@ -87,6 +87,23 @@ test("only the glossary and search load every definition", () => {
   assert.ok(loadsWith("glossary.tsx").has(DEFINITIONS));
 });
 
+test("lists show photo cards and case summaries, not every credit and case text", () => {
+  const heavy = ["src/lib/verified-photos.ts", "src/lib/photo-assign.ts", "src/lib/cases.ts"];
+  for (const route of [
+    "index.tsx",
+    "explore.tsx",
+    "teachers.index.tsx",
+    "practice.index.tsx",
+    "trips.index.tsx",
+  ]) {
+    const modules = loadsWith(route);
+    for (const file of heavy) assert.ok(!modules.has(file), `${route} loads ${file}`);
+  }
+  // Pages that show a figure with its caption and credit still get the full record.
+  assert.ok(loadsWith("trips.$slug.tsx").has("src/lib/verified-photos.ts"));
+  assert.ok(loadsWith("case.$slug.tsx").has("src/lib/cases.ts"));
+});
+
 test("no page module imports content.json directly", () => {
   const all = loadsWith("search.tsx");
   for (const route of [

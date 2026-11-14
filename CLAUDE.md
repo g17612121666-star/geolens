@@ -23,7 +23,7 @@ Run typecheck, lint, test and build before pushing.
 - `scripts/vite-lab-content.mjs` serves content.json in pieces so each page downloads only what it shows: `LABS`/`LAB_BY_SLUG` in `src/lib/labs/catalog.ts` are summaries (`LabSummary`); a page that shows a lesson gets it from `loadLab(slug)` in its route loader. Never import content.json from page code (`scripts/route-payload.test.mjs` checks).
 - `src/lib/labs/standards.ts` – the curriculum standards labs align to (frameworks, codes, short titles). Each lab's `standards` in content.json lists their IDs; `/teachers/standards` shows every lab by standard.
 - `src/lib/*-science.ts` – small physical models; each has tests in `scripts/`.
-- `src/lib/photo-assign.ts` – which verified photo appears where.
+- `src/lib/photo-assign.ts` – which verified photo appears where. List pages show cards from `src/lib/photo-cards.ts` (image and alt text only) and case summaries from `src/lib/case-index.ts`, both built by `scripts/vite-card-data.mjs`; only pages that show a figure's caption and credit use `src/lib/figures.ts`, `src/lib/trip-photos.ts` or the full `src/lib/cases.ts`.
 - `public/` – photos, GLB models, textures, map data, fonts.
 - `server/middleware/security-headers.ts` – CSP and `X-Robots-Tag`; add any new external origin to the CSP.
 - `server/routes/api/enso.ts` – cached proxy for NOAA CPC's ENSO status (CPC sends no CORS headers). Tides (NOAA CO-OPS) and river gauges (USGS Water Data) are fetched from the browser in `src/components/lab/live-data.tsx`. Locally, run the preview with `NODE_USE_ENV_PROXY=1` if the container needs an HTTPS proxy.

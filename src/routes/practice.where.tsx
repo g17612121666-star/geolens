@@ -10,7 +10,7 @@ import {
   roundScore,
   type PhotoRound,
 } from "@/lib/daily";
-import { tripPhoto } from "@/lib/field-trips";
+import { tripPhoto } from "@/lib/trip-photos";
 import { haversineKm } from "@/lib/geo";
 import { headFor } from "@/lib/seo";
 import { useToday } from "@/lib/use-today";

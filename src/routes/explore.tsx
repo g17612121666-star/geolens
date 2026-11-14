@@ -4,9 +4,12 @@ import { ArrowUpRight, Search } from "lucide-react";
 import { LABS, REALMS } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
-import { CASES, CASES_BY_REGION, REGIONS } from "@/lib/cases";
-import { labFigure } from "@/lib/figures";
-import { caseFigure } from "@/lib/case-figures";
+import {
+  CASE_SUMMARIES as CASES,
+  CASE_SUMMARIES_BY_REGION as CASES_BY_REGION,
+  REGIONS,
+} from "@/lib/case-index";
+import { caseCard, labCard } from "@/lib/photo-cards";
 import { ProgressImage } from "@/components/progress-media";
 import { buildIndex, searchIndex } from "@/lib/site-search";
 import { headFor } from "@/lib/seo";
@@ -246,7 +249,7 @@ function Explore() {
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {kind === "labs"
           ? list.map((lab, i) => {
-              const photo = labFigure(lab.slug);
+              const photo = labCard(lab.slug);
               return (
                 <Link
                   key={lab.slug}
@@ -286,7 +289,7 @@ function Explore() {
               );
             })
           : cases.map((c) => {
-              const photo = caseFigure(c.slug);
+              const photo = caseCard(c.slug);
               return (
                 <Link
                   key={c.slug}
