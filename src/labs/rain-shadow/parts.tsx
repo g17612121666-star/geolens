@@ -5,6 +5,7 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { usePreferences } from "@/lib/preferences";
 import { CloudVolume, RainStreaks } from "../atmosphere-layers/weather-volumes";
 import { airTemperature, ridge, temperatureColor, toScene } from "./terrain";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 const STREAK_VERTEX = /* glsl */ `
 attribute vec3 aColor;
@@ -116,6 +117,7 @@ export function AirStreaks({
       <shaderMaterial
         vertexShader={STREAK_VERTEX}
         fragmentShader={STREAK_FRAGMENT}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         transparent
         depthWrite={false}

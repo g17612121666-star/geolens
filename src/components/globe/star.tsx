@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 /** Emissive stellar surface, with illustrative granulation and limb darkening.
  * Procedural material, not an observation or a resolved map of any star. */
@@ -26,6 +27,7 @@ export function StarMesh({
       <mesh>
         <sphereGeometry args={[radius, 96, 64]} />
         <shaderMaterial
+          ref={liveUniforms(uniforms)}
           uniforms={uniforms}
           vertexShader={`varying vec3 n; varying vec3 p; varying vec3 local;
    void main(){local=position; p=(modelMatrix*vec4(position,1.)).xyz; n=normalize(mat3(modelMatrix)*normal); gl_Position=projectionMatrix*viewMatrix*vec4(p,1.);}`}

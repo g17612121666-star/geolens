@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { cloudNoiseGLSL } from "../shared/cloud-material";
 import { fbm } from "../shared/hazard-utils";
 import { useKeyLight } from "../shared/key-light";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 type V3 = [number, number, number];
 
@@ -157,6 +158,7 @@ export function EruptionColumn({
         vertexShader={COLUMN_VERTEX}
         fragmentShader={COLUMN_FRAGMENT}
         defines={{ STEPS: steps }}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         transparent
         depthWrite={false}
@@ -226,6 +228,7 @@ export function LavaFountain({
       <shaderMaterial
         transparent
         depthWrite={false}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         vertexShader={
           /* glsl */ `
@@ -629,6 +632,7 @@ export function PyroclasticFlows({
       <shaderMaterial
         transparent
         depthWrite={false}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         vertexShader={
           /* glsl */ `

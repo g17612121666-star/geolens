@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 type XY = [number, number];
 
@@ -44,6 +45,7 @@ export function FluxBand({
         transparent
         depthWrite={false}
         side={THREE.DoubleSide}
+        ref={liveUniforms(uniforms)}
         uniforms={uniforms}
         vertexShader={`
           varying vec2 vUv;
