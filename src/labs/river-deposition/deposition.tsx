@@ -13,30 +13,49 @@ import { Buildings } from "../shared/hazard-parts";
 import { farmland, settlement } from "../shared/hazard-utils";
 import type { LandSection } from "../shared/land-section";
 
-// The bend's apex lies away from the default camera, so the point bar faces the viewer.
-const bend = (x: number) => -0.75 * Math.cos(x * 0.9);
-/** Signed distance across the channel, positive toward the inside of the bend. */
-const across = (x: number, z: number) => {
-  const inner = Math.cos(x * 0.9) >= 0 ? 1 : -1;
-  return (z - bend(x)) * inner;
-};
-const bendStrength = (x: number) => Math.abs(Math.cos(x * 0.9));
+// One meander bend: its apex lies away from the default camera, so the point bar inside it faces
+// the viewer, and the channel swings back toward the front near each end of the block.
+const AMPLITUDE = 1.1,
+  WAVE = 1.05,
+  /** Half the channel's width at the waterline. */
+  HALF = 0.27,
+  /** Water stands this far below the floodplain. */
+  FREEBOARD = 0.032;
+const bend = (x: number) => -AMPLITUDE * Math.cos(x * WAVE);
+const inside = (x: number) => (Math.cos(x * WAVE) >= 0 ? 1 : -1);
+/** Signed distance across the channel, positive toward the inside of the bend, measured square
+ * to the channel so it keeps its width where it runs obliquely. */
+const across = (x: number, z: number) =>
+  ((z - bend(x)) * inside(x)) / Math.hypot(1, AMPLITUDE * WAVE * Math.sin(x * WAVE));
+const bendStrength = (x: number) => Math.abs(Math.cos(x * WAVE));
 const floodplain = (x: number) => 0.15 - 0.009 * x;
+/** How far the point bar reaches inside the bend before the older floodplain begins. */
+const barWidth = (x: number) => 0.18 + 0.85 * bendStrength(x);
 
-/** Point-bar reach: deep pool against the outer bank, a long gentle bar with scroll ridges inside. */
+/**
+ * Point-bar reach: a steep cut bank (the river cliff) over a deep pool on the outside of the bend;
+ * the bed shallows across the channel and rises as a bare sand bar, then older scroll ridges, on
+ * the inside. The pool is deepest at the bend apex and shallow where the channel crosses over.
+ */
 function pointBarHeight(x: number, z: number) {
   const q = across(x, z),
     k = bendStrength(x),
-    fp = floodplain(x) + 0.008 * (noise(x * 1.5, z * 1.5) - 0.5);
-  if (q < -0.06) return fp - 0.1 * Math.exp(-(((q + 0.06) / 0.05) ** 2));
-  // Channel bed and the bar's long ramp; the lower of the two forms the surface.
-  const reach = 0.16 + 0.6 * k,
-    bed = -0.1 * Math.exp(-(((q + 0.06) / 0.2) ** 2)),
-    ramp = -0.042 * (1 - THREE.MathUtils.smoothstep(q, 0.12, reach + 0.08)),
-    scroll = q > 0.08 && q < reach ? 0.003 * Math.sin(q * 70) * k : 0;
-  return fp + Math.min(bed, ramp) + scroll;
+    fp = floodplain(x) + 0.008 * (noise(x * 1.5, z * 1.5) - 0.5),
+    water = fp - FREEBOARD,
+    pool = 0.02 + 0.045 * k,
+    // Bed: deepest under the outer bank, rising to the waterline at the inner edge.
+    bed = water - pool * (1 - THREE.MathUtils.smoothstep(q, -HALF, HALF)),
+    // Cut bank: the bed meets the floodplain in a near-vertical cliff.
+    cliff = THREE.MathUtils.smoothstep(q, -HALF - 0.035, -HALF),
+    outer = THREE.MathUtils.lerp(fp, bed, cliff);
+  if (q < -HALF) return outer;
+  if (q < HALF) return bed;
+  // The bar rises gently from the water to the floodplain, crossed by low scroll ridges.
+  const rise = THREE.MathUtils.smoothstep(q, HALF, HALF + barWidth(x)),
+    scroll = q > HALF + 0.12 ? 0.0035 * Math.sin((q - HALF) * 45) * k * (1 - rise) : 0;
+  return water + FREEBOARD * rise + scroll;
 }
-const pointBarLevel = (x: number) => floodplain(x) - 0.042;
+const pointBarLevel = (x: number) => floodplain(x) - FREEBOARD;
 
 /** Straight reach with natural levees that thin across a lower backswamp. */
 const leveeRise = (d: number) => 0.045 * Math.exp(-(((d - 0.3) / 0.16) ** 2));
@@ -135,7 +154,9 @@ const SECTIONS: LandSection[] = [
 ];
 
 const MEADOW = new THREE.Color("#86a55a"),
-  SAND = new THREE.Color("#d2bb8a"),
+  SAND = new THREE.Color("#dcc596"),
+  GRASS_BAR = new THREE.Color("#a7ad6d"),
+  SWALE = new THREE.Color("#6f8a52"),
   WET = new THREE.Color("#8d8268"),
   MARSH = new THREE.Color("#7d915a"),
   REED = new THREE.Color("#a59a68"),
@@ -158,14 +179,28 @@ export default function RiverDeposition() {
       const c = new THREE.Color();
       if (mode === 0) {
         const q = across(x, z),
-          h = pointBarHeight(x, z) - pointBarLevel(x);
-        c.copy(farmland(x, z, 0.55)).lerp(MEADOW, 0.45);
-        // The bar: bare sand near the water, younger scroll ridges colonized by grass and willow.
-        if (q > -0.06 && q < 0.15 + 0.6 * bendStrength(x)) {
-          const age = THREE.MathUtils.smoothstep(q, 0.05, 0.12 + 0.6 * bendStrength(x));
-          c.copy(SAND).lerp(MEADOW, age * 0.9);
+          h = pointBarHeight(x, z) - pointBarLevel(x),
+          bar = barWidth(x);
+        // Meadow floodplain with a few field boundaries.
+        c.copy(farmland(x, z, 0.55)).lerp(MEADOW, 0.75);
+        // The bar: bare sand from the waterline, then scroll ridges colonized by grass and
+        // willow, alternating with damp swales, until the older floodplain.
+        if (q > HALF - 0.04 && q < HALF + bar) {
+          const sand = 0.1 + 0.22 * bendStrength(x),
+            age = THREE.MathUtils.smoothstep(q, HALF + sand, HALF + bar),
+            swale = 0.5 + 0.5 * Math.sin((q - HALF) * 45);
+          c.copy(SAND)
+            .lerp(GRASS_BAR, THREE.MathUtils.smoothstep(q, HALF + sand - 0.04, HALF + sand + 0.06))
+            .lerp(
+              SWALE,
+              swale *
+                0.6 *
+                (1 - age * 0.7) *
+                THREE.MathUtils.smoothstep(q, HALF + sand, HALF + sand + 0.1),
+            )
+            .lerp(MEADOW, age * 0.75);
         }
-        if (h < 0.004) c.copy(WET);
+        if (h < 0.003) c.copy(WET);
         return c.getStyle();
       }
       if (mode === 1) {
@@ -210,7 +245,7 @@ export default function RiverDeposition() {
         ? [
             Array.from({ length: 181 }, (_, i) => {
               const x = -3 + (i / 180) * 6,
-                z = mode === 0 ? bend(x) - 0.03 * Math.sign(Math.cos(x * 0.9)) : 0;
+                z = mode === 0 ? bend(x) - 0.06 * inside(x) : 0;
               return [x, level(x, z) + 0.004, z] as [number, number, number];
             }),
           ]
@@ -234,7 +269,10 @@ export default function RiverDeposition() {
         n = noise(x * 2.5 + 1, z * 2.5);
       const ok =
         mode === 0
-          ? (across(x, z) < -0.25 || across(x, z) > 0.35 + 0.6 * bendStrength(x)) && n > 0.55
+          ? // Riparian trees above the cut bank, willows on the older scroll ridges.
+            (across(x, z) < -HALF - 0.08 && across(x, z) > -HALF - 0.45 && n > 0.45) ||
+            (across(x, z) > HALF + 0.55 && across(x, z) < HALF + barWidth(x) + 0.3 && n > 0.5) ||
+            n > 0.8
           : mode === 1
             ? (Math.abs(Math.abs(z) - 0.32) < 0.08 && n > 0.35) || (Math.abs(z) > 1.3 && n > 0.7)
             : x < COAST - 0.2 && Math.abs(z) > 0.25 && n > 0.5;
@@ -246,7 +284,7 @@ export default function RiverDeposition() {
         h = height(x, z);
       const ok =
         mode === 0
-          ? across(x, z) > 0.02 && across(x, z) < 0.3
+          ? across(x, z) > HALF + 0.1 && across(x, z) < HALF + 0.3
           : mode === 1
             ? Math.abs(z) > 1.1
             : x > COAST && h > 0.016 && lobe(x, z) < 0.85;
@@ -305,20 +343,20 @@ export default function RiverDeposition() {
           {mode === 0 ? (
             <>
               <Tag
-                pos={[-0.7, 0.16, -0.1]}
+                pos={[-0.2, 0.15, bend(-0.2) + HALF + 0.35]}
                 text="Point bar"
                 note="Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonized by grass and trees. Spiraling (helicoidal) flow and sediment supply also shape the bar, so surface speed alone does not explain it."
                 occlude={false}
               />
               <Tag
-                pos={[0.9, 0.26, -1.05]}
+                pos={[0.55, 0.24, bend(0.55) - HALF - 0.15]}
                 text="River cliff"
                 note="On the outside of the bend the deepest, fastest flow undercuts the bank, which collapses to leave a steep cliff exposing the floodplain sediments."
                 occlude={false}
               />
               <Arrow
-                from={[-0.7, 0.14, -0.62]}
-                to={[0.6, 0.14, -0.72]}
+                from={[-0.5, 0.14, bend(-0.5) - 0.1]}
+                to={[0.5, 0.14, bend(0.5) - 0.1]}
                 color="#a2ced3"
                 width={0.65}
               />
@@ -365,10 +403,10 @@ export default function RiverDeposition() {
         {mode === 0 && (
           <DebrisField
             points={Array.from({ length: 70 }, (_, i) => {
-              const x = -1.45 + random(i + 843) * 2.9,
-                z = bend(x) + 0.12 + random(i + 286) * 0.25;
+              const x = -1.3 + random(i + 843) * 2.6,
+                z = bend(x) + (HALF - 0.02 + random(i + 286) * 0.14) * inside(x);
               return [x, (height(x, z) + 0.002) * v, z] as [number, number, number];
-            }).filter(([x, , z]) => across(x, z) > -0.02)}
+            }).filter(([x, , z]) => across(x, z) > HALF - 0.05)}
             size={0.012}
             color="#b5a187"
           />
