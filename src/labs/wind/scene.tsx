@@ -16,10 +16,10 @@ import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 
 /** Isobar spacing implied by 0.001 m/s² over 150 km at 1.2 kg/m³, in hPa. */
 const ISOBAR_HPA = (1.2 * 0.001 * 150000) / 100;
-/** Force arrows start from the parcel west of center; the wind arrow sits between isobars. */
-const FORCE_X = -0.6,
-  WIND_X = 1.2,
-  WIND_Z = 0.5;
+/** The force diagram: a parcel of air raised above the map on a plate, west of center. */
+const FORCE_X = -0.4,
+  PLATE_Y = 0.42,
+  PLATE_R = 1.45;
 const COMPASS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
 const toward = (u: number, v: number) =>
   COMPASS[Math.round((((Math.atan2(u, v) * 180) / Math.PI + 360) % 360) / 45) % 8];
@@ -43,8 +43,9 @@ function Landscape() {
         y = p.getY(i),
         z = p.getZ(i);
       if (y < 0) col.set("#6d7a74").lerp(tone.set("#cdb88c"), ss(y, -0.05, -0.005));
-      else col.copy(farmland(x * 1.4, z * 1.4, 0.36));
-      if (fbm(x * 1.6 + 7, z * 1.6) > 0.62) col.lerp(tone.set("#4b673a"), 0.8);
+      // A calm backdrop: fields muted toward meadow, so the forces and wind stand out.
+      else col.copy(farmland(x * 1.4, z * 1.4, 0.36)).lerp(tone.set("#879a62"), 0.55);
+      if (fbm(x * 1.6 + 7, z * 1.6) > 0.66) col.lerp(tone.set("#5b7646"), 0.6);
       if (y > 0.07) col.lerp(tone.set("#7d7461"), ss(y, 0.07, 0.11));
       c.set([col.r, col.g, col.b], i * 3);
     }
@@ -58,7 +59,7 @@ function Landscape() {
       const x = -2.9 + 5.8 * ((i * 0.618034) % 1),
         z = -2.7 + 5.4 * ((i * 0.7548777) % 1),
         y = landHeight(x, z);
-      if (y > 0.01 && fbm(x * 1.6 + 7, z * 1.6) > 0.64) out.push([x, y - 0.003, z]);
+      if (y > 0.01 && fbm(x * 1.6 + 7, z * 1.6) > 0.68) out.push([x, y - 0.003, z]);
     }
     return out;
   }, []);
@@ -108,7 +109,7 @@ function AirTracers({
         wrapParcel((Math.floor(i / 16) / 10) * 5.4 - displacement[1] / 150000),
       );
       dummy.quaternion.copy(q);
-      dummy.scale.set(0.008, 0.045, 0.008);
+      dummy.scale.set(0.011, 0.06, 0.011);
       dummy.updateMatrix();
       ref.current.setMatrixAt(i, dummy.matrix);
     }
@@ -139,10 +140,39 @@ export default function Wind() {
     () => airDisplacement(t * 86400, coriolis, friction, south, !transient),
     [t, coriolis, friction, south, transient],
   );
+  // The wind label sits well past the wind arrow's tip, along its direction.
+  const windTip = [w.u * velocityScale * shown, -w.v * velocityScale * shown],
+    windLength = Math.hypot(windTip[0], windTip[1]) || 1,
+    windLabel: [number, number, number] = [
+      FORCE_X + windTip[0] + (windTip[0] / windLength) * 0.75,
+      PLATE_Y + 0.14,
+      windTip[1] + (windTip[1] / windLength) * 0.75,
+    ];
   const forces = [
-    { name: "Pressure gradient", vector: w.pressure, color: "#e4bd80" },
-    { name: "Coriolis", vector: w.coriolis, color: "#88cbd8" },
-    { name: "Friction", vector: w.drag, color: "#d39685" },
+    {
+      name: "Pressure gradient",
+      short: "Pressure",
+      vector: w.pressure,
+      color: "#e4bd80",
+      tone: "sandstone" as const,
+      note: "Air is pushed from high toward low pressure, at right angles to the isobars: 0.001 m/s² here, per kilogram of air.",
+    },
+    {
+      name: "Coriolis",
+      short: "Coriolis",
+      vector: w.coriolis,
+      color: "#88cbd8",
+      tone: "glacier" as const,
+      note: "Earth's rotation deflects moving air to the right in the Northern Hemisphere and to the left in the Southern, at right angles to the wind. It grows with wind speed and is zero for still air.",
+    },
+    {
+      name: "Friction",
+      short: "Friction",
+      vector: w.drag,
+      color: "#d39685",
+      tone: "magma" as const,
+      note: "Near the ground, friction with the surface slows the wind and acts against its direction.",
+    },
   ];
   return (
     <>
@@ -189,39 +219,64 @@ export default function Wind() {
           note="The pressure-gradient force is 0.001 m/s² (force per kilogram of air). All force arrows show force per unit mass."
           occlude={false}
         />
+        <ForcePlate />
         <CloudVolume
-          position={[FORCE_X, 0.2, 0]}
-          scale={[0.16, 0.11, 0.16]}
+          position={[FORCE_X, PLATE_Y + 0.07, 0]}
+          scale={[0.17, 0.11, 0.17]}
           seed={4}
-          opacity={0.85}
+          opacity={0.9}
         />
-        {forces.map((force) => (
-          <Arrow
-            key={force.name}
-            from={[FORCE_X, 0.15, 0]}
-            to={[FORCE_X + force.vector[0] * forceScale, 0.15, -force.vector[1] * forceScale]}
-            color={force.color}
-            width={2}
-          />
-        ))}
+        {forces.map((force) => {
+          const tip: [number, number, number] = [
+            FORCE_X + force.vector[0] * forceScale,
+            PLATE_Y + 0.03,
+            -force.vector[1] * forceScale,
+          ];
+          const length = Math.hypot(force.vector[0], force.vector[1]) * forceScale;
+          return (
+            <group key={force.name}>
+              <Arrow from={[FORCE_X, PLATE_Y + 0.03, 0]} to={tip} color={force.color} width={4} />
+              {length > 0.12 && (
+                <Tag
+                  pos={[
+                    FORCE_X + (force.vector[0] * forceScale * (length + 0.4)) / length,
+                    PLATE_Y + 0.08,
+                    (-force.vector[1] * forceScale * (length + 0.4)) / length,
+                  ]}
+                  text={force.name}
+                  short={force.short}
+                  tone={force.tone}
+                  priority={3}
+                  note={force.note}
+                  occlude={false}
+                />
+              )}
+            </group>
+          );
+        })}
+        {/* The wind: velocity, on its own scale, from the same parcel. */}
         <Arrow
-          from={[WIND_X, 0.22, WIND_Z]}
-          to={[WIND_X + w.u * velocityScale * shown, 0.22, WIND_Z - w.v * velocityScale * shown]}
-          color="#d8eee3"
-          width={2}
+          from={[FORCE_X, PLATE_Y + 0.06, 0]}
+          to={[FORCE_X + w.u * velocityScale * shown, PLATE_Y + 0.06, -w.v * velocityScale * shown]}
+          color="#f2f6f4"
+          width={3.2}
         />
-        <Tag
-          pos={[WIND_X - 0.3, 0.2, WIND_Z + 0.55]}
-          text={`Wind ${w.speed.toFixed(1)} m/s`}
-          priority={2}
-          note="The white arrow is velocity, not an additional force. It uses a different scale from the force arrows."
-          occlude={false}
-        />
+        {w.speed > 0.05 && (
+          // Beyond the arrow's tip, so the label never covers the arrows it describes.
+          <Tag
+            pos={windLabel}
+            text={`Wind ${w.speed.toFixed(1)} m/s`}
+            short={`${w.speed.toFixed(0)} m/s`}
+            priority={4}
+            note="The white arrow is the wind's velocity, not another force, and uses its own scale: 10 m/s per 0.7 units. In steady flow it lies where the forces balance: along the isobars without friction, angled toward low pressure with it."
+            occlude={false}
+          />
+        )}
         {!w.steady && (
           <Line
             points={Array.from({ length: 121 }, (_, i) => {
               const v = pressureWind((i / 120) * t * 86400, coriolis, friction, south, false);
-              return [WIND_X + v.u * velocityScale, 0.04, WIND_Z - v.v * velocityScale] as [
+              return [FORCE_X + v.u * velocityScale, PLATE_Y + 0.02, -v.v * velocityScale] as [
                 number,
                 number,
                 number,
@@ -229,8 +284,8 @@ export default function Wind() {
             })}
             color="#d8eee3"
             transparent
-            opacity={0.35}
-            lineWidth={1}
+            opacity={0.6}
+            lineWidth={1.4}
           />
         )}
       </ScienceStudio>
@@ -269,6 +324,22 @@ export default function Wind() {
   );
 }
 
+/** A dark plate under the force diagram, so its pale arrows stand out in either theme. */
+function ForcePlate() {
+  return (
+    <group position={[FORCE_X, PLATE_Y, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <mesh>
+        <circleGeometry args={[PLATE_R, 64]} />
+        <meshBasicMaterial color="#1c272e" transparent opacity={0.78} depthWrite={false} />
+      </mesh>
+      <mesh position={[0, 0, 0.001]}>
+        <ringGeometry args={[PLATE_R - 0.014, PLATE_R, 64]} />
+        <meshBasicMaterial color="#8fa3ab" />
+      </mesh>
+    </group>
+  );
+}
+
 /** Pressure shading: low (blue) to the north, high (warm) to the south, as on a chart. */
 function PressureField() {
   const geometry = useMemo(() => {
@@ -289,7 +360,7 @@ function PressureField() {
   useEffect(() => () => geometry.dispose(), [geometry]);
   return (
     <mesh geometry={geometry} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.004, 0]}>
-      <meshBasicMaterial vertexColors transparent opacity={0.42} depthWrite={false} />
+      <meshBasicMaterial vertexColors transparent opacity={0.55} depthWrite={false} />
     </mesh>
   );
 }
