@@ -11,6 +11,7 @@ import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { RootNetwork, DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
+import { heightBlockGeometry, setBlockHeights, type HeightBlockSpec } from "../shared/height-block";
 import {
   BLOCK,
   Region,
@@ -71,71 +72,6 @@ vec3 sectionColour(vec3 p,vec3 w){
   return col;
 }
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
-
-/**
- * The block of ground: a height field over the hillside with closed sides and base, laid out
- * like terrainBlockGeometry but with separate resolutions along and across the slope. The
- * surface (group 0) is updated in place as the slump moves; the sides follow its edges.
- */
-function slopeGeometry() {
-  const top = new THREE.PlaneGeometry(W, D, NX, NZ);
-  top.rotateX(-Math.PI / 2);
-  top.translate((BLOCK.left + BLOCK.right) / 2, 0, -D / 2);
-  const p = top.attributes.position,
-    positions = Array.from(p.array),
-    indices = Array.from(top.index!.array),
-    topCount = indices.length,
-    /** Vertex index of each side-wall top vertex, and the surface point it follows. */
-    wallTops: [number, number][] = [];
-  for (let k = 0; k < p.count; k++) positions[k * 3 + 1] = hillside(p.getX(k));
-  const at = (i: number, j: number) => j * (NX + 1) + i,
-    edge: number[] = [];
-  for (let j = 0; j <= NZ; j++) edge.push(at(0, j));
-  for (let i = 1; i <= NX; i++) edge.push(at(i, NZ));
-  for (let j = NZ - 1; j >= 0; j--) edge.push(at(NX, j));
-  for (let i = NX - 1; i >= 0; i--) edge.push(at(i, 0));
-  for (let e = 1; e < edge.length; e++) {
-    const a = edge[e - 1],
-      b = edge[e],
-      start = positions.length / 3;
-    for (const v of [a, b])
-      positions.push(p.getX(v), positions[v * 3 + 1], p.getZ(v), p.getX(v), BLOCK.base, p.getZ(v));
-    // Order: a top, a base, b top, b base.
-    wallTops.push([start, a], [start + 2, b]);
-    indices.push(start, start + 1, start + 2, start + 2, start + 1, start + 3);
-  }
-  const b = positions.length / 3;
-  positions.push(
-    BLOCK.left,
-    BLOCK.base,
-    BLOCK.back,
-    BLOCK.left,
-    BLOCK.base,
-    0,
-    BLOCK.right,
-    BLOCK.base,
-    0,
-    BLOCK.right,
-    BLOCK.base,
-    BLOCK.back,
-  );
-  indices.push(b, b + 2, b + 1, b, b + 3, b + 2);
-  const g = new THREE.BufferGeometry();
-  g.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
-  g.setAttribute("color", new THREE.Float32BufferAttribute(new Float32Array(positions.length), 3));
-  // Dummy UVs for the surface texture: the terrain photo is used for brightness only.
-  const uv = new Float32Array((positions.length / 3) * 2);
-  for (let k = 0; k < p.count; k++) {
-    uv[k * 2] = (p.getX(k) - BLOCK.left) / 2;
-    uv[k * 2 + 1] = p.getZ(k) / 2;
-  }
-  g.setAttribute("uv", new THREE.BufferAttribute(uv, 2));
-  g.setIndex(indices);
-  g.addGroup(0, topCount, 0);
-  g.addGroup(topCount, indices.length - topCount, 1);
-  top.dispose();
-  return { geometry: g, wallTops };
-}
 
 const MEADOW = new THREE.Color("#7f9a55"),
   LUSH = new THREE.Color("#6a8a46"),
@@ -199,23 +135,28 @@ function paint(
   colors.needsUpdate = true;
 }
 
+const SLOPE: HeightBlockSpec = {
+  x0: BLOCK.left,
+  x1: BLOCK.right,
+  z0: BLOCK.back,
+  z1: 0,
+  nx: NX,
+  nz: NZ,
+  base: BLOCK.base,
+};
+
 /** The hillside and the slump block, updated in place when the block's rotation changes. */
 function SlopeGround({ angle }: { angle: number }) {
-  const { geometry, wallTops } = useMemo(slopeGeometry, []);
-  useEffect(() => () => geometry.dispose(), [geometry]);
+  const block = useMemo(() => heightBlockGeometry(SLOPE, (x) => hillside(x)), []);
+  useEffect(() => () => block.geometry.dispose(), [block]);
   useLayoutEffect(() => {
-    const field = slideField(angle, NX, NZ),
-      p = geometry.attributes.position as THREE.BufferAttribute;
-    for (let k = 0; k < field.height.length; k++) p.setY(k, field.height[k]);
-    for (const [v, k] of wallTops) p.setY(v, field.height[k]);
-    p.needsUpdate = true;
-    paint(geometry.attributes.color as THREE.BufferAttribute, field, field.height);
-    geometry.computeVertexNormals();
-    geometry.computeBoundingSphere();
-  }, [geometry, wallTops, angle]);
+    const field = slideField(angle, NX, NZ);
+    setBlockHeights(block, field.height);
+    paint(block.geometry.attributes.color as THREE.BufferAttribute, field, field.height);
+  }, [block, angle]);
   const uniforms = useSectionUniforms({ uAngle: angle });
   return (
-    <mesh geometry={geometry} castShadow receiveShadow>
+    <mesh geometry={block.geometry} castShadow receiveShadow>
       <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
       <SectionMaterial
         attach="material-1"
