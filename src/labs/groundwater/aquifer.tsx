@@ -149,7 +149,7 @@ export default function Groundwater() {
                   />
                   <Tag
                     priority={2}
-                    pos={[0.02, ((H + atWell) / 20) * f - 0.05, 0.62]}
+                    pos={[0.02, (atWell / 10) * f - 0.42, 0.42]}
                     text={`Drawdown ${(H - atWell).toFixed(1)} m`}
                     short="Drawdown"
                     note="How far the water level at the well has dropped below its level before pumping (dashed line). The drop is greatest at the well and shrinks with distance: that sloping surface is the cone of depression."
@@ -360,8 +360,8 @@ vec3 sectionColour(vec3 p0,vec3 w){
     float fringe=smoothstep(wt+.06*f+.02,wt,y);
     c=y<wt?wet*mix(.84,1.,smoothstep(0.,wt,y)):mix(airPores,wet,fringe*.55);
     // Sand that pumping has drained, between the level before pumping and the water table now:
-    // the cone of depression. It stays damp, so it is paler than wet sand but darker than dry.
-    if(y>=wt&&y<uStatic)c=mix(mix(dry,wetSand,.45),vec3(.95,.82,.55),.35);
+    // the cone of depression, shown in a pale amber so it stands apart from both zones.
+    if(y>=wt&&y<uStatic)c=mix(mix(dry,wetSand,.3),vec3(.98,.8,.45),.55)*mix(.92,1.04,g);
     float gravel=smoothstep(.6,.8,sFbm(vec2(p.x*2.,y/f*1.2)))*step(y,.5*f);
     c=mix(c,mix(vec3(.58,.56,.52),vec3(.42,.40,.38),step(.5,sHash(floor(q*.4)))),gravel*.7);
     if(y<wt)c=mix(c,vec3(.8,.94,.98),flowDash(r,y,f)*.85);
@@ -465,7 +465,7 @@ function AquiferBlock({
           attach="material-1"
           glsl={AQUIFER_GLSL}
           uniforms={uniforms}
-          cacheKey="groundwater-aquifer-v8"
+          cacheKey="groundwater-aquifer-v9"
           clippingPlanes={CUT}
           clipIntersection
         />
@@ -483,7 +483,7 @@ function AquiferBlock({
           <SectionMaterial
             glsl={AQUIFER_GLSL}
             uniforms={uniforms}
-            cacheKey="groundwater-aquifer-v8"
+            cacheKey="groundwater-aquifer-v9"
             side={THREE.DoubleSide}
           />
         </mesh>
