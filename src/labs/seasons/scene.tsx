@@ -1,7 +1,7 @@
-import { useMemo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
-import { EarthMesh, AxisLine, Graticule, CityMarker, Atmosphere } from "@/components/globe/earth";
+import { EarthMesh, Graticule, CityMarker, Atmosphere } from "@/components/globe/earth";
 import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { Arrow, ScienceReadout, ScienceStudio } from "../shared/science-kit";
@@ -10,6 +10,52 @@ import { Tag } from "../shared/kit";
 import { StarMesh } from "@/components/globe/star";
 import { latLonToXYZ } from "@/lib/geo";
 import { useIsCompact } from "@/hooks/use-media";
+/** Earth's axis: a rod through the poles with an arrowhead at the north end, toward Polaris. */
+function AxisRod({ length, thickness }: { length: number; thickness: number }) {
+  return (
+    <group>
+      <mesh>
+        <cylinderGeometry args={[thickness, thickness, length * 2, 10]} />
+        <meshBasicMaterial color="#f4efe6" />
+      </mesh>
+      <mesh position={[0, length + thickness * 3, 0]}>
+        <coneGeometry args={[thickness * 2.6, thickness * 7, 14]} />
+        <meshBasicMaterial color="#f4efe6" />
+      </mesh>
+    </group>
+  );
+}
+
+/** Where Earth is at each solstice and equinox, as a fraction of the year from March. */
+const SEASON_POINTS = [0, 0.25, 0.5, 0.75];
+
+/**
+ * A smaller Earth at a solstice or equinox, lit by the Sun, with its axis: the axis points
+ * the same way at all four, so the north half leans toward the Sun in June and away in
+ * December. It shrinks away as the moving Earth arrives, so the two never overlap.
+ */
+const SeasonEarth = memo(function SeasonEarth({
+  at,
+  ecc,
+  tilt,
+  size,
+}: {
+  at: number;
+  ecc: number;
+  tilt: number;
+  size: number;
+}) {
+  const position = useMemo(() => orbitPosition(at, ecc, 2.65), [at, ecc]),
+    sun = useMemo(() => new THREE.Vector3(...position).negate().normalize(), [position]);
+  if (size < 0.01) return null;
+  return (
+    <group position={position} rotation={[(tilt * Math.PI) / 180, 0, 0]} scale={size}>
+      <EarthMesh radius={0.4} sunDirection={sun} segments={48} clouds={false} halo={false} />
+      <AxisRod length={0.58} thickness={0.012} />
+    </group>
+  );
+});
+
 export default function Seasons() {
   const [close, setClose] = useState(false);
   const compact = useIsCompact();
@@ -60,7 +106,7 @@ export default function Seasons() {
         scale={
           close
             ? "Earth close-up · rays show sunlight direction · same tilt and year controls"
-            : "Earth enlarged · axis keeps a fixed direction · physical scale shows true sizes and distances"
+            : "Earth enlarged · smaller Earths mark the solstices and equinoxes · the axis keeps one direction in space · physical scale shows true sizes and distances"
         }
         trueScale={
           close
@@ -69,7 +115,9 @@ export default function Seasons() {
         }
         lights={false}
         space
-        camera={close ? [3.8, 1.4, 4.2] : [0, 8, 4]}
+        // The orbit is seen from the side, as in textbook diagrams: the axis leans toward +z,
+        // so from +x the lean shows, toward the Sun at the June solstice and away in December.
+        camera={close ? [3.8, 1.4, 4.2] : [7.4, 3.1, 0.4]}
       >
         {!close && (
           <>
@@ -86,8 +134,23 @@ export default function Seasons() {
                   </mesh>
                 );
               })}
+            {!trueScale &&
+              SEASON_POINTS.map((at) => {
+                // Fraction of the year between the moving Earth and this point, either way round.
+                const gap = Math.abs(((t - at + 1.5) % 1) - 0.5);
+                return (
+                  <SeasonEarth
+                    key={at}
+                    at={at}
+                    ecc={ecc}
+                    tilt={tilt}
+                    size={Math.round(THREE.MathUtils.smoothstep(gap, 0.035, 0.075) * 20) / 20}
+                  />
+                );
+              })}
             <Tag
-              pos={[0, 0.78, 0]}
+              pos={[0, 0.15, -0.95]}
+              occlude={false}
               text="Sun"
               note="The Sun sits at one focus of the orbit. Orbit stretch is a what-if setting; Earth's real eccentricity is about 0.0167."
             />
@@ -131,7 +194,7 @@ export default function Seasons() {
                 </>
               )}
             </group>
-            <AxisLine radius={radius * 1.4} markerRadius={radius * 0.035} tiltDeg={0} />
+            <AxisRod length={radius * 1.4} thickness={Math.max(radius * 0.02, 0.0008)} />
             {close && (
               // At the southern end of the axis, clear of the declination label above.
               <Tag
@@ -164,21 +227,15 @@ export default function Seasons() {
           />
         )}
         {!close &&
-          [0, 0.25, 0.5, 0.75].map((v, i) => {
-            // Each label sits outside the orbit, clear of Earth when it reaches that direction.
-            const r = 2.65 * [1 - ecc, 1 - ecc * ecc, 1 + ecc, 1 - ecc * ecc][i];
-            const out = r + (compact ? [1.55, 1.4, 1.55, 1.4] : [2.2, 1.1, 2.6, 1.25])[i];
-            const dir = orbitPosition(v, 0, 1);
-            const names = [
-              "March equinox",
-              "June solstice",
-              "September equinox",
-              "December solstice",
-            ];
+          SEASON_POINTS.map((v, i) => {
+            // Each label sits just above (below, for the March Earth nearest the viewer) its
+            // Earth, clear of the Sun at the center.
+            const p = orbitPosition(v, ecc, 2.65),
+              names = ["March equinox", "June solstice", "September equinox", "December solstice"];
             return (
               <Tag
                 key={i}
-                pos={[dir[0] * out, i === 3 ? -0.25 : 0, dir[2] * out]}
+                pos={[p[0], i === 0 ? -0.95 : 0.95, p[2]]}
                 text={compact ? ["Mar", "Jun", "Sep", "Dec"][i] : names[i]}
                 title={names[i]}
                 occlude={false}
