@@ -58,7 +58,7 @@ vec3 sectionColour(vec3 p,vec3 w){
   float hw=uWedge*clamp(1.-(d-uActive)/uDepth,0.,1.);
   // Beds are dragged upward beside each wedge as it grows.
   float lift=.35*uWedge*exp(-max(e,0.)/.25);
-  float lam=fract((d-lift)*5.5+(sNoise(vec2((w.x+w.z)*.7,d*2.5))-.5)*.9);
+  float lam=fract((d-lift)*2.6+(sNoise(vec2((w.x+w.z)*.6,d*1.8))-.5)*.7);
   // Winter contraction crack: through the active layer and down the middle of the wedge.
   if(uWinter>.5&&d<1.9*uActive/.7&&abs(e)<uCrack)return vec3(.08,.1,.12);
   if(d>uActive-.02&&e<hw){
@@ -74,11 +74,14 @@ vec3 sectionColour(vec3 p,vec3 w){
     // layer refreezes from the surface downward, leaving a thawed band beneath.
     c*=d<uThaw&&d>uFreeze?.78:1.;
   }else{
-    c=mix(vec3(.5,.47,.42),vec3(.43,.41,.38),smoothstep(.35,.65,lam))*mix(.93,1.06,g);
+    // Silty permafrost in a few soft layers; the beds bend up beside the wedge.
+    c=mix(vec3(.53,.49,.43),vec3(.45,.42,.37),smoothstep(.3,.7,lam)*.75)*mix(.94,1.05,g);
     // An ice-rich, peaty layer just below the deepest thaw (the transient layer).
     c=mix(c,vec3(.34,.3,.26),smoothstep(.0,.06,d-uActive)*(1.-smoothstep(.12,.3,d-uActive))*.7);
-    float lens=smoothstep(.86,.93,sNoise(vec2((w.x+w.z)*4.,(d-lift)*30.)));
-    c=mix(c,vec3(.80,.86,.88),lens*.6);
+    // Lenses of ground ice, most plentiful in the ice-rich ground just below the active layer.
+    float rich=1.+1.6*exp(-max(0.,d-uActive)/(.45*uDepth/3.05));
+    float lens=smoothstep(.9,.96,sNoise(vec2((w.x+w.z)*2.6,(d-lift)*16.))*.5+sNoise(vec2((w.x+w.z)*5.,(d-lift)*30.))*.5+.08*rich);
+    c=mix(c,vec3(.82,.88,.9),lens*.7);
   }
   c*=mix(.75,1.,smoothstep(0.,.012,abs(d-uActive)));
   return c;
@@ -87,10 +90,12 @@ vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 const SECTION_GLSL = frozenGround("abs(w.x-.12*sin(w.z*1.1+.6))");
 const NETWORK_GLSL = frozenGround("edgeDistance(w.xz)");
 
-const TUNDRA = new THREE.Color("#7f8452"),
-  RIM = new THREE.Color("#a29a68"),
-  TROUGH = new THREE.Color("#5f7246"),
-  SNOW = new THREE.Color("#eef2f3");
+const TUNDRA = new THREE.Color("#6f7a4b"),
+  RIM = new THREE.Color("#867f55"),
+  TROUGH = new THREE.Color("#55693f"),
+  SNOW = new THREE.Color("#eef2f3"),
+  MOSS = new THREE.Color("#7d8a4a"),
+  PEAT = new THREE.Color("#5b4d3a");
 
 /** Low-centered polygons: troughs over the wedges, raised rims beside them and wet centers. */
 function polygonHeight(x: number, z: number, growth: number) {
@@ -99,7 +104,7 @@ function polygonHeight(x: number, z: number, growth: number) {
   return (
     -0.05 * g * Math.exp(-((e / 0.07) ** 2)) +
     0.045 * g * Math.exp(-(((e - 0.2) / 0.08) ** 2)) -
-    0.03 * g * THREE.MathUtils.smoothstep(e, 0.3, 0.6) +
+    0.042 * g * THREE.MathUtils.smoothstep(e, 0.3, 0.6) +
     0.006 * (noise(x * 6, z * 6) - 0.5)
   );
 }
@@ -192,7 +197,10 @@ export default function Periglacial() {
       const e = edgeDistance(x, z),
         c = TUNDRA.clone().lerp(RIM, Math.exp(-(((e - 0.2) / 0.08) ** 2)) * 0.8);
       c.lerp(TROUGH, Math.exp(-((e / 0.08) ** 2)));
-      c.multiplyScalar(0.92 + 0.16 * noise(x * 7, z * 7));
+      // Patches of moss, lichen and bare peat.
+      c.lerp(MOSS, 0.45 * THREE.MathUtils.smoothstep(noise(x * 9 + 3, z * 9), 0.55, 0.8));
+      c.lerp(PEAT, 0.35 * THREE.MathUtils.smoothstep(noise(x * 13, z * 13 + 5), 0.62, 0.85));
+      c.multiplyScalar(0.9 + 0.2 * noise(x * 23, z * 23));
       // Snow lies thickest in the troughs and thinly elsewhere.
       if (winter) c.lerp(SNOW, 0.75 + 0.2 * Math.exp(-((e / 0.1) ** 2)));
       return c.getStyle();
@@ -201,11 +209,13 @@ export default function Periglacial() {
   );
   const tussocks = useMemo(
     () =>
-      Array.from({ length: 260 }, (_, i) => {
+      // Sedges and dwarf shrubs crowd the dry rims and the trough sides; the ponded centers stay
+      // open water.
+      Array.from({ length: 1600 }, (_, i) => {
         const x = -2.9 + random(i + 3) * 5.8,
           z = -2.9 + random(i + 51) * 5.8;
         return [x, ground(x, z), z] as [number, number, number];
-      }).filter(([x, , z]) => edgeDistance(x, z) > 0.12 && edgeDistance(x, z) < 0.32),
+      }).filter(([x, , z]) => edgeDistance(x, z) > 0.07 && edgeDistance(x, z) < 0.34),
     [ground],
   );
   return (
@@ -246,8 +256,8 @@ export default function Periglacial() {
               depth={3.6}
               resolution={160}
               deep={0.03}
-              shallowColour={winter ? "#dfe9ec" : "#7e9a8a"}
-              deepColour={winter ? "#c4d8de" : "#3f6a70"}
+              shallowColour={winter ? "#dfe9ec" : "#5d7868"}
+              deepColour={winter ? "#c4d8de" : "#2c4a50"}
             />
             <GrassPatch
               positions={sectionTussocks}
@@ -278,7 +288,7 @@ export default function Periglacial() {
             <Tag
               pos={[2.7, -2, 1.8]}
               text="Permafrost"
-              note="Permafrost is ground that stays at or below 0 °C for at least two consecutive years; it is not necessarily solid ice. The pale streaks are lenses of ground ice beneath the active layer."
+              note="Permafrost is ground that stays at or below 0 °C for at least two consecutive years; it is not necessarily solid ice. The pale streaks are lenses of ground ice, most plentiful in the ice-rich ground just below the active layer; beside the wedge the layers bend upward where the growing wedge has pushed them."
               occlude={false}
             />
             <Tag
@@ -298,21 +308,21 @@ export default function Periglacial() {
               resolution={240}
               base={-0.6}
               cliff={0.3}
-              mottle={0.04}
+              mottle={0.11}
               sideGlsl={NETWORK_GLSL}
               sideUniforms={networkUniforms}
             />
             <ShallowWater
               land={ground}
-              level={() => -0.012}
+              level={() => -0.014}
               width={6}
               depth={6}
               resolution={200}
-              deep={0.02}
-              shallowColour={winter ? "#dfe9ec" : "#7e9a8a"}
-              deepColour={winter ? "#c4d8de" : "#3f6a70"}
+              deep={0.014}
+              shallowColour={winter ? "#dfe9ec" : "#5d7868"}
+              deepColour={winter ? "#c4d8de" : "#2c4a50"}
             />
-            <GrassPatch positions={tussocks} height={0.06} color={winter ? "#bdb59a" : "#8a8a55"} />
+            <GrassPatch positions={tussocks} height={0.05} color={winter ? "#bdb59a" : "#7f8150"} />
             <Tag
               pos={[0, 0.7, 0]}
               text="Thermal-contraction polygon network"
