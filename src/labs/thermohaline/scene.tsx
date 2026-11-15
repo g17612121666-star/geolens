@@ -11,7 +11,12 @@ import { PlantStand } from "../shared/natural-world";
 import { Tag } from "../shared/kit";
 import { OceanSurface } from "../shared/ocean-section";
 import { FlowFilaments } from "../atmosphere-layers/weather-volumes";
-import { densityParcelHeight } from "./transport";
+import {
+  densityParcelHeight,
+  isothermDepth,
+  temperatureColour,
+  waterTemperature,
+} from "./transport";
 export default function Thermohaline() {
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 45);
@@ -36,7 +41,7 @@ export default function Thermohaline() {
         camera={[1.4, 2.2, 7]}
         scale={
           view === 0
-            ? "Overturning section · depth ×500 · routes and tracers illustrative"
+            ? "Overturning section · depth ×500 · temperatures schematic · routes and tracers illustrative"
             : "Density experiment · one meter tank · parcel marker enlarged"
         }
         trueScale={
@@ -189,7 +194,7 @@ export default function Thermohaline() {
       </ScienceStudio>
       <ScienceReadout>
         {view === 0
-          ? "Warm upper water (amber) flows from the tropical coast (left) to the icy polar coast (right), sinks and returns at depth (blue). Choose Density experiment to vary the parcel."
+          ? "Colors show a schematic temperature section: a warm surface layer (orange) over a sharp thermocline and cold deep water (dark blue). The dashed isotherms rise toward the icy polar coast (right), where cold, dense water reaches the surface and sinks; it returns at depth (blue route) and rises again toward the tropics (left). Choose Density experiment to vary the parcel."
           : `${temperature} °C · Absolute Salinity ${salinity.toFixed(1)} g/kg · density difference ${difference >= 0 ? "+" : ""}${difference.toFixed(2)} kg/m³: ${Math.abs(difference) < 0.005 ? "neutral" : difference > 0 ? "denser parcel tends to sink" : "lighter parcel rises toward the surface"}.`}{" "}
         <br />
         {view === 0 ? (
@@ -271,18 +276,8 @@ function overturningLoop(f: number) {
   };
   return { upper, lower, mid, at };
 }
-const TROPIC = new THREE.Color("#e39a5c"),
-  POLAR = new THREE.Color("#8cc0d6"),
-  DEEP = new THREE.Color("#22507a");
-/** Schematic temperature of the water: warm surface at low latitude (left), cold deep water. */
-function waterColour(x: number, y: number, bottom: number, out: THREE.Color) {
-  const across = (x + 2) / 4,
-    depth = Math.min(1, -y / -bottom);
-  return out
-    .copy(TROPIC)
-    .lerp(POLAR, across)
-    .lerp(DEEP, Math.min(1, Math.pow(depth, 0.45) + across * 0.25));
-}
+/** Isotherms drawn on the section, °C. */
+const ISOTHERMS = [20, 10, 5];
 
 /**
  * The ocean basin in section: bathymetry with shelves and a ridge, a tropical coast on the
@@ -304,22 +299,27 @@ function OceanBasin({ bottom }: { bottom: number }) {
       c: number[] = [],
       idx: number[] = [],
       col = new THREE.Color(),
-      n = 200;
+      n = 200,
+      rows = 48;
     for (const z of [0.801, -0.801]) {
       const start = p.length / 3;
       for (let i = 0; i <= n; i++) {
         const x = -SHORE + (2 * SHORE * i) / n,
           floor = Math.min(0, ground(x));
-        for (const y of [0, floor]) {
+        for (let r = 0; r <= rows; r++) {
+          // Rows crowd toward the surface, where the thermocline is.
+          const y = floor * (r / rows) ** 2.2;
           p.push(x, y, z);
-          waterColour(x, y, bottom, col);
+          temperatureColour(waterTemperature(x, (y / bottom) * 4000), col);
           c.push(col.r, col.g, col.b);
         }
-        if (i < n) {
-          const a = start + i * 2;
-          if (z > 0) idx.push(a, a + 1, a + 2, a + 2, a + 1, a + 3);
-          else idx.push(a, a + 2, a + 1, a + 2, a + 3, a + 1);
-        }
+        if (i < n)
+          for (let r = 0; r < rows; r++) {
+            const a = start + i * (rows + 1) + r,
+              b = a + rows + 1;
+            if (z > 0) idx.push(a, a + 1, b, b, a + 1, b + 1);
+            else idx.push(a, b, a + 1, b, b + 1, a + 1);
+          }
       }
     }
     const g = new THREE.BufferGeometry();
@@ -328,6 +328,25 @@ function OceanBasin({ bottom }: { bottom: number }) {
     g.setIndex(idx);
     return g;
   }, [ground, bottom]);
+  // Isotherms on the front face: each rises toward the pole and reaches the surface.
+  const isotherms = useMemo(
+    () =>
+      ISOTHERMS.map((celsius) => {
+        const points: [number, number, number][] = [];
+        for (let i = 0; i <= 160; i++) {
+          const x = -SHORE + 0.06 + ((2 * SHORE - 0.12) * i) / 160,
+            depth = isothermDepth(x, celsius);
+          if (depth === null) {
+            // The isotherm meets the surface here.
+            points.push([x, -0.002, 0.806]);
+            break;
+          }
+          points.push([x, Math.max((depth / 4000) * bottom, ground(x) + 0.01), 0.806]);
+        }
+        return { celsius, points };
+      }),
+    [ground, bottom],
+  );
   useEffect(() => () => faces.dispose(), [faces]);
   const palms = useMemo(
     () =>
@@ -352,8 +371,33 @@ function OceanBasin({ bottom }: { bottom: number }) {
         section={{ rock: "shale", soil: 0.02, regolith: 0.04, beds: 9, soilTone: "thin" }}
       />
       <mesh geometry={faces}>
-        <meshBasicMaterial vertexColors transparent opacity={0.6} depthWrite={false} />
+        <meshBasicMaterial vertexColors transparent opacity={0.9} depthWrite={false} />
       </mesh>
+      {isotherms.map(({ celsius, points }, k) => {
+        // Labels sit at different distances along their lines, so they never stack up.
+        const at =
+          points[Math.min(points.length - 1, Math.round(points.length * (0.2 + 0.18 * k)))];
+        return (
+          <group key={celsius}>
+            <Line
+              points={points}
+              color="#f4efe2"
+              lineWidth={1.2}
+              dashed
+              dashSize={0.05}
+              gapSize={0.035}
+            />
+            {points.length > 8 && (
+              <Tag
+                pos={[at[0], at[1] + 0.06, 0.84]}
+                text={`${celsius} °C`}
+                note="An isotherm joins points at the same temperature. In this schematic section the warm layer thins toward the pole, so the isotherms rise and reach the surface there: cold, dense water is at the surface only at high latitudes."
+                occlude={false}
+              />
+            )}
+          </group>
+        );
+      })}
       <PlantStand kind="broadleaf" positions={palms} scale={0.08} seed={4} />
     </>
   );
