@@ -7,16 +7,22 @@ import assert from "node:assert/strict";
 import { isothermDepth, waterTemperature } from "../src/labs/thermohaline/transport.ts";
 import { classroomDensity } from "../src/lib/ocean-circulation-science.ts";
 
-test("water cools with depth everywhere, to about 2 °C in the deep ocean", () => {
+test("water cools with depth outside the polar sinking region, to about 2 °C in the deep ocean", () => {
   for (let x = -2; x <= 2; x += 0.25) {
+    // Where deep water forms, the surface is as cold as the deep ocean (here slightly colder),
+    // so the water column is not stratified by temperature and dense water can sink.
+    if (x > 1.5) continue;
     let previous = Infinity;
     for (let depth = 0; depth <= 4000; depth += 100) {
       const t = waterTemperature(x, depth);
       assert.ok(t <= previous + 1e-12, `x ${x}, ${depth} m`);
       previous = t;
     }
-    assert.ok(Math.abs(waterTemperature(x, 4000) - 2) < 0.5, `deep water at x ${x}`);
   }
+  for (let x = -2; x <= 2; x += 0.25)
+    assert.ok(Math.abs(waterTemperature(x, 4000) - 2) < 0.5, `deep water at x ${x}`);
+  // At the polar end the whole column is within a degree or so of the deep water.
+  assert.ok(Math.abs(waterTemperature(2, 0) - waterTemperature(2, 4000)) < 1.5);
 });
 
 test("the tropical surface is warm and the polar surface near freezing", () => {
