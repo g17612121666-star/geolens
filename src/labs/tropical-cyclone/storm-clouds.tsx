@@ -91,12 +91,13 @@ void main(){
   if(alpha<.02)discard;
   vec3 n=normalize(vNormalW);
   float sun=max(dot(n,uSun),0.), wrap=.5+.5*dot(n,uSun);
-  float texture=tcFbm(vQ*22.)*.5+tcFbm(vQ*60.)*.5;
+  // Soft billows on the cloud tops, rather than grain.
+  float texture=tcFbm(vQ*9.)*.6+tcFbm(vQ*23.)*.4;
   // Tall tops are bright white; lower decks and band edges look grayer.
   float lift=smoothstep(3.,14.,vKm);
-  vec3 shadow=vec3(.42,.5,.6), lit=vec3(1.,.99,.97);
-  vec3 c=mix(shadow,lit,clamp(.18+.62*sun+.28*wrap*lift,0.,1.));
-  c*=.9+.16*texture;
+  vec3 shadow=vec3(.44,.52,.62), lit=vec3(1.,.99,.97);
+  vec3 c=mix(shadow,lit,clamp(.2+.6*sun+.28*wrap*lift,0.,1.));
+  c*=.94+.09*texture;
   gl_FragColor=vec4(pow(c,vec3(2.2)),alpha);
   #include <tonemapping_fragment>
   #include <colorspace_fragment>
@@ -156,9 +157,12 @@ void main(){
   if(vTop>1.4&&vKm>base&&vKm<vTop){
     // Inside the cloud: darker toward the base, white near the top, with towering structure.
     float up=(vKm-base)/max(vTop-base,.5);
-    float towers=tcFbm(vec2(vR*13.,vKm*.35))*.6+tcFbm(vec2(vR*41.,vKm*1.3))*.4;
+    // Rounded cells: the noise is scaled the same across the face and up it, as drawn
+    // (1 km of height is 0.1 unit times the vertical exaggeration), so it reads as billows.
+    vec2 f=vec2(vR,vKm*${KM_TO_UNITS.toFixed(3)}*uVert);
+    float cells=tcFbm(f*7.+3.)*.65+tcFbm(f*17.-5.)*.35;
     float core=smoothstep(7.,14.,vTop);
-    c=mix(vec3(.46,.53,.62),vec3(.96,.97,.98),smoothstep(0.,.95,up)*.85+towers*.25);
+    c=mix(vec3(.48,.55,.64),vec3(.96,.97,.98),clamp(smoothstep(0.,.95,up)*.82+(cells-.5)*.4,0.,1.));
     c=mix(c,c*vec3(.8,.85,.93),core*(1.-up)*.65);
     // A thin outline traces the cloud boundary along the cut, so it reads as a section.
     float edge=1.-smoothstep(.0,.35,vTop-vKm)+1.-smoothstep(.0,.25,vKm-base);

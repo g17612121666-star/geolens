@@ -21,34 +21,40 @@ float tcNoise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
   return mix(mix(tcHash(i),tcHash(i+vec2(1.,0.)),f.x),mix(tcHash(i+vec2(0.,1.)),tcHash(i+vec2(1.,1.)),f.x),f.y);}
 float tcFbm(vec2 p){return .5*tcNoise(p)+.3*tcNoise(p*2.03+3.7)+.2*tcNoise(p*4.11-1.3);}
 
+/** Smooth maximum: like max(a, b), but rounding the crease where the two meet over about k. */
+float tcSmax(float a,float b,float k){float h=max(k-abs(a-b),0.)/k;return max(a,b)+h*h*k*.25;}
+
 /**
  * Cloud-top height (km) at radius r and azimuth a, where a is the azimuth the cloud had before
  * the vortex turned it. spin = -1 Northern Hemisphere (counterclockwise from above), +1 Southern.
- * strength runs 0..1 with the Intensity slider.
+ * strength runs 0..1 with the Intensity slider. Cloud features are kept tens of kilometers
+ * across, as convective cells and turrets are seen from space, rather than grainy.
  */
 float tcCloudTop(float r,float a,float spin,float strength){
   vec2 q=vec2(cos(a),sin(a))*r;
-  float n=tcFbm(q*1.7+5.),cells=tcFbm(q*6.3+11.);
+  // Broad, smooth variation: the canopy's ragged edge and cells along the bands.
+  float n=tcFbm(q*1.7+5.),edgeN=tcNoise(q*1.3+5.),cells=tcNoise(q*2.+11.);
   float eye=smoothstep(.27,.45,r);
   // Eyewall: tallest towers just inside the radius of maximum wind; the inner face slopes
   // outward with height (the "stadium" seen from aircraft).
   float wall=exp(-tcSq((r-.64)/(.2+.06*strength)));
   float hWall=(12.5+3.*strength)*wall;
-  // Cirrus canopy spread by the outflow over the inner core.
-  float canopy=(1.-smoothstep(.9+.45*strength,1.9+.6*strength,r+(n-.5)*.7))*smoothstep(.32,.6,r);
+  // Cirrus canopy spread by the outflow over the inner core: a smooth, gently domed sheet.
+  float canopy=(1.-smoothstep(.9+.45*strength,1.9+.6*strength,r+(edgeN-.5)*.7))*smoothstep(.32,.6,r);
   float hCanopy=(10.5+2.*strength)*canopy;
   // Spiral rainbands wind inward cyclonically: along a band the azimuth turns with the
   // flow as the radius falls. Pitch about 20 degrees: phase = a + spin * 2.75 * ln r.
   // The offset places a band across each default cutaway face (about 120 and 190 km out).
   float phase=a+spin*2.75*log(max(r,.05))+(spin<0.?-1.67:-.2);
   float wave=.5+.5*cos(2.*phase+(n-.5)*1.2);
-  float band=smoothstep(.42,.95,wave)*smoothstep(1.25,1.9,r)*(1.-smoothstep(4.5,5.5,r));
-  float hBand=(6.+2.5*cells+1.5*strength)*band;
+  float band=smoothstep(.36,.97,wave)*smoothstep(1.25,1.9,r)*(1.-smoothstep(4.5,5.5,r));
+  // Deeper cells strung along each band.
+  float hBand=(6.+2.2*smoothstep(.35,.75,cells)+1.5*strength)*band;
   // Scattered cumulus between the bands.
-  float hCu=2.6*smoothstep(.7,.9,tcFbm(q*2.2+2.))*smoothstep(1.5,2.2,r)*(1.-smoothstep(4.8,5.6,r));
-  float h=max(max(hWall,hCanopy),max(hBand,hCu))*eye;
-  // Cauliflower texture on convective towers.
-  h+=(cells-.5)*1.4*smoothstep(3.,8.,h);
+  float hCu=2.6*smoothstep(.6,.92,tcFbm(q*2.2+2.))*smoothstep(1.5,2.2,r)*(1.-smoothstep(4.8,5.6,r));
+  float h=tcSmax(tcSmax(hWall,hCanopy,1.5),tcSmax(hBand,hCu,1.),1.2)*eye;
+  // Overshooting tops: rounded domes over the deepest convection, about 20 km across.
+  h+=1.4*smoothstep(.45,.85,tcNoise(q*2.4+23.))*smoothstep(9.,13.,h);
   return clamp(h,0.,16.5);
 }
 

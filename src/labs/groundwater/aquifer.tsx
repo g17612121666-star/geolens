@@ -5,7 +5,7 @@ import { useThree } from "@react-three/fiber";
 import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { wellHead } from "@/lib/hydrology-science";
-import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
+import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { terrainGeometry } from "../shared/science-geometry";
 import { Tag, InspectHotspot } from "../shared/kit";
 import { WaterRibbon } from "../shared/geomorphic-terrain";
@@ -15,34 +15,60 @@ import { SectionMaterial } from "../shared/section-material";
 import { useSectionUniforms } from "../shared/section-utils";
 import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
+const DEEP = new THREE.Color("#3a5f9e");
+/** Horizontal scale: the block shows 250 × 200 m around the well, where the cone of depression
+ * is; heads are drawn at 1 scene unit = 10 m, so the vertical is exaggerated ×5. */
+const M_PER_UNIT = 50;
+
 export default function Groundwater() {
   const { params, trueScale, t } = useLabState("params", "trueScale", "t");
   useLabTick(1 / 24);
   const confined = params.confined > 0.5,
     pump = (params.pump ?? 0) / 800,
     H = params.head ?? 31,
-    f = trueScale ? 1 / 20 : 1;
+    f = trueScale ? 10 / M_PER_UNIT : 1;
   const head = (x: number, z: number) =>
-    (wellHead(Math.hypot(x, z) * 200, pump, H, confined) / 10) * f;
+    (wellHead(Math.hypot(x, z) * M_PER_UNIT, pump, H, confined) / 10) * f;
   const surface = useMemo(
-    () => terrainGeometry(head, 5, 4, 160),
+    () => {
+      // Shade the surface deeper where it has been drawn down, so the funnel reads in 3-D.
+      const g = terrainGeometry(head, 5, 4, 160),
+        p = g.attributes.position,
+        c = new Float32Array(p.count * 3),
+        col = new THREE.Color(),
+        level = (H / 10) * f,
+        deepest = Math.max(1e-6, level - head(0, 0));
+      for (let i = 0; i < p.count; i++) {
+        col.set("#ffffff").lerp(DEEP, Math.min(1, (level - p.getY(i)) / deepest) ** 0.6 * 0.7);
+        c.set([col.r, col.g, col.b], i * 3);
+      }
+      g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+      return g;
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps -- head is redefined each render from pump, H, confined and f, which are listed
     [pump, H, confined, f],
   );
   useEffect(() => () => surface.dispose(), [surface]);
   const atWell = wellHead(0.2, pump, H, confined),
-    radii = [10, 30, 80, 200, 400];
+    radii = [5, 15, 40, 80, 120];
   return (
     <>
       <ScienceStudio
         slug="groundwater"
-        scale="Vertical ×20 · well, grains, pores, farm and river illustrative · steady radial flow"
-        trueScale="Equal horizontal and vertical scale · 1 scene unit = 200 m"
+        scale="250 × 200 m around the well · vertical ×5 · well, grains, pores, farm and river illustrative · steady radial flow"
+        trueScale="Equal horizontal and vertical scale · 1 scene unit = 50 m"
         camera={[5, 3.5, 7]}
       >
         <group position={[0, -1.5 * f, 0]}>
           <LocalClipping />
-          <AquiferBlock f={f} confined={confined} head={head} pump={pump} time={t * 24} />
+          <AquiferBlock
+            f={f}
+            confined={confined}
+            head={head}
+            pump={pump}
+            time={t * 24}
+            staticLevel={(H / 10) * f}
+          />
           {confined && (
             <InspectHotspot
               name="Aquitard"
@@ -57,8 +83,9 @@ export default function Groundwater() {
           <mesh geometry={surface}>
             <meshPhysicalMaterial
               color={confined ? "#dfc17d" : "#4eb2d0"}
+              vertexColors
               transparent
-              opacity={confined ? 0.38 : 0.3}
+              opacity={confined ? 0.42 : 0.36}
               clippingPlanes={CUT}
               clipIntersection
               roughness={0.25}
@@ -72,9 +99,9 @@ export default function Groundwater() {
               points={Array.from({ length: 97 }, (_, i): [number, number, number] => {
                 const a = (i / 96) * Math.PI * 2;
                 return [
-                  (r / 200) * Math.cos(a),
+                  (r / M_PER_UNIT) * Math.cos(a),
                   (wellHead(r, pump, H, confined) / 10) * f + 0.005,
-                  (r / 200) * Math.sin(a),
+                  (r / M_PER_UNIT) * Math.sin(a),
                 ];
               })}
               color={confined ? "#dfc17d" : "#77d0dd"}
@@ -87,13 +114,51 @@ export default function Groundwater() {
               key={`profile-${face}`}
               points={Array.from({ length: 120 }, (_, i): [number, number, number] => {
                 const s = 0.001 + (face ? 2 : 2.5) * (i / 119) ** 2,
-                  y = (wellHead(s * 200, pump, H, confined) / 10) * f;
+                  y = (wellHead(s * M_PER_UNIT, pump, H, confined) / 10) * f;
                 return face ? [0.006, y, s] : [s, y, 0.006];
               })}
               color={confined ? "#f0cf7a" : "#9be3f2"}
               lineWidth={2.5}
             />
           ))}
+          {/* The water level before pumping, on both cut faces, and the drawdown at the well:
+              the cone of depression is the gap between this level and the pumped profile. */}
+          {pump > 0 && (
+            <>
+              {[0, 1].map((face) => (
+                <Line
+                  key={`static-${face}`}
+                  points={[
+                    face ? [0.008, (H / 10) * f, 0.06] : [0.06, (H / 10) * f, 0.008],
+                    face ? [0.008, (H / 10) * f, 2] : [2.5, (H / 10) * f, 0.008],
+                  ]}
+                  color="#f4efe6"
+                  lineWidth={1.4}
+                  dashed
+                  dashSize={0.06}
+                  gapSize={0.05}
+                />
+              ))}
+              {H - atWell > 0.3 && (
+                <>
+                  <Arrow
+                    from={[0.014, (H / 10) * f + 0.02, 0.17]}
+                    to={[0.014, (atWell / 10) * f, 0.17]}
+                    color="#ffcf7a"
+                    width={1.4}
+                  />
+                  <Tag
+                    priority={2}
+                    pos={[0.02, (atWell / 10) * f - 0.42, 0.42]}
+                    text={`Drawdown ${(H - atWell).toFixed(1)} m`}
+                    short="Drawdown"
+                    note="How far the water level at the well has dropped below its level before pumping (dashed line). The drop is greatest at the well and shrinks with distance: that sloping surface is the cone of depression."
+                    occlude={false}
+                  />
+                </>
+              )}
+            </>
+          )}
           {[0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 1.0].map((y) => (
             <mesh key={y} position={[0, y * f, 0]} rotation={[Math.PI / 2, 0, 0]}>
               <torusGeometry args={[0.049, 0.006, 5, 20]} />
@@ -175,18 +240,34 @@ export default function Groundwater() {
           />
           {pump > 0 && (
             <Tag
-              pos={[0.55, (wellHead(110, pump, H, confined) / 10) * f + 0.12, 0.02]}
+              pos={[0.8, (wellHead(1.13 * M_PER_UNIT, pump, H, confined) / 10) * f + 0.3, 0.8]}
               text="Cone of depression"
               short="Cone"
               note={
                 confined
                   ? "Pumping lowers the potentiometric surface most near the well, so water in the aquifer flows toward it. The aquifer itself stays full beneath the clay."
-                  : "Pumping lowers the water table most near the well, so the head slopes toward it and water in the pores flows in from all sides. The drop is drawn 20 times deeper than true scale."
+                  : "Pumping lowers the water table most near the well, so the head slopes toward it and water in the pores flows in from all sides. The drop is drawn 5 times deeper than true scale, like every height here; the dashed line is the water table before pumping."
               }
               occlude={false}
-              priority={1}
+              priority={3}
             />
           )}
+          {/* Water converges on the well from all sides: through the saturated zone below the
+              water table, or, when confined, through the aquifer beneath the clay. */}
+          {pump > 0 &&
+            // In the open corner of the cutaway, where the water table can be seen.
+            [0.1, 0.25, 0.4].map((turns, i) => {
+              const a = turns * Math.PI,
+                at = (r: number) =>
+                  [
+                    r * Math.cos(a),
+                    confined
+                      ? 0.6 * f
+                      : (wellHead(r * M_PER_UNIT, pump, H, confined) / 10) * f - 0.22,
+                    r * Math.sin(a),
+                  ] as [number, number, number];
+              return <Arrow key={i} from={at(1.85)} to={at(0.95)} color="#bfe7f2" width={1.2} />;
+            })}
           <Tag
             pos={[0.9, 4.3 * f, 0]}
             text="Pumping well"
@@ -239,7 +320,7 @@ function LocalClipping() {
 /** Layers in section (heights in meters ÷ 10, times the vertical factor f): bedrock below 0,
  * sand and gravel aquifer, a clay aquitard (confined case), dry sand above the water table and
  * a soil cap. The water table comes from the lab's head model through a radial profile. */
-const AQUIFER_GLSL = `uniform sampler2D uProfile; uniform float uF,uConfined,uTop,uLift,uTime,uPump;
+const AQUIFER_GLSL = `uniform sampler2D uProfile; uniform float uF,uConfined,uTop,uLift,uTime,uPump,uStatic;
 // Water moving toward the pumping well: dashes along horizontal lanes. Speed rises as 1/r
 // near the well, so dash phase advances evenly in r squared.
 float flowDash(float r,float y,float f){
@@ -265,9 +346,9 @@ vec3 sectionColour(vec3 p0,vec3 w){
   // Sand is pale where dry and darker where wet. Pores hold air above the water table and water
   // below it, so the saturated zone reads as wet sand with water in its pores, not a lake.
   vec3 dry=mix(vec3(.86,.76,.56),vec3(.74,.63,.44),g)*tone;
-  vec3 airPores=mix(dry,vec3(.5,.43,.33),pore*.55);
+  vec3 airPores=mix(dry,vec3(.5,.43,.33),pore*.38);
   vec3 wetSand=mix(vec3(.62,.52,.39),vec3(.5,.42,.32),g)*tone;
-  vec3 wet=mix(wetSand,vec3(.3,.58,.78),.1+pore*.8);
+  vec3 wet=mix(wetSand,vec3(.3,.58,.78),.14+pore*.5);
   vec3 c;
   if(y<0.){c=mix(vec3(.42,.40,.40),vec3(.32,.31,.32),g);c*=mix(.7,1.,smoothstep(0.,.01,abs(fract(p.x*1.7+y*3.)-.5)*2.));}
   else if(y>uTop-.08*f-.02)c=mix(vec3(.40,.30,.21),vec3(.32,.24,.17),g);
@@ -278,6 +359,9 @@ vec3 sectionColour(vec3 p0,vec3 w){
   }else{
     float fringe=smoothstep(wt+.06*f+.02,wt,y);
     c=y<wt?wet*mix(.84,1.,smoothstep(0.,wt,y)):mix(airPores,wet,fringe*.55);
+    // Sand that pumping has drained, between the level before pumping and the water table now:
+    // the cone of depression, shown in a pale amber so it stands apart from both zones.
+    if(y>=wt&&y<uStatic)c=mix(mix(dry,wetSand,.3),vec3(.98,.8,.45),.55)*mix(.92,1.04,g);
     float gravel=smoothstep(.6,.8,sFbm(vec2(p.x*2.,y/f*1.2)))*step(y,.5*f);
     c=mix(c,mix(vec3(.58,.56,.52),vec3(.42,.40,.38),step(.5,sHash(floor(q*.4)))),gravel*.7);
     if(y<wt)c=mix(c,vec3(.8,.94,.98),flowDash(r,y,f)*.85);
@@ -292,6 +376,7 @@ function AquiferBlock({
   head,
   pump,
   time,
+  staticLevel,
 }: {
   f: number;
   confined: boolean;
@@ -299,6 +384,8 @@ function AquiferBlock({
   /** 0..1 share of the maximum pumping rate. */
   pump: number;
   time: number;
+  /** Height of the water table before pumping (the boundary head), scene units. */
+  staticLevel: number;
 }) {
   const top = 4 * f;
   const ground = useMemo(
@@ -346,6 +433,7 @@ function AquiferBlock({
     uLift: -1.5 * f,
     uTime: time,
     uPump: Math.min(1, pump * 2.5),
+    uStatic: staticLevel,
   });
   const farm = useMemo(
     () => settlement(0.55, -0.55, 4, 0.25, 0.08, 3, (x, z) => Math.hypot(x, z) > 0.25),
@@ -377,7 +465,7 @@ function AquiferBlock({
           attach="material-1"
           glsl={AQUIFER_GLSL}
           uniforms={uniforms}
-          cacheKey="groundwater-aquifer-v6"
+          cacheKey="groundwater-aquifer-v9"
           clippingPlanes={CUT}
           clipIntersection
         />
@@ -395,7 +483,7 @@ function AquiferBlock({
           <SectionMaterial
             glsl={AQUIFER_GLSL}
             uniforms={uniforms}
-            cacheKey="groundwater-aquifer-v6"
+            cacheKey="groundwater-aquifer-v9"
             side={THREE.DoubleSide}
           />
         </mesh>

@@ -11,34 +11,19 @@ import { FlowWaterMaterial } from "../shared/flow-water";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
+import {
+  COAST,
+  FLOOD_ROWS,
+  FLOOD_STEPS,
+  HALF,
+  LAND,
+  NX,
+  NZ,
+  X0,
+  floodLimit,
+  floorMetres,
+} from "./coast";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
-
-/** 1 scene unit = 20 km across the shelf; heights in meters are multiplied by `f / 20000`. */
-const X0 = -2.5,
-  COAST = 2.5,
-  LAND = 3.5,
-  HALF = 1.1,
-  NX = 120,
-  NZ = 22;
-
-/** Sea floor and land in meters: a flat shelf, a short beach, dunes, then a low coastal plain. */
-function floorMetres(x: number, z: number, depth: number) {
-  if (x < COAST - 0.14)
-    return -depth + 0.35 * Math.sin(x * 40 + 3 * Math.sin(z * 4)) * (fbm(x * 2, z * 2) + 0.3);
-  if (x < COAST + 0.06) {
-    const u = (x - (COAST - 0.14)) / 0.2;
-    return -depth + (depth + 1.2) * u * u * (3 - 2 * u);
-  }
-  const inland = x - COAST - 0.06,
-    dune = 3.2 * Math.exp(-(((inland - 0.07) / 0.05) ** 2)) * (0.8 + 0.4 * fbm(z * 6, 1));
-  return (
-    1.2 +
-    dune +
-    Math.min(1, inland / 0.25) * 2 +
-    4 * Math.max(0, inland - 0.55) +
-    1.2 * (fbm(x * 3, z * 3) - 0.5)
-  );
-}
 
 export default function StormSurge() {
   const { params, trueScale } = useLabState("params", "trueScale"),
@@ -99,7 +84,8 @@ export default function StormSurge() {
     return g;
   }, []);
   useEffect(() => () => surface.dispose(), [surface]);
-  const column = useMemo(() => {
+  /** A strip down the front face between two heights at each x, updated in place. */
+  const strip = () => {
     const g = new THREE.BufferGeometry();
     g.setAttribute(
       "position",
@@ -112,11 +98,16 @@ export default function StormSurge() {
       idx.push(i * 2, i * 2 + 2, i * 2 + 1, i * 2 + 1, i * 2 + 2, i * 2 + 3);
     g.setIndex(idx);
     return g;
-  }, []);
-  useEffect(() => () => column.dispose(), [column]);
+  };
+  // Water on the front face: the still sea below mean sea level, then the water raised by the
+  // low pressure, then the water piled up by the wind on top of it.
+  const layers = useMemo(() => ({ still: strip(), pressure: strip(), wind: strip() }), []);
+  useEffect(() => () => Object.values(layers).forEach((g) => g.dispose()), [layers]);
+  /** The pressure part of the rise at x: the pressure drop grows steadily toward the coast. */
+  const pressurePart = (x: number) =>
+    result.inverseBarometer * THREE.MathUtils.clamp((x - X0) / (COAST - X0), 0, 1);
   useLayoutEffect(() => {
     const p = surface.attributes.position as THREE.BufferAttribute,
-      q = column.attributes.position as THREE.BufferAttribute,
       chop = trueScale ? 0 : 0.004 + (wind / 45) * 0.012;
     for (let i = 0; i < p.count; i++) {
       const x = p.getX(i),
@@ -125,18 +116,96 @@ export default function StormSurge() {
       const waves = chop * Math.sin(x * 26 + Math.sin(z * 5) * 2) * Math.sin(z * 19 + x * 4);
       p.setY(i, eta(x) * s + waves);
     }
-    for (let i = 0; i <= NX; i++) {
-      const x = X0 + (i / NX) * (COAST + 0.02 - X0);
-      q.setXYZ(i * 2, x, Math.min(ground(x, HALF), eta(x) * s), HALF);
-      q.setXYZ(i * 2 + 1, x, eta(x) * s, HALF);
-    }
+    const set = (
+      g: THREE.BufferGeometry,
+      low: (x: number) => number,
+      high: (x: number) => number,
+    ) => {
+      const q = g.attributes.position as THREE.BufferAttribute;
+      for (let i = 0; i <= NX; i++) {
+        const x = X0 + (i / NX) * (COAST + 0.02 - X0),
+          floorY = ground(x, HALF),
+          top = Math.max(floorY, high(x)),
+          bottom = Math.min(top, Math.max(floorY, low(x)));
+        q.setXYZ(i * 2, x, bottom, HALF + 0.001);
+        q.setXYZ(i * 2 + 1, x, top, HALF + 0.001);
+      }
+      q.needsUpdate = true;
+      g.computeBoundingSphere();
+    };
+    set(
+      layers.still,
+      (x) => ground(x, HALF),
+      () => 0,
+    );
+    set(
+      layers.pressure,
+      () => 0,
+      (x) => pressurePart(x) * s,
+    );
+    set(
+      layers.wind,
+      (x) => pressurePart(x) * s,
+      (x) => eta(x) * s,
+    );
     p.needsUpdate = true;
-    q.needsUpdate = true;
     surface.computeVertexNormals();
-    column.computeBoundingSphere();
     surface.computeBoundingSphere();
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- eta is redefined each render and reads only result, which is listed
-  }, [result, s, wind, trueScale, surface, column, ground]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- eta and pressurePart are redefined each render and read only result, which is listed
+  }, [result, s, wind, trueScale, surface, layers, ground]);
+
+  // Low land the water at the coast can reach: a sheet at the coastal water level from the shore
+  // to each row's flood limit, with its waterline, and the flood water on the front face.
+  const level = result.coastalSetup;
+  const flood = useMemo(() => {
+    const limits = Array.from({ length: FLOOD_ROWS + 1 }, (_, j) => {
+        const z = -HALF + (j / FLOOD_ROWS) * HALF * 2;
+        return { z, x: floodLimit(level, z, depth) };
+      }),
+      y = level * s,
+      positions: number[] = [],
+      index: number[] = [];
+    limits.forEach(({ z, x }, j) => {
+      for (let i = 0; i <= FLOOD_STEPS; i++)
+        positions.push(COAST - 0.02 + ((x - COAST + 0.02) * i) / FLOOD_STEPS, y + 0.002, z);
+      if (j > 0)
+        for (let i = 0; i < FLOOD_STEPS; i++) {
+          const a = (j - 1) * (FLOOD_STEPS + 1) + i,
+            b = a + FLOOD_STEPS + 1;
+          index.push(a, b, a + 1, a + 1, b, b + 1);
+        }
+    });
+    const sheet = new THREE.BufferGeometry();
+    sheet.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+    sheet.setIndex(index);
+    sheet.computeVertexNormals();
+    const front = limits[FLOOD_ROWS].x,
+      face: number[] = [],
+      faceIndex: number[] = [];
+    for (let i = 0; i <= 40; i++) {
+      const x = COAST + 0.02 + ((front - COAST - 0.02) * i) / 40;
+      face.push(x, Math.min(y, ground(x, HALF)), HALF + 0.001, x, y, HALF + 0.001);
+      if (i > 0) faceIndex.push(i * 2 - 2, i * 2, i * 2 - 1, i * 2 - 1, i * 2, i * 2 + 1);
+    }
+    const column = new THREE.BufferGeometry();
+    column.setAttribute("position", new THREE.Float32BufferAttribute(face, 3));
+    column.setIndex(faceIndex);
+    // Land beyond the dunes counts as flooded once the water has topped them.
+    const overtopped = limits.some(({ z, x }) => x > COAST + 0.3 && Math.abs(z) < HALF - 0.1);
+    return {
+      sheet,
+      column,
+      overtopped,
+      line: limits.map(({ z, x }) => [x, y + 0.004, z] as [number, number, number]),
+    };
+  }, [level, depth, s, ground]);
+  useEffect(
+    () => () => {
+      flood.sheet.dispose();
+      flood.column.dispose();
+    },
+    [flood],
+  );
 
   const town = useMemo(
     () =>
@@ -170,7 +239,7 @@ export default function StormSurge() {
       <ScienceStudio
         slug="storm-surge"
         camera={[1.2, 2.8, 6.4]}
-        scale="1 scene unit = 20 km · heights ×1000 · 100 km flat shelf · steady setup · wind waves and town illustrative"
+        scale="1 scene unit = 20 km · heights ×1000 · 100 km flat shelf · steady setup · flooding inland is a bathtub estimate · wind waves and town illustrative"
         trueScale="1 scene unit = 20 km · real sea-level rise is small beside shelf width"
       >
         <mesh geometry={floor} castShadow receiveShadow>
@@ -180,7 +249,7 @@ export default function StormSurge() {
         <mesh geometry={surface} receiveShadow>
           <FlowWaterMaterial color="#1f6580" opacity={0.88} flow={[1, 0.1]} speed={0.6} />
         </mesh>
-        <mesh geometry={column}>
+        <mesh geometry={layers.still}>
           <meshPhysicalMaterial
             color="#2f7896"
             transparent
@@ -190,6 +259,38 @@ export default function StormSurge() {
             side={THREE.DoubleSide}
           />
         </mesh>
+        <mesh geometry={layers.pressure}>
+          <meshBasicMaterial
+            color="#5fa6cf"
+            transparent
+            opacity={0.85}
+            depthWrite={false}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+        <mesh geometry={layers.wind}>
+          <meshBasicMaterial
+            color="#bfe9f2"
+            transparent
+            opacity={0.92}
+            depthWrite={false}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+        <mesh geometry={flood.sheet} receiveShadow>
+          <FlowWaterMaterial color="#3f7d8f" opacity={0.86} flow={[1, 0.15]} speed={0.4} />
+        </mesh>
+        <mesh geometry={flood.column}>
+          <meshBasicMaterial
+            color="#bfe9f2"
+            transparent
+            opacity={0.9}
+            depthWrite={false}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+        {/* Surf at the waterline, wherever the water stops on the beach, dunes or plain. */}
+        <Line points={flood.line} color="#f4f8f7" lineWidth={2.4} transparent opacity={0.9} />
         <Line
           points={Array.from({ length: NX + 1 }, (_, i) => {
             const x = X0 + (i / NX) * (COAST - X0);
@@ -299,11 +400,22 @@ export default function StormSurge() {
         />
         <Tag
           pos={[3.3, 0.85, -0.7]}
-          text="Low-lying coast"
-          short="Coast"
-          note="The town and dunes show what is exposed. The model holds the water at the coastline; it does not calculate flooding inland."
+          text={flood.overtopped ? "Coast flooded · dunes overtopped" : "Low-lying coast"}
+          short={flood.overtopped ? "Flooded" : "Coast"}
+          tone={flood.overtopped ? "glacier" : undefined}
+          note={`The town and dunes show what is exposed. ${flood.overtopped ? "The water at the coast is higher than the dune crest in places, so it pours over and floods the lower land behind. " : ""}Land lower than the water at the coast and open to the sea is shown flooded: a 'bathtub' estimate that assumes the surge lasts long enough to fill it. Real flooding also depends on how long the surge lasts, drainage and defenses; the model itself calculates the water level only up to the coastline.`}
           occlude={false}
         />
+        {level > 0.6 && (
+          <Tag
+            pos={[COAST - 1.2, eta(COAST - 1.2) * s + 0.22, HALF + 0.02]}
+            text="Water piled up by the storm"
+            short="Piled-up water"
+            priority={2}
+            note="On the cut face, the pale band is water piled up by the wind and the blue band beneath it is the rise caused by the low air pressure. Both grow toward the coast; the dashed line is mean sea level."
+            occlude={false}
+          />
+        )}
       </ScienceStudio>
       <ScienceReadout>
         {"Combined steady setup at the coast "}
@@ -312,8 +424,15 @@ export default function StormSurge() {
         {pressure} {"Pa ("}
         {(pressure / 100).toFixed(0)} {"hPa), pressure-only rise "}
         {result.inverseBarometer.toFixed(2)} {"m."} <br />
+        <span style={{ color: "#5fa6cf" }} aria-hidden="true">
+          {"■"}
+        </span>
+        {" Raised by low pressure · "}
+        <span style={{ color: "#9fd8e6" }} aria-hidden="true">
+          {"■"}
+        </span>
         {
-          "Read the combined setup on the striped tide-gauge post at the coast. Tides, waves and inland flooding are left out, so this is not a flood forecast."
+          " piled up by the wind. Read the combined setup on the striped tide-gauge post at the coast. Flooding shown inland is a bathtub estimate; tides, waves and flood duration are left out, so this is not a flood forecast."
         }
       </ScienceReadout>
     </>
