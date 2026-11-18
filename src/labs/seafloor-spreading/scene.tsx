@@ -4,12 +4,12 @@ import * as THREE from "three";
 import { Line } from "@react-three/drei";
 import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
-import { EXPERIMENT_REVERSALS, spreadingCrust } from "@/lib/spreading-science";
+import { EXPERIMENT_REVERSALS, abyssalHills, spreadingCrust } from "@/lib/spreading-science";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
-import { TerrainMaterial } from "../shared/natural-world";
+import { landscapeNoise as noise } from "../shared/landscape-noise";
 import { SectionMaterial } from "../shared/section-material";
-import { useSectionUniforms } from "../shared/section-utils";
+import { useSectionUniforms, withSurfaceY } from "../shared/section-utils";
 import { Tag } from "../shared/kit";
 
 /** 1 scene unit = 20 km horizontally. Two ridge segments are offset by a transform fault. */
@@ -22,7 +22,7 @@ const axisAt = (z: number) => (z > TRANSFORM_Z ? OFFSET : 0);
 const smooth = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 
 /** Seafloor height: √age subsidence, an axial valley (slow) or high (fast), abyssal hills and a
- * fracture-zone trough. Mirrored exactly in SURFACE_GLSL so cut-face layers follow the floor. */
+ * fracture-zone trough. The cut faces read the depth below it from the geometry (surfaceY). */
 function floorHeight(x: number, z: number, rate: number, exaggeration: number) {
   const half = rate / 2,
     k = exaggeration / 12,
@@ -33,22 +33,13 @@ function floorHeight(x: number, z: number, rate: number, exaggeration: number) {
   const valley =
     slow * (-0.4 * Math.exp(-((d / 0.2) ** 2)) + 0.12 * Math.exp(-(((a - 0.45) / 0.15) ** 2)));
   const high = (1 - slow) * 0.1 * Math.exp(-((d / 0.2) ** 2));
-  const hills = 0.018 * Math.sin(a * 55 + 0.6 * Math.sin(z * 3)) * smooth(a, 0.3, 0.6);
+  const hills = abyssalHills(a, z, slow);
   const fracture = -0.045 * Math.exp(-(((z - TRANSFORM_Z) / 0.05) ** 2));
   return -subsidence + k * (valley + high + hills + fracture);
 }
 
 const SURFACE_GLSL = `uniform float uRate,uExag,uTime,uRev[${EXPERIMENT_REVERSALS.length}];
 float axisAt(float z){return z>${TRANSFORM_Z.toFixed(2)}?${OFFSET.toFixed(2)}:0.;}
-float floorTop(float x,float z){
-  float half_=uRate*.5,k=uExag/12.,d=x-axisAt(z),a=abs(d),slow=1.-smoothstep(30.,50.,uRate);
-  float subs=350.*sqrt(a*20./half_)/20000.*uExag;
-  float valley=slow*(-.4*exp(-sq(d/.2))+.12*exp(-sq((a-.45)/.15)));
-  float high=(1.-slow)*.1*exp(-sq(d/.2));
-  float hills=.018*sin(a*55.+.6*sin(z*3.))*smoothstep(.3,.6,a);
-  float fracture=-.045*exp(-sq((z-${TRANSFORM_Z.toFixed(2)})/.05));
-  return -subs+k*(valley+high+hills+fracture);
-}
 float polarity(float a){
   float formed=uTime-a*20./(uRate*.5),n=0.;
   for(int i=0;i<${EXPERIMENT_REVERSALS.length};i++)n+=step(uRev[i],formed);
@@ -63,7 +54,7 @@ const CRUST_GLSL =
   SURFACE_GLSL +
   `
 vec3 sectionColour(vec3 p,vec3 w){
-  float d=w.x-axisAt(w.z),a=abs(d),top=floorTop(w.x,w.z),below=top-w.y,sed=sediment(a);
+  float d=w.x-axisAt(w.z),a=abs(d),below=sectionDepth,sed=sediment(a);
   vec2 q=vec2(w.x+w.z,w.y); float g=grain(q);
   vec3 c;
   if(below<sed){c=mix(vec3(.80,.72,.56),vec3(.70,.62,.47),step(.5,fract(below*160.)))*(.92+.16*g);}
@@ -75,12 +66,12 @@ vec3 sectionColour(vec3 p,vec3 w){
   }
   else if(below<sed+.44){float dyke=step(.5,fract(q.x*34.+.3*sNoise(q*9.)));c=mix(vec3(.36,.37,.38),vec3(.27,.28,.30),dyke)*(.9+.2*g);}
   else if(below<sed+.99){c=mix(vec3(.46,.49,.44),vec3(.30,.33,.30),g);}
-  else{c=mix(vec3(.37,.43,.29),vec3(.28,.33,.21),g);}
+  else{c=mix(vec3(.31,.35,.25),vec3(.22,.26,.19),g)*(.9+.15*grain(q*3.));}
   float b=min(min(abs(below-sed),abs(below-sed-.14)),min(abs(below-sed-.44),abs(below-sed-.99)));
   return c*mix(.7,1.,smoothstep(0.,.008,b));
 }
 vec3 sectionGlow(vec3 p,vec3 w){
-  float d=w.x-axisAt(w.z),top=floorTop(w.x,w.z),below=top-w.y;
+  float d=w.x-axisAt(w.z),below=sectionDepth;
   float lens=1.-smoothstep(.8,1.,length(vec2(d/.2,(below-.2)/.028)));
   float mush=(1.-smoothstep(.0,.16+(below-.2)*.25,abs(d)))*step(.2,below)*(1.-smoothstep(.6,1.,below))*.35;
   float melt=(1.-smoothstep(.0,(below-.95)*.9,abs(d)))*step(1.05,below)*.3*sNoise(vec2(w.x*12.,w.y*12.));
@@ -142,7 +133,7 @@ export default function SeafloorSpreading() {
     [rate, exaggeration],
   );
   const geometry = useMemo(() => {
-    const g = terrainBlockGeometry(height, W, D, 200, BASE);
+    const g = withSurfaceY(terrainBlockGeometry(height, W, D, 260, BASE), height);
     g.setAttribute(
       "color",
       new THREE.Float32BufferAttribute(new Float32Array(g.attributes.position.count * 3), 3),
@@ -166,6 +157,8 @@ export default function SeafloorSpreading() {
       col.lerp(basalt, 0.55 * (1 - smooth(d, 0.03, 0.12)));
       col.lerp(sediment, Math.min(0.35, crust.ageMa / 18));
       if (Math.abs(z - TRANSFORM_Z) < 0.03) col.multiplyScalar(0.8);
+      // Fine mottling: lava flows and patches of sediment.
+      col.multiplyScalar(0.9 + 0.12 * noise(x * 14 + 3, z * 14) + 0.06 * noise(x * 40, z * 40));
       c.setXYZ(i, col.r, col.g, col.b);
     }
     c.needsUpdate = true;
@@ -197,12 +190,13 @@ export default function SeafloorSpreading() {
         trueScale="1 scene unit = 20 km · relief at true scale · crustal layers schematic"
       >
         <mesh geometry={geometry} castShadow receiveShadow>
-          <TerrainMaterial attach="material-0" kind="rock" color="#d9d9d9" vertexColors />
+          <meshStandardMaterial attach="material-0" vertexColors roughness={0.93} />
           <SectionMaterial
             attach="material-1"
             glsl={CRUST_GLSL}
             uniforms={uniforms}
-            cacheKey="spreading-crust-v2"
+            surface
+            cacheKey="spreading-crust-v4"
           />
         </mesh>
         {[
