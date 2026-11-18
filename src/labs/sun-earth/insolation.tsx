@@ -1,109 +1,133 @@
-import { useMemo } from "react";
+import { useLayoutEffect, useMemo } from "react";
 import * as THREE from "three";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { EarthMesh, Graticule, Atmosphere } from "@/components/globe/earth";
 import { useLabState } from "@/lib/store/lab-controls";
 import { noonIrradiance, dailyMeanIrradiance } from "@/lib/insolation-science";
 import { VERIFIED_PHOTOS } from "@/lib/verified-photos";
-import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
+import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { photoSrcSet } from "@/lib/responsive-image";
+import { beamAxes, footprint, meridianPoint, rayHit, type V3 } from "./beam";
+
+/** Earth's radius in the scene, and the beam: about 880 km across at this scale. */
+const R = 1.3,
+  BEAM = 0.18,
+  GRID = 24,
+  CELLS = 4,
+  /** How far the beams reach out toward the Sun. */
+  SHAFT = 1.3,
+  RAY_START = 2.6;
+const v3 = (a: V3) => new THREE.Vector3(...a);
+
 export default function SunEarth() {
   const { params } = useLabState("params"),
     lat = params.latitude ?? 40.7,
     decl = params.declination ?? 0,
     d = (decl * Math.PI) / 180,
-    p = (lat * Math.PI) / 180,
-    sun = useMemo(() => new THREE.Vector3(0, Math.sin(d), -Math.cos(d)), [d]),
-    point = new THREE.Vector3(0, Math.sin(p), -Math.cos(p)).multiplyScalar(1.3),
-    n = point.clone().normalize(),
-    // Separate the two labels vertically: the beam label goes the way the beam end lies.
-    labelSide = Math.sign(1.85 * sun.y - 0.7 * n.y) || 1,
-    across = new THREE.Vector3(0, Math.cos(d), Math.sin(d)),
+    incidence = lat - decl,
+    cosine = Math.cos((incidence * Math.PI) / 180),
     flux = noonIrradiance(lat, decl),
     photo = VERIFIED_PHOTOS["sdo-visible-sunspots"];
+  const sun = useMemo<V3>(() => [0, Math.sin(d), -Math.cos(d)], [d]),
+    target = useMemo(() => meridianPoint(lat, R), [lat]),
+    overhead = useMemo(() => meridianPoint(decl, R), [decl]),
+    { north } = beamAxes(sun),
+    along = (p: V3) => p[0] * north[0] + p[1] * north[1] + p[2] * north[2],
+    // A second, overhead beam for comparison, once it no longer overlaps the selected one.
+    compare = Math.abs(along(target) - along(overhead)) > BEAM * 1.3,
+    n = v3(target).normalize(),
+    sunV = v3(sun);
   const latitudes = [-90, -60, -30, 0, 30, 60, 90];
+  const hemisphere = (a: number) => `${Math.abs(a).toFixed(1)}°${a < 0 ? "S" : a > 0 ? "N" : ""}`;
   return (
     <>
       <ScienceStudio
         slug="sun-earth"
         lights={false}
         space
-        camera={[6.2, 1.3, -2.4]}
+        camera={[4.4, 1.5, -5.4]}
         scale="Parallel sunlight at 1 AU · 1361 W/m² normal to the beam · local noon meridian"
-        trueScale="Earth sphere at one scale · arrows and selected patch enlarged"
+        trueScale="Earth sphere at one scale · beams about 880 km wide · normal arrow enlarged"
       >
-        <EarthMesh radius={1.3} sunDirection={sun} />
+        <EarthMesh radius={R} sunDirection={sunV} />
         <Atmosphere radius={1.345} />
         <Graticule radius={1.307} />
-        <SunBeam
-          point={point}
-          normal={n}
-          sun={sun}
-          labelShift={new THREE.Vector3(0, 0.3 * labelSide, 0)}
-        />
         <Line
-          points={Array.from({ length: 121 }, (_, i) => {
-            const a = (((i / 120) * 180 - 90) * Math.PI) / 180;
-            return [0, 1.315 * Math.sin(a), -1.315 * Math.cos(a)] as [number, number, number];
-          })}
+          points={Array.from({ length: 121 }, (_, i) => meridianPoint((i / 120) * 180 - 90, 1.315))}
           color="#dcc08d"
           lineWidth={1.5}
         />
-        <mesh
-          position={point.clone().multiplyScalar(1.015)}
-          quaternion={new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), n)}
-        >
-          <circleGeometry args={[0.075, 40]} />
-          <meshBasicMaterial color="#f2d194" side={THREE.DoubleSide} />
-        </mesh>
-        <mesh
-          position={point.clone().multiplyScalar(1.018)}
-          quaternion={new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), n)}
-        >
-          <ringGeometry args={[0.11, 0.13, 64]} />
-          <meshBasicMaterial color="#f2d194" side={THREE.DoubleSide} />
-        </mesh>
+        <SunRays sun={sun} clear={[along(target), ...(compare ? [along(overhead)] : [])]} />
+        {compare && (
+          <Beam
+            target={overhead}
+            sun={sun}
+            label={`Sun overhead at ${hemisphere(decl)} · 1× area`}
+            short="Overhead · 1×"
+            note="At the subsolar point the noon Sun is straight overhead: the beam meets the ground square-on and lights the smallest possible patch."
+            priority={1}
+          />
+        )}
+        {cosine > 0.02 ? (
+          <Beam
+            target={target}
+            sun={sun}
+            label={`${compare ? "Same beam" : "Sun nearly overhead"} · ${(1 / cosine).toFixed(2)}× area`}
+            short={`${(1 / cosine).toFixed(2)}× area`}
+            note="Each beam carries the same power. Where sunlight meets the ground at a low angle, that power is spread over a larger patch, so each square meter receives less: 1/cos of the angle between the sunlight and the vertical. The model's beams are about 880 km wide, so the curving ground stretches the lit patch a little more, and near the day–night line part of the beam passes Earth by."
+            priority={2}
+          />
+        ) : (
+          <Tag
+            pos={v3(target).multiplyScalar(1.12).toArray() as V3}
+            text="No noon Sun here"
+            note="At this latitude and declination the Sun stays below the horizon all day: polar night."
+            occlude={false}
+          />
+        )}
         <Line
-          points={Array.from({ length: 65 }, (_, i) => {
-            const a = p + ((d - p) * i) / 64;
-            return [point.x, point.y + Math.sin(a) * 0.48, point.z - Math.cos(a) * 0.48] as [
-              number,
-              number,
-              number,
-            ];
+          points={Array.from({ length: 49 }, (_, i) => {
+            // The angle between the ground's normal and the sunlight, in the meridian plane.
+            const a = ((lat + ((decl - lat) * i) / 48) * Math.PI) / 180;
+            return [
+              target[0],
+              target[1] + Math.sin(a) * 0.42,
+              target[2] - Math.cos(a) * 0.42,
+            ] as V3;
           })}
-          color="#e6be84"
+          color="#f2d79e"
           lineWidth={1.6}
         />
-        <Arrow
-          from={point.toArray() as [number, number, number]}
-          to={point.clone().addScaledVector(n, 0.65).toArray() as [number, number, number]}
-          color="#c7ded9"
-          width={0.7}
+        <GlowArrow
+          from={target}
+          to={v3(target).addScaledVector(n, 0.62).toArray() as V3}
+          color="#c4ebe2"
         />
-        {[-1.2, -0.6, 0, 0.6, 1.2]
-          // Skip rays that would sit inside the highlighted beam or under its label.
-          .filter((o) => Math.abs(o - point.dot(across)) > 0.35)
-          .map((o) => (
-            <Arrow
-              key={o}
-              from={across.clone().multiplyScalar(o).addScaledVector(sun, 3.3).toArray()}
-              to={across.clone().multiplyScalar(o).addScaledVector(sun, 1.7).toArray()}
-              color="#e2bd7b"
-              width={0.85}
-            />
-          ))}
+        <Tag
+          // East of the meridian, which is to the left as the lab opens: clear of the beam
+          // labels, which lie toward the Sun on the right.
+          pos={
+            v3(target)
+              .addScaledVector(n, 0.92)
+              .add(new THREE.Vector3(0.5, 0, 0))
+              .toArray() as V3
+          }
+          priority={2}
+          text={`Normal at ${hemisphere(lat)}`}
+          note="The arrow points straight out from the ground at the lit patch (the surface normal). Its angle to the sunlight sets the energy per square meter above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere."
+          occlude={false}
+        />
         <Tag
           pos={
-            point
-              .clone()
-              .addScaledVector(n, 0.7)
-              .add(new THREE.Vector3(0, -0.3 * labelSide, 0))
-              .toArray() as [number, number, number]
+            v3(north)
+              // On the side of the globe away from the selected latitude, where it is clear.
+              .multiplyScalar(lat > 0 ? -1.3 : 1.3)
+              .addScaledVector(sunV, 0.8 * RAY_START)
+              .toArray() as V3
           }
-          text={`Normal at ${Math.abs(lat).toFixed(1)}°${lat < 0 ? "S" : "N"}`}
-          note="The arrow points straight out from the ground at the gold noon patch (the surface normal). Its angle to the sunlight sets the energy per square meter above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere."
+          text="Parallel sunlight"
+          note="The Sun is about 150 million km away, so its rays reach Earth almost exactly parallel. Every beam of the same cross-section carries the same power: 1361 watts per square meter of cross-section."
           occlude={false}
         />
       </ScienceStudio>
@@ -163,82 +187,199 @@ export default function SunEarth() {
 }
 
 /**
- * A beam of fixed cross-section arriving at the selected patch, and the ellipse it lights
- * on the surface. The footprint lengthens by 1/cos(incidence) as latitude moves away from
- * the subsolar point: the same energy is spread over a larger area.
+ * A beam of sunlight with a square cross-section, aimed at `target`: a glowing shaft from the
+ * Sun's side, the patch of ground it lights, and the same 4 × 4 cells drawn on both, so the
+ * stretch shows how the same power spreads over more ground.
  */
-function SunBeam({
-  point,
-  normal,
+function Beam({
+  target,
   sun,
-  labelShift,
+  label,
+  short,
+  note,
+  priority,
 }: {
-  point: THREE.Vector3;
-  normal: THREE.Vector3;
-  sun: THREE.Vector3;
-  /** Moves the label off the beam, away from the surface-normal label. */
-  labelShift: THREE.Vector3;
+  target: V3;
+  sun: V3;
+  label: string;
+  short: string;
+  note: string;
+  priority: number;
 }) {
-  const width = 0.24,
-    length = 1.7,
-    cosine = normal.dot(sun);
-  const beam = useMemo(() => {
-    const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), sun);
-    const center = point.clone().addScaledVector(sun, length / 2 + 0.01);
-    return { q, center };
-  }, [point, sun]);
-  const footprint = useMemo(() => {
-    // Right-handed local frame: x across the meridian, y along it (north), z outward normal.
-    const north = new THREE.Vector3()
-      .crossVectors(normal, new THREE.Vector3(1, 0, 0))
-      .normalize()
-      .negate();
-    const across = new THREE.Vector3().crossVectors(north, normal).normalize();
-    const basis = new THREE.Matrix4().makeBasis(across, north, normal);
-    return new THREE.Quaternion().setFromRotationMatrix(basis);
-  }, [normal]);
-  if (cosine <= 0.02) return null;
-  const stretch = Math.min(1 / cosine, 8);
+  const [tx, ty, tz] = target,
+    [sx, sy, sz] = sun;
+  const parts = useMemo(() => {
+    const at: V3 = [tx, ty, tz],
+      toward: V3 = [sx, sy, sz],
+      points = footprint(at, toward, BEAM, R * 1.004, GRID),
+      patch = new THREE.BufferGeometry(),
+      index: number[] = [];
+    patch.setAttribute("position", new THREE.Float32BufferAttribute(points.flat(), 3));
+    for (let j = 0; j < GRID; j++)
+      for (let i = 0; i < GRID; i++) {
+        const a = j * (GRID + 1) + i;
+        index.push(a, a + 1, a + GRID + 2, a, a + GRID + 2, a + GRID + 1);
+      }
+    patch.setIndex(index);
+    // Cell lines on the ground, then the same cells across the top of the shaft.
+    const { north, east } = beamAxes(toward),
+      lines: number[] = [],
+      step = GRID / CELLS,
+      lift = (p: V3) => p.map((v) => v * 1.002);
+    for (let k = 0; k <= CELLS; k++)
+      for (let m = 0; m < GRID; m++) {
+        const row = k * step * (GRID + 1);
+        lines.push(...lift(points[row + m]), ...lift(points[row + m + 1]));
+        lines.push(
+          ...lift(points[m * (GRID + 1) + k * step]),
+          ...lift(points[(m + 1) * (GRID + 1) + k * step]),
+        );
+      }
+    const top = v3(at).addScaledVector(v3(toward), SHAFT),
+      corner = (u: number, v: number) =>
+        top
+          .clone()
+          .addScaledVector(v3(east), u * BEAM)
+          .addScaledVector(v3(north), v * BEAM);
+    for (let k = 0; k <= CELLS; k++) {
+      const f = k / CELLS - 0.5;
+      lines.push(...corner(f, -0.5).toArray(), ...corner(f, 0.5).toArray());
+      lines.push(...corner(-0.5, f).toArray(), ...corner(0.5, f).toArray());
+    }
+    // The shaft's long edges, from the top down to the ground, drawn as bright lines.
+    const edges = [
+      [-0.5, -0.5],
+      [0.5, -0.5],
+      [0.5, 0.5],
+      [-0.5, 0.5],
+    ].map(([u, v]) => {
+      const end = corner(u, v);
+      return [
+        end.toArray() as V3,
+        rayHit(
+          toward,
+          v3(at).projectOnPlane(v3(toward)).add(end.clone().sub(top)).toArray() as V3,
+          R,
+        ),
+      ];
+    });
+    const cells = new THREE.BufferGeometry();
+    cells.setAttribute("position", new THREE.Float32BufferAttribute(lines, 3));
+    const shaft = {
+      center: v3(at)
+        .addScaledVector(v3(toward), SHAFT / 2 - 0.08)
+        .toArray() as V3,
+      q: new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), v3(toward)),
+    };
+    return {
+      patch,
+      cells,
+      shaft,
+      edges,
+      labelAt: top.addScaledVector(v3(toward), 0.42).toArray() as V3,
+    };
+  }, [tx, ty, tz, sx, sy, sz]);
+  useLayoutEffect(
+    () => () => {
+      parts.patch.dispose();
+      parts.cells.dispose();
+    },
+    [parts],
+  );
   return (
-    <>
-      <mesh position={beam.center} quaternion={beam.q} raycast={() => null}>
-        <boxGeometry args={[width, length, width]} />
+    <group>
+      <mesh position={parts.shaft.center} quaternion={parts.shaft.q} raycast={() => null}>
+        <boxGeometry args={[BEAM, SHAFT + 0.16, BEAM]} />
         <meshBasicMaterial
-          color="#ffd98f"
+          color="#ffc861"
           transparent
-          opacity={0.16}
-          depthWrite={false}
-          toneMapped={false}
-        />
-      </mesh>
-      <mesh
-        position={point.clone().multiplyScalar(1.012)}
-        quaternion={footprint}
-        scale={[1, stretch, 1]}
-        raycast={() => null}
-      >
-        <circleGeometry args={[width / 2, 48]} />
-        <meshBasicMaterial
-          color="#ffcf73"
-          transparent
-          opacity={0.55}
-          depthWrite={false}
-          toneMapped={false}
+          opacity={0.3}
+          blending={THREE.AdditiveBlending}
           side={THREE.DoubleSide}
+          depthWrite={false}
+          toneMapped={false}
         />
       </mesh>
+      <mesh geometry={parts.patch} raycast={() => null}>
+        <meshBasicMaterial
+          color="#ffd47e"
+          transparent
+          opacity={0.72}
+          side={THREE.DoubleSide}
+          depthWrite={false}
+          toneMapped={false}
+        />
+      </mesh>
+      {parts.edges.map((edge, i) => (
+        <Line key={i} points={edge} color="#ffe2a0" lineWidth={1.3} transparent opacity={0.9} />
+      ))}
+      <lineSegments geometry={parts.cells}>
+        <lineBasicMaterial color="#fff2cf" transparent opacity={0.8} toneMapped={false} />
+      </lineSegments>
       <Tag
-        pos={
-          point
-            .clone()
-            .addScaledVector(sun, length + 0.15)
-            .add(labelShift)
-            .toArray() as [number, number, number]
-        }
-        text={`Same beam · ${(1 / cosine).toFixed(2)}× area`}
-        note="Each beam carries the same power. Where sunlight meets the ground at a low angle, that power is spread over a larger patch, so each square meter receives less."
+        pos={parts.labelAt}
+        text={label}
+        short={short}
+        note={note}
+        priority={priority}
         occlude={false}
       />
-    </>
+    </group>
+  );
+}
+
+/** Parallel rays of sunlight, ending where they reach the ground; none crosses a beam. */
+function SunRays({ sun, clear }: { sun: V3; clear: number[] }) {
+  const { north } = beamAxes(sun),
+    offsets = [-1.12, -0.74, -0.37, 0, 0.37, 0.74, 1.12].filter((o) =>
+      clear.every((c) => Math.abs(o - c) > BEAM / 2 + 0.12),
+    );
+  // Left out of the framing: the rays run on toward the Sun beyond the edge of the view.
+  return (
+    <group userData={{ noFit: true }}>
+      {offsets.map((o) => {
+        const across = v3(north).multiplyScalar(o),
+          start = across.clone().addScaledVector(v3(sun), RAY_START).toArray() as V3,
+          end = rayHit(sun, across.toArray() as V3, R * 1.01);
+        return <GlowArrow key={o} from={start} to={end} color="#f7d38a" thin />;
+      })}
+    </group>
+  );
+}
+
+/** An arrow drawn in its own light, for scenes lit only by the Sun's shader. */
+function GlowArrow({
+  from,
+  to,
+  color,
+  thin = false,
+}: {
+  from: V3;
+  to: V3;
+  color: string;
+  thin?: boolean;
+}) {
+  const a = v3(from),
+    b = v3(to),
+    length = a.distanceTo(b),
+    q = new THREE.Quaternion().setFromUnitVectors(
+      new THREE.Vector3(0, 1, 0),
+      b.clone().sub(a).normalize(),
+    ),
+    head = thin ? 0.09 : 0.12,
+    radius = thin ? 0.026 : 0.04,
+    shaft = thin ? 0.006 : 0.014;
+  if (length < head) return null;
+  return (
+    <group position={a} quaternion={q}>
+      <mesh position={[0, (length - head) / 2, 0]} scale={[shaft, length - head, shaft]}>
+        <cylinderGeometry args={[1, 1, 1, 10]} />
+        <meshBasicMaterial color={color} toneMapped={false} />
+      </mesh>
+      <mesh position={[0, length - head / 2, 0]} scale={[radius, head, radius]}>
+        <coneGeometry args={[1, 1, 18]} />
+        <meshBasicMaterial color={color} toneMapped={false} />
+      </mesh>
+    </group>
   );
 }
