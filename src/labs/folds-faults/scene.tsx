@@ -275,8 +275,10 @@ export default function FoldsFaults() {
     syncline = kind === 1,
     slip = faultSlip(kind, amount * 0.7),
     separation = explode * 0.6,
-    shortening = 1 - 0.25 * amount;
-  const foldAmount = fold ? amount : 0;
+    // Stepped in 10 m increments, so the fold block is rebuilt a few times a second while the
+    // lab plays rather than on every frame; geometry, colors, trees and labels share this value.
+    foldAmount = fold ? Math.round(amount * 100) / 100 : 0,
+    shortening = 1 - 0.25 * foldAmount;
   const beds = useMemo(
     () => (fold ? [] : Array.from({ length: 10 }, (_, i) => faultBed(i % 5, i >= 5, kind === 4))),
     [fold, kind],
@@ -306,7 +308,7 @@ export default function FoldsFaults() {
   const oldestTag: [number, number, number] = fold
     ? [
         -2.6 * shortening - 0.35 - separation,
-        -0.925 / shortening + sign * amount * Math.exp(-6.76 / 1.9),
+        -0.925 / shortening + sign * foldAmount * Math.exp(-6.76 / 1.9),
         1.15,
       ]
     : [-2.95 - separation, -0.925, 1.15];
@@ -477,7 +479,7 @@ export default function FoldsFaults() {
         }
         .{" "}
         {fold
-          ? `Fold amplitude ${(amount * 1000).toFixed(0)} m; shortening ${(amount * 25).toFixed(0)}%, with bed volume preserved. Erosion keeps pace with folding, so the land surface cuts across the beds.`
+          ? `Fold amplitude ${(foldAmount * 1000).toFixed(0)} m; shortening ${(foldAmount * 25).toFixed(0)}%, with bed volume preserved. Erosion keeps pace with folding, so the land surface cuts across the beds.`
           : `Relative slip ${(amount * 0.7 * 1000).toFixed(0)} m${kind === 4 ? "" : `; vertical throw ${Math.abs(slip[1] * 1000).toFixed(0)} m`}.`}{" "}
         <br />
         {
