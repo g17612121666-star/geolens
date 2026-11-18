@@ -1,12 +1,12 @@
 import { Line } from "@react-three/drei";
 import { Color } from "three";
 import { memo, type ComponentProps } from "react";
-import { usePreferences } from "@/lib/preferences";
+import { useInkTheme } from "./ink";
 import { sameProps } from "./same-props";
 
 /** Preserve semantic hue while keeping instructional guides visible on daylight canvas. */
 function GuideLineShape({ color = "#ffffff", ...props }: ComponentProps<typeof Line>) {
-  const theme = usePreferences((s) => s.resolvedTheme),
+  const theme = useInkTheme(),
     ink = new Color(color);
   if (theme === "light") {
     const hsl = { h: 0, s: 0, l: 0 };
