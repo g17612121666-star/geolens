@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, type ComponentRef } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, type ComponentRef } from "react";
 import { GuideLine as Line } from "../shared/guide-line";
 import * as THREE from "three";
 import { useLabControls, useLabState } from "@/lib/store/lab-controls";
@@ -10,27 +10,30 @@ import { Tag, InspectHotspot } from "../shared/kit";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 import { TerrainMaterial, PlantStand } from "../shared/natural-world";
 import { FlowWaterMaterial } from "../shared/flow-water";
-import { WaterRibbon, GrassPatch, RootNetwork, PoreMarkers } from "../shared/geomorphic-terrain";
+import { WaterRibbon, GrassPatch, RootNetwork } from "../shared/geomorphic-terrain";
+import { WaterSides } from "../shared/shallow-water";
+import { withSurfaceY } from "../shared/section-utils";
 import { SectionMaterial } from "../shared/section-material";
 import { farmland } from "../shared/hazard-utils";
 
-/** Cut faces: dry soil above the water table, a thin capillary fringe, wet saturated ground (the
- * groundwater store) below it, then bedrock; a sandy seabed under the ocean. The water table
- * rises inland and meets sea level at the coast, so groundwater can drain to the sea. Schematic. */
+/** Cut faces: topsoil, then dry ground above the water table, a thin capillary fringe, and wet
+ * saturated ground (the groundwater store) below it with every pore full of water, then bedrock.
+ * Sand lies under the sea. The water table rises inland and meets sea level at the coast, so
+ * groundwater can drain to the sea. Schematic. */
 const GROUND_GLSL = `
 vec3 sectionColour(vec3 p,vec3 w){
-  float y=w.y+.5,g=grain(w.xy+w.zy);
-  vec2 q=(w.xy+w.zy)*22.;
-  float pore=smoothstep(.35,.15,length(fract(q)-.5));
-  if(y<-.55)return mix(vec3(.46,.44,.44),vec3(.36,.35,.36),g);
-  if(w.x>1.12)return mix(vec3(.82,.74,.56),vec3(.72,.64,.47),step(.5,fract(y*30.)))*(.9+.2*g);
+  float y=w.y+.5,g=grain(w.xy+w.zy),speck=grain((w.xy+w.zy)*9.);
+  if(y<-.52+.02*sin(w.x*3.1+w.z*2.))return mix(vec3(.47,.45,.45),vec3(.35,.34,.35),g)*(.92+.12*speck);
+  if(w.x>1.12)return mix(vec3(.80,.72,.55),vec3(.68,.60,.45),g)*(.9+.15*speck);
   float wt=.12*clamp((1.1-w.x)/3.8,0.,1.);
-  if(y<wt)return mix(mix(vec3(.46,.58,.62),vec3(.36,.47,.52),g),vec3(.52,.72,.80),pore*.35);
-  if(y<wt+.06)return mix(vec3(.62,.62,.55),vec3(.52,.55,.50),g);
-  return mix(vec3(.74,.62,.44),vec3(.60,.48,.33),g);
+  if(sectionDepth<.045)return mix(vec3(.36,.27,.19),vec3(.27,.2,.14),g);
+  if(abs(y-wt)<.005)return vec3(.58,.82,.92);
+  if(y<wt)return mix(mix(vec3(.38,.52,.58),vec3(.30,.43,.50),g),vec3(.50,.70,.78),smoothstep(.6,.9,speck)*.45);
+  if(y<wt+.05)return mix(vec3(.60,.60,.53),vec3(.50,.53,.48),g);
+  return mix(mix(vec3(.74,.62,.44),vec3(.60,.48,.33),g),vec3(.82,.74,.6),smoothstep(.6,.9,speck)*.3);
 }
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
-import { landscapeRandom as random } from "../shared/landscape-noise";
+import { landscapeNoise, landscapeRandom as random } from "../shared/landscape-noise";
 type Point = [number, number, number];
 /** Water-table height (group space): 0 at the coast (sea level), rising gently inland. */
 function waterTable(x: number) {
@@ -56,6 +59,39 @@ function height(x: number, z: number) {
   const edge = Math.max(0, Math.min(1, (r - 0.3) / 0.95)),
     blend = edge * edge * (3 - 2 * edge);
   return Math.max(THREE.MathUtils.lerp(lakeCentre[1] - 0.18, originalHeight(x, z), blend), bund);
+}
+/** The catchment and the coast beyond its outlet: the land meets the sea in a beach at the
+ * river mouth and in steep headlands where the bounding ridges reach the shore; the seabed
+ * slopes away offshore. */
+const COAST = 1.1;
+function land(x: number, z: number) {
+  if (x <= COAST) return height(x, z);
+  const shore = height(COAST, z),
+    seabed = -0.04 - 0.26 * THREE.MathUtils.smoothstep(x, 1.3, 2.8);
+  return THREE.MathUtils.lerp(shore, seabed, THREE.MathUtils.smoothstep(x, COAST, 1.45));
+}
+/** In the sea group's own frame (its center is 0.1 east of the catchment's). */
+const seaFloor = (x: number, z: number) => land(x + 0.1, z),
+  seaLevel = () => 0;
+const reservoirR = (x: number, z: number) => {
+  const dx = (x - 0.3) / 0.43,
+    dz = (z + 0.65) / 0.32;
+  return Math.hypot(dx, dz) / lakeRadius(Math.atan2(dz, dx));
+};
+const shade = new THREE.Color();
+/** Fields in the valley, woods on its sides, moorland above, and snow on the high ridges at its
+ * head; inside the reservoir, ground left bare as the water level falls. */
+function landColor(x: number, y: number, z: number, level: number, out: THREE.Color) {
+  if (x > COAST + 0.02) return out.set(y > -0.01 ? "#dccb9e" : "#bfb18b");
+  out.copy(farmland(x * 1.4, z * 1.4, 0.34));
+  out.lerp(shade.set("#55753f"), THREE.MathUtils.smoothstep(y, 0.3, 0.45) * 0.75);
+  out.lerp(shade.set("#8b8657"), THREE.MathUtils.smoothstep(y, 0.64, 0.82) * 0.85);
+  const snow = y + 0.07 * (landscapeNoise(x * 4 + 1, z * 4) - 0.5);
+  out.lerp(shade.set("#eef3f5"), THREE.MathUtils.smoothstep(snow, 0.9, 0.97));
+  const r = reservoirR(x, z);
+  if (r < 1.25 && y > level - 0.004 && y < lakeCentre[1] + 0.004)
+    out.lerp(shade.set("#8c7f66"), 0.85);
+  return out;
 }
 function ReservoirSurface({ abstraction }: { abstraction: number }) {
   const geometry = useMemo(() => {
@@ -287,15 +323,42 @@ function DriftingClouds() {
         scale={[1.25, 0.76, 0.9]}
         seed={7}
         density={80}
-        opacity={0.28}
+        opacity={0.62}
       />
       <CloudVolume
         position={[0.8, 2.1, 0.02]}
         scale={[0.8, 0.54, 0.72]}
         seed={23}
         density={64}
-        opacity={0.25}
+        opacity={0.55}
       />
+    </group>
+  );
+}
+
+/** A water tower: the store that supplies homes and industry from the abstracted water. */
+function WaterTower({ position }: { position: Point }) {
+  return (
+    <group position={position}>
+      {[
+        [-0.055, -0.055],
+        [0.055, -0.055],
+        [0.055, 0.055],
+        [-0.055, 0.055],
+      ].map(([x, z], i) => (
+        <mesh key={i} position={[x, 0.11, z]}>
+          <cylinderGeometry args={[0.008, 0.01, 0.22, 8]} />
+          <meshStandardMaterial color="#8c9096" roughness={0.6} metalness={0.3} />
+        </mesh>
+      ))}
+      <mesh position={[0, 0.27, 0]} castShadow>
+        <cylinderGeometry args={[0.1, 0.1, 0.11, 32]} />
+        <meshStandardMaterial color="#c9d0d4" roughness={0.45} metalness={0.25} />
+      </mesh>
+      <mesh position={[0, 0.355, 0]} castShadow>
+        <coneGeometry args={[0.105, 0.06, 32]} />
+        <meshStandardMaterial color="#aeb6bb" roughness={0.5} metalness={0.25} />
+      </mesh>
     </group>
   );
 }
@@ -307,37 +370,32 @@ export default function WaterCycle() {
     basin = params.basin > 0.5,
     focus = Math.round(params.transfer ?? 3),
     path = paths[focus];
+  // Land and seabed from the head of the valley (x = -2.7) out to sea (x = 2.9).
   const terrain = useMemo(() => {
-    const g = terrainBlockGeometry((x, z) => height(x - 0.8, z), 3.8, 3.4, 160);
-    g.translate(-0.8, 0, 0);
-    const p = g.attributes.position,
-      c = new Float32Array(p.count * 3),
-      col = new THREE.Color(),
-      tone = new THREE.Color();
-    for (let i = 0; i < p.count; i++) {
-      const x = p.getX(i),
-        y = p.getY(i),
-        z = p.getZ(i);
-      col.copy(farmland(x * 1.4, z * 1.4, 0.34));
-      col.lerp(tone.set("#4f6b3c"), THREE.MathUtils.smoothstep(y, 0.3, 0.45) * 0.7);
-      col.lerp(tone.set("#8a7b5c"), THREE.MathUtils.smoothstep(y, 0.6, 0.8) * 0.8);
-      if (x > 0.95) col.lerp(tone.set("#ddcda3"), 0.8);
-      c.set([col.r, col.g, col.b], i * 3);
-    }
-    g.setAttribute("color", new THREE.BufferAttribute(c, 3));
+    const g = withSurfaceY(
+      terrainBlockGeometry((x, z) => land(x + 0.1, z), 5.6, 3.4, 220),
+      (x, z) => land(x + 0.1, z),
+    );
+    g.translate(0.1, 0, 0);
+    g.setAttribute(
+      "color",
+      new THREE.BufferAttribute(new Float32Array(g.attributes.position.count * 3), 3),
+    );
     return g;
   }, []);
+  // Colors follow the reservoir level: ground it uncovers turns to bare mud.
+  const level = lakeCentre[1] - 0.08 * abstraction;
+  useLayoutEffect(() => {
+    const p = terrain.attributes.position,
+      c = terrain.attributes.color as THREE.BufferAttribute,
+      col = new THREE.Color();
+    for (let i = 0; i < p.count; i++) {
+      landColor(p.getX(i), p.getY(i), p.getZ(i), level, col);
+      c.setXYZ(i, col.r, col.g, col.b);
+    }
+    c.needsUpdate = true;
+  }, [terrain, level]);
   useEffect(() => () => terrain.dispose(), [terrain]);
-  // Pore-water dots fill the saturated zone, up to the water table.
-  const pores = useMemo(
-    () =>
-      Array.from({ length: 88 }, (_, i): Point => [
-        -2.5 + (i % 11) * 0.32,
-        -0.51 + Math.floor(i / 11) * 0.08,
-        1.71,
-      ]).filter(([x, y]) => y < waterTable(x) - 0.02),
-    [],
-  );
   const remaining = 10000 - 6000 * abstraction,
     withdrawn = 6000 * abstraction;
   const divide = useMemo(
@@ -367,36 +425,37 @@ export default function WaterCycle() {
       >
         <group position={[0, -0.5, 0]}>
           <mesh geometry={terrain} castShadow receiveShadow>
-            <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
+            <TerrainMaterial attach="material-0" kind="grass" color="#f2f2f2" vertexColors />
             <SectionMaterial
               attach="material-1"
               glsl={GROUND_GLSL}
-              cacheKey="water-cycle-ground-v1"
+              surface
+              cacheKey="water-cycle-ground-v3"
             />
           </mesh>
-          {/* Ocean basin: sandy seabed block under the sea surface. */}
-          <mesh position={[2, -0.45, 0]}>
-            <boxGeometry args={[1.8, 0.4, 3.4]} />
-            <SectionMaterial glsl={GROUND_GLSL} cacheKey="water-cycle-ground-v1" />
+          {/* The sea over the sloping seabed: the land hides it wherever it rises above sea
+              level, so the shoreline follows the coast; the cut faces show its depth. */}
+          <mesh position={[1.9, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} renderOrder={2}>
+            <planeGeometry args={[2, 3.4]} />
+            <FlowWaterMaterial color="#2f7894" opacity={0.92} flow={[0.2, 0.3]} speed={0.4} />
           </mesh>
-          <mesh position={[2, -0.125, 1.701]}>
-            <planeGeometry args={[1.8, 0.25]} />
-            <meshPhysicalMaterial color="#2a7896" transparent opacity={0.4} depthWrite={false} />
-          </mesh>
-          <mesh position={[2, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-            <planeGeometry args={[1.8, 3.4]} />
-            <FlowWaterMaterial color="#327994" opacity={0.94} flow={[0.2, 0.3]} speed={0.4} />
-          </mesh>
+          <group position={[0.1, 0, 0]}>
+            <WaterSides
+              land={seaFloor}
+              level={seaLevel}
+              width={5.6}
+              depth={3.4}
+              color="#2a6f8c"
+              opacity={0.55}
+            />
+          </group>
           <InspectHotspot
             name="Reservoir"
             note="An invented embanked reservoir that starts with 10,000 m³. Abstraction moves water into the human-use store, so the combined total stays the same. The shoreline retreats as the level falls; its shape is illustrative."
           >
             <ReservoirSurface abstraction={abstraction} />
           </InspectHotspot>
-          <mesh position={[0.8, height(0.8, -1.1) + 0.15, -1.1]}>
-            <boxGeometry args={[0.22, 0.3, 0.24]} />
-            <meshStandardMaterial color="#d2b28b" roughness={0.8} />
-          </mesh>
+          <WaterTower position={[0.8, height(0.8, -1.1), -1.1]} />
           {abstraction > 0 && (
             <Arrow
               from={[0.3, height(0.3, -0.65) + 0.15, -0.65]}
@@ -405,7 +464,6 @@ export default function WaterCycle() {
               width={0.7}
             />
           )}
-          <PoreMarkers positions={pores} colors={Array(pores.length).fill("#7bd0d8")} />
           <InspectHotspot
             name="Vegetation and soil water"
             note="Water is held on leaves, in living plants and in soil pores. Transpiration returns some to the atmosphere."
@@ -416,8 +474,10 @@ export default function WaterCycle() {
                   z = -1.5 + random(i + 692) * 3;
                 return [x, height(x, z), z] as Point;
               }).filter(
-                ([x, , z]) =>
-                  Math.abs(z) > 0.25 && Math.hypot((x - 0.3) / 0.6, (z + 0.65) / 0.5) > 1,
+                ([x, y, z]) =>
+                  Math.abs(z) > 0.25 &&
+                  y < 0.76 &&
+                  Math.hypot((x - 0.3) / 0.6, (z + 0.65) / 0.5) > 1,
               )}
               kind="broadleaf"
               scale={0.11}
@@ -445,10 +505,6 @@ export default function WaterCycle() {
             />
           ))}
           <FallingRain />
-          <mesh position={[-2.35, height(-2.35, 1.2) + 0.02, 1.2]} scale={[0.55, 0.035, 0.3]}>
-            <sphereGeometry args={[1, 32, 20]} />
-            <meshStandardMaterial color="#dce7e5" roughness={0.62} />
-          </mesh>
           <DriftingClouds />
           <Tag
             pos={[0, 2.55, 0]}
@@ -457,7 +513,7 @@ export default function WaterCycle() {
             occlude={false}
           />
           <Tag
-            pos={[2.15, 0.08, 1.8]}
+            pos={[2.2, 0.08, 1.8]}
             text="Ocean"
             occlude={false}
             note="The largest global water store. Its volume is not proportional to this small catchment."
@@ -466,7 +522,14 @@ export default function WaterCycle() {
             pos={[-1, -0.8, 1.7]}
             text="Groundwater"
             occlude={false}
-            note="Below the water table every pore and fracture is full of water. Blue dots mark this pore water in the cut face."
+            note="Below the water table every pore and fracture in the ground is full of water: the blue-gray saturated zone in the cut face. Above it, the pores hold air as well as water."
+          />
+          <Tag
+            pos={[-0.35, waterTable(-0.35) + 0.07, 1.72]}
+            text="Water table"
+            priority={1}
+            occlude={false}
+            note="The top of the saturated zone. It rises under the hills and meets sea level at the coast, so groundwater drains slowly toward the sea."
           />
           <Tag
             pos={[-2.35, height(-2.35, 1.2) + 0.15, 1.2]}
