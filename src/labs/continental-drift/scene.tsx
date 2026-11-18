@@ -18,48 +18,40 @@ const TAXON_COLOUR: Record<string, string> = {
 };
 
 const BASE = new THREE.Quaternion().setFromEuler(new THREE.Euler(0, Math.PI, 0));
+const AFRICA = CONTINENTS.continents.find((c) => c.name === "Africa")!;
 
 function siteIndex(age: number) {
   return Math.max(0, FOSSILS.ages.indexOf(Math.max(0, Math.min(250, Math.round(age / 10) * 10))));
 }
 
-/** Turns the globe so the fossil sites face the viewer while the overlay is on. */
-function FacingGlobe({
-  age,
-  focus,
-  children,
-}: {
-  age: number;
-  focus: boolean;
-  children: React.ReactNode;
-}) {
+/**
+ * Turns the globe so Africa, at the heart of Pangaea, faces the viewer at every age: South
+ * America, India and Antarctica stay in view as they part from it, and so do the fossil sites.
+ */
+function FacingGlobe({ age, children }: { age: number; children: React.ReactNode }) {
   const group = useRef<THREE.Group>(null);
   const { camera, invalidate } = useThree();
   const target = useMemo(() => new THREE.Quaternion(), []);
+  // The first view opens already facing the fit; later age changes turn the globe smoothly.
+  const placed = useRef(false);
   useEffect(() => {
-    if (!focus) {
-      target.copy(BASE);
-    } else {
-      // Center on the Mesosaurus sites: the South America–Africa fit is the key evidence.
-      const sum = new THREE.Vector3();
-      for (const taxon of FOSSILS.taxa.filter((t) => t.key === "mesosaurus"))
-        for (const site of taxon.sites) {
-          const [lat, lon] = site.positions[siteIndex(age)];
-          sum.add(new THREE.Vector3(...latLonToXYZ(lat, lon, 1)));
-        }
-      // Spin about the polar axis, then tilt toward the viewer, so north never rolls sideways.
-      const local = sum.normalize().applyQuaternion(BASE);
-      const view = camera.position.clone().normalize();
-      const yaw = new THREE.Quaternion().setFromAxisAngle(
-        new THREE.Vector3(0, 1, 0),
-        Math.atan2(view.x, view.z) - Math.atan2(local.x, local.z),
-      );
-      const turned = local.clone().applyQuaternion(yaw);
-      const pitch = new THREE.Quaternion().setFromUnitVectors(turned, view);
-      target.copy(pitch.multiply(yaw).multiply(BASE));
+    const [lat, lon] = AFRICA.positions[siteIndex(age)];
+    // Spin about the polar axis, then tilt toward the viewer, so north never rolls sideways.
+    const local = new THREE.Vector3(...latLonToXYZ(lat, lon, 1)).normalize().applyQuaternion(BASE);
+    const view = camera.position.clone().normalize();
+    const yaw = new THREE.Quaternion().setFromAxisAngle(
+      new THREE.Vector3(0, 1, 0),
+      Math.atan2(view.x, view.z) - Math.atan2(local.x, local.z),
+    );
+    const turned = local.clone().applyQuaternion(yaw);
+    const pitch = new THREE.Quaternion().setFromUnitVectors(turned, view);
+    target.copy(pitch.multiply(yaw).multiply(BASE));
+    if (!placed.current && group.current) {
+      group.current.quaternion.copy(target);
+      placed.current = true;
     }
     invalidate();
-  }, [focus, age, camera, target, invalidate]);
+  }, [age, camera, target, invalidate]);
   useFrame((_, dt) => {
     const g = group.current;
     if (!g || g.quaternion.angleTo(target) < 0.001) return;
@@ -141,7 +133,7 @@ export default function ContinentalDrift() {
         trueScale="Globe to scale · positions shown only at reconstructed 10 Ma steps"
         camera={[2.8, 1.2, 3.8]}
       >
-        <FacingGlobe age={age} focus={params.fossils > 0.5}>
+        <FacingGlobe age={age}>
           <ReconstructionGlobe age={age} />
           <Graticule radius={1.255} />
           <ContinentLabels age={age} />

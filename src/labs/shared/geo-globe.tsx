@@ -78,8 +78,44 @@ function ModernGlobe({ radius, material, onReady }: { radius: number } & Fade) {
 }
 /**
  * Reconstructed coastlines come pre-baked by scripts/bake-paleo-globes.py: the coast shapes are
- * EarthByte data, while the shelf, land tones and gentle shading are illustrative.
+ * EarthByte data, while the shelf and land tones are illustrative. The land is repainted at
+ * render time (recolorLand), so only the coastlines and shelves come from the baked maps.
  */
+/**
+ * The baked maps' land tones carry a hillshade that reads as wrinkles on a globe. Keep their
+ * coastlines and shelves, and repaint the land in calm, smoothly varying tones: land is where
+ * the map is redder than it is blue, which separates it cleanly from every shade of sea.
+ */
+function recolorLand(shader: THREE.WebGLProgramParametersWithUniforms) {
+  shader.vertexShader =
+    "varying vec3 vSphere;\n" +
+    shader.vertexShader.replace(
+      "#include <begin_vertex>",
+      "#include <begin_vertex>\nvSphere = normalize(position);",
+    );
+  shader.fragmentShader =
+    `varying vec3 vSphere;
+float paleoHash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
+float paleoNoise(vec3 p){
+  vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+  return mix(mix(mix(paleoHash(i),paleoHash(i+vec3(1,0,0)),f.x),mix(paleoHash(i+vec3(0,1,0)),paleoHash(i+vec3(1,1,0)),f.x),f.y),
+    mix(mix(paleoHash(i+vec3(0,0,1)),paleoHash(i+vec3(1,0,1)),f.x),mix(paleoHash(i+vec3(0,1,1)),paleoHash(i+vec3(1,1,1)),f.x),f.y),f.z);
+}
+` +
+    shader.fragmentShader.replace(
+      "#include <map_fragment>",
+      `#include <map_fragment>
+  {
+    float landness=smoothstep(-.02,.05,diffuseColor.r-diffuseColor.b);
+    float n=paleoNoise(vSphere*2.3+3.)*.65+paleoNoise(vSphere*6.1)*.35;
+    vec3 green=pow(vec3(.45,.55,.33),vec3(2.2)),olive=pow(vec3(.58,.58,.39),vec3(2.2)),
+      tan=pow(vec3(.70,.63,.46),vec3(2.2));
+    vec3 land=mix(mix(green,olive,smoothstep(.3,.58,n)),tan,smoothstep(.58,.82,n));
+    diffuseColor.rgb=mix(diffuseColor.rgb,land,landness);
+  }`,
+    );
+}
+
 function ReconstructedSnapshot({
   snapshot,
   radius,
@@ -99,6 +135,8 @@ function ReconstructedSnapshot({
         roughness={0.84}
         transparent={Boolean(material)}
         depthWrite={!material}
+        onBeforeCompile={recolorLand}
+        customProgramCacheKey={() => "paleo-land-v1"}
       />
     </mesh>
   );
