@@ -88,7 +88,7 @@ export default function RockCycle() {
     {
       pos: [BODIES.pluton.x - 0.05, BODIES.pluton.y - 0.05, FRONT],
       name: 0,
-      note: "A granite pluton: magma that cooled slowly underground, growing large crystals. Uplift and erosion have exposed its top in the foothills. Lava from the volcano cools quickly into fine-grained igneous rock such as basalt.",
+      note: "A granite pluton: magma that rose from below and cooled slowly underground, growing large crystals. Its heat baked the rock around it into a dark rim of hornfels (contact metamorphism). Uplift and erosion have exposed its top in the foothills. Lava from the volcano cools quickly into fine-grained igneous rock such as basalt.",
     },
     {
       pos: [-2.15, -0.45, FRONT],
@@ -98,7 +98,7 @@ export default function RockCycle() {
     {
       pos: [2.35, -0.98, FRONT],
       name: 2,
-      note: "In the hot, deep root of the mountain range, rock recrystallizes under heat and pressure without melting, and its minerals line up in bands.",
+      note: "In the hot, deep root of the mountain range, rock recrystallizes under heat and pressure without melting: its minerals line up in folded bands (schist and gneiss), and new minerals such as red garnet grow.",
     },
     {
       pos: [-1.55, surface(-1.55, FRONT) + 0.16, FRONT],
@@ -108,7 +108,7 @@ export default function RockCycle() {
     {
       pos: [BODIES.chamber.x + 0.55, BODIES.chamber.y, FRONT],
       name: 4,
-      note: "Magma collects in a chamber under the volcano. Below it, at the base of the thickened crust, rock is hot enough to begin melting (veins of melt in gray rock).",
+      note: "Magma collects in a chamber under the volcano, inside a rim of crystal mush where it is cooling. Below it, at the base of the thickened crust, rock is hot enough to begin melting: pale veins of melt thread through the gray gneiss (migmatite).",
     },
   ];
   if (landscape)
