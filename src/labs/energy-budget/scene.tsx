@@ -3,11 +3,14 @@ import * as THREE from "three";
 import { StarMesh } from "@/components/globe/star";
 import { useLabState } from "@/lib/store/lab-controls";
 import { radiationBudget } from "@/lib/energy-wind-science";
-import { useLabTick } from "@/labs/tick";
+import { useLabFrame, useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
-import { TerrainMaterial } from "../shared/natural-world";
-import { CloudPuffMaterial } from "../shared/cloud-material";
+import { PlantStand } from "../shared/natural-world";
+import { GeomorphicTerrain } from "../shared/geomorphic-terrain";
+import { ShallowWater } from "../shared/shallow-water";
+import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
+import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { ScientificText } from "@/components/scientific-text";
 import { useIsCompact } from "@/hooks/use-media";
@@ -63,19 +66,15 @@ function reflectedPath(absorbedWidth: number, reflectedWidth: number): [number, 
 }
 
 export default function EnergyBudget() {
-  const { params, t } = useLabState("params", "t");
+  const { params } = useLabState("params");
   useLabTick(1 / 12);
   const albedo = params.albedo ?? 0.3,
     greenhouse = (params.greenhouse ?? 1) > 0.5,
     b = radiationBudget(albedo, greenhouse ? 0.78 : 0),
     w = (flux: number) => flux * PER_WATT,
     surfaceC = b.surfaceK - 273.15,
-    // Brighter ground and more cloud at higher albedo; planetary albedo is mostly clouds.
-    whiteness = THREE.MathUtils.clamp((albedo - 0.3) / 0.55, 0, 1),
-    ground = useMemo(
-      () => new THREE.Color("#6f8f4e").lerp(new THREE.Color("#e8eef0"), whiteness),
-      [whiteness],
-    );
+    // More cloud, and snow and sea ice spreading, at higher albedo; today's 0.3 is mostly clouds.
+    whiteness = THREE.MathUtils.clamp((albedo - 0.3) / 0.55, 0, 1);
   const compact = useIsCompact();
   // Numbered in order on a phone; the back-radiation label exists only with the IR layer.
   const entries: (EnergyLabel | false)[] = [
@@ -135,21 +134,20 @@ export default function EnergyBudget() {
         trueScale="The one-layer model has no altitude; the layer stands for all infrared-absorbing gases"
         camera={[0.7, 0.75, 9]}
       >
-        <Ground color={ground} warmth={surfaceC} />
-        <Column />
+        <Landscape whiteness={whiteness} />
+        <Sky />
         <Clouds albedo={albedo} />
-        {greenhouse && <InfraredLayer t={t} />}
+        {greenhouse && <InfraredLayer />}
         <group position={SUN}>
           <StarMesh radius={0.36} />
         </group>
 
         {/* Sunlight: in from the upper left; the reflected share peels off at cloud level. */}
-        <FluxBand path={[IN_FROM, IN_TO]} width={w(b.absorbed)} color="#f2c76b" phase={t} />
+        <FluxBand path={[IN_FROM, IN_TO]} width={w(b.absorbed)} color="#f2c76b" />
         <FluxBand
           path={reflectedPath(w(b.absorbed), w(b.reflected))}
           width={w(b.reflected)}
           color="#f3ecd2"
-          phase={t}
           opacity={0.82}
         />
         {/* Infrared from the surface: absorbed by the layer, or straight out through the window. */}
@@ -160,7 +158,6 @@ export default function EnergyBudget() {
           ]}
           width={w(greenhouse ? b.surfaceUp - b.window : b.surfaceUp)}
           color="#e8835a"
-          phase={t}
         />
         {greenhouse && (
           <FluxBand
@@ -170,7 +167,6 @@ export default function EnergyBudget() {
             ]}
             width={w(b.window)}
             color="#e8835a"
-            phase={t}
           />
         )}
         {greenhouse && (
@@ -182,7 +178,6 @@ export default function EnergyBudget() {
               ]}
               width={w(b.atmosphereUp)}
               color="#7cc6dd"
-              phase={t}
             />
             <FluxBand
               path={[
@@ -191,7 +186,6 @@ export default function EnergyBudget() {
               ]}
               width={w(b.backRadiation)}
               color="#7cc6dd"
-              phase={t}
             />
           </>
         )}
@@ -241,56 +235,129 @@ export default function EnergyBudget() {
           : (b.absorbed - b.outgoing).toFixed(1)}{" "}
         {"W/m²."} <br />
         {
-          "Yellow: sunlight absorbed; cream: sunlight reflected. Orange: infrared from the surface. Blue: infrared emitted by the layer, up to space and back down to the surface. Each band’s width is proportional to its flux. Top-of-atmosphere balance is sunlight absorbed minus infrared to space; zero means equilibrium. More cloud and whiter ground in the model mean a higher albedo."
+          "Yellow: sunlight absorbed; cream: sunlight reflected. Orange: infrared from the surface. Blue: infrared emitted by the layer, up to space and back down to the surface. Each band’s width is proportional to its flux. Top-of-atmosphere balance is sunlight absorbed minus infrared to space; zero means equilibrium. In the model, a higher albedo brings more cloud, and snow and sea ice spreading from the poleward edge."
         }
       </ScienceReadout>
     </>
   );
 }
 
-/** A slab of ground with a soil face; it glows faintly warmer as the surface heats. */
-function Ground({ color, warmth }: { color: THREE.Color; warmth: number }) {
-  const glow = THREE.MathUtils.clamp((warmth + 20) / 60, 0, 1);
+/** Shoreline: ocean to the west, under the incoming sunlight; low plains to the east. */
+const COAST = -1.15;
+const shore = (x: number, z: number) =>
+  x - COAST - 0.1 * Math.sin(z * 2.4 + 0.5) - 0.08 * (noise(x * 1.4 + 2, z * 1.4) - 0.5);
+/** The land surface and sea floor (sea level is 0). Relief is small and schematic. */
+function groundHeight(x: number, z: number) {
+  const s = shore(x, z);
+  if (s < 0) return -0.015 - 0.1 * THREE.MathUtils.smoothstep(-s, 0, 1.3);
+  return (
+    0.006 +
+    0.05 * THREE.MathUtils.smoothstep(s, 0.15, 3.6) +
+    0.012 * (noise(x * 2.5 + 3, z * 2.5) - 0.5) * THREE.MathUtils.smoothstep(s, 0, 0.3)
+  );
+}
+const seaLevel = () => 0;
+/** Snow or ice cover (0–1) spreading from the poleward (back) edge as `whiteness` rises. */
+function cover(x: number, z: number, whiteness: number, patchy: number) {
+  if (whiteness <= 0) return 0;
+  const edge = -HALF_D - 0.1 + (2 * HALF_D + 0.35) * whiteness,
+    front = z + patchy * (noise(x * 3 + 7, z * 3) - 0.5);
+  return 1 - THREE.MathUtils.smoothstep(front, edge - 0.05, edge + 0.05);
+}
+const tone = new THREE.Color(),
+  white = new THREE.Color("#edf2f4");
+
+/**
+ * A coast under the column: dark ocean where the sunlight arrives, a beach and grassy plains
+ * with trees. As albedo rises, snow and sea ice spread from the poleward edge.
+ */
+function Landscape({ whiteness }: { whiteness: number }) {
+  const color = useMemo(
+    () => (x: number, _y: number, z: number) => {
+      const s = shore(x, z),
+        n = noise(x * 3.1 + 1, z * 3.1);
+      tone.set(s < 0 ? "#8b8670" : s < 0.12 ? "#d6c597" : n > 0.62 ? "#55743d" : "#6f8f4e");
+      if (s >= 0) tone.lerp(white, cover(x, z, whiteness, 0.25));
+      return "#" + tone.getHexString();
+    },
+    [whiteness],
+  );
+  const ice = useMemo(() => {
+    const g = new THREE.PlaneGeometry(COAST + HALF_W + 0.3, HALF_D * 2, 120, 50);
+    g.rotateX(-Math.PI / 2);
+    g.translate((COAST + 0.3 - HALF_W) / 2, 0.004, 0);
+    const p = g.attributes.position,
+      c = new Float32Array(p.count * 4);
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i),
+        z = p.getZ(i),
+        // Floes: sea ice breaks into patches toward its edge.
+        floes = THREE.MathUtils.smoothstep(noise(x * 9 + 1, z * 9), 0.25, 0.4),
+        a = cover(x, z, whiteness * 0.94, 0.35),
+        alpha = shore(x, z) < 0 ? Math.min(1, a * (a > 0.85 ? 1 : floes) * 1.1) : 0;
+      c.set([0.93, 0.96, 0.98, alpha], i * 4);
+    }
+    g.setAttribute("color", new THREE.BufferAttribute(c, 4));
+    return g;
+  }, [whiteness]);
+  useLayoutEffect(() => () => ice.dispose(), [ice]);
+  const trees = useMemo(
+    () =>
+      Array.from({ length: 70 }, (_, i): [number, number, number] => {
+        const x = -0.7 + random(i + 3) * 3.85,
+          z = -0.95 + random(i + 41) * 1.9;
+        return [x, groundHeight(x, z), z];
+      }).filter(
+        ([x, , z]) =>
+          shore(x, z) > 0.35 &&
+          // Clear of the infrared bands rising from the ground along the middle.
+          (Math.abs(z) > 0.32 || (Math.abs(x - 0.25) > 0.42 && Math.abs(x - 1.35) > 0.32)) &&
+          cover(x, z, whiteness, 0.25) < 0.5,
+      ),
+    [whiteness],
+  );
   return (
     <group>
-      <mesh position={[0, -0.025, 0]} receiveShadow>
-        <boxGeometry args={[HALF_W * 2, 0.05, HALF_D * 2]} />
-        <TerrainMaterial
-          kind="grass"
-          color={color}
-          emissive="#ff6a2b"
-          emissiveIntensity={0.015 + glow * 0.06}
-        />
+      <GeomorphicTerrain
+        height={groundHeight}
+        color={color}
+        width={HALF_W * 2}
+        depth={HALF_D * 2}
+        base={-0.34}
+        resolution={180}
+        cliff={0}
+        mottle={0.06}
+        section={{ rock: "sandstone", soil: 0.035, regolith: 0.03, beds: 5 }}
+      />
+      <ShallowWater
+        land={groundHeight}
+        level={seaLevel}
+        width={HALF_W * 2}
+        depth={HALF_D * 2}
+        resolution={160}
+        deep={0.09}
+        shallowColour="#3f7f8c"
+        deepColour="#173f5c"
+      />
+      <mesh geometry={ice} renderOrder={3}>
+        <meshStandardMaterial vertexColors transparent roughness={0.55} depthWrite={false} />
       </mesh>
-      <mesh position={[0, -0.23, 0]} receiveShadow>
-        <boxGeometry args={[HALF_W * 2, 0.36, HALF_D * 2]} />
-        <TerrainMaterial kind="soil" color="#6e5641" />
-      </mesh>
+      <PlantStand kind="broadleaf" positions={trees} scale={0.1} seed={5} />
     </group>
   );
 }
 
-/** The atmosphere column: a sky gradient behind, faint edges, and the top of the atmosphere. */
-function Column() {
-  const edges = useMemo(() => {
-    const box = new THREE.BoxGeometry(HALF_W * 2, TOP, HALF_D * 2);
-    box.translate(0, TOP / 2, 0);
-    const e = new THREE.EdgesGeometry(box);
-    box.dispose();
-    return e;
-  }, []);
+/** The sky behind the column, fading from pale blue near the ground to dark blue at the top. */
+function Sky() {
   const sky = useMemo(
     () => ({
-      low: { value: new THREE.Color("#8cc4e6") },
+      low: { value: new THREE.Color("#9ccbe8") },
       high: { value: new THREE.Color("#1b3a6b") },
     }),
     [],
   );
   return (
     <group>
-      <lineSegments geometry={edges}>
-        <lineBasicMaterial color="#9fb7c4" transparent opacity={0.35} />
-      </lineSegments>
       <mesh position={[0, TOP / 2, -HALF_D]} renderOrder={0}>
         <planeGeometry args={[HALF_W * 2, TOP]} />
         <shaderMaterial
@@ -302,7 +369,9 @@ function Column() {
             uniform vec3 low; uniform vec3 high; varying vec2 vUv;
             void main(){
               vec3 c = mix(low, high, smoothstep(0.0, 1.0, vUv.y));
-              gl_FragColor = vec4(c, mix(0.5, 0.18, vUv.y));
+              // Soft side edges, so the sky reads as air rather than a pane of glass.
+              float side = smoothstep(0.0, 0.06, vUv.x) * (1.0 - smoothstep(0.94, 1.0, vUv.x));
+              gl_FragColor = vec4(c, mix(0.62, 0.5, vUv.y) * side);
               #include <tonemapping_fragment>
               #include <colorspace_fragment>
             }`}
@@ -326,59 +395,85 @@ function Column() {
   );
 }
 
-/** Cloud cover rises with albedo: the main reason Earth reflects about 30% of sunlight. */
+/** Cloud spots: the first sits where the reflected sunlight turns back toward space. */
+const CLOUD_SPOTS: [number, number, number][] = [
+  [-2.05, CLOUD_Y + 0.05, -0.2],
+  [0.6, CLOUD_Y + 0.12, -0.45],
+  [2.4, CLOUD_Y, 0.25],
+  [-0.9, CLOUD_Y + 0.18, 0.45],
+  [1.5, CLOUD_Y + 0.2, 0.55],
+  [-2.8, CLOUD_Y + 0.15, 0.55],
+  [-0.2, CLOUD_Y + 0.02, -0.75],
+  [2.9, CLOUD_Y + 0.15, -0.6],
+  [-1.6, CLOUD_Y + 0.25, -0.75],
+];
+/** Cloud cover rises with albedo: clouds cause most of the 30% of sunlight Earth reflects. */
 function Clouds({ albedo }: { albedo: number }) {
-  const count = Math.round(2 + 16 * THREE.MathUtils.clamp((albedo - 0.1) / 0.8, 0, 1)),
-    mesh = useRef<THREE.InstancedMesh>(null),
-    geometry = useMemo(() => new THREE.PlaneGeometry(1, 0.62), []);
-  useLayoutEffect(() => {
-    const m = new THREE.Object3D();
-    for (let i = 0; i < count; i++) {
-      const x = -3 + ((i * 0.618 + 0.13) % 1) * 6,
-        z = -0.8 + ((i * 0.381 + 0.5) % 1) * 1.6,
-        s = 0.5 + ((i * 0.733) % 1) * 0.42;
-      m.position.set(x, CLOUD_Y + 0.05 + ((i * 0.29) % 1) * 0.3, z);
-      m.scale.set(s, s, s);
-      m.updateMatrix();
-      mesh.current?.setMatrixAt(i, m.matrix);
-    }
-    if (mesh.current) {
-      mesh.current.count = count;
-      mesh.current.instanceMatrix.needsUpdate = true;
-      mesh.current.computeBoundingSphere();
-    }
-  }, [count]);
-  useLayoutEffect(() => () => geometry.dispose(), [geometry]);
+  const count = Math.round(1 + 8 * THREE.MathUtils.clamp((albedo - 0.1) / 0.8, 0, 1));
   return (
-    <instancedMesh ref={mesh} args={[geometry, undefined, 18]} renderOrder={1}>
-      <CloudPuffMaterial opacity={0.8} />
-    </instancedMesh>
+    <>
+      {CLOUD_SPOTS.slice(0, count).map((p, i) => {
+        const s = 0.62 + 0.2 * random(i + 9);
+        return (
+          <CloudVolume
+            key={i}
+            position={p}
+            scale={[s * 1.1, s * 0.62, s * 0.8]}
+            seed={i + 3}
+            density={26}
+            opacity={0.95}
+          />
+        );
+      })}
+    </>
   );
 }
 
-function InfraredLayer({ t }: { t: number }) {
-  const edges = useMemo(() => {
-    const box = new THREE.BoxGeometry(HALF_W * 2, LAYER_HIGH - LAYER_LOW, HALF_D * 2);
-    const e = new THREE.EdgesGeometry(box);
-    box.dispose();
-    return e;
-  }, []);
+/** The infrared-absorbing layer: a band of haze, soft at its top and bottom, with molecules. */
+function InfraredLayer() {
+  const haze = useMemo(
+    () => ({
+      color: { value: new THREE.Color("#4f9aa6") },
+    }),
+    [],
+  );
   return (
     <group position={[0, (LAYER_LOW + LAYER_HIGH) / 2, 0]}>
       <mesh renderOrder={1}>
         <boxGeometry args={[HALF_W * 2, LAYER_HIGH - LAYER_LOW, HALF_D * 2]} />
-        <meshStandardMaterial
-          color="#8fd0d8"
-          roughness={0.5}
+        <shaderMaterial
           transparent
-          opacity={0.16}
           depthWrite={false}
+          side={THREE.DoubleSide}
+          uniforms={haze}
+          vertexShader={`varying vec3 vLocal; void main(){ vLocal = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`}
+          fragmentShader={`
+            uniform vec3 color; varying vec3 vLocal;
+            void main(){
+              float h = ${((LAYER_HIGH - LAYER_LOW) / 2).toFixed(3)};
+              float soft = 1.0 - smoothstep(h * 0.3, h, abs(vLocal.y));
+              gl_FragColor = vec4(color, 0.3 * soft);
+              #include <tonemapping_fragment>
+              #include <colorspace_fragment>
+            }`}
         />
       </mesh>
-      <lineSegments geometry={edges}>
-        <lineBasicMaterial color="#8fd0d8" transparent opacity={0.6} />
-      </lineSegments>
-      <Molecules t={t} />
+      {[LAYER_LOW, LAYER_HIGH].map((y) => (
+        <Line
+          key={y}
+          points={[
+            [-HALF_W, y - (LAYER_LOW + LAYER_HIGH) / 2, HALF_D],
+            [HALF_W, y - (LAYER_LOW + LAYER_HIGH) / 2, HALF_D],
+            [HALF_W, y - (LAYER_LOW + LAYER_HIGH) / 2, -HALF_D],
+          ]}
+          color="#5aa9b5"
+          lineWidth={1.3}
+          dashed
+          dashSize={0.1}
+          gapSize={0.07}
+        />
+      ))}
+      <Molecules />
     </group>
   );
 }
@@ -415,23 +510,39 @@ const SHAPES: { name: string; atoms: Atom[] }[] = [
     ],
   },
 ];
-function Molecules({ t }: { t: number }) {
+/** Where the molecules sit along the front of the layer, clear of the bands behind them. */
+const MOLECULES = [-2.95, -2.1, -1.45, -0.3, 0.8, 1.9, 2.95];
+/** Enlarged molecules that turn and vibrate; they move every frame without re-rendering. */
+function Molecules() {
+  const groups = useRef<(THREE.Group | null)[]>([]);
+  useLabFrame((t) => {
+    groups.current.forEach((g, i) => {
+      if (!g) return;
+      g.rotation.set(i * 0.7 + t * 1.3, i * 1.3 + t * 2, 0);
+      // Bonds stretch and bend: the vibrations that absorb infrared.
+      const wobble = 1 + 0.12 * Math.sin(t * 90 + i * 2.1);
+      g.children.forEach((atom, k) => {
+        const p = SHAPES[i % 3].atoms[k].p;
+        atom.position.set(p[0] * wobble, p[1] * (k ? 2 - wobble : 1), p[2] * wobble);
+      });
+    });
+  });
   return (
     <group>
-      {Array.from({ length: 16 }, (_, i) => {
-        const shape = SHAPES[i % 3],
-          x = -3 + (i / 15) * 6,
-          z = -0.85 + 1.7 * ((i * 0.618) % 1),
-          wobble = 0.02 * Math.sin(t * 60 + i * 2.1);
+      {MOLECULES.map((x, i) => {
+        const shape = SHAPES[i % 3];
         return (
           <group
             key={i}
-            position={[x, 0.12 * Math.sin(i * 1.7) + wobble, z]}
-            rotation={[i * 0.7, i * 1.3 + t * 2, 0]}
+            ref={(g) => {
+              groups.current[i] = g;
+            }}
+            position={[x, 0.07 * Math.sin(i * 1.7), HALF_D - 0.18]}
+            scale={2.3}
           >
             {shape.atoms.map((a, k) => (
-              <mesh key={k} position={a.p.map((v) => v * (1 + wobble * (k ? 2 : 0))) as Point}>
-                <sphereGeometry args={[a.r, 16, 12]} />
+              <mesh key={k} position={a.p}>
+                <sphereGeometry args={[a.r, 18, 14]} />
                 <meshStandardMaterial color={ATOM[a.e]} roughness={0.35} />
               </mesh>
             ))}

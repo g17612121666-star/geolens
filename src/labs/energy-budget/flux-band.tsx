@@ -1,19 +1,20 @@
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { liveUniforms } from "@/lib/shader-uniforms";
+import { useLabFrame } from "@/labs/tick";
 
 type XY = [number, number];
 
 /**
  * A flat energy band in the x–y plane: a polyline swept to a width proportional to its flux,
- * ending in an arrowhead. Bright stripes slide along it in the direction energy moves.
+ * ending in an arrowhead. Bright stripes slide along it in the direction energy moves, moved
+ * every frame from lab time without re-rendering the scene.
  */
 export function FluxBand({
   path,
   width,
   color,
   z = 0,
-  phase,
   opacity = 0.9,
 }: {
   path: XY[];
@@ -21,8 +22,6 @@ export function FluxBand({
   width: number;
   color: string;
   z?: number;
-  /** Lab time; the stripes move with it. */
-  phase: number;
   opacity?: number;
 }) {
   const geometry = useMemo(() => bandGeometry(path, width), [path, width]);
@@ -36,7 +35,9 @@ export function FluxBand({
     }),
     [color, opacity],
   );
-  uniforms.phase.value = phase;
+  useLabFrame((t) => {
+    uniforms.phase.value = t;
+  });
   uniforms.length.value = (geometry.userData.length as number) ?? 1;
   if (width < 0.004) return null;
   return (
