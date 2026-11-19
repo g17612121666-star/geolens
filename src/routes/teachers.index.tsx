@@ -106,6 +106,15 @@ function TeachersIndex() {
           {"Check hand-in codes"}
         </Link>
       </div>
+      <p className="mt-4 max-w-3xl text-mist">
+        {"Planning a unit? "}
+        <Link to="/teachers/courses" className="text-ice underline underline-offset-4">
+          {"Courses"}
+        </Link>
+        {
+          " arranges the labs by NGSS middle and high school, AP Environmental Science, AP Human Geography, and England from KS3 to A level."
+        }
+      </p>
       <ol
         className="mt-7 grid grid-cols-2 gap-3 md:grid-cols-4"
         aria-label={"A lesson in four stages"}

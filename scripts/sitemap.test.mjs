@@ -31,5 +31,6 @@ test("the sitemap lists every lab, teacher guide, case study, subject and field 
   for (const c of CASES) want(`/case/${c.slug}`);
   for (const r of realms) want(`/realms/${r.slug}`);
   for (const t of FIELD_TRIPS) want(`/trips/${t.slug}`);
+  for (const page of ["/teachers", "/teachers/courses", "/teachers/standards"]) want(page);
   assert.deepEqual(missing, [], "add these pages to public/sitemap.xml");
 });
