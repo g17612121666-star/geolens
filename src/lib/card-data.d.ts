@@ -3,7 +3,7 @@
 declare module "virtual:photo-cards" {
   import type { PhotoCard } from "@/lib/photo-cards";
   type Cards = Record<string, PhotoCard | undefined>;
-  export const CARDS: { lab: Cards; realm: Cards; teacher: Cards; case: Cards; photo: Cards };
+  export const CARDS: { lab: Cards; case: Cards; photo: Cards };
 }
 
 declare module "virtual:case-index" {

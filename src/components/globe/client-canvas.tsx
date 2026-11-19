@@ -26,6 +26,8 @@ export function ClientCanvas({
   dpr,
   shadows,
   transparent,
+  quiet = false,
+  onReady,
 }: {
   children: ReactNode;
   className?: string;
@@ -37,6 +39,10 @@ export function ClientCanvas({
   shadows?: boolean;
   /** Let the page show through (used where the scene floats over page artwork). */
   transparent?: boolean;
+  /** Show no loading or fallback messages, for a scene that stands over a still picture of itself. */
+  quiet?: boolean;
+  /** Told when the first frame has been drawn, and again if the scene starts loading anew. */
+  onReady?: (ready: boolean) => void;
 }) {
   const theme = usePreferences((s) => s.resolvedTheme);
   const [mounted, setMounted] = useState(false);
@@ -47,14 +53,16 @@ export function ClientCanvas({
     (value: boolean) => {
       setSceneReady(value);
       entryReady?.(value);
+      onReady?.(value);
     },
-    [entryReady],
+    [entryReady, onReady],
   );
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     if (webgl === false) entryReady?.(true);
   }, [webgl, entryReady]);
 
+  if (quiet && (!mounted || !webgl)) return null;
   if (!mounted || webgl === null) {
     return (
       <div
@@ -80,7 +88,7 @@ export function ClientCanvas({
     );
 
   return (
-    <CanvasBoundary className={className} onFailure={() => entryReady?.(true)}>
+    <CanvasBoundary className={className} quiet={quiet} onFailure={() => entryReady?.(true)}>
       <div className={`${className ?? "absolute inset-0"} overflow-hidden`}>
         <Canvas
           data-scene-ready={sceneReady ? "true" : "false"}
@@ -116,7 +124,7 @@ export function ClientCanvas({
             <SceneReady set={ready} />
           </Suspense>
         </Canvas>
-        {!sceneReady && (
+        {!sceneReady && !quiet && (
           <div className="absolute inset-0 z-30 flex items-center justify-center bg-void p-6">
             <div className="w-full max-w-sm">
               <SceneProgress compact />
@@ -167,7 +175,7 @@ function SceneReady({ set }: { set: (ready: boolean) => void }) {
 }
 
 class CanvasBoundary extends Component<
-  { children: ReactNode; className?: string; onFailure: () => void },
+  { children: ReactNode; className?: string; quiet?: boolean; onFailure: () => void },
   { failed: boolean; attempt: number }
 > {
   state = { failed: false, attempt: 0 };
@@ -178,6 +186,7 @@ class CanvasBoundary extends Component<
     this.props.onFailure();
   }
   render() {
+    if (this.state.failed && this.props.quiet) return null;
     return this.state.failed ? (
       <div
         className={`${this.props.className ?? "absolute inset-0"} flex flex-col items-center justify-center gap-4 p-8 text-center text-sm text-mist`}

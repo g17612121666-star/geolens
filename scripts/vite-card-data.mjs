@@ -72,8 +72,6 @@ export function photoCards() {
   const tripPhotos = FIELD_TRIPS.flatMap((trip) => trip.stops.map((stop) => stop.photo));
   return {
     lab: cards(assign.LAB_COVER),
-    realm: cards(assign.REALM_COVER),
-    teacher: cards(assign.TEACHER_HERO),
     case: cards(assign.CASE_COVER_EXTRA),
     photo: Object.fromEntries(tripPhotos.map((id) => [id, card(VERIFIED_PHOTOS[id])])),
   };

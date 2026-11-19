@@ -49,3 +49,9 @@ test("no model picture is left over from a lab that no longer exists", () => {
   }
 });
 
+test("the home-page globe has its still picture in both sizes", () => {
+  for (const size of [560, 1120]) {
+    const file = new URL(`../public/home/earth-${size}.webp`, import.meta.url);
+    assert.deepEqual(webpSize(file), [size, size]);
+  }
+});

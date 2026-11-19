@@ -1,13 +1,17 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { ArrowRight, Flame, MapPinned, Route as RouteIcon, Sparkles } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
 import { placeOfTheDay, readDaily, streak } from "@/lib/daily";
 import { useToday } from "@/lib/use-today";
 import { FIELD_TRIPS, readTripProgress } from "@/lib/field-trips";
-import { tripCard } from "@/lib/photo-cards";
-import { photoSrcSet } from "@/lib/responsive-image";
 
-/** Home-page row of today's challenges, the place of the day and the next field trip. */
+const DATE = new Intl.DateTimeFormat("en-US", {
+  weekday: "long",
+  month: "long",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+/** Home-page line of today's practice, the place of the day and the next field trip. */
 export function TodayStrip() {
   const day = useToday();
   const [s, setS] = useState({
@@ -30,80 +34,67 @@ export function TodayStrip() {
     });
   }, [day]);
   const place = placeOfTheDay(day),
-    photo = tripCard(place.photo),
     trip = FIELD_TRIPS.find((t) => t.slug === s.next) ?? FIELD_TRIPS[0];
-  const card =
-    "editorial-card flex min-h-24 items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4";
   return (
-    <section className="mx-auto max-w-[1280px] px-5 pb-10" aria-labelledby="today-heading">
-      <div className="flex items-baseline justify-between gap-4">
-        <h2 id="today-heading" className="section-label">
-          {"Today"}
+    <section className="mx-auto max-w-[1280px] px-5" aria-labelledby="today-heading">
+      <div className="grid gap-x-8 gap-y-4 border-y border-white/10 py-5 sm:grid-cols-2 lg:grid-cols-[11rem_repeat(4,minmax(0,1fr))]">
+        <h2 id="today-heading" className="text-sm leading-5 text-chalk sm:col-span-2 lg:col-span-1">
+          <span className="block font-semibold">Today</span>
+          <span className="block text-mist">{DATE.format(new Date(`${day}T12:00:00Z`))}</span>
+          {s.streak > 0 && (
+            <span className="mt-0.5 block text-sandstone">{`${s.streak}-day streak`}</span>
+          )}
         </h2>
-        {s.streak > 0 && (
-          <p className="inline-flex items-center gap-1.5 text-sm text-sandstone">
-            <Flame className="size-4" aria-hidden="true" />
-            {`${s.streak} day streak`}
-          </p>
-        )}
-      </div>
-      <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <Link to="/practice/daily" className={card}>
-          <Sparkles className="size-8 shrink-0 text-glacier" aria-hidden="true" />
-          <span>
-            <span className="block text-chalk">{"Daily 5"}</span>
-            <span className="block text-sm text-mist">
-              {s.quiz ? "Done today ✓" : "Five quick questions, new every day"}
-            </span>
-          </span>
-        </Link>
-        <Link to="/practice/where" className={card}>
-          <MapPinned className="size-8 shrink-0 text-glacier" aria-hidden="true" />
-          <span>
-            <span className="block text-chalk">{"Where on Earth?"}</span>
-            <span className="block text-sm text-mist">
-              {s.where ? "Done today ✓" : "Pin five landscape photos on the map"}
-            </span>
-          </span>
-        </Link>
-        <Link
+        <TodayLink
+          to="/practice/daily"
+          note={s.quiz ? "Done today" : "Five questions, new each day"}
+        >
+          Daily 5
+        </TodayLink>
+        <TodayLink
+          to="/practice/where"
+          note={s.where ? "Done today" : "Pin five landscape photos on a map"}
+        >
+          Where on Earth?
+        </TodayLink>
+        <TodayLink
           to="/trips/$slug"
           params={{ slug: place.trip }}
           search={{ stop: place.stop }}
-          className={card}
+          note={`Place of the day: ${place.place}`}
         >
-          {photo && (
-            <img
-              src={photo.src}
-              srcSet={photoSrcSet(photo.src)}
-              sizes="56px"
-              alt=""
-              className="size-14 shrink-0 rounded-lg object-cover"
-            />
-          )}
-          <span>
-            <span className="block text-chalk">{place.title}</span>
-            <span className="block text-sm text-mist">{`Place of the day · ${place.place}`}</span>
-          </span>
-        </Link>
-        <Link
+          {place.title}
+        </TodayLink>
+        <TodayLink
           to="/trips/$slug"
           params={{ slug: trip.slug }}
           search={{ stop: s.nextStop }}
-          className={card}
+          note={s.nextStop > 1 ? `Field trip, continue at stop ${s.nextStop}` : "Field trip"}
         >
-          <RouteIcon className="size-8 shrink-0 text-glacier" aria-hidden="true" />
-          <span className="flex-1">
-            <span className="block text-chalk">{trip.title}</span>
-            <span className="block text-sm text-mist">
-              {s.nextStop > 1
-                ? `Field trip · continue at stop ${s.nextStop}`
-                : "Field trip · start here"}
-            </span>
-          </span>
-          <ArrowRight className="size-4 text-mist" aria-hidden="true" />
-        </Link>
+          {trip.title}
+        </TodayLink>
       </div>
     </section>
+  );
+}
+
+function TodayLink({
+  note,
+  children,
+  ...link
+}: {
+  note: string;
+  children: ReactNode;
+  to: "/practice/daily" | "/practice/where" | "/trips/$slug";
+  params?: { slug: string };
+  search?: { stop: number };
+}) {
+  return (
+    <Link {...link} className="group block text-sm leading-5">
+      <span className="font-medium text-chalk underline-offset-4 group-hover:underline">
+        {children}
+      </span>
+      <span className="mt-0.5 block text-mist">{note}</span>
+    </Link>
   );
 }
