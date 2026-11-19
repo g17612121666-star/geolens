@@ -103,7 +103,10 @@ export function PageHelp({ pathname }: { pathname: string }) {
       } else if (e.key === "Escape") setOpen(false);
       else if (e.key === "/" && !e.metaKey && !e.ctrlKey) {
         e.preventDefault();
-        void navigate({ to: "/search" });
+        // Wide screens show a search box in the header; elsewhere open the search page.
+        const box = document.querySelector<HTMLInputElement>('header input[type="search"]');
+        if (box?.offsetParent) box.focus();
+        else void navigate({ to: "/search" });
       }
     };
     window.addEventListener("keydown", onKey);
