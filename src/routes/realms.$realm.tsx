@@ -17,7 +17,8 @@ export const Route = createFileRoute("/realms/$realm")({
   },
   loader: async ({ params }) => {
     const { REALM_FIGURE: figures } = await import("@/lib/figures");
-    return { image: figures[params.realm as keyof typeof figures]?.src };
+    const fig = figures[params.realm as keyof typeof figures];
+    return { image: fig?.src, imageAlt: fig?.alt };
   },
   head: ({ params, loaderData }) => {
     const meta = REALMS.find((r) => r.slug === params.realm);
@@ -26,6 +27,7 @@ export const Route = createFileRoute("/realms/$realm")({
       description: meta?.blurb ?? "A Geolens subject.",
       path: `/realms/${params.realm}`,
       image: loaderData?.image,
+      imageAlt: loaderData?.imageAlt,
     });
   },
   component: RealmPage,

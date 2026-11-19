@@ -10,6 +10,8 @@ import { LiveData } from "./live-data";
 import { ControlBar, ViewTools } from "./control-bar";
 import { useIsCompact, useMediaQuery } from "@/hooks/use-media";
 import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state";
+import { ClassroomShare } from "@/components/classroom-share";
+import { absUrl } from "@/lib/seo";
 import { recordLabVisit } from "@/lib/recent-labs";
 
 const KEYS: { key: string; does: string }[] = [
@@ -283,6 +285,12 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             >
               {shareStatus}
             </button>
+            {" · "}
+            <ClassroomShare
+              href={absUrl(`/lab/${lab.slug}`)}
+              current={labShareUrl}
+              className="text-glacier underline"
+            />
             {" · "}
             <button
               type="button"

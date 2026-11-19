@@ -18,6 +18,7 @@ export const Route = createFileRoute("/about")({
         "Meet Li Zeyu, Earth science educator and founder of the geography club at Shanghai Pinghe School.",
       path: "/about",
       image: "/photos/li-zeyu-field.jpg",
+      imageAlt: "Li Zeyu examining a rock outcrop in the field.",
     }),
 });
 function About() {

@@ -6,6 +6,7 @@ import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
 import { LESSON_PHASES } from "@/lib/teachers/workflow";
 import { headFor, siteOrigin } from "@/lib/seo";
+import { labCard } from "@/lib/photo-cards";
 
 export const Route = createFileRoute("/worksheet/$slug")({
   beforeLoad: ({ params }) => {
@@ -24,6 +25,8 @@ export const Route = createFileRoute("/worksheet/$slug")({
         ? `A printable student worksheet for the ${loaderData.lab.title} lab, with tasks, key words, quiz questions and an optional answer key.`
         : "A printable Geolens worksheet.",
       path: `/worksheet/${params.slug}`,
+      image: labCard(params.slug)?.src,
+      imageAlt: labCard(params.slug)?.alt,
     }),
 });
 

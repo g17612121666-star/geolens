@@ -12,11 +12,13 @@ import {
   Link2,
   Focus,
   Keyboard,
+  GraduationCap,
 } from "lucide-react";
 import type { LabMeta, ShowWhen } from "@/lib/labs/types";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { defaultParams } from "@/lib/labs/defaults";
 import { labShareUrl } from "@/labs/shared/url-state";
+import { classroomShareUrl } from "@/lib/classroom-share";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -306,6 +308,17 @@ export function ViewTools({
       >
         <Link2 className="size-4" />
       </IconBtn>
+      {/* On phones the same link sits under the control bar, where there is room for its words. */}
+      {vertical && (
+        <IconBtn
+          label="Share to Google Classroom"
+          onClick={() =>
+            window.open(classroomShareUrl(labShareUrl()), "_blank", "noopener,noreferrer")
+          }
+        >
+          <GraduationCap className="size-4" />
+        </IconBtn>
+      )}
       <IconBtn label={fullscreen ? "Exit fullscreen" : "Fullscreen"} onClick={onToggleFullscreen}>
         {fullscreen ? <Minimize className="size-4" /> : <Maximize className="size-4" />}
       </IconBtn>

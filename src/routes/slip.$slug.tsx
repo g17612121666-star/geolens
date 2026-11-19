@@ -6,6 +6,7 @@ import { encodeHandIn } from "@/lib/hand-in";
 import { useQuizAnswers } from "@/lib/quiz-progress";
 import { useStudentName, useStudentWork, written } from "@/lib/student-work";
 import { headFor } from "@/lib/seo";
+import { labCard } from "@/lib/photo-cards";
 import { isUsStandard, standardLabel } from "@/lib/labs/standards";
 
 export const Route = createFileRoute("/slip/$slug")({
@@ -23,6 +24,8 @@ export const Route = createFileRoute("/slip/$slug")({
       title: `Hand-in slip · ${loaderData?.lab.title ?? "Lab"}`,
       description: "A printable record of one student's work in a Geolens lab.",
       path: `/slip/${params.slug}`,
+      image: labCard(params.slug)?.src,
+      imageAlt: labCard(params.slug)?.alt,
     }),
 });
 

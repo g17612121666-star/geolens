@@ -7,7 +7,8 @@ import { teacherArticle } from "@/lib/teachers/article";
 import { Figure } from "@/components/figure";
 import { labFigures, teacherHero, termFigure } from "@/lib/figures";
 import { labVideos } from "@/lib/lab-videos";
-import { headFor } from "@/lib/seo";
+import { headFor, siteOrigin } from "@/lib/seo";
+import { ClassroomShare } from "@/components/classroom-share";
 import { useState } from "react";
 import { LESSON_PHASES, lessonLink, lessonOutline } from "@/lib/teachers/workflow";
 import { STANDARD_BY_ID, isUsStandard, sortStandards, standardLabel } from "@/lib/labs/standards";
@@ -22,7 +23,8 @@ export const Route = createFileRoute("/teachers/$slug")({
       import("@/lib/figures"),
     ]);
     if (!lab) throw notFound();
-    return { lab, image: figures(lab.slug)[0]?.src };
+    const hero = figures(lab.slug)[0];
+    return { lab, image: hero?.src, imageAlt: hero?.alt };
   },
   component: TeacherArticlePage,
   head: ({ params, loaderData }) =>
@@ -33,6 +35,7 @@ export const Route = createFileRoute("/teachers/$slug")({
         : "Free teacher notes from Geolens.",
       path: `/teachers/${params.slug}`,
       image: loaderData?.image,
+      imageAlt: loaderData?.imageAlt,
     }),
 });
 
@@ -148,6 +151,13 @@ function TeacherArticlePage() {
         >
           {"Copy Guided student link"}
         </button>
+        <ClassroomShare
+          href={`${siteOrigin()}/lab/${lab.slug}?guided=1`}
+          current={() => `${window.location.origin}/lab/${lab.slug}?guided=1`}
+          className="inline-flex min-h-11 items-center rounded-full border border-glacier/30 bg-glacier/10 px-4 text-glacier"
+        >
+          {"Share Guided lab to Google Classroom"}
+        </ClassroomShare>
         <button
           className="min-h-11 rounded-full border border-white/15 px-4 text-ice"
           aria-pressed={largeText}
