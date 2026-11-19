@@ -9,44 +9,18 @@ import { farmland, settlement } from "../shared/hazard-utils";
 import type { LandSection } from "../shared/land-section";
 import { Tag } from "../shared/kit";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
-const NAMES = ["Mountain", "Hill", "Plateau", "Plain", "Basin"];
-const RIVER = (x: number) => 0.55 * Math.sin(x * 1.6) - 0.2;
+import {
+  BASIN_CENTER,
+  BASIN_OUTLET,
+  NAMES,
+  canyonRiver,
+  hillStream,
+  landformHeight,
+  onEscarpment,
+  plainRiver,
+} from "./shapes";
 const smooth = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
-function height(kind: number, x: number, z: number) {
-  const r = x * x + z * z;
-  if (kind === 0) {
-    // A glaciated massif: a horn-like summit, spurs radiating from it with valleys carved
-    // between them (their lines wander with distance), crags high up and a lower second peak.
-    const dx = x + 0.15,
-      dz = z - 0.1,
-      d = Math.hypot(dx, dz),
-      warp = 0.7 * (noise(x * 0.9 + 4, z * 0.9) - 0.5) + 0.42 * d,
-      spur = Math.abs(Math.cos((Math.atan2(dz, dx) + warp) * 2.5)) ** 0.7,
-      massif = 0.84 * Math.exp(-(d * d) / 1.9) + 0.36 * Math.exp(-((d / 0.55) ** 1.6)),
-      valley = 0.42 * (1 - spur) * smooth(d, 0.12, 0.65) * (1 - smooth(d, 1.5, 2.3)),
-      ridged = 1 - Math.abs(2 * noise(x * 3.1, z * 3.1) - 1),
-      fine = 1 - Math.abs(2 * noise(x * 7.3 + 3, z * 7.3 - 2) - 1),
-      crags = (0.13 * ridged * ridged + 0.05 * fine * fine) * smooth(massif, 0.3, 0.9),
-      second = 0.36 * Math.exp(-((x - 1.1) ** 2 + (z + 0.6) ** 2) / 0.32);
-    return (
-      0.1 +
-      massif * (1 - valley) +
-      second * (0.8 + 0.2 * spur) +
-      crags +
-      0.03 * (noise(x * 2, z * 2) - 0.5)
-    );
-  }
-  if (kind === 1)
-    return 0.07 + 0.38 * Math.exp(-r / 1.6) + 0.012 * Math.sin(x * 3) * Math.cos(z * 2);
-  if (kind === 2) {
-    // The high surface runs off the back and right of the sample, so it reads as the edge of an
-    // extensive plateau rather than an isolated flat-topped block (a mesa).
-    const edge = Math.max(-x, z) + 0.12 * Math.sin(x * 2.3 + 1) + 0.1 * Math.sin(z * 2.9);
-    return 0.08 + 1.22 / (1 + Math.exp((edge - 0.8) * 12)) + 0.015 * Math.sin(x * 5 + z * 3);
-  }
-  if (kind === 3) return 0.08 + 0.014 * Math.sin(x * 1.5) + 0.01 * Math.cos(z * 2);
-  return 0.06 + 0.62 * (1 - Math.exp(-r / 1.8)) + 0.015 * Math.cos(x * 3) * Math.sin(z * 4);
-}
+const height = landformHeight;
 /** Readout numbers for each form at true scale (1 unit = 1 km), sampled on a 50 m grid. */
 const STATS = NAMES.map((_, kind) => {
   const n = 80,
@@ -76,8 +50,17 @@ const STATS = NAMES.map((_, kind) => {
     steepest: Math.round(slopes[slopes.length - 1]),
   };
 });
+/** Gray crystalline rock with faint banding and a few joints, for the mountain's cut faces. */
+const MOUNTAIN_ROCK = `
+  vec2 q = vec2(p.x + p.z, p.y);
+  float m = sNoise(q * 3.) * .5 + sNoise(q * 9. + 2.) * .3 + g * .2;
+  vec3 c = mix(vec3(.47, .46, .44), vec3(.64, .63, .6), m);
+  c *= 1. - .1 * smoothstep(.6, .9, sNoise(vec2(q.x * 1.5, q.y * 14. + q.x * 3.)));
+  float j = fract(q.x * 2.2 + .5 * sNoise(vec2(q.y * 2., 1.)));
+  c *= mix(.88, 1., smoothstep(0., .02, min(j, 1. - j)));
+  return c;`;
 const SECTIONS: LandSection[] = [
-  { rock: "granite", soil: 0.02, regolith: 0.05 },
+  { custom: MOUNTAIN_ROCK, soil: 0.02, regolith: 0.05 },
   { rock: "sandstone", soil: 0.05, regolith: 0.09, beds: 7 },
   { rock: "sandstone", soil: 0.03, regolith: 0.05, beds: 5 },
   { rock: "shale", soil: 0.08, regolith: 0.1, beds: 4 },
@@ -107,31 +90,71 @@ function fields(x: number, z: number, cell: number) {
   return c;
 }
 
+const TALUS = new THREE.Color("#a29a88"),
+  RIPARIAN = new THREE.Color("#7fa45a");
+
 /** Land cover for each form; steep ground shows the bedrock through the surface shader. */
 function cover(kind: number, x: number, z: number) {
   const h = height(kind, x, z),
     n = noise(x * 3 + kind, z * 3),
     c = new THREE.Color();
   if (kind === 0) {
+    // Forest, then alpine grassland, bare rock and scree, and snow on the highest ground.
     c.copy(FOREST)
-      .lerp(ALPINE, THREE.MathUtils.smoothstep(h, 0.42 + 0.1 * n, 0.6))
-      .lerp(SCREE, THREE.MathUtils.smoothstep(h, 0.8, 1.05) * 0.8)
-      .lerp(SNOW, THREE.MathUtils.smoothstep(h, 1.15 + 0.15 * n, 1.3));
+      .lerp(ALPINE, smooth(h, 0.48 + 0.1 * n, 0.66))
+      .lerp(SCREE, smooth(h, 0.85, 1.1) * 0.8)
+      .lerp(SNOW, smooth(h, 1.25 + 0.12 * n, 1.4));
   } else if (kind === 1) {
-    c.copy(farmland(x, z, 0.5))
-      .lerp(PASTURE, 0.35)
-      .lerp(MOOR, THREE.MathUtils.smoothstep(h, 0.32, 0.43));
+    c.copy(fields(x, z, 0.5)).lerp(MOOR, smooth(h, 0.3, 0.42));
+    c.lerp(RIPARIAN, Math.exp(-(((z - hillStream(x)) / 0.12) ** 2)) * 0.6);
   } else if (kind === 2) {
-    c.copy(fields(x, z, 0.45)).lerp(MOOR, THREE.MathUtils.smoothstep(h, 0.6, 1.1));
+    c.copy(fields(x, z, 0.45)).lerp(MOOR, smooth(h, 0.7, 1.15) * 0.8);
     c.lerp(PASTURE, 0.3 * n);
+    // Pale talus below the cliffs, and green along the river in the canyon floor.
+    if (onEscarpment(x, z)) c.lerp(TALUS, smooth(h, 0.12, 0.3) * (1 - smooth(h, 0.75, 0.9)));
+    c.lerp(RIPARIAN, Math.exp(-(((x - canyonRiver(z)) / 0.08) ** 2)) * (1 - smooth(h, 0.5, 0.9)));
   } else if (kind === 3) {
     c.copy(fields(x, z, 0.42));
-    if (Math.abs(z - RIVER(x)) < 0.16) c.lerp(new THREE.Color("#8fae62"), 0.7);
+    if (Math.abs(z - plainRiver(x)) < 0.16) c.lerp(RIPARIAN, 0.7);
   } else {
-    c.copy(fields(x, z, 0.4)).lerp(PASTURE, THREE.MathUtils.smoothstep(h, 0.2, 0.35));
-    c.lerp(WOOD, THREE.MathUtils.smoothstep(h, 0.4, 0.55) * (0.5 + 0.5 * n));
+    // Fields and the town on the basin floor; woods on its walls; rough grazing on the hills.
+    c.copy(fields(x, z, 0.4)).lerp(PASTURE, smooth(h, 0.18, 0.3));
+    c.lerp(WOOD, smooth(h, 0.28, 0.45) * (1 - smooth(h, 0.62, 0.72)) * (0.5 + 0.5 * n));
+    c.lerp(MOOR, smooth(h, 0.62, 0.78) * 0.7);
   }
   return c.getStyle();
+}
+
+/** Where each form's river runs, as points across its sample (none on the mountain). */
+function riverPath(kind: number): [number, number][] {
+  const n = 90;
+  if (kind === 1)
+    return Array.from({ length: n }, (_, i) => [-2 + (4 * i) / (n - 1), 0]).map(([x]) => [
+      x,
+      hillStream(x),
+    ]);
+  if (kind === 2)
+    // Down the canyon and out across the lowland, in the groove it has cut through the talus.
+    return Array.from({ length: n }, (_, i) => {
+      const z = -2 + (4 * i) / (n - 1);
+      return [canyonRiver(z), z];
+    });
+  if (kind === 3)
+    return Array.from({ length: n }, (_, i) => [-2 + (4 * i) / (n - 1), 0]).map(([x]) => [
+      x,
+      plainRiver(x),
+    ]);
+  if (kind === 4) {
+    // From the far side of the basin floor, past the town and out through the gap in the rim.
+    const ca = Math.cos(BASIN_OUTLET),
+      sa = Math.sin(BASIN_OUTLET);
+    return Array.from({ length: n }, (_, i) => {
+      const s = -0.75 + (3.1 * i) / (n - 1),
+        wobble = 0.07 * Math.sin(s * 3.5);
+      return [BASIN_CENTER[0] + s * ca - wobble * sa, BASIN_CENTER[1] + s * sa + wobble * ca];
+    }).filter(([x, z]) => Math.abs(x) < 2 && Math.abs(z) < 2) as [number, number][];
+  }
+  return [];
 }
 
 function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number }) {
@@ -149,14 +172,14 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
         n = noise(px * 2.5 + 3, pz * 2.5);
       const ok =
         kind === 0
-          ? h < 0.52 && n > 0.3
+          ? h < 0.5 && n > 0.3
           : kind === 1
-            ? n > 0.62
+            ? n > 0.6 && Math.abs(pz - hillStream(px)) > 0.12
             : kind === 2
-              ? h < 0.4 && n > 0.58
+              ? (h < 0.3 || h > 1.1) && n > 0.55 && Math.abs(px - canyonRiver(pz)) > 0.1
               : kind === 3
-                ? Math.abs(pz - RIVER(px)) > 0.2 && n > 0.66
-                : h > 0.25 && n > 0.45;
+                ? Math.abs(pz - plainRiver(px)) > 0.2 && n > 0.66
+                : h > 0.28 && h < 0.6 && n > 0.42;
       if (ok) out.push([px, surface(px, pz) - 0.005, pz]);
     }
     return out;
@@ -164,13 +187,34 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
   const houses = useMemo(
     () =>
       kind === 3
-        ? settlement(0.7, 0.9, 9, 0.45, 0.07, 2, (px, pz) => Math.abs(pz - RIVER(px)) > 0.25)
+        ? settlement(0.7, 0.9, 9, 0.45, 0.07, 2, (px, pz) => Math.abs(pz - plainRiver(px)) > 0.25)
         : kind === 4
-          ? settlement(0, 0, 14, 0.6, 0.07, 5)
+          ? settlement(
+              BASIN_CENTER[0] - 0.3,
+              BASIN_CENTER[1] + 0.25,
+              14,
+              0.42,
+              0.07,
+              5,
+              (px, pz) =>
+                Math.abs(
+                  (px - BASIN_CENTER[0]) * Math.sin(BASIN_OUTLET) -
+                    (pz - BASIN_CENTER[1]) * Math.cos(BASIN_OUTLET),
+                ) > 0.14,
+            )
           : kind === 2
-            ? settlement(-0.4, 0.3, 4, 0.35, 0.07, 8)
-            : [],
+            ? settlement(1.35, -1.2, 4, 0.3, 0.07, 8)
+            : kind === 1
+              ? settlement(-1.35, 0.35, 3, 0.2, 0.07, 3)
+              : [],
     [kind],
+  );
+  const river = useMemo(
+    () =>
+      riverPath(kind).map(
+        ([px, pz]) => [px, height(kind, px, pz) * vertical + 0.012, pz] as [number, number, number],
+      ),
+    [kind, vertical],
   );
   return (
     <group position={[x, 0, 0]}>
@@ -181,20 +225,12 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
         depth={4}
         resolution={160}
         base={-0.14}
-        cliff={kind === 0 ? 0.52 : 0.68}
+        cliff={kind === 0 ? 0.52 : kind === 2 || kind === 4 ? 0.42 : 0.68}
         mottle={0.08}
         section={SECTIONS[kind]}
       />
-      {kind === 3 && (
-        <WaterRibbon
-          path={Array.from({ length: 81 }, (_, i) => {
-            const px = -2 + (i / 80) * 4,
-              pz = RIVER(px);
-            return [px, height(kind, px, pz) * vertical + 0.012, pz] as [number, number, number];
-          })}
-          width={0.06}
-          color="#4f8ea8"
-        />
+      {river.length > 1 && (
+        <WaterRibbon path={river} width={kind === 3 ? 0.06 : 0.045} color="#4f8ea8" />
       )}
       <PlantStand
         kind={kind === 0 ? "conifer" : "broadleaf"}
@@ -225,10 +261,10 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
             : kind === 1
               ? "This hill has lower relief and gentler slopes than the mountain. Height alone does not define a landform."
               : kind === 2
-                ? "A plateau is a broad, fairly level high surface. Its edges may be steep, exposing the rock layers beneath, and rivers may cut valleys into it. Plateaux form in different ways."
+                ? "A plateau is a broad, fairly level high surface. Its edges may be steep, exposing the rock layers beneath, and rivers may cut canyons into it. The flat-topped hill in front is a butte: a piece of the plateau left standing as its edge wore back. Plateaus form in different ways."
                 : kind === 3
                   ? "A plain has low local relief. Plains can lie at high or low elevation; this one is low, with fields and a meandering river."
-                  : "A basin is lower than the land around it. It may have an outlet or drain inward; the shape alone does not mean it holds a lake."
+                  : "A basin is lower than the land around it. This one drains through a gap in its rim; others drain inward. The shape alone does not mean it holds a lake."
         }
         occlude={false}
       />
