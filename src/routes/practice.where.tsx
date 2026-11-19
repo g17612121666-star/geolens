@@ -169,7 +169,6 @@ function WhereOnEarth() {
                   <p className="font-display text-3xl text-chalk">{`${fmt(roundScore(km))} points`}</p>
                   <p className="mt-1 text-mist">{`${fmt(Math.round(km))} km away. This is ${r.place}.`}</p>
                   <p className="mt-3 font-semibold leading-6 text-chalk">{r.fact}</p>
-                  {photo && <p className="mt-2 text-xs text-mist/80">{`Photo: ${photo.credit}`}</p>}
                   <button
                     type="button"
                     onClick={() => {
