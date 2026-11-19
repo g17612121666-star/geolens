@@ -42,7 +42,7 @@ export function LabLoadFallback({ slug, title }: { slug: string; title: string }
   return (
     <div className="lab-entry-panel flex min-h-[70vh] w-full flex-col items-center justify-center bg-void px-6 py-12">
       <div className="w-full max-w-md overflow-hidden rounded-2xl border border-white/15">
-        <div className="aspect-[16/10] bg-trench">
+        <div className="aspect-[4/3] bg-trench">
           <LabThumb slug={slug} />
         </div>
       </div>

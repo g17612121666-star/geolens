@@ -1,67 +1,30 @@
-import { useEffect, useRef, useState } from "react";
-import { LoadingProgress } from "./loading-progress";
+import { useState } from "react";
+import { labThumbSrc, labThumbSrcSet } from "@/lib/lab-thumbs";
 import { labCard } from "@/lib/photo-cards";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
 
-/** Explore cards use the lab’s field photograph, not a schematic SVG. */
-export function LabThumb({ slug }: { slug: string }) {
-  const ref = useRef<HTMLImageElement>(null),
-    [loaded, setLoaded] = useState(false),
-    [failed, setFailed] = useState(false);
-  useEffect(() => {
-    setLoaded(Boolean(ref.current?.complete && ref.current.naturalWidth));
-    setFailed(false);
-  }, [slug]);
-  const fig = labCard(slug);
-  if (fig) {
-    return (
-      <div className="relative size-full">
-        <img
-          ref={ref}
-          src={fig.src}
-          srcSet={photoSrcSet(fig.src)}
-          sizes={CARD_SIZES}
-          loading="lazy"
-          decoding="async"
-          alt={fig.alt}
-          onLoad={() => setLoaded(true)}
-          onError={() => setFailed(true)}
-          className="size-full object-cover"
-        />
-        {!loaded && !failed && (
-          <div className="absolute inset-x-4 bottom-4 rounded-lg bg-basalt/95 p-3">
-            <LoadingProgress compact label={"Loading photograph"} />
-          </div>
-        )}
-        {failed && (
-          <p role="alert" className="absolute inset-x-3 bottom-3 bg-basalt/95 p-3 text-sm">
-            {"Photo unavailable. The lab still works."}
-          </p>
-        )}
-      </div>
-    );
-  }
-  return <GenericThumb slug={slug} />;
-}
-
-function hash(s: string): number {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
-  return h;
-}
-
-function GenericThumb({ slug }: { slug: string }) {
-  const h = hash(slug);
-  const palette = ["#3EE0C6", "#FF6A3D", "#E8B86D", "#7FD4FF", "#7C9A6A", "#E24B4B"];
-  const a = palette[h % palette.length];
-  const b = palette[(h >> 3) % palette.length];
-  const cx = 110 + (h % 80);
-  const cy = 70 + ((h >> 5) % 50);
+/**
+ * A picture of the lab's 3D model as it first opens (scripts/capture-lab-thumbs.mjs), so a card
+ * shows what students will explore. The lab's field photograph stands in if it cannot load.
+ */
+export function LabThumb({ slug, sizes = CARD_SIZES }: { slug: string; sizes?: string }) {
+  const [failed, setFailed] = useState(false);
+  const photo = failed ? labCard(slug) : undefined;
+  if (failed && !photo) return <div className="size-full bg-trench" />;
   return (
-    <svg viewBox="0 0 320 200" className="size-full" role="img" aria-label={`${slug} lab mark`}>
-      <rect width="320" height="200" fill="#07090C" />
-      <circle cx={cx} cy={cy} r={36 + (h % 24)} fill={a} fillOpacity="0.85" />
-      <circle cx={cx + 70} cy={cy + 20} r={18} fill={b} />
-    </svg>
+    <img
+      key={photo ? "photo" : "model"}
+      src={photo ? photo.src : labThumbSrc(slug)}
+      srcSet={photo ? photoSrcSet(photo.src) : labThumbSrcSet(slug)}
+      sizes={sizes}
+      width={640}
+      height={480}
+      loading="lazy"
+      decoding="async"
+      // The card's title names the lab; a photograph keeps its own description.
+      alt={photo ? photo.alt : ""}
+      onError={() => setFailed(true)}
+      className="size-full object-cover"
+    />
   );
 }

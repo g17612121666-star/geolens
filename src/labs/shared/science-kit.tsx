@@ -59,6 +59,8 @@ export function ScienceStudio({
         }}
         // On laptops the view-tools rail sits at the left edge, so the model starts beside it.
         className={`absolute ${compact ? "inset-x-0" : projector ? "inset-x-6" : "left-[4.5rem] right-[25rem]"}`}
+        // scripts/capture-lab-thumbs.mjs enlarges this box to take the model pictures on lab cards.
+        data-studio=""
       >
         <LabStudio
           slug={slug}

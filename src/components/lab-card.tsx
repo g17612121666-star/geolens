@@ -1,8 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
 import type { LabSummary } from "@/lib/labs/types";
 import { REALMS } from "@/lib/labs/catalog";
-import { Badge } from "@/components/ui/badge";
 import { LabThumb } from "@/components/lab-thumb";
 import { cn } from "@/lib/utils";
 
@@ -17,21 +15,14 @@ export function LabCard({ lab, className }: { lab: LabSummary; className?: strin
         className,
       )}
     >
-      <div className="relative aspect-[16/10] overflow-hidden bg-trench">
+      <div className="aspect-[4/3] overflow-hidden bg-trench">
         <LabThumb slug={lab.slug} />
-        <div className="absolute left-3 top-3">
-          <Badge tone="glacier" className="border-transparent bg-basalt/90 backdrop-blur">
-            {realm?.title}
-          </Badge>
-        </div>
       </div>
-      <div className="flex flex-1 flex-col gap-3 p-5">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-xl leading-snug text-chalk group-hover:text-glacier">
-            {lab.title}
-          </h3>
-          <ArrowUpRight className="mt-1 size-4 shrink-0 text-mist transition-transform duration-180 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-glacier" />
-        </div>
+      <div className="flex flex-1 flex-col gap-2 p-5">
+        <p className="text-sm text-glacier">{realm?.title}</p>
+        <h3 className="font-display text-xl leading-snug text-chalk underline-offset-4 group-hover:underline">
+          {lab.title}
+        </h3>
         <p className="text-sm leading-6 text-mist">{lab.hook}</p>
       </div>
     </Link>
