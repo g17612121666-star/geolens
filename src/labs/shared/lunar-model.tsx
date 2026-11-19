@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { useTexture } from "@react-three/drei";
+import { Billboard, useTexture } from "@react-three/drei";
 import { GuideLine as Line } from "@/labs/shared/guide-line";
 import * as THREE from "three";
 import { useLabState } from "@/lib/store/lab-controls";
@@ -17,6 +17,7 @@ import {
 import { useLabTick } from "@/labs/tick";
 import { Tag } from "./kit";
 import { ScienceStudio, ScienceReadout, Arrow } from "./science-kit";
+import { liveUniforms } from "@/lib/shader-uniforms";
 
 export function LunarSurface({
   position = [0, 0, 0],
@@ -160,90 +161,181 @@ function TidalEnvelope({ radius, moon }: { radius: number; moon: [number, number
     </mesh>
   );
 }
-/** Cropped Earth shadow at the Moon: every visible dimension uses the same km scale. */
-function LunarShadow({ p, phase }: { p: [number, number, number]; phase: number }) {
+/** The close-ups follow this share of a month either side of full or new Moon (±4.25 h). */
+const SHADOW_WINDOW = 0.012;
+const HOUR = 1 / (29.53059 * 24);
+/** A circle of radius r in the plane x = x0, as line points. */
+const ring = (x0: number, r: number, n = 96) =>
+  Array.from({ length: n + 1 }, (_, i): [number, number, number] => {
+    const a = (i / n) * 2 * Math.PI;
+    return [x0, r * Math.sin(a), r * Math.cos(a)];
+  });
+
+/**
+ * Earth's shadow where the Moon crosses it, seen from Earth's side with the Sun behind the
+ * viewer: the umbra and penumbra in cross-section at the Moon's distance, and the Moon's path
+ * across them hour by hour. Every size and distance shares one kilometer scale.
+ */
+function LunarShadow({
+  p,
+  phase,
+  node,
+  aligned,
+  distance,
+}: {
+  p: [number, number, number];
+  phase: number;
+  node: number;
+  aligned: boolean;
+  distance: number;
+}) {
   const scale = 1 / 6000,
-    x = -Math.hypot(...p),
-    span = 9000;
-  const lunar: [number, number, number] = [(p[0] - x) * scale, p[1] * scale, p[2] * scale];
-  const radii0 = shadowRadii(LUNAR.earth, LUNAR.au, -x - span),
-    radii1 = shadowRadii(LUNAR.earth, LUNAR.au, -x + span);
+    behind = Math.hypot(...p),
+    at = shadowRadii(LUNAR.earth, LUNAR.au, behind),
+    umbra = Math.max(0, at.umbra) * scale,
+    penumbra = at.penumbra * scale,
+    moon = LUNAR.moon * scale,
+    // Positions across the shadow, measured from its axis at the Moon's distance.
+    local = (q: [number, number, number]): [number, number, number] => [
+      (q[0] + Math.hypot(...q)) * scale,
+      q[1] * scale,
+      q[2] * scale,
+    ],
+    lunar = local(p),
+    // The cross-sections hang just beyond the Moon, so the Moon passes in front of them.
+    screen = -1.25 * moon;
+  const { track, ticks } = useMemo(() => {
+    const at = (h: number) => local(lunarPosition(0.5 + h * HOUR, node, aligned, distance)),
+      hours = (SHADOW_WINDOW / HOUR) * 0.5;
+    return {
+      track: Array.from({ length: 81 }, (_, i) => at(((i / 80) * 2 - 1) * hours)),
+      ticks: Array.from({ length: 9 }, (_, i) => ({ h: i - 4, p: at(i - 4) })),
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- local depends only on scale
+  }, [node, aligned, distance]);
+  const end = track[track.length - 1],
+    beforeEnd = track[track.length - 7];
   return (
     <>
       <directionalLight position={[10, 0, 0]} intensity={3} />
+      <directionalLight position={[10, 4, 6]} intensity={0.6} />
       <ambientLight intensity={0.02} />
-      {(["penumbra", "umbra"] as const).map((kind) => (
-        <mesh key={kind} rotation={[0, 0, Math.PI / 2]}>
-          <cylinderGeometry
-            args={[
-              Math.max(0, radii1[kind]) * scale,
-              Math.max(0, radii0[kind]) * scale,
-              2 * span * scale,
-              96,
-              1,
-              true,
-            ]}
-          />
-          <meshBasicMaterial
-            color={kind === "umbra" ? "#2a1a1c" : "#6f8796"}
-            side={THREE.DoubleSide}
-            transparent
-            opacity={kind === "umbra" ? 0.38 : 0.1}
-            depthWrite={false}
-          />
-        </mesh>
-      ))}
+      <mesh position={[screen, 0, 0]} rotation={[0, Math.PI / 2, 0]} renderOrder={1}>
+        <circleGeometry args={[penumbra, 128]} />
+        <meshBasicMaterial color="#56636e" transparent opacity={0.55} depthWrite={false} />
+      </mesh>
+      <mesh position={[screen + 0.004, 0, 0]} rotation={[0, Math.PI / 2, 0]} renderOrder={2}>
+        <circleGeometry args={[umbra, 128]} />
+        <meshBasicMaterial color="#3b1a14" transparent opacity={0.9} depthWrite={false} />
+      </mesh>
+      <Line points={ring(screen + 0.006, penumbra)} color="#b3c6d3" lineWidth={1.4} />
+      <Line points={ring(screen + 0.008, umbra)} color="#e88a6f" lineWidth={1.6} />
       <Line
         points={[
-          [-span * scale, 0, 0],
-          [span * scale, 0, 0],
+          [screen, 0, 0],
+          [1.6, 0, 0],
         ]}
         color="#81939a"
         dashed
         dashSize={0.08}
         gapSize={0.04}
       />
+      <Line points={track} color="#e4d3ac" lineWidth={1.3} />
+      {ticks.map(({ h, p: q }) => (
+        <mesh key={h} position={q}>
+          <sphereGeometry args={[h === 0 ? 0.04 : 0.026, 16, 12]} />
+          <meshBasicMaterial color={h === 0 ? "#fff1cf" : "#d9c79f"} toneMapped={false} />
+        </mesh>
+      ))}
+      <Arrow from={beforeEnd} to={end} color="#e4d3ac" width={1.1} />
       <LunarSurface
         position={lunar}
-        radius={LUNAR.moon * scale}
+        radius={moon}
         angle={phase * 2 * Math.PI}
         dim={lunarEclipse(p) === "Total lunar eclipse"}
         shadow={{
-          x0: -span * scale,
-          x1: span * scale,
-          u0: Math.max(0, radii1.umbra) * scale,
-          u1: Math.max(0, radii0.umbra) * scale,
-          p0: radii1.penumbra * scale,
-          p1: radii0.penumbra * scale,
+          x0: -9000 * scale,
+          x1: 9000 * scale,
+          u0: Math.max(0, shadowRadii(LUNAR.earth, LUNAR.au, behind + 9000).umbra) * scale,
+          u1: Math.max(0, shadowRadii(LUNAR.earth, LUNAR.au, behind - 9000).umbra) * scale,
+          p0: shadowRadii(LUNAR.earth, LUNAR.au, behind + 9000).penumbra * scale,
+          p1: shadowRadii(LUNAR.earth, LUNAR.au, behind - 9000).penumbra * scale,
         }}
       />
       <Tag
-        pos={[-1.15, shadowRadii(LUNAR.earth, LUNAR.au, -x).umbra * scale + 0.2, 0]}
+        pos={[screen, umbra * 0.66, umbra * 0.66]}
         text="Umbra"
-        note="Inside this cone Earth blocks the whole Sun. The cone ignores Earth's atmosphere, which bends some red light into it."
+        priority={2}
+        note="Inside the umbra Earth blocks the whole Sun. A Moon wholly inside it is in total eclipse; it still glows red because Earth's atmosphere bends some red sunlight into the shadow."
         occlude={false}
       />
       <Tag
-        pos={[-1.4, -shadowRadii(LUNAR.earth, LUNAR.au, -x).penumbra * scale - 0.2, 0]}
+        pos={[screen, -penumbra * 0.75, penumbra * 0.62]}
         text="Penumbra"
-        note="Earth blocks only part of the solar disc in the outer shadow."
+        priority={2}
+        note="In the outer shadow Earth blocks only part of the Sun, so the Moon dims only slightly. Both circles are the shadow's cross-section at the Moon's distance."
         occlude={false}
       />
       <Tag
-        pos={[lunar[0], lunar[1] + LUNAR.moon * scale + 0.25, lunar[2]]}
+        pos={[lunar[0], lunar[1] + moon + 0.22, lunar[2]]}
         text="Moon"
+        priority={3}
         occlude={false}
       />
-      <Arrow from={[1.5, -1.25, 0]} to={[-1.5, -1.25, 0]} color="#e9c996" width={0.6} />
       <Tag
-        pos={[1.5, -1.05, 0]}
-        text="Sunlight"
-        note="Sunlight arrives from this side; the shadow points directly away from the Sun."
+        pos={[end[0], end[1] - 0.22, end[2]]}
+        text="Moon's path · hourly dots"
+        short="Moon's path"
+        priority={1}
+        note="Where the Moon's center goes in the hours around full Moon; the bright dot marks the moment of full Moon. The Moon moves about its own width each hour. Change Node direction: the tilted orbit can carry the path above or below the shadow."
+        occlude={false}
+      />
+      <Tag
+        pos={[1.5, -0.25, 0]}
+        text="Toward Earth and the Sun"
+        short="Toward Earth"
+        note="This view looks out from Earth along its shadow, with the Sun behind the viewer: Earth, between the Sun and the Moon, casts the shadow."
         occlude={false}
       />
     </>
   );
 }
+
+/** Lines on Earth where the Moon covers 20%, 40%, 60% and 80% of the Sun, and the shadow's edge. */
+const COVERAGE_FRAGMENT = /* glsl */ `
+  uniform vec3 sunPosition, moonPosition;
+  uniform float sunRadius, moonRadius;
+  varying vec3 vWorld;
+  void main() {
+    vec3 a = sunPosition - vWorld, b = moonPosition - vWorld;
+    if (dot(normalize(vWorld), normalize(a)) <= 0.0) discard;
+    float r = asin(clamp(sunRadius / length(a), 0.0, 1.0));
+    float m = asin(clamp(moonRadius / length(b), 0.0, 1.0));
+    float d = acos(clamp(dot(normalize(a), normalize(b)), -1.0, 1.0));
+    float cover = 0.0;
+    if (d <= abs(r - m)) cover = min(r * r, m * m) / (r * r);
+    else if (d < r + m) {
+      float c1 = acos(clamp((d * d + r * r - m * m) / (2.0 * d * r), -1.0, 1.0));
+      float c2 = acos(clamp((d * d + m * m - r * r) / (2.0 * d * m), -1.0, 1.0));
+      float lens = 0.5 * sqrt(max(0.0, (-d + r + m) * (d + r - m) * (d - r + m) * (d + r + m)));
+      cover = (r * r * c1 + m * m * c2 - lens) / (3.14159265 * r * r);
+    }
+    // Contours every 20%, drawn a constant width on screen.
+    float f = cover * 5.0, w = fwidth(f) * 1.2;
+    float contour = (1.0 - smoothstep(0.0, w, abs(fract(f - 0.5) - 0.5))) * step(0.1, f) * step(f, 4.9);
+    // The penumbra's outer edge, where the Moon first touches the Sun's disc.
+    float edge = d - (r + m), e = fwidth(edge) * 1.5;
+    float rim = 1.0 - smoothstep(0.0, e, abs(edge));
+    // Central eclipse: the Moon's whole disc within the Sun's (annular) or covering it (total).
+    float central = step(d, abs(r - m));
+    vec3 color = mix(vec3(0.98, 0.86, 0.62), vec3(1.0, 0.55, 0.35), central);
+    float alpha = max(max(contour * 0.85, rim * 0.9), central * 0.95);
+    if (alpha < 0.01) discard;
+    gl_FragColor = vec4(color, alpha);
+  }
+`;
+
+/** The Moon's shadow on Earth at new Moon, with lines of equal coverage of the Sun. */
 function SolarShadow({ p }: { p: [number, number, number] }) {
   const eclipse = solarEclipse(p);
   const scale = 1 / 6000,
@@ -252,14 +344,29 @@ function SolarShadow({ p }: { p: [number, number, number] }) {
     direction = moon.clone().sub(sun).normalize();
   const distance = -moon.dot(direction),
     center = moon.clone().addScaledVector(direction, distance),
-    q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction);
-  const sunDistance = sun.distanceTo(moon) / scale,
-    near = shadowRadii(LUNAR.moon, sunDistance, (distance - 1.6) / scale),
-    far = shadowRadii(LUNAR.moon, sunDistance, (distance + 1.6) / scale);
+    earth = LUNAR.earth * scale;
+  const uniforms = useMemo(
+    () => ({
+      sunPosition: { value: new THREE.Vector3() },
+      moonPosition: { value: new THREE.Vector3() },
+      sunRadius: { value: LUNAR.sun * scale },
+      moonRadius: { value: LUNAR.moon * scale },
+    }),
+    [scale],
+  );
+  uniforms.sunPosition.value.copy(sun);
+  uniforms.moonPosition.value.copy(moon);
+  // A label beside Earth, toward the viewer: the shadow arrives from behind the camera.
+  const toMoon = direction.clone().negate(),
+    side = new THREE.Vector3(0, 1, 0).cross(toMoon).normalize(),
+    labelAt = side
+      .clone()
+      .multiplyScalar(-earth * 1.25)
+      .addScaledVector(toMoon, earth * 0.4);
   return (
     <>
       <EarthMesh
-        radius={LUNAR.earth * scale}
+        radius={earth}
         sunDirection={new THREE.Vector3(1, 0, 0)}
         occluder={{
           position: moon,
@@ -268,36 +375,39 @@ function SolarShadow({ p }: { p: [number, number, number] }) {
           sunRadius: LUNAR.sun * scale,
         }}
       />
-      <mesh position={center} quaternion={q}>
-        <cylinderGeometry args={[far.penumbra * scale, near.penumbra * scale, 3.2, 96, 1, true]} />
-        <meshBasicMaterial
-          color="#0b1116"
+      <mesh>
+        <sphereGeometry args={[earth * 1.004, 160, 120]} />
+        <shaderMaterial
+          ref={liveUniforms(uniforms)}
+          uniforms={uniforms}
           transparent
-          opacity={0.3}
-          side={THREE.DoubleSide}
           depthWrite={false}
+          vertexShader={`varying vec3 vWorld; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vWorld = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`}
+          fragmentShader={COVERAGE_FRAGMENT}
         />
       </mesh>
       <Line
-        points={[
-          center.clone().addScaledVector(direction, -1.6),
-          center.clone().addScaledVector(direction, 1.6),
-        ]}
+        points={[center.clone().addScaledVector(direction, -2.2), center]}
         color="#e0bf8a"
         dashed
         dashSize={0.07}
         gapSize={0.04}
       />
+      <Tag
+        pos={labelAt.toArray()}
+        text="Moon and Sun behind you"
+        short="Moon behind you"
+        note="This view looks at Earth from the Moon's side. The Moon is about 60 Earth radii away, behind the viewer, with the Sun far beyond it; its shadow falls on the side of Earth facing you. Sizes and distances share one scale."
+        occlude={false}
+      />
       {(eclipse.kind === "total" || eclipse.kind === "annular") && (
         <Tag
           pos={center
             .clone()
-            .addScaledVector(
-              direction,
-              -Math.sqrt(Math.max(0, (LUNAR.earth * scale) ** 2 - center.lengthSq())),
-            )
+            .addScaledVector(direction, -Math.sqrt(Math.max(0, earth ** 2 - center.lengthSq())))
             .toArray()}
           text={eclipse.kind === "total" ? "Totality here" : "Annular eclipse here"}
+          priority={2}
           note={
             eclipse.kind === "total"
               ? "Inside this narrow spot the Moon covers the whole Sun."
@@ -307,14 +417,76 @@ function SolarShadow({ p }: { p: [number, number, number] }) {
         />
       )}
       <Tag
-        pos={[0, 1.4, 0]}
-        text="Earth · solar obscuration"
-        note="Darkness on the surface is calculated from how much of the Sun's disc the Moon covers. The dark cone is the Moon's penumbra. Sizes and distances share one scale; the Moon itself is off-screen."
+        pos={[0, earth + 0.3, 0]}
+        text="Moon's shadow · 20% lines"
+        short="Moon's shadow"
+        priority={1}
+        note="The ground darkens with the share of the Sun's disc the Moon covers. Lines mark 20%, 40%, 60% and 80% covered; the outer line is the edge of the partial eclipse. The Moon itself is off-screen; sizes and distances share one scale."
         occlude={false}
       />
     </>
   );
 }
+/**
+ * At true scale Earth and Moon are specks beside the orbit, so rings mark where they are, and
+ * Earth's shadow is drawn to the same scale: a narrow cone the Moon must pass through.
+ */
+function TrueScaleMarkers({
+  moon,
+  earth,
+  distance,
+}: {
+  moon: [number, number, number];
+  earth: number;
+  distance: number;
+}) {
+  const length = 2.65,
+    km = (units: number) => (units / 2.2) * distance,
+    end = shadowRadii(LUNAR.earth, LUNAR.au, km(length)),
+    perKm = earth / LUNAR.earth;
+  return (
+    <>
+      {(["penumbra", "umbra"] as const).map((kind) => (
+        <mesh key={kind} position={[-length / 2, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[Math.max(0, end[kind]) * perKm, earth, length, 32, 1, true]} />
+          <meshBasicMaterial
+            color={kind === "umbra" ? "#c9583f" : "#7d909c"}
+            transparent
+            opacity={kind === "umbra" ? 0.9 : 0.35}
+            side={THREE.DoubleSide}
+            depthWrite={false}
+          />
+        </mesh>
+      ))}
+      <Billboard>
+        <mesh>
+          <ringGeometry args={[0.1, 0.114, 64]} />
+          <meshBasicMaterial color="#8fc7ff" transparent opacity={0.75} />
+        </mesh>
+      </Billboard>
+      <Billboard position={moon}>
+        <mesh>
+          <ringGeometry args={[0.065, 0.077, 48]} />
+          <meshBasicMaterial color="#efe6cf" transparent opacity={0.8} />
+        </mesh>
+      </Billboard>
+      <Tag
+        pos={[0.05, -0.28, 0.12]}
+        text="Earth · to scale"
+        short="Earth"
+        note="Earth and Moon are drawn at their true sizes compared with the orbit; the rings only mark where they are."
+        occlude={false}
+      />
+      <Tag
+        pos={[-length + 0.1, 0.2, 0]}
+        text="Earth's shadow"
+        note="Earth's shadow points straight away from the Sun and, drawn to scale, is narrow. At full Moon the Moon must lie close to the ecliptic plane, near a node, to pass through it; otherwise it passes above or below."
+        occlude={false}
+      />
+    </>
+  );
+}
+
 /** Where the tilted lunar orbit crosses the ecliptic: eclipses need a new or full Moon near here. */
 function NodeGuides({ node, aligned }: { node: number; aligned: boolean }) {
   const a = (node * Math.PI) / 180,
@@ -529,7 +701,13 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
           solar ? (
             <SolarShadow p={shadowPoint} />
           ) : (
-            <LunarShadow p={shadowPoint} phase={shadowPhase} />
+            <LunarShadow
+              p={shadowPoint}
+              phase={shadowPhase}
+              node={node}
+              aligned={aligned}
+              distance={distance}
+            />
           )
         ) : (
           <>
@@ -573,6 +751,9 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
             </group>
             {slug === "tides" && <TidalEnvelope radius={radius} moon={p} />}
             {slug === "eclipses" && <NodeGuides node={node} aligned={aligned} />}
+            {slug === "eclipses" && (
+              <TrueScaleMarkers moon={position} earth={radius} distance={distance} />
+            )}
           </>
         )}
       </ScienceStudio>

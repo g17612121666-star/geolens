@@ -5,6 +5,8 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { usePreferences } from "@/lib/preferences";
 import { cellPoint, type Cell } from "./cell";
 import { liveUniforms } from "@/lib/shader-uniforms";
+import { Line } from "@react-three/drei";
+import { Arrow } from "../shared/science-kit";
 
 type V3 = [number, number, number];
 
@@ -53,7 +55,8 @@ export function FlowStreaks({
   }, [count]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   const uniforms = useMemo(() => ({ uOpacity: { value: 0.8 }, uLight: { value: 0 } }), []);
-  uniforms.uOpacity.value = 0.25 + 0.65 * strength;
+  // Visible even in a weak breeze; brighter as the loop strengthens.
+  uniforms.uOpacity.value = 0.5 + 0.45 * strength;
   uniforms.uLight.value = usePreferences((st) => st.resolvedTheme) === "light" ? 1 : 0;
   const tmp = useMemo(
     () => ({
@@ -89,7 +92,7 @@ export function FlowStreaks({
           tmp.normal.crossVectors(tmp.side, d);
           tmp.look.makeBasis(d, tmp.side, tmp.normal);
           q.setFromRotationMatrix(tmp.look);
-          const len = 0.1 + 0.12 * strength;
+          const len = 0.13 + 0.1 * strength;
           s.set(len, 0.016 + 0.01 * strength, 1);
           m.compose(p, q, s);
           mesh.setMatrixAt(k, m);
@@ -118,6 +121,39 @@ export function FlowStreaks({
         side={THREE.DoubleSide}
       />
     </instancedMesh>
+  );
+}
+
+/**
+ * The path of one circulation cell as a guide: warm where air crosses the heated ground and
+ * rises, cool aloft where it sinks, with an arrowhead on each branch. It stays visible when the
+ * breeze is weak, so the shape of the loop is always clear; its strength sets its opacity.
+ */
+export function CellLoop({ cell, strength, z = 0 }: { cell: Cell; strength: number; z?: number }) {
+  const light = usePreferences((st) => st.resolvedTheme) === "light",
+    { rise, sink, bottom, top } = cell;
+  const { points, colors, heads } = useMemo(() => {
+    const c = { rise, sink, bottom, top },
+      warm = new THREE.Color(light ? "#e0702a" : "#ffad6b"),
+      cool = new THREE.Color(light ? "#2f78b5" : "#9fd2f2"),
+      isWarm = (u: number) => u > 0.12 && u < 0.62,
+      points = Array.from({ length: 121 }, (_, i) => cellPoint(c, i / 120, z)),
+      colors = points.map((_, i) => (isWarm(i / 120) ? warm : cool).clone()),
+      heads = [0, 0.25, 0.5, 0.75].map((u) => ({
+        from: cellPoint(c, u - 0.035, z),
+        to: cellPoint(c, u + 0.035, z),
+        color: isWarm(u) ? warm.getStyle() : cool.getStyle(),
+      }));
+    return { points, colors, heads };
+  }, [rise, sink, bottom, top, z, light]);
+  const opacity = 0.45 + 0.5 * strength;
+  return (
+    <group renderOrder={5}>
+      <Line points={points} vertexColors={colors} lineWidth={2} transparent opacity={opacity} />
+      {heads.map((h, i) => (
+        <Arrow key={i} from={h.from} to={h.to} color={h.color} width={0.9} />
+      ))}
+    </group>
   );
 }
 

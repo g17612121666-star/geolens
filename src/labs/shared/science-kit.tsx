@@ -7,7 +7,7 @@ import { Starfield } from "@/components/globe/earth";
 import { LAB_BY_SLUG } from "@/lib/labs/catalog";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useIsCompact } from "@/hooks/use-media";
-import { usePreferences } from "@/lib/preferences";
+import { SpaceScene, useInkTheme } from "./ink";
 
 export function ScienceStudio({
   slug,
@@ -75,7 +75,7 @@ export function ScienceStudio({
           minDistance={0.3}
           maxDistance={28}
         >
-          {children}
+          <SpaceScene.Provider value={space}>{children}</SpaceScene.Provider>
         </LabStudio>
       </div>
       <details
@@ -174,7 +174,7 @@ function ArrowShape({
   color?: string;
   width?: number;
 }) {
-  const theme = usePreferences((s) => s.resolvedTheme),
+  const theme = useInkTheme(),
     ink = new THREE.Color(color);
   if (theme === "light") {
     const hsl = { h: 0, s: 0, l: 0 };

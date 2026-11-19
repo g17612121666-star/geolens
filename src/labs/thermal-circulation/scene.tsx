@@ -5,7 +5,7 @@ import { useLabState } from "@/lib/store/lab-controls";
 import { coastalContrast } from "@/lib/circulation-science";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
-import { AirSection, FlowStreaks, WindFlag } from "./air";
+import { AirSection, CellLoop, FlowStreaks, WindFlag } from "./air";
 import type { Cell } from "./cell";
 import { Tag } from "../shared/kit";
 import { PlantStand, TerrainMaterial } from "../shared/natural-world";
@@ -194,6 +194,9 @@ export default function ThermalCirculation() {
           top={1.7 * f}
         />
         {cells.length > 0 && <FlowStreaks cells={cells} strength={strength} />}
+        {cells.map((cell, i) => (
+          <CellLoop key={i} cell={cell} strength={strength} z={-0.42} />
+        ))}
         {coast && (
           <WindFlag position={[0.05, height(0.05, 1.05), 1.05]} wind={direction * strength} />
         )}

@@ -33,27 +33,51 @@ vec3 rcRock(vec2 p,float ys,out vec3 glow,out float id){
   glow=vec3(0.);
   float g=rcN(p*90.)*.5+rcN(p*23.)*.5;
   if(p.y>ys){id=6.;return mix(vec3(.08,.3,.42),vec3(.12,.4,.52),smoothstep(-.25,0.,p.y));}
+  // Magma chamber: melt stirred by convection inside a rim of crystal mush; its outline is
+  // irregular, as magma bodies are.
   vec2 ce=vec2((p.x-${BODIES.chamber.x.toFixed(2)})/${BODIES.chamber.a.toFixed(2)},(p.y-(${BODIES.chamber.y.toFixed(2)}))/${BODIES.chamber.b.toFixed(2)});
-  float conduit=step(abs(p.x-${BODIES.chamber.x.toFixed(2)}+(p.y+.6)*.04),.032)*step(${BODIES.chamber.y.toFixed(2)},p.y);
-  if(length(ce)<1.||conduit>.5){
+  float cr=length(ce)+.16*(rcN(p*7.+vec2(3.,0.))-.5);
+  float conduit=step(abs(p.x-${BODIES.chamber.x.toFixed(2)}+(p.y+.6)*.04+.012*sin(p.y*30.)),.03)*step(${BODIES.chamber.y.toFixed(2)},p.y);
+  if(cr<1.||conduit>.5){
     id=4.;
-    vec3 m=mix(vec3(.72,.12,.03),vec3(1.,.55,.12),rcN(p*16.+vec2(0.,-uTime*.25)));
+    vec3 m=mix(vec3(.78,.16,.04),vec3(1.,.62,.16),rcN(p*16.+vec2(0.,-uTime*.25)));
+    if(conduit<.5&&cr>.72){
+      // Crystal mush: melt crowded with crystals, cooler toward the wall rock.
+      float xl=step(.55,rcH(floor(p*95.)));
+      m=mix(vec3(.55,.14,.06),vec3(.3,.22,.2),xl*.8);
+      glow=m*.35;return m*.5;
+    }
     glow=m*.9;return m*.35;
   }
+  // Foliation in the deep crust: bands folded and pinched, the way gneiss looks.
+  float warp=.03*sin(p.x*4.1+1.2*sin(p.y*5.))+.022*(rcN(p*5.)-.5);
   float meltTop=${BODIES.meltTop.toFixed(2)}+.1*exp(-pow((p.x-2.4)/.9,2.));
   if(p.y<meltTop&&p.x>1.25){
-    // Migmatite: gray rock threaded with veins of melt.
+    // Migmatite: gneiss threaded with lenses of granite melt along its foliation.
     id=4.;
-    float vein=smoothstep(.64,.7,rcN(vec2(p.x*15.,p.y*46.)+vec2(0.,uTime*.1)))*.85;
-    glow=vec3(1.,.38,.07)*vein*.75;
-    return mix(vec3(.4,.36,.35)*(.85+.3*g),vec3(.9,.42,.12),vein);
+    float band=fract((p.y+warp)*11.+.25*rcN(p*12.));
+    vec3 host=mix(vec3(.46,.45,.48),vec3(.3,.3,.33),smoothstep(.3,.7,band))*(.88+.24*g);
+    float vein=smoothstep(.62,.7,rcN(vec2(p.x*8.,(p.y+warp)*52.)+vec2(0.,uTime*.06)));
+    glow=vec3(1.,.42,.1)*vein*.45;
+    return mix(host,vec3(.96,.7,.5),vein*.9);
   }
-  vec2 pe=vec2((p.x-${BODIES.pluton.x.toFixed(2)})/${BODIES.pluton.a.toFixed(2)},(p.y-(${BODIES.pluton.y.toFixed(2)}))/${BODIES.pluton.b.toFixed(2)});
-  if(length(pe)<1.){
+  // Granite pluton: a domed body, wider above than at its root, with an irregular contact.
+  vec2 pd=vec2(p.x-${BODIES.pluton.x.toFixed(2)},p.y-(${BODIES.pluton.y.toFixed(2)}));
+  float pa=atan(pd.y,pd.x);
+  vec2 pq=vec2(pd.x*(1.+.9*max(0.,-pd.y)),pd.y);
+  float edge=${BODIES.pluton.a.toFixed(2)}*(.9+.07*sin(pa*3.+1.)+.05*sin(pa*7.+2.)+.08*(rcN(vec2(pa*2.3,4.))-.5));
+  float pdist=length(pq*vec2(1.,${(BODIES.pluton.a / BODIES.pluton.b).toFixed(3)}))-edge;
+  // A feeder dyke from the magma chamber up into the pluton's root.
+  vec2 fa=vec2(${BODIES.chamber.x.toFixed(2)}-.2,${BODIES.chamber.y.toFixed(2)}+.05),fb=vec2(${BODIES.pluton.x.toFixed(2)}+.18,${BODIES.pluton.y.toFixed(2)}-.38);
+  vec2 fd=p-fa,fv=fb-fa;float fh=clamp(dot(fd,fv)/dot(fv,fv),0.,1.);
+  float feeder=length(fd-fv*fh)-.022-.01*sin(fh*20.);
+  if(pdist<0.||feeder<0.){
     id=0.;
-    vec3 c=mix(vec3(.86,.72,.68),vec3(.78,.64,.6),g);
-    c=mix(c,vec3(.12,.11,.12),step(.83,rcN(p*170.))*.85);
-    return mix(c,vec3(.95,.93,.9),step(.86,rcN(p*120.+7.))*.6);
+    // Granite: pink feldspar flecked with pale quartz and dark mica.
+    vec3 c=mix(vec3(.84,.56,.5),vec3(.76,.5,.46),rcN(p*40.));
+    c=mix(c,vec3(.92,.86,.8),smoothstep(.72,.8,rcN(p*75.+3.))*.7);
+    c=mix(c,vec3(.2,.17,.17),smoothstep(.8,.86,rcN(p*90.+9.))*.85);
+    return c*(.92+.12*g);
   }
   // Volcanic layers of the cone above the range.
   if(p.y>rcRange(p.x)+.004){
@@ -62,6 +86,8 @@ vec3 rcRock(vec2 p,float ys,out vec3 glow,out float id){
     return mix(vec3(.24,.22,.21),vec3(.42,.3,.25),step(.75,band))*(.85+.3*g);
   }
   if(p.x<-.85&&p.y>ys-.035){id=3.;return mix(vec3(.8,.72,.56),vec3(.66,.6,.5),rcN(p*140.));}
+  // Contact aureole: neighboring rock baked into dark hornfels close to the pluton.
+  float baked=pdist<.09?mix(.55,1.,smoothstep(0.,.09,pdist)):1.;
   float floorY=-.88+.66*smoothstep(-2.4,.95,p.x);
   if(p.y>floorY&&p.x<.95){
     // Beds thicken seaward and bend up toward the foothills; deeper beds are compacted.
@@ -70,17 +96,23 @@ vec3 rcRock(vec2 p,float ys,out vec3 glow,out float id){
     float kind=rcH(vec2(b,3.7));
     vec3 c=kind<.4?vec3(.8,.66,.46):kind<.75?vec3(.47,.44,.42):vec3(.78,.77,.7);
     c*=(.88+.24*g)*mix(.78,1.,k)*(.9+.1*smoothstep(0.,.08,fract(bed)));
-    return c;
+    return c*baked;
   }
-  if(p.x>.75&&p.y>-1.32){
-    // Folded, banded metamorphic rock in the root of the mountain range.
+  if(p.x>.75-.45*max(0.,-.3-p.y)&&p.y>-1.32){
+    // Metamorphic rock in the root of the range: folded schist and gneiss with garnets.
     id=2.;
-    float band=fract(p.y*8.5+.5*sin(p.x*3.6+p.y*5.)+.35*rcN(p*4.5));
-    vec3 c=mix(vec3(.64,.6,.57),vec3(.38,.36,.38),smoothstep(.35,.65,band));
-    return mix(c,vec3(.82,.78,.74),step(.9,rcN(p*90.))*.5)*(.9+.2*g);
+    // Bands of uneven thickness: two spacings beating against each other.
+    float band=fract((p.y+warp)*11.+.25*rcN(p*12.)+.35*sin((p.y+warp)*23.));
+    vec3 c=mix(vec3(.58,.57,.58),vec3(.44,.44,.47),smoothstep(.3,.7,band));
+    float leuco=smoothstep(.82,.9,fract((p.y+warp)*3.6+.2*rcN(p*3.)));
+    c=mix(c,vec3(.84,.81,.76),leuco*.75);
+    c=mix(c,vec3(.52,.13,.13),step(.988,rcH(floor(p*110.))));
+    c=c*(.9+.2*g);
+    // A dark rim of baked hornfels where the pluton heated its neighbors.
+    return pdist<.09?mix(vec3(.3,.25,.27),c,smoothstep(0.,.09,pdist)):c;
   }
   id=5.;
-  return mix(vec3(.5,.47,.46),vec3(.42,.4,.4),rcN(p*8.))*(.88+.24*g);
+  return mix(vec3(.5,.47,.46),vec3(.42,.4,.4),rcN(p*8.))*(.88+.24*g)*baked;
 }
 `;
 
@@ -186,7 +218,7 @@ function SectionFace({
         color="white"
         roughness={0.9}
         onBeforeCompile={compile}
-        customProgramCacheKey={() => "rock-cycle-section-v1"}
+        customProgramCacheKey={() => "rock-cycle-section-v4"}
       />
     </mesh>
   );
