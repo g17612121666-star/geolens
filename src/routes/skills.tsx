@@ -24,8 +24,7 @@ function Skills() {
     .filter((l) => !labs.some((x) => x.slug === l.slug));
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
-      <p className="section-label">{"Skills studio"}</p>
-      <h1 className="mt-3 font-display text-4xl">{"Read the map, then the hill."}</h1>
+      <h1 className="font-display text-4xl">{"Map skills"}</h1>
       <p className="mt-5 max-w-2xl text-lg leading-7 text-mist">
         {
           "Practice map skills in 3D: contours, latitude and longitude, map projections and grid references, then a hydrograph and a soil texture triangle. Many map questions in Earth-science and geography tests start with contours, so begin there. To browse with photos, open the "

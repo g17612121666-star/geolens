@@ -87,13 +87,10 @@ function TeachersIndex() {
   }
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
-      <p className="section-label">{"Teachers"}</p>
-      <h1 className="mt-3 max-w-3xl font-display text-4xl text-chalk md:text-5xl">
-        {"Bring Earth science into the room."}
-      </h1>
+      <h1 className="max-w-3xl font-display text-4xl text-chalk md:text-5xl">{"Teacher notes"}</h1>
       <p className="mt-5 max-w-3xl text-lg leading-7 text-mist">
         {
-          "Start with a real landscape, explore the process in 3D, and give students something to explain. These free lesson notes help teachers and geography clubs prepare a discussion, lead a demonstration or print a handout. You can use every resource without an account."
+          "Lesson notes for every lab: how to run it, discussion prompts, common misconceptions and answers, each with a printable worksheet and a Guided link for students. Everything works without an account."
         }
       </p>
       <div className="mt-5 flex max-w-3xl flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-white/10 p-4 text-sm text-mist">

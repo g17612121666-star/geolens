@@ -140,8 +140,8 @@ function Glossary() {
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="section-label">{"Glossary"}</p>
-          <h1 className="mt-3 font-display text-4xl">{`${GLOSSARY.length} words used in the labs.`}</h1>
+          <h1 className="font-display text-4xl">{"Glossary"}</h1>
+          <p className="mt-2 text-mist">{`${GLOSSARY.length} terms used in the labs, each with a plain definition.`}</p>
         </div>
         <button
           className={`${button} ${revision ? "bg-glacier/15 text-glacier" : ""}`}

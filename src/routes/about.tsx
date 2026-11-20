@@ -36,10 +36,7 @@ function About() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <p className="section-label">About Geolens</p>
-      <h1 className="mt-3 max-w-3xl font-display text-5xl leading-tight md:text-6xl">
-        Earth science you can explore together.
-      </h1>
+      <h1 className="max-w-3xl font-display text-5xl leading-tight md:text-6xl">About Geolens</h1>
       <div className="mt-7 max-w-3xl space-y-4 text-lg leading-8 text-mist">
         <p>
           Geolens is a free collection of interactive 3D models for learning geography and Earth

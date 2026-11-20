@@ -56,10 +56,7 @@ function ToolsIndex() {
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
       <div className="grid gap-5 border-b border-white/10 pb-8 md:grid-cols-[1.1fr_1fr]">
         <div>
-          <p className="section-label">{"Tools"}</p>
-          <h1 className="mt-3 font-display text-5xl md:text-6xl">
-            {"Explore places with maps and data."}
-          </h1>
+          <h1 className="font-display text-5xl md:text-6xl">{"Maps and data"}</h1>
         </div>
         <p className="self-end text-lg leading-8 text-mist">
           {

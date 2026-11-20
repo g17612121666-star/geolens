@@ -224,7 +224,6 @@ function LiveWeather() {
     >
       <header className="field-page-heading">
         <div>
-          <p className="section-label">Observe the atmosphere</p>
           <h1>Live weather</h1>
           <p className="field-intro">
             Compare the weather in two places, then follow the next three days together. Start with
@@ -312,8 +311,7 @@ function LiveWeather() {
       <section className="weather-forecast" aria-label="Compare the hourly forecast">
         <div className="weather-section-heading">
           <div>
-            <p className="section-label">Follow the next 72 hours</p>
-            <h2>One timeline, two places.</h2>
+            <h2>The next 72 hours</h2>
           </div>
           <div className="weather-layer-buttons" role="group" aria-label="Weather variable">
             {LAYERS.map((l) => (
@@ -442,8 +440,7 @@ function LiveWeather() {
       <section className="weather-map-section" aria-label="Locate the comparison">
         <div className="weather-section-heading">
           <div>
-            <p className="section-label">Put the readings on the map</p>
-            <h2>Where does the weather change?</h2>
+            <h2>On the map</h2>
           </div>
           <div className="field-actions" role="group" aria-label="Choose the place to move">
             {(["A", "B"] as const).map((id) => (
@@ -479,7 +476,6 @@ function LiveWeather() {
       </section>
       <section className="weather-learning" aria-label="Connect the observations">
         <div>
-          <p className="section-label">From observation to explanation</p>
           <h2>What would you investigate next?</h2>
           <p>
             Choose a difference in the forecast and suggest a cause. Use a model to test your

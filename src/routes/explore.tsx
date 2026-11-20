@@ -134,12 +134,11 @@ function Explore() {
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-16 pt-24">
       <div className="grid gap-5 border-b border-white/10 pb-8 md:grid-cols-[1.1fr_1fr]">
         <div>
-          <p className="section-label">Explore</p>
-          <h1 className="mt-3 font-display text-5xl md:text-6xl">A world to investigate.</h1>
+          <h1 className="font-display text-5xl md:text-6xl">Labs and case studies</h1>
         </div>
         <p className="self-end text-lg leading-8 text-mist">
-          Choose a question, explore the model and connect what you find to a real landscape. Every
-          lab is free to use in class or on your own.
+          Find a lab by subject, curriculum or topic, or switch to case studies of real places.
+          Every lab is free to use in class or on your own.
         </p>
       </div>
       <div
