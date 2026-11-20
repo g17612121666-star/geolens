@@ -66,3 +66,22 @@ test("high school labs carry high school expectations where NGSS has one", () =>
     assert.ok(labs.find((l) => l.slug === slug).standards.includes(id), `${slug}: ${id}`);
   }
 });
+
+test("a search for a standard code finds that standard, and an NGSS group finds its expectations", async () => {
+  const { matchStandards } = await import("../src/lib/labs/standards.ts");
+  assert.deepEqual(matchStandards("MS-ESS2-2"), ["NGSS MS-ESS2-2"]);
+  assert.deepEqual(matchStandards("  ngss  hs-ess3-1 "), ["NGSS HS-ESS3-1"]);
+  assert.deepEqual(matchStandards("APES 4.1"), ["APES 4.1"]);
+  assert.deepEqual(matchStandards("aqa gcse 3.1.3.4"), ["AQA GCSE 3.1.3.4"]);
+  assert.deepEqual(matchStandards("C3 D2.Geo.1.6-8"), ["C3 D2.Geo.1.6-8"]);
+  assert.deepEqual(matchStandards("HS-ESS3"), [
+    "NGSS HS-ESS3-1",
+    "NGSS HS-ESS3-2",
+    "NGSS HS-ESS3-3",
+    "NGSS HS-ESS3-4",
+    "NGSS HS-ESS3-5",
+    "NGSS HS-ESS3-6",
+  ]);
+  for (const words of ["glaciers", "4.1", "MS-ESS9-1", "ESS2", ""])
+    assert.deepEqual(matchStandards(words), [], words);
+});

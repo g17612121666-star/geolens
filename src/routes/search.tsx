@@ -12,7 +12,9 @@ import { CASES_BY_REGION as CASES } from "@/lib/cases";
 
 import { expandSearchNeedle } from "@/lib/search-aliases";
 import { buildIndex, searchIndex } from "@/lib/site-search";
-import { STANDARD_BY_ID, standardLabel } from "@/lib/labs/standards";
+import { STANDARD_BY_ID, matchStandards, standardLabel } from "@/lib/labs/standards";
+import { ngssUrl } from "@/lib/labs/ngss";
+import { NgssDimensions } from "@/components/ngss-dimensions";
 
 // A standard is found by its code ("HS-ESS2-6", "APES 4.7") or its title.
 const standardSearchText = (id: string) =>
@@ -136,12 +138,16 @@ function SearchPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // A standard code ("MS-ESS2-2", "APES 4.1") lists exactly the labs tagged with it.
+  const standards = useMemo(() => matchStandards(q), [q]);
   const labs = useMemo(
     () =>
-      needle
-        ? searchIndex(LAB_INDEX, needle)
-        : SHIPPED.filter((l) => ["seasons", "coasts", "hydrograph"].includes(l.slug)),
-    [needle],
+      standards.length
+        ? SHIPPED.filter((l) => l.standards.some((id) => standards.includes(id)))
+        : needle
+          ? searchIndex(LAB_INDEX, needle)
+          : SHIPPED.filter((l) => ["seasons", "coasts", "hydrograph"].includes(l.slug)),
+    [needle, standards],
   );
 
   const terms = useMemo(
@@ -199,12 +205,11 @@ function SearchPage() {
 
   return (
     <main id="main" className="mx-auto max-w-[900px] px-5 pb-24 pt-24">
-      <p className="section-label">{"Search"}</p>
-      <h1 className="mt-3 font-display text-4xl text-chalk md:text-5xl">
-        {"Find a lab, a word, a place."}
-      </h1>
+      <h1 className="font-display text-4xl text-chalk md:text-5xl">{"Search"}</h1>
       <p className="mt-3 text-sm text-mist">
-        {"Search for a topic or place. Press / to focus the search box."}
+        {
+          "Search labs, case studies, places, glossary terms and teacher notes, or type a standard such as MS-ESS2-2 or APES 4.1 to find the labs for it. Press / to focus the search box."
+        }
       </p>
       <label className="relative mt-8 block">
         <span className="sr-only">{"Search Geolens"}</span>
@@ -256,13 +261,14 @@ function SearchPage() {
         </div>
       ) : (
         <div className="mt-12 space-y-12">
+          {standards.length > 0 && <StandardsFound ids={standards} />}
           <section>
             <p className="section-label">
               {"Labs · "}
               {labs.length}
             </p>
             <ul className="mt-4 divide-y divide-white/10 border-y border-white/10">
-              {labs.slice(0, 16).map((l) => (
+              {labs.slice(0, standards.length ? labs.length : 16).map((l) => (
                 <li key={l.slug}>
                   <Link
                     to="/lab/$slug"
@@ -373,5 +379,45 @@ function SearchPage() {
         </div>
       )}
     </main>
+  );
+}
+
+/** The standard (or NGSS group) a search named, with its dimensions and where to read more. */
+function StandardsFound({ ids }: { ids: string[] }) {
+  return (
+    <section aria-label="Standards" className="border-l-2 border-glacier pl-4">
+      <ul className="space-y-3">
+        {ids.map((id) => {
+          const url = ngssUrl(id);
+          return (
+            <li key={id}>
+              <p>
+                <span className="font-mono text-glacier">{standardLabel(id)}</span>
+                {STANDARD_BY_ID[id]?.title && (
+                  <span className="text-chalk"> · {STANDARD_BY_ID[id].title}</span>
+                )}
+              </p>
+              {ids.length === 1 && <NgssDimensions id={id} className="mt-1" />}
+              {ids.length === 1 && url && (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs text-ice underline underline-offset-4"
+                >
+                  Full expectation on nextgenscience.org
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+      <p className="mt-3 text-sm">
+        <Link to="/teachers/standards" className="text-ice underline underline-offset-4">
+          Every lab by standard
+        </Link>
+      </p>
+    </section>
   );
 }

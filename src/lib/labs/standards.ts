@@ -230,3 +230,24 @@ export const isUsStandard = (id: string) =>
 /** Frameworks compared by their display order. */
 export const byFramework = (a: FrameworkId, b: FrameworkId) =>
   (FRAMEWORK_ORDER.get(a) ?? 99) - (FRAMEWORK_ORDER.get(b) ?? 99);
+
+const squash = (text: string) => text.toUpperCase().replace(/\s+/g, " ").trim();
+
+/**
+ * The standards a search names, if it is a standard code: "MS-ESS2-2", "NGSS HS-ESS3-1",
+ * "APES 4.1" or "aqa gcse 3.1.3.4" give that standard; an NGSS group such as "HS-ESS3" gives all
+ * of its expectations. Anything else gives none, and is searched as words.
+ */
+export function matchStandards(query: string): string[] {
+  const q = squash(query).replace(/^NGSS /, "");
+  if (!q) return [];
+  const exact = STANDARDS.find(
+    (s) => squash(s.id) === q || (s.framework === "NGSS" && squash(s.code) === q),
+  );
+  if (exact) return [exact.id];
+  if (/^(MS|HS)-ESS[123]$/.test(q))
+    return STANDARDS.filter((s) => s.framework === "NGSS" && s.code.startsWith(`${q}-`)).map(
+      (s) => s.id,
+    );
+  return [];
+}
