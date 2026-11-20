@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ClassroomShare } from "@/components/classroom-share";
+import { NgssDimensions } from "@/components/ngss-dimensions";
 import { LABS } from "@/lib/labs/catalog";
 import { COURSES, COURSE_BY_ID, planCourse, type CourseId } from "@/lib/labs/courses";
 import { STANDARD_BY_ID, standardLabel } from "@/lib/labs/standards";
@@ -108,6 +109,7 @@ function CoursesPage() {
                     </span>
                     <span className="font-medium">{STANDARD_BY_ID[group.standard]?.title}</span>
                   </h3>
+                  <NgssDimensions id={group.standard} className="mt-2" />
                   <ul className="divide-y divide-white/10">
                     {group.labs.map((lab) => (
                       <LabRow

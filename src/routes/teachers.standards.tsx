@@ -5,6 +5,8 @@ import { isListed } from "@/lib/labs/status";
 import { FRAMEWORKS, STANDARDS, standardLabel, type Standard } from "@/lib/labs/standards";
 import type { LabSummary } from "@/lib/labs/types";
 import { headFor, siteOrigin } from "@/lib/seo";
+import { NGSS_DIMENSIONS } from "@/lib/labs/ngss";
+import { NgssDimensions } from "@/components/ngss-dimensions";
 
 export const Route = createFileRoute("/teachers/standards")({
   component: StandardsPage,
@@ -34,11 +36,31 @@ const rowsFor = (framework: string) =>
 
 function downloadCsv() {
   const cell = (value: string) => `"${value.replace(/"/g, '""')}"`;
-  const lines = [["Framework", "Code", "Standard", "Lab", "Lab address"]];
+  const lines = [
+    [
+      "Framework",
+      "Code",
+      "Standard",
+      "NGSS practice",
+      "NGSS crosscutting concept",
+      "NGSS core ideas",
+      "Lab",
+      "Lab address",
+    ],
+  ];
   for (const framework of FRAMEWORKS) {
     for (const s of rowsFor(framework.id)) {
+      const d = NGSS_DIMENSIONS[s.id];
+      const dims = [d?.practice ?? "", d?.concept ?? "", d?.coreIdeas.join(", ") ?? ""];
       for (const lab of LABS_BY_STANDARD.get(s.id) ?? []) {
-        lines.push([framework.name, s.code, s.title, lab.title, `${siteOrigin()}/lab/${lab.slug}`]);
+        lines.push([
+          framework.name,
+          s.code,
+          s.title,
+          ...dims,
+          lab.title,
+          `${siteOrigin()}/lab/${lab.slug}`,
+        ]);
       }
     }
   }
@@ -69,7 +91,10 @@ function StandardTable({ rows }: { rows: Standard[] }) {
             return (
               <tr key={s.id} className="border-b border-white/5 align-top">
                 <td className="p-2 font-mono text-glacier">{standardLabel(s.id)}</td>
-                <td className="p-2 text-chalk/90">{s.title}</td>
+                <td className="p-2 text-chalk/90">
+                  {s.title}
+                  <NgssDimensions id={s.id} />
+                </td>
                 <td className="p-2">
                   {labs.length === 0 ? (
                     <span className="text-mist">{"No lab yet"}</span>
@@ -113,7 +138,7 @@ function StandardsPage() {
       <h1 className="mt-2 font-display text-4xl">{"Standards alignment"}</h1>
       <p className="mt-3 max-w-2xl text-mist">
         {
-          "Every lab mapped to the standards it teaches toward. Titles are short paraphrases; check each framework for its full wording. Open a lab's teacher notes for its lesson plan."
+          "Every lab mapped to the standards it teaches toward. Each NGSS expectation also lists the three dimensions it combines: a science and engineering practice, a crosscutting concept and disciplinary core ideas. Titles are short paraphrases; check each framework for its full wording. Open a lab's teacher notes for its lesson plan."
         }
       </p>
       <p className="mt-3 text-sm text-mist">

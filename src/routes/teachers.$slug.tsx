@@ -12,6 +12,8 @@ import { ClassroomShare } from "@/components/classroom-share";
 import { useState } from "react";
 import { LESSON_PHASES, lessonLink, lessonOutline } from "@/lib/teachers/workflow";
 import { STANDARD_BY_ID, isUsStandard, sortStandards, standardLabel } from "@/lib/labs/standards";
+import { ngssUrl } from "@/lib/labs/ngss";
+import { NgssDimensions } from "@/components/ngss-dimensions";
 
 export const Route = createFileRoute("/teachers/$slug")({
   beforeLoad: ({ params }) => {
@@ -392,14 +394,32 @@ function Standards({ ids }: { ids: string[] }) {
   const sorted = sortStandards(ids),
     us = sorted.filter(isUsStandard),
     uk = sorted.filter((id) => !isUsStandard(id));
-  const item = (id: string) => (
-    <li key={id}>
-      <span className="font-mono text-glacier">{standardLabel(id)}</span>
-      {STANDARD_BY_ID[id]?.title && (
-        <span className="text-mist"> · {STANDARD_BY_ID[id].title}</span>
-      )}
-    </li>
-  );
+  const item = (id: string) => {
+    const url = ngssUrl(id);
+    return (
+      <li key={id}>
+        <span className="font-mono text-glacier">{standardLabel(id)}</span>
+        {STANDARD_BY_ID[id]?.title && (
+          <span className="text-mist"> · {STANDARD_BY_ID[id].title}</span>
+        )}
+        {url && (
+          <div className="mb-2 mt-1 border-l border-white/15 pl-3">
+            <NgssDimensions id={id} detail />
+            <a
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-ice underline underline-offset-4"
+              data-print-hide
+            >
+              Full expectation on nextgenscience.org
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+        )}
+      </li>
+    );
+  };
   return (
     <section className="mt-8" aria-label={"Standards"}>
       <h2 className="font-display text-2xl">{"Standards"}</h2>
