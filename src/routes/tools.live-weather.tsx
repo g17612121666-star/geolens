@@ -30,11 +30,12 @@ import {
   WeatherError,
   weatherCsv,
   weatherDescription,
-  weatherNumber as number,
   type WeatherHour,
   type WeatherPoint,
   type WeatherResult,
 } from "@/lib/weather";
+import { usePreferences } from "@/lib/preferences";
+import { convert, display, formatQuantity, type Quantity, type UnitSystem } from "@/lib/units";
 import "@/components/atlas-weather.css";
 
 export const Route = createFileRoute("/tools/live-weather")({
@@ -62,29 +63,29 @@ const PRESETS: WeatherPoint[] = [
   { name: "Singapore", lat: 1.35, lon: 103.82 },
 ];
 type Layer = "temperature" | "precipitation" | "wind" | "cloud";
-const LAYERS: { id: Layer; label: string; unit: string; note: string }[] = [
+const LAYERS: { id: Layer; label: string; quantity: Quantity; note: string }[] = [
   {
     id: "temperature",
     label: "Temperature",
-    unit: "°C",
-    note: "Air temperature is the model value 2 m above the ground.",
+    quantity: "temperature",
+    note: "Air temperature is the model value 2 m (about 6 ft) above the ground.",
   },
   {
     id: "precipitation",
     label: "Precipitation",
-    unit: "mm",
+    quantity: "precipitation",
     note: "Precipitation is the water equivalent of rain or snow accumulated in the preceding hour.",
   },
   {
     id: "wind",
     label: "Wind",
-    unit: "m s⁻¹",
-    note: "Wind speed is the model value 10 m above the ground; the direction is where the wind comes from.",
+    quantity: "speed",
+    note: "Wind speed is the model value 10 m (about 33 ft) above the ground; the direction is where the wind comes from.",
   },
   {
     id: "cloud",
     label: "Cloud cover",
-    unit: "%",
+    quantity: "percent",
     note: "Cloud cover ranges from a clear sky at 0% to complete cover at 100%.",
   },
 ];
@@ -144,6 +145,8 @@ function LiveWeather() {
   const [shareUrl, setShareUrl] = useState("");
   const wa = useWeather(a),
     wb = useWeather(b);
+  const units = usePreferences((s) => s.units),
+    setUnits = usePreferences((s) => s.setUnits);
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const parse = (key: string): WeatherPoint | null => {
@@ -181,21 +184,23 @@ function LiveWeather() {
     else setA(p);
     setHour(0);
   }
-  const selected = LAYERS.find((l) => l.id === layer)!;
+  const selected = LAYERS.find((l) => l.id === layer)!,
+    shown = display(selected.quantity, units);
   const timeline = wa.data?.hours ?? wb.data?.hours ?? [];
   const selectedIndex = Math.min(hour, Math.max(0, timeline.length - 1));
   const selectedTime = timeline[selectedIndex]?.time;
   const ha = wa.data?.hours.find((h) => h.time === selectedTime),
     hb = wb.data?.hours.find((h) => h.time === selectedTime);
+  const quantity = LAYERS.find((l) => l.id === layer)!.quantity;
   const forecast = useMemo(
     () =>
       timeline.map((h) => ({
         time: h.time,
-        a: wa.data?.hours.find((x) => x.time === h.time)?.[layer] ?? null,
-        b: wb.data?.hours.find((x) => x.time === h.time)?.[layer] ?? null,
+        a: convert(wa.data?.hours.find((x) => x.time === h.time)?.[layer], quantity, units),
+        b: convert(wb.data?.hours.find((x) => x.time === h.time)?.[layer], quantity, units),
       })),
     // eslint-disable-next-line react-hooks/exhaustive-deps -- timeline is derived from wa.data and wb.data, which are listed (it is a fresh [] each render while neither has loaded)
-    [wa.data, wb.data, layer],
+    [wa.data, wb.data, layer, units],
   );
   const defaultPair = samePoint(a, PRESETS[0]) && samePoint(b, PRESETS[11]);
   async function copyView() {
@@ -227,6 +232,26 @@ function LiveWeather() {
           </p>
         </div>
         <div className="field-actions">
+          <div role="group" aria-label="Units" className="weather-units">
+            {(
+              [
+                ["metric", "°C"],
+                ["us", "°F"],
+              ] as const
+            ).map(([value, label]) => (
+              <button
+                key={value}
+                className="field-button"
+                aria-pressed={units === value}
+                onClick={() => setUnits(value)}
+              >
+                {label}
+                <span className="sr-only">
+                  {value === "us" ? " and other US customary units" : " and other metric units"}
+                </span>
+              </button>
+            ))}
+          </div>
           <button className="field-button" onClick={() => void copyView()}>
             Share comparison
           </button>
@@ -273,8 +298,8 @@ function LiveWeather() {
         <p>Open-Meteo supplies model estimates rather than readings from a weather station.</p>
       </div>
       <div className="weather-current-grid">
-        <WeatherCard id="A" point={a} state={wa} />
-        <WeatherCard id="B" point={b} state={wb} />
+        <WeatherCard id="A" point={a} state={wa} units={units} />
+        <WeatherCard id="B" point={b} state={wb} units={units} />
       </div>
       <Comparison
         a={wa.data}
@@ -282,6 +307,7 @@ function LiveWeather() {
         names={[a.name, b.name]}
         defaultPair={defaultPair}
         sameLocation={samePoint(a, b)}
+        units={units}
       />
       <section className="weather-forecast" aria-label="Compare the hourly forecast">
         <div className="weather-section-heading">
@@ -311,7 +337,7 @@ function LiveWeather() {
             <i className="weather-key-b" />
             B: {b.name}
           </span>
-          <span>{selected.unit}</span>
+          <span>{shown.unit}</span>
         </div>
         {forecast.length ? (
           <>
@@ -320,7 +346,8 @@ function LiveWeather() {
               layer={layer}
               names={[a.name, b.name]}
               selectedTime={selectedTime}
-              unit={selected.unit}
+              unit={shown.unit}
+              digits={shown.digits}
             />
             <div className="weather-timeline">
               <label htmlFor="weather-hour">
@@ -339,12 +366,12 @@ function LiveWeather() {
                 <span>
                   <span className="field-letter">A</span>
                   {a.name}
-                  <strong>{number(ha?.[layer], selected.unit)}</strong>
+                  <strong>{formatQuantity(ha?.[layer], quantity, units)}</strong>
                 </span>
                 <span>
                   <span className="field-letter field-letter--b">B</span>
                   {b.name}
-                  <strong>{number(hb?.[layer], selected.unit)}</strong>
+                  <strong>{formatQuantity(hb?.[layer], quantity, units)}</strong>
                 </span>
               </div>
             </div>
@@ -388,7 +415,8 @@ function LiveWeather() {
             <div className="weather-table-scroll">
               <table>
                 <caption>
-                  {selected.label} in {selected.unit}; a dash means the provider supplied no value.
+                  {selected.label} in {shown.unit}; a dash means the provider supplied no value.
+                  Downloads keep the provider’s metric units.
                 </caption>
                 <thead>
                   <tr>
@@ -401,8 +429,8 @@ function LiveWeather() {
                   {forecast.map((r) => (
                     <tr key={r.time}>
                       <th scope="row">{r.time.replace("T", " ")}</th>
-                      <td>{r.a?.toFixed(1) ?? "—"}</td>
-                      <td>{r.b?.toFixed(1) ?? "—"}</td>
+                      <td>{r.a?.toFixed(shown.digits) ?? "—"}</td>
+                      <td>{r.b?.toFixed(shown.digits) ?? "—"}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -439,8 +467,8 @@ function LiveWeather() {
           zoom={3}
           marker={[a.lon, a.lat]}
           markerB={[b.lon, b.lat]}
-          markerContent={<WeatherMapPin id="A" hour={ha} layer={layer} />}
-          markerBContent={<WeatherMapPin id="B" hour={hb} layer={layer} />}
+          markerContent={<WeatherMapPin id="A" hour={ha} layer={layer} units={units} />}
+          markerBContent={<WeatherMapPin id="B" hour={hb} layer={layer} units={units} />}
           draggableMarker
           fitMarkers
           onClick={(p) => choose({ ...p, name: "Map point" })}
@@ -548,11 +576,16 @@ function WeatherCard({
   id,
   point,
   state,
+  units,
 }: {
   id: "A" | "B";
   point: WeatherPoint;
   state: ReadingState & { retry: () => void };
+  units: UnitSystem;
 }) {
+  const q = (value: number | null | undefined, quantity: Quantity) =>
+    formatQuantity(value, quantity, units);
+  const temperature = display("temperature", units);
   const [clock, setClock] = useState(Date.now());
   useEffect(() => {
     if (!state.error?.retryAt) return;
@@ -598,32 +631,34 @@ function WeatherCard({
         <>
           <div className="weather-primary-reading">
             <p>
-              {c.temperature === null ? "—" : c.temperature.toFixed(1)}
-              <span>°C</span>
+              {c.temperature === null
+                ? "—"
+                : temperature.convert(c.temperature).toFixed(temperature.digits)}
+              <span>{temperature.unit}</span>
             </p>
             <div>
               <span>{weatherDescription(c.code)}</span>
-              <small>Feels like {number(c.apparent, "°C")}</small>
+              <small>Feels like {q(c.apparent, "temperature")}</small>
             </div>
           </div>
           <p className="weather-model-time">Model time: {utc(c.time)}</p>
           <dl className="weather-main-metrics">
-            <Metric label="Wind at 10 m" value={number(c.wind, "m s⁻¹")} />
-            <Metric label="Cloud cover" value={number(c.cloud, "%", 0)} />
+            <Metric label="Wind at 10 m" value={q(c.wind, "speed")} />
+            <Metric label="Cloud cover" value={q(c.cloud, "percent")} />
             <Metric
               label={`Rain / snow in ${c.interval / 60} min`}
-              value={number(c.precip, "mm")}
+              value={q(c.precip, "precipitation")}
             />
           </dl>
           <details className="weather-more-readings">
             <summary>More readings and data source</summary>
             <dl className="weather-extra-metrics">
-              <Metric label="Relative humidity" value={number(c.humidity, "%", 0)} />
-              <Metric label="Mean sea-level pressure" value={number(c.pressure, "hPa", 0)} />
-              <Metric label="Wind gust at 10 m" value={number(c.gust, "m s⁻¹")} />
+              <Metric label="Relative humidity" value={q(c.humidity, "percent")} />
+              <Metric label="Mean sea-level pressure" value={q(c.pressure, "pressure")} />
+              <Metric label="Wind gust at 10 m" value={q(c.gust, "speed")} />
               <Metric
                 label="Visibility"
-                value={number(c.visibility === null ? null : c.visibility / 1000, "km")}
+                value={q(c.visibility === null ? null : c.visibility / 1000, "distance")}
               />
             </dl>
             {c.wind !== null && c.windDir !== null && (
@@ -635,7 +670,7 @@ function WeatherCard({
             )}
             <p className="weather-chart-note">
               The model grid cell is at {fmtLatLon(data.grid.lat, data.grid.lon, 3)}, with an
-              elevation of {number(data.grid.elevation, "m", 0)}. Retrieved at{" "}
+              elevation of {q(data.grid.elevation, "height")}. Retrieved at{" "}
               {new Date(data.fetchedAt).toISOString().replace("T", " ").slice(0, 19)} UTC.
             </p>
             <div className="field-actions">
@@ -666,12 +701,14 @@ function Comparison({
   names,
   defaultPair,
   sameLocation,
+  units,
 }: {
   a: WeatherResult | null;
   b: WeatherResult | null;
   names: string[];
   defaultPair: boolean;
   sameLocation: boolean;
+  units: UnitSystem;
 }) {
   const same = a && b && a.current.time === b.current.time;
   const delta =
@@ -683,7 +720,7 @@ function Comparison({
       ? "Compare the temperature, cloud cover and wind, then look for changes along the forecast."
       : Math.abs(delta) < 0.05
         ? `${names[0]} and ${names[1]} have the same modeled temperature at this time.`
-        : `${names[1]} is ${Math.abs(delta).toFixed(1)} °C ${delta > 0 ? "warmer" : "cooler"} than ${names[0]} at the same model time.`;
+        : `${names[1]} is ${formatQuantity(Math.abs(delta), "temperatureChange", units)} ${delta > 0 ? "warmer" : "cooler"} than ${names[0]} at the same model time.`;
   return (
     <aside className="weather-comparison-note" aria-label="Read the comparison">
       <p className="section-label">Notice and explain</p>
@@ -706,19 +743,21 @@ function WeatherMapPin({
   id,
   hour,
   layer,
+  units,
 }: {
   id: "A" | "B";
   hour: WeatherHour | undefined;
   layer: Layer;
+  units: UnitSystem;
 }) {
-  const unit = LAYERS.find((l) => l.id === layer)!.unit;
+  const quantity = LAYERS.find((l) => l.id === layer)!.quantity;
   return (
     <div
       data-weather-pin={id}
       className={`weather-map-pin ${id === "B" ? "weather-map-pin--b" : ""}`}
     >
       <strong>{id}</strong>
-      <span>{number(hour?.[layer], unit)}</span>
+      <span>{formatQuantity(hour?.[layer], quantity, units)}</span>
       {layer === "wind" && hour?.windDir != null && <small>From {compass(hour.windDir)}</small>}
     </div>
   );
@@ -729,12 +768,14 @@ function Forecast({
   names,
   selectedTime,
   unit,
+  digits,
 }: {
   rows: { time: string; a: number | null; b: number | null }[];
   layer: Layer;
   names: string[];
   selectedTime: string | undefined;
   unit: string;
+  digits: number;
 }) {
   return (
     <div
@@ -773,7 +814,7 @@ function Forecast({
               fontSize: 12,
             }}
             labelFormatter={(value) => utc(String(value))}
-            formatter={(value: number, name: string) => [`${value.toFixed(1)} ${unit}`, name]}
+            formatter={(value: number, name: string) => [`${value.toFixed(digits)} ${unit}`, name]}
           />
           {layer === "precipitation" ? (
             <>

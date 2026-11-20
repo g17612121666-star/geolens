@@ -24,7 +24,7 @@ function environment(saved = {}, initialDark = false) {
     addEventListener: (event, listener) => { assert.equal(event, 'storage'); storageListener = listener; },
     removeEventListener: (event, listener) => { assert.equal(event, 'storage'); assert.equal(listener, storageListener); storageListener = undefined; },
   };
-  pref.usePreferences.setState({ theme: 'system', resolvedTheme: 'dark' });
+  pref.usePreferences.setState({ theme: 'system', resolvedTheme: 'dark', units: 'metric' });
   let dispose;
   return {
     root,
@@ -45,7 +45,7 @@ test('a saved theme is restored while a legacy locale cannot change the English 
     assert.equal(env.root.dataset.theme, 'dark');
     assert.equal(env.root.style.colorScheme, 'dark');
     pref.usePreferences.getState().setTheme('light');
-    assert.deepEqual(env.stored, { theme: 'light' });
+    assert.deepEqual(env.stored, { theme: 'light', units: 'metric' });
     assert.equal(env.root.dataset.theme, 'light');
     assert.equal(env.root.lang, 'en');
   } finally { env.restore(); }
@@ -65,7 +65,7 @@ test('system theme follows the operating system while an explicit theme stays se
     assert.equal(env.root.dataset.theme, 'dark');
     env.setSystemDark(false);
     assert.equal(env.root.dataset.theme, 'light');
-    assert.deepEqual(env.stored, { theme: 'system' });
+    assert.deepEqual(env.stored, { theme: 'system', units: 'metric' });
   } finally { env.restore(); }
 });
 
@@ -99,5 +99,24 @@ test('blocked browser storage still allows theme selection and an English interf
     pref.usePreferences.getState().setTheme('light');
     assert.equal(env.root.dataset.theme, 'light');
     assert.equal(env.root.lang, 'en');
+  } finally { env.restore(); }
+});
+
+test('a reader can choose US customary units; the choice is saved, shared across tabs and validated', () => {
+  const env = environment({ theme: 'dark', units: 'us' });
+  try {
+    env.initialize();
+    assert.equal(pref.usePreferences.getState().units, 'us');
+    pref.usePreferences.getState().setUnits('metric');
+    assert.deepEqual(env.stored, { theme: 'dark', units: 'metric' });
+    pref.usePreferences.getState().setTheme('light');
+    assert.deepEqual(env.stored, { theme: 'light', units: 'metric' });
+    env.storage({ theme: 'light', units: 'us' });
+    assert.equal(pref.usePreferences.getState().units, 'us');
+    env.storage({ theme: 'light', units: 'imperial' });
+    assert.equal(pref.usePreferences.getState().units, 'metric');
+    env.storage(null);
+    assert.equal(pref.usePreferences.getState().units, 'metric');
+    env.dispose();
   } finally { env.restore(); }
 });

@@ -1,22 +1,39 @@
-/** Theme preference only: Geolens has a single English interface. */
+/** Theme and display units; Geolens has a single English interface. */
 import { create } from "zustand";
+import type { UnitSystem } from "./units";
 export type Theme = "system" | "light" | "dark";
 const KEY = "geolens-preferences-v1";
 export const usePreferences = create<{
   theme: Theme;
   resolvedTheme: "light" | "dark";
+  /** Metric unless a reader picks US customary units for everyday quantities. */
+  units: UnitSystem;
   setTheme: (theme: Theme) => void;
+  setUnits: (units: UnitSystem) => void;
 }>((set) => ({
   theme: "system",
   resolvedTheme: "dark",
+  units: "metric",
   setTheme: (theme) => {
     set({ theme });
-    try {
-      localStorage.setItem(KEY, JSON.stringify({ theme }));
-    } catch {}
+    save();
     applyPreferences();
   },
+  setUnits: (units) => {
+    set({ units });
+    save();
+  },
 }));
+function save() {
+  const { theme, units } = usePreferences.getState();
+  try {
+    localStorage.setItem(KEY, JSON.stringify({ theme, units }));
+  } catch {}
+}
+const savedTheme = (saved: { theme?: unknown }): Theme =>
+  saved.theme === "light" || saved.theme === "dark" ? saved.theme : "system";
+const savedUnits = (saved: { units?: unknown }): UnitSystem =>
+  saved.units === "us" ? "us" : "metric";
 function applyPreferences() {
   if (typeof document === "undefined") return;
   const { theme } = usePreferences.getState(),
@@ -37,9 +54,7 @@ function applyPreferences() {
 export function initialisePreferences() {
   try {
     const saved = JSON.parse(localStorage.getItem(KEY) ?? "{}");
-    usePreferences.setState({
-      theme: ["light", "dark"].includes(saved.theme) ? saved.theme : "system",
-    });
+    usePreferences.setState({ theme: savedTheme(saved), units: savedUnits(saved) });
   } catch {}
   applyPreferences();
   const system = matchMedia("(prefers-color-scheme: dark)"),
@@ -47,10 +62,8 @@ export function initialisePreferences() {
   const onStorage = (e: StorageEvent) => {
     if (e.key !== KEY) return;
     try {
-      const saved = JSON.parse(e.newValue ?? "{}");
-      usePreferences.setState({
-        theme: ["light", "dark"].includes(saved.theme) ? saved.theme : "system",
-      });
+      const saved = JSON.parse(e.newValue ?? "{}") ?? {};
+      usePreferences.setState({ theme: savedTheme(saved), units: savedUnits(saved) });
       applyPreferences();
     } catch {}
   };
