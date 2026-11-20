@@ -31,6 +31,7 @@ import { Route as SlipSlugRouteImport } from './routes/slip.$slug'
 import { Route as TeachersIndexRouteImport } from './routes/teachers.index'
 import { Route as TeachersSlugRouteImport } from './routes/teachers.$slug'
 import { Route as TeachersCheckRouteImport } from './routes/teachers.check'
+import { Route as TeachersCoursesRouteImport } from './routes/teachers.courses'
 import { Route as TeachersStandardsRouteImport } from './routes/teachers.standards'
 import { Route as ToolsIndexRouteImport } from './routes/tools.index'
 import { Route as ToolsAtlasRouteImport } from './routes/tools.atlas'
@@ -154,6 +155,11 @@ const TeachersCheckRoute = TeachersCheckRouteImport.update({
   path: '/check',
   getParentRoute: () => TeachersRoute,
 } as any)
+const TeachersCoursesRoute = TeachersCoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => TeachersRoute,
+} as any)
 const TeachersStandardsRoute = TeachersStandardsRouteImport.update({
   id: '/standards',
   path: '/standards',
@@ -236,6 +242,7 @@ export interface FileRoutesByFullPath {
   '/slip/$slug': typeof SlipSlugRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/teachers/check': typeof TeachersCheckRoute
+  '/teachers/courses': typeof TeachersCoursesRoute
   '/teachers/standards': typeof TeachersStandardsRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
@@ -271,6 +278,7 @@ export interface FileRoutesByTo {
   '/slip/$slug': typeof SlipSlugRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/teachers/check': typeof TeachersCheckRoute
+  '/teachers/courses': typeof TeachersCoursesRoute
   '/teachers/standards': typeof TeachersStandardsRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
@@ -308,6 +316,7 @@ export interface FileRoutesById {
   '/slip/$slug': typeof SlipSlugRoute
   '/teachers/$slug': typeof TeachersSlugRoute
   '/teachers/check': typeof TeachersCheckRoute
+  '/teachers/courses': typeof TeachersCoursesRoute
   '/teachers/standards': typeof TeachersStandardsRoute
   '/tools/atlas': typeof ToolsAtlasRoute
   '/tools/earth-motion': typeof ToolsEarthMotionRoute
@@ -346,6 +355,7 @@ export interface FileRouteTypes {
     | '/slip/$slug'
     | '/teachers/$slug'
     | '/teachers/check'
+    | '/teachers/courses'
     | '/teachers/standards'
     | '/tools/atlas'
     | '/tools/earth-motion'
@@ -381,6 +391,7 @@ export interface FileRouteTypes {
     | '/slip/$slug'
     | '/teachers/$slug'
     | '/teachers/check'
+    | '/teachers/courses'
     | '/teachers/standards'
     | '/tools/atlas'
     | '/tools/earth-motion'
@@ -417,6 +428,7 @@ export interface FileRouteTypes {
     | '/slip/$slug'
     | '/teachers/$slug'
     | '/teachers/check'
+    | '/teachers/courses'
     | '/teachers/standards'
     | '/tools/atlas'
     | '/tools/earth-motion'
@@ -622,6 +634,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TeachersCheckRouteImport
       parentRoute: typeof TeachersRoute
     }
+    '/teachers/courses': {
+      id: '/teachers/courses'
+      path: '/courses'
+      fullPath: '/teachers/courses'
+      preLoaderRoute: typeof TeachersCoursesRouteImport
+      parentRoute: typeof TeachersRoute
+    }
     '/teachers/standards': {
       id: '/teachers/standards'
       path: '/standards'
@@ -712,6 +731,7 @@ declare module '@tanstack/react-router' {
 interface TeachersRouteChildren {
   TeachersSlugRoute: typeof TeachersSlugRoute
   TeachersCheckRoute: typeof TeachersCheckRoute
+  TeachersCoursesRoute: typeof TeachersCoursesRoute
   TeachersStandardsRoute: typeof TeachersStandardsRoute
   TeachersIndexRoute: typeof TeachersIndexRoute
 }
@@ -719,6 +739,7 @@ interface TeachersRouteChildren {
 const TeachersRouteChildren: TeachersRouteChildren = {
   TeachersSlugRoute: TeachersSlugRoute,
   TeachersCheckRoute: TeachersCheckRoute,
+  TeachersCoursesRoute: TeachersCoursesRoute,
   TeachersStandardsRoute: TeachersStandardsRoute,
   TeachersIndexRoute: TeachersIndexRoute,
 }

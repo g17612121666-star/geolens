@@ -17,7 +17,8 @@ export const Route = createFileRoute("/realms/$realm")({
   },
   loader: async ({ params }) => {
     const { REALM_FIGURE: figures } = await import("@/lib/figures");
-    return { image: figures[params.realm as keyof typeof figures]?.src };
+    const fig = figures[params.realm as keyof typeof figures];
+    return { image: fig?.src, imageAlt: fig?.alt };
   },
   head: ({ params, loaderData }) => {
     const meta = REALMS.find((r) => r.slug === params.realm);
@@ -26,6 +27,7 @@ export const Route = createFileRoute("/realms/$realm")({
       description: meta?.blurb ?? "A Geolens subject.",
       path: `/realms/${params.realm}`,
       image: loaderData?.image,
+      imageAlt: loaderData?.imageAlt,
     });
   },
   component: RealmPage,
@@ -41,8 +43,7 @@ function RealmPage() {
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
       <div className="grid items-center gap-8 border-b border-white/10 pb-10 lg:grid-cols-[1fr_1.15fr]">
         <div>
-          <p className="section-label">{"Subject"}</p>
-          <h1 className="mt-3 font-display text-5xl md:text-6xl">{meta.title}</h1>
+          <h1 className="font-display text-5xl md:text-6xl">{meta.title}</h1>
           <p className="mt-3 text-lg text-glacier">{meta.kicker}</p>
           <p className="mt-5 max-w-xl text-lg leading-8 text-mist">{meta.blurb}</p>
           <p className="mt-6 text-sm text-mist">

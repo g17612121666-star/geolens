@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { hasPlayback } from "@/lib/labs/playback";
 import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
 import type { LabMeta } from "@/lib/labs/types";
@@ -10,6 +11,8 @@ import { LiveData } from "./live-data";
 import { ControlBar, ViewTools } from "./control-bar";
 import { useIsCompact, useMediaQuery } from "@/hooks/use-media";
 import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state";
+import { ClassroomShare } from "@/components/classroom-share";
+import { absUrl } from "@/lib/seo";
 import { recordLabVisit } from "@/lib/recent-labs";
 
 const KEYS: { key: string; does: string }[] = [
@@ -230,6 +233,29 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             Drag to rotate · Ctrl + scroll to zoom · pinch on a touch screen
           </p>
         </>
+      )}
+      {!projector && (
+        <div className="mt-3 flex flex-wrap gap-2 text-sm">
+          <Link
+            to="/teachers/$slug"
+            params={{ slug: lab.slug }}
+            className="inline-flex h-9 items-center rounded-md border border-white/15 bg-basalt/90 px-3 text-chalk hover:border-glacier"
+          >
+            Teacher notes
+          </Link>
+          <Link
+            to="/worksheet/$slug"
+            params={{ slug: lab.slug }}
+            className="inline-flex h-9 items-center rounded-md border border-white/15 bg-basalt/90 px-3 text-chalk hover:border-glacier"
+          >
+            Worksheet
+          </Link>
+          <ClassroomShare
+            href={absUrl(`/lab/${lab.slug}`)}
+            current={labShareUrl}
+            className="inline-flex h-9 items-center gap-1.5 rounded-md bg-glacier px-3 font-medium text-void hover:bg-glacier/90"
+          />
+        </div>
       )}
       {projector && <p className="sr-only">{lab.objective}</p>}
     </div>

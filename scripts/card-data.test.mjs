@@ -16,8 +16,6 @@ const cards = photoCards();
 test("each cover card has its slot's image and alt text", () => {
   for (const [group, slots] of [
     ["lab", assign.LAB_COVER],
-    ["realm", assign.REALM_COVER],
-    ["teacher", assign.TEACHER_HERO],
     ["case", assign.CASE_COVER_EXTRA],
   ]) {
     assert.deepEqual(Object.keys(cards[group]).sort(), Object.keys(slots).sort(), group);

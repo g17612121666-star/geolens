@@ -7,10 +7,13 @@ import { teacherArticle } from "@/lib/teachers/article";
 import { Figure } from "@/components/figure";
 import { labFigures, teacherHero, termFigure } from "@/lib/figures";
 import { labVideos } from "@/lib/lab-videos";
-import { headFor } from "@/lib/seo";
+import { headFor, siteOrigin } from "@/lib/seo";
+import { ClassroomShare } from "@/components/classroom-share";
 import { useState } from "react";
 import { LESSON_PHASES, lessonLink, lessonOutline } from "@/lib/teachers/workflow";
 import { STANDARD_BY_ID, isUsStandard, sortStandards, standardLabel } from "@/lib/labs/standards";
+import { ngssUrl } from "@/lib/labs/ngss";
+import { NgssDimensions } from "@/components/ngss-dimensions";
 
 export const Route = createFileRoute("/teachers/$slug")({
   beforeLoad: ({ params }) => {
@@ -22,7 +25,8 @@ export const Route = createFileRoute("/teachers/$slug")({
       import("@/lib/figures"),
     ]);
     if (!lab) throw notFound();
-    return { lab, image: figures(lab.slug)[0]?.src };
+    const hero = figures(lab.slug)[0];
+    return { lab, image: hero?.src, imageAlt: hero?.alt };
   },
   component: TeacherArticlePage,
   head: ({ params, loaderData }) =>
@@ -33,6 +37,7 @@ export const Route = createFileRoute("/teachers/$slug")({
         : "Free teacher notes from Geolens.",
       path: `/teachers/${params.slug}`,
       image: loaderData?.image,
+      imageAlt: loaderData?.imageAlt,
     }),
 });
 
@@ -148,6 +153,13 @@ function TeacherArticlePage() {
         >
           {"Copy Guided student link"}
         </button>
+        <ClassroomShare
+          href={`${siteOrigin()}/lab/${lab.slug}?guided=1`}
+          current={() => `${window.location.origin}/lab/${lab.slug}?guided=1`}
+          className="inline-flex min-h-11 items-center rounded-full border border-glacier/30 bg-glacier/10 px-4 text-glacier"
+        >
+          {"Share Guided lab to Google Classroom"}
+        </ClassroomShare>
         <button
           className="min-h-11 rounded-full border border-white/15 px-4 text-ice"
           aria-pressed={largeText}
@@ -382,14 +394,32 @@ function Standards({ ids }: { ids: string[] }) {
   const sorted = sortStandards(ids),
     us = sorted.filter(isUsStandard),
     uk = sorted.filter((id) => !isUsStandard(id));
-  const item = (id: string) => (
-    <li key={id}>
-      <span className="font-mono text-glacier">{standardLabel(id)}</span>
-      {STANDARD_BY_ID[id]?.title && (
-        <span className="text-mist"> · {STANDARD_BY_ID[id].title}</span>
-      )}
-    </li>
-  );
+  const item = (id: string) => {
+    const url = ngssUrl(id);
+    return (
+      <li key={id}>
+        <span className="font-mono text-glacier">{standardLabel(id)}</span>
+        {STANDARD_BY_ID[id]?.title && (
+          <span className="text-mist"> · {STANDARD_BY_ID[id].title}</span>
+        )}
+        {url && (
+          <div className="mb-2 mt-1 border-l border-white/15 pl-3">
+            <NgssDimensions id={id} detail />
+            <a
+              href={url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs text-ice underline underline-offset-4"
+              data-print-hide
+            >
+              Full expectation on nextgenscience.org
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+        )}
+      </li>
+    );
+  };
   return (
     <section className="mt-8" aria-label={"Standards"}>
       <h2 className="font-display text-2xl">{"Standards"}</h2>

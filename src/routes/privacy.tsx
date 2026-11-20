@@ -71,6 +71,11 @@ function Privacy() {
           }
         </p>
         <p>
+          {
+            "“Share to Google Classroom” is an ordinary link to Google Classroom’s share page. Geolens loads no Google code for it, and nothing goes to Google unless you follow the link; Google then receives the address of the page you are sharing, and Google’s own privacy terms apply there."
+          }
+        </p>
+        <p>
           {CONTACT_LEAD} {"Write to"} <MailLink />,{" "}
           <a
             href={PRODUCER_IG}

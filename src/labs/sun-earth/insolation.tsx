@@ -168,16 +168,8 @@ export default function SunEarth() {
             />
             <span>
               {
-                "Real SDO image of the Sun, colored orange in processing. Sunspots are cooler, magnetic regions. This switch does not change the calculation, which uses a fixed solar irradiance. "
+                "Real SDO image of the Sun, colored orange in processing. Sunspots are cooler, magnetic regions. This switch does not change the calculation, which uses a fixed solar irradiance."
               }
-              <a
-                className="pointer-events-auto text-ice underline"
-                href={photo.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {photo.credit}
-              </a>
             </span>
           </span>
         ) : null}

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo } from "react";
-import { ArrowUpRight, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { LABS, REALMS } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
 import { isListed } from "@/lib/labs/status";
@@ -9,7 +9,8 @@ import {
   CASE_SUMMARIES_BY_REGION as CASES_BY_REGION,
   REGIONS,
 } from "@/lib/case-index";
-import { caseCard, labCard } from "@/lib/photo-cards";
+import { caseCard } from "@/lib/photo-cards";
+import { LabThumb } from "@/components/lab-thumb";
 import { ProgressImage } from "@/components/progress-media";
 import { buildIndex, searchIndex } from "@/lib/site-search";
 import { headFor } from "@/lib/seo";
@@ -133,12 +134,11 @@ function Explore() {
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-16 pt-24">
       <div className="grid gap-5 border-b border-white/10 pb-8 md:grid-cols-[1.1fr_1fr]">
         <div>
-          <p className="section-label">Explore</p>
-          <h1 className="mt-3 font-display text-5xl md:text-6xl">A world to investigate.</h1>
+          <h1 className="font-display text-5xl md:text-6xl">Labs and case studies</h1>
         </div>
         <p className="self-end text-lg leading-8 text-mist">
-          Choose a question, explore the model and connect what you find to a real landscape. Every
-          lab is free to use in class or on your own.
+          Find a lab by subject, curriculum or topic, or switch to case studies of real places.
+          Every lab is free to use in class or on your own.
         </p>
       </div>
       <div
@@ -248,46 +248,33 @@ function Explore() {
       </p>
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {kind === "labs"
-          ? list.map((lab, i) => {
-              const photo = labCard(lab.slug);
-              return (
-                <Link
-                  key={lab.slug}
-                  to="/lab/$slug"
-                  params={{ slug: lab.slug }}
-                  className="editorial-card group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-basalt"
-                >
-                  {photo && (
-                    <ProgressImage
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="aspect-[16/10] w-full object-cover"
-                    />
-                  )}
-                  <div className="flex flex-1 flex-col p-6">
-                    <p className="text-xs uppercase tracking-widest text-glacier">
-                      {selected ? i + 1 + ". " : ""}
-                      {REALMS.find((r) => r.slug === lab.realm)?.title}
+          ? list.map((lab, i) => (
+              <Link
+                key={lab.slug}
+                to="/lab/$slug"
+                params={{ slug: lab.slug }}
+                className="editorial-card group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-basalt"
+              >
+                <div className="aspect-[4/3] overflow-hidden bg-trench">
+                  <LabThumb slug={lab.slug} />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="text-sm text-glacier">
+                    {selected ? i + 1 + ". " : ""}
+                    {REALMS.find((r) => r.slug === lab.realm)?.title}
+                  </p>
+                  <h2 className="mt-2 font-display text-3xl underline-offset-4 group-hover:underline">
+                    {lab.title}
+                  </h2>
+                  <p className="mt-3 flex-1 text-sm leading-7 text-mist">{lab.hook}</p>
+                  {scores[lab.slug] && (
+                    <p className="mt-4 border-t border-white/10 pt-3 font-mono text-xs text-mist">
+                      {`Your quiz score ${scores[lab.slug].correct}/${scores[lab.slug].total}`}
                     </p>
-                    <h2 className="mt-3 font-display text-3xl group-hover:text-glacier">
-                      {lab.title}
-                    </h2>
-                    <p className="mt-3 flex-1 text-sm leading-7 text-mist">{lab.hook}</p>
-                    <span className="mt-6 flex items-center justify-between gap-3 border-t border-white/10 pt-4 text-sm text-glacier">
-                      Explore the model
-                      <span className="flex items-center gap-3">
-                        {scores[lab.slug] && (
-                          <span className="font-mono text-xs text-mist">
-                            {`Quiz ${scores[lab.slug].correct}/${scores[lab.slug].total}`}
-                          </span>
-                        )}
-                        <ArrowUpRight size={18} />
-                      </span>
-                    </span>
-                  </div>
-                </Link>
-              );
-            })
+                  )}
+                </div>
+              </Link>
+            ))
           : cases.map((c) => {
               const photo = caseCard(c.slug);
               return (
@@ -305,14 +292,11 @@ function Explore() {
                     />
                   )}
                   <div className="flex flex-1 flex-col p-6">
-                    <p className="text-xs uppercase tracking-widest text-glacier">{c.region}</p>
-                    <h2 className="mt-3 font-display text-3xl group-hover:text-glacier">
+                    <p className="text-sm text-glacier">{c.region}</p>
+                    <h2 className="mt-2 font-display text-3xl underline-offset-4 group-hover:underline">
                       {c.title}
                     </h2>
                     <p className="mt-3 flex-1 text-sm leading-7 text-mist">{c.lede}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm text-glacier">
-                      Read the case study <ArrowUpRight size={18} />
-                    </span>
                   </div>
                 </Link>
               );

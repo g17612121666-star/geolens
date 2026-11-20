@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Sun, Moon, Monitor, Palette } from "lucide-react";
 import { usePreferences } from "@/lib/preferences";
 export function PreferencesMenu() {
-  const { theme, setTheme } = usePreferences(),
+  const { theme, setTheme, units, setUnits } = usePreferences(),
     [open, setOpen] = useState(false),
     root = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -28,7 +28,7 @@ export function PreferencesMenu() {
       <button
         type="button"
         className="inline-flex size-11 items-center justify-center rounded-xl text-chalk hover:bg-white/8"
-        aria-label="Appearance"
+        aria-label="Appearance and units"
         aria-expanded={open}
         aria-controls="site-preferences"
         onClick={() => setOpen((v) => !v)}
@@ -67,6 +67,36 @@ export function PreferencesMenu() {
                 </button>
               ))}
             </div>
+          </fieldset>
+          <fieldset className="mt-4">
+            <legend className="mb-2 text-sm text-mist">Weather units</legend>
+            <div className="grid grid-cols-2 gap-2">
+              {(
+                [
+                  ["metric", "Metric", "°C, mm, m/s"],
+                  ["us", "US", "°F, in, mph"],
+                ] as const
+              ).map(([value, label, hint]) => (
+                <button
+                  key={value}
+                  type="button"
+                  aria-pressed={units === value}
+                  onClick={() => setUnits(value)}
+                  className={
+                    "flex min-h-14 flex-col items-center justify-center rounded-xl border text-sm " +
+                    (units === value
+                      ? "border-glacier bg-glacier/10 text-glacier"
+                      : "border-white/15 text-chalk")
+                  }
+                >
+                  {label}
+                  <span className="text-xs text-mist">{hint}</span>
+                </button>
+              ))}
+            </div>
+            <p className="mt-2 text-xs leading-5 text-mist">
+              For Live weather and earthquake depths. Labs stay metric, as in science class.
+            </p>
           </fieldset>
         </div>
       )}

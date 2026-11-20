@@ -8,8 +8,6 @@ import { CARDS } from "virtual:photo-cards";
 export type PhotoCard = { src: string; alt: string };
 
 export const labCard = (slug: string): PhotoCard | undefined => CARDS.lab[slug];
-export const realmCard = (realm: string): PhotoCard | undefined => CARDS.realm[realm];
-export const teacherCard = (slug: string): PhotoCard | undefined => CARDS.teacher[slug];
 export const caseCard = (slug: string): PhotoCard | undefined => CARDS.case[slug];
 /** A field-trip photo by its register id. */
 export const tripCard = (photo: string): PhotoCard | undefined => CARDS.photo[photo];

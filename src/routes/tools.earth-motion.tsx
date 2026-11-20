@@ -201,8 +201,7 @@ function EarthMotion() {
     >
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="section-label">{"Explore Earth and Sun"}</p>
-          <h1 className="mt-3 font-display text-4xl">{"Earth-motion calculator"}</h1>
+          <h1 className="font-display text-4xl">{"Earth-motion calculator"}</h1>
         </div>
         <button className={button} aria-pressed={projector} onClick={() => setProjector((v) => !v)}>
           {projector ? "Projector on" : "Projector off"}

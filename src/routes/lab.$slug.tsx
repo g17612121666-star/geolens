@@ -21,7 +21,7 @@ export const Route = createFileRoute("/lab/$slug")({
       import("@/lib/figures"),
     ]);
     if (!lab) throw notFound();
-    return { lab, image: figures[lab.slug]?.src };
+    return { lab, image: figures[lab.slug]?.src, imageAlt: figures[lab.slug]?.alt };
   },
   head: ({ params, loaderData }) =>
     loaderData
@@ -30,6 +30,7 @@ export const Route = createFileRoute("/lab/$slug")({
           description: loaderData.lab.objective,
           path: `/lab/${params.slug}`,
           image: loaderData.image,
+          imageAlt: loaderData.imageAlt,
         })
       : headFor({
           title: "Lab not found",

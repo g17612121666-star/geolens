@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { MiniMap } from "@/components/map/mini-map";
 import { LAB_BY_SLUG } from "@/lib/labs/catalog";
 import { headFor, learningResourceJsonLd, siteOrigin } from "@/lib/seo";
+import { ClassroomShare } from "@/components/classroom-share";
 import { Figure } from "@/components/figure";
 import { caseFigure } from "@/lib/case-figures";
 import { Gallery } from "@/components/gallery";
@@ -19,7 +20,8 @@ export const Route = createFileRoute("/case/$slug")({
     ]);
     const c = cases[params.slug];
     if (!c) throw notFound();
-    return { title: c.title, lede: c.lede, image: figure(c.slug)?.src };
+    const fig = figure(c.slug);
+    return { title: c.title, lede: c.lede, image: fig?.src, imageAlt: fig?.alt };
   },
   component: CasePage,
   head: ({ params, loaderData }) =>
@@ -28,6 +30,7 @@ export const Route = createFileRoute("/case/$slug")({
       description: loaderData?.lede ?? "A Geolens case study.",
       path: `/case/${params.slug}`,
       image: loaderData?.image,
+      imageAlt: loaderData?.imageAlt,
     }),
 });
 
@@ -59,6 +62,9 @@ function CasePage() {
       </p>
       <h1 className="mt-3 font-display text-4xl">{c.title}</h1>
       <p className="mt-2 text-glacier">{c.place}</p>
+      <p className="mt-3 text-sm" data-print-hide>
+        <ClassroomShare href={`${siteOrigin()}/case/${c.slug}`} className="text-ice underline" />
+      </p>
       <p className="mt-6 text-lg leading-7 text-chalk/90">{c.lede}</p>
       {fig && <Figure {...fig} className="mt-6" />}
       <div className="mt-8">

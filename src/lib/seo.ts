@@ -1,6 +1,18 @@
-import { PUBLIC_SITE_HOST, PUBLIC_SITE_URL } from "./public-site";
+import { PUBLIC_SITE_HOST, PUBLIC_SITE_URL } from "./public-site.ts";
 
-const SITE = import.meta.env.VITE_PUBLIC_SITE_URL || PUBLIC_SITE_URL;
+// Optional chaining lets Node tests import this module, where import.meta.env does not exist.
+const SITE = (import.meta.env?.VITE_PUBLIC_SITE_URL as string | undefined) || PUBLIC_SITE_URL;
+
+/**
+ * The image link previews use when a page has no photo of its own: the site name beside Earth
+ * from Apollo 17, at the 1.91:1 shape that Classroom, email and social apps crop to.
+ */
+export const DEFAULT_PREVIEW = {
+  src: "/og.jpg",
+  alt: "Geolens: interactive 3D labs for geography and Earth science, beside a photograph of Earth taken from Apollo 17",
+  width: 1200,
+  height: 675,
+};
 
 function envIndexOn(): boolean {
   if (typeof process === "undefined") return false;
@@ -60,7 +72,7 @@ export function canonicalLink(path: string): { rel: string; href: string } {
 }
 
 export function absUrl(path: string): string {
-  if (!path) return `${siteOrigin()}/og.jpg`;
+  if (!path) return `${siteOrigin()}${DEFAULT_PREVIEW.src}`;
   if (path.startsWith("http")) return path;
   return `${siteOrigin()}${path.startsWith("/") ? path : `/${path}`}`;
 }
@@ -90,7 +102,7 @@ export function learningResourceJsonLd(opts: {
     name: opts.name,
     description: opts.description,
     url: opts.url,
-    image: absUrl(opts.image ?? "/og.jpg"),
+    image: absUrl(opts.image ?? DEFAULT_PREVIEW.src),
     isAccessibleForFree: true,
     inLanguage: "en",
     learningResourceType: "Interactive resource",
@@ -111,17 +123,26 @@ export function learningResourceJsonLd(opts: {
   };
 }
 
+/**
+ * Title, description, canonical address and link-preview tags (Open Graph and Twitter cards) for
+ * a page. Link previews in Google Classroom, email and chat apps show the title, description and
+ * image; a page without a photo of its own uses DEFAULT_PREVIEW.
+ */
 export function headFor(opts: {
   title: string;
   description: string;
   path: string;
   image?: string;
+  /** What the image shows, for people using screen readers. */
+  imageAlt?: string;
 }): {
   meta: HeadMeta[];
   links: { rel: string; href: string }[];
 } {
   const title = pageTitle(opts.title);
-  const image = absUrl(opts.image ?? "/og.jpg");
+  const own = Boolean(opts.image),
+    image = absUrl(opts.image || DEFAULT_PREVIEW.src),
+    alt = own ? opts.imageAlt : DEFAULT_PREVIEW.alt;
   const url = `${siteOrigin()}${opts.path}`;
   return {
     meta: [
@@ -129,15 +150,24 @@ export function headFor(opts: {
       { name: "description", content: opts.description },
       robotsMeta(),
       { property: "og:site_name", content: "Geolens" },
+      { property: "og:locale", content: "en_US" },
       { property: "og:title", content: title },
       { property: "og:description", content: opts.description },
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
       { property: "og:image", content: image },
+      ...(own
+        ? []
+        : [
+            { property: "og:image:width", content: String(DEFAULT_PREVIEW.width) },
+            { property: "og:image:height", content: String(DEFAULT_PREVIEW.height) },
+          ]),
+      ...(alt ? [{ property: "og:image:alt", content: alt }] : []),
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: opts.description },
       { name: "twitter:image", content: image },
+      ...(alt ? [{ name: "twitter:image:alt", content: alt }] : []),
     ],
     links: [canonicalLink(opts.path), { rel: "image_src", href: image }],
   };

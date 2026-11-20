@@ -180,8 +180,7 @@ function AtlasPage() {
     <main id="main" className={`field-page ${projector ? "field-page--projector" : ""}`}>
       <header className="field-page-heading">
         <div>
-          <p className="section-label">The Geolens atlas</p>
-          <h1>Explore the geography of a place.</h1>
+          <h1>Atlas</h1>
           <p className="field-intro">
             Look closely at a landscape, find it on the map, and explore the processes that shaped
             it.

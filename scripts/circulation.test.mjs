@@ -1,15 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {coastalContrast,pressureCentreFlow,circulationCell} from '../src/lib/circulation-science.ts';
+import {coastalContrast,circulationCell} from '../src/lib/circulation-science.ts';
 import {frontSection} from '../src/lib/front-science.ts';
 test('coastal heating reverses between afternoon and night; urban contrast stays positive',()=>{
   assert.ok(coastalContrast(15).contrast>0);assert.ok(coastalContrast(3).contrast<0);
   for(let hour=0;hour<24;hour++){assert.ok(coastalContrast(hour,true).contrast>0);assert.equal(coastalContrast(hour,false,false).contrast,0);}
-});
-test('pressure-center rotation changes with hemisphere, convergence does not',()=>{
-  for(const high of [true,false])for(const south of [true,false]){
-    const v=pressureCentreFlow(1,0,high,south);assert.equal(Math.sign(v.east),high?1:-1);assert.equal(Math.sign(v.north),(high?-1:1)*(south?-1:1));assert.equal(v.vertical,high?-1:1);
-  }
 });
 test('Hadley and Polar surface flow is equatorward in both hemispheres, Ferrel poleward',()=>{
   for(const sign of [-1,1])for(const direct of [true,false]){

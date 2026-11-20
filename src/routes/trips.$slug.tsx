@@ -128,16 +128,13 @@ function Player({ trip }: { trip: FieldTrip }) {
           ) : (
             <>
               {photo && (
-                <figure>
-                  <img
-                    src={photo.src}
-                    srcSet={photoSrcSet(photo.src)}
-                    sizes="(min-width: 1024px) 420px, 100vw"
-                    alt={photo.alt}
-                    className="aspect-[16/10] w-full object-cover"
-                  />
-                  <figcaption className="px-5 pt-2 text-xs text-mist/80">{photo.credit}</figcaption>
-                </figure>
+                <img
+                  src={photo.src}
+                  srcSet={photoSrcSet(photo.src)}
+                  sizes="(min-width: 1024px) 420px, 100vw"
+                  alt={photo.alt}
+                  className="aspect-[16/10] w-full object-cover"
+                />
               )}
               <div className="flex-1 overflow-y-auto px-5 pb-4 pt-3">
                 <p className="inline-flex items-center gap-1.5 text-sm text-mist">

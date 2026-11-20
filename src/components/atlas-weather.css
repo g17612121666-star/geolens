@@ -59,6 +59,19 @@
   border-color: var(--color-glacier);
   background: color-mix(in oklab, var(--color-glacier) 9%, var(--color-basalt));
 }
+/* °C and °F sit together as one switch. */
+.weather-units {
+  display: inline-flex;
+}
+.weather-units .field-button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.weather-units .field-button:last-child {
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
 .field-button:disabled {
   opacity: 0.5;
   cursor: default;

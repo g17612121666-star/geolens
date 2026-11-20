@@ -8,6 +8,8 @@ import { EarthMesh } from "@/components/globe/earth";
 import { PlateLines } from "@/labs/shared/geo-globe";
 import { latLonToXYZ } from "@/lib/geo";
 import { headFor } from "@/lib/seo";
+import { usePreferences } from "@/lib/preferences";
+import { kmToMi } from "@/lib/units";
 import {
   DEPTH_COLOUR,
   FEEDS,
@@ -181,6 +183,12 @@ const fmtTime = (t: number) =>
   }) + " UTC";
 
 function EarthquakesTool() {
+  const units = usePreferences((s) => s.units);
+  // Kilometers as USGS reports them, with miles alongside for readers who chose US units.
+  const km = (value: number) =>
+    units === "us"
+      ? `${Math.round(value)} km (${Math.round(kmToMi(value))} mi)`
+      : `${Math.round(value)} km`;
   const [feed, setFeed] = useState<FeedId>("4.5_week");
   const { quakes, error, loadedAt, retry } = useQuakeFeed(feed);
   const distances = useBoundaryDistances(quakes);
@@ -256,10 +264,10 @@ function EarthquakesTool() {
                   style={{ background: DEPTH_COLOUR[k] }}
                 />
                 {k === "shallow"
-                  ? "Shallow focus (under 70 km)"
+                  ? `Shallow focus: under ${km(70)}`
                   : k === "intermediate"
-                    ? "Intermediate (70–300 km)"
-                    : "Deep (over 300 km)"}
+                    ? `Intermediate: ${km(70)} to ${km(300)}`
+                    : `Deep: over ${km(300)}`}
               </li>
             ))}
             <li>{"Lines: plate boundaries · larger dot: higher magnitude"}</li>
@@ -300,7 +308,7 @@ function EarthquakesTool() {
                   <strong className="text-glacier">
                     {Math.round((100 * near) / quakes.length)}%
                   </strong>
-                  {` (${near} of ${quakes.length}) lie within ${NEAR_KM} km of a plate boundary.`}
+                  {` (${near} of ${quakes.length}) lie within ${km(NEAR_KM)} of a plate boundary.`}
                 </p>
               )}
               <p className="mt-2 text-sm leading-6 text-mist">
@@ -332,9 +340,9 @@ function EarthquakesTool() {
                       <span className="flex-1">
                         <span className="block text-sm text-chalk">{q.place}</span>
                         <span className="block text-xs text-mist">
-                          {`${fmtTime(q.time)} · depth ${Math.round(q.depthKm)} km`}
+                          {`${fmtTime(q.time)} · depth ${km(q.depthKm)}`}
                           {distances?.has(q.id)
-                            ? ` · ${Math.round(distances.get(q.id)!)} km from a boundary`
+                            ? ` · ${km(distances.get(q.id)!)} from a boundary`
                             : ""}
                           {q.tsunami ? " · tsunami alert issued" : ""}
                         </span>

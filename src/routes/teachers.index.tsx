@@ -14,8 +14,8 @@ import {
 } from "@/lib/labs/standards";
 import { buildIndex, searchIndex } from "@/lib/site-search";
 import { LESSON_PHASES, lessonLink } from "@/lib/teachers/workflow";
-import { teacherCard } from "@/lib/photo-cards";
-import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
+import { labThumbSrc, labThumbSrcSet } from "@/lib/lab-thumbs";
+import { CARD_SIZES } from "@/lib/responsive-image";
 
 type TeacherSearch = {
   q?: string;
@@ -87,13 +87,10 @@ function TeachersIndex() {
   }
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-24 pt-24">
-      <p className="section-label">{"Teachers"}</p>
-      <h1 className="mt-3 max-w-3xl font-display text-4xl text-chalk md:text-5xl">
-        {"Bring Earth science into the room."}
-      </h1>
+      <h1 className="max-w-3xl font-display text-4xl text-chalk md:text-5xl">{"Teacher notes"}</h1>
       <p className="mt-5 max-w-3xl text-lg leading-7 text-mist">
         {
-          "Start with a real landscape, explore the process in 3D, and give students something to explain. These free lesson notes help teachers and geography clubs prepare a discussion, lead a demonstration or print a handout. You can use every resource without an account."
+          "Lesson notes for every lab: how to run it, discussion prompts, common misconceptions and answers, each with a printable worksheet and a Guided link for students. Everything works without an account."
         }
       </p>
       <div className="mt-5 flex max-w-3xl flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-white/10 p-4 text-sm text-mist">
@@ -106,6 +103,15 @@ function TeachersIndex() {
           {"Check hand-in codes"}
         </Link>
       </div>
+      <p className="mt-4 max-w-3xl text-mist">
+        {"Planning a unit? "}
+        <Link to="/teachers/courses" className="text-ice underline underline-offset-4">
+          {"Courses"}
+        </Link>
+        {
+          " arranges the labs by NGSS middle and high school, AP Environmental Science, AP Human Geography, and England from KS3 to A level."
+        }
+      </p>
       <ol
         className="mt-7 grid grid-cols-2 gap-3 md:grid-cols-4"
         aria-label={"A lesson in four stages"}
@@ -247,26 +253,24 @@ function TeachersIndex() {
                     key={lab.slug}
                     className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[.035]"
                   >
-                    {teacherCard(lab.slug) && (
-                      <Link
-                        to="/teachers/$slug"
-                        params={{ slug: lab.slug }}
-                        tabIndex={-1}
-                        aria-hidden="true"
-                      >
-                        <img
-                          src={teacherCard(lab.slug)!.src}
-                          srcSet={photoSrcSet(teacherCard(lab.slug)!.src)}
-                          sizes={CARD_SIZES}
-                          alt=""
-                          loading="lazy"
-                          decoding="async"
-                          width="640"
-                          height="360"
-                          className="aspect-[16/8] w-full bg-trench object-cover"
-                        />
-                      </Link>
-                    )}
+                    <Link
+                      to="/teachers/$slug"
+                      params={{ slug: lab.slug }}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                    >
+                      <img
+                        src={labThumbSrc(lab.slug)}
+                        srcSet={labThumbSrcSet(lab.slug)}
+                        sizes={CARD_SIZES}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                        width="640"
+                        height="480"
+                        className="aspect-[16/10] w-full bg-trench object-cover"
+                      />
+                    </Link>
                     <div className="flex flex-1 flex-col p-5">
                       <h3 className="font-display text-xl leading-snug">
                         <Link

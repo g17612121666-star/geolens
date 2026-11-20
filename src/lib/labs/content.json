@@ -1030,6 +1030,7 @@
         "GCSE"
       ],
       "standards": [
+        "APHG 1.1",
         "C3 D2.Geo.3.6-8",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
@@ -7369,7 +7370,7 @@
       },
       "modelNotes": [
         "Retreat moves the lip up to 25 m upstream in chosen steps, not a dated rate; the falling water and plunge pool move with it.",
-        "Vertical relief is enlarged 2.2 times in the waterfall view and 1.5 times in the valley view; Physical scale removes the exaggeration.",
+        "Vertical relief is enlarged 1.5 times in the waterfall and valley views; Physical scale removes the exaggeration.",
         "The Real: Grand Canyon view uses USGS elevation and aerial imagery to show a river that has cut about 1.5 km into a rising plateau."
       ],
       "predict": {
@@ -10939,6 +10940,7 @@
       ],
       "standards": [
         "NGSS MS-ESS1-1",
+        "APHG 1.4",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
       ],
@@ -11362,6 +11364,7 @@
         "GCSE"
       ],
       "standards": [
+        "APHG 1.4",
         "C3 D2.Geo.1.6-8",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"

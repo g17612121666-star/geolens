@@ -5,7 +5,7 @@ import { SOIL_PROFILES } from "@/lib/soil-profile-science";
 import { useLabControls, useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { SectionMaterial } from "../shared/section-material";
-import { RootNetwork, GrassPatch, DebrisField } from "../shared/geomorphic-terrain";
+import { GrassPatch, DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
 import { landscapeRandom as random } from "../shared/landscape-noise";
 const hex = (h: string) => {
@@ -18,67 +18,102 @@ const hex = (h: string) => {
 const kindOf = (code: string) =>
   code[0] === "O" ? 0 : code[0] === "A" ? 1 : code[0] === "B" ? 2 : 3;
 
-/** A section shader for one profile: wavy horizon boundaries, structure, roots and burrows. */
+/** How sharply one horizon passes into the next: O to A is abrupt, B to C gradual. */
+function boundaryWidth(index: number, upper: string) {
+  if (index === 2) return upper[0] === "A" ? 0.06 : 0.14;
+  return upper[0] === "O" ? 0.008 : upper[0] === "A" ? 0.025 : 0.07;
+}
+
+/**
+ * A section shader for one profile, as a freshly cut soil pit face looks: wavy boundaries with
+ * tongues of darker topsoil reaching down, crumbly topsoil full of fine roots, subsoil broken into
+ * small blocky peds, and weathered parent material with stones that grow larger and commoner with
+ * depth. The Oxisol's subsoil is almost structureless, and its parent material is mottled
+ * saprolite: rock rotted in place, not loose stones.
+ */
 function profileGlsl(index: number) {
   const { horizons } = SOIL_PROFILES[index],
-    blend = index === 2 ? 0.08 : 0.018,
-    rootDepth = index === 1 ? 0.65 : 0.35;
+    rootDepth = index === 1 ? 0.75 : 0.4;
   const color = horizons
-    .map((h, i) =>
-      i === 0
-        ? `vec3 c=${hex(h.color)};int kind=${kindOf(h.code)};`
-        : `{float t=smoothstep(${(horizons[i - 1].bottom - blend).toFixed(3)},${(horizons[i - 1].bottom + blend).toFixed(3)},d);c=mix(c,${hex(h.color)},t);if(t>.5)kind=${kindOf(h.code)};}`,
-    )
+    .map((h, i) => {
+      if (i === 0) return `vec3 c=${hex(h.color)};int kind=${kindOf(h.code)};`;
+      const top = horizons[i - 1].bottom,
+        w = boundaryWidth(index, horizons[i - 1].code);
+      return `{float t=smoothstep(${(top - w).toFixed(3)},${(top + w).toFixed(3)},d);c=mix(c,${hex(h.color)},t);if(t>.5)kind=${kindOf(h.code)};}`;
+    })
     .join("\n");
   return `
-float cellEdge(vec2 q){
-  vec2 i=floor(q),f=fract(q);float a=9.,b=9.;
+/** Nearest Voronoi cell: x = distance to its edge, y = a random id, zw = offset from its center. */
+vec4 cell(vec2 q){
+  vec2 i=floor(q),f=fract(q);float a=9.,b=9.;vec2 id=vec2(0.),to=vec2(0.);
   for(int x=-1;x<=1;x++)for(int y=-1;y<=1;y++){
     vec2 n=vec2(float(x),float(y)),o=vec2(sHash(i+n),sHash(i+n+7.3));
-    float e=length(n+o-f);if(e<a){b=a;a=e;}else b=min(b,e);}
-  return b-a;
-}
-/** Nearest Voronoi cell: x = distance to its edge, y = a random id for the cell. */
-vec2 cellStone(vec2 q){
-  vec2 i=floor(q),f=fract(q);float a=9.,b=9.;vec2 id=vec2(0.);
-  for(int x=-1;x<=1;x++)for(int y=-1;y<=1;y++){
-    vec2 n=vec2(float(x),float(y)),o=vec2(sHash(i+n),sHash(i+n+7.3));
-    float e=length(n+o-f);if(e<a){b=a;a=e;id=i+n;}else b=min(b,e);}
-  return vec2(b-a,sHash(id+3.1));
+    vec2 r=n+o-f;float e=length(r);
+    if(e<a){b=a;a=e;id=i+n;to=r;}else b=min(b,e);}
+  return vec4(b-a,sHash(id+3.1),to);
 }
 vec3 sectionColour(vec3 p,vec3 w){
-  float h=p.x+p.z,d=-p.y+.025*(sNoise(vec2(h*5.,1.))-.5);
+  float h=p.x+p.z;
+  // Wavy boundaries, with tongues where worms and roots have carried topsoil down.
+  float tongue=.07*smoothstep(.72,.95,sNoise(vec2(h*7.,3.)));
+  float d=-p.y+.03*(sNoise(vec2(h*4.,1.))-.5)-tongue*smoothstep(.1,.35,-p.y);
   ${color}
-  vec2 q=vec2(h,d);
+  vec2 q=vec2(h,-p.y);
   float g=grain(q);
-  c*=mix(.9,1.08,g);
+  c*=mix(.92,1.06,g);
   if(kind==0){
-    // Leaf litter: pale fragments in dark humus.
-    c=mix(c,vec3(.55,.42,.26),smoothstep(.7,.78,sNoise(q*vec2(40.,90.)))*.7);
+    // Leaf litter: flattened, pale fragments in dark humus.
+    c=mix(c,vec3(.52,.4,.25),smoothstep(.68,.76,sNoise(q*vec2(45.,160.)))*.65);
+    c*=.9+.15*sNoise(q*vec2(30.,240.));
   }else if(kind==1){
-    // Crumb structure.
-    c*=.84+.3*sNoise(q*55.);
+    // Crumb structure: small rounded aggregates with dark pores between them.
+    float crumb=sFbm(q*90.);
+    c*=.82+.32*crumb;
+    c*=1.-.45*smoothstep(.82,.9,sNoise(q*170.+2.));
   }else if(kind==2){
-    // Blocky peds separated by darker cracks; oxic subsoils have only weak, faint structure.
-    float e=cellEdge(q*vec2(8.,6.));
-    c*=mix(${index === 2 ? ".9" : ".74"},1.,smoothstep(0.,.06,e));
-    ${index === 2 ? "c=mix(c,vec3(.36,.16,.10),smoothstep(.84,.9,sNoise(q*44.))*.6);" : ""}
+    ${
+      index === 2
+        ? `// Oxic subsoil: almost no visible structure, fine pores and a few dark iron nodules.
+    c*=.94+.1*sFbm(q*60.);
+    c=mix(c,vec3(.32,.14,.09),smoothstep(.86,.9,sNoise(q*52.))*.7);`
+        : `// Small subangular blocky peds; each catches the light on one side, with darker clay films
+    // and fine cracks between them.
+    vec4 pd=cell(q*vec2(30.,22.)+.25*vec2(sNoise(q*12.),sNoise(q*12.+5.)));
+    float shade=.97+.05*dot(normalize(pd.zw+.0001),vec2(.6,.8))*smoothstep(0.,.3,length(pd.zw));
+    c*=shade*mix(.86,1.,smoothstep(0.,.07,pd.x));
+    c*=.93+.12*sFbm(q*70.);`
+    }
   }else{
-    // Weathered parent material: angular stones that become larger and commoner with depth.
-    float deep=clamp(d-1.,0.,1.);
-    vec2 cs=cellStone(q*vec2(11.-3.*deep,13.-4.*deep));
-    float st=step(cs.y,.22+.25*deep)*smoothstep(.03,.07,cs.x);
-    vec3 stone=mix(vec3(.66,.64,.60),vec3(.76,.73,.67),sHash(vec2(cs.y,2.)))*mix(.85,1.06,sNoise(q*70.));
-    c=mix(c,stone,st);
-    c*=1.-.3*step(cs.y,.22+.25*deep)*(1.-smoothstep(.0,.04,cs.x))*smoothstep(.02,.03,cs.x+.02);
+    ${
+      index === 2
+        ? `// Saprolite: rock rotted in place, mottled red, yellow and pale, with ghosts of its fabric.
+    float m=sFbm(q*vec2(9.,14.));
+    c=mix(c,vec3(.78,.62,.42),smoothstep(.55,.7,m)*.7);
+    c=mix(c,vec3(.86,.8,.7),smoothstep(.7,.8,sNoise(q*vec2(6.,40.)+1.))*.5);`
+        : `// Weathered parent material: stones, larger and commoner with depth, set in a paler matrix.
+    float deep=clamp((d-1.)/1.,0.,1.);
+    c*=.95+.1*sNoise(q*80.);
+    for(int k=0;k<2;k++){
+      vec2 sc=k==0?vec2(9.-2.*deep,10.-2.*deep):vec2(26.,30.);
+      vec4 st=cell(q*sc+float(k)*13.7);
+      float present=step(st.y,(k==0?.16:.22)+.25*deep);
+      float inside=smoothstep(.04,.09,st.x);
+      vec3 stone=mix(vec3(.58,.56,.52),vec3(.74,.7,.63),sHash(vec2(st.y,2.)))*mix(.86,1.06,sNoise(q*90.));
+      // Rounded by weathering: lit on top, shadowed underneath.
+      stone*=.88+.2*st.w*smoothstep(0.,.35,length(st.zw))+.12*smoothstep(.05,.3,st.x);
+      c=mix(c,stone,present*inside);
+      c*=1.-.25*present*(1.-inside)*smoothstep(0.,.04,st.x);
+    }`
+    }
   }
-  // Roots: fine pale threads, thinning out with depth.
-  float col=floor(h*28.),rf=fract((h+.012*sin(d*25.+col))*28.);
-  float root=(1.-smoothstep(.07,.11,abs(rf-.5)))*step(.55,sHash(vec2(col,3.)))*(1.-smoothstep(${(rootDepth * 0.5).toFixed(2)},${rootDepth.toFixed(2)},d*(1.+sHash(vec2(col,5.)))));
-  c=mix(c,vec3(.80,.72,.58),root*.7);
-  // Earthworm and animal burrows, back-filled with darker topsoil.
-  float burrow=smoothstep(.86,.89,sNoise(q*vec2(26.,12.)+3.))*step(d,${index === 1 ? "1.2" : "0.8"});
-  c=mix(c,${hex(horizons[Math.min(1, horizons.length - 1)].color)},burrow*.7);
+  // Fine roots: pale wandering threads, most in the topsoil, thinning out with depth.
+  float col=floor(h*34.),wander=.01*sin(-p.y*28.+col*1.7),rf=fract((h+wander)*34.);
+  float reach=${rootDepth.toFixed(2)}*(.4+.8*sHash(vec2(col,5.)));
+  float root=(1.-smoothstep(.05,.09,abs(rf-.5)))*step(.6,sHash(vec2(col,3.)))*(1.-smoothstep(reach*.5,reach,-p.y));
+  c=mix(c,vec3(.78,.7,.56),root*.6);
+  // Old burrows back-filled with darker topsoil.
+  float burrow=smoothstep(.87,.9,sNoise(q*vec2(20.,10.)+3.))*step(-p.y,${index === 1 ? "1.3" : "0.8"})*step(.2,-p.y);
+  c=mix(c,${hex(horizons[Math.min(1, horizons.length - 1)].color)}*.85,burrow*.75);
   return c;
 }
 vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
@@ -122,17 +157,6 @@ export default function SoilProfile() {
           ])}
           height={index === 1 ? 0.14 : 0.08}
         />
-        {Array.from({ length: 11 }, (_, i) => (
-          <RootNetwork
-            key={i}
-            x={-0.72 + random(i + 78) * 1.44}
-            y={-0.008}
-            z={0.515}
-            depth={(index === 1 ? 0.65 : 0.32) * (0.55 + 0.45 * random(i + 710))}
-            spread={0.07 + 0.035 * random(i + 128)}
-            seed={i + index * 7}
-          />
-        ))}
         {index === 0 && (
           <DebrisField
             points={Array.from({ length: 28 }, (_, i) => [
@@ -176,6 +200,10 @@ export default function SoilProfile() {
           ]}
           color="#d6c6a7"
         />
+        {/* Keeps the depth scale's numbers, drawn left of the line, inside the camera's framing. */}
+        <mesh position={[-1.45, -1, 0.55]} visible={false} userData={{ fitProxy: true }}>
+          <boxGeometry args={[0.05, 2, 0.05]} />
+        </mesh>
         {[0, 0.5, 1, 1.5, 2].map((d) => (
           <group key={d}>
             <Line

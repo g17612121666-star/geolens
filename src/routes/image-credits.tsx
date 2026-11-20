@@ -23,8 +23,7 @@ function ImageCredits() {
   );
   return (
     <main id="main" className="mx-auto max-w-[1280px] px-5 pb-16 pt-24">
-      <p className="section-label">Geolens</p>
-      <h1 className="mt-3 font-display text-5xl">Image credits</h1>
+      <h1 className="font-display text-5xl">Image credits</h1>
       <p className="mt-5 max-w-3xl leading-7 text-mist">
         These photographs and scientific images help connect the models to real places and
         observations. Their original authors, source pages and reuse terms are collected here.

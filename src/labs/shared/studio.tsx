@@ -71,7 +71,7 @@ export function LabStudio({
     return (
       <div className="flex size-full flex-col items-center justify-center bg-void p-6">
         <div className="w-full max-w-md overflow-hidden rounded-2xl border border-white/10">
-          <div className="aspect-[16/10] bg-trench">
+          <div className="aspect-[4/3] bg-trench">
             <LabThumb slug={slug} />
           </div>
         </div>
