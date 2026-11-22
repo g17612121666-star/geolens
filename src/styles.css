@@ -197,6 +197,13 @@
 /* Flat paper: hairline borders mark surfaces; only floating menus and dialogs cast a shadow. */
 :root {
  --shadow-lift:0 1px 0 rgb(255 255 255 / .05) inset,0 24px 48px -18px rgb(0 0 0 / .8);
+ /* Home page world map. */
+ --map-ocean:#0f1d23;--map-land:#1e2b2f;--map-coast:#36464d;--map-grid:rgb(255 255 255 / .07);
+ --map-plate:#8aa39d;--map-quake:#ff7a4d;--map-quake-edge:#0a0f13;
+}
+:root[data-theme="light"] {
+ --map-ocean:#dce6e4;--map-land:#f4f0e6;--map-coast:#bdb5a2;--map-grid:rgb(20 40 31 / .08);
+ --map-plate:#7d8c86;--map-quake:#d9531f;--map-quake-edge:#fff7f0;
 }
 .site-bg {background:var(--color-void);}
 p.section-label {font-weight:600;}

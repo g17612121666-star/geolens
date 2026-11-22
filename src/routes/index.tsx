@@ -1,16 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HomeHero } from "@/components/globe/home-hero";
-import { TodayStrip } from "@/components/today-strip";
+import { ModelAndPlace } from "@/components/home/model-and-place";
+import { QuakeMap } from "@/components/home/quake-map";
+import { SubjectTiles } from "@/components/home/subject-tiles";
+import { TeacherFlow } from "@/components/home/teacher-flow";
+import { TodayCards } from "@/components/home/today-cards";
 import { CASE_SUMMARIES } from "@/lib/case-index";
-import { LAB_BY_SLUG, LABS, REALMS, labsInRealm } from "@/lib/labs/catalog";
+import { LAB_BY_SLUG, LABS, loadLab } from "@/lib/labs/catalog";
 import { labThumbSrc, labThumbSrcSet } from "@/lib/lab-thumbs";
 import { caseCard } from "@/lib/photo-cards";
 import { useRecentLabs } from "@/lib/recent-labs";
 import { photoSrcSet } from "@/lib/responsive-image";
 import { headFor } from "@/lib/seo";
 
+/** The lab whose Guided flow the teacher section shows. */
+const EXAMPLE_LAB = "glaciers";
+
 export const Route = createFileRoute("/")({
   component: Home,
+  loader: async () => ({ example: await loadLab(EXAMPLE_LAB) }),
   head: () =>
     headFor({
       title: "3D labs for Earth science and geography",
@@ -20,20 +28,18 @@ export const Route = createFileRoute("/")({
     }),
 });
 
+/** Labs offered under the hero as first steps. */
+const STARTERS = ["plate-boundaries", "seasons", "tropical-cyclone"];
 /** Case studies on the home page, US places first; the first is shown large. */
-const FEATURED = ["grand-canyon", "san-andreas", "mississippi", "tohoku-2011"];
-const SUMMARIES: Record<string, string> = {
-  "grand-canyon":
-    "Read nearly two billion years of Earth history in the walls of a river-cut canyon.",
-  "san-andreas": "Two plates slide past each other along California’s best-known fault.",
-  mississippi: "A large river crosses its floodplain, and people try to manage the flood risk.",
-  "tohoku-2011": "A subduction-zone earthquake sent a tsunami onto the coast of Japan.",
-};
+const FEATURED = ["san-andreas", "mount-st-helens-1980", "katrina-sandy", "dust-bowl"];
+const link =
+  "text-glacier underline decoration-glacier/40 underline-offset-4 hover:decoration-glacier";
 
 function Home() {
+  const { example } = Route.useLoaderData();
   return (
     <main id="main">
-      <section className="mx-auto grid max-w-[1280px] items-center gap-x-12 gap-y-6 px-5 pb-10 pt-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:pb-14 md:pt-28">
+      <section className="mx-auto grid max-w-[1280px] items-center gap-x-12 gap-y-6 px-5 pb-8 pt-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:pb-12 md:pt-28">
         <div>
           <h1 className="max-w-[16ch] font-display text-[2.6rem] leading-[1.08] tracking-[-0.01em] text-chalk md:text-[3.5rem]">
             3D labs for Earth science and geography
@@ -48,15 +54,40 @@ function Home() {
             >
               Browse the labs
             </Link>
-            <Link
-              to="/teachers/courses"
-              className="min-h-11 py-2.5 font-medium text-glacier underline decoration-glacier/40 underline-offset-4 hover:decoration-glacier"
-            >
+            <Link to="/teachers/courses" className={`min-h-11 py-2.5 font-medium ${link}`}>
               Courses for teachers
             </Link>
           </div>
+          <div className="mt-10 max-w-[34rem] border-t border-white/10 pt-5">
+            <h2 className="text-sm font-semibold text-chalk">Start with one of these</h2>
+            <ul className="mt-3 grid grid-cols-3 gap-3">
+              {STARTERS.map((slug) => {
+                const lab = LAB_BY_SLUG[slug];
+                return (
+                  lab && (
+                    <li key={slug}>
+                      <Link to="/lab/$slug" params={{ slug }} className="group block">
+                        <img
+                          src={labThumbSrc(slug, 320)}
+                          srcSet={labThumbSrcSet(slug)}
+                          sizes="170px"
+                          width={640}
+                          height={480}
+                          alt=""
+                          className="aspect-[4/3] w-full rounded-[3px] bg-trench object-cover"
+                        />
+                        <span className="mt-2 block text-sm leading-5 text-chalk underline-offset-4 group-hover:underline">
+                          {lab.title}
+                        </span>
+                      </Link>
+                    </li>
+                  )
+                );
+              })}
+            </ul>
+          </div>
         </div>
-        <figure className="mx-auto w-full max-w-[22rem] md:max-w-[35rem]">
+        <figure className="mx-auto w-full max-w-[22rem] md:max-w-[38rem]">
           <HomeHero />
           <figcaption className="-mt-3 text-center text-sm text-mist">
             Drag to turn the globe. The clouds are illustrative, not today’s weather.
@@ -64,115 +95,35 @@ function Home() {
         </figure>
       </section>
       <RecentLabs />
-      <TodayStrip />
-      <SubjectIndex />
+      <SubjectTiles />
+      <ModelAndPlace />
+      <div className="mt-16 md:mt-24">
+        <QuakeMap />
+      </div>
+      <TodayCards />
       <CaseStudies />
-      <ForTeachers />
+      {example && <TeacherFlow lab={example} />}
     </main>
-  );
-}
-
-/** Every lab, grouped by subject like an atlas index, each with a picture of its model. */
-function SubjectIndex() {
-  return (
-    <section aria-labelledby="labs-heading" className="mx-auto max-w-[1280px] px-5 pt-12 md:pt-16">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-        <h2 id="labs-heading" className="font-display text-3xl text-chalk">
-          Labs by subject
-        </h2>
-        <Link
-          to="/explore"
-          className="text-sm text-glacier underline decoration-glacier/40 underline-offset-4 hover:decoration-glacier"
-        >
-          {`Search and filter all ${LABS.length} labs`}
-        </Link>
-      </div>
-      <div className="mt-6 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-        {REALMS.map((realm) => {
-          const labs = labsInRealm(realm.slug);
-          return (
-            <section key={realm.slug} aria-labelledby={`subject-${realm.slug}`}>
-              <h3
-                id={`subject-${realm.slug}`}
-                className="flex items-baseline justify-between gap-3 border-b border-chalk/25 pb-2"
-              >
-                <Link
-                  to="/realms/$realm"
-                  params={{ realm: realm.slug }}
-                  className="font-display text-xl text-chalk hover:text-glacier"
-                >
-                  {realm.title}
-                </Link>
-                <span className="text-sm tabular-nums text-mist">
-                  {labs.length}
-                  <span className="sr-only"> labs</span>
-                </span>
-              </h3>
-              <ul className="mt-1.5">
-                {labs.map((lab, i) => (
-                  // Phones list three labs per subject; the subject page has the rest.
-                  <li key={lab.slug} className={i >= 3 ? "max-sm:hidden" : undefined}>
-                    <Link
-                      to="/lab/$slug"
-                      params={{ slug: lab.slug }}
-                      className="group flex items-center gap-3 py-1.5"
-                    >
-                      <img
-                        src={labThumbSrc(lab.slug, 160)}
-                        srcSet={labThumbSrcSet(lab.slug)}
-                        sizes="64px"
-                        width={64}
-                        height={48}
-                        loading="lazy"
-                        decoding="async"
-                        alt=""
-                        className="h-12 w-16 shrink-0 rounded-[3px] bg-trench object-cover"
-                      />
-                      <span className="text-[15px] leading-5 text-chalk underline-offset-4 group-hover:underline">
-                        {lab.title}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              {labs.length > 3 && (
-                <Link
-                  to="/realms/$realm"
-                  params={{ realm: realm.slug }}
-                  className="mt-1 inline-block py-1.5 text-sm text-glacier underline decoration-glacier/40 underline-offset-4 sm:hidden"
-                >
-                  {`All ${labs.length} ${realm.title} labs`}
-                </Link>
-              )}
-            </section>
-          );
-        })}
-      </div>
-    </section>
   );
 }
 
 function CaseStudies() {
   const [lead, ...rest] = FEATURED.flatMap((slug) => {
     const c = CASE_SUMMARIES.find((x) => x.slug === slug);
-    return c ? [{ ...c, photo: caseCard(slug), summary: SUMMARIES[slug] }] : [];
+    return c ? [{ ...c, photo: caseCard(slug) }] : [];
   });
   if (!lead) return null;
   return (
-    <section aria-labelledby="cases-heading" className="mx-auto max-w-[1280px] px-5 pt-14 md:pt-20">
+    <section aria-labelledby="cases-heading" className="mx-auto max-w-[1280px] px-5 pt-16 md:pt-24">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-        <h2 id="cases-heading" className="font-display text-3xl text-chalk">
+        <h2 id="cases-heading" className="font-display text-3xl text-chalk md:text-4xl">
           Case studies
         </h2>
-        <Link
-          to="/explore"
-          search={{ kind: "cases" }}
-          className="text-sm text-glacier underline decoration-glacier/40 underline-offset-4 hover:decoration-glacier"
-        >
+        <Link to="/explore" search={{ kind: "cases" }} className={`text-sm ${link}`}>
           {`All ${CASE_SUMMARIES.length} case studies`}
         </Link>
       </div>
-      <div className="mt-6 grid gap-x-10 gap-y-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
+      <div className="mt-7 grid gap-x-10 gap-y-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
         <Link to="/case/$slug" params={{ slug: lead.slug }} className="group block">
           {lead.photo && (
             <img
@@ -185,11 +136,11 @@ function CaseStudies() {
               className="aspect-[3/2] w-full rounded-[3px] bg-trench object-cover"
             />
           )}
-          <p className="mt-4 text-sm text-mist">{lead.region}</p>
+          <p className="mt-4 text-sm text-mist">{lead.place}</p>
           <h3 className="mt-1 font-display text-2xl text-chalk underline-offset-4 group-hover:underline">
             {lead.title}
           </h3>
-          <p className="mt-2 max-w-xl leading-7 text-mist">{lead.summary}</p>
+          <p className="mt-2 max-w-xl leading-7 text-mist">{lead.lede}</p>
         </Link>
         <ul className="divide-y divide-white/10 border-y border-white/10 lg:self-start">
           {rest.map((c) => (
@@ -207,66 +158,12 @@ function CaseStudies() {
                   />
                 )}
                 <span className="min-w-0">
-                  <span className="block text-sm text-mist">{c.region}</span>
+                  <span className="block text-sm text-mist">{c.place}</span>
                   <span className="mt-0.5 block font-display text-xl leading-snug text-chalk underline-offset-4 group-hover:underline">
                     {c.title}
                   </span>
-                  <span className="mt-1 block text-sm leading-6 text-mist">{c.summary}</span>
+                  <span className="mt-1 line-clamp-2 text-sm leading-6 text-mist">{c.lede}</span>
                 </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  );
-}
-
-const TEACHER_LINKS = [
-  {
-    to: "/teachers/courses",
-    title: "Courses",
-    note: "Labs in unit order for NGSS middle school and high school, AP Environmental Science, AP Human Geography, and England from KS3 to A level",
-  },
-  {
-    to: "/teachers/standards",
-    title: "Standards",
-    note: "Find the labs for an NGSS, AP, C3 or GCSE code",
-  },
-  {
-    to: "/teachers",
-    title: "Teacher notes and worksheets",
-    note: `Timings, misconceptions and answers for all ${LABS.length} labs`,
-  },
-  {
-    to: "/teachers/check",
-    title: "Check a hand-in code",
-    note: "See a student’s Guided answers from the code they hand in",
-  },
-] as const;
-
-function ForTeachers() {
-  return (
-    <section aria-labelledby="teachers-heading" className="mt-16 border-t border-white/10 md:mt-24">
-      <div className="mx-auto grid max-w-[1280px] gap-x-12 gap-y-6 px-5 py-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:py-16">
-        <div>
-          <h2 id="teachers-heading" className="font-display text-3xl text-chalk">
-            For teachers
-          </h2>
-          <p className="mt-4 max-w-md leading-7 text-mist">
-            Every lab can run in Guided mode: students write a prediction, test it in the model,
-            explain what happened and answer five questions, then hand in a short code. Share any
-            lab to Google Classroom from its page.
-          </p>
-        </div>
-        <ul className="divide-y divide-white/10 border-y border-white/10">
-          {TEACHER_LINKS.map((item) => (
-            <li key={item.to}>
-              <Link to={item.to} className="group block py-4">
-                <span className="font-medium text-chalk underline-offset-4 group-hover:underline">
-                  {item.title}
-                </span>
-                <span className="mt-1 block text-sm leading-6 text-mist">{item.note}</span>
               </Link>
             </li>
           ))}
@@ -285,8 +182,8 @@ function RecentLabs() {
     .slice(0, 3);
   if (labs.length === 0) return null;
   return (
-    <section aria-labelledby="recent-labs" className="mx-auto max-w-[1280px] px-5 pb-6">
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+    <section aria-labelledby="recent-labs" className="mx-auto max-w-[1280px] px-5 pb-2">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-4">
         <h2 id="recent-labs" className="text-sm font-semibold text-chalk">
           Continue where you left off
         </h2>
