@@ -14,6 +14,8 @@ const DATE = new Intl.DateTimeFormat("en-US", {
 });
 const link =
   "text-glacier underline decoration-glacier/40 underline-offset-4 hover:decoration-glacier";
+const card =
+  "zoom-card group block overflow-hidden rounded-[10px] border border-white/10 bg-basalt";
 
 /** Today's place, the next field trip and the daily practice, as three photo-led cards. */
 export function TodayCards() {
@@ -43,20 +45,22 @@ export function TodayCards() {
     tripPhoto = tripCard(trip.stops[Math.min(s.nextStop, trip.stops.length) - 1].photo);
   const photo = (p: { src: string; alt: string } | undefined) =>
     p && (
-      <img
-        src={p.src}
-        srcSet={photoSrcSet(p.src)}
-        sizes="(min-width: 768px) 400px, 100vw"
-        loading="lazy"
-        decoding="async"
-        alt={p.alt}
-        className="aspect-[3/2] w-full rounded-[3px] bg-trench object-cover"
-      />
+      <span className="block overflow-hidden bg-trench">
+        <img
+          src={p.src}
+          srcSet={photoSrcSet(p.src)}
+          sizes="(min-width: 1280px) 400px, (min-width: 768px) 32vw, 100vw"
+          loading="lazy"
+          decoding="async"
+          alt={p.alt}
+          className="zoom-img aspect-[3/2] w-full object-cover"
+        />
+      </span>
     );
   return (
-    <section aria-labelledby="today-heading" className="mx-auto max-w-[1280px] px-5 pt-16 md:pt-24">
+    <section aria-labelledby="today-heading" className="mx-auto max-w-[1280px] px-5 pt-20 md:pt-28">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-        <h2 id="today-heading" className="font-display text-3xl text-chalk md:text-4xl">
+        <h2 id="today-heading" className="font-display text-3xl text-chalk md:text-[2.5rem]">
           Today
         </h2>
         <p className="text-sm text-mist">
@@ -64,57 +68,69 @@ export function TodayCards() {
           {s.streak > 0 && <span className="text-sandstone">{` · ${s.streak}-day streak`}</span>}
         </p>
       </div>
-      <div className="mt-7 grid gap-x-6 gap-y-10 md:grid-cols-3">
+      <div className="mt-8 grid gap-5 md:grid-cols-3">
         <Link
           to="/trips/$slug"
           params={{ slug: place.trip }}
           search={{ stop: place.stop }}
-          className="group block"
+          className={card}
         >
           {photo(placePhoto)}
-          <span className="mt-3 block text-sm text-mist">Place of the day</span>
-          <span className="block font-display text-2xl text-chalk underline-offset-4 group-hover:underline">
-            {place.title}
+          <span className="block p-5 md:p-6">
+            <span className="block text-sm text-mist">Place of the day</span>
+            <span className="mt-1 block font-display text-2xl leading-snug text-chalk">
+              {place.title}
+            </span>
+            <span className="mt-1 block text-sm leading-6 text-mist">{place.place}</span>
           </span>
-          <span className="mt-1 block text-sm text-mist">{place.place}</span>
         </Link>
         <Link
           to="/trips/$slug"
           params={{ slug: trip.slug }}
           search={{ stop: s.nextStop }}
-          className="group block"
+          className={card}
         >
           {photo(tripPhoto)}
-          <span className="mt-3 block text-sm text-mist">
-            {s.nextStop > 1
-              ? `Field trip · continue at stop ${s.nextStop} of ${trip.stops.length}`
-              : `Field trip · ${trip.stops.length} stops`}
+          <span className="block p-5 md:p-6">
+            <span className="block text-sm text-mist">
+              {s.nextStop > 1
+                ? `Field trip · continue at stop ${s.nextStop} of ${trip.stops.length}`
+                : `Field trip · ${trip.stops.length} stops`}
+            </span>
+            <span className="mt-1 block font-display text-2xl leading-snug text-chalk">
+              {trip.title}
+            </span>
+            <span className="mt-1 line-clamp-2 text-sm leading-6 text-mist">{trip.summary}</span>
           </span>
-          <span className="block font-display text-2xl text-chalk underline-offset-4 group-hover:underline">
-            {trip.title}
-          </span>
-          <span className="mt-1 block text-sm leading-6 text-mist">{trip.summary}</span>
         </Link>
-        <div className="flex flex-col rounded-[3px] border border-white/10 p-6">
+        <div className="ink-band flex flex-col rounded-[10px] p-6 md:p-7">
           <p className="text-sm text-mist">Daily practice</p>
-          <Link
-            to="/practice/daily"
-            className="mt-2 font-display text-2xl text-chalk underline-offset-4 hover:underline"
-          >
-            Daily 5
-          </Link>
-          <p className="text-sm text-mist">
-            {s.quiz ? "Done today" : "Five questions from across the labs, new each day"}
-          </p>
-          <Link
-            to="/practice/where"
-            className="mt-5 font-display text-2xl text-chalk underline-offset-4 hover:underline"
-          >
-            Where on Earth?
-          </Link>
-          <p className="text-sm text-mist">
-            {s.where ? "Done today" : "Find five landscape photographs on a world map"}
-          </p>
+          <div className="mt-4 divide-y divide-white/10 border-y border-white/10">
+            <Link to="/practice/daily" className="group block py-4">
+              <span className="block font-display text-2xl text-chalk underline-offset-4 group-hover:underline">
+                Daily 5
+              </span>
+              <span className="mt-0.5 block text-sm leading-6 text-mist">
+                {s.quiz ? "Done today" : "Five questions from across the labs, new each day"}
+              </span>
+            </Link>
+            <Link to="/practice/where" className="group block py-4">
+              <span className="block font-display text-2xl text-chalk underline-offset-4 group-hover:underline">
+                Where on Earth?
+              </span>
+              <span className="mt-0.5 block text-sm leading-6 text-mist">
+                {s.where ? "Done today" : "Find five landscape photographs on a world map"}
+              </span>
+            </Link>
+            <Link to="/practice/landforms" className="group block py-4">
+              <span className="block font-display text-2xl text-chalk underline-offset-4 group-hover:underline">
+                World landforms
+              </span>
+              <span className="mt-0.5 block text-sm leading-6 text-mist">
+                Mountain ranges, deserts, rivers and ocean features on the map
+              </span>
+            </Link>
+          </div>
           <p className="mt-auto pt-6 text-sm">
             <Link to="/practice" className={link}>
               All practice

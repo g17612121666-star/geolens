@@ -73,8 +73,8 @@ export function QuakeMap() {
   const strongest = quakes?.length ? quakes[quakes.length - 1] : null;
   const latestOni = enso?.oni.at(-1);
   return (
-    <section ref={ref} aria-labelledby="quakes-heading" className="border-y border-white/10">
-      <div className="mx-auto grid max-w-[1280px] gap-x-12 gap-y-8 px-5 py-14 lg:grid-cols-[minmax(0,1fr)_20rem] md:py-20">
+    <section ref={ref} aria-labelledby="quakes-heading" className="ink-band">
+      <div className="mx-auto grid max-w-[1280px] gap-x-12 gap-y-8 px-5 py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <figure className="min-w-0">
           <div className="relative aspect-[1000/487] w-full">
             {map && (
@@ -158,7 +158,7 @@ export function QuakeMap() {
           </figcaption>
         </figure>
         <div>
-          <h2 id="quakes-heading" className="font-display text-3xl text-chalk">
+          <h2 id="quakes-heading" className="font-display text-3xl text-chalk md:text-[2.5rem]">
             Earthquakes this week
           </h2>
           <p className="mt-3 leading-7 text-mist">

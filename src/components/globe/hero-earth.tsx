@@ -5,7 +5,10 @@ import { EarthMesh } from "./earth";
 import { ClientCanvas } from "./client-canvas";
 import { usePrefersReducedMotion } from "@/hooks/use-media";
 
-/** The home-page Earth: a Sun-lit globe with no rim or halo, drawn over a still picture of itself. */
+/**
+ * The home-page Earth: a Sun-lit globe with no rim, halo or twilight band, drawn over a still
+ * picture of itself.
+ */
 export function HeroEarth({
   active,
   onReady,
@@ -36,6 +39,7 @@ export function HeroEarth({
           segments={160}
           halo={false}
           glint={false}
+          twilight={false}
         />
       </group>
       <OrbitControls

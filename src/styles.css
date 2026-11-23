@@ -18,6 +18,7 @@
   --color-glass: rgb(255 255 255 / 0.06);
   --color-glass-border: rgb(255 255 255 / 0.1);
   --color-ink: #ffffff;
+  --color-tint: #0e171a;
 
   --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
   --font-sans: "Geist", "Segoe UI", system-ui, sans-serif;
@@ -185,6 +186,7 @@
  --color-glacier:#07705f;--color-ice:#155f86;--color-magma:#b8441c;
  --color-sandstone:#8f5c18;--color-moss:#49683a;--color-fault:#b83232;
  --color-ink:#13271f;--color-glass:rgb(20 40 31 / .035);--color-glass-border:rgb(20 40 31 / .12);
+ --color-tint:#e6ebe3;
  --shadow-lift:0 2px 6px rgb(20 40 31 / .06),0 22px 44px -18px rgb(20 40 31 / .28);
 }
 /* Existing white-tint utility surfaces become ink tints in daylight. */
@@ -212,19 +214,30 @@ p.section-label {font-weight:600;}
 :where(input:not([type=range],[type=checkbox],[type=radio],[type=color]),select,textarea):hover {border-color:color-mix(in oklab,var(--color-glacier) 45%,var(--color-glass-border));}
 :where(input:not([type=range],[type=checkbox],[type=radio],[type=color]),select,textarea):focus-visible {outline:none;border-color:var(--color-glacier);box-shadow:0 0 0 4px color-mix(in oklab,var(--color-glacier) 18%,transparent);}
 input[type=range] {accent-color:var(--color-glacier);}
-/* The footer is a deep ink band in both themes. */
+/* Deep ink bands (the footer, and the home page's hero and map) look the same in both themes. */
 .ink-band {
  --color-basalt:#0f2019;--color-void:#0b1813;--color-trench:#16291f;--color-chalk:#eef4ef;--color-mist:#a7b9b1;
  --color-glacier:#62e2c9;--color-ice:#93d6ff;--color-glass-border:rgb(255 255 255 / .12);--color-glass:rgb(255 255 255 / .06);
+ --map-ocean:#14291f;--map-land:#243b30;--map-coast:#3e5749;--map-grid:rgb(255 255 255 / .06);
+ --map-plate:#86a296;--map-quake:#ff8a5c;--map-quake-edge:#0f2019;
  background:#0f2019;color:#eef4ef;
 }
-.ink-band a:hover {color:#62e2c9;}
+footer.ink-band a:hover {color:#62e2c9;}
+:root[data-theme="light"] .ink-band .bg-glacier {color:#0b1813;}
+:root[data-theme="light"] .ink-band [class*="hover:bg-white"]:hover {background-color:rgb(255 255 255 / .08);}
 /* Links inside running text are underlined, so they never rely on color alone. */
 :where(p, li, dd) > a.text-ice {text-decoration-line:underline;text-underline-offset:3px;}
 
 /* Collection cards stay put on hover; only the border picks up the accent. */
 .editorial-card {transition: border-color 180ms;}
 .editorial-card:hover {border-color:color-mix(in oklab,var(--color-glacier) 55%,transparent);}
+/* Picture cards: the card stays put and its picture eases in a little. */
+.zoom-card {transition: border-color 180ms;}
+.zoom-card:hover {border-color:color-mix(in oklab,var(--color-glacier) 55%,transparent);}
+@media (prefers-reduced-motion: no-preference) {
+ .zoom-card .zoom-img {transition: transform 700ms var(--ease-studio);}
+ .zoom-card:hover .zoom-img {transform: scale(1.035);}
+}
 
 .realm-cover img{width:100%;aspect-ratio:16/10;max-height:24rem;object-fit:cover;}
 

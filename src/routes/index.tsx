@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { HomeHero } from "@/components/globe/home-hero";
 import { ModelAndPlace } from "@/components/home/model-and-place";
 import { QuakeMap } from "@/components/home/quake-map";
@@ -6,8 +7,9 @@ import { SubjectTiles } from "@/components/home/subject-tiles";
 import { TeacherFlow } from "@/components/home/teacher-flow";
 import { TodayCards } from "@/components/home/today-cards";
 import { CASE_SUMMARIES } from "@/lib/case-index";
+import { watchInkTop } from "@/lib/ink-header";
 import { LAB_BY_SLUG, LABS, loadLab } from "@/lib/labs/catalog";
-import { labThumbSrc, labThumbSrcSet } from "@/lib/lab-thumbs";
+import { labThumbSrc } from "@/lib/lab-thumbs";
 import { caseCard } from "@/lib/photo-cards";
 import { useRecentLabs } from "@/lib/recent-labs";
 import { photoSrcSet } from "@/lib/responsive-image";
@@ -28,78 +30,51 @@ export const Route = createFileRoute("/")({
     }),
 });
 
-/** Labs offered under the hero as first steps. */
-const STARTERS = ["plate-boundaries", "seasons", "tropical-cyclone"];
 /** Case studies on the home page, US places first; the first is shown large. */
 const FEATURED = ["san-andreas", "mount-st-helens-1980", "katrina-sandy", "dust-bowl"];
 const link =
   "text-glacier underline decoration-glacier/40 underline-offset-4 hover:decoration-glacier";
+/** One card style for every picture card on the page. */
+const card = "zoom-card group overflow-hidden rounded-[10px] border border-white/10 bg-basalt";
 
 function Home() {
   const { example } = Route.useLoaderData();
+  useEffect(watchInkTop, []);
   return (
     <main id="main">
-      <section className="mx-auto grid max-w-[1280px] items-center gap-x-12 gap-y-6 px-5 pb-8 pt-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:pb-12 md:pt-28">
-        <div>
-          <h1 className="max-w-[16ch] font-display text-[2.6rem] leading-[1.08] tracking-[-0.01em] text-chalk md:text-[3.5rem]">
-            3D labs for Earth science and geography
-          </h1>
-          <p className="mt-5 max-w-[34rem] text-lg leading-8 text-mist">
-            {`${LABS.length} models you can turn and change, from plate boundaries to hurricanes. Each lab has steps for students, five check questions, a printable worksheet and teacher notes aligned to NGSS, AP and GCSE. Free to use, with no accounts or ads.`}
-          </p>
-          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link
-              to="/explore"
-              className="inline-flex min-h-11 items-center rounded-md bg-glacier px-5 font-medium text-void hover:bg-glacier/90"
-            >
-              Browse the labs
-            </Link>
-            <Link to="/teachers/courses" className={`min-h-11 py-2.5 font-medium ${link}`}>
-              Courses for teachers
-            </Link>
+      <section className="ink-band" data-ink-top="">
+        <div className="mx-auto grid max-w-[1280px] items-center gap-x-10 gap-y-2 px-5 pb-4 pt-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] md:pb-8 md:pt-20">
+          <div>
+            <h1 className="max-w-[15ch] font-display text-[2.7rem] leading-[1.04] tracking-[-0.015em] text-chalk sm:text-[3.4rem] lg:text-[4.15rem]">
+              3D labs for Earth science and geography
+            </h1>
+            <p className="mt-6 max-w-[34rem] text-lg leading-8 text-mist">
+              {`${LABS.length} models you can turn and change, from plate boundaries to hurricanes. Each lab has steps for students, five check questions, a printable worksheet and teacher notes aligned to NGSS, AP and GCSE. Free to use, with no accounts or ads.`}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+              <Link
+                to="/explore"
+                className="inline-flex min-h-12 items-center rounded-md bg-glacier px-6 font-medium text-void hover:bg-glacier/90"
+              >
+                Browse the labs
+              </Link>
+              <Link to="/teachers/courses" className={`min-h-11 py-2.5 font-medium ${link}`}>
+                Courses for teachers
+              </Link>
+            </div>
           </div>
-          <div className="mt-10 max-w-[34rem] border-t border-white/10 pt-5">
-            <h2 className="text-sm font-semibold text-chalk">Start with one of these</h2>
-            <ul className="mt-3 grid grid-cols-3 gap-3">
-              {STARTERS.map((slug) => {
-                const lab = LAB_BY_SLUG[slug];
-                return (
-                  lab && (
-                    <li key={slug}>
-                      <Link to="/lab/$slug" params={{ slug }} className="group block">
-                        <img
-                          src={labThumbSrc(slug, 320)}
-                          srcSet={labThumbSrcSet(slug)}
-                          sizes="170px"
-                          width={640}
-                          height={480}
-                          alt=""
-                          className="aspect-[4/3] w-full rounded-[3px] bg-trench object-cover"
-                        />
-                        <span className="mt-2 block text-sm leading-5 text-chalk underline-offset-4 group-hover:underline">
-                          {lab.title}
-                        </span>
-                      </Link>
-                    </li>
-                  )
-                );
-              })}
-            </ul>
-          </div>
+          <figure className="mx-auto w-full max-w-[24rem] md:max-w-[35rem]">
+            <HomeHero />
+            <figcaption className="mt-1 text-center text-sm text-mist">
+              Drag to turn the globe. The clouds are illustrative, not today’s weather.
+            </figcaption>
+          </figure>
         </div>
-        <figure className="mx-auto w-full max-w-[22rem] md:max-w-[38rem]">
-          <HomeHero />
-          <figcaption className="-mt-3 text-center text-sm text-mist">
-            Drag to turn the globe. The clouds are illustrative, not today’s weather.
-          </figcaption>
-        </figure>
       </section>
       <RecentLabs />
       <SubjectTiles />
       <ModelAndPlace />
-      <div className="mt-16 md:mt-24">
-        <QuakeMap />
-      </div>
+      <QuakeMap />
       <TodayCards />
       <CaseStudies />
       {example && <TeacherFlow lab={example} />}
@@ -114,52 +89,62 @@ function CaseStudies() {
   });
   if (!lead) return null;
   return (
-    <section aria-labelledby="cases-heading" className="mx-auto max-w-[1280px] px-5 pt-16 md:pt-24">
+    <section aria-labelledby="cases-heading" className="mx-auto max-w-[1280px] px-5 pt-20 md:pt-28">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-        <h2 id="cases-heading" className="font-display text-3xl text-chalk md:text-4xl">
+        <h2 id="cases-heading" className="font-display text-3xl text-chalk md:text-[2.5rem]">
           Case studies
         </h2>
         <Link to="/explore" search={{ kind: "cases" }} className={`text-sm ${link}`}>
           {`All ${CASE_SUMMARIES.length} case studies`}
         </Link>
       </div>
-      <div className="mt-7 grid gap-x-10 gap-y-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
-        <Link to="/case/$slug" params={{ slug: lead.slug }} className="group block">
+      <div className="mt-8 grid gap-5 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+        <Link to="/case/$slug" params={{ slug: lead.slug }} className={`${card} flex flex-col`}>
           {lead.photo && (
-            <img
-              src={lead.photo.src}
-              srcSet={photoSrcSet(lead.photo.src)}
-              sizes="(min-width: 1024px) 680px, 100vw"
-              loading="lazy"
-              decoding="async"
-              alt={lead.photo.alt}
-              className="aspect-[3/2] w-full rounded-[3px] bg-trench object-cover"
-            />
+            <span className="block overflow-hidden bg-trench">
+              <img
+                src={lead.photo.src}
+                srcSet={photoSrcSet(lead.photo.src)}
+                sizes="(min-width: 1280px) 700px, (min-width: 1024px) 56vw, 100vw"
+                loading="lazy"
+                decoding="async"
+                alt={lead.photo.alt}
+                className="zoom-img aspect-[16/10] w-full object-cover"
+              />
+            </span>
           )}
-          <p className="mt-4 text-sm text-mist">{lead.place}</p>
-          <h3 className="mt-1 font-display text-2xl text-chalk underline-offset-4 group-hover:underline">
-            {lead.title}
-          </h3>
-          <p className="mt-2 max-w-xl leading-7 text-mist">{lead.lede}</p>
+          <span className="block p-6 md:p-7">
+            <span className="block text-sm text-mist">{lead.place}</span>
+            <span className="mt-1 block font-display text-[1.75rem] leading-tight text-chalk">
+              {lead.title}
+            </span>
+            <span className="mt-2 block max-w-xl leading-7 text-mist">{lead.lede}</span>
+          </span>
         </Link>
-        <ul className="divide-y divide-white/10 border-y border-white/10 lg:self-start">
+        <ul className="grid gap-5">
           {rest.map((c) => (
             <li key={c.slug}>
-              <Link to="/case/$slug" params={{ slug: c.slug }} className="group flex gap-4 py-4">
+              <Link
+                to="/case/$slug"
+                params={{ slug: c.slug }}
+                className={`${card} flex h-full min-h-32`}
+              >
                 {c.photo && (
-                  <img
-                    src={c.photo.src}
-                    srcSet={photoSrcSet(c.photo.src)}
-                    sizes="144px"
-                    loading="lazy"
-                    decoding="async"
-                    alt={c.photo.alt}
-                    className="aspect-[4/3] w-28 shrink-0 rounded-[3px] bg-trench object-cover sm:w-36"
-                  />
+                  <span className="relative block w-32 shrink-0 overflow-hidden bg-trench sm:w-48">
+                    <img
+                      src={c.photo.src}
+                      srcSet={photoSrcSet(c.photo.src)}
+                      sizes="192px"
+                      loading="lazy"
+                      decoding="async"
+                      alt={c.photo.alt}
+                      className="zoom-img absolute inset-0 size-full object-cover"
+                    />
+                  </span>
                 )}
-                <span className="min-w-0">
+                <span className="min-w-0 self-center px-5 py-4">
                   <span className="block text-sm text-mist">{c.place}</span>
-                  <span className="mt-0.5 block font-display text-xl leading-snug text-chalk underline-offset-4 group-hover:underline">
+                  <span className="mt-0.5 block font-display text-xl leading-snug text-chalk">
                     {c.title}
                   </span>
                   <span className="mt-1 line-clamp-2 text-sm leading-6 text-mist">{c.lede}</span>
@@ -182,40 +167,42 @@ function RecentLabs() {
     .slice(0, 3);
   if (labs.length === 0) return null;
   return (
-    <section aria-labelledby="recent-labs" className="mx-auto max-w-[1280px] px-5 pb-2">
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-4">
-        <h2 id="recent-labs" className="text-sm font-semibold text-chalk">
-          Continue where you left off
-        </h2>
-        <ul className="flex flex-wrap gap-x-6 gap-y-2">
-          {labs.map((lab) => (
-            <li key={lab.slug}>
-              <Link
-                to="/lab/$slug"
-                params={{ slug: lab.slug }}
-                className="group flex items-center gap-2.5 text-sm"
-              >
-                <img
-                  src={labThumbSrc(lab.slug, 160)}
-                  width={40}
-                  height={30}
-                  alt=""
-                  className="h-[30px] w-10 rounded-[3px] bg-trench object-cover"
-                />
-                <span className="text-chalk underline-offset-4 group-hover:underline">
-                  {lab.title}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <button
-          type="button"
-          onClick={forget}
-          className="min-h-11 text-sm text-mist underline-offset-4 hover:text-chalk hover:underline"
-        >
-          Clear
-        </button>
+    <section aria-labelledby="recent-labs" className="ink-band" data-ink-top="">
+      <div className="mx-auto max-w-[1280px] px-5">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 py-4">
+          <h2 id="recent-labs" className="text-sm font-semibold text-chalk">
+            Continue where you left off
+          </h2>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {labs.map((lab) => (
+              <li key={lab.slug}>
+                <Link
+                  to="/lab/$slug"
+                  params={{ slug: lab.slug }}
+                  className="group flex items-center gap-2.5 text-sm"
+                >
+                  <img
+                    src={labThumbSrc(lab.slug, 160)}
+                    width={40}
+                    height={30}
+                    alt=""
+                    className="h-[30px] w-10 rounded-[3px] bg-[#f7f3eb] object-cover"
+                  />
+                  <span className="text-chalk underline-offset-4 group-hover:underline">
+                    {lab.title}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            onClick={forget}
+            className="min-h-11 text-sm text-mist underline-offset-4 hover:text-chalk hover:underline"
+          >
+            Clear
+          </button>
+        </div>
       </div>
     </section>
   );

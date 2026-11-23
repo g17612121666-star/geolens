@@ -39,6 +39,7 @@ const earthFrag = /* glsl */ `
   uniform float cloudAmount;
   uniform float cloudShift;
   uniform float glintAmount;
+  uniform float twilightAmount;
   uniform vec3 sunDirection;
   uniform bool eclipseEnabled;
   uniform vec3 occultingPosition;
@@ -104,7 +105,7 @@ const earthFrag = /* glsl */ `
     vec3 color = mix(dark, lit, dayF);
     // Twilight: a warm band where sunlight crosses the most air.
     float twilight = exp(-pow((ndl - 0.02) / 0.09, 2.0));
-    color += vec3(1.0, 0.42, 0.16) * twilight * 0.09;
+    color += vec3(1.0, 0.42, 0.16) * twilight * 0.09 * twilightAmount;
     // Atmospheric haze toward the limb on the day side.
     float rim = pow(1.0 - max(dot(n, view), 0.0), 2.4);
     color = mix(color, vec3(0.42, 0.68, 1.0), rim * 0.3 * smoothstep(-0.15, 0.4, ndl));
@@ -156,9 +157,15 @@ export function EarthMesh({
   halo = true,
   cloudCover = 1,
   glint = true,
+  twilight = true,
 }: {
   /** Ocean sunglint highlight; turn off on data maps where it could be mistaken for a feature. */
   glint?: boolean;
+  /**
+   * The warm band along the day–night line. Off where the line falls on the globe's edge and
+   * would read as a colored rim, as on the home page.
+   */
+  twilight?: boolean;
   /** Scales cloud opacity, for globes shown large (such as the home page). */
   cloudCover?: number;
   /** Sun-aware atmosphere rim. */
@@ -209,6 +216,7 @@ export function EarthMesh({
       cloudAmount: { value: 1 },
       cloudShift: { value: 0 },
       glintAmount: { value: glint ? 1 : 0 },
+      twilightAmount: { value: twilight ? 1 : 0 },
       sunDirection: { value: sunDirection.clone() },
       eclipseEnabled: { value: false },
       occultingPosition: { value: new THREE.Vector3() },
@@ -217,7 +225,7 @@ export function EarthMesh({
       solarRadius: { value: 0 },
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps -- sunDirection only seeds the uniform (its default is a new Vector3 each render); useFrame copies the live value from sunRef
-    [dayMap, nightMap, bumpMap, glint],
+    [dayMap, nightMap, bumpMap, glint, twilight],
   );
   const haloUniforms = useMemo(() => ({ sunDirection: { value: new THREE.Vector3(1, 0, 0) } }), []);
 

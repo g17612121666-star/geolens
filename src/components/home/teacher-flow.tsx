@@ -23,24 +23,39 @@ export function TeacherFlow({ lab }: { lab: LabMeta }) {
     predicted: true,
     explained: true,
   });
-  const step = "flex flex-col rounded-[3px] border border-white/10 bg-basalt p-5";
-  const label = "text-sm font-semibold text-chalk";
+  const step = "flex flex-col rounded-[10px] border border-white/10 bg-basalt p-5 md:p-6";
+  const head = (n: number, label: string) => (
+    <p className="flex items-baseline justify-between gap-3 text-sm">
+      <span className="font-semibold text-chalk">{label}</span>
+      <span className="text-xs text-mist">{`Step ${n} of 4`}</span>
+    </p>
+  );
+  const note = (text: string) => (
+    <div className="mt-auto pt-5">
+      {/* Two lines tall at most, so the rules above the notes line up across the steps. */}
+      <p className="min-h-[3.25rem] border-t border-white/10 pt-3 text-xs leading-5 text-mist">
+        {text}
+      </p>
+    </div>
+  );
   return (
-    <section aria-labelledby="teachers-heading" className="mt-16 border-t border-white/10 md:mt-24">
-      <div className="mx-auto grid max-w-[1280px] gap-x-12 gap-y-8 px-5 py-14 md:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.2fr)]">
-        <div>
-          <h2 id="teachers-heading" className="font-display text-3xl text-chalk md:text-4xl">
-            For teachers
-          </h2>
-          <p className="mt-4 leading-7 text-mist">
-            {`Every lab can run in Guided mode: students predict, test the idea in the model, explain what happened and answer five questions, then hand in a short code. This is the ${lab.title} lab.`}
-          </p>
-          <ul className="mt-6 divide-y divide-white/10 border-y border-white/10 text-sm">
+    <section aria-labelledby="teachers-heading" className="-mb-8 mt-20 bg-tint md:mt-28">
+      <div className="mx-auto max-w-[1280px] px-5 py-16 md:py-24">
+        <div className="grid gap-x-16 gap-y-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-end">
+          <div>
+            <h2 id="teachers-heading" className="font-display text-3xl text-chalk md:text-[2.5rem]">
+              For teachers
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-mist">
+              {`Every lab can run in Guided mode: students predict, test the idea in the model, explain what happened and answer five questions, then hand in a short code. Here is the ${lab.title} lab.`}
+            </p>
+          </div>
+          <ul className="grid border-t border-white/10 text-sm sm:grid-cols-2 sm:gap-x-8">
             {TEACHER_LINKS.map((item) => (
-              <li key={item.to}>
+              <li key={item.to} className="border-b border-white/10">
                 <Link
                   to={item.to}
-                  className="block py-2.5 text-chalk underline-offset-4 hover:underline"
+                  className="block py-3 font-medium text-chalk underline-offset-4 hover:underline"
                 >
                   {item.label}
                 </Link>
@@ -48,53 +63,48 @@ export function TeacherFlow({ lab }: { lab: LabMeta }) {
             ))}
           </ul>
         </div>
-        <ol className="grid gap-3 sm:grid-cols-2" aria-label="A Guided lab, step by step">
+        <ol
+          className="mt-10 grid gap-4 sm:grid-cols-2 md:mt-12 lg:grid-cols-4"
+          aria-label="A Guided lab, step by step"
+        >
           <li className={step}>
-            <p className={label}>1. Predict</p>
-            <p className="mt-3 font-display text-lg leading-snug text-chalk">
+            {head(1, "Predict")}
+            <p className="mt-4 font-display text-lg leading-snug text-chalk">
               {`“${lab.predict?.prompt ?? lab.objective}”`}
             </p>
-            <p className="mt-auto pt-4 text-xs leading-5 text-mist">
-              Written before the model opens.
-            </p>
+            {note("Written before the model opens.")}
           </li>
           <li className={step}>
-            <p className={label}>2. Explore</p>
+            {head(2, "Explore")}
             <img
               src={labThumbSrc(lab.slug, 320)}
               srcSet={labThumbSrcSet(lab.slug)}
-              sizes="240px"
+              sizes="(min-width: 1024px) 260px, (min-width: 640px) 45vw, 90vw"
               width={640}
               height={480}
               loading="lazy"
               decoding="async"
               alt={`The ${lab.title} model`}
-              className="mt-3 aspect-[4/3] w-full rounded-[3px] bg-[#f2efe6] object-cover"
+              className="mt-4 aspect-[4/3] w-full rounded-[6px] bg-[#f7f3eb] object-cover"
             />
-            <p className="mt-auto pt-4 text-xs leading-5 text-mist">
-              Students change the model to test their prediction.
-            </p>
+            {note("Students change the model to test their prediction.")}
           </li>
           <li className={step}>
-            <p className={label}>3. Explain</p>
-            <p className="mt-3 font-display text-lg leading-snug text-chalk">
+            {head(3, "Explain")}
+            <p className="mt-4 font-display text-lg leading-snug text-chalk">
               {`“${lab.cer?.prompt ?? lab.objective}”`}
             </p>
-            <p className="mt-auto pt-4 text-xs leading-5 text-mist">
-              A claim, the evidence from the model and the reasoning.
-            </p>
+            {note("A claim, the evidence from the model and the reasoning.")}
           </li>
           <li className={step}>
-            <p className={label}>4. Hand in</p>
-            <p className="mt-3 whitespace-nowrap font-mono text-2xl tracking-wide text-glacier">
+            {head(4, "Hand in")}
+            <p className="mt-4 whitespace-nowrap font-mono text-2xl tracking-wide text-glacier">
               {code}
             </p>
             <p className="mt-2 text-sm leading-6 text-mist">
               {`Example code: ${lab.questions.length} of ${lab.questions.length} correct, prediction and explanation written.`}
             </p>
-            <p className="mt-auto pt-4 text-xs leading-5 text-mist">
-              No accounts: the code carries the answers, and the checker decodes it.
-            </p>
+            {note("No accounts: the code carries the answers, and the checker decodes it.")}
           </li>
         </ol>
       </div>
