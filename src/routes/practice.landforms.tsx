@@ -194,7 +194,7 @@ function Study({ pool }: { pool: WorldFeature[] }) {
                       }`}
                     >
                       {f.name}
-                      <span className="text-mist/60">{` · ${f.region}`}</span>
+                      <span className="text-mist">{` · ${f.region}`}</span>
                     </button>
                   </li>
                 ))}

@@ -243,7 +243,7 @@ function EarthMotion() {
             />
           </label>
           {!parsed && (
-            <p role="alert" className="mt-2 text-amber-300">
+            <p role="alert" className="mt-2 text-sandstone">
               {"Choose a valid date between 1901 and 2099."}
             </p>
           )}
@@ -484,7 +484,7 @@ function EarthMotion() {
 function SiteFields({ label, site, set }: { label: string; site: Site; set: (s: Site) => void }) {
   return (
     <fieldset className="mt-5 grid grid-cols-2 gap-3">
-      <legend className={`text-sm ${label === "Place A" ? "text-glacier" : "text-amber-200"}`}>
+      <legend className={`text-sm ${label === "Place A" ? "text-glacier" : "text-sandstone"}`}>
         {label} · {site.name}
       </legend>
       <label className="col-span-2 text-sm text-mist">
@@ -545,7 +545,7 @@ function OutCard({
 }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[.025] p-5">
-      <p className={`font-mono text-xs ${label === "A" ? "text-glacier" : "text-amber-200"}`}>
+      <p className={`font-mono text-xs ${label === "A" ? "text-glacier" : "text-sandstone"}`}>
         {label} · {fmtLatLon(site.lat, site.lon)}
       </p>
       <h2 className="mt-2 font-display text-2xl">{site.name}</h2>

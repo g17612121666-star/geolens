@@ -115,7 +115,7 @@ function TripsIndex() {
                   loading="lazy"
                 />
                 <span
-                  className="absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-semibold text-basalt"
+                  className="absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-semibold text-[#0b1813]"
                   style={{ background: t.color }}
                 >
                   {t.kicker}
@@ -134,7 +134,7 @@ function TripsIndex() {
                   {t.stops.slice(0, 3).map((s) => (
                     <li key={s.title}>{`› ${s.title}`}</li>
                   ))}
-                  <li className="text-mist/70">{`+ ${t.stops.length - 3} more stops`}</li>
+                  <li className="text-mist">{`+ ${t.stops.length - 3} more stops`}</li>
                 </ul>
                 <div className="mt-auto flex items-center gap-4 pt-5">
                   <span
