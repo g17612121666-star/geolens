@@ -13,7 +13,7 @@ npm run build      # Nitro, Vercel preset, output in .vercel/output/
 npm run preview    # http://127.0.0.1:8081
 ```
 
-Run typecheck, lint, test and build before pushing.
+Run typecheck, lint, test and build before pushing. GitHub Actions runs the same four on every pull request and on `main` (`.github/workflows/checks.yml`).
 
 ## Layout
 
