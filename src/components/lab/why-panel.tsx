@@ -1,4 +1,4 @@
-import { ProgressFrame } from "@/components/progress-media";
+import { YouTubeFilm } from "@/components/youtube-film";
 import { ScientificText } from "@/components/scientific-text";
 import { Link } from "@tanstack/react-router";
 import type { LabMeta, PanelTab } from "@/lib/labs/types";
@@ -75,14 +75,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
                 {videos.map((video) => (
                   <div key={video.youtubeId}>
                     <div className="overflow-hidden rounded-xl border border-white/10">
-                      <ProgressFrame
-                        title={video.title}
-                        src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
-                        className="aspect-video w-full"
-                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                      />
+                      <YouTubeFilm video={video} />
                     </div>
                     <p className="mt-2 text-sm leading-5 text-mist">
                       {video.title} — {video.source}.

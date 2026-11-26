@@ -67,7 +67,7 @@ function Privacy() {
         </p>
         <p>
           {
-            "Some labs include a film from youtube-nocookie.com, YouTube’s privacy-enhanced mode. It is requested only when a lab’s Why panel shows the film. Films do not autoplay, and you do not need a YouTube account."
+            "Some labs include a film from youtube-nocookie.com, YouTube’s privacy-enhanced mode. Until you press play, a film is a plain panel: nothing is requested from YouTube or Google. Pressing play loads YouTube’s player, and Google’s privacy terms apply to it. You do not need a YouTube account."
           }
         </p>
         <p>
