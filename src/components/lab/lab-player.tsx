@@ -14,6 +14,7 @@ import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state
 import { ClassroomShare } from "@/components/classroom-share";
 import { absUrl } from "@/lib/seo";
 import { recordLabVisit } from "@/lib/recent-labs";
+import { MODEL_DESCRIPTION_ID, ORBIT_KEYS } from "@/labs/shared/model-access";
 
 const KEYS: { key: string; does: string }[] = [
   { key: "Space", does: "Play / pause" },
@@ -26,6 +27,8 @@ const KEYS: { key: string; does: string }[] = [
   { key: "Click", does: "Inspect a named part" },
   { key: "Drag", does: "Rotate the model" },
   { key: "Ctrl + scroll", does: "Zoom in or out" },
+  { key: "Tab", does: "Focus the 3D view, then use these keys:" },
+  ...ORBIT_KEYS,
   { key: "?", does: "This list" },
 ];
 
@@ -226,6 +229,11 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
       <h1 className="font-display text-[24px] leading-8 text-chalk md:text-[32px] md:leading-10">
         {lab.title}
       </h1>
+      {lab.modelDescription && (
+        <p id={MODEL_DESCRIPTION_ID} className="sr-only">
+          {lab.modelDescription}
+        </p>
+      )}
       {!projector && (compact || !shortViewport) && (
         <>
           <p className="mt-2 text-sm leading-6 text-chalk/85">{lab.objective}</p>

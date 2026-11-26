@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useId, type ReactNode } from "react";
 import type { CanvasProps } from "@react-three/fiber";
 import { ContactShadows } from "@react-three/drei";
 import { SceneProgress } from "@/components/lab/load-gate";
@@ -11,6 +11,8 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { LabTimeInvalidator } from "@/labs/tick";
 import { GenericFallback } from "./fallback";
 import { LabLights, StudioOrbit } from "./kit";
+import { KeyboardOrbit } from "./keyboard-orbit";
+import { MODEL_DESCRIPTION_ID } from "./model-access";
 import { LabelLayout } from "./label-layout";
 import { useQuality } from "./perf";
 
@@ -66,6 +68,7 @@ export function LabStudio({
   const inspect = useLabControls((s) => s.inspect);
   const setInspect = useLabControls((s) => s.setInspect);
   const q = useQuality();
+  const keysId = useId();
 
   if (webgl === null) {
     return (
@@ -88,42 +91,60 @@ export function LabStudio({
 
   return (
     <>
-      <ClientCanvas
-        camera={camera ?? { position: [0, 1.4, 5.4], fov: 40 }}
-        dpr={q.dpr}
-        frameloop={playing ? "always" : "demand"}
-        shadows={q.shadows}
+      {/* The 3D view takes keyboard focus: arrows turn and tilt it, + and − zoom, 0 resets. */}
+      <div
+        data-orbit-keys=""
+        tabIndex={0}
+        role="application"
+        aria-roledescription="3D model"
+        aria-label={`${title}: 3D model`}
+        aria-describedby={`${MODEL_DESCRIPTION_ID} ${keysId}`}
+        className="orbit-view group absolute inset-0"
       >
-        <LabTimeInvalidator />
-        {lights && <LabLights />}
-        <LabelLayout>
-          {backdrop}
-          {fit ? (
-            <FitScienceView revision={fitRevision} ground={fitGround}>
-              {children}
-            </FitScienceView>
-          ) : (
-            children
+        <ClientCanvas
+          camera={camera ?? { position: [0, 1.4, 5.4], fov: 40 }}
+          dpr={q.dpr}
+          frameloop={playing ? "always" : "demand"}
+          shadows={q.shadows}
+        >
+          <LabTimeInvalidator />
+          {lights && <LabLights />}
+          <LabelLayout>
+            {backdrop}
+            {fit ? (
+              <FitScienceView revision={fitRevision} ground={fitGround}>
+                {children}
+              </FitScienceView>
+            ) : (
+              children
+            )}
+          </LabelLayout>
+          {lights && groundShadows && q.shadows && (
+            <ContactShadows
+              opacity={0.42}
+              scale={18}
+              blur={2.4}
+              far={8}
+              resolution={512}
+              color="#000000"
+            />
           )}
-        </LabelLayout>
-        {lights && groundShadows && q.shadows && (
-          <ContactShadows
-            opacity={0.42}
-            scale={18}
-            blur={2.4}
-            far={8}
-            resolution={512}
-            color="#000000"
+          <StudioOrbit
+            minDistance={minDistance}
+            maxDistance={maxDistance}
+            target={target}
+            autoFit={fit}
+            maxPolarAngle={maxPolarAngle}
           />
-        )}
-        <StudioOrbit
-          minDistance={minDistance}
-          maxDistance={maxDistance}
-          target={target}
-          autoFit={fit}
-          maxPolarAngle={maxPolarAngle}
-        />
-      </ClientCanvas>
+          <KeyboardOrbit />
+        </ClientCanvas>
+        <p
+          id={keysId}
+          className="pointer-events-none absolute left-1/2 top-3 z-10 w-max max-w-[calc(100%-2rem)] -translate-x-1/2 rounded-lg border border-white/10 bg-basalt/90 px-3 py-1.5 text-center text-[13px] text-chalk opacity-0 backdrop-blur-md transition-opacity group-focus-visible:opacity-100"
+        >
+          Arrow keys turn and tilt the model · + and − zoom · 0 resets the view
+        </p>
+      </div>
       {liveText && (
         <p className="sr-only" aria-live="polite">
           {liveText}
