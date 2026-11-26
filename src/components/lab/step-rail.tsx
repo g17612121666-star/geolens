@@ -1,19 +1,21 @@
 import type { LabMeta } from "@/lib/labs/types";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { cn } from "@/lib/utils";
+import { useT } from "@/lib/i18n";
 
 export function StepRail({ lab }: { lab: LabMeta }) {
   const step = useLabControls((s) => s.step);
   const setStep = useLabControls((s) => s.setStep);
   const setPanelTab = useLabControls((s) => s.setPanelTab);
   const current = lab.steps[step] ?? lab.steps[0];
+  const t = useT();
 
   return (
     <aside
-      aria-label="Lab steps"
+      aria-label={t("Lab steps")}
       className="pointer-events-auto flex w-full shrink-0 flex-col gap-3 rounded-2xl border border-white/10 bg-basalt/95 p-4"
     >
-      <p className="section-label">{"Try the experiment"}</p>
+      <p className="section-label">{t("Try the experiment")}</p>
       <ol className="grid grid-cols-2 gap-1">
         {lab.steps.map((s, i) => (
           <li key={s.id}>

@@ -1,0 +1,136 @@
+{
+  "title": "Los volcanes",
+  "hook": "La composición del magma, su contenido de gas y las condiciones de su ascenso influyen en el tipo de erupción.",
+  "objective": "Explica cómo la viscosidad del magma influye en la forma del volcán y en el tipo de erupción, con los volcanes en escudo y los compuestos como ejemplos.",
+  "modelDescription": "Un volcán aparece con las laderas recortadas para dejar ver la cámara magmática y el conducto que sube hasta la boca. La viscosidad cambia la forma del volcán, de un escudo amplio a un cono compuesto empinado, y el empuje del gas cambia la erupción, de lava que fluye a una columna explosiva de ceniza. También se pueden mostrar fisuras eruptivas y los volcanes reales Mauna Loa y monte Santa Helena. Las erupciones se dibujan para mostrar los procesos, no a escala.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Mueve Viscosidad para comparar un escudo amplio con un cono compuesto más empinado. Luego sube solo Empuje del gas: con suficiente gas, incluso el basalto fluido puede tener una erupción explosiva. En cambio, el magma viscoso con poco gas forma un domo de lava."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Usa el control Corte para mirar dentro. Sigue el magma desde la cámara por el conducto y observa cómo crecen sus burbujas de gas; en una erupción explosiva, busca dónde la espuma se rompe en ceniza. Luego activa Fisuras eruptivas: una fisura es una grieta en el suelo, no un tipo de magma."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué la viscosidad por sí sola no puede decidir si una erupción será explosiva o producirá coladas de lava?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Los volcanes en escudo se forman a partir de…",
+      "choices": [
+        "Basalto fluido en coladas largas y suaves",
+        "Riolita viscosa en erupciones explosivas",
+        "Capas de ceniza y de lava espesa",
+        "Hielo que se funde sobre una cámara magmática"
+      ],
+      "explain": "La lava basáltica de baja viscosidad puede viajar lejos de la boca antes de solidificarse. Las coladas repetidas que se extienden forman el perfil amplio y de pendiente suave de un volcán en escudo."
+    },
+    {
+      "prompt": "Los estratovolcanes son empinados porque…",
+      "choices": [
+        "Son más antiguos y están más erosionados",
+        "El magma viscoso y rico en gas forma capas de lava y ceniza",
+        "La lava fluida recorre una gran distancia antes de enfriarse",
+        "Su magma sube desde mucha mayor profundidad en el manto"
+      ],
+      "explain": "La lava más viscosa suele recorrer distancias más cortas, mientras que las erupciones explosivas añaden capas de material fragmentado. Por eso las erupciones repetidas pueden construir un cono compuesto relativamente empinado."
+    },
+    {
+      "prompt": "Una erupción de rift…",
+      "choices": [
+        "Siempre necesita un punto caliente debajo",
+        "Siempre produce un cono empinado",
+        "Puede expulsar basalto a lo largo de una fisura larga",
+        "Solo ocurre donde una placa se hunde bajo otra"
+      ],
+      "explain": "La extensión en un límite divergente abre fracturas y permite que el magma ascienda. Entonces el basalto puede salir a lo largo de una fisura alargada en vez de por una sola boca central."
+    },
+    {
+      "prompt": "El magma viscoso explota con más facilidad porque…",
+      "choices": [
+        "Está más caliente que el magma fluido",
+        "Contiene menos gas disuelto que el basalto",
+        "Solo hace erupción bajo el agua",
+        "El gas no puede escapar, así que la presión aumenta"
+      ],
+      "explain": "El magma viscoso puede dificultar la salida del gas cuando la presión baja durante el ascenso. Entonces el gas atrapado, al expandirse, puede fragmentar el magma y provocar una erupción explosiva, aunque la viscosidad es solo uno de los factores."
+    },
+    {
+      "prompt": "¿Qué peligros volcánicos han causado más muertes en la historia?",
+      "choices": [
+        "Las coladas de lava lentas",
+        "Las bombas volcánicas que caen cerca de la boca",
+        "Los flujos piroclásticos y los flujos de lodo volcánico",
+        "Los olores a azufre de las fumarolas"
+      ],
+      "explain": "Los flujos piroclásticos son nubes rápidas y calientes de gas y roca, y los lahares son flujos de lodo que pueden recorrer decenas de kilómetros valle abajo. Ambos se mueven demasiado rápido para escapar de ellos, a diferencia de la mayoría de las coladas de lava."
+    }
+  ],
+  "why": [
+    "La composición del magma, su contenido de gas y las condiciones de su ascenso influyen en el tipo de erupción. Comparar las formas de los volcanes relaciona estos procesos con las coladas de lava, las capas de ceniza y la manera en que un volcán crece con el tiempo.",
+    "El magma se acumula en una cámara dentro de la corteza y sube por un conducto o una grieta porque es menos denso que la roca que lo rodea. Al acercarse a la superficie, la presión baja y el gas disuelto forma burbujas. En el basalto fluido las burbujas escapan con facilidad, así que la lava fluye o forma fuentes; en el magma viscoso y rico en sílice quedan atrapadas hasta que el magma se rompe en ceniza. Un gran aporte de gas puede hacer que incluso el basalto tenga una erupción explosiva.",
+    "Las erupciones que se muestran ilustran algunos procesos; la forma de un volcán por sí sola no permite predecir su próxima erupción."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El tamaño de un volcán por sí solo predice qué tan explosiva será su próxima erupción.",
+      "truth": "El comportamiento de una erupción depende de las propiedades del magma, del gas, de las condiciones de ascenso y de una posible interacción con agua o hielo. Los grandes volcanes en escudo suelen producir coladas de lava fluida, pero las erupciones basálticas también pueden ser explosivas. El relieve actual registra la actividad anterior, pero no determina cada evento futuro."
+    },
+    {
+      "claim": "Las coladas de lava son el peligro volcánico más mortal.",
+      "truth": "La mayor parte de la lava avanza tan despacio que las personas pueden alejarse caminando, aunque destruye propiedades. Los flujos piroclásticos, los flujos de lodo volcánico (lahares), la ceniza y los gases han causado muchas más muertes."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Viscosidad",
+      "def": "Una medida de la resistencia de un fluido a deformarse y fluir. La viscosidad del magma depende de su composición, su temperatura y su contenido de cristales. Un magma más viscoso puede dificultar la salida del gas, pero el tipo de erupción también depende del aporte de gas, del ascenso y de la interacción con agua externa."
+    },
+    {
+      "term": "Volcán en escudo",
+      "def": "Un volcán amplio de laderas suaves, formado sobre todo por coladas de lava fluida, por lo general basáltica. Mauna Loa es un ejemplo clásico."
+    },
+    {
+      "term": "Estratovolcán",
+      "def": "Un volcán de laderas empinadas formado por coladas de lava que alternan con depósitos fragmentados, como la ceniza. Muchos se forman sobre zonas de subducción."
+    },
+    {
+      "term": "Erupción fisural",
+      "def": "Una erupción en la que el magma sale a lo largo de una grieta alargada, y no solo por una boca central. Las fuentes de lava pueden formar una línea y luego concentrarse en unas pocas salidas. Las erupciones fisurales basálticas son comunes en Islandia y Hawái."
+    },
+    {
+      "term": "Basalto",
+      "def": "Una roca volcánica de grano fino, rica en minerales que contienen hierro y magnesio. El magma basáltico suele ser menos viscoso que el magma rico en sílice."
+    },
+    {
+      "term": "Conducto",
+      "def": "Un paso por el que el magma y los gases volcánicos ascienden hacia una boca eruptiva."
+    },
+    {
+      "term": "Piroclástico",
+      "def": "Se dice del material volcánico fragmentado que sale despedido en una erupción explosiva, como la ceniza, el lapilli y bloques más grandes. Los depósitos piroclásticos son distintos de las coladas de lava continuas. El tamaño de las partículas y la estructura del depósito ayudan a reconstruir cómo se transportó el material."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Crees que la lava fluida o la lava espesa y viscosa forma un volcán más empinado? ¿Cuál tiene más probabilidades de explotar?"
+  },
+  "cer": {
+    "prompt": "¿Por qué Mauna Loa y el monte Santa Helena tienen un aspecto y unas erupciones tan distintos?",
+    "claim": "Mauna Loa es un escudo amplio formado por coladas de lava basáltica fluida, mientras que el monte Santa Helena es un cono compuesto empinado formado por magma viscoso y rico en gas que tiene erupciones explosivas.",
+    "evidence": "Con poca Viscosidad se forma un escudo amplio y de pendiente suave; con mucha Viscosidad, un cono más empinado de capas de lava y ceniza. Subir Empuje del gas hace las erupciones más explosivas. Con Volcanes reales activado, Mauna Loa se eleva unos 4 km sobre el nivel del mar sobre una base muy ancha, mientras que el monte Santa Helena es mucho más pequeño y empinado.",
+    "reasoning": "La lava fluida recorre una gran distancia antes de enfriarse y se extiende en laderas suaves. El magma viscoso recorre poca distancia y atrapa el gas, así que la presión aumenta hasta que el gas escapa de forma explosiva y acumula ceniza y lava en un cono empinado."
+  },
+  "controls": {
+    "visc": { "label": "Viscosidad" },
+    "gas": { "label": "Empuje del gas" },
+    "real": { "label": "Volcanes reales (USGS)" },
+    "fissure": { "label": "Fisuras eruptivas" }
+  }
+}

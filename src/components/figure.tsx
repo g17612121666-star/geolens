@@ -36,7 +36,8 @@ export function Figure({ src, alt, caption, kind, className, size = "md", id }: 
         describedBy={caption ? capId : undefined}
       />
       {caption && (
-        <figcaption id={capId} className="px-4 py-3 text-sm leading-6 text-mist">
+        // Captions come from the English photo register, also on Spanish pages.
+        <figcaption id={capId} lang="en" className="px-4 py-3 text-sm leading-6 text-mist">
           {caption}
         </figcaption>
       )}

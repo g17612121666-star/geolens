@@ -13,6 +13,7 @@ import { Gallery } from "@/components/gallery";
 import { LAB_GALLERY } from "@/lib/media-galleries";
 import { SpeakButton } from "@/components/speak-button";
 import { HandInPanel } from "./hand-in-panel";
+import { useLang, useT } from "@/lib/i18n";
 
 const WHY_LABELS = ["Why it happens", "Try a comparison", "Reading the result"] as const;
 
@@ -26,13 +27,15 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
   const videos = labVideos(lab.slug);
   const gallery = (LAB_GALLERY[lab.slug] ?? []).filter((g) => g.src !== figs[0]?.src);
   const seenTermSrc = new Set<string>();
+  const t = useT();
+  const lang = useLang();
 
   return (
     <aside
-      aria-label="Explanations, terms and quiz"
+      aria-label={t("Explanations, terms and quiz")}
       className="pointer-events-auto flex w-full shrink-0 flex-col rounded-2xl border border-white/10 bg-basalt/95"
     >
-      <div className="flex border-b border-white/10" role="tablist" aria-label="Lab guide">
+      <div className="flex border-b border-white/10" role="tablist" aria-label={t("Lab guide")}>
         {(
           [
             ["why", "Why"],
@@ -48,12 +51,14 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             role="tab"
             aria-selected={tab === id}
             className={cn(
-              "flex min-h-11 flex-1 items-center justify-center px-1 text-[13px] font-medium uppercase tracking-[0.12em]",
+              "flex min-h-11 flex-1 items-center justify-center whitespace-nowrap px-1 text-[13px] font-medium uppercase",
+              // Spanish tab names are longer, so they keep one line with tighter letter spacing.
+              lang === "es" ? "tracking-[0.04em]" : "tracking-[0.12em]",
               tab === id ? "text-glacier" : "text-mist hover:text-chalk",
             )}
-            aria-label={id === "teach" ? "Teacher" : label}
+            aria-label={t(id === "teach" ? "Teacher" : label)}
           >
-            {label}
+            {t(label)}
           </button>
         ))}
       </div>
@@ -62,7 +67,9 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
           <div className="space-y-4">
             {lab.why.map((w, i) => (
               <div key={w.slice(0, 56)}>
-                <p className="section-label">{WHY_LABELS[i] ?? `Note ${i + 1}`}</p>
+                <p className="section-label">
+                  {WHY_LABELS[i] ? t(WHY_LABELS[i]) : t("Note {n}", { n: i + 1 })}
+                </p>
                 <p className="mt-2 text-sm leading-6 text-chalk/90">
                   <ScientificText>{w}</ScientificText>
                 </p>
@@ -71,7 +78,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             ))}
             {videos.length > 0 && (
               <div className="space-y-4">
-                <p className="section-label">{videos.length > 1 ? "Films" : "Film"}</p>
+                <p className="section-label">{t(videos.length > 1 ? "Films" : "Film")}</p>
                 {videos.map((video) => (
                   <div key={video.youtubeId}>
                     <div className="overflow-hidden rounded-xl border border-white/10">
@@ -84,7 +91,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
                 ))}
               </div>
             )}
-            <p className="section-label">{"A common misunderstanding"}</p>
+            <p className="section-label">{t("A common misunderstanding")}</p>
             {pairs.slice(0, 1).map((m) => (
               <div key={m.claim} className="rounded-[10px] border border-fault/30 bg-fault/10 p-3">
                 <p className="font-medium text-fault">{m.claim}</p>
@@ -93,7 +100,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             ))}
             {lab.cases.length > 0 && (
               <div>
-                <p className="section-label mb-2">{"Cases"}</p>
+                <p className="section-label mb-2">{t("Cases")}</p>
                 <ul className="space-y-1">
                   {lab.cases.map((c) => (
                     <li key={c.slug}>
@@ -111,24 +118,26 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             )}
             {gallery.length > 0 && (
               <div>
-                <p className="section-label mb-2">{"Real examples"}</p>
+                <p className="section-label mb-2">{t("Real examples")}</p>
                 <Gallery figures={gallery} columns={1} />
               </div>
             )}
           </div>
         )}
         <div className={cn("space-y-3", tab !== "terms" && "hidden")}>
-          <label className="flex min-h-11 items-center justify-between gap-2 text-mist">
-            {"Exam language"}
-            <input
-              type="checkbox"
-              checked={exam}
-              onChange={(e) => setExam(e.target.checked)}
-              className="accent-glacier"
-            />
-          </label>
+          {lab.glossary.some((g) => g.exam) && (
+            <label className="flex min-h-11 items-center justify-between gap-2 text-mist">
+              {t("Exam language")}
+              <input
+                type="checkbox"
+                checked={exam}
+                onChange={(e) => setExam(e.target.checked)}
+                className="accent-glacier"
+              />
+            </label>
+          )}
           {lab.glossary.map((g, index) => {
-            const tfig = termThumb(lab.slug, g.term);
+            const tfig = termThumb(lab.slug, g.key ?? g.term);
             const show = tfig && !seenTermSrc.has(tfig.src);
             if (tfig && show) seenTermSrc.add(tfig.src);
             return (
@@ -137,7 +146,8 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
                   {exam && g.exam ? g.exam : g.term}
                   <SpeakButton
                     text={exam && g.exam ? g.exam : g.term}
-                    label={`Say ${exam && g.exam ? g.exam : g.term}`}
+                    label={t("Say {term}", { term: exam && g.exam ? g.exam : g.term })}
+                    lang={lang}
                     className="-my-2"
                   />
                 </p>
@@ -152,7 +162,7 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
         {tab === "teach" && (
           <div className="space-y-3">
             {(figs[1] ?? figs[0]) && <Figure {...(figs[1] ?? figs[0])!} size="sm" />}
-            <p className="section-label">{"Lead a lesson or club discussion"}</p>
+            <p className="section-label">{t("Lead a lesson or club discussion")}</p>
             {lab.teacher.script
               .split(/\n\n|\n/)
               .filter(Boolean)
@@ -164,31 +174,33 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             {lab.cer && (
               <details className="rounded-xl border border-white/10 p-3">
                 <summary className="cursor-pointer text-chalk">
-                  {"Model answer for the Guided explanation"}
+                  {t("Model answer for the Guided explanation")}
                 </summary>
                 <p className="mt-2 text-chalk/90">{lab.cer.prompt}</p>
                 <p className="mt-2 text-mist">
-                  <span className="text-glacier">{"Claim. "}</span>
+                  <span className="text-glacier">{t("Claim. ")}</span>
                   {lab.cer.claim}
                 </p>
                 <p className="mt-1 text-mist">
-                  <span className="text-glacier">{"Evidence. "}</span>
+                  <span className="text-glacier">{t("Evidence. ")}</span>
                   {lab.cer.evidence}
                 </p>
                 <p className="mt-1 text-mist">
-                  <span className="text-glacier">{"Reasoning. "}</span>
+                  <span className="text-glacier">{t("Reasoning. ")}</span>
                   {lab.cer.reasoning}
                 </p>
               </details>
             )}
-            <p className="section-label">{"Points to watch for"}</p>
+            <p className="section-label">{t("Points to watch for")}</p>
             <ul className="list-disc space-y-1 pl-4 text-mist">
               {lab.teacher.pitfalls.map((p) => (
                 <li key={p}>{p}</li>
               ))}
             </ul>
             <details className="border-t border-white/10 pt-3">
-              <summary className="cursor-pointer text-chalk">Sources and model notes</summary>
+              <summary className="cursor-pointer text-chalk">
+                {t("Sources and model notes")}
+              </summary>
               {lab.modelNotes && (
                 <div className="mt-3 space-y-3 text-mist">
                   {lab.modelNotes.map((note, index) => (
@@ -222,20 +234,20 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
               params={{ slug: lab.slug }}
               className="inline-flex h-11 items-center text-ice hover:underline"
             >
-              {"Open the teacher notes"}
+              {t("Open the teacher notes")}
             </Link>
             <Link
               to="/worksheet/$slug"
               params={{ slug: lab.slug }}
               className="inline-flex h-11 items-center text-ice hover:underline"
             >
-              {"Printable student worksheet"}
+              {t("Printable student worksheet")}
             </Link>
             <a
               href={`${PRODUCER_MAILTO}?subject=${encodeURIComponent(`Geolens: mistake in ${lab.title}`)}&body=${encodeURIComponent(`Lab: ${lab.title} (/lab/${lab.slug})\n\nWhat looks wrong, and where:\n`)}`}
               className="inline-flex h-11 items-center text-ice hover:underline"
             >
-              {"Report a mistake in this lab"}
+              {t("Report a mistake in this lab")}
             </a>
           </div>
         )}
@@ -249,21 +261,26 @@ function CheckList({ lab }: { lab: LabMeta }) {
   const { picked, pick, reset } = useQuizAnswers(lab.slug);
   const answered = qs.filter((_, i) => picked[i] !== undefined).length;
   const correct = qs.filter((q, i) => picked[i] === q.answer).length;
+  const t = useT();
   return (
     <div className="space-y-5">
       <p className="text-mist">
-        Choose an answer, then compare your reasoning with the explanation.
+        {t("Choose an answer, then compare your reasoning with the explanation.")}
       </p>
       {answered > 0 && (
         <div className="flex items-center justify-between gap-3 rounded-[10px] border border-white/10 px-3 py-2 text-[13px]">
           <p className="text-chalk" role="status">
             {answered < qs.length
-              ? `${answered} of ${qs.length} answered · ${correct} correct`
-              : `${correct} of ${qs.length} correct`}
-            <span className="text-mist">{" · saved on this device"}</span>
+              ? t("{answered} of {total} answered · {correct} correct", {
+                  answered,
+                  total: qs.length,
+                  correct,
+                })
+              : t("{correct} of {total} correct", { correct, total: qs.length })}
+            <span className="text-mist">{t(" · saved on this device")}</span>
           </p>
           <button type="button" onClick={reset} className="min-h-11 text-ice hover:underline">
-            {"Start again"}
+            {t("Start again")}
           </button>
         </div>
       )}
@@ -299,7 +316,7 @@ function CheckList({ lab }: { lab: LabMeta }) {
             {shown && (
               <div className="mt-3 text-sm leading-6" role="status">
                 <p className={ok ? "font-medium text-glacier" : "font-medium text-sandstone"}>
-                  {ok ? "That’s right." : "Take another look."}
+                  {t(ok ? "That’s right." : "Take another look.")}
                 </p>
                 <p className="mt-1 text-mist">
                   <ScientificText>{q.explain}</ScientificText>

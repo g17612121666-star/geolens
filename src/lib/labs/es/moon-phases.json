@@ -1,0 +1,137 @@
+{
+  "title": "Las fases de la Luna y la geometría Sol–Tierra–Luna",
+  "hook": "La luz del Sol ilumina la mitad de la Luna.",
+  "objective": "Usa las posiciones del Sol, la Tierra y la Luna para explicar por qué cambia la forma iluminada que vemos durante un mes lunar.",
+  "modelDescription": "En la vista de la órbita, la Luna gira alrededor de la Tierra mientras la luz del Sol llega desde un lado, así que la Luna siempre tiene una mitad iluminada que mira hacia el Sol. Una línea discontinua marca el plano de la órbita de la Tierra, y la órbita de la Luna está inclinada unos 5 grados respecto a él. El primer plano de la Luna muestra la fase tal como se ve desde el hemisferio norte de la Tierra. Los tamaños y las distancias están exagerados.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Reproduce un mes en la Geometría de la órbita y observa la mitad iluminada de la Luna. Luego cambia al Primer plano de la Luna para ver la fase tal como se ve desde el hemisferio norte de la Tierra."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Haz una pausa en el cuarto creciente y en la luna llena. Compara la órbita continua con la línea discontinua (el plano de la órbita de la Tierra): en la mayoría de las lunas llenas, la Luna está por encima o por debajo de ella. Activa la Alineación para eclipses para aplanar la órbita y luego explica por qué la inclinación de 5° suele impedir un eclipse."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué cambia la forma de la parte brillante de la Luna que vemos, si la luz del Sol sigue iluminando más o menos la mitad de su superficie?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "En el cuarto creciente, ¿dónde está la Luna respecto al Sol y a la Tierra?",
+      "choices": [
+        "Justo entre el Sol y la Tierra.",
+        "En parte dentro de la sombra de la Tierra.",
+        "A unos 90° de la línea Sol–Tierra.",
+        "Al otro lado de la Tierra, opuesta al Sol."
+      ],
+      "explain": "En el cuarto creciente, la Luna aparece a unos 90° del Sol en el cielo de la Tierra. Vemos la mitad de su hemisferio iluminado y la mitad de su lado nocturno."
+    },
+    {
+      "prompt": "¿La sombra de la Tierra causa la luna creciente de siempre?",
+      "choices": [
+        "Sí. La sombra de la Tierra siempre cubre parte de la Luna.",
+        "Sí, pero solo cuando la Luna está baja en el cielo.",
+        "Solo en invierno, cuando la sombra de la Tierra es más larga.",
+        "No. La parte oscura es el propio lado nocturno de la Luna."
+      ],
+      "explain": "Una luna creciente común muestra solo una pequeña parte del hemisferio iluminado de la Luna; el resto del disco visible es su propio lado nocturno. La sombra de la Tierra oscurece la Luna solo durante un eclipse lunar."
+    },
+    {
+      "prompt": "¿Por qué los eclipses son más raros que las lunas llenas y nuevas?",
+      "choices": [
+        "La órbita de la Luna está inclinada unos 5°, así que casi nunca se alinea.",
+        "La Luna es demasiado pequeña para tapar el Sol la mayoría de los meses.",
+        "Hay eclipses cada mes, pero las nubes casi siempre nos los ocultan.",
+        "Los eclipses solo pueden ocurrir cuando la Tierra está en el perihelio."
+      ],
+      "explain": "El plano de la órbita de la Luna está inclinado respecto al plano de la órbita de la Tierra, así que la mayoría de las lunas nuevas y llenas no forman una alineación exacta. Un eclipse requiere que la Luna esté cerca de un nodo, donde esos planos se cruzan."
+    },
+    {
+      "prompt": "Un mes sinódico dura unos 29.5 días. ¿Qué mide?",
+      "choices": [
+        "El tiempo que tarda la Tierra en dar la vuelta al Sol.",
+        "El tiempo de una luna nueva a la siguiente.",
+        "El tiempo que tarda la Tierra en girar una vez.",
+        "El tiempo que tarda la Luna en girar una vez sobre sí misma."
+      ],
+      "explain": "Un mes sinódico mide el regreso a la misma geometría de fase entre el Sol, la Tierra y la Luna. Es más largo que el periodo orbital de la Luna respecto a las estrellas porque la Tierra también se mueve alrededor del Sol."
+    },
+    {
+      "prompt": "Una luna creciente está baja en el oeste justo después de la puesta del Sol. ¿Dónde está la Luna en su órbita?",
+      "choices": [
+        "Justo detrás de la Tierra, opuesta al Sol",
+        "Un poco más allá de la línea Sol–Tierra, después de la luna nueva",
+        "En ángulo recto con el Sol, en el cuarto menguante",
+        "En parte dentro de la sombra de la Tierra, como en un eclipse parcial"
+      ],
+      "explain": "Unos días después de la luna nueva, la Luna solo se ha alejado un ángulo pequeño del Sol en nuestro cielo, así que se pone poco después que el Sol y muestra una delgada creciente iluminada."
+    }
+  ],
+  "why": [
+    "La luz del Sol ilumina la mitad de la Luna. A medida que la Luna gira alrededor de la Tierra, vemos distintas proporciones de esa mitad iluminada, y así se producen las fases; la sombra de la Tierra solo interviene en un eclipse lunar.",
+    "Como la órbita de la Luna está inclinada unos 5° respecto al plano de la órbita de la Tierra, la mayoría de las lunas nuevas y llenas pasan justo por encima o por debajo de la línea Sol–Tierra. Solo hay eclipse cuando una luna nueva o llena cae cerca de un nodo, donde se cruzan los dos planos.",
+    "Los tamaños y las separaciones están ampliados para poder examinarlos, y el Sol está dibujado pequeño y cerca solo para mostrar de dónde viene la luz. Cambia a la Escala real para ver lo separadas que están en realidad la Tierra y la Luna."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Una luna creciente se forma cuando la sombra de la Tierra cubre parte de la Luna.",
+      "truth": "La luz del Sol normalmente ilumina la mitad de la Luna. Una creciente ocurre cuando desde la Tierra vemos solo una parte estrecha de esa mitad iluminada; el resto del disco visible es el lado nocturno de la Luna. La sombra de la Tierra oscurece la Luna durante un eclipse lunar."
+    },
+    {
+      "claim": "La Luna solo se puede ver de noche.",
+      "truth": "La Luna está sobre el horizonte durante aproximadamente la mitad de cada día, así que a menudo se ve de día. Una luna en cuarto creciente, por ejemplo, sale cerca del mediodía y se puede ver en el cielo de la tarde."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Fase",
+      "def": "La fracción y la forma del hemisferio iluminado de la Luna que se ve desde la Tierra, que cambian según la geometría a lo largo de su órbita. Las fases lunares comunes no se deben a la sombra de la Tierra; esa sombra interviene en un eclipse lunar."
+    },
+    {
+      "term": "Mes sinódico",
+      "def": "El tiempo entre una fase lunar y la siguiente vez que se repite la misma fase, de unos 29.5 días en promedio. Es más largo que el periodo orbital de la Luna respecto a las estrellas porque la Tierra también se mueve alrededor del Sol."
+    },
+    {
+      "term": "Umbra",
+      "def": "La parte central de una sombra, donde la fuente de luz queda completamente tapada. Durante un eclipse lunar total, la Luna está dentro de la umbra de la Tierra. La penumbra que la rodea recibe luz de parte de la fuente y produce un oscurecimiento menos completo."
+    },
+    {
+      "term": "Inclinación orbital",
+      "def": "El ángulo entre el plano de una órbita y un plano de referencia elegido. La órbita de la Luna está inclinada unos cinco grados respecto al plano de la órbita de la Tierra. Por eso la Luna suele pasar por encima o por debajo de la alineación necesaria para un eclipse."
+    },
+    {
+      "term": "Nodo",
+      "def": "Uno de los dos lugares donde el plano de la órbita de la Luna cruza el plano de la órbita de la Tierra. Un eclipse requiere una luna nueva o llena lo bastante cerca de un nodo para que el Sol, la Tierra y la Luna se alineen dentro de la sombra correspondiente."
+    },
+    {
+      "term": "Eclíptica",
+      "def": "El plano de la órbita de la Tierra alrededor del Sol, proyectado en el cielo como el recorrido aparente del Sol durante el año. El plano de la órbita de la Luna está inclinado unos cinco grados respecto a ella, así que la mayoría de las lunas nuevas y llenas no producen eclipses."
+    },
+    {
+      "term": "Cara visible",
+      "def": "El hemisferio de la Luna que siempre mira hacia la Tierra, porque la Luna gira sobre sí misma una vez por cada órbita. Un ligero bamboleo, llamado libración, nos deja ver con el tiempo un poco más de la mitad de su superficie."
+    },
+    {
+      "term": "Penumbra",
+      "def": "La parte de una sombra donde la fuente de luz está tapada solo en parte. Una Luna en la penumbra de la Tierra se oscurece solo un poco, mucho menos que en la umbra."
+    }
+  ],
+  "predict": {
+    "prompt": "¿La sombra de la Tierra causa la fase creciente de la Luna? Escribe sí o no y da una razón."
+  },
+  "cer": {
+    "prompt": "¿Por qué parece que la forma de la Luna cambia durante un mes?",
+    "claim": "Las fases de la Luna ocurren porque vemos distintas partes de la mitad iluminada de la Luna mientras gira alrededor de la Tierra, no por la sombra de la Tierra.",
+    "evidence": "En la vista de la órbita, el Sol siempre ilumina la mitad de la Luna. En la luna nueva, la mitad iluminada mira lejos de la Tierra; en el cuarto creciente, a unos 90° de la línea Sol–Tierra, vemos la mitad de la mitad iluminada; en la luna llena, opuesta al Sol, toda la mitad iluminada mira hacia nosotros. El ciclo de fases dura unos 29.5 días.",
+    "reasoning": "La parte oscura de una creciente es el propio lado nocturno de la Luna. La sombra de la Tierra solo llega a la Luna durante un eclipse lunar, cuando la luna llena se alinea con el Sol y la Tierra cerca de un nodo de su órbita inclinada."
+  },
+  "controls": {
+    "align": { "label": "Alineación para eclipses" }
+  }
+}

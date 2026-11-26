@@ -4,6 +4,8 @@ import { ChevronDown, Menu, Search, X } from "lucide-react";
 import { REALMS } from "@/lib/labs/realms";
 import { cn } from "@/lib/utils";
 import { useInkHeader } from "@/lib/ink-header";
+import { useLang, useT } from "@/lib/i18n";
+import { usePreferences } from "@/lib/preferences";
 import { PreferencesMenu } from "@/components/preferences-menu";
 import { LogoMark } from "@/components/layout/logo-mark";
 
@@ -39,9 +41,12 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
   // At the top of the home page the header takes the hero's ink, so the two read as one band.
   const inkUnder = useInkHeader((s) => s.under);
   const ink = !lab && pathname === "/" && inkUnder;
+  const t = useT();
+  const lang = useLang();
 
   return (
     <header
+      lang={lang}
       className={cn(
         "fixed inset-x-0 top-0 z-40 h-14 border-b transition-colors duration-200",
         ink ? "ink-band border-transparent" : "border-white/10 bg-void",
@@ -53,13 +58,13 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
           lab ? "px-6" : "max-w-[1280px] px-5",
         )}
       >
-        <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label="Geolens home">
+        <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label={t("Geolens home")}>
           <LogoMark className="size-7" />
           <span className="font-display text-[22px] leading-none text-chalk">Geolens</span>
         </Link>
 
         {lab ? (
-          <nav className="ml-auto flex items-center gap-0.5" aria-label="Site">
+          <nav className="ml-auto flex items-center gap-0.5" aria-label={t("Site")}>
             <NavLink to="/explore">Labs</NavLink>
             <NavLink to="/teachers" className="hidden md:inline-flex">
               Teachers
@@ -67,15 +72,16 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
             <Link
               to="/search"
               className="inline-flex size-11 items-center justify-center rounded-md text-mist hover:bg-white/8 hover:text-chalk"
-              aria-label="Search"
+              aria-label={t("Search")}
             >
               <Search className="size-4" />
             </Link>
+            <LanguageSwitch />
             <PreferencesMenu />
           </nav>
         ) : (
           <>
-            <nav className="ml-4 hidden items-center gap-0.5 lg:flex" aria-label="Primary">
+            <nav className="ml-4 hidden items-center gap-0.5 lg:flex" aria-label={t("Primary")}>
               <DropMenu
                 label="Labs"
                 id="labs"
@@ -95,8 +101,8 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                       params={{ realm: r.slug }}
                       className="block rounded-md px-3 py-2 hover:bg-white/8"
                     >
-                      <span className="block text-sm text-chalk">{r.title}</span>
-                      <span className="block text-xs leading-5 text-mist">{r.kicker}</span>
+                      <span className="block text-sm text-chalk">{t(r.title)}</span>
+                      <span className="block text-xs leading-5 text-mist">{t(r.kicker)}</span>
                     </Link>
                   ))}
                 </div>
@@ -114,9 +120,9 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                   search={{ kind: "cases" }}
                   className="block rounded-md px-3 py-2 hover:bg-white/8"
                 >
-                  <span className="block text-sm text-chalk">All case studies</span>
+                  <span className="block text-sm text-chalk">{t("All case studies")}</span>
                   <span className="block text-xs leading-5 text-mist">
-                    Real places that the labs explain
+                    {t("Real places that the labs explain")}
                   </span>
                 </Link>
                 <MenuItem to="/trips" hint="Map tours with a photograph at each stop">
@@ -179,15 +185,16 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
               <Link
                 to="/search"
                 className="inline-flex size-11 items-center justify-center rounded-md text-chalk hover:bg-white/8 lg:hidden"
-                aria-label="Search"
+                aria-label={t("Search")}
               >
                 <Search className="size-5" />
               </Link>
+              <LanguageSwitch />
               <PreferencesMenu />
               <button
                 type="button"
                 className="inline-flex size-11 items-center justify-center rounded-md text-chalk hover:bg-white/8 lg:hidden"
-                aria-label={open ? "Close menu" : "Open menu"}
+                aria-label={t(open ? "Close menu" : "Open menu")}
                 aria-expanded={open}
                 aria-controls="mobile-menu"
                 onClick={() => setOpen((v) => !v)}
@@ -203,7 +210,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
         <div id="mobile-menu" className="border-b border-white/10 bg-void lg:hidden">
           <nav
             className="mx-auto flex max-h-[calc(100dvh-3.5rem)] max-w-[1280px] flex-col overflow-y-auto px-4 pb-6 pt-3"
-            aria-label="Mobile"
+            aria-label={t("Mobile")}
           >
             <SiteSearch className="mb-2" />
             <MobileGroup title="Labs">
@@ -215,7 +222,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                   params={{ realm: r.slug }}
                   className="rounded-md px-3 py-2.5 text-chalk hover:bg-white/8"
                 >
-                  {r.title}
+                  {t(r.title)}
                 </Link>
               ))}
             </MobileGroup>
@@ -225,7 +232,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
                 search={{ kind: "cases" }}
                 className="rounded-md px-3 py-2.5 text-chalk hover:bg-white/8"
               >
-                All case studies
+                {t("All case studies")}
               </Link>
               <MobileLink to="/trips">Field trips</MobileLink>
             </MobileGroup>
@@ -260,6 +267,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
 /** A search box that opens the search page with the words typed. */
 function SiteSearch({ className }: { className?: string }) {
   const id = useId();
+  const t = useT();
   const navigate = useNavigate();
   const [q, setQ] = useState("");
   const submit = (e: FormEvent) => {
@@ -271,7 +279,7 @@ function SiteSearch({ className }: { className?: string }) {
   return (
     <form role="search" action="/search" onSubmit={submit} className={cn("relative", className)}>
       <label htmlFor={id} className="sr-only">
-        Search Geolens
+        {t("Search Geolens")}
       </label>
       <Search
         className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-mist"
@@ -283,7 +291,7 @@ function SiteSearch({ className }: { className?: string }) {
         type="search"
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Search labs, places, terms"
+        placeholder={t("Search labs, places, terms")}
         className="h-10 w-full rounded-md border border-white/15 bg-basalt pl-9 pr-3 text-sm text-chalk placeholder:text-mist"
       />
     </form>
@@ -299,6 +307,7 @@ function NavLink({
   children: ReactNode;
   className?: string;
 }) {
+  const t = useT();
   return (
     <Link
       to={to}
@@ -308,7 +317,7 @@ function NavLink({
         className,
       )}
     >
-      {children}
+      {typeof children === "string" ? t(children) : children}
     </Link>
   );
 }
@@ -334,10 +343,13 @@ function MenuItem({
   hint: string;
   children: ReactNode;
 }) {
+  const t = useT();
   return (
     <Link to={to} className="block rounded-md px-3 py-2 hover:bg-white/8">
-      <span className="block text-sm text-chalk">{children}</span>
-      <span className="block text-xs leading-5 text-mist">{hint}</span>
+      <span className="block text-sm text-chalk">
+        {typeof children === "string" ? t(children) : children}
+      </span>
+      <span className="block text-xs leading-5 text-mist">{t(hint)}</span>
     </Link>
   );
 }
@@ -363,6 +375,7 @@ function DropMenu({
 }) {
   const open = menu === id;
   const root = useRef<HTMLDivElement>(null);
+  const t = useT();
   useEffect(() => {
     if (!open) return;
     const away = (e: PointerEvent) => {
@@ -396,7 +409,7 @@ function DropMenu({
         aria-expanded={open}
         onClick={() => setMenu(open ? null : id)}
       >
-        {label} <ChevronDown className="size-3.5 text-mist" aria-hidden="true" />
+        {t(label)} <ChevronDown className="size-3.5 text-mist" aria-hidden="true" />
       </button>
       {open && (
         <div
@@ -414,9 +427,10 @@ function DropMenu({
 }
 
 function MobileGroup({ title, children }: { title: string; children: ReactNode }) {
+  const t = useT();
   return (
     <div className="mt-3 flex flex-col border-t border-white/10 pt-3">
-      <p className="px-3 pb-1 text-xs font-semibold text-mist">{title}</p>
+      <p className="px-3 pb-1 text-xs font-semibold text-mist">{t(title)}</p>
       {children}
     </div>
   );
@@ -444,9 +458,31 @@ function MobileLink({
     | "/privacy";
   children: ReactNode;
 }) {
+  const t = useT();
   return (
     <Link to={to} className="rounded-md px-3 py-2.5 text-chalk hover:bg-white/8">
-      {children}
+      {typeof children === "string" ? t(children) : children}
     </Link>
+  );
+}
+
+/**
+ * Switches the interface between English and Spanish. Each button names its language in that
+ * language, so a reader can find their own whichever language the page is in.
+ */
+function LanguageSwitch() {
+  const lang = usePreferences((s) => s.lang);
+  const setLang = usePreferences((s) => s.setLang);
+  const next = lang === "es" ? "en" : "es";
+  return (
+    <button
+      type="button"
+      lang={next}
+      onClick={() => setLang(next)}
+      className="inline-flex h-11 items-center rounded-md px-2.5 text-sm text-chalk hover:bg-white/8"
+      aria-label={next === "es" ? "Ver en español" : "View in English"}
+    >
+      {next === "es" ? "Español" : "English"}
+    </button>
   );
 }

@@ -4,9 +4,12 @@ import { Header } from "./header";
 import { Footer } from "./footer";
 import { PageHelp } from "./page-help";
 import { initialisePreferences } from "@/lib/preferences";
+import { useLang, useT } from "@/lib/i18n";
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   useEffect(initialisePreferences, []);
+  const t = useT();
+  const lang = useLang();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   useEffect(() => {
     let timer: number | undefined;
@@ -46,9 +49,10 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     <div className={isLab ? "min-h-dvh bg-void text-chalk" : "site-bg min-h-dvh text-chalk"}>
       <a
         href="#main"
+        lang={lang}
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-glacier focus:px-4 focus:py-2 focus:text-basalt"
       >
-        {"Skip to content"}
+        {t("Skip to content")}
       </a>
       <Header variant={isLab ? "lab" : "default"} />
       <div className="route-content" key={pathname}>

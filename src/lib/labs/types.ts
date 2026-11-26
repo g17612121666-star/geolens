@@ -61,7 +61,8 @@ export type LabMeta = {
    */
   modelDescription?: string;
   /** Definitions come from scripts/glossary-definitions.json, added at build time. */
-  glossary: { term: string; def: string; exam?: string }[];
+  /** `key` keeps the English term for lookups (pictures) when the term is shown translated. */
+  glossary: { term: string; def: string; exam?: string; key?: string }[];
   /** Wrong sentences students often say, each with its correction; the first is the headline. */
   misconceptions: { claim: string; truth: string }[];
   cases: { slug: string; label: string }[];

@@ -8,6 +8,7 @@ import { LAB_BY_SLUG } from "@/lib/labs/catalog";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { useIsCompact } from "@/hooks/use-media";
 import { SpaceScene, useInkTheme } from "./ink";
+import { useT } from "@/lib/i18n";
 
 export function ScienceStudio({
   slug,
@@ -44,6 +45,7 @@ export function ScienceStudio({
     projector = useLabControls((s) => s.layout === "projector"),
     real = useLabControls((s) => s.trueScale),
     setScale = useLabControls((s) => s.setTrueScale);
+  const t = useT();
   return (
     <>
       <div
@@ -90,7 +92,7 @@ export function ScienceStudio({
         }}
         className={`absolute z-20 max-w-sm rounded-xl border border-white/15 bg-basalt/95 text-sm text-mist ${compact ? "left-3 right-3" : projector ? "right-6" : "right-[25rem]"}`}
       >
-        <summary className="min-h-11 cursor-pointer px-3 py-2.5">Model scale</summary>
+        <summary className="min-h-11 cursor-pointer px-3 py-2.5">{t("Model scale")}</summary>
         <div className="space-y-3 px-4 pb-4">
           <p>{(real ? (trueScale ?? scale) : scale).replaceAll(" · ", ". ")}.</p>
           <button
@@ -99,7 +101,7 @@ export function ScienceStudio({
             onClick={() => setScale(!real)}
             className="min-h-11 rounded-lg border border-glacier/40 px-3 text-glacier"
           >
-            {real ? "Restore teaching scale" : "Compare physical scale"}
+            {t(real ? "Restore teaching scale" : "Compare physical scale")}
           </button>
         </div>
       </details>
@@ -122,6 +124,7 @@ export function ScienceReadout({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null),
     playing = useLabControls((s) => s.playing);
   const content = Children.toArray(children);
+  const t = useT();
   const breakAt = content.findIndex((child) => isValidElement(child) && child.type === "br");
   const main = breakAt < 0 ? content : content.slice(0, breakAt);
   const detail = breakAt < 0 ? [] : content.slice(breakAt + 1);
@@ -152,7 +155,7 @@ export function ScienceReadout({ children }: { children: ReactNode }) {
       </div>
       {detail.length > 0 && (
         <details className="mt-2 border-t border-white/10 pt-2 text-mist">
-          <summary className="cursor-pointer text-sm">How to read these results</summary>
+          <summary className="cursor-pointer text-sm">{t("How to read these results")}</summary>
           <div className="pt-2 leading-6">
             <ScientificText>{detail}</ScientificText>
           </div>

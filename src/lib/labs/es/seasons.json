@@ -1,0 +1,134 @@
+{
+  "title": "Por qué hay estaciones",
+  "hook": "La inclinación del eje de la Tierra cambia el ángulo de la luz solar y la duración del día a medida que la Tierra viaja alrededor del Sol.",
+  "objective": "Explica cómo la inclinación del eje cambia las horas de luz y el ángulo del Sol, y luego predice qué hemisferio tiene verano en un momento elegido del año.",
+  "modelDescription": "El Sol está dentro de la órbita de la Tierra, y la Tierra aparece en cuatro puntos rotulados con los solsticios y los equinoccios. Cada Tierra tiene su eje inclinado dibujado como una línea que siempre apunta en la misma dirección en el espacio, así que primero un hemisferio y luego el otro se inclinan hacia el Sol. El primer plano de la Tierra muestra un globo con su mitad iluminada y la línea entre el día y la noche. Los tamaños y las distancias están dibujados para enseñar, no a escala.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Deja el Estiramiento de la órbita en 0 y pon la Inclinación del eje en 0°. Reproduce un año y lee los dos valores de 12 horas de luz. Cambia al Primer plano de la Tierra para examinar el terminador y el eje."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pon la Inclinación del eje en 23.44° y haz una pausa en el solsticio de junio y luego en el de diciembre. Compara Nueva York con Sídney y sigue la dirección fija del eje."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué los dos hemisferios tienen estaciones opuestas, aunque ambos están casi a la misma distancia del Sol?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "¿Qué pasaría con las estaciones si la inclinación del eje fuera de 0°?",
+      "choices": [
+        "Se invertirían, y junio sería invierno en Nueva York.",
+        "Serían más intensas, porque la órbita se estiraría.",
+        "El ecuador se congelaría mientras los polos se calentarían.",
+        "Casi no habría: la duración del día y el Sol del mediodía apenas cambiarían."
+      ],
+      "explain": "Sin inclinación, la declinación solar se quedaría sobre el ecuador, así que cada latitud tendría una duración del día y una altura del Sol al mediodía casi constantes. La distancia variable entre la Tierra y el Sol todavía causaría un cambio anual más pequeño en la luz solar que llega."
+    },
+    {
+      "prompt": "¿Por qué diciembre es verano en Sídney?",
+      "choices": [
+        "En diciembre el hemisferio sur está inclinado hacia el Sol.",
+        "En diciembre Australia está más cerca del Sol que en junio.",
+        "Las corrientes oceánicas cambian de dirección cada diciembre.",
+        "La Luna atrae los océanos del sur hacia el Sol."
+      ],
+      "explain": "En diciembre el hemisferio sur se inclina hacia el Sol, lo que da a Sídney días más largos y un Sol más alto al mediodía. El hemisferio norte tiene la geometría opuesta."
+    },
+    {
+      "prompt": "A principios de enero la Tierra está un poco más cerca del Sol. ¿Es eso lo que causa el invierno del norte?",
+      "choices": [
+        "Sí. Estar más cerca del Sol enfría el hemisferio norte.",
+        "No. El invierno del norte se debe a la inclinación; el sur está en verano.",
+        "Sí. El perihelio siempre trae invierno a ambos hemisferios a la vez.",
+        "No. En enero la Tierra está en el afelio, su punto más lejano."
+      ],
+      "explain": "Un cambio en la distancia entre la Tierra y el Sol afecta a ambos hemisferios al mismo tiempo, mientras que sus estaciones son opuestas. Por eso la inclinación del eje explica el invierno del norte aunque la Tierra esté cerca del perihelio."
+    },
+    {
+      "prompt": "En el ecuador, ¿cómo cambian la duración del día y la altura del Sol durante el año en comparación con Nueva York?",
+      "choices": [
+        "El ecuador tiene días largos en junio y cortos en diciembre, como Nueva York.",
+        "Ambos lugares cambian lo mismo; solo es distinta la temperatura.",
+        "En el ecuador los días duran cerca de 12 h; en Nueva York, de unas 9 a 15 h.",
+        "En el ecuador el Sol del mediodía siempre está justo encima, todo el año."
+      ],
+      "explain": "Cerca del ecuador, el límite entre el día y la noche divide cada recorrido diario del Sol en dos mitades casi iguales durante todo el año. La latitud más alta de Nueva York produce cambios estacionales mucho mayores en la duración del día y en la altura del Sol al mediodía."
+    },
+    {
+      "prompt": "En el solsticio de junio, ¿qué lugares tienen 24 horas de luz?",
+      "choices": [
+        "Los lugares en el ecuador, como Quito",
+        "Todos los lugares del hemisferio norte",
+        "Los lugares al sur del círculo polar antártico",
+        "Los lugares al norte del círculo polar ártico"
+      ],
+      "explain": "En junio el hemisferio norte se inclina hacia el Sol, así que los lugares al norte del círculo polar ártico (unos 66.6° N) dan la vuelta completa sin salir de la mitad iluminada. Al sur del círculo polar antártico está oscuro todo el día."
+    }
+  ],
+  "why": [
+    "La inclinación del eje de la Tierra cambia el ángulo de la luz solar y la duración del día a medida que la Tierra viaja alrededor del Sol. El hemisferio inclinado hacia el Sol tiene verano mientras el otro tiene invierno.",
+    "El eje siempre apunta en la misma dirección en el espacio. En el solsticio de junio el hemisferio norte se inclina hacia el Sol, así que su Sol del mediodía está más alto, la misma luz solar se concentra en menos terreno y los días son más largos. Seis meses después la Tierra está al otro lado del Sol, y el que se inclina hacia él es el hemisferio sur.",
+    "El Estiramiento de la órbita es un ajuste hipotético para separar el efecto de la inclinación del de la distancia; sus fechas no coinciden con la órbita real de la Tierra."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El verano ocurre porque la Tierra está más cerca del Sol.",
+      "truth": "La inclinación del eje de la Tierra cambia tanto el ángulo de la luz solar como la duración del día. El hemisferio inclinado hacia el Sol tiene verano mientras el otro tiene invierno. La Tierra está más cerca del Sol a principios de enero, así que la distancia orbital no puede explicar que sus estaciones sean opuestas."
+    },
+    {
+      "claim": "En el verano de Estados Unidos, el Sol está justo encima al mediodía.",
+      "truth": "El Sol solo puede estar justo encima entre los trópicos de Cáncer y de Capricornio, así que nunca lo está en ningún lugar de los 48 estados contiguos; de los 50 estados, solo Hawái está dentro de los trópicos. Incluso en el solsticio de junio, el Sol del mediodía en Nueva York solo llega a unos 73° sobre el horizonte."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Inclinación del eje",
+      "def": "El ángulo entre el eje de rotación de un cuerpo y la perpendicular al plano de su órbita. La inclinación de la Tierra es de unos 23.44°, y su eje mantiene casi la misma dirección durante una órbita."
+    },
+    {
+      "term": "Terminador",
+      "def": "La línea que separa la mitad iluminada de un planeta o de una luna de su mitad oscura. En la Tierra, cada lugar la cruza al amanecer y al atardecer, y su ángulo respecto a los polos cambia con las estaciones."
+    },
+    {
+      "term": "Solsticio",
+      "def": "El momento en que el Sol alcanza su mayor declinación al norte o al sur, en junio y en diciembre. Trae el día más largo del año a un hemisferio y el más corto al otro."
+    },
+    {
+      "term": "Equinoccio",
+      "def": "El momento en que el Sol está justo encima del ecuador, en marzo y en septiembre. Entonces el día y la noche duran casi lo mismo en todas partes, aunque la luz del día dura un poco más de 12 horas por cómo se define la salida del Sol y porque la atmósfera desvía la luz solar."
+    },
+    {
+      "term": "Declinación",
+      "def": "La posición angular del Sol al norte o al sur del ecuador celeste, equivalente a la latitud del punto donde el Sol está justo encima. Varía entre unos 23.44° norte y sur a lo largo del año y ayuda a determinar la altura del Sol al mediodía y la duración del día."
+    },
+    {
+      "term": "Perihelio",
+      "def": "El punto de una órbita en que un cuerpo está más cerca del Sol. La Tierra llega al perihelio a principios de enero. La distancia variable afecta a la energía solar que llega, mientras que la inclinación del eje explica que los dos hemisferios tengan estaciones opuestas."
+    },
+    {
+      "term": "Traslación",
+      "def": "El movimiento de un cuerpo alrededor de otro a lo largo de una órbita. La Tierra completa una traslación alrededor del Sol en aproximadamente un año. La rotación es el movimiento distinto alrededor de su propio eje, que produce el ciclo diario de luz y oscuridad."
+    }
+  ],
+  "predict": {
+    "prompt": "Si el eje de la Tierra no tuviera ninguna inclinación, ¿qué le pasaría a la duración de un día de junio en Nueva York? Explica tu predicción."
+  },
+  "cer": {
+    "prompt": "¿Qué causa las estaciones: la distancia cambiante entre la Tierra y el Sol, o la inclinación del eje de la Tierra?",
+    "claim": "La inclinación del eje de la Tierra causa las estaciones; el pequeño cambio de distancia no.",
+    "evidence": "Con la Inclinación del eje en 0° y el Estiramiento de la órbita en 0, todos los lugares excepto los polos tienen días de 12 horas todo el año. Con 23.44° de inclinación, las horas de luz en Nueva York pasan de unas 9 en diciembre a unas 15 en junio, mientras que Sídney tiene el patrón opuesto. En realidad, la Tierra está más cerca del Sol a principios de enero, durante el invierno del norte.",
+    "reasoning": "Cuando un hemisferio está inclinado hacia el Sol, recibe días más largos y un Sol más alto al mediodía, así que cada metro cuadrado de suelo recibe más energía. Ambos hemisferios están a la misma distancia del Sol en cada momento, así que la distancia no puede explicar por qué tienen estaciones opuestas."
+  },
+  "controls": {
+    "tilt": { "label": "Inclinación del eje" },
+    "ecc": { "label": "Estiramiento de la órbita" }
+  }
+}

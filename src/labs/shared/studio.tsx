@@ -12,7 +12,8 @@ import { LabTimeInvalidator } from "@/labs/tick";
 import { GenericFallback } from "./fallback";
 import { LabLights, StudioOrbit } from "./kit";
 import { KeyboardOrbit } from "./keyboard-orbit";
-import { MODEL_DESCRIPTION_ID } from "./model-access";
+import { MODEL_DESCRIPTION_ID, MODEL_LABEL_ID } from "./model-access";
+import { useT } from "@/lib/i18n";
 import { LabelLayout } from "./label-layout";
 import { useQuality } from "./perf";
 
@@ -69,6 +70,7 @@ export function LabStudio({
   const setInspect = useLabControls((s) => s.setInspect);
   const q = useQuality();
   const keysId = useId();
+  const tr = useT();
 
   if (webgl === null) {
     return (
@@ -96,8 +98,9 @@ export function LabStudio({
         data-orbit-keys=""
         tabIndex={0}
         role="application"
-        aria-roledescription="3D model"
-        aria-label={`${title}: 3D model`}
+        aria-roledescription={tr("3D model")}
+        aria-labelledby={MODEL_LABEL_ID}
+        aria-label={tr("{title}: 3D model", { title })}
         aria-describedby={`${MODEL_DESCRIPTION_ID} ${keysId}`}
         className="orbit-view group absolute inset-0"
       >
@@ -142,7 +145,7 @@ export function LabStudio({
           id={keysId}
           className="pointer-events-none absolute left-1/2 top-3 z-10 w-max max-w-[calc(100%-2rem)] -translate-x-1/2 rounded-lg border border-white/10 bg-basalt/90 px-3 py-1.5 text-center text-[13px] text-chalk opacity-0 backdrop-blur-md transition-opacity group-focus-visible:opacity-100"
         >
-          Arrow keys turn and tilt the model · + and − zoom · 0 resets the view
+          {tr("Arrow keys turn and tilt the model · + and − zoom · 0 resets the view")}
         </p>
       </div>
       {liveText && (

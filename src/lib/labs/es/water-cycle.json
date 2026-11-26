@@ -1,0 +1,147 @@
+{
+  "title": "Reservas y flujos del ciclo del agua",
+  "hook": "El agua se mueve entre la atmósfera, la tierra y el océano por evaporación, precipitación y flujos en la superficie y bajo ella.",
+  "objective": "Sigue el agua entre sus reservas y explica cómo los cambios en la lluvia o en el uso humano afectan a la cantidad que contiene un embalse.",
+  "modelDescription": "Un bloque de paisaje va desde crestas nevadas, pasando por el suelo y un embalse, hasta el mar, con nubes encima y agua subterránea en la roca de abajo. Al elegir una transferencia, como la evaporación, la precipitación, la infiltración o el deshielo, se resalta su ruta entre estas reservas. En el modo de cuenca hidrográfica, extraer agua del embalse baja su nivel.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Identifica las reservas del océano, la atmósfera, la nieve y el hielo, el suelo y el agua subterránea. Elige un proceso en Seguir una transferencia y sigue la ruta resaltada entre las reservas."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Activa Cuenca hidrográfica y luego aumenta Extracción. Observa el nivel del embalse y el balance en los resultados, y explica cómo extraer agua de una reserva local cambia el agua disponible en la cuenca."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo puede reducirse una reserva local de agua aunque el agua siga circulando por el sistema global?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La mayor reserva de agua dulce está en…",
+      "choices": [
+        "Los ríos y los lagos de agua dulce",
+        "El agua subterránea de los acuíferos",
+        "Las capas de hielo y los glaciares",
+        "La humedad retenida en el suelo"
+      ],
+      "explain": "Las capas de hielo y los glaciares contienen la mayor parte del agua dulce de la Tierra. El agua subterránea es otra gran reserva de agua dulce, mientras que los ríos contienen una fracción mucho menor."
+    },
+    {
+      "prompt": "La infiltración es…",
+      "choices": [
+        "El vapor de agua que se condensa en nubes.",
+        "Un río que desemboca en el mar.",
+        "Las hojas de los árboles que interceptan la lluvia.",
+        "El agua que penetra por la superficie del suelo."
+      ],
+      "explain": "La infiltración es la entrada del agua en el suelo a través de su superficie. Cuando la lluvia supera la capacidad de infiltración del suelo, o el suelo está saturado, más agua puede convertirse en escorrentía superficial."
+    },
+    {
+      "prompt": "En este laboratorio, la extracción baja el nivel del embalse porque…",
+      "choices": [
+        "Se saca agua más rápido de lo que la lluvia y los aportes la reponen.",
+        "La extracción reduce el total de agua del ciclo global.",
+        "El bombeo detiene la evaporación de la superficie del embalse.",
+        "El bombeo lleva agua del mar al acuífero."
+      ],
+      "explain": "Un embalse local pierde agua almacenada cuando las extracciones y otras salidas superan la precipitación y los aportes. Que el agua se conserve a escala global no impide que se agote un lago, un embalse o un acuífero en particular."
+    },
+    {
+      "prompt": "Una cuenca hidrográfica es…",
+      "choices": [
+        "Solo el cauce del río y sus orillas.",
+        "El terreno que drenan un río y sus afluentes.",
+        "La zona que se inunda en una crecida de 100 años.",
+        "La zona del mar donde un río deposita su carga."
+      ],
+      "explain": "Una divisoria de aguas separa los terrenos cuya escorrentía superficial llega a distintos sistemas fluviales. La cuenca incluye todo el terreno que aporta agua al río elegido y a sus afluentes."
+    },
+    {
+      "prompt": "¿Qué cambio aumentaría más la escorrentía superficial después de una tormenta?",
+      "choices": [
+        "Cubrir los campos con asfalto y techos",
+        "Plantar árboles en toda la cuenca",
+        "Una larga sequía que deja los suelos sin saturar",
+        "Una llovizna ligera durante varios días"
+      ],
+      "explain": "Las superficies impermeables impiden que la lluvia se infiltre, así que más agua corre directamente hacia los desagües y los ríos. Los árboles y los suelos secos aumentan la intercepción y la infiltración, mientras que la lluvia suave da tiempo al agua para infiltrarse."
+    }
+  ],
+  "why": [
+    "El agua se mueve entre la atmósfera, la tierra y el océano por evaporación, precipitación y flujos en la superficie y bajo ella. Nombrar primero las reservas facilita seguir de dónde viene el agua y adónde va.",
+    "Un embalse es una reserva local. Su volumen sube o baja según el balance entre las entradas (precipitación y aportes) y las salidas (evaporación, descargas y extracción). Cuando las salidas superan las entradas, la reserva se reduce, aunque la cantidad total de agua de la Tierra no cambie.",
+    "Los trazadores muestran las rutas de transferencia; su tamaño y su separación no indican cuánta agua se mueve por cada ruta."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Como el ciclo global del agua conserva el agua, un embalse local no puede quedarse sin agua.",
+      "truth": "El agua puede salir de una reserva local más rápido de lo que se repone. Las extracciones, la evaporación y las descargas río abajo pueden superar los aportes, así que el volumen almacenado baja aunque el agua siga existiendo en otra parte de la Tierra. Por eso un balance hídrico regional necesita tanto las cantidades como el momento de las entradas y las salidas."
+    },
+    {
+      "claim": "Las nubes están hechas de vapor de agua.",
+      "truth": "El vapor de agua es un gas invisible. Las nubes están formadas por diminutas gotas de agua líquida o cristales de hielo que se forman cuando el aire húmedo se enfría y el vapor se condensa."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Reserva",
+      "def": "Una cantidad de materia o energía contenida en una parte de un sistema, como el agua de un lago o el carbono de la vegetación. Las entradas y las salidas cambian la cantidad almacenada. Una reserva es una cantidad; un flujo es una tasa de transferencia."
+    },
+    {
+      "term": "Transferencia",
+      "def": "El movimiento de materia o energía entre reservas dentro de un sistema. En una cuenca hidrográfica, la infiltración transfiere agua de la superficie al suelo. Una transferencia describe una ruta o un proceso; un flujo cuantifica su tasa."
+    },
+    {
+      "term": "Divisoria de aguas (watershed)",
+      "def": "La línea de terreno alto que separa dos cuencas hidrográficas; en México también se llama parteaguas. En inglés, watershed significa esta divisoria en el Reino Unido, pero en Estados Unidos suele significar toda la cuenca; fíjate en el contexto."
+    },
+    {
+      "term": "Extracción",
+      "def": "La retirada de agua de un río, un lago o un acuífero por parte de las personas, para usos como el riego o el agua potable. Una reserva se reduce cuando la extracción y otras pérdidas superan la recarga."
+    },
+    {
+      "term": "Intercepción",
+      "def": "La retención temporal de la precipitación en hojas, ramas y otras superficies antes de que llegue al suelo. Parte del agua se evapora y parte gotea o escurre por los tallos. La intercepción cambia el momento y la cantidad de agua que entra en el suelo."
+    },
+    {
+      "term": "Tiempo de residencia",
+      "def": "El tiempo típico que la materia permanece en una reserva. En una reserva bien mezclada y en estado estacionario, el tiempo medio de residencia es su cantidad dividida entre su tasa de salida."
+    },
+    {
+      "term": "Evapotranspiración",
+      "def": "La transferencia combinada de agua a la atmósfera por evaporación y por transpiración de las plantas. Relaciona la humedad del suelo, la vegetación y el tiempo atmosférico en el balance hídrico de una cuenca. La evapotranspiración potencial describe la demanda cuando hay agua suficiente, no necesariamente la cantidad que ocurre en realidad."
+    }
+  ],
+  "predict": {
+    "prompt": "Si las personas sacan agua de un embalse más rápido de lo que la lluvia y los ríos lo rellenan, ¿qué le pasa a la cantidad total de agua de la Tierra?"
+  },
+  "cer": {
+    "prompt": "¿Cómo puede bajar el nivel de un embalse aunque la cantidad total de agua de la Tierra siga siendo la misma?",
+    "claim": "Un embalse se reduce cuando sus salidas son mayores que sus entradas, pero el agua pasa a otras reservas en vez de perderse de la Tierra.",
+    "evidence": "Subir Extracción traslada hasta 6,000 m³ del embalse de 10,000 m³ a una reserva de uso humano, y el nivel del embalse baja, mientras que el balance en los resultados muestra que el total combinado sigue igual.",
+    "reasoning": "El agua se mueve entre reservas mediante procesos como la precipitación, la escorrentía, la evaporación y la extracción. Una reserva local depende del balance entre estos flujos. El agua que se extrae sigue existiendo en otra parte del ciclo, pero puede que no esté disponible en el mismo lugar al mismo tiempo."
+  },
+  "controls": {
+    "abstraction": { "label": "Extracción" },
+    "transfer": {
+      "label": "Seguir una transferencia",
+      "options": [
+        "Evaporación",
+        "Transporte atmosférico",
+        "Precipitación",
+        "Escorrentía superficial",
+        "Infiltración",
+        "Flujo de agua subterránea",
+        "Transpiración",
+        "Deshielo"
+      ]
+    },
+    "basin": { "label": "Cuenca hidrográfica" }
+  }
+}

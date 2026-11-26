@@ -24,7 +24,7 @@ function environment(saved = {}, initialDark = false) {
     addEventListener: (event, listener) => { assert.equal(event, 'storage'); storageListener = listener; },
     removeEventListener: (event, listener) => { assert.equal(event, 'storage'); assert.equal(listener, storageListener); storageListener = undefined; },
   };
-  pref.usePreferences.setState({ theme: 'system', resolvedTheme: 'dark', units: 'metric' });
+  pref.usePreferences.setState({ theme: 'system', resolvedTheme: 'dark', units: 'metric', lang: 'en' });
   let dispose;
   return {
     root,
@@ -45,7 +45,7 @@ test('a saved theme is restored while a legacy locale cannot change the English 
     assert.equal(env.root.dataset.theme, 'dark');
     assert.equal(env.root.style.colorScheme, 'dark');
     pref.usePreferences.getState().setTheme('light');
-    assert.deepEqual(env.stored, { theme: 'light', units: 'metric' });
+    assert.deepEqual(env.stored, { theme: 'light', units: 'metric', lang: 'en' });
     assert.equal(env.root.dataset.theme, 'light');
     assert.equal(env.root.lang, 'en');
   } finally { env.restore(); }
@@ -65,7 +65,7 @@ test('system theme follows the operating system while an explicit theme stays se
     assert.equal(env.root.dataset.theme, 'dark');
     env.setSystemDark(false);
     assert.equal(env.root.dataset.theme, 'light');
-    assert.deepEqual(env.stored, { theme: 'system', units: 'metric' });
+    assert.deepEqual(env.stored, { theme: 'system', units: 'metric', lang: 'en' });
   } finally { env.restore(); }
 });
 
@@ -108,15 +108,37 @@ test('a reader can choose US customary units; the choice is saved, shared across
     env.initialize();
     assert.equal(pref.usePreferences.getState().units, 'us');
     pref.usePreferences.getState().setUnits('metric');
-    assert.deepEqual(env.stored, { theme: 'dark', units: 'metric' });
+    assert.deepEqual(env.stored, { theme: 'dark', units: 'metric', lang: 'en' });
     pref.usePreferences.getState().setTheme('light');
-    assert.deepEqual(env.stored, { theme: 'light', units: 'metric' });
+    assert.deepEqual(env.stored, { theme: 'light', units: 'metric', lang: 'en' });
     env.storage({ theme: 'light', units: 'us' });
     assert.equal(pref.usePreferences.getState().units, 'us');
     env.storage({ theme: 'light', units: 'imperial' });
     assert.equal(pref.usePreferences.getState().units, 'metric');
     env.storage(null);
     assert.equal(pref.usePreferences.getState().units, 'metric');
+    env.dispose();
+  } finally { env.restore(); }
+});
+
+test('a reader can choose Spanish; the choice is saved, shared across tabs and validated, and the page stays English', () => {
+  const env = environment({ theme: 'dark', lang: 'es' });
+  try {
+    env.initialize();
+    assert.equal(pref.usePreferences.getState().lang, 'es');
+    // Most pages are still English, so only a translated lab marks the whole page as Spanish.
+    assert.equal(env.root.lang, 'en');
+    pref.usePreferences.getState().setTheme('light');
+    assert.deepEqual(env.stored, { theme: 'light', units: 'metric', lang: 'es' });
+    pref.usePreferences.getState().setLang('en');
+    assert.deepEqual(env.stored, { theme: 'light', units: 'metric', lang: 'en' });
+    env.storage({ theme: 'light', lang: 'es' });
+    assert.equal(pref.usePreferences.getState().lang, 'es');
+    env.storage({ theme: 'light', lang: 'fr' });
+    assert.equal(pref.usePreferences.getState().lang, 'en');
+    env.storage({ locale: 'zh', theme: 'light' });
+    assert.equal(pref.usePreferences.getState().lang, 'en');
+    assert.equal(env.root.lang, 'en');
     env.dispose();
   } finally { env.restore(); }
 });

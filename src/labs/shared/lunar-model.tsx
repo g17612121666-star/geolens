@@ -18,6 +18,7 @@ import { useLabTick } from "@/labs/tick";
 import { Tag } from "./kit";
 import { ScienceStudio, ScienceReadout, Arrow } from "./science-kit";
 import { liveUniforms } from "@/lib/shader-uniforms";
+import { useT } from "@/lib/i18n";
 
 export function LunarSurface({
   position = [0, 0, 0],
@@ -589,6 +590,7 @@ function PhaseIcon({ fraction, waxing }: { fraction: number; waxing: boolean }) 
 
 export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides" }) {
   const [near, setNear] = useState(false);
+  const tr = useT();
   const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 32);
   const node = params.node ?? 60,
@@ -775,7 +777,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               aria-pressed={!near}
               onClick={() => setNear(false)}
             >
-              {"Orbit geometry"}
+              {tr("Orbit geometry")}
             </button>
             <button
               type="button"
@@ -783,7 +785,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               aria-pressed={near}
               onClick={() => setNear(true)}
             >
-              {"Moon close-up"}
+              {tr("Moon close-up")}
             </button>
           </div>
         )}

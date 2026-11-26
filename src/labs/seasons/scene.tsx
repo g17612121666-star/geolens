@@ -10,6 +10,7 @@ import { Tag } from "../shared/kit";
 import { StarMesh } from "@/components/globe/star";
 import { latLonToXYZ } from "@/lib/geo";
 import { useIsCompact } from "@/hooks/use-media";
+import { useT } from "@/lib/i18n";
 /** Earth's axis: a rod through the poles with an arrowhead at the north end, toward Polaris. */
 function AxisRod({ length, thickness }: { length: number; thickness: number }) {
   return (
@@ -58,6 +59,7 @@ const SeasonEarth = memo(function SeasonEarth({
 
 export default function Seasons() {
   const [close, setClose] = useState(false);
+  const tr = useT();
   const compact = useIsCompact();
   const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 36);
@@ -247,21 +249,21 @@ export default function Seasons() {
         <div
           className="pointer-events-auto mb-1 flex justify-center gap-2"
           role="group"
-          aria-label={"Season model view"}
+          aria-label={tr("Season model view")}
         >
           <button
             className={`min-h-11 rounded-lg border border-white/15 px-3 ${!close ? "text-glacier" : ""}`}
             aria-pressed={!close}
             onClick={() => setClose(false)}
           >
-            {"Orbit overview"}
+            {tr("Orbit overview")}
           </button>
           <button
             className={`min-h-11 rounded-lg border border-white/15 px-3 ${close ? "text-glacier" : ""}`}
             aria-pressed={close}
             onClick={() => setClose(true)}
           >
-            {"Earth close-up"}
+            {tr("Earth close-up")}
           </button>
         </div>
         {"Declination "}

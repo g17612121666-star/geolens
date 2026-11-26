@@ -1,0 +1,138 @@
+{
+  "title": "Los límites de placas",
+  "hook": "En los límites divergentes las placas se separan, en los convergentes se acercan y en los transformantes se deslizan una junto a otra.",
+  "objective": "Compara el movimiento en tres tipos de límite de placas y explica cómo cada uno produce formas del relieve características.",
+  "modelDescription": "Un globo terrestre muestra los límites de placas actuales como líneas de colores: verde azulado para los límites divergentes, donde las placas se separan; coral para los convergentes, donde se acercan; y color arena para los transformantes, donde se deslizan una junto a otra. Las flechas muestran el movimiento de las placas. El globo puede retroceder hacia Pangea en instantáneas de 10 millones de años, marcar el punto caliente de Hawái y mostrar un corte a través de un tipo de límite.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Gira el globo actual. El verde azulado marca los límites divergentes; el coral, los convergentes, y el color arena, los transformantes. Activa Corte del límite y cambia Tipo de límite para comparar sus movimientos."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Aumenta Tiempo antes del presente para retroceder hacia Pangea en instantáneas de 10 Ma. Vuelve a 0 Ma y activa Punto caliente de Hawái para encontrar Hawái."
+    },
+    {
+      "title": "Explicar",
+      "body": "Elige un límite y explica cómo la dirección en que se mueven las placas da cuenta de las formas del relieve que hay allí."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "¿Qué tipo de límite es la dorsal mesoatlántica?",
+      "choices": ["Convergente", "Divergente", "Transformante", "Punto caliente"],
+      "explain": "En la dorsal mesoatlántica, las placas se separan y el material del manto asciende bajo el centro de expansión. La fusión parcial aporta magma que forma nueva corteza oceánica."
+    },
+    {
+      "prompt": "El Himalaya se eleva en…",
+      "choices": [
+        "Una falla transformante entre dos placas oceánicas.",
+        "Un punto caliente del manto bajo una placa.",
+        "Una convergencia entre dos continentes.",
+        "Un margen continental pasivo."
+      ],
+      "explain": "La colisión de la India con Eurasia acortó y engrosó la corteza continental. Ese engrosamiento de la corteza y la convergencia que continúa ayudaron a elevar el Himalaya."
+    },
+    {
+      "prompt": "La mejor descripción de la falla de San Andrés es…",
+      "choices": [
+        "Una dorsal divergente donde se forma nueva corteza oceánica bajo California.",
+        "Una zona de subducción como la que hay bajo la cordillera de las Cascadas.",
+        "Un rift continental que está separando a California del continente.",
+        "Un límite transformante entre las placas del Pacífico y de Norteamérica."
+      ],
+      "explain": "La falla de San Andrés acomoda sobre todo el movimiento horizontal entre las placas del Pacífico y de Norteamérica. El deslizamiento de la falla causa terremotos pero, a diferencia de las dorsales y las zonas de subducción, produce poco magma."
+    },
+    {
+      "prompt": "Una cadena de punto caliente como la de Hawái es evidencia de que…",
+      "choices": [
+        "Una placa se ha movido sobre una pluma duradera y ha dejado volcanes más antiguos.",
+        "Las placas están quietas mientras las plumas del manto migran bajo ellas.",
+        "Los volcanes solo se forman donde las placas se separan, en las dorsales.",
+        "Cada isla se formó sobre su propia zona de subducción, separada de las demás."
+      ],
+      "explain": "A medida que una placa se mueve respecto a una región de fusión persistente, se forman volcanes nuevos mientras los más antiguos se alejan de la fuente activa. Por eso una progresión de edades registra el movimiento relativo de la placa, aunque los puntos calientes no tienen por qué permanecer perfectamente fijos."
+    },
+    {
+      "prompt": "¿Por qué no hay volcanes a lo largo del Himalaya, aunque las placas convergen?",
+      "choices": [
+        "Las montañas y la corteza de allí son demasiado frías para que se forme magma.",
+        "Ninguno de los dos continentes se hunde lo bastante para fundir el manto.",
+        "Los glaciares erosionaron por completo todos los volcanes de allí.",
+        "Los límites convergentes nunca producen volcanes."
+      ],
+      "explain": "La corteza continental es demasiado ligera para hundirse mucho en el manto. Sin una placa oceánica que descienda y libere agua, se forma poco magma, así que una colisión continental levanta montañas en vez de un arco volcánico."
+    }
+  ],
+  "why": [
+    "En los límites divergentes las placas se separan, en los convergentes se acercan y en los transformantes se deslizan una junto a otra. Estos movimientos relativos ayudan a explicar la distribución de las dorsales, las fosas y los terremotos.",
+    "Las placas se mueven solo unos pocos centímetros al año, pero a lo largo de decenas de millones de años eso reorganiza los continentes. Hace unos 200 millones de años, la mayor parte de la corteza continental estaba unida en Pangea; desde entonces, la expansión en dorsales como la mesoatlántica ha abierto nuevos océanos entre los fragmentos.",
+    "Las vistas del pasado mueven las costas actuales con un modelo de placas, así que muestran las posiciones de los continentes, no las costas antiguas."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Los continentes se mueven a través de un fondo oceánico que se queda quieto.",
+      "truth": "Tanto los continentes como el fondo oceánico se desplazan como parte de las placas litosféricas. Una placa puede incluir corteza continental y oceánica, y su límite no tiene por qué seguir una costa. El movimiento relativo de las placas produce expansión, convergencia o deslizamiento lateral, con distintas formas del relieve y actividad geológica en cada tipo de límite."
+    },
+    {
+      "claim": "Los terremotos y los volcanes pueden ocurrir en cualquier lugar con la misma probabilidad.",
+      "truth": "La mayoría de los terremotos y volcanes se concentran en franjas estrechas a lo largo de los límites de placas, como el Cinturón de Fuego del Pacífico. Algunos ocurren dentro de las placas, por ejemplo sobre puntos calientes como Hawái, pero son la excepción."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Divergente",
+      "def": "Se dice de un límite de placas donde las placas se separan. La roca del manto asciende y puede fundirse en parte al bajar la presión, lo que produce nueva corteza oceánica en las dorsales. La divergencia continental puede formar primero un rift antes de que se desarrolle una cuenca oceánica."
+    },
+    {
+      "term": "Convergente",
+      "def": "Se dice de un límite de placas donde las placas se mueven una hacia la otra. La litosfera oceánica, que es densa, puede subducir, mientras que una colisión entre continentes engrosa la corteza. Los tipos de placa determinan si se forma una fosa, un arco volcánico o una amplia cordillera."
+    },
+    {
+      "term": "Transformante",
+      "def": "Se dice de un límite de placas donde las placas vecinas se deslizan horizontalmente una junto a otra. A lo largo de él no se crea ni se destruye corteza. Los terremotos son frecuentes porque la fricción bloquea la falla hasta que el esfuerzo acumulado la hace deslizarse."
+    },
+    {
+      "term": "Punto caliente",
+      "def": "Una región de vulcanismo persistente que puede estar dentro de una placa o en un límite. Muchos puntos calientes se asocian con el ascenso de material del manto; no todos tienen un origen comprobado en una pluma profunda."
+    },
+    {
+      "term": "Pangea",
+      "def": "Un supercontinente que se formó a finales del Paleozoico y se fragmentó durante el Mesozoico. Su reconstrucción usa evidencia de rocas, fósiles, magnetismo y márgenes continentales. Pangea fue uno de varios supercontinentes de la historia de la Tierra, no la corteza original de la Tierra."
+    },
+    {
+      "term": "Subducción",
+      "def": "El descenso de una placa litosférica bajo otra hacia el manto en un límite convergente; por lo general se trata de litosfera oceánica."
+    },
+    {
+      "term": "Dorsal oceánica",
+      "def": "Un sistema de montañas submarinas en un límite de expansión, donde el ascenso y la fusión del manto forman nueva corteza oceánica. En general, el fondo marino es más antiguo cuanto más lejos está del eje de expansión."
+    }
+  ],
+  "predict": {
+    "prompt": "Se forman volcanes donde las placas se separan y donde una placa se hunde bajo otra. ¿Esperarías encontrar volcanes a lo largo de un límite transformante como la falla de San Andrés? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Cómo explica el movimiento en cada tipo de límite de placas las formas del relieve que hay allí?",
+    "claim": "Los límites divergentes forman dorsales y valles de rift; los convergentes, montañas, fosas y arcos volcánicos; y los transformantes producen sobre todo terremotos a lo largo de fallas.",
+    "evidence": "En Corte del límite, las placas divergentes se separan y se forma corteza nueva en la dorsal; en un límite convergente, una placa desciende bajo otra; en un límite transformante, las placas se deslizan una junto a otra. En el globo, la dorsal mesoatlántica es divergente, el límite a lo largo de los Andes y las Cascadas es convergente y la falla de San Andrés es transformante.",
+    "reasoning": "La separación permite que la roca del manto ascienda y se funda en parte, lo que forma corteza nueva. La subducción lleva agua al manto, lo que ayuda a fundir la roca y alimenta los volcanes. Las placas que se deslizan crean o destruyen poca corteza, así que producen fallas y terremotos, pero poco magma."
+  },
+  "controls": {
+    "ageMa": { "label": "Tiempo antes del presente" },
+    "boundary": {
+      "label": "Tipo de límite",
+      "options": [
+        "Divergente — se separan",
+        "Convergente — se acercan",
+        "Transformante — se deslizan"
+      ]
+    },
+    "hotspot": { "label": "Punto caliente de Hawái" },
+    "section": { "label": "Corte del límite" }
+  }
+}

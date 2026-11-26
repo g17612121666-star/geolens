@@ -666,7 +666,7 @@
             "About 2,260 km"
           ],
           "answer": 0,
-          "explain": "A typical continental crust thickness of about 35 km is well under 1% of Earth's 6371 km radius. Crustal thickness varies considerably, particularly beneath mountain belts."
+          "explain": "A typical continental crust thickness of about 35 km is well under 1% of Earth's 6,371 km radius. Crustal thickness varies considerably, particularly beneath mountain belts."
         },
         {
           "prompt": "How do scientists know what Earth’s core is like?",
