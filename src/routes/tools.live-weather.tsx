@@ -27,9 +27,10 @@ import { headFor } from "@/lib/seo";
 import {
   compass,
   fetchWeather,
+  inNwsArea,
+  WEATHER_SOURCE,
   WeatherError,
   weatherCsv,
-  weatherDescription,
   type WeatherHour,
   type WeatherPoint,
   type WeatherResult,
@@ -294,7 +295,10 @@ function LiveWeather() {
       </section>
       <div className="weather-current-heading">
         <h2>Current model conditions</h2>
-        <p>Open-Meteo supplies model estimates rather than readings from a weather station.</p>
+        <p>
+          These are forecast-model estimates, not readings from a weather station: from the National
+          Weather Service for places in the United States, and from Open-Meteo elsewhere.
+        </p>
       </div>
       <div className="weather-current-grid">
         <WeatherCard id="A" point={a} state={wa} units={units} />
@@ -512,21 +516,32 @@ function LiveWeather() {
       <details className="field-methods">
         <summary>About the forecast data</summary>
         <p>
-          Open-Meteo combines numerical weather models and chooses a suitable model grid cell near
-          each pin. The terrain height and location of that cell can differ from your selected
-          coordinates. A dash means no value was supplied. Requests are cached for ten minutes in
-          this tab.
+          For places in the United States, the forecast comes from the National Weather Service’s
+          forecast grid, whose cells are about 2.5 km (1.5 mi) across. The NWS forecasts rain and
+          snow as totals over several hours, so each hour shows an equal share of its total, and its
+          grid has no air pressure. Everywhere else, and whenever the NWS does not answer,
+          Open-Meteo supplies the forecast: it combines numerical weather models and chooses a
+          suitable model grid cell near each pin.
+        </p>
+        <p>
+          The terrain height and location of a grid cell can differ from your selected coordinates.
+          A dash means no value was supplied. Requests are cached for ten minutes in this tab.
         </p>
         <p>
           Use these forecasts to investigate patterns in class. For decisions about severe weather,
           consult the relevant local weather service.
         </p>
         <p>
-          <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">
-            Weather data by Open-Meteo
-          </a>
-          . <Link to="/atlas">Explore the Atlas</Link> to connect today’s weather with longer-term
-          climate and landscapes.
+          Weather data by the{" "}
+          <a href={WEATHER_SOURCE.nws.href} target="_blank" rel="noreferrer">
+            National Weather Service
+          </a>{" "}
+          for US places and by{" "}
+          <a href={WEATHER_SOURCE["open-meteo"].href} target="_blank" rel="noreferrer">
+            Open-Meteo
+          </a>{" "}
+          elsewhere. <Link to="/atlas">Explore the Atlas</Link> to connect today’s weather with
+          longer-term climate and landscapes.
         </p>
       </details>
     </main>
@@ -610,7 +625,7 @@ function WeatherCard({
           <div className="weather-card-loading">
             <LoadingProgress
               label={`Loading weather for ${point.name}`}
-              detail="Contacting Open-Meteo…"
+              detail={`Contacting ${inNwsArea(point) ? "the National Weather Service" : "Open-Meteo"}…`}
             />
           </div>
         )}
@@ -633,11 +648,13 @@ function WeatherCard({
               <span>{temperature.unit}</span>
             </p>
             <div>
-              <span>{weatherDescription(c.code)}</span>
+              <span>{c.summary}</span>
               <small>Feels like {q(c.apparent, "temperature")}</small>
             </div>
           </div>
-          <p className="weather-model-time">Model time: {utc(c.time)}</p>
+          <p className="weather-model-time">
+            Model time: {utc(c.time)} · {WEATHER_SOURCE[data.source].name}
+          </p>
           <dl className="weather-main-metrics">
             <Metric label="Wind at 10 m" value={q(c.wind, "speed")} />
             <Metric label="Cloud cover" value={q(c.cloud, "percent")} />
@@ -650,7 +667,9 @@ function WeatherCard({
             <summary>More readings and data source</summary>
             <dl className="weather-extra-metrics">
               <Metric label="Relative humidity" value={q(c.humidity, "percent")} />
-              <Metric label="Mean sea-level pressure" value={q(c.pressure, "pressure")} />
+              {data.source !== "nws" && (
+                <Metric label="Mean sea-level pressure" value={q(c.pressure, "pressure")} />
+              )}
               <Metric label="Wind gust at 10 m" value={q(c.gust, "speed")} />
               <Metric
                 label="Visibility"
@@ -665,8 +684,9 @@ function WeatherCard({
               </p>
             )}
             <p className="weather-chart-note">
-              The model grid cell is at {fmtLatLon(data.grid.lat, data.grid.lon, 3)}, with an
-              elevation of {q(data.grid.elevation, "height")}. Retrieved at{" "}
+              The {data.source === "nws" ? "NWS forecast" : "model"} grid cell is at{" "}
+              {fmtLatLon(data.grid.lat, data.grid.lon, 3)}, with an elevation of{" "}
+              {q(data.grid.elevation, "height")}. Retrieved at{" "}
               {new Date(data.fetchedAt).toISOString().replace("T", " ").slice(0, 19)} UTC.
             </p>
             <div className="field-actions">

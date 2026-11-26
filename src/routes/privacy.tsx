@@ -57,7 +57,7 @@ function Privacy() {
         </p>
         <p>
           {
-            "Maps load tiles from OpenFreeMap / OpenStreetMap, and the live-weather tool loads forecasts from Open-Meteo. When you open a live-data panel in a lab, tide predictions come from NOAA Tides & Currents and river readings from USGS Water Data; the ENSO update is fetched from NOAA by Geolens itself. Like any web request, these share your IP address with those services. If the map tiles fail to load, the atlas shows a simple Natural Earth coastline built into the site."
+            "Maps load tiles from OpenFreeMap / OpenStreetMap, and the live-weather tool loads forecasts from the National Weather Service for places in the United States and from Open-Meteo elsewhere. When you open a live-data panel in a lab, tide predictions come from NOAA Tides & Currents and river readings from USGS Water Data; the ENSO update is fetched from NOAA by Geolens itself. Like any web request, these share your IP address with those services. If the map tiles fail to load, the atlas shows a simple Natural Earth coastline built into the site."
           }
         </p>
         <p>
@@ -67,7 +67,7 @@ function Privacy() {
         </p>
         <p>
           {
-            "Some labs include a film from youtube-nocookie.com, YouTube’s privacy-enhanced mode. It is requested only when a lab’s Why panel shows the film. Films do not autoplay, and you do not need a YouTube account."
+            "Some labs include a film from youtube-nocookie.com, YouTube’s privacy-enhanced mode. Until you press play, a film is a plain panel: nothing is requested from YouTube or Google. Pressing play loads YouTube’s player, and Google’s privacy terms apply to it. You do not need a YouTube account."
           }
         </p>
         <p>

@@ -45,7 +45,7 @@ const TOOL_HITS = [
   {
     to: "/tools/live-weather" as const,
     title: "Live weather",
-    hay: "open-meteo temperature wind gusts pressure precipitation humidity",
+    hay: "national weather service nws open-meteo forecast temperature wind gusts pressure precipitation humidity",
   },
   {
     to: "/tools/map" as const,

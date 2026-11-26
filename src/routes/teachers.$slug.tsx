@@ -1,4 +1,5 @@
 import { ProgressFrame } from "@/components/progress-media";
+import { YouTubeFilm } from "@/components/youtube-film";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { LABS, loadLab } from "@/lib/labs/catalog";
 import { LAB_SCENES } from "@/labs/registry";
@@ -349,14 +350,7 @@ function TeacherArticlePage() {
             {videos.map((video) => (
               <div key={video.youtubeId}>
                 <div className="overflow-hidden rounded-2xl border border-white/10">
-                  <ProgressFrame
-                    title={video.title}
-                    src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
-                    className="aspect-video w-full"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                  />
+                  <YouTubeFilm video={video} />
                 </div>
                 <p className="mt-2 text-sm text-mist">
                   {video.title} <span className="block mt-1">{video.source}</span>
