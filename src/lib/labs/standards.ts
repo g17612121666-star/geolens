@@ -10,6 +10,7 @@ export type FrameworkId =
   | "APES"
   | "APHG"
   | "C3"
+  | "TEKS"
   | "KS3"
   | "AQA GCSE"
   | "Edexcel GCSE A"
@@ -56,6 +57,13 @@ export const FRAMEWORKS: Framework[] = [
     short: "C3 Framework (geography)",
     country: "US",
     url: "https://www.socialstudies.org/standards/c3",
+  },
+  {
+    id: "TEKS",
+    name: "Texas Essential Knowledge and Skills (science grades 6 to 8, Earth Systems Science, World Geography Studies)",
+    short: "Texas TEKS",
+    country: "US",
+    url: "https://tea.texas.gov/academics/curriculum-standards",
   },
   {
     id: "KS3",
@@ -171,6 +179,97 @@ export const STANDARDS: Standard[] = [
   S("APHG", "1.4", "Spatial concepts, including absolute and relative location"),
   S("C3", "D2.Geo.1.6-8", "Construct maps that show spatial patterns"),
   S("C3", "D2.Geo.3.6-8", "Use mapping techniques to analyze spatial patterns"),
+  // Texas: science grades 6 to 8 (19 TAC §112.26 to §112.28, adopted 2021), Earth and space
+  // strand; Earth Systems Science (§112.49, adopted 2021), every science concept so gaps show;
+  // World Geography Studies (§113.43, adopted 2022), physical geography and maps.
+  S("TEKS", "6.9A", "How Earth's tilt and orbit cause the seasons"),
+  S("TEKS", "6.9B", "Sun, Earth and Moon positions and daily, spring and neap tides"),
+  S("TEKS", "6.10A", "Biosphere, hydrosphere, atmosphere and geosphere"),
+  S("TEKS", "6.10B", "Earth's layers: crust, mantle, outer core and inner core"),
+  S("TEKS", "6.10C", "How rocks form and change in the rock cycle"),
+  S("TEKS", "6.11A", "Why managing resources matters"),
+  S("TEKS", "6.11B", "Conserving air, water, soil and energy resources"),
+  S("TEKS", "7.9A", "The Sun, planets, moons and small bodies of the solar system"),
+  S("TEKS", "7.9B", "Gravity governs motion in the solar system"),
+  S("TEKS", "7.9C", "Characteristics of Earth that allow life"),
+  S("TEKS", "7.10A", "Evidence that Earth has changed: fossils, plates and superposition"),
+  S(
+    "TEKS",
+    "7.10B",
+    "Plate tectonics: ocean basins, earthquakes, mountains, volcanoes and hot spots",
+  ),
+  S("TEKS", "7.11A", "Human influences on groundwater and surface water in a watershed"),
+  S("TEKS", "7.11B", "Human dependence on, and impacts on, ocean systems"),
+  S("TEKS", "8.9A", "The life cycle of stars and the Hertzsprung–Russell diagram"),
+  S("TEKS", "8.9B", "Types of galaxy and the solar system's place in the Milky Way"),
+  S("TEKS", "8.9C", "Evidence for theories of the origin of the universe"),
+  S("TEKS", "8.10A", "How the Sun, oceans and atmosphere interact in weather and climate"),
+  S("TEKS", "8.10B", "Global patterns of atmospheric movement and local weather"),
+  S("TEKS", "8.10C", "Ocean currents, air masses and tropical cyclones"),
+  S("TEKS", "8.11A", "Natural causes of climate change, including greenhouse gases"),
+  S("TEKS", "8.11B", "Human influences on climate: greenhouse gases, deforestation and cities"),
+  S("TEKS", "8.11C", "The carbon cycle"),
+  S("TEKS", "ESS.5A", "Accretion of planetesimals from the solar nebula"),
+  S("TEKS", "ESS.5B", "Comets, asteroids, meteoroids and planets, and their effects on Earth"),
+  S("TEKS", "ESS.5C", "Hypotheses for the origin of the Moon"),
+  S("TEKS", "ESS.6A", "How the young Earth separated into layers"),
+  S("TEKS", "ESS.6B", "Volcanic outgassing, comets and the first atmosphere and oceans"),
+  S("TEKS", "ESS.6C", "Earth's atmosphere before oxygen"),
+  S("TEKS", "ESS.6D", "Hypotheses for the origin of life"),
+  S("TEKS", "ESS.6E", "Photosynthesis, oxygen and Earth's systems"),
+  S("TEKS", "ESS.7A", "Radiometric dating and its limits"),
+  S("TEKS", "ESS.7B", "Relative dating and the order of rock layers"),
+  S("TEKS", "ESS.7C", "A model of the geologic time scale"),
+  S("TEKS", "ESS.7D", "How complete the fossil record is"),
+  S("TEKS", "ESS.7E", "Biozones, faunal succession and past environments"),
+  S(
+    "TEKS",
+    "ESS.7F",
+    "Rock and fossil evidence of extinctions, climate change and tectonic events",
+  ),
+  S("TEKS", "ESS.8A", "Convection, conduction, plate tectonics and volcanism"),
+  S("TEKS", "ESS.8B", "Evidence for Earth's layers from magnetism, meteorites and seismic waves"),
+  S("TEKS", "ESS.8C", "How new data and technology led to the theory of plate tectonics"),
+  S("TEKS", "ESS.8D", "Density in Earth's interior and the motion of plates"),
+  S(
+    "TEKS",
+    "ESS.8E",
+    "Plate tectonics explains ridges, rifts, subduction, earthquakes, volcanoes and hot spots",
+  ),
+  S("TEKS", "ESS.8F", "Calculating plate motion from rate, time and distance"),
+  S("TEKS", "ESS.8G", "Plate boundary types from the pattern of earthquakes and volcanoes"),
+  S("TEKS", "ESS.8H", "Plate tectonics and long-term global change"),
+  S("TEKS", "ESS.9A", "Interpreting surface features from imagery and maps"),
+  S("TEKS", "ESS.9B", "Weathering by surface water and groundwater, and water as a resource"),
+  S("TEKS", "ESS.9C", "Mass wasting, erosion and deposition reshape Earth's surface"),
+  S("TEKS", "ESS.9D", "How weather and people affect freshwater resources"),
+  S("TEKS", "ESS.10A", "How the ocean's composition and structure drive thermohaline circulation"),
+  S(
+    "TEKS",
+    "ESS.10B",
+    "How changes in the deep ocean and polar ice affect thermohaline circulation",
+  ),
+  S("TEKS", "ESS.10C", "What drives surface ocean circulation"),
+  S("TEKS", "ESS.11A", "Milankovitch cycles, albedo and absorption as climate mechanisms"),
+  S("TEKS", "ESS.11B", "The layered atmosphere, the jet stream and the Hadley and Ferrel cells"),
+  S("TEKS", "ESS.11C", "How greenhouse gases trap thermal energy"),
+  S("TEKS", "ESS.11D", "Feedback loops and global climate"),
+  S("TEKS", "ESS.11E", "Evidence for climate change over Earth's history"),
+  S("TEKS", "ESS.11F", "Thermal energy moving between Earth's spheres, and weather"),
+  S("TEKS", "ESS.11G", "El Niño–Southern Oscillation and global weather and climate"),
+  S("TEKS", "ESS.12A", "How earthquakes, tsunamis and eruptions affect people"),
+  S("TEKS", "ESS.12B", "How floods, hurricanes, tornadoes and thunderstorms affect people"),
+  S("TEKS", "ESS.12C", "Natural and human factors in extreme weather"),
+  S("TEKS", "ESS.12D", "Consequences of changing ocean temperatures"),
+  S("TEKS", "ESS.12E", "How using Texas's resources changes the cycling of matter and energy"),
+  S("TEKS", "ESS.12F", "Carbon cycling among Earth's systems over Earth's history"),
+  S("TEKS", "WG.3A", "Weather, climate and Earth–Sun relationships"),
+  S("TEKS", "WG.3B", "Physical processes: weather, tectonic forces, erosion and soil building"),
+  S("TEKS", "WG.3C", "How hurricanes, El Niño, earthquakes and volcanoes affect Earth's spheres"),
+  S("TEKS", "WG.4A", "What controls temperature, precipitation and climate regions"),
+  S("TEKS", "WG.4B", "Landforms and the processes that make them"),
+  S("TEKS", "WG.8B", "Consequences of floods, tsunamis, eruptions and El Niño for people"),
+  S("TEKS", "WG.21C", "Creating and interpreting maps"),
   S("KS3", "Space physics", "Science: the Sun, seasons, day length, gravity and light-years"),
   S("KS3", "Earth and atmosphere", "Science: Earth's structure, rock cycle, carbon and climate"),
   S("KS3", "Physical geography", "Geography: plate tectonics, rocks, weather, rivers, coasts, ice"),
@@ -243,9 +342,21 @@ export function matchStandards(query: string): string[] {
   const q = squash(query).replace(/^NGSS /, "");
   if (!q) return [];
   const exact = STANDARDS.find(
-    (s) => squash(s.id) === q || (s.framework === "NGSS" && squash(s.code) === q),
+    (s) =>
+      squash(s.id) === q ||
+      (s.framework === "NGSS" && squash(s.code) === q) ||
+      (s.framework === "TEKS" && squash(s.code) === q),
   );
   if (exact) return [exact.id];
+  // A TEKS knowledge-and-skills statement gives its student expectations: "TEKS 8.10" or "ESS.8".
+  const teks = q.replace(/^TEKS /, "");
+  if (/^(\d|ESS|WG)\.\d+$/.test(teks) && (q.startsWith("TEKS ") || !/^\d/.test(teks))) {
+    const group = STANDARDS.filter(
+      (s) =>
+        s.framework === "TEKS" && new RegExp(`^${teks.replace(".", "\\.")}[A-Z]$`).test(s.code),
+    );
+    if (group.length) return group.map((s) => s.id);
+  }
   if (/^(MS|HS)-ESS[123]$/.test(q))
     return STANDARDS.filter((s) => s.framework === "NGSS" && s.code.startsWith(`${q}-`)).map(
       (s) => s.id,

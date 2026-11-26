@@ -23,7 +23,7 @@ export const Route = createFileRoute("/teachers/courses")({
     headFor({
       title: "Courses",
       description:
-        "Geolens labs arranged by course, unit and standard: NGSS middle and high school Earth and space science, AP Environmental Science, AP Human Geography, and England from KS3 to A level.",
+        "Geolens labs arranged by course, unit and standard: NGSS middle and high school Earth and space science, AP Environmental Science, AP Human Geography, Texas TEKS, and England from KS3 to A level.",
       path: "/teachers/courses",
     }),
 });

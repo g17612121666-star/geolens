@@ -17,6 +17,8 @@
         "NGSS MS-ESS1-1",
         "NGSS HS-ESS2-4",
         "APES 4.7",
+        "TEKS 6.9A",
+        "TEKS WG.3A",
         "KS3 Space physics"
       ],
       "steps": [
@@ -591,6 +593,8 @@
       "standards": [
         "NGSS MS-ESS2-1",
         "NGSS HS-ESS2-3",
+        "TEKS 6.10B",
+        "TEKS ESS.8B",
         "KS3 Earth and atmosphere",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -796,6 +800,9 @@
         "NGSS HS-ESS1-5",
         "NGSS HS-ESS2-1",
         "APES 4.1",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS ESS.8G",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -1037,6 +1044,8 @@
       "standards": [
         "APHG 1.1",
         "C3 D2.Geo.3.6-8",
+        "TEKS ESS.9A",
+        "TEKS WG.21C",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
       ],
@@ -1453,6 +1462,9 @@
         "NGSS MS-ESS2-4",
         "APES 1.7",
         "APES 4.6",
+        "TEKS 6.10A",
+        "TEKS 7.11A",
+        "TEKS ESS.9D",
         "KS3 Physical geography",
         "AQA A-level 3.1.1"
       ],
@@ -1700,6 +1712,8 @@
         "NGSS MS-ESS1-2",
         "NGSS MS-ESS1-3",
         "NGSS HS-ESS1-4",
+        "TEKS 7.9A",
+        "TEKS 7.9B",
         "KS3 Space physics"
       ],
       "steps": [
@@ -1982,6 +1996,8 @@
       "standards": [
         "NGSS MS-ESS1-1",
         "APES 4.7",
+        "TEKS 6.9A",
+        "TEKS WG.3A",
         "KS3 Space physics"
       ],
       "steps": [
@@ -2404,6 +2420,7 @@
       "standards": [
         "NGSS MS-ESS1-4",
         "NGSS HS-ESS1-6",
+        "TEKS ESS.7C",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -2854,6 +2871,7 @@
       ],
       "standards": [
         "NGSS MS-ESS1-1",
+        "TEKS 6.9B",
         "KS3 Space physics",
         "AQA GCSE 3.1.3.2",
         "AQA A-level 3.1.3"
@@ -3035,6 +3053,8 @@
       "standards": [
         "NGSS MS-ESS1-1",
         "APES 4.7",
+        "TEKS 6.9A",
+        "TEKS WG.3A",
         "KS3 Space physics"
       ],
       "steps": [
@@ -3238,6 +3258,9 @@
       "standards": [
         "NGSS MS-ESS2-3",
         "NGSS HS-ESS1-5",
+        "TEKS 7.10A",
+        "TEKS ESS.8C",
+        "TEKS ESS.8H",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -3450,6 +3473,9 @@
       "standards": [
         "NGSS MS-ESS2-3",
         "NGSS HS-ESS1-5",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS WG.4B",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
         "OCR GCSE B Global hazards",
@@ -3652,6 +3678,10 @@
       "standards": [
         "NGSS MS-ESS2-3",
         "NGSS HS-ESS1-5",
+        "TEKS 7.10B",
+        "TEKS ESS.8C",
+        "TEKS ESS.8E",
+        "TEKS ESS.8F",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
         "OCR GCSE B Global hazards",
@@ -3852,6 +3882,7 @@
       "standards": [
         "NGSS MS-ESS2-5",
         "APES 4.4",
+        "TEKS ESS.11B",
         "KS3 Earth and atmosphere"
       ],
       "steps": [
@@ -4052,6 +4083,10 @@
         "NGSS HS-ESS2-4",
         "APES 4.7",
         "APES 9.3",
+        "TEKS 8.10A",
+        "TEKS 8.11A",
+        "TEKS ESS.11A",
+        "TEKS ESS.11C",
         "KS3 Earth and atmosphere",
         "AQA GCSE 3.1.1.4",
         "Edexcel GCSE A Topic 2",
@@ -4258,6 +4293,9 @@
       "standards": [
         "NGSS MS-ESS2-5",
         "NGSS MS-ESS2-6",
+        "TEKS 8.10A",
+        "TEKS 8.11B",
+        "TEKS ESS.11F",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -4655,6 +4693,9 @@
       "standards": [
         "NGSS MS-ESS2-6",
         "APES 4.5",
+        "TEKS 8.10B",
+        "TEKS ESS.11B",
+        "TEKS WG.4A",
         "AQA GCSE 3.1.1.3",
         "Edexcel GCSE A Topic 2",
         "Edexcel GCSE B Topic 1",
@@ -5220,6 +5261,7 @@
       "standards": [
         "NGSS MS-ESS2-6",
         "APES 4.8",
+        "TEKS WG.4A",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -5659,6 +5701,10 @@
         "NGSS MS-ESS3-3",
         "APES 4.6",
         "APES 5.13",
+        "TEKS 7.11A",
+        "TEKS ESS.12B",
+        "TEKS ESS.12C",
+        "TEKS WG.8B",
         "AQA GCSE 3.1.3.3",
         "Edexcel GCSE A Topic 1",
         "Edexcel GCSE B Topic 4",
@@ -5878,6 +5924,8 @@
       "standards": [
         "NGSS MS-ESS2-4",
         "APES 4.6",
+        "TEKS 7.11A",
+        "TEKS ESS.9D",
         "AQA GCSE 3.1.3.3",
         "AQA A-level 3.1.1"
       ],
@@ -6070,7 +6118,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-6",
-        "APES 4.5"
+        "APES 4.5",
+        "TEKS ESS.10C"
       ],
       "steps": [
         {
@@ -6280,7 +6329,9 @@
       ],
       "standards": [
         "NGSS HS-ESS2-4",
-        "NGSS HS-ESS2-5"
+        "NGSS HS-ESS2-5",
+        "TEKS ESS.10A",
+        "TEKS ESS.10B"
       ],
       "steps": [
         {
@@ -6524,6 +6575,12 @@
         "NGSS HS-ESS2-6",
         "APES 1.4",
         "APES 9.4",
+        "TEKS 6.10A",
+        "TEKS 8.11A",
+        "TEKS 8.11B",
+        "TEKS 8.11C",
+        "TEKS ESS.12E",
+        "TEKS ESS.12F",
         "KS3 Earth and atmosphere",
         "AQA A-level 3.1.1"
       ],
@@ -6767,7 +6824,10 @@
       ],
       "standards": [
         "NGSS HS-ESS2-4",
-        "APES 4.9"
+        "APES 4.9",
+        "TEKS 8.10A",
+        "TEKS ESS.11G",
+        "TEKS WG.3C"
       ],
       "steps": [
         {
@@ -6954,6 +7014,7 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
+        "TEKS WG.4B",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -7193,6 +7254,8 @@
       "standards": [
         "NGSS MS-ESS2-2",
         "NGSS HS-ESS2-5",
+        "TEKS ESS.9C",
+        "TEKS WG.3B",
         "KS3 Physical geography",
         "AQA GCSE 3.1.3.3",
         "Edexcel GCSE A Topic 1",
@@ -7434,6 +7497,7 @@
       "standards": [
         "NGSS MS-ESS2-2",
         "NGSS HS-ESS2-5",
+        "TEKS ESS.9C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.3.3",
         "Edexcel GCSE A Topic 1",
@@ -7677,7 +7741,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
-        "NGSS HS-ESS2-5"
+        "NGSS HS-ESS2-5",
+        "TEKS ESS.9C"
       ],
       "steps": [
         {
@@ -7876,6 +7941,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
+        "TEKS ESS.9C",
+        "TEKS WG.3B",
         "KS3 Physical geography",
         "AQA GCSE 3.1.3.2",
         "Edexcel GCSE A Topic 1",
@@ -8143,6 +8210,7 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
+        "TEKS ESS.9C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.3.4",
         "Edexcel GCSE A Topic 1",
@@ -8395,6 +8463,7 @@
       "standards": [
         "NGSS MS-ESS2-2",
         "NGSS HS-ESS2-5",
+        "TEKS ESS.9B",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -8599,7 +8668,9 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
-        "NGSS HS-ESS2-1"
+        "NGSS HS-ESS2-1",
+        "TEKS 7.10A",
+        "TEKS ESS.7B"
       ],
       "steps": [
         {
@@ -8814,6 +8885,7 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
+        "TEKS ESS.9C",
         "AQA A-level 3.1.2"
       ],
       "steps": [
@@ -9036,6 +9108,7 @@
       ],
       "standards": [
         "NGSS MS-ESS2-1",
+        "TEKS 6.10C",
         "KS3 Earth and atmosphere"
       ],
       "steps": [
@@ -9305,7 +9378,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-1",
-        "APES 4.2"
+        "APES 4.2",
+        "TEKS WG.3B"
       ],
       "steps": [
         {
@@ -9712,6 +9786,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-1",
+        "TEKS ESS.9B",
+        "TEKS WG.3B",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -9922,6 +9998,8 @@
         "NGSS MS-ESS2-2",
         "NGSS MS-ESS3-3",
         "APES 4.2",
+        "TEKS 6.11B",
+        "TEKS ESS.9C",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -10125,6 +10203,10 @@
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
         "APES 4.1",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS ESS.12A",
+        "TEKS WG.3C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -10333,6 +10415,10 @@
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
         "APES 4.1",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS ESS.12A",
+        "TEKS WG.3C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -10574,6 +10660,8 @@
       "standards": [
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
+        "TEKS ESS.12A",
+        "TEKS WG.8B",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
         "OCR GCSE B Global hazards",
@@ -10771,6 +10859,10 @@
         "NGSS MS-ESS2-5",
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
+        "TEKS 8.10C",
+        "TEKS ESS.11F",
+        "TEKS ESS.12B",
+        "TEKS WG.3C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.3",
         "Edexcel GCSE A Topic 2",
@@ -10992,6 +11084,7 @@
       "standards": [
         "NGSS MS-ESS1-1",
         "APHG 1.4",
+        "TEKS WG.21C",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
       ],
@@ -11202,6 +11295,7 @@
       "standards": [
         "APHG 1.1",
         "C3 D2.Geo.3.6-8",
+        "TEKS WG.21C",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
       ],
@@ -11419,6 +11513,7 @@
       "standards": [
         "APHG 1.4",
         "C3 D2.Geo.1.6-8",
+        "TEKS WG.21C",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
       ],
@@ -11652,6 +11747,7 @@
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS2-5",
         "NGSS HS-ESS3-1",
+        "TEKS ESS.9C",
         "AQA GCSE 3.1.3.2",
         "Edexcel GCSE A Topic 1",
         "Edexcel GCSE B Topic 4",
@@ -11858,6 +11954,9 @@
         "NGSS MS-ESS2-4",
         "NGSS MS-ESS2-6",
         "APES 4.8",
+        "TEKS 8.10A",
+        "TEKS ESS.11F",
+        "TEKS WG.4A",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -12066,6 +12165,9 @@
         "NGSS MS-ESS2-4",
         "NGSS MS-ESS3-1",
         "APES 1.7",
+        "TEKS 7.11A",
+        "TEKS ESS.9B",
+        "TEKS ESS.9D",
         "AQA A-level 3.1.1"
       ],
       "steps": [
@@ -12469,6 +12571,10 @@
       "standards": [
         "NGSS HS-ESS1-5",
         "NGSS HS-ESS2-1",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS ESS.8H",
+        "TEKS WG.4B",
         "AQA A-level 3.1.5"
       ],
       "steps": [
@@ -12686,7 +12792,8 @@
       ],
       "standards": [
         "APES 4.2",
-        "APES 4.3"
+        "APES 4.3",
+        "TEKS WG.3B"
       ],
       "steps": [
         {
@@ -13095,6 +13202,9 @@
       "standards": [
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
+        "TEKS ESS.12B",
+        "TEKS ESS.12C",
+        "TEKS WG.8B",
         "AQA GCSE 3.1.1.3",
         "Edexcel GCSE A Topic 2",
         "Edexcel GCSE B Topic 1",

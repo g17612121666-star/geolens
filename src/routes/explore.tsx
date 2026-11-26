@@ -20,6 +20,8 @@ const ANSWER_KEYS = Object.fromEntries(LABS.map((l) => [l.slug, l.answers]));
 type ExploreKey = "kind" | "q" | "realm" | "stage" | "collection" | "region";
 type ExploreSearch = Partial<Record<ExploreKey, string>>;
 const EXPLORE_KEYS: ExploreKey[] = ["kind", "q", "realm", "stage", "collection", "region"];
+/** The curriculum filter option for labs tagged with a Texas TEKS expectation. */
+const TEXAS = "Texas TEKS";
 export const Route = createFileRoute("/explore")({
   component: Explore,
   // Filters live in the address, so Back, reload and shared links keep them.
@@ -123,7 +125,10 @@ function Explore() {
     return pool.filter(
       (l) =>
         (realm === "all" || realm === l.realm) &&
-        (stage === "all" || l.ages.some((age) => age === stage)) &&
+        (stage === "all" ||
+          (stage === TEXAS
+            ? l.standards.some((id) => id.startsWith("TEKS "))
+            : l.ages.some((age) => age === stage))) &&
         (!selected || selected.labs.includes(l.slug)),
     );
   }, [realm, stage, selected, needle]);
@@ -221,7 +226,7 @@ function Explore() {
               className={field}
             >
               <option value="all">All curricula</option>
-              {["NGSS MS", "HS Earth Sci", "APES", "KS3", "GCSE", "A-level"].map((s) => (
+              {["NGSS MS", "HS Earth Sci", "APES", TEXAS, "KS3", "GCSE", "A-level"].map((s) => (
                 <option key={s}>{s}</option>
               ))}
             </select>
