@@ -3,6 +3,7 @@ import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } fr
 import { ChevronDown, Menu, Search, X } from "lucide-react";
 import { REALMS } from "@/lib/labs/realms";
 import { cn } from "@/lib/utils";
+import { useInkHeader } from "@/lib/ink-header";
 import { PreferencesMenu } from "@/components/preferences-menu";
 import { LogoMark } from "@/components/layout/logo-mark";
 
@@ -35,9 +36,17 @@ export function Header({ variant = "default" }: { variant?: "default" | "lab" })
   }, [pathname, kind]);
 
   const lab = variant === "lab";
+  // At the top of the home page the header takes the hero's ink, so the two read as one band.
+  const inkUnder = useInkHeader((s) => s.under);
+  const ink = !lab && pathname === "/" && inkUnder;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 h-14 border-b border-white/10 bg-void">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-40 h-14 border-b transition-colors duration-200",
+        ink ? "ink-band border-transparent" : "border-white/10 bg-void",
+      )}
+    >
       <div
         className={cn(
           "mx-auto flex h-full items-center gap-4",
