@@ -1,0 +1,143 @@
+{
+  "title": "El ciclo de Wilson",
+  "hook": "La ruptura de un continente puede abrir una cuenca oceánica, y más tarde la subducción puede consumir la litosfera oceánica y volver a juntar los continentes.",
+  "objective": "Sigue la apertura y el cierre de una cuenca oceánica y relaciona la colisión continental con la formación de cordilleras.",
+  "modelDescription": "Un corte a través de la corteza y el manto muestra una etapa cada vez de la vida de un océano: un continente que se estira y se parte, un océano joven con una dorsal oceánica, un océano ancho, el comienzo de la subducción, el cierre del océano y, por último, dos continentes que chocan y forman montañas con una raíz profunda. Las alturas están exageradas el doble, salvo que cambies a la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Elige Rift continental y luego Océano joven y Océano abierto. Encuentra la dorsal y la corteza oceánica delgada."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Cambia a Comienza la subducción y sigue la placa que se hunde. Compara El océano se cierra con Colisión continental y encuentra la raíz de la montaña."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo convierte la subducción un océano que se expande en una cuenca que se cierra?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "El ciclo de Wilson es…",
+      "choices": [
+        "La apertura y el cierre de los océanos a lo largo del tiempo geológico",
+        "El ciclo anual de las corrientes oceánicas",
+        "Continentes que se mueven en una sola dirección para siempre",
+        "El ciclo de formación de los tipos de roca"
+      ],
+      "explain": "La ruptura de un continente puede abrir una cuenca oceánica, y más tarde la subducción puede consumir su litosfera oceánica y volver a juntar los continentes. El ciclo de Wilson resume estas etapas posibles a lo largo del tiempo geológico."
+    },
+    {
+      "prompt": "Las Caledónides y los Apalaches registran…",
+      "choices": [
+        "Una cadena de punto caliente como las islas de Hawái",
+        "Un océano antiguo que se abrió y luego se cerró",
+        "Un rift que nunca llegó a ser océano",
+        "Una larga falla transformante como la de San Andrés"
+      ],
+      "explain": "Partes de las cordilleras Caledoniana y de los Apalaches conservan evidencia de la convergencia y las colisiones asociadas con el cierre del océano Iapetus. La apertura posterior del Atlántico separó tramos de ese sistema montañoso más antiguo."
+    },
+    {
+      "prompt": "Si mueves la Etapa de formación hacia Colisión continental, el océano debería…",
+      "choices": [
+        "Seguir ensanchándose",
+        "Mantener el mismo ancho",
+        "Cerrarse y luego producir una colisión",
+        "Abrir una nueva dorsal"
+      ],
+      "explain": "A medida que la subducción consume la litosfera oceánica, la cuenca se estrecha y los continentes de los bordes se acercan. Después, la colisión continental acorta y engrosa la corteza y forma una cordillera."
+    },
+    {
+      "prompt": "¿Qué etapa muestra Islandia, sobre la actual dorsal mesoatlántica?",
+      "choices": [
+        "Colisión",
+        "Un océano que se cierra, con fosas",
+        "Un rift continental temprano",
+        "Un océano en plena expansión"
+      ],
+      "explain": "Islandia está sobre la dorsal de expansión mesoatlántica activa, donde las placas se separan y se forma nueva corteza oceánica. Por eso representa la apertura de una cuenca oceánica en curso, no su cierre por una colisión continental."
+    },
+    {
+      "prompt": "¿Qué etapa va primero en el ciclo de Wilson?",
+      "choices": [
+        "La colisión continental",
+        "La subducción en una fosa",
+        "La ruptura de un continente en un rift",
+        "La erosión de una cordillera"
+      ],
+      "explain": "El ciclo empieza cuando un continente se estira y se parte en un rift. Después, la expansión abre un océano, que más tarde puede cerrarse por subducción y terminar en una colisión."
+    }
+  ],
+  "why": [
+    "La ruptura de un continente puede abrir una cuenca oceánica, y más tarde la subducción puede consumir la litosfera oceánica y volver a juntar los continentes. Las cordilleras pueden conservar evidencia de océanos que se cerraron.",
+    "La litosfera oceánica antigua es fría y densa, así que puede hundirse bajo un continente en una fosa. Cuando la subducción consume placa más rápido de lo que la dorsal la produce, la cuenca se estrecha. La corteza continental es demasiado ligera para hundirse mucho, así que cuando los continentes se encuentran, la corteza se pliega y se engrosa hasta formar una cordillera con una raíz profunda.",
+    "Las seis etapas ordenan cambios tectónicos posibles; no son un calendario fijo que siga toda cuenca oceánica."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Toda cuenca oceánica sigue el mismo calendario fijo desde su apertura hasta su cierre.",
+      "truth": "El ciclo de Wilson ordena las etapas posibles de ruptura, expansión oceánica, subducción y colisión. Las cuencas reales difieren en geometría, movimientos de placas y duración, y algunos rifts dejan de desarrollarse. El esquema ayuda a interpretar la evidencia geológica sin imponer un mismo calendario a todos los océanos."
+    },
+    {
+      "claim": "El océano Atlántico ha existido siempre.",
+      "truth": "El Atlántico empezó a abrirse hace unos 180 millones de años, cuando se fragmentó Pangea. Antes se cerró un océano más antiguo, el Iapetus, que unió las rocas que hoy forman partes de Escocia, Inglaterra y Norteamérica."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Ciclo de Wilson",
+      "def": "Un esquema que describe la apertura y el cierre final de una cuenca oceánica por ruptura continental, expansión del fondo oceánico, subducción y colisión continental. Cada cuenca sigue su propia historia. Las estructuras geológicas pueden conservar evidencia de las etapas incluso después de que un océano haya desaparecido."
+    },
+    {
+      "term": "Rift",
+      "def": "Una región alargada donde la litosfera se estira y se adelgaza. Algunos rifts continentales llegan a convertirse en cuencas oceánicas; otros dejan de expandirse."
+    },
+    {
+      "term": "Margen pasivo",
+      "def": "Una transición entre la corteza continental y la oceánica que no es un límite de placas activo. Muchos márgenes del Atlántico se formaron después de la ruptura continental. Aun así puede haber acumulación de sedimentos, hundimiento y terremotos ocasionales, así que pasivo no significa completamente inactivo."
+    },
+    {
+      "term": "Orogenia",
+      "def": "Un periodo o proceso de formación de montañas que implica la deformación y el engrosamiento de la corteza. La colisión de placas y la subducción son ambientes comunes. Las montañas pueden erosionarse después y dejar rocas plegadas y otras evidencias de una cordillera más antigua."
+    },
+    {
+      "term": "Caledónides",
+      "def": "Una cordillera antigua formada durante colisiones continentales del Paleozoico, que hoy aflora en lugares como Escocia, Escandinavia y Groenlandia."
+    },
+    {
+      "term": "Apalaches",
+      "def": "Una cordillera antigua del este de Norteamérica, formada por varias colisiones del Paleozoico durante el cierre de océanos y la formación de Pangea."
+    },
+    {
+      "term": "Terreno",
+      "def": "Un bloque de corteza con una historia geológica distinta de la de las regiones vecinas, que a menudo se une a un continente por acreción tectónica."
+    }
+  ],
+  "predict": {
+    "prompt": "Hoy el océano Atlántico se está ensanchando. ¿Crees que los océanos también pueden cerrarse? ¿Qué pasaría cuando los continentes se encontraran?"
+  },
+  "cer": {
+    "prompt": "¿Cómo se abren y se cierran los océanos, y cómo forma eso las cordilleras?",
+    "claim": "Los océanos se abren cuando un continente se rompe en un rift y se cierran cuando la corteza oceánica se subduce; cuando los continentes chocan, la corteza se engrosa y forma una cordillera.",
+    "evidence": "Las etapas van de Rift continental a Océano joven y Océano abierto, con una dorsal y una corteza oceánica delgada (de unos 7 km), y luego a Comienza la subducción y El océano se cierra. En Colisión continental, la corteza se engrosa hasta unos 65 km bajo picos de unos 5–6 km de altura.",
+    "reasoning": "La expansión en la dorsal ensancha el océano. Con el tiempo, la corteza oceánica antigua y densa se hunde en una zona de subducción y el océano se cierra. La corteza continental es demasiado ligera para subducir, así que se pliega y se apila, y forma montañas altas con una raíz profunda, como en el Himalaya y en los antiguos Apalaches."
+  },
+  "controls": {
+    "stage": {
+      "label": "Etapa de formación",
+      "options": [
+        "Rift continental",
+        "Océano joven",
+        "Océano abierto",
+        "Comienza la subducción",
+        "El océano se cierra",
+        "Colisión continental"
+      ]
+    }
+  }
+}

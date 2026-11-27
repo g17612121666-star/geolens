@@ -1,0 +1,142 @@
+{
+  "title": "La deriva continental",
+  "hook": "Los continentes se mueven con las placas tectónicas.",
+  "objective": "Compara las posiciones reconstruidas de los continentes a lo largo del tiempo y usa la evidencia de los fósiles y de las costas para discutir cómo estaban dispuestos en Pangea.",
+  "modelDescription": "Un globo muestra los continentes en un momento elegido de los últimos 250 millones de años, desde el supercontinente Pangea hasta sus posiciones actuales, con las plataformas continentales claras en sus bordes. Al mover el control de tiempo, los continentes se desplazan hasta sus lugares actuales, y se pueden marcar los fósiles que unen continentes que hoy están separados.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Empieza con la reconstrucción más antigua e identifica los grandes bloques continentales. Compara sus posiciones con el globo actual."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Mueve Ma antes del presente hacia 0 y sigue a la India hacia el norte. Usa la evidencia geológica, además de las costas, al explicar cómo se reconstruyen las posiciones anteriores."
+    },
+    {
+      "title": "Explicar",
+      "body": "Pon 250 Ma y activa Evidencia fósil. ¿Dónde están los yacimientos de Mesosaurus, Glossopteris, Lystrosaurus y Cynognathus, y qué otra evidencia usarías para poner a prueba esta disposición?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Pangea fue…",
+      "choices": [
+        "Un supercontinente de finales del Paleozoico, uno de varios",
+        "La primera corteza continental de la Tierra",
+        "El único supercontinente de toda la historia de la Tierra",
+        "Un supercontinente del último millón de años"
+      ],
+      "explain": "Pangea se formó por la convergencia de placas mucho después de que se formara la Tierra, y antes de ella existieron otros supercontinentes. Su fragmentación posterior produjo la disposición de la que surgieron los continentes actuales."
+    },
+    {
+      "prompt": "El argumento del encaje de Wegener es más fuerte cuando…",
+      "choices": [
+        "Encajas las costas actuales",
+        "Encajas las plataformas continentales",
+        "Encajas el interior de los continentes",
+        "Encajas la altura de las montañas"
+      ],
+      "explain": "Las costas actuales cambian con el nivel del mar, la erosión y el depósito de sedimentos. Por eso los márgenes continentales sumergidos son una mejor guía para encajar los antiguos bordes de los continentes."
+    },
+    {
+      "prompt": "Los continentes se mueven porque…",
+      "choices": [
+        "Avanzan a través de un fondo oceánico quieto",
+        "Las mareas los arrastran",
+        "Viajan como pasajeros sobre las placas",
+        "El giro de la Tierra los lanza"
+      ],
+      "explain": "Los continentes están incrustados en placas litosféricas que también pueden incluir corteza oceánica. Su movimiento es parte del movimiento de las placas, no un empuje propio a través de un fondo oceánico quieto."
+    },
+    {
+      "prompt": "El Himalaya registra…",
+      "choices": [
+        "Una cadena de punto caliente como la de Hawái",
+        "Una dorsal oceánica como la de Islandia",
+        "Una falla transformante como la de San Andrés",
+        "Una colisión entre la India y Eurasia"
+      ],
+      "explain": "La India se movió hacia el norte como parte de su placa y al final chocó con Eurasia. La convergencia continua acortó y engrosó la corteza y formó la cordillera del Himalaya."
+    },
+    {
+      "prompt": "Se han encontrado fósiles del reptil Mesosaurus en el sur de África y en Sudamérica. ¿Qué sugieren?",
+      "choices": [
+        "Que nadó miles de kilómetros a través del Atlántico abierto.",
+        "Que los dos continentes estuvieron unidos.",
+        "Que la misma especie evolucionó por separado en cada continente.",
+        "Que las aves llevaron sus huevos a través del océano."
+      ],
+      "explain": "Mesosaurus vivía en agua dulce o salobre y no podía cruzar un océano ancho. Sus fósiles en los dos continentes, junto con rocas que coinciden, apoyan la idea de que África y Sudamérica estuvieron unidas."
+    }
+  ],
+  "why": [
+    "Los continentes se mueven con las placas tectónicas. Las evidencias geológicas que coinciden a ambos lados de los océanos ayudaron a establecer la deriva continental, y las reconstrucciones de placas combinan evidencias para estimar las posiciones anteriores de los continentes.",
+    "Las placas se mueven solo unos pocos centímetros al año, pero a lo largo de decenas de millones de años eso suma miles de kilómetros: la India cruzó el océano de Tetis y chocó con Eurasia, y el Atlántico se abrió cuando las Américas se separaron de Europa y África.",
+    "Las costas actuales se mueven con un modelo de reconstrucción; las costas antiguas también dependían del nivel del mar, la erosión y la sedimentación."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Encajar las costas actuales basta para demostrar cómo encajaban antes los continentes.",
+      "truth": "Las costas cambian con el nivel del mar, la erosión y el depósito, así que su encaje es aproximado. Las reconstrucciones también usan los márgenes continentales, las secuencias y estructuras de rocas que coinciden, los fósiles y la evidencia magnética. Que distintos tipos de evidencia coincidan da una base más sólida para estimar las posiciones pasadas de los continentes."
+    },
+    {
+      "claim": "Los continentes se separaron rápido, en unos pocos miles de años.",
+      "truth": "Las placas se mueven solo unos pocos centímetros al año, más o menos lo que crecen las uñas. La apertura del océano Atlántico tardó unos 180 millones de años."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Pangea",
+      "def": "Un supercontinente que se formó a finales del Paleozoico y se fragmentó durante el Mesozoico. Su reconstrucción usa evidencia de rocas, fósiles, magnetismo y márgenes continentales. Pangea fue uno de varios supercontinentes de la historia de la Tierra, no la corteza original de la Tierra."
+    },
+    {
+      "term": "Plataforma continental",
+      "def": "La parte exterior sumergida de un continente, de pendiente suave, que va desde la costa hasta el borde de la plataforma."
+    },
+    {
+      "term": "Litosfera",
+      "def": "La capa externa y rígida de la Tierra, formada por la corteza y la parte más alta del manto. Está dividida en placas tectónicas y descansa sobre la astenosfera, más débil. Por eso la litosfera es más gruesa que la corteza sola."
+    },
+    {
+      "term": "Deriva continental",
+      "def": "El movimiento de los continentes a lo largo del tiempo geológico, propuesto por Alfred Wegener con evidencias como fósiles y franjas de rocas que coinciden. Más tarde, la tectónica de placas dio una explicación más amplia: los continentes se mueven como parte de placas litosféricas que también incluyen fondo oceánico."
+    },
+    {
+      "term": "Expansión del fondo oceánico",
+      "def": "La formación y el movimiento hacia fuera de la corteza oceánica en una dorsal de expansión. El magma se enfría y forma corteza nueva a medida que las placas se separan. Las edades de las rocas, que aumentan, y las secuencias de polaridad magnética, que coinciden a grandes rasgos a cada lado, son evidencia de este proceso."
+    },
+    {
+      "term": "Subducción",
+      "def": "El descenso de una placa litosférica bajo otra hacia el manto en un límite convergente; por lo general se trata de litosfera oceánica."
+    },
+    {
+      "term": "Supercontinente",
+      "def": "Un gran conjunto que reúne la mayor parte de las masas continentales de la Tierra. La historia de la Tierra incluye varios ciclos de formación y fragmentación, y Pangea es el más reciente."
+    },
+    {
+      "term": "Encaje de las plataformas",
+      "def": "La comparación de los márgenes continentales, en lugar de las costas actuales, al reconstruir las posiciones antiguas de los continentes. La cubierta de sedimentos y la deformación hacen que el encaje sea aproximado."
+    }
+  ],
+  "predict": {
+    "prompt": "Se han encontrado fósiles del mismo reptil de agua dulce, Mesosaurus, en Brasil y en el sur de África. ¿Cómo pudo ocurrir eso?"
+  },
+  "cer": {
+    "prompt": "¿Qué evidencia muestra que los continentes estuvieron unidos en Pangea?",
+    "claim": "Los continentes estuvieron unidos, porque los fósiles y las costas que coinciden se alinean cuando se llevan los continentes a sus posiciones de hace unos 250 millones de años.",
+    "evidence": "A los 250 Ma con Evidencia fósil activada, los yacimientos de Mesosaurus de Brasil y Namibia quedan uno junto al otro, y los de Glossopteris y Lystrosaurus se agrupan entre Sudamérica, África, la India, la Antártida y Australia. Al ir hacia 0 Ma, el Atlántico se abre y la India se mueve hacia el norte hasta chocar con Asia.",
+    "reasoning": "Mesosaurus vivía en agua dulce o salobre y no pudo cruzar un océano, así que la tierra tuvo que estar conectada. Una reconstrucción que encaja a la vez los fósiles, las franjas de rocas y las costas es una evidencia más sólida que cualquier pista por separado."
+  },
+  "controls": {
+    "ageMa": {
+      "label": "Ma antes del presente"
+    },
+    "fossils": {
+      "label": "Evidencia fósil"
+    }
+  }
+}

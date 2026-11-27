@@ -12,6 +12,7 @@ import { SectionMaterial } from "../shared/section-material";
 import { useSectionUniforms } from "../shared/section-utils";
 import { fbm } from "../shared/hazard-utils";
 import { FlowWaterMaterial } from "../shared/flow-water";
+import { useT } from "@/lib/i18n";
 
 const W = 6,
   D = 3.4,
@@ -153,6 +154,7 @@ vec3 isBump(vec3 pos,vec3 nrm,vec2 dh,float face){
 }
 
 export default function Isostasy() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale"),
     ice = params.ice ?? 1650,
     result = isostaticColumn(ice),
@@ -249,8 +251,10 @@ export default function Isostasy() {
     <>
       <ScienceStudio
         slug="isostasy"
-        scale="Ice load and vertical displacement ×5 · local Airy equilibrium · width and margin shape schematic"
-        trueScale="All heights share a scale · 1 scene unit = 10 km vertically"
+        scale={tr(
+          "Ice load and vertical displacement ×5 · local Airy equilibrium · width and margin shape schematic",
+        )}
+        trueScale={tr("All heights share a scale · 1 scene unit = 10 km vertically")}
         camera={[2.4, 5.2, 6.4]}
       >
         <mesh geometry={rock} castShadow receiveShadow>
@@ -324,51 +328,62 @@ export default function Isostasy() {
         )}
         <Tag
           pos={[2.1, topBare - crust - 1.05, D / 2 + 0.05]}
-          text="Mantle · solid, creeping"
-          short="Mantle"
-          note="Under the extra weight the mantle slowly flows aside while remaining solid. The arrows show the direction of that creep, not its speed."
+          text={tr("Mantle · solid, creeping")}
+          short={tr("Mantle")}
+          note={tr(
+            "Under the extra weight the mantle slowly flows aside while remaining solid. The arrows show the direction of that creep, not its speed.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-2.2, topBare - crust * 0.5, D / 2 + 0.05]}
-          text="Crust · 35 km thick"
-          short="Crust · 35 km"
+          text={tr("Crust · 35 km thick")}
+          short={tr("Crust · 35 km")}
           priority={1}
-          note="Continental crust, less dense (2800 kg/m³) than the mantle below it. Its upper and lower layers are shown in different colors; its total thickness does not change when ice is added."
+          note={tr(
+            "Continental crust, less dense (2800 kg/m³) than the mantle below it. Its upper and lower layers are shown in different colors; its total thickness does not change when ice is added.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[mohoX, mohoAt + 0.15, D / 2 + 0.05]}
-          text={ice > 0 ? "Moho bends down" : "Moho"}
+          text={ice > 0 ? tr("Moho bends down") : tr("Moho")}
           priority={1}
-          note="The crust keeps its thickness, so its base (the Moho) is pushed down by the same amount as the surface. Dashed lines show both levels without ice."
+          note={tr(
+            "The crust keeps its thickness, so its base (the Moho) is pushed down by the same amount as the surface. Dashed lines show both levels without ice.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[0, iceTop + 0.35, 0]}
-          text={`${Math.round(ice)} m of ice`}
+          text={tr("{round} m of ice", { round: Math.round(ice) })}
           priority={2}
-          note="Each column sinks by the ice thickness × 917/3300 (ice density ÷ mantle density). Real adjustment takes thousands of years and spreads sideways as the lithosphere bends."
+          note={tr(
+            "Each column sinks by the ice thickness × 917/3300 (ice density ÷ mantle density). Real adjustment takes thousands of years and spreads sideways as the lithosphere bends.",
+          )}
           occlude={false}
         />
         {lakes.length > 0 && (
           <Tag
             pos={[lakes[0][0], ground(lakes[0][0], lakes[0][1]) + 0.3, lakes[0][1]]}
-            text="Meltwater lake"
+            text={tr("Meltwater lake")}
             tone="glacier"
-            note="Meltwater collects in hollows beyond the ice margin, here just outside the terminal moraine. Schematic: this local model does not bend the ground beyond the ice edge, although the real lithosphere does."
+            note={tr(
+              "Meltwater collects in hollows beyond the ice margin, here just outside the terminal moraine. Schematic: this local model does not bend the ground beyond the ice edge, although the real lithosphere does.",
+            )}
             occlude={false}
           />
         )}
       </ScienceStudio>
       <ScienceReadout>
-        {"Ice "}
-        {Math.round(ice)} {"m → equilibrium depression "}
-        {result.depression.toFixed(0)}{" "}
-        {"m at the center. Mantle / crust / ice densities: 3300 / 2800 / 917 kg/m³."} <br />
-        {
-          "Each column keeps its rock thickness and mass, so thicker ice pushes it further down. Unloading raises the equilibrium position; this static experiment does not predict rebound timing or global sea level."
-        }
+        {tr(
+          "Ice {ice} m → equilibrium depression {depression} m at the center. Mantle / crust / ice densities: 3300 / 2800 / 917 kg/m³.",
+          { ice: Math.round(ice), depression: result.depression.toFixed(0) },
+        )}{" "}
+        <br />
+        {tr(
+          "Each column keeps its rock thickness and mass, so thicker ice pushes it further down. Unloading raises the equilibrium position; this static experiment does not predict rebound timing or global sea level.",
+        )}
       </ScienceReadout>
     </>
   );

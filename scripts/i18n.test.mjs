@@ -7,6 +7,18 @@ import { translate } from "../src/lib/i18n.ts";
 import { PHASE_NAMES, lunarEclipse, lunarPosition } from "../src/lib/lunar-science.ts";
 import { PLANETS } from "../src/lib/planet-science.ts";
 import { DISTANCE_STOPS } from "../src/lib/distance-science.ts";
+import { GEOLOGIC_UNITS } from "../src/lib/geologic-time-science.ts";
+import { STAGES as WILSON_STAGES } from "../src/labs/wilson-cycle/section.ts";
+const json = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8"));
+/** Names a lab shows straight from its data files. */
+const DATA_NAMES = [
+  ...json("../src/labs/continental-drift/continent-labels.json").continents.flatMap((c) => [
+    c.name,
+    c.short,
+  ]),
+  ...json("../src/labs/continental-drift/fossil-sites.json").taxa.map((t) => t.kind),
+  ...WILSON_STAGES,
+];
 
 const ROOT = new URL("../src/", import.meta.url).pathname;
 const files = (dir) =>
@@ -39,7 +51,15 @@ test("names computed by the science modules have Spanish", () => {
   const lunar = [...eclipses];
   assert.ok(lunar.filter((name) => /lunar eclipse/i.test(name)).length >= 2, lunar.join());
   const distances = DISTANCE_STOPS.flatMap((d) => [d.name, d.unit, d.origin, d.target]);
-  for (const name of [...PHASE_NAMES, ...lunar, ...PLANETS.map((p) => p.name), ...distances])
+  const units = GEOLOGIC_UNITS.map((u) => u.name);
+  for (const name of [
+    ...PHASE_NAMES,
+    ...lunar,
+    ...PLANETS.map((p) => p.name),
+    ...distances,
+    ...units,
+    ...DATA_NAMES,
+  ])
     assert.ok(name in ES, name);
 });
 

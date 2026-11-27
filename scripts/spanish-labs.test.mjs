@@ -57,3 +57,19 @@ test("each Spanish lab mirrors its English lab, so answer keys and hand-in codes
       assert.ok(es.controls?.[key], `${slug}: control ${key} untranslated`);
   }
 });
+
+test("Spanish questions open with ¿ as well as closing with ?", () => {
+  const strings = (v) =>
+    typeof v === "string"
+      ? [v]
+      : v && typeof v === "object"
+        ? Object.values(v).flatMap(strings)
+        : [];
+  for (const [slug, es] of spanish)
+    for (const text of strings(es))
+      assert.equal(
+        (text.match(/¿/g) ?? []).length,
+        (text.match(/\?/g) ?? []).length,
+        `${slug}: ${text.slice(0, 80)}`,
+      );
+});

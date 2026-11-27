@@ -9,6 +9,7 @@ import { latLonToXYZ } from "@/lib/geo";
 import { Tag } from "../shared/kit";
 import FOSSILS from "./fossil-sites.json";
 import CONTINENTS from "./continent-labels.json";
+import { useT } from "@/lib/i18n";
 
 const TAXON_COLOUR: Record<string, string> = {
   mesosaurus: "#5fe3d0",
@@ -102,8 +103,9 @@ function FossilSites({ age }: { age: number }) {
 }
 /** Continent names at each snapshot, rotated with the same plate model as the coastlines. */
 function ContinentLabels({ age }: { age: number }) {
+  const tr = useT();
   const index = siteIndex(age),
-    when = index ? `${FOSSILS.ages[index]} million years ago` : "today";
+    when = index ? tr("{n} million years ago", { n: FOSSILS.ages[index] }) : tr("today");
   return (
     <>
       {CONTINENTS.continents.map((c) => {
@@ -112,9 +114,12 @@ function ContinentLabels({ age }: { age: number }) {
           <Tag
             key={c.name}
             pos={latLonToXYZ(lat, lon, 1.3)}
-            text={c.name}
-            short={c.short}
-            note={`${c.name} ${when}. The label rides on the same plate as the reconstructed coastline, so it marks the same rocks at every step.`}
+            text={tr(c.name)}
+            short={tr(c.short)}
+            note={tr(
+              "{continent} {when}. The label rides on the same plate as the reconstructed coastline, so it marks the same rocks at every step.",
+              { continent: tr(c.name), when },
+            )}
           />
         );
       })}
@@ -123,14 +128,17 @@ function ContinentLabels({ age }: { age: number }) {
 }
 
 export default function ContinentalDrift() {
+  const tr = useT();
   const { params, setParam } = useLabState("params", "setParam"),
     age = params.ageMa ?? 200;
   return (
     <>
       <ScienceStudio
         slug="continental-drift"
-        scale="GPlates MULLER2019 · 10 Ma snapshots · modern coastlines moved back in time · land relief and colors illustrative"
-        trueScale="Globe to scale · positions shown only at reconstructed 10 Ma steps"
+        scale={tr(
+          "GPlates MULLER2019 · 10 Ma snapshots · modern coastlines moved back in time · land relief and colors illustrative",
+        )}
+        trueScale={tr("Globe to scale · positions shown only at reconstructed 10 Ma steps")}
         camera={[2.8, 1.2, 3.8]}
       >
         <FacingGlobe age={age}>
@@ -143,11 +151,11 @@ export default function ContinentalDrift() {
       <ScienceReadout>
         <div className="pointer-events-auto mb-2 flex flex-wrap justify-center gap-1">
           {[
-            { ma: 0, label: "Today" },
-            { ma: 70, label: "70 Ma · Late Cretaceous" },
-            { ma: 120, label: "120 Ma · South Atlantic opens" },
-            { ma: 200, label: "200 Ma · break-up" },
-            { ma: 250, label: "250 Ma · Pangaea" },
+            { ma: 0, label: tr("Today") },
+            { ma: 70, label: tr("70 Ma · Late Cretaceous") },
+            { ma: 120, label: tr("120 Ma · South Atlantic opens") },
+            { ma: 200, label: tr("200 Ma · break-up") },
+            { ma: 250, label: tr("250 Ma · Pangaea") },
           ].map((step) => (
             <button
               key={step.ma}
@@ -162,8 +170,10 @@ export default function ContinentalDrift() {
         </div>
         <p>
           {Math.round(age / 10) * 10 === 0
-            ? "Present-day continental positions."
-            : `Reconstructed continental positions ${Math.round(age / 10) * 10} million years ago.`}
+            ? tr("Present-day continental positions.")
+            : tr("Reconstructed continental positions {age} million years ago.", {
+                age: Math.round(age / 10) * 10,
+              })}
         </p>
         {params.fossils > 0.5 ? (
           <>
@@ -176,24 +186,27 @@ export default function ContinentalDrift() {
                     style={{ background: TAXON_COLOUR[taxon.key] }}
                   />
                   <span className="text-chalk">{taxon.name}</span>
-                  <span className="hidden text-mist sm:inline">· {taxon.kind}</span>
+                  <span className="hidden text-mist sm:inline">· {tr(taxon.kind)}</span>
                 </li>
               ))}
             </ul>
             <p className="mt-2">
-              Dots: fossil sites, moved with their plates. At 250 Ma the Mesosaurus sites of Brazil
-              and Namibia sit side by side.
+              {tr(
+                "Dots: fossil sites, moved with their plates. At 250 Ma the Mesosaurus sites of Brazil and Namibia sit side by side.",
+              )}
             </p>
           </>
         ) : (
           <p className="mt-2">
-            Move toward 200–250 million years ago to examine Pangaea, then turn on Fossil evidence
-            and rotate the globe to compare where the same fossils occur.
+            {tr(
+              "Move toward 200–250 million years ago to examine Pangaea, then turn on Fossil evidence and rotate the globe to compare where the same fossils occur.",
+            )}
           </p>
         )}{" "}
         <br />
-        The reconstruction moves modern coastlines; ancient shorelines also changed with sea level
-        and landscape development.
+        {tr(
+          "The reconstruction moves modern coastlines; ancient shorelines also changed with sea level and landscape development.",
+        )}
       </ScienceReadout>
     </>
   );

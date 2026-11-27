@@ -945,4 +945,252 @@ export const ES: Record<string, string> = {
   // Names from the science modules: lunar eclipses
   "Outside Earth’s shadow": "Fuera de la sombra de la Tierra",
   "Moon misses Earth’s shadow": "La Luna no entra en la sombra de la Tierra",
+
+  // Lab scenes: geologic time, continental drift, hotspots, seafloor spreading, Wilson cycle, isostasy
+  "Early life": "Primera vida",
+  "Microbial fossils and stromatolites show life existed by at least about 3.5 billion years ago.":
+    "Los fósiles microbianos y los estromatolitos muestran que había vida hace al menos unos 3,500 millones de años.",
+  "Great Oxidation": "Gran Oxidación",
+  "Oxygen from photosynthesizing microbes began to accumulate in the atmosphere about 2.4 billion years ago.":
+    "El oxígeno de los microbios fotosintéticos empezó a acumularse en la atmósfera hace unos 2,400 millones de años.",
+  "Cambrian explosion": "Explosión cámbrica",
+  "Most major animal groups appear in the fossil record within a few tens of millions of years after about 539 Ma.":
+    "La mayoría de los grandes grupos de animales aparecen en el registro fósil en unas pocas decenas de millones de años a partir de unos 539 Ma.",
+  Pangaea: "Pangea",
+  "The supercontinent Pangaea was fully assembled around 250 Ma and began breaking apart in the Mesozoic.":
+    "El supercontinente Pangea terminó de formarse hacia los 250 Ma y empezó a fragmentarse en el Mesozoico.",
+  "K–Pg extinction": "Extinción K–Pg",
+  "An asteroid impact 66 million years ago ended the age of non-avian dinosaurs and opened the Cenozoic.":
+    "El impacto de un asteroide hace 66 millones de años terminó con la era de los dinosaurios no avianos y abrió el Cenozoico.",
+  "Homo sapiens": "Homo sapiens",
+  "Our species appears about 300,000 years ago: a sliver of the full window, and only about a third of one turn even in the Quaternary view.":
+    "Nuestra especie aparece hace unos 300,000 años: una franja diminuta de toda la ventana, y solo un tercio de vuelta incluso en la vista del Cuaternario.",
+  "Equal distance along the coil = equal time · window {span} Ma to present":
+    "La misma distancia a lo largo de la espiral = el mismo tiempo · ventana de {span} Ma hasta el presente",
+  "Time is proportional to arc length in both views · this is not a rock section":
+    "El tiempo es proporcional a la longitud del arco en las dos vistas · no es un corte de rocas",
+  "Quaternary ({unit})": "Cuaternario ({unit})",
+  "{unit}: {old}–{young} Ma, about {share}% of Earth history.":
+    "{unit}: {old}–{young} Ma, cerca del {share} % de la historia de la Tierra.",
+  "{age} Ma": "{age} Ma",
+  "Selected time: {unit}. Ma means millions of years before the present. Equal distance along the coil means equal time; neighboring turns are not close in time.":
+    "Tiempo elegido: {unit}. Ma significa millones de años antes del presente. La misma distancia a lo largo de la espiral significa el mismo tiempo; las vueltas vecinas no están cerca en el tiempo.",
+  "{span} Ma": "{span} Ma",
+  "Earth is about 4.54 billion years old. This window starts at that estimate, not at a dated rock boundary.":
+    "La Tierra tiene unos 4,540 millones de años. Esta ventana empieza en esa estimación, no en un límite datado en las rocas.",
+  "This window stretches a shorter interval along the coil. It does not change how long any unit lasted.":
+    "Esta ventana estira un intervalo más corto a lo largo de la espiral. No cambia cuánto duró cada unidad.",
+  Present: "Presente",
+  "Recorded human history is a tiny fraction of the full window. The marker is enlarged so you can see it; the time it stands for is not.":
+    "La historia humana escrita es una fracción diminuta de toda la ventana. El marcador está ampliado para que puedas verlo; el tiempo que representa no lo está.",
+  "{unit} · {age} Ma before present. One turn spans {turn} million years.":
+    "{unit} · {age} Ma antes del presente. Una vuelta abarca {turn} millones de años.",
+  "Quaternary · within the Cenozoic": "Cuaternario · dentro del Cenozoico",
+  "Pale collars mark eon and era boundaries in their true positions (ICS chart, 2026/06 edition).":
+    "Los collares claros marcan los límites de los eones y las eras en sus posiciones reales (tabla de la ICS, edición 2026/06).",
+  "No era boundary falls in this window: all of it lies in the Quaternary Period of the Cenozoic Era.":
+    "En esta ventana no cae ningún límite de era: toda ella está en el periodo Cuaternario de la era Cenozoica.",
+  "Thin dark rings mark every {ring} million years, and gray beads split the window into twelve equal parts of {part} million years. The central column shows the same window unrolled, so each unit's height is its duration. The Phanerozoic begins at 538.8 Ma, and its eras differ greatly in length. Choose a shorter window to inspect recent time. The coil is a time axis, not a thickness of rock layers or an evolutionary ladder.":
+    "Los anillos oscuros y finos marcan cada {ring} millones de años, y las cuentas grises dividen la ventana en doce partes iguales de {part} millones de años. La columna central muestra la misma ventana desenrollada, así que la altura de cada unidad es su duración. El Fanerozoico empieza a los 538.8 Ma, y sus eras duran tiempos muy distintos. Elige una ventana más corta para examinar el tiempo reciente. La espiral es un eje de tiempo, no el grosor de unas capas de roca ni una escalera evolutiva.",
+  "Evidence of life ≥3.5 Ga": "Evidencia de vida ≥3.5 Ga",
+  "Pangaea ≈250 Ma": "Pangea ≈250 Ma",
+  "K–Pg boundary 66 Ma": "Límite K–Pg 66 Ma",
+  "{n} million years ago": "hace {n} millones de años",
+  today: "hoy",
+  "{continent} {when}. The label rides on the same plate as the reconstructed coastline, so it marks the same rocks at every step.":
+    "{continent} {when}. La etiqueta viaja sobre la misma placa que la costa reconstruida, así que marca las mismas rocas en cada paso.",
+  "GPlates MULLER2019 · 10 Ma snapshots · modern coastlines moved back in time · land relief and colors illustrative":
+    "GPlates MULLER2019 · instantáneas cada 10 Ma · costas actuales llevadas hacia atrás en el tiempo · relieve y colores de la tierra ilustrativos",
+  "Globe to scale · positions shown only at reconstructed 10 Ma steps":
+    "Globo a escala · posiciones mostradas solo en los pasos reconstruidos de 10 Ma",
+  Today: "Hoy",
+  "70 Ma · Late Cretaceous": "70 Ma · Cretácico tardío",
+  "120 Ma · South Atlantic opens": "120 Ma · se abre el Atlántico Sur",
+  "200 Ma · break-up": "200 Ma · fragmentación",
+  "250 Ma · Pangaea": "250 Ma · Pangea",
+  "Present-day continental positions.": "Posiciones actuales de los continentes.",
+  "Reconstructed continental positions {age} million years ago.":
+    "Posiciones reconstruidas de los continentes hace {age} millones de años.",
+  "Dots: fossil sites, moved with their plates. At 250 Ma the Mesosaurus sites of Brazil and Namibia sit side by side.":
+    "Puntos: yacimientos de fósiles, movidos con sus placas. A los 250 Ma, los yacimientos de Mesosaurus de Brasil y Namibia quedan uno junto al otro.",
+  "Move toward 200–250 million years ago to examine Pangaea, then turn on Fossil evidence and rotate the globe to compare where the same fossils occur.":
+    "Acércate a hace 200–250 millones de años para examinar Pangea, luego activa Evidencia fósil y gira el globo para comparar dónde aparecen los mismos fósiles.",
+  "The reconstruction moves modern coastlines; ancient shorelines also changed with sea level and landscape development.":
+    "La reconstrucción mueve las costas actuales; las costas antiguas también cambiaron con el nivel del mar y la evolución del paisaje.",
+  "Plate moves SW": "La placa se mueve al SO",
+  "Plate moves NW": "La placa se mueve al NO",
+  "The North American Plate moves southwest relative to the Yellowstone heat source, so the active center appears to migrate northeast.":
+    "La placa de Norteamérica se mueve hacia el suroeste respecto a la fuente de calor de Yellowstone, así que el centro activo parece desplazarse hacia el noreste.",
+  "The Pacific Plate moves northwest relative to the Hawaiian heat source, carrying each volcano away from the place where it formed.":
+    "La placa del Pacífico se mueve hacia el noroeste respecto a la fuente de calor hawaiana y aleja cada volcán del lugar donde se formó.",
+  "Yellowstone · NE": "Yellowstone · NE",
+  "Hawaiʻi · SE": "Hawái · SE",
+  Yellowstone: "Yellowstone",
+  Hawaiʻi: "Hawái",
+  "Young end of the Yellowstone volcanic track: a caldera with a lake, geysers and a magma reservoir in the crust. Older volcanic centers extend southwest along the flat basalt Snake River Plain.":
+    "Extremo joven de la cadena volcánica de Yellowstone: una caldera con un lago, géiseres y un depósito de magma en la corteza. Los centros volcánicos más antiguos se extienden hacia el suroeste por la llanura basáltica del río Snake.",
+  "The southeastern end is the active shield volcano, the broadest and tallest on the track: thousands of thin, runny basalt flows build its gentle slopes. Black recent lava runs down the flank to the sea, a lava lake glows in the summit caldera, and rain forest grows on the wet northeast side. The caldera and flows are drawn larger than they really are. Kauaʻi, to the northwest, preserves rocks about 5–5.5 million years old.":
+    "El extremo sureste es el volcán en escudo activo, el más ancho y alto de la cadena: miles de coladas delgadas de basalto fluido forman sus laderas suaves. La lava negra reciente baja por la ladera hasta el mar, un lago de lava brilla en la caldera de la cima y la selva crece en el lado noreste, más húmedo. La caldera y las coladas están dibujadas más grandes de lo que son. Kauaʻi, al noroeste, conserva rocas de unos 5–5.5 millones de años.",
+  "Older · SW": "Más antiguo · SO",
+  "Older · NW": "Más antiguo · NO",
+  Older: "Más antiguo",
+  "The southwest end of the recognized Yellowstone track reaches roughly 17 Ma. Older calderas are buried by later basalt; these depressions are symbols, not surveyed caldera outlines.":
+    "El extremo suroeste de la cadena reconocida de Yellowstone llega a unos 17 Ma. Las calderas más antiguas están enterradas bajo basalto posterior; estas depresiones son símbolos, no contornos medidos de calderas.",
+  "Moving away from the plume, islands cool, sink and erode: green valleys, then a coral atoll ring around a lagoon, then a drowned flat-topped seamount. Shapes are illustrative, not real coastlines.":
+    "Al alejarse de la pluma, las islas se enfrían, se hunden y se erosionan: primero valles verdes, luego un anillo de atolón de coral alrededor de una laguna y después un monte submarino hundido de cima plana. Las formas son ilustrativas, no costas reales.",
+  "New seamount": "Nuevo monte submarino",
+  "Fresh eruptions build a new submarine volcano above the plume, as Kamaʻehuakanaloa (Lōʻihi) is doing southeast of the Island of Hawaiʻi today.":
+    "Las erupciones recientes construyen un nuevo volcán submarino sobre la pluma, como hace hoy Kamaʻehuakanaloa (Lōʻihi) al sureste de la isla de Hawái.",
+  Atoll: "Atolón",
+  "Coral reefs keep growing upward at sea level while the extinct volcano beneath them subsides, leaving a ring of reef around a lagoon.":
+    "Los arrecifes de coral siguen creciendo hacia arriba a nivel del mar mientras el volcán extinto de debajo se hunde, y queda un anillo de arrecife alrededor de una laguna.",
+  "Mantle plume": "Pluma del manto",
+  "In the plume hypothesis, hot but mostly solid mantle rises slowly. Partial melting near the top feeds magma up through the plate; it is not a hollow pipe or a column of liquid magma. Geometry and colors are schematic.":
+    "En la hipótesis de la pluma, el manto caliente pero casi todo sólido sube despacio. La fusión parcial cerca de la parte superior alimenta el magma que atraviesa la placa; no es un tubo hueco ni una columna de magma líquido. La geometría y los colores son esquemáticos.",
+  "Separate hotspot sections · track directions are real · relief, plate and plume not to scale":
+    "Cortes separados de cada punto caliente · las direcciones de las cadenas son reales · el relieve, la placa y la pluma no están a escala",
+  "No true depth or distance scale · plate thickness and plume are schematic":
+    "Sin escala real de profundidad ni de distancia · el grosor de la placa y la pluma son esquemáticos",
+  "Choose a hotspot": "Elige un punto caliente",
+  "Enable Hawaiʻi or Yellowstone in the controls to compare an oceanic and a continental setting.":
+    "Activa Hawái o Yellowstone en los controles para comparar un ambiente oceánico y uno continental.",
+  "Hawaiʻi's volcanic islands become older toward the northwest; Kauaʻi's rocks are about 5–5.5 million years old.":
+    "Las islas volcánicas de Hawái son más antiguas hacia el noroeste; las rocas de Kauaʻi tienen unos 5–5.5 millones de años.",
+  "Yellowstone's volcanic track goes back about 17 million years, with older sites toward the southwest.":
+    "La cadena volcánica de Yellowstone se remonta a unos 17 millones de años, con los lugares más antiguos hacia el suroeste.",
+  "Select Hawaiʻi, Yellowstone or both to compare their volcanic tracks.":
+    "Elige Hawái, Yellowstone o los dos para comparar sus cadenas volcánicas.",
+  "Press Play to follow plate motion above each hotspot.":
+    "Pulsa Reproducir para seguir el movimiento de la placa sobre cada punto caliente.",
+  "Here the plume is held still and the plate moves over it at no set speed. The arrow shows plate motion: right is northwest for Hawaiʻi and southwest for Yellowstone.":
+    "Aquí la pluma se mantiene quieta y la placa se mueve sobre ella sin una velocidad fija. La flecha muestra el movimiento de la placa: la derecha es el noroeste en Hawái y el suroeste en Yellowstone.",
+  "Relief ×12 · ocean water removed · magnetic colors symbolic · crustal layers schematic":
+    "Relieve ×12 · sin el agua del océano · colores magnéticos simbólicos · capas de la corteza esquemáticas",
+  "1 scene unit = 20 km · relief at true scale · crustal layers schematic":
+    "1 unidad = 20 km · relieve a escala real · capas de la corteza esquemáticas",
+  "Ridge axis · rift valley": "Eje de la dorsal · valle de rift",
+  "Ridge axis · axial rise": "Eje de la dorsal · elevación axial",
+  "At slow spreading rates the ridge crest is a faulted rift valley. Basalt forms at the axis and moves away on each flank. Decompression makes only a small fraction of the mantle melt.":
+    "Con velocidades de expansión lentas, la cresta de la dorsal es un valle de rift con fallas. El basalto se forma en el eje y se aleja por cada flanco. La descompresión funde solo una pequeña parte del manto.",
+  "At faster spreading rates more magma reaches the axis and the crest becomes a smoother rise instead of a rift valley; the broadest axial highs are found at fast ridges such as the East Pacific Rise. Basalt forms at the axis and moves away on each flank.":
+    "Con velocidades de expansión más rápidas llega más magma al eje y la cresta se vuelve una elevación más suave en lugar de un valle de rift; las elevaciones axiales más anchas están en dorsales rápidas como la dorsal del Pacífico Oriental. El basalto se forma en el eje y se aleja por cada flanco.",
+  "Transform fault": "Falla transformante",
+  "Between the two ridge segments the plates slide past each other; earthquakes occur here. Beyond the segments the same line continues as an inactive fracture zone (dashed), where crust of different ages meets.":
+    "Entre los dos segmentos de dorsal, las placas se deslizan una junto a otra; aquí ocurren terremotos. Más allá de los segmentos, la misma línea continúa como una zona de fractura inactiva (discontinua), donde se juntan cortezas de distintas edades.",
+  "Black smokers": "Fumarolas negras",
+  "Seawater circulates through hot new crust and vents as mineral-rich fluid at up to about 400 °C. Chimney size is exaggerated.":
+    "El agua de mar circula a través de la corteza nueva y caliente y sale como un fluido rico en minerales a hasta unos 400 °C. El tamaño de las chimeneas está exagerado.",
+  "{OFFSET} Ma": "{OFFSET} Ma",
+  "Age increases with distance from the axis: age = distance / half spreading rate. This ideal experiment has equal rates on both flanks.":
+    "La edad aumenta con la distancia al eje: edad = distancia / media velocidad de expansión. Este experimento ideal tiene la misma velocidad en los dos flancos.",
+  "A stripe of the same age is found at the same distance from its own ridge segment on the opposite flank. Stripe width depends on both reversal duration and spreading rate.":
+    "Una franja de la misma edad está a la misma distancia de su propio segmento de dorsal en el flanco opuesto. El ancho de las franjas depende de la duración de cada inversión y de la velocidad de expansión.",
+  "Melt lens": "Lente de fusión",
+  "A thin, partly molten lens sits a few kilometers below many ridge axes and feeds the dykes and pillow lavas above it. At slow ridges such as the Mid-Atlantic Ridge it is usually small or short-lived. Beneath it, a small fraction of the mostly solid mantle melts as it rises.":
+    "Una lente delgada y en parte fundida está a pocos kilómetros bajo el eje de muchas dorsales y alimenta los diques y las lavas almohadilladas de encima. En las dorsales lentas, como la mesoatlántica, suele ser pequeña o durar poco. Debajo, una pequeña parte del manto, casi todo sólido, se funde al subir.",
+  "Pillows · dykes · gabbro": "Almohadillas · diques · gabro",
+  "Ocean crust in section: sediment that thickens with age, pillow basalt (tinted by its magnetic polarity), vertical sheeted dykes, coarse gabbro, then the mantle. Thicknesses are schematic.":
+    "La corteza oceánica en corte: sedimento que se engrosa con la edad, basalto en almohadillas (teñido según su polaridad magnética), diques verticales en láminas, gabro de grano grueso y luego el manto. Los grosores son esquemáticos.",
+  "Full spreading rate {rate} mm/year · each flank {half} mm/year. Teal and sand-colored stripes record opposite magnetic polarities, mirrored on each flank.":
+    "Velocidad de expansión total {rate} mm/año · cada flanco {half} mm/año. Las franjas verde azulado y color arena registran polaridades magnéticas opuestas, reflejadas en cada flanco.",
+  "Play runs a made-up reversal record through 1 Ma to show the symmetry; it is not the real reversal timescale. The seafloor deepens with the square root of its age. In this model the rift valley gives way to a smoother axial rise above about 40 mm/year; real ridges change more gradually, and broad axial highs are typical of fast ridges (above about 80 mm/year).":
+    "Reproducir pasa un registro inventado de inversiones a lo largo de 1 Ma para mostrar la simetría; no es la escala de tiempo real de las inversiones. El fondo marino se hace más profundo con la raíz cuadrada de su edad. En este modelo, el valle de rift deja paso a una elevación axial más suave por encima de unos 40 mm/año; en las dorsales reales el cambio es más gradual, y las elevaciones axiales anchas son típicas de las dorsales rápidas (por encima de unos 80 mm/año).",
+  "Depths and layer thicknesses ×2 · surface relief ×4 · idealized 300 km section through a basin · relief and layers schematic":
+    "Profundidades y grosores de las capas ×2 · relieve de la superficie ×4 · corte idealizado de 300 km a través de una cuenca · relieve y capas esquemáticos",
+  "1 scene unit = 50 km in every direction · the section is not the full width of a real ocean":
+    "1 unidad = 50 km en todas las direcciones · el corte no abarca todo el ancho de un océano real",
+  "These are idealized stages of ocean-basin opening and closure. A real basin may skip stages or close along a different line from where it opened; this is not a forecast of the Atlantic’s future.":
+    "Estas son etapas idealizadas de la apertura y el cierre de una cuenca oceánica. Una cuenca real puede saltarse etapas o cerrarse por una línea distinta de la que se abrió; no es un pronóstico del futuro del Atlántico.",
+  "Continental crust": "Corteza continental",
+  "Pink upper and gray lower continental crust, about 35 km thick, thinning at rifted margins under a wedge of sediment. Collision thickens the crust into a deep root under the mountains.":
+    "Corteza continental superior rosada e inferior gris, de unos 35 km de grosor, que se adelgaza en los márgenes de rift bajo una cuña de sedimento. La colisión engrosa la corteza y forma una raíz profunda bajo las montañas.",
+  "Green: rigid lithospheric mantle, part of the plate. Red-brown: hotter, weaker asthenosphere below. Orange glow marks small amounts of melt, not a magma ocean.":
+    "Verde: manto litosférico rígido, parte de la placa. Marrón rojizo: astenosfera más caliente y débil, debajo. El brillo naranja marca pequeñas cantidades de roca fundida, no un océano de magma.",
+  "Rift valley and lake": "Valle de rift y lago",
+  "Stretching thins the continent: the valley floor drops along steep normal faults between uplifted shoulders, and fills with lakes, sediment and lava, as in East Africa today. A volcano rises on one shoulder.":
+    "El estiramiento adelgaza el continente: el fondo del valle se hunde a lo largo de fallas normales empinadas entre hombros levantados, y se llena de lagos, sedimento y lava, como hoy en África Oriental. Un volcán se eleva en uno de los hombros.",
+  "Oceanic crust · 7 km": "Corteza oceánica · 7 km",
+  "Oceanic crust": "Corteza oceánica",
+  "Basalt and gabbro about 7 km thick (dark gray), under a thin skin of mud: thinner and denser than the 35 km continental crust. It forms at ridges and is recycled at trenches, so most ocean floor is less than 200 million years old.":
+    "Basalto y gabro de unos 7 km de grosor (gris oscuro), bajo una capa fina de lodo: más delgada y densa que la corteza continental de 35 km. Se forma en las dorsales y se recicla en las fosas, así que la mayor parte del fondo oceánico tiene menos de 200 millones de años.",
+  "Mid-ocean ridge": "Dorsal oceánica",
+  "New oceanic crust forms at the ridge where rising mantle partly melts. The ocean floor sinks from about 2.5 km deep at the ridge to about 5 km as the plate cools and thickens away from it; the shelves at the continents' edges stay shallow.":
+    "La nueva corteza oceánica se forma en la dorsal, donde el manto que sube se funde en parte. El fondo oceánico se hunde de unos 2.5 km de profundidad en la dorsal a unos 5 km a medida que la placa se enfría y se engrosa al alejarse; las plataformas de los bordes de los continentes siguen siendo poco profundas.",
+  "Volcanic arc": "Arco volcánico",
+  "Water released from the sinking slab lowers the melting point of the mantle above it; the magma rises to build a chain of volcanoes on the edge of the continent.":
+    "El agua que libera la placa que se hunde baja el punto de fusión del manto de encima; el magma sube y forma una cadena de volcanes en el borde del continente.",
+  Trench: "Fosa",
+  "The deep-sea trench, about 9 km deep here, marks where the ocean plate bends down into the mantle. Sediment scraped off it piles up against the trench's inner wall.":
+    "La fosa oceánica, de unos 9 km de profundidad aquí, marca donde la placa oceánica se dobla hacia el manto. El sedimento raspado de ella se acumula contra la pared interior de la fosa.",
+  "Subducting slab": "Placa en subducción",
+  "Older, colder and denser oceanic lithosphere sinks beneath the continent at the trench.":
+    "La litosfera oceánica más antigua, fría y densa se hunde bajo el continente en la fosa.",
+  "Mountain belt · suture": "Cordillera · sutura",
+  "Continental crust is too buoyant to subduct far, so it crumples and thickens into a mountain belt with peaks about {round} km high here. A thin dark sliver of former ocean floor can remain along the suture between the two continents.":
+    "La corteza continental es demasiado ligera para subducir mucho, así que se pliega y se engrosa hasta formar una cordillera con picos de unos {round} km de altura aquí. Una lámina delgada y oscura del antiguo fondo oceánico puede quedar a lo largo de la sutura entre los dos continentes.",
+  "Mountain root": "Raíz de la montaña",
+  "The thickened crust (about 65 km here, against 35 km beside it) bulges down into the mantle. Like an iceberg, the buoyant root is several times deeper than the peaks are high; here the surface relief is drawn twice as tall as the depths, so the root looks shallower than it is.":
+    "La corteza engrosada (unos 65 km aquí, frente a 35 km a su lado) se abomba hacia abajo dentro del manto. Como un iceberg, la raíz, que flota, es varias veces más profunda que la altura de los picos; aquí el relieve de la superficie está dibujado el doble de alto que las profundidades, así que la raíz parece menos profunda de lo que es.",
+  "Stage {n}/6: {stage}.": "Etapa {n}/6: {stage}.",
+  "Extension and spreading can open a basin.":
+    "La extensión y la expansión pueden abrir una cuenca.",
+  "Oceanic lithosphere sinks at the trench; buoyant continental crust resists being pulled down.":
+    "La litosfera oceánica se hunde en la fosa; la corteza continental, que flota, se resiste a ser arrastrada hacia abajo.",
+  "Collision thickens and deforms the continental crust; remnants of an ocean may remain in the suture.":
+    "La colisión engrosa y deforma la corteza continental; pueden quedar restos de un océano en la sutura.",
+  "Select a stage to compare the structure. The reference continental crust is 35 km thick and oceanic crust about 7 km thick.":
+    "Elige una etapa para comparar la estructura. La corteza continental de referencia tiene 35 km de grosor, y la oceánica, unos 7 km.",
+  "Ice load and vertical displacement ×5 · local Airy equilibrium · width and margin shape schematic":
+    "Carga de hielo y desplazamiento vertical ×5 · equilibrio local de Airy · ancho y forma del borde esquemáticos",
+  "All heights share a scale · 1 scene unit = 10 km vertically":
+    "Todas las alturas comparten una escala · 1 unidad = 10 km en vertical",
+  "Mantle · solid, creeping": "Manto · sólido, fluye lentamente",
+  Mantle: "Manto",
+  "Under the extra weight the mantle slowly flows aside while remaining solid. The arrows show the direction of that creep, not its speed.":
+    "Bajo el peso añadido, el manto fluye despacio hacia los lados sin dejar de ser sólido. Las flechas muestran la dirección de ese flujo, no su velocidad.",
+  "Crust · 35 km thick": "Corteza · 35 km de grosor",
+  "Crust · 35 km": "Corteza · 35 km",
+  "Continental crust, less dense (2800 kg/m³) than the mantle below it. Its upper and lower layers are shown in different colors; its total thickness does not change when ice is added.":
+    "Corteza continental, menos densa (2800 kg/m³) que el manto de debajo. Sus capas superior e inferior se muestran en colores distintos; su grosor total no cambia al añadir hielo.",
+  "Moho bends down": "El Moho se hunde",
+  Moho: "Moho",
+  "The crust keeps its thickness, so its base (the Moho) is pushed down by the same amount as the surface. Dashed lines show both levels without ice.":
+    "La corteza conserva su grosor, así que su base (el Moho) se hunde lo mismo que la superficie. Las líneas discontinuas muestran los dos niveles sin hielo.",
+  "{round} m of ice": "{round} m de hielo",
+  "Each column sinks by the ice thickness × 917/3300 (ice density ÷ mantle density). Real adjustment takes thousands of years and spreads sideways as the lithosphere bends.":
+    "Cada columna se hunde el grosor del hielo × 917/3300 (densidad del hielo ÷ densidad del manto). El ajuste real tarda miles de años y se reparte hacia los lados al doblarse la litosfera.",
+  "Meltwater lake": "Lago de agua de deshielo",
+  "Meltwater collects in hollows beyond the ice margin, here just outside the terminal moraine. Schematic: this local model does not bend the ground beyond the ice edge, although the real lithosphere does.":
+    "El agua de deshielo se acumula en las hondonadas más allá del borde del hielo, aquí justo fuera de la morrena terminal. Esquemático: este modelo local no dobla el terreno más allá del borde del hielo, aunque la litosfera real sí lo hace.",
+  "Ice {ice} m → equilibrium depression {depression} m at the center. Mantle / crust / ice densities: 3300 / 2800 / 917 kg/m³.":
+    "Hielo {ice} m → hundimiento de equilibrio {depression} m en el centro. Densidades del manto / la corteza / el hielo: 3300 / 2800 / 917 kg/m³.",
+  "Each column keeps its rock thickness and mass, so thicker ice pushes it further down. Unloading raises the equilibrium position; this static experiment does not predict rebound timing or global sea level.":
+    "Cada columna conserva el grosor y la masa de su roca, así que un hielo más grueso la hunde más. Al quitar la carga, la posición de equilibrio sube; este experimento estático no predice cuándo ocurre el rebote ni el nivel del mar global.",
+
+  // Names from data: geologic units, continents, fossils, Wilson stages
+  Hadean: "Hádico",
+  Archean: "Arcaico",
+  Proterozoic: "Proterozoico",
+  Paleozoic: "Paleozoico",
+  Mesozoic: "Mesozoico",
+  Cenozoic: "Cenozoico",
+  "North America": "Norteamérica",
+  "N. America": "Norteamérica",
+  "South America": "Sudamérica",
+  "S. America": "Sudamérica",
+  Africa: "África",
+  Eurasia: "Eurasia",
+  India: "India",
+  Australia: "Australia",
+  Antarctica: "Antártida",
+  "Freshwater reptile · Early Permian": "Reptil de agua dulce · Pérmico temprano",
+  "Seed fern · Permian": "Helecho con semillas · Pérmico",
+  "Land reptile · Early Triassic": "Reptil terrestre · Triásico temprano",
+  "Land reptile · Early–Middle Triassic": "Reptil terrestre · Triásico temprano y medio",
+  "Continental rift": "Rift continental",
+  "Young ocean": "Océano joven",
+  "Open ocean": "Océano abierto",
+  "Subduction begins": "Comienza la subducción",
+  "Ocean closes": "El océano se cierra",
+  "Continental collision": "Colisión continental",
 };

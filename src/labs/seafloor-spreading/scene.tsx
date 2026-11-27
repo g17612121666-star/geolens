@@ -11,6 +11,7 @@ import { landscapeNoise as noise } from "../shared/landscape-noise";
 import { SectionMaterial } from "../shared/section-material";
 import { useSectionUniforms, withSurfaceY } from "../shared/section-utils";
 import { Tag } from "../shared/kit";
+import { useT } from "@/lib/i18n";
 
 /** 1 scene unit = 20 km horizontally. Two ridge segments are offset by a transform fault. */
 const W = 5,
@@ -121,6 +122,7 @@ function BlackSmokers({ vents }: { vents: [number, number, number][] }) {
 }
 
 export default function SeafloorSpreading() {
+  const tr = useT();
   const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 40);
   const rate = params.rate ?? 25,
@@ -186,8 +188,10 @@ export default function SeafloorSpreading() {
       <ScienceStudio
         slug="seafloor-spreading"
         camera={[2.2, 3.2, 6.2]}
-        scale="Relief ×12 · ocean water removed · magnetic colors symbolic · crustal layers schematic"
-        trueScale="1 scene unit = 20 km · relief at true scale · crustal layers schematic"
+        scale={tr(
+          "Relief ×12 · ocean water removed · magnetic colors symbolic · crustal layers schematic",
+        )}
+        trueScale={tr("1 scene unit = 20 km · relief at true scale · crustal layers schematic")}
       >
         <mesh geometry={geometry} castShadow receiveShadow>
           <meshStandardMaterial attach="material-0" vertexColors roughness={0.93} />
@@ -249,68 +253,82 @@ export default function SeafloorSpreading() {
         })}
         <Tag
           pos={[-0.15, 0.85, -1.25]}
-          text={slowRidge ? "Ridge axis · rift valley" : "Ridge axis · axial rise"}
+          text={slowRidge ? tr("Ridge axis · rift valley") : tr("Ridge axis · axial rise")}
           priority={2}
           note={
             slowRidge
-              ? "At slow spreading rates the ridge crest is a faulted rift valley. Basalt forms at the axis and moves away on each flank. Decompression makes only a small fraction of the mantle melt."
-              : "At faster spreading rates more magma reaches the axis and the crest becomes a smoother rise instead of a rift valley; the broadest axial highs are found at fast ridges such as the East Pacific Rise. Basalt forms at the axis and moves away on each flank."
+              ? tr(
+                  "At slow spreading rates the ridge crest is a faulted rift valley. Basalt forms at the axis and moves away on each flank. Decompression makes only a small fraction of the mantle melt.",
+                )
+              : tr(
+                  "At faster spreading rates more magma reaches the axis and the crest becomes a smoother rise instead of a rift valley; the broadest axial highs are found at fast ridges such as the East Pacific Rise. Basalt forms at the axis and moves away on each flank.",
+                )
           }
           occlude={false}
         />
         <Tag
           pos={[OFFSET / 2 - 0.1, 0.22, TRANSFORM_Z + 0.55]}
-          text="Transform fault"
+          text={tr("Transform fault")}
           priority={1}
           tone="sandstone"
-          note="Between the two ridge segments the plates slide past each other; earthquakes occur here. Beyond the segments the same line continues as an inactive fracture zone (dashed), where crust of different ages meets."
+          note={tr(
+            "Between the two ridge segments the plates slide past each other; earthquakes occur here. Beyond the segments the same line continues as an inactive fracture zone (dashed), where crust of different ages meets.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[vents[0][0] + 1.5, vents[0][1] + 0.45, vents[0][2]]}
-          text="Black smokers"
-          note="Seawater circulates through hot new crust and vents as mineral-rich fluid at up to about 400 °C. Chimney size is exaggerated."
+          text={tr("Black smokers")}
+          note={tr(
+            "Seawater circulates through hot new crust and vents as mineral-rich fluid at up to about 400 °C. Chimney size is exaggerated.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-2.3, 0.15, D / 2 + 0.05]}
-          text={`${((50 + OFFSET * 20) / half).toFixed(1)} Ma`}
+          text={tr("{OFFSET} Ma", { OFFSET: ((50 + OFFSET * 20) / half).toFixed(1) })}
           priority={1}
-          note="Age increases with distance from the axis: age = distance / half spreading rate. This ideal experiment has equal rates on both flanks."
+          note={tr(
+            "Age increases with distance from the axis: age = distance / half spreading rate. This ideal experiment has equal rates on both flanks.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[2.3, 0.15, D / 2 + 0.05]}
-          text={`${((50 - OFFSET * 20) / half).toFixed(1)} Ma`}
+          text={tr("{OFFSET} Ma", { OFFSET: ((50 - OFFSET * 20) / half).toFixed(1) })}
           priority={1}
-          note="A stripe of the same age is found at the same distance from its own ridge segment on the opposite flank. Stripe width depends on both reversal duration and spreading rate."
+          note={tr(
+            "A stripe of the same age is found at the same distance from its own ridge segment on the opposite flank. Stripe width depends on both reversal duration and spreading rate.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[OFFSET + 0.6, height(OFFSET, D / 2) - 0.25, D / 2 + 0.05]}
-          text="Melt lens"
+          text={tr("Melt lens")}
           tone="magma"
-          note="A thin, partly molten lens sits a few kilometers below many ridge axes and feeds the dykes and pillow lavas above it. At slow ridges such as the Mid-Atlantic Ridge it is usually small or short-lived. Beneath it, a small fraction of the mostly solid mantle melts as it rises."
+          note={tr(
+            "A thin, partly molten lens sits a few kilometers below many ridge axes and feeds the dykes and pillow lavas above it. At slow ridges such as the Mid-Atlantic Ridge it is usually small or short-lived. Beneath it, a small fraction of the mostly solid mantle melts as it rises.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-1.6, -1.05, D / 2 + 0.05]}
-          text="Pillows · dykes · gabbro"
-          note="Ocean crust in section: sediment that thickens with age, pillow basalt (tinted by its magnetic polarity), vertical sheeted dykes, coarse gabbro, then the mantle. Thicknesses are schematic."
+          text={tr("Pillows · dykes · gabbro")}
+          note={tr(
+            "Ocean crust in section: sediment that thickens with age, pillow basalt (tinted by its magnetic polarity), vertical sheeted dykes, coarse gabbro, then the mantle. Thicknesses are schematic.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Full spreading rate "}
-        {rate} {"mm/year · each flank "}
-        {half.toFixed(1)}{" "}
-        {
-          "mm/year. Teal and sand-colored stripes record opposite magnetic polarities, mirrored on each flank."
-        }{" "}
+        {tr(
+          "Full spreading rate {rate} mm/year · each flank {half} mm/year. Teal and sand-colored stripes record opposite magnetic polarities, mirrored on each flank.",
+          { rate, half: half.toFixed(1) },
+        )}{" "}
         <br />
-        {
-          "Play runs a made-up reversal record through 1 Ma to show the symmetry; it is not the real reversal timescale. The seafloor deepens with the square root of its age. In this model the rift valley gives way to a smoother axial rise above about 40 mm/year; real ridges change more gradually, and broad axial highs are typical of fast ridges (above about 80 mm/year)."
-        }
+        {tr(
+          "Play runs a made-up reversal record through 1 Ma to show the symmetry; it is not the real reversal timescale. The seafloor deepens with the square root of its age. In this model the rift valley gives way to a smoother axial rise above about 40 mm/year; real ridges change more gradually, and broad axial highs are typical of fast ridges (above about 80 mm/year).",
+        )}
       </ScienceReadout>
     </>
   );
