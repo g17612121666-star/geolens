@@ -8,18 +8,25 @@ import { Tag } from "../shared/kit";
 import { Specimen } from "./specimens";
 import { RockLandscape } from "./landscape";
 import { BODIES, FRONT, surface } from "./terrain";
-const NAMES = ["Igneous", "Sedimentary", "Metamorphic", "Sediment", "Magma"];
+import { msg, useT } from "@/lib/i18n";
+const NAMES = [
+  msg("Igneous"),
+  msg("Sedimentary"),
+  msg("Metamorphic"),
+  msg("Sediment"),
+  msg("Magma"),
+];
 const ROCK_ROUTES = [
-  { from: 4, to: 0, name: "Cooling and crystallization" },
-  { from: 0, to: 3, name: "Weathering / erosion of igneous rock" },
-  { from: 1, to: 3, name: "Weathering / erosion of sedimentary rock" },
-  { from: 2, to: 3, name: "Weathering / erosion of metamorphic rock" },
-  { from: 3, to: 1, name: "Deposition, burial and lithification" },
-  { from: 0, to: 2, name: "Metamorphism of igneous rock" },
-  { from: 1, to: 2, name: "Metamorphism of sedimentary rock" },
-  { from: 0, to: 4, name: "Melting of igneous rock" },
-  { from: 1, to: 4, name: "Melting of sedimentary rock" },
-  { from: 2, to: 4, name: "Melting of metamorphic rock" },
+  { from: 4, to: 0, name: msg("Cooling and crystallization") },
+  { from: 0, to: 3, name: msg("Weathering / erosion of igneous rock") },
+  { from: 1, to: 3, name: msg("Weathering / erosion of sedimentary rock") },
+  { from: 2, to: 3, name: msg("Weathering / erosion of metamorphic rock") },
+  { from: 3, to: 1, name: msg("Deposition, burial and lithification") },
+  { from: 0, to: 2, name: msg("Metamorphism of igneous rock") },
+  { from: 1, to: 2, name: msg("Metamorphism of sedimentary rock") },
+  { from: 0, to: 4, name: msg("Melting of igneous rock") },
+  { from: 1, to: 4, name: msg("Melting of sedimentary rock") },
+  { from: 2, to: 4, name: msg("Melting of metamorphic rock") },
 ];
 
 /**
@@ -27,11 +34,17 @@ const ROCK_ROUTES = [
  * rock; dry basalt needs about 1100 °C or more, so these are guides, not boundaries.
  */
 const REGIMES = [
-  "surface conditions, where weathering, erosion and deposition happen",
-  "shallow burial, where sediment can compact and cement but most rock is too cool to metamorphose",
-  "metamorphic conditions, where rock can recrystallize while staying solid but is too cool for crustal rock to melt",
-  "the range where some rocks are partly molten, especially granitic rock containing water; drier rock stays solid",
-  "hot enough for many crustal rocks, including dry basalt, to be partly or largely molten",
+  msg("surface conditions, where weathering, erosion and deposition happen"),
+  msg(
+    "shallow burial, where sediment can compact and cement but most rock is too cool to metamorphose",
+  ),
+  msg(
+    "metamorphic conditions, where rock can recrystallize while staying solid but is too cool for crustal rock to melt",
+  ),
+  msg(
+    "the range where some rocks are partly molten, especially granitic rock containing water; drier rock stays solid",
+  ),
+  msg("hot enough for many crustal rocks, including dry basalt, to be partly or largely molten"),
 ];
 function regimeFor(temp: number, pressure: number) {
   if (temp >= 1100) return 4;
@@ -44,6 +57,8 @@ function regimeFor(temp: number, pressure: number) {
 const ROUTE_REGIMES = [[3, 4], [0], [0], [0], [0, 1], [2], [2], [3, 4], [3, 4], [3, 4]];
 export default function RockCycle() {
   const { params, t, setParam } = useLabState("params", "t", "setParam");
+  const tr = useT();
+  const names = NAMES.map((name) => tr(name));
   useLabTick(1 / 40);
   const selectedRoute = Math.round(params.process ?? 0),
     landscape = Math.round(params.view ?? 1) === 1;
@@ -84,31 +99,58 @@ export default function RockCycle() {
       .slice(9, -9)
       .map((p) => p.toArray() as [number, number, number]);
   const depthKm = (pressure * 1e9) / (2800 * 9.81) / 1000;
+  const conditions =
+    tr(
+      "{route}: {from} → {to}. At {temp} °C and {pressure} GPa (about {depth} km deep): {regime}.",
+      {
+        route: tr(route.name),
+        from: names[route.from],
+        to: names[route.to],
+        temp: temp.toFixed(0),
+        pressure: pressure.toFixed(2),
+        depth: depthKm.toFixed(1),
+        regime: tr(REGIMES[regime]),
+      },
+    ) +
+    " " +
+    (suits
+      ? tr("These conditions suit this pathway.")
+      : tr("This pathway does not normally happen under these conditions."));
   const landmarks: { pos: [number, number, number]; name: number; note: string }[] = [
     {
       pos: [BODIES.pluton.x - 0.05, BODIES.pluton.y - 0.05, FRONT],
       name: 0,
-      note: "A granite pluton: magma that rose from below and cooled slowly underground, growing large crystals. Its heat baked the rock around it into a dark rim of hornfels (contact metamorphism). Uplift and erosion have exposed its top in the foothills. Lava from the volcano cools quickly into fine-grained igneous rock such as basalt.",
+      note: tr(
+        "A granite pluton: magma that rose from below and cooled slowly underground, growing large crystals. Its heat baked the rock around it into a dark rim of hornfels (contact metamorphism). Uplift and erosion have exposed its top in the foothills. Lava from the volcano cools quickly into fine-grained igneous rock such as basalt.",
+      ),
     },
     {
       pos: [-2.15, -0.45, FRONT],
       name: 1,
-      note: "Sediment carried down by the river settles on the sea floor in layers. Buried under more layers, it is compacted and cemented into sedimentary rock. The beds bend up where the basin meets the mountains.",
+      note: tr(
+        "Sediment carried down by the river settles on the sea floor in layers. Buried under more layers, it is compacted and cemented into sedimentary rock. The beds bend up where the basin meets the mountains.",
+      ),
     },
     {
       pos: [2.35, -0.98, FRONT],
       name: 2,
-      note: "In the hot, deep root of the mountain range, rock recrystallizes under heat and pressure without melting: its minerals line up in folded bands (schist and gneiss), and new minerals such as red garnet grow.",
+      note: tr(
+        "In the hot, deep root of the mountain range, rock recrystallizes under heat and pressure without melting: its minerals line up in folded bands (schist and gneiss), and new minerals such as red garnet grow.",
+      ),
     },
     {
       pos: [-1.55, surface(-1.55, FRONT) + 0.16, FRONT],
       name: 3,
-      note: "Loose grains of weathered rock, carried by the river and dropped where it meets the sea. Sizes and depths are schematic.",
+      note: tr(
+        "Loose grains of weathered rock, carried by the river and dropped where it meets the sea. Sizes and depths are schematic.",
+      ),
     },
     {
       pos: [BODIES.chamber.x + 0.55, BODIES.chamber.y, FRONT],
       name: 4,
-      note: "Magma collects in a chamber under the volcano, inside a rim of crystal mush where it is cooling. Below it, at the base of the thickened crust, rock is hot enough to begin melting: pale veins of melt thread through the gray gneiss (migmatite).",
+      note: tr(
+        "Magma collects in a chamber under the volcano, inside a rim of crystal mush where it is cooling. Below it, at the base of the thickened crust, rock is hot enough to begin melting: pale veins of melt thread through the gray gneiss (migmatite).",
+      ),
     },
   ];
   if (landscape)
@@ -117,8 +159,10 @@ export default function RockCycle() {
         <ScienceStudio
           slug="rock-cycle"
           camera={[0.5, 3.1, 7.4]}
-          scale="Section about 290 km wide and 50 km deep · relief above sea level ×8 · rock bodies and paths schematic"
-          trueScale="Not to scale · rock bodies, the river and the volcano are schematic"
+          scale={tr(
+            "Section about 290 km wide and 50 km deep · relief above sea level ×8 · rock bodies and paths schematic",
+          )}
+          trueScale={tr("Not to scale · rock bodies, the river and the volcano are schematic")}
         >
           <RockLandscape
             route={selectedRoute}
@@ -132,8 +176,8 @@ export default function RockCycle() {
             <Tag
               key={i}
               pos={l.pos}
-              text={mobile ? String(i + 1) : NAMES[l.name]}
-              title={mobile ? `${i + 1} · ${NAMES[l.name]}` : undefined}
+              text={mobile ? String(i + 1) : names[l.name]}
+              title={mobile ? `${i + 1} · ${names[l.name]}` : undefined}
               tone={l.name === route.from || l.name === route.to ? "sandstone" : undefined}
               note={l.note}
               occlude={false}
@@ -143,22 +187,13 @@ export default function RockCycle() {
         <ScienceReadout>
           {mobile && (
             <div className="mb-2 text-chalk">
-              {landmarks.map((l, i) => `${i + 1} · ${NAMES[l.name]}`).join(" · ")}
+              {landmarks.map((l, i) => `${i + 1} · ${names[l.name]}`).join(" · ")}
             </div>
           )}
-          {route.name}: {NAMES[route.from]} → {NAMES[route.to]}.{" At "}
-          {temp.toFixed(0)} {"°C and "}
-          {pressure.toFixed(2)} {"GPa (about "}
-          {depthKm.toFixed(1)}
-          {" km deep): "}
-          {REGIMES[regime]}.{" "}
-          {suits
-            ? "These conditions suit this pathway."
-            : "This pathway does not normally happen under these conditions."}{" "}
-          <br />
-          {
-            "In the section, the orange line follows the selected temperature through the crust and the white dashed line marks the selected depth, so where they cross is where those conditions occur. Dashed pale lines are isotherms every 200 °C; the crust is hotter under the volcano. The moving specimen follows the selected route between the places where it happens; it shows the route, not a rate. The condition bands are broad guides: composition, fluids, time and history also matter."
-          }
+          {conditions} <br />
+          {tr(
+            "In the section, the orange line follows the selected temperature through the crust and the white dashed line marks the selected depth, so where they cross is where those conditions occur. Dashed pale lines are isotherms every 200 °C; the crust is hotter under the volcano. The moving specimen follows the selected route between the places where it happens; it shows the route, not a rate. The condition bands are broad guides: composition, fluids, time and history also matter.",
+          )}
         </ScienceReadout>
       </>
     );
@@ -168,25 +203,33 @@ export default function RockCycle() {
         horizon
         slug="rock-cycle"
         camera={[0, 0.4, 9]}
-        scale="Rock and material examples · positions and specimen sizes are schematic"
-        trueScale="Not to scale · no sample size, process rate or distance is implied"
+        scale={tr("Rock and material examples · positions and specimen sizes are schematic")}
+        trueScale={tr("Not to scale · no sample size, process rate or distance is implied")}
       >
         {positions.map((p, i) => (
           <group key={i} position={p}>
             <Specimen kind={i} plinth />
             <Tag
               pos={[0, i === 3 ? 0.15 : 0.85, 0]}
-              text={NAMES[i]}
+              text={names[i]}
               note={
-                i === 0
-                  ? "Igneous rock forms by cooling and crystallization of melt. The coarse-grained texture is drawn, not scanned from a real specimen."
-                  : i === 1
-                    ? "This clastic sedimentary example is bedded. Compaction and cementation can lithify sediment; chemical and biological sedimentary rocks have other pathways."
-                    : i === 2
-                      ? "This foliated example shows minerals recrystallized and aligned while the rock stayed solid. Not all metamorphic rocks are foliated, and melting is a separate process."
-                      : i === 3
-                        ? "Loose sediment is material that can be transported and deposited. Grain sizes are enlarged. It is not yet a lithified sedimentary rock."
-                        : "Magma is melt that may contain crystals and gas. It becomes igneous rock on cooling and solidification, not merely by becoming hotter."
+                [
+                  tr(
+                    "Igneous rock forms by cooling and crystallization of melt. The coarse-grained texture is drawn, not scanned from a real specimen.",
+                  ),
+                  tr(
+                    "This clastic sedimentary example is bedded. Compaction and cementation can lithify sediment; chemical and biological sedimentary rocks have other pathways.",
+                  ),
+                  tr(
+                    "This foliated example shows minerals recrystallized and aligned while the rock stayed solid. Not all metamorphic rocks are foliated, and melting is a separate process.",
+                  ),
+                  tr(
+                    "Loose sediment is material that can be transported and deposited. Grain sizes are enlarged. It is not yet a lithified sedimentary rock.",
+                  ),
+                  tr(
+                    "Magma is melt that may contain crystals and gas. It becomes igneous rock on cooling and solidification, not merely by becoming hotter.",
+                  ),
+                ][i]
               }
               occlude={false}
             />
@@ -248,19 +291,10 @@ export default function RockCycle() {
         ))}
       </ScienceStudio>
       <ScienceReadout>
-        {route.name}: {NAMES[route.from]} → {NAMES[route.to]}.{" At "}
-        {temp.toFixed(0)} {"°C and "}
-        {pressure.toFixed(2)} {"GPa (about "}
-        {depthKm.toFixed(1)}
-        {" km deep): "}
-        {REGIMES[regime]}.{" "}
-        {suits
-          ? "These conditions suit this pathway."
-          : "This pathway does not normally happen under these conditions."}{" "}
-        <br />
-        {
-          "Select another path; the cycle has branches and loops, with no compulsory order. Depth assumes a uniform rock density of 2800 kg/m³. The condition bands are broad guides: temperature and pressure alone do not identify a rock or how much of it melts; composition, fluids, time and history also matter. Melting begins near 650 °C only for granitic rock containing water, while dry basalt needs about 1100 °C or more. The moving specimen changes type halfway along the route; it shows the route, not a reaction rate."
-        }
+        {conditions} <br />
+        {tr(
+          "Select another path; the cycle has branches and loops, with no compulsory order. Depth assumes a uniform rock density of 2800 kg/m³. The condition bands are broad guides: temperature and pressure alone do not identify a rock or how much of it melts; composition, fluids, time and history also matter. Melting begins near 650 °C only for granitic rock containing water, while dry basalt needs about 1100 °C or more. The moving specimen changes type halfway along the route; it shows the route, not a reaction rate.",
+        )}
       </ScienceReadout>
     </>
   );

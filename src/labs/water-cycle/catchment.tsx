@@ -15,6 +15,7 @@ import { WaterSides } from "../shared/shallow-water";
 import { withSurfaceY } from "../shared/section-utils";
 import { SectionMaterial } from "../shared/section-material";
 import { farmland } from "../shared/hazard-utils";
+import { msg, useT } from "@/lib/i18n";
 
 /** Cut faces: topsoil, then dry ground above the water table, a thin capillary fringe, and wet
  * saturated ground (the groundwater store) below it with every pore full of water, then bedrock.
@@ -135,46 +136,52 @@ function ReservoirSurface({ abstraction }: { abstraction: number }) {
 const fmt = (n: number) => Math.round(n).toLocaleString("en-US");
 const paths: { name: string; points: Point[]; color: string; note: string }[] = [
   {
-    name: "Evaporation",
+    name: msg("Evaporation"),
     points: [
       [2, 0.02, 0.4],
       [2.2, 0.9, 0.4],
       [1.5, 2, 0.4],
     ],
     color: "#e9c18a",
-    note: "Liquid water becomes invisible water vapor, mainly using energy from the Sun. Clouds are droplets or ice, not vapor.",
+    note: msg(
+      "Liquid water becomes invisible water vapor, mainly using energy from the Sun. Clouds are droplets or ice, not vapor.",
+    ),
   },
   {
-    name: "Atmospheric transport",
+    name: msg("Atmospheric transport"),
     points: [
       [1.5, 2, 0.4],
       [0, 2.2, 0.4],
       [-1.5, 2, 0.4],
     ],
     color: "#b9d8e6",
-    note: "Wind carries water vapor and cloud droplets. The arrow shows direction only, not a measured wind.",
+    note: msg(
+      "Wind carries water vapor and cloud droplets. The arrow shows direction only, not a measured wind.",
+    ),
   },
   {
-    name: "Precipitation",
+    name: msg("Precipitation"),
     points: [
       [-1.5, 2, 0.4],
       [-1.5, 1.3, 0.4],
       [-1.5, height(-1.5, 0.4), 0.4],
     ],
     color: "#7fccea",
-    note: "Rain or snow falls from clouds. Vegetation intercepts some precipitation.",
+    note: msg("Rain or snow falls from clouds. Vegetation intercepts some precipitation."),
   },
   {
-    name: "Surface runoff",
+    name: msg("Surface runoff"),
     points: Array.from({ length: 25 }, (_, i): Point => {
       const x = -2.1 + (3.6 * i) / 24;
       return [x, x > 1.1 ? 0.03 : height(x, 0) + 0.025, 0];
     }),
     color: "#86d6e9",
-    note: "Overland flow and rivers carry water downhill toward the outlet. Divides separate surface catchments.",
+    note: msg(
+      "Overland flow and rivers carry water downhill toward the outlet. Divides separate surface catchments.",
+    ),
   },
   {
-    name: "Infiltration",
+    name: msg("Infiltration"),
     // Drawn on the front cut face so it stays visible: surface down to the water table.
     points: [
       [-1.6, height(-1.6, 1.7) + 0.01, 1.72],
@@ -182,10 +189,12 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [-1.6, waterTable(-1.6), 1.72],
     ],
     color: "#72bcce",
-    note: "Water soaks into the soil. Percolation then carries it down through the unsaturated zone to the water table.",
+    note: msg(
+      "Water soaks into the soil. Percolation then carries it down through the unsaturated zone to the water table.",
+    ),
   },
   {
-    name: "Groundwater flow",
+    name: msg("Groundwater flow"),
     // Below the water table on the front cut face, draining toward the coast.
     points: [
       [-1.6, waterTable(-1.6) - 0.12, 1.72],
@@ -193,27 +202,33 @@ const paths: { name: string; points: Point[]; color: string; note: string }[] = 
       [1.1, -0.08, 1.72],
     ],
     color: "#509ca9",
-    note: "Groundwater flows slowly from high to low hydraulic head through pores and fractures, not through open caverns.",
+    note: msg(
+      "Groundwater flows slowly from high to low hydraulic head through pores and fractures, not through open caverns.",
+    ),
   },
   {
-    name: "Transpiration",
+    name: msg("Transpiration"),
     points: [
       [-1, 0.9, -0.8],
       [-0.8, 1.5, -0.8],
       [-0.2, 2, -0.8],
     ],
     color: "#9ac794",
-    note: "Roots take up soil water and leaves release it as water vapor through tiny pores called stomata.",
+    note: msg(
+      "Roots take up soil water and leaves release it as water vapor through tiny pores called stomata.",
+    ),
   },
   {
-    name: "Snowmelt",
+    name: msg("Snowmelt"),
     points: [
       [-2.35, height(-2.35, 1.2) + 0.04, 1.2],
       [-1.9, height(-1.9, 0.8) + 0.04, 0.8],
       [-1.4, height(-1.4, 0) + 0.04, 0],
     ],
     color: "#dbe8e9",
-    note: "Snow and ice store water. Melting changes it to liquid, which can infiltrate or run off.",
+    note: msg(
+      "Snow and ice store water. Melting changes it to liquid, which can infiltrate or run off.",
+    ),
   },
 ];
 function Transfer({
@@ -230,8 +245,9 @@ function Transfer({
     [path],
   );
   const pts = useMemo(() => curve.getPoints(64), [curve]);
+  const tr = useT();
   return (
-    <InspectHotspot name={path.name} note={path.note}>
+    <InspectHotspot name={tr(path.name)} note={tr(path.note)}>
       <Line
         points={pts}
         color={path.color}
@@ -365,6 +381,7 @@ function WaterTower({ position }: { position: Point }) {
 
 export default function WaterCycle() {
   const { params } = useLabState("params");
+  const tr = useT();
   useLabTick(1 / 20);
   const abstraction = params.abstraction ?? 0,
     basin = params.basin > 0.5,
@@ -419,8 +436,10 @@ export default function WaterCycle() {
     <>
       <ScienceStudio
         slug="water-cycle"
-        scale="Catchment cutaway · conceptual stores and transfers, not to scale"
-        trueScale="No common scale for land, atmosphere and pore water · sizes are illustrative"
+        scale={tr("Catchment cutaway · conceptual stores and transfers, not to scale")}
+        trueScale={tr(
+          "No common scale for land, atmosphere and pore water · sizes are illustrative",
+        )}
         camera={[2.1, 2.4, 7]}
       >
         <group position={[0, -0.5, 0]}>
@@ -450,8 +469,10 @@ export default function WaterCycle() {
             />
           </group>
           <InspectHotspot
-            name="Reservoir"
-            note="An invented embanked reservoir that starts with 10,000 m³. Abstraction moves water into the human-use store, so the combined total stays the same. The shoreline retreats as the level falls; its shape is illustrative."
+            name={tr("Reservoir")}
+            note={tr(
+              "An invented embanked reservoir that starts with 10,000 m³. Abstraction moves water into the human-use store, so the combined total stays the same. The shoreline retreats as the level falls; its shape is illustrative.",
+            )}
           >
             <ReservoirSurface abstraction={abstraction} />
           </InspectHotspot>
@@ -465,8 +486,10 @@ export default function WaterCycle() {
             />
           )}
           <InspectHotspot
-            name="Vegetation and soil water"
-            note="Water is held on leaves, in living plants and in soil pores. Transpiration returns some to the atmosphere."
+            name={tr("Vegetation and soil water")}
+            note={tr(
+              "Water is held on leaves, in living plants and in soil pores. Transpiration returns some to the atmosphere.",
+            )}
           >
             <PlantStand
               positions={Array.from({ length: 36 }, (_, i) => {
@@ -508,40 +531,52 @@ export default function WaterCycle() {
           <DriftingClouds />
           <Tag
             pos={[0, 2.55, 0]}
-            text="Atmosphere"
-            note="Invisible vapor is the main atmospheric water store; clouds contain droplets and ice."
+            text={tr("Atmosphere")}
+            note={tr(
+              "Invisible vapor is the main atmospheric water store; clouds contain droplets and ice.",
+            )}
             occlude={false}
           />
           <Tag
             pos={[2.2, 0.08, 1.8]}
-            text="Ocean"
+            text={tr("Ocean")}
             occlude={false}
-            note="The largest global water store. Its volume is not proportional to this small catchment."
+            note={tr(
+              "The largest global water store. Its volume is not proportional to this small catchment.",
+            )}
           />
           <Tag
             pos={[-1, -0.8, 1.7]}
-            text="Groundwater"
+            text={tr("Groundwater")}
             occlude={false}
-            note="Below the water table every pore and fracture in the ground is full of water: the blue-gray saturated zone in the cut face. Above it, the pores hold air as well as water."
+            note={tr(
+              "Below the water table every pore and fracture in the ground is full of water: the blue-gray saturated zone in the cut face. Above it, the pores hold air as well as water.",
+            )}
           />
           <Tag
             pos={[-0.35, waterTable(-0.35) + 0.07, 1.72]}
-            text="Water table"
+            text={tr("Water table")}
             priority={1}
             occlude={false}
-            note="The top of the saturated zone. It rises under the hills and meets sea level at the coast, so groundwater drains slowly toward the sea."
+            note={tr(
+              "The top of the saturated zone. It rises under the hills and meets sea level at the coast, so groundwater drains slowly toward the sea.",
+            )}
           />
           <Tag
             pos={[-2.35, height(-2.35, 1.2) + 0.15, 1.2]}
-            text="Snow and ice"
+            text={tr("Snow and ice")}
             occlude={false}
-            note="A frozen store. Melting releases liquid water that can infiltrate or run off."
+            note={tr(
+              "A frozen store. Melting releases liquid water that can infiltrate or run off.",
+            )}
           />
           <Tag
             pos={[0.8, height(0.8, -1.1) + 0.45, -1.1]}
-            text="Human use"
+            text={tr("Human use")}
             occlude={false}
-            note="Water abstracted for homes, farms and industry. It has moved to another store; it has not left the cycle."
+            note={tr(
+              "Water abstracted for homes, farms and industry. It has moved to another store; it has not left the cycle.",
+            )}
           />
           {paths.map((p, i) => (
             <Transfer key={p.name} path={p} index={i} selected={i === focus} />
@@ -559,17 +594,19 @@ export default function WaterCycle() {
         </group>
       </ScienceStudio>
       <ScienceReadout>
-        <strong className="text-chalk">{path.name}.</strong> {path.note}{" "}
+        <strong className="text-chalk">{tr(path.name)}.</strong> {tr(path.note)}{" "}
         <span className="formula">
-          {`Reservoir ${fmt(remaining)} + human use ${fmt(withdrawn)} = 10,000 m³`}
+          {tr("Reservoir {left} + human use {used} = 10,000 m³", {
+            left: fmt(remaining),
+            used: fmt(withdrawn),
+          })}
         </span>{" "}
         <br />
-        {
-          "Closed teaching budget: abstraction moves water from the reservoir to the human-use store, "
-        }
-        {"so the local store shrinks while the total stays the same. "}
+        {tr(
+          "Closed teaching budget: abstraction moves water from the reservoir to the human-use store, so the local store shrinks while the total stays the same.",
+        )}{" "}
         {basin
-          ? "The gold dashed line follows the drainage divide; the outlet faces the ocean."
+          ? tr("The gold dashed line follows the drainage divide; the outlet faces the ocean.")
           : ""}
       </ScienceReadout>
     </>

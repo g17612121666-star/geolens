@@ -10,6 +10,7 @@ import { terrainBlockGeometry } from "./science-geometry";
 import { SectionMaterial } from "./section-material";
 import { useSectionUniforms } from "./section-utils";
 import { fbm } from "./hazard-utils";
+import { useT } from "@/lib/i18n";
 
 const W = 5.6,
   D = 1.6,
@@ -149,6 +150,7 @@ function Block({
  * each drawn frame (`useLabFrame`) so the section does not re-render while the lab plays.
  */
 export function PlateSection({ kind = 0 }: { kind?: number }) {
+  const tr = useT();
   const height = useMemo(() => surface(kind), [kind]),
     slipping = useRef<THREE.Group>(null);
   useLabFrame((t) => {
@@ -193,8 +195,10 @@ export function PlateSection({ kind = 0 }: { kind?: number }) {
           <Arrow from={[1.2, 0.55, -0.7]} to={[1.2, 0.55, 0.7]} color="#8ec8d1" width={2.2} />
           <Tag
             pos={[0, 1.15, -0.6]}
-            text="Transform · offset stream"
-            note="The stream once flowed straight across the fault. The right block slides sideways along the vertical fault, so the stream and every rock layer are offset. Crust is neither created nor consumed."
+            text={tr("Transform · offset stream")}
+            note={tr(
+              "The stream once flowed straight across the fault. The right block slides sideways along the vertical fault, so the stream and every rock layer are offset. Crust is neither created nor consumed.",
+            )}
             occlude={false}
           />
         </>
@@ -255,11 +259,15 @@ export function PlateSection({ kind = 0 }: { kind?: number }) {
           />
           <Tag
             pos={[kind === 0 ? 0 : 0.75, kind === 0 ? 0.5 : 0.75, kind === 0 ? 0 : -0.3]}
-            text={kind === 0 ? "Divergent · new basalt" : "Convergent · volcanic arc"}
+            text={kind === 0 ? tr("Divergent · new basalt") : tr("Convergent · volcanic arc")}
             note={
               kind === 0
-                ? "The plates separate while new basalt fills the ridge's rift valley. Gold markers travel with each flank. Partial melt (glow) is local; the mantle below stays mostly solid."
-                : "Oceanic lithosphere descends below the overriding continent at the trench. Water released from the slab helps the mantle above it melt, feeding a chain of volcanoes. Gold markers follow the descending plate."
+                ? tr(
+                    "The plates separate while new basalt fills the ridge's rift valley. Gold markers travel with each flank. Partial melt (glow) is local; the mantle below stays mostly solid.",
+                  )
+                : tr(
+                    "Oceanic lithosphere descends below the overriding continent at the trench. Water released from the slab helps the mantle above it melt, feeding a chain of volcanoes. Gold markers follow the descending plate.",
+                  )
             }
             occlude={false}
           />
@@ -267,8 +275,10 @@ export function PlateSection({ kind = 0 }: { kind?: number }) {
       )}
       <Tag
         pos={[-2.2, -1.25, D / 2 + 0.05]}
-        text="Mantle · mostly solid"
-        note="Green: rigid lithospheric mantle, part of the plate. Red-brown: hotter, weaker asthenosphere, still solid rather than a magma ocean. The section has no true length or speed scale."
+        text={tr("Mantle · mostly solid")}
+        note={tr(
+          "Green: rigid lithospheric mantle, part of the plate. Red-brown: hotter, weaker asthenosphere, still solid rather than a magma ocean. The section has no true length or speed scale.",
+        )}
         occlude={false}
       />
     </group>

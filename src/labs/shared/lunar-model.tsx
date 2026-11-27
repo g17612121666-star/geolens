@@ -10,6 +10,7 @@ import {
   lunarPosition,
   illuminatedFraction,
   lunarEclipse,
+  phaseName as phaseNameOf,
   shadowRadii,
   equilibriumTide,
   solarEclipse,
@@ -640,22 +641,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
       solar ? solarEclipse(q).kind !== "none" : !/misses|Outside/.test(lunarEclipse(q)),
     timingMiss =
       !hitAt(shadowPoint) && hitAt(lunarPosition(solar ? 0 : 0.5, node, aligned, distance));
-  const phaseName =
-    fraction < 0.01
-      ? "New Moon"
-      : fraction > 0.99
-        ? "Full Moon"
-        : Math.abs(fraction - 0.5) < 0.03
-          ? t < 0.5
-            ? "First quarter"
-            : "Last quarter"
-          : t < 0.5
-            ? fraction < 0.5
-              ? "Waxing crescent"
-              : "Waxing gibbous"
-            : fraction < 0.5
-              ? "Waning crescent"
-              : "Waning gibbous";
+  const phaseName = tr(phaseNameOf(t, fraction));
   const disc = slug === "moon-phases" && near,
     cosine = -p[0] / Math.hypot(...p),
     discSun: [number, number, number] = [
@@ -676,21 +662,23 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
         }
         scale={
           disc
-            ? "Moon near side · LROC color + LOLA measured relief · no vertical exaggeration"
+            ? tr("Moon near side · LROC color + LOLA measured relief · no vertical exaggeration")
             : focus
               ? `${solar ? "New" : "Full"}-Moon shadow close-up · kilometers share one scale`
               : physical
-                ? "Earth–Moon radii and separation share one scale"
+                ? tr("Earth–Moon radii and separation share one scale")
                 : moonScale > 1
-                  ? "Earth and Moon enlarged · Moon drawn 1.8× its size relative to Earth · separation shortened"
-                  : "Earth and Moon enlarged · correct size ratio · separation shortened"
+                  ? tr(
+                      "Earth and Moon enlarged · Moon drawn 1.8× its size relative to Earth · separation shortened",
+                    )
+                  : tr("Earth and Moon enlarged · correct size ratio · separation shortened")
         }
         trueScale={
           disc
-            ? "Reference lunar radius 1737.4 km · relief shares the radius scale"
+            ? tr("Reference lunar radius 1737.4 km · relief shares the radius scale")
             : focus
               ? "Same scale in every direction · atmosphere omitted"
-              : "Earth–Moon radii and separation share one scale"
+              : tr("Earth–Moon radii and separation share one scale")
         }
       >
         {disc ? (
@@ -740,14 +728,18 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               pos={[position[0], position[1] + 0.3 + moonRadius, position[2]]}
               text={phaseName}
               occlude={false}
-              note="The phase is the illuminated fraction viewed from Earth. It is not Earth's shadow falling on the Moon."
+              note={tr(
+                "The phase is the illuminated fraction viewed from Earth. It is not Earth's shadow falling on the Moon.",
+              )}
             />
             <group position={[3.35, 0, 0]}>
               <StarMesh radius={0.24} />
               <Tag
                 pos={[0, 0.5, 0]}
-                text="Sunlight"
-                note="Not to scale: the real Sun is about 109 times Earth's diameter and about 390 times farther away than the Moon. Its light reaches Earth and Moon as parallel rays from this side."
+                text={tr("Sunlight")}
+                note={tr(
+                  "Not to scale: the real Sun is about 109 times Earth's diameter and about 390 times farther away than the Moon. Its light reaches Earth and Moon as parallel rays from this side.",
+                )}
                 occlude={false}
               />
             </group>
@@ -764,7 +756,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
           <div className="mb-2 flex items-center justify-center gap-3">
             <PhaseIcon fraction={fraction} waxing={t < 0.5} />
             <span>
-              {"As seen from Earth (Northern Hemisphere): "}
+              {tr("As seen from Earth (Northern Hemisphere):")}{" "}
               <strong>{phaseName.toLowerCase()}</strong>
             </span>
           </div>
@@ -791,22 +783,37 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
         )}
         {focus
           ? `${((t - 0.5) * 0.012 * 29.53059 * 24).toFixed(2)} h from ${solar ? "new" : "full"} Moon: ${solar ? solarEclipseText(shadowPoint) : lunarEclipse(shadowPoint)}.${timingMiss ? ` At this moment the Moon is ${t < 0.5 ? "still approaching" : "already past"} the alignment; at 0 h it ${solar ? "casts its shadow on Earth" : "enters Earth's shadow"}.` : ""}`
-          : `At day ${(t * 29.53059).toFixed(1)} of the model month, the Moon is ${(fraction * 100).toFixed(1)}% illuminated as seen from Earth (${phaseName.replace(/^\w/, (c) => c.toLowerCase())}).`}{" "}
+          : tr(
+              "At day {day} of the model month, the Moon is {lit}% illuminated as seen from Earth ({phase}).",
+              {
+                day: (t * 29.53059).toFixed(1),
+                lit: (fraction * 100).toFixed(1),
+                phase: phaseName.replace(/^\w/, (c) => c.toLowerCase()),
+              },
+            )}{" "}
         {slug === "moon-phases" && !focus && /lunar eclipse/i.test(lunarEclipse(p))
-          ? `Earth's shadow now falls on the Moon: ${lunarEclipse(p).toLowerCase()}. `
+          ? tr("Earth's shadow now falls on the Moon: {eclipse}.", {
+              eclipse: tr(lunarEclipse(p)).toLowerCase(),
+            }) + " "
           : ""}
         {slug === "eclipses" && !focus
           ? lunarEclipse(p) + ". Turn on Shadow close-up for a closer view."
           : slug === "tides"
             ? "The surface shows the combined lunar and solar tidal effects."
-            : `The Moon's orbit is tilted by ${aligned ? "0" : LUNAR.inclination}°.`}{" "}
+            : tr("The Moon's orbit is tilted by {deg}°.", {
+                deg: aligned ? "0" : LUNAR.inclination,
+              })}{" "}
         <br />
         {focus &&
           "Play follows an 8.5-hour window around the selected lunar phase. Change Node direction to compare an eclipse with a missed alignment. "}
         {slug === "tides"
           ? "The equilibrium tidal deformation is enlarged. Coastlines, friction and inertia shape the tides at real coasts. "
-          : "The orbit model illustrates phase and eclipse geometry without predicting a calendar date. "}
-        {"Lunar terrain data come from NASA SVS, LROC and LOLA, with colors adapted for this view."}
+          : tr(
+              "The orbit model illustrates phase and eclipse geometry without predicting a calendar date.",
+            ) + " "}
+        {tr(
+          "Lunar terrain data come from NASA SVS, LROC and LOLA, with colors adapted for this view.",
+        )}
       </ScienceReadout>
     </>
   );

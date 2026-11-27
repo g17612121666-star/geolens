@@ -1,6 +1,7 @@
 import { useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
+import { msg, useT } from "@/lib/i18n";
 import {
   REAL_TERRAIN_CREDIT,
   RealTerrainBlock,
@@ -17,16 +18,20 @@ const VOLCANOES = [
     id: "mauna-loa" as RealSiteId,
     depthKm: 44,
     x: -0.8,
-    label: "Mauna Loa · shield volcano",
-    note: "Runny basalt lava flows a long way before it cools, building broad slopes of only about 4–8°. Mauna Loa also rises about 5 km from the sea floor, so it is taller than it looks here.",
+    label: msg("Mauna Loa · shield volcano"),
+    note: msg(
+      "Runny basalt lava flows a long way before it cools, building broad slopes of only about 4–8°. Mauna Loa also rises about 5 km from the sea floor, so it is taller than it looks here.",
+    ),
     tone: "magma" as const,
   },
   {
     id: "st-helens" as RealSiteId,
     depthKm: 12,
     x: 3.3,
-    label: "Mount St. Helens · composite cone",
-    note: "Sticky, gas-rich magma and ash build steeper slopes. The 1980 eruption removed the north side, leaving the horseshoe crater.",
+    label: msg("Mount St. Helens · composite cone"),
+    note: msg(
+      "Sticky, gas-rich magma and ash build steeper slopes. The 1980 eruption removed the north side, leaving the horseshoe crater.",
+    ),
     tone: "sandstone" as const,
   },
 ];
@@ -40,6 +45,7 @@ function Volcano({
   meters: MetersAt;
   exaggeration: number;
 }) {
+  const tr = useT();
   const width = REAL_SITE_WIDTH[v.id] / KM_PER_UNIT,
     depth = v.depthKm / KM_PER_UNIT,
     frame = siteFrame(v.id, width, depth),
@@ -72,8 +78,11 @@ function Volcano({
       />
       <Tag
         pos={[x, top * k + 0.25, z]}
-        text={`${v.label} · about ${(Math.round(top / 10) * 10).toLocaleString("en-US")} m`}
-        note={v.note}
+        text={tr("{name} · about {m} m", {
+          name: tr(v.label),
+          m: (Math.round(top / 10) * 10).toLocaleString("en-US"),
+        })}
+        note={tr(v.note)}
         tone={v.tone}
         occlude={false}
       />
@@ -84,6 +93,7 @@ const REAL_SITE_WIDTH: Record<string, number> = { "mauna-loa": 60, "st-helens": 
 
 export default function RealVolcanoes() {
   const { trueScale } = useLabState("trueScale");
+  const tr = useT();
   const loa = useRealHeights("mauna-loa"),
     helens = useRealHeights("st-helens");
   const exaggeration = trueScale ? 1 : 3;
@@ -93,8 +103,13 @@ export default function RealVolcanoes() {
       <ScienceStudio
         fitKey={ready ? "ready" : "loading"}
         slug="volcanoes"
-        scale={`Real terrain at one scale (1 unit = 10 km) · heights from sea level ×3 · ${REAL_TERRAIN_CREDIT}`}
-        trueScale={`Real terrain at one scale: 1 unit = 10 km in all directions · ${REAL_TERRAIN_CREDIT}`}
+        scale={tr(
+          "Real terrain at one scale (1 unit = 10 km) · heights from sea level ×3 · {credit}",
+          { credit: REAL_TERRAIN_CREDIT },
+        )}
+        trueScale={tr("Real terrain at one scale: 1 unit = 10 km in all directions · {credit}", {
+          credit: REAL_TERRAIN_CREDIT,
+        })}
         camera={[1.2, 3.4, 6.6]}
       >
         {ready ? (
@@ -103,13 +118,13 @@ export default function RealVolcanoes() {
             <Volcano v={VOLCANOES[1]} meters={helens} exaggeration={exaggeration} />
           </group>
         ) : (
-          <Tag pos={[0, 0.3, 0]} text="Loading USGS elevation…" occlude={false} />
+          <Tag pos={[0, 0.3, 0]} text={tr("Loading USGS elevation…")} occlude={false} />
         )}
       </ScienceStudio>
       <ScienceReadout>
-        {
-          "Two real volcanoes from USGS elevation data, drawn at the same scale. Mauna Loa's block is 60 km wide; Mount St. Helens' is 12 km. Runny basalt builds the huge, gentle shield; sticky, gas-rich magma builds the much smaller, steeper composite cone. Turn off “Real volcanoes” to experiment with viscosity and gas."
-        }
+        {tr(
+          "Two real volcanoes from USGS elevation data, drawn at the same scale. Mauna Loa's block is 60 km wide; Mount St. Helens' is 12 km. Runny basalt builds the huge, gentle shield; sticky, gas-rich magma builds the much smaller, steeper composite cone. Turn off “Real volcanoes” to experiment with viscosity and gas.",
+        )}
       </ScienceReadout>
     </>
   );

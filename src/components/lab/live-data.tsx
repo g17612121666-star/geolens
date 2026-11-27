@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLabControls } from "@/lib/store/lab-controls";
+import { msg, useT } from "@/lib/i18n";
 
 /**
  * Live public data beside three labs: today's ENSO status (NOAA CPC, via the site's own cached
@@ -16,12 +17,14 @@ export function LiveData({ slug }: { slug: string }) {
           ? "river"
           : null;
   const [open, setOpen] = useState(false);
+  const t = useT();
   if (!kind) return null;
-  const title = {
-    enso: "Live: today's El Niño status",
-    tides: "Live: today's tides at a US station",
-    river: "Live: a US river right now",
-  }[kind];
+  const title =
+    kind === "enso"
+      ? t("Live: today's El Niño status")
+      : kind === "tides"
+        ? t("Live: today's tides at a US station")
+        : t("Live: a US river right now");
   return (
     <details
       className="pointer-events-auto rounded-2xl border border-white/10 bg-basalt/95 p-4 text-sm leading-6"
@@ -55,7 +58,8 @@ function useJson<T>(url: string | null) {
       .then((data) => live && setState({ data }))
       .catch(
         () =>
-          live && setState({ error: "The data could not be loaded just now. Try again later." }),
+          live &&
+          setState({ error: msg("The data could not be loaded just now. Try again later.") }),
       );
     return () => {
       live = false;
@@ -152,6 +156,7 @@ type Tides = {
 };
 
 function TidesNow() {
+  const t = useT();
   const [station, setStation] = useState(STATIONS[0].id);
   const today = useMemo(() => {
     const d = new Date();
@@ -162,12 +167,16 @@ function TidesNow() {
   const age = moonAge(new Date());
   const phase =
     age < 2 || age > 27.5
-      ? "near new Moon: expect spring tides, with a large range"
+      ? t("near new Moon: expect spring tides, with a large range")
       : Math.abs(age - 14.77) < 2
-        ? "near full Moon: expect spring tides, with a large range"
+        ? t("near full Moon: expect spring tides, with a large range")
         : Math.abs(age - 7.38) < 2 || Math.abs(age - 22.15) < 2
-          ? "near a quarter Moon: expect neap tides, with a small range"
-          : "between spring and neap tides";
+          ? t("near a quarter Moon: expect neap tides, with a small range")
+          : t("between spring and neap tides");
+  // Padded to one width so the times line up in the monospaced list.
+  const high = t("High"),
+    low = t("Low"),
+    width = Math.max(high.length, low.length);
   const rows = data?.predictions ?? [];
   const highs = rows.filter((r) => r.type === "H").map((r) => Number(r.v)),
     lows = rows.filter((r) => r.type === "L").map((r) => Number(r.v));
@@ -175,7 +184,7 @@ function TidesNow() {
   return (
     <div>
       <label className="block text-[13px] text-mist">
-        {"Tide station"}
+        {t("Tide station")}
         <select
           value={station}
           onChange={(e) => setStation(e.target.value)}
@@ -188,29 +197,34 @@ function TidesNow() {
           ))}
         </select>
       </label>
-      <p className="mt-2 text-chalk/90">{`The Moon is ${age.toFixed(1)} days old: ${phase}.`}</p>
+      <p className="mt-2 text-chalk/90">
+        {t("The Moon is {age} days old: {phase}.", { age: age.toFixed(1), phase })}
+      </p>
       {error || data?.error ? (
-        <p className="mt-2 text-sandstone">{data?.error?.message ?? error}</p>
+        <p className="mt-2 text-sandstone">{data?.error?.message ?? t(error ?? "")}</p>
       ) : !data ? (
-        <p className="mt-2 text-mist">{"Loading NOAA tide predictions…"}</p>
+        <p className="mt-2 text-mist">{t("Loading NOAA tide predictions…")}</p>
       ) : (
         <>
           <ul className="mt-2 space-y-0.5 font-mono text-[13px]">
             {rows.map((r) => (
               <li key={r.t} className={r.type === "H" ? "text-chalk" : "text-mist"}>
-                {`${r.type === "H" ? "High" : "Low "}  ${r.t.slice(5, 16).replace("-", "/")}  ${Number(r.v).toFixed(2)} m`}
+                {`${(r.type === "H" ? high : low).padEnd(width)}  ${r.t.slice(5, 16).replace("-", "/")}  ${Number(r.v).toFixed(2)} m`}
               </li>
             ))}
           </ul>
           {range !== null && (
-            <p className="mt-2 text-chalk/90">{`Largest range in these 48 hours: ${range.toFixed(2)} m.`}</p>
+            <p className="mt-2 text-chalk/90">
+              {t("Largest range in these 48 hours: {range} m.", { range: range.toFixed(2) })}
+            </p>
           )}
         </>
       )}
       <p className={note}>
-        {
-          "Predicted heights above mean lower low water, in local time. Is this station's pattern two highs a day, two unequal highs, or one? Check again in a week and compare the range. Source: "
-        }
+        {t(
+          "Predicted heights above mean lower low water, in local time. Is this station's pattern two highs a day, two unequal highs, or one? Check again in a week and compare the range.",
+        )}{" "}
+        {t("Source:")}{" "}
         <a
           className={link}
           href={`https://tidesandcurrents.noaa.gov/noaatidepredictions.html?id=${station}`}

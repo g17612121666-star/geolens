@@ -16,6 +16,12 @@ export function translate(lang: Lang, text: string, vars?: Vars): string {
     : base;
 }
 
+/**
+ * Marks English text for translation where it is defined outside a component (a list of layers,
+ * say); translate it with t() where it is shown. scripts/i18n.test.mjs checks these too.
+ */
+export const msg = <T extends string>(text: T): T => text;
+
 const Scope = createContext<Lang | null>(null);
 /**
  * Sets the language for part of a page: a lab without a Spanish translation stays wholly in
