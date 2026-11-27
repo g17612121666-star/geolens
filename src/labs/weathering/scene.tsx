@@ -22,8 +22,9 @@ import {
   PittedLimestone,
   SurfaceRoots,
 } from "./parts";
+import { msg, useT } from "@/lib/i18n";
 
-const MODES = ["Freezing in a joint", "Carbonate dissolution", "Root growth"];
+const MODES = [msg("Freezing in a joint"), msg("Carbonate dissolution"), msg("Root growth")];
 type V3 = [number, number, number];
 type CalloutSpec = {
   n: number;
@@ -47,6 +48,7 @@ const GROUND_SECTION = {
 } as const;
 
 export default function Weathering() {
+  const tr = useT();
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 45);
   const mode = Math.round(params.method ?? 0),
@@ -69,8 +71,10 @@ export default function Weathering() {
             n: 1,
             anchor: [AIR_STONE.x, 0.7, AIR_STONE.z],
             at: [-1.6, 1.0, 0.1],
-            text: "Carbon dioxide bubbled in",
-            note: "Carbon dioxide dissolves in the water and forms weak carbonic acid. Outdoors it comes from the air and, in much larger amounts, from soil air, where roots and microbes respire.",
+            text: tr("Carbon dioxide bubbled in"),
+            note: tr(
+              "Carbon dioxide dissolves in the water and forms weak carbonic acid. Outdoors it comes from the air and, in much larger amounts, from soil air, where roots and microbes respire.",
+            ),
           },
         ]
       : mode === 0
@@ -81,9 +85,11 @@ export default function Weathering() {
                     n: 1,
                     anchor: [0, liquidHeight + frozenHeight / 2, 0.5] as V3,
                     at: [-0.66, liquidHeight + frozenHeight / 2 + 0.12, 0.66] as V3,
-                    text: "Ice",
+                    text: tr("Ice"),
                     tone: "ice" as const,
-                    note: "Freezing starts at the top of the joint, where it meets the cold air, so ice seals in the water below. The ice takes up about 9% more room than the water it came from.",
+                    note: tr(
+                      "Freezing starts at the top of the joint, where it meets the cold air, so ice seals in the water below. The ice takes up about 9% more room than the water it came from.",
+                    ),
                   },
                 ]
               : []),
@@ -93,9 +99,11 @@ export default function Weathering() {
                     n: 2,
                     anchor: [0, liquidHeight / 2, 0.5] as V3,
                     at: [0.66, liquidHeight / 2 - 0.08, 0.66] as V3,
-                    text: "Liquid water",
+                    text: tr("Liquid water"),
                     tone: "glacier" as const,
-                    note: "The joint holds a fixed 7.00 kg of water. As more of it turns to ice, the total volume grows and the walls move apart.",
+                    note: tr(
+                      "The joint holds a fixed 7.00 kg of water. As more of it turns to ice, the total volume grows and the walls move apart.",
+                    ),
                   },
                 ]
               : []),
@@ -105,9 +113,11 @@ export default function Weathering() {
               n: 1,
               anchor: [0, 0.98, 0.5],
               at: [0.68, 0.55, 0.66],
-              text: "Root wedged in the joint",
+              text: tr("Root wedged in the joint"),
               tone: "moss",
-              note: "A root that grows into a crack is squeezed flat between the walls. As it thickens, it presses on both walls.",
+              note: tr(
+                "A root that grows into a crack is squeezed flat between the walls. As it thickens, it presses on both walls.",
+              ),
             },
           ];
   return (
@@ -118,17 +128,25 @@ export default function Weathering() {
         camera={[2.6, 1.9, 6]}
         scale={
           mode === 0
-            ? "Joint widening exaggerated ×10 · joint starts 20 mm wide · water mass fixed"
+            ? tr("Joint widening exaggerated ×10 · joint starts 20 mm wide · water mass fixed")
             : mode === 1
-              ? "Calcite sphere starts with a 0.3 m radius · dissolution is shown, not a calculated rate · pits, bubbles and ion dots are drawn"
-              : "Root and tree growth in an existing joint are drawn, not calculated · 1 scene unit = 0.5 m"
+              ? tr(
+                  "Calcite sphere starts with a 0.3 m radius · dissolution is shown, not a calculated rate · pits, bubbles and ion dots are drawn",
+                )
+              : tr(
+                  "Root and tree growth in an existing joint are drawn, not calculated · 1 scene unit = 0.5 m",
+                )
         }
         trueScale={
           mode === 0
-            ? "Joint widening at true scale · 1 scene unit = 0.5 m · joint starts 20 mm wide"
+            ? tr("Joint widening at true scale · 1 scene unit = 0.5 m · joint starts 20 mm wide")
             : mode === 1
-              ? "This view has no exaggeration · 1 scene unit = 0.5 m · ion dots are symbols, not real sizes"
-              : "This view has no exaggeration · 1 scene unit = 0.5 m · root growth is drawn, not calculated"
+              ? tr(
+                  "This view has no exaggeration · 1 scene unit = 0.5 m · ion dots are symbols, not real sizes",
+                )
+              : tr(
+                  "This view has no exaggeration · 1 scene unit = 0.5 m · root growth is drawn, not calculated",
+                )
         }
       >
         {mode === 1 ? (
@@ -140,8 +158,10 @@ export default function Weathering() {
             <GlassTank />
             <Tag
               pos={[0, 1.95, 0]}
-              text="Dissolved ions leave the solid"
-              note="Calcite reacts with carbon dioxide and water to give dissolved calcium and bicarbonate. The dots are symbols; they do not show real ion sizes, numbers or concentrations."
+              text={tr("Dissolved ions leave the solid")}
+              note={tr(
+                "Calcite reacts with carbon dioxide and water to give dissolved calcium and bicarbonate. The dots are symbols; they do not show real ion sizes, numbers or concentrations.",
+              )}
               occlude={false}
             />
           </>
@@ -167,8 +187,10 @@ export default function Weathering() {
                 )}
                 <Tag
                   pos={[0, 1.95, 0]}
-                  text={`${(t * 100).toFixed(0)}% of water mass frozen`}
-                  note="Water takes up about 9% more volume as ice. Here the joint walls simply move apart; real cracking depends on confinement, water supply and rock strength. Ice lenses fed by migrating water (ice segregation) also break rock."
+                  text={tr("{t}% of water mass frozen", { t: (t * 100).toFixed(0) })}
+                  note={tr(
+                    "Water takes up about 9% more volume as ice. Here the joint walls simply move apart; real cracking depends on confinement, water supply and rock strength. Ice lenses fed by migrating water (ice segregation) also break rock.",
+                  )}
                   occlude={false}
                 />
               </>
@@ -178,8 +200,10 @@ export default function Weathering() {
                 <JointTree gap={rootGap} growth={growth} />
                 <Tag
                   pos={[0, 3.35, 0]}
-                  text="Root growth can widen an existing joint"
-                  note="The root and the moving walls are drawn, not calculated from growth rates or forces. Roots, microbes and lichens also weather rock chemically."
+                  text={tr("Root growth can widen an existing joint")}
+                  note={tr(
+                    "The root and the moving walls are drawn, not calculated from growth rates or forces. Roots, microbes and lichens also weather rock chemically.",
+                  )}
                   occlude={false}
                 />
               </>
@@ -231,12 +255,25 @@ export default function Weathering() {
             {callouts.map((c) => `${c.n} · ${c.text}`).join(" · ")}
           </div>
         )}
-        {MODES[mode]}.{" "}
+        {tr(MODES[mode])}.{" "}
         {mode === 0
-          ? `Actual joint ${(ice.jointWidth * 1000).toFixed(2)} mm · liquid ${(ice.liquidVolume * 1000).toFixed(2)} L + ice ${(ice.iceVolume * 1000).toFixed(2)} L = ${((ice.liquidVolume + ice.iceVolume) * 1000).toFixed(2)} L, from 7.00 kg water (7.00 L as liquid).`
+          ? tr(
+              "Actual joint {joint} mm · liquid {liquid} L + ice {ice} L = {total} L, from 7.00 kg water (7.00 L as liquid).",
+              {
+                joint: (ice.jointWidth * 1000).toFixed(2),
+                liquid: (ice.liquidVolume * 1000).toFixed(2),
+                ice: (ice.iceVolume * 1000).toFixed(2),
+                total: ((ice.liquidVolume + ice.iceVolume) * 1000).toFixed(2),
+              },
+            )
           : mode === 1
-            ? `Solid calcite ${dissolve.remainingMass.toFixed(1)} kg · dissolved calcite equivalent ${dissolve.dissolvedMass.toFixed(1)} kg.`
-            : "Mechanical: as Process runs, the root thickens and widens the existing joint; both rock pieces stay in place. Chemical (not drawn): acids from roots, microbes and lichens alter minerals on the joint walls."}
+            ? tr("Solid calcite {solid} kg · dissolved calcite equivalent {dissolved} kg.", {
+                solid: dissolve.remainingMass.toFixed(1),
+                dissolved: dissolve.dissolvedMass.toFixed(1),
+              })
+            : tr(
+                "Mechanical: as Process runs, the root thickens and widens the existing joint; both rock pieces stay in place. Chemical (not drawn): acids from roots, microbes and lichens alter minerals on the joint walls.",
+              )}
         {mode === 1 && (
           <>
             {" "}
@@ -248,13 +285,13 @@ export default function Weathering() {
             <span aria-hidden="true" style={{ color: ION_COLORS.bicarbonate }}>
               ●
             </span>{" "}
-            HCO₃⁻ (symbols only).
+            HCO₃⁻ {tr("(symbols only).")}
           </>
         )}{" "}
         <br />
-        {
-          "Play shows the order of change, not elapsed years. Weathering changes rock in place; erosion carries the material away. The model does not predict when the rock breaks."
-        }
+        {tr(
+          "Play shows the order of change, not elapsed years. Weathering changes rock in place; erosion carries the material away. The model does not predict when the rock breaks.",
+        )}
       </ScienceReadout>
     </>
   );

@@ -1,0 +1,131 @@
+{
+  "title": "Los tsunamis",
+  "hook": "Un tsunami tiene una longitud de onda muy larga y viaja más rápido en aguas más profundas.",
+  "objective": "Explica cómo un movimiento del fondo marino genera un tsunami y por qué cambian su velocidad y su altura al entrar en aguas poco profundas.",
+  "modelDescription": "Un largo corte del océano va desde aguas profundas hasta una plataforma poco profunda y una costa con un pueblo. Primero el fondo marino sube y eleva el agua de encima; después la ola viaja hacia la costa, se frena y crece en altura a medida que el agua es menos profunda. El levantamiento del fondo marino está ampliado para que se pueda ver.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Arrastra el control Proceso por la primera etapa, en la que el fondo marino sube y eleva el agua de encima. ¿En qué se diferencia de una marejada ciclónica causada por el viento? Luego sigue la ola en la segunda etapa mientras viaja hacia la plataforma."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Lee la velocidad de la ola en aguas profundas y otra vez en aguas poco profundas. Usa el gráfico, en metros, para comparar la altura de la ola."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo cambia la disminución de la profundidad del agua la velocidad y la altura de una onda larga que se acerca a la costa?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Un tsunami empieza con…",
+      "choices": [
+        "Vientos fuertes sobre el mar abierto",
+        "Un movimiento repentino del fondo marino",
+        "Una marea viva excepcionalmente alta",
+        "La baja presión del aire en una tormenta"
+      ],
+      "explain": "Un tsunami empieza cuando se desplaza rápidamente un gran volumen de agua, a menudo por un movimiento vertical del fondo marino durante un terremoto. Los deslizamientos y otras perturbaciones también pueden generar tsunamis."
+    },
+    {
+      "prompt": "En aguas profundas, un tsunami es…",
+      "choices": [
+        "Un muro de 30 m en todas partes",
+        "Lento hasta que llega a la costa",
+        "Rápido y a menudo pasa inadvertido en el mar",
+        "De solo unos pocos kilómetros de largo"
+      ],
+      "explain": "La gran longitud de onda de un tsunami le permite viajar rápido por aguas profundas, mientras su altura mar adentro puede seguir siendo pequeña. Por eso un barco puede notar muy poco cambio aunque la ola pase por debajo."
+    },
+    {
+      "prompt": "Crece en la costa porque…",
+      "choices": [
+        "La atracción de la Luna es más fuerte cerca de la tierra",
+        "Su velocidad aumenta en aguas poco profundas",
+        "Los vientos hacia la costa la empujan cada vez más alto",
+        "Al frenarse, su energía se concentra en una ola más alta"
+      ],
+      "explain": "Cuando un tsunami entra en aguas menos profundas, se frena y su longitud de onda se acorta. Su altura puede aumentar por el asomeramiento, y la respuesta final en la costa también depende de la refracción, la forma del fondo y la pérdida de energía."
+    },
+    {
+      "prompt": "La inundación costera de los huracanes Katrina y Sandy fue sobre todo…",
+      "choices": [
+        "Una marejada ciclónica por el viento y la baja presión",
+        "Un tsunami causado por un terremoto en un megacabalgamiento",
+        "Solo una marea viva",
+        "Un tsunami causado por un deslizamiento"
+      ],
+      "explain": "Katrina y Sandy elevaron el nivel del agua en la costa por el viento de la tormenta y la presión atmosférica, junto con las mareas y el oleaje. Ese mecanismo de marejada ciclónica es distinto del desplazamiento rápido de la columna de agua que genera un tsunami."
+    },
+    {
+      "prompt": "¿Por qué las personas deben alejarse de la playa después de la primera ola de un tsunami?",
+      "choices": [
+        "La primera ola siempre es la más grande.",
+        "El mar se calma después de que pasa una ola.",
+        "Pueden llegar más olas durante varias horas.",
+        "El agua de un tsunami se retira casi al instante."
+      ],
+      "explain": "Un tsunami es una serie de olas que pueden llegar con decenas de minutos de diferencia, y una ola posterior puede ser la más grande. Las personas deben quedarse en terreno alto hasta que las autoridades digan que es seguro."
+    }
+  ],
+  "why": [
+    "Un tsunami tiene una longitud de onda muy larga y viaja más rápido en aguas más profundas. Al pasar a aguas menos profundas se frena, y su amplitud puede aumentar porque la energía se concentra en una profundidad menor.",
+    "La velocidad de las ondas largas depende solo de la profundidad del agua: c = √(g h). En 4000 m de agua, un tsunami viaja a unos 200 m/s, tan rápido como un avión de pasajeros; sobre una plataforma de 100 m se frena a unos 30 m/s. La parte trasera de la ola, todavía en aguas más profundas, alcanza al frente, así que la longitud de onda se acorta y la misma energía se comprime en una ola más corta, que crece en altura.",
+    "Este cálculo de ondas largas termina mar adentro y no incluye la rotura de la ola, su ascenso por la costa ni la inundación en tierra."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Un tsunami y una marejada ciclónica son el mismo tipo de ola costera.",
+      "truth": "Un tsunami es una secuencia de ondas largas generada por un desplazamiento rápido del agua, como un movimiento del fondo marino o un deslizamiento. La marejada ciclónica es una subida anormal del nivel del agua causada sobre todo por el viento de una tormenta y la presión atmosférica. Sus causas, su propagación y las señales de alerta son distintas."
+    },
+    {
+      "claim": "Un tsunami es una sola ola gigante que rompe, como una ola para surfear.",
+      "truth": "Un tsunami es una serie de olas muy largas que pueden seguir llegando durante horas. A menudo llega a la costa como una inundación rápida que sube, más que como una ola que se curva al romper, y la primera ola no siempre es la más grande."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Tsunami",
+      "def": "Una serie de ondas largas generadas por un desplazamiento rápido del agua, sobre todo durante un gran terremoto submarino. En aguas poco profundas se frenan y pueden crecer en altura. Los tsunamis no se deben a las mareas diarias normales."
+    },
+    {
+      "term": "Asomeramiento",
+      "def": "El cambio de una ola al entrar en aguas menos profundas: se frena, su longitud de onda se acorta y su altura puede aumentar antes de romper."
+    },
+    {
+      "term": "Marejada ciclónica",
+      "def": "Una subida del nivel del mar por encima de la marea esperada, causada sobre todo por el viento de una tormenta y la presión atmosférica. La forma de la costa y la profundidad del agua influyen en su tamaño. La marejada se combina con las mareas y el oleaje para determinar el nivel del agua y las inundaciones en la costa."
+    },
+    {
+      "term": "Megacabalgamiento",
+      "def": "Una gran falla inversa de poco ángulo en un límite de subducción. Un deslizamiento repentino en su parte poco profunda, mar adentro, puede desplazar el fondo marino y generar un tsunami."
+    },
+    {
+      "term": "Longitud de onda",
+      "def": "La distancia entre puntos equivalentes de ondas sucesivas, como una cresta y la siguiente. Un tsunami tiene una longitud de onda muy larga comparada con las olas normales del viento. Su longitud de onda cambia a medida que cambian la velocidad y la profundidad del agua durante la propagación."
+    },
+    {
+      "term": "Descenso",
+      "def": "Una bajada del nivel del agua. En el laboratorio de tsunamis significa que el mar se retira antes de que lleguen algunas olas; muchos tsunamis llegan sin esta señal. En el agua subterránea, el descenso es la bajada del nivel freático o de la presión."
+    },
+    {
+      "term": "Altura de ascenso",
+      "def": "La elevación máxima que alcanza una ola sobre un nivel del mar de referencia al avanzar por tierra; es distinta de la distancia de inundación tierra adentro."
+    }
+  ],
+  "predict": {
+    "prompt": "En el océano profundo, ¿crees que un tsunami es alto o bajo, rápido o lento? ¿Qué pasa cuando llega a aguas poco profundas?"
+  },
+  "cer": {
+    "prompt": "¿Por qué un tsunami que casi no se nota en el mar se vuelve peligroso en la costa?",
+    "claim": "Un tsunami se frena en aguas poco profundas, y al frenarse su energía se comprime en una ola más corta y más alta.",
+    "evidence": "En 4,000 m de agua, la ola viaja a unos 200 m/s con una amplitud de unos 0.5 m. Sobre la plataforma se frena a unos 30 m/s a 100 m de profundidad, y el gráfico muestra cómo crece su altura a medida que el agua es menos profunda.",
+    "reasoning": "La velocidad de un tsunami depende de la profundidad del agua: c = √(g h). La parte trasera de la ola, todavía en aguas más profundas, alcanza al frente, que va más lento, así que la longitud de onda se acorta. La misma energía queda en una ola más corta, así que la ola crece en altura."
+  },
+  "controls": {}
+}

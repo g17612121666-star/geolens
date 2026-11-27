@@ -12,6 +12,7 @@ import { WaterRibbon } from "../shared/geomorphic-terrain";
 import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { PlantStand } from "../shared/natural-world";
+import { useT } from "@/lib/i18n";
 
 /** 1 scene unit = 50 km. The block is cut through the hypocenter along z = 0. */
 const KM = 1 / 50,
@@ -255,6 +256,7 @@ function SurfaceRing({
 }
 
 export default function Earthquakes() {
+  const tr = useT();
   const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 45);
   // 30 s lets the surface wave reach the station even from the deepest focus (about 27 s at 40 km).
@@ -364,8 +366,12 @@ export default function Earthquakes() {
         slug="earthquakes"
         camera={[2.2, 4.4, 6.2]}
         ground={false}
-        scale="1 scene unit = 50 km · surface relief ×10 · ground motion hugely exaggerated · buildings not to scale"
-        trueScale="Relief at true scale and ground motion hidden · P = 6 km/s · S = 3.5 km/s in a uniform solid"
+        scale={tr(
+          "1 scene unit = 50 km · surface relief ×10 · ground motion hugely exaggerated · buildings not to scale",
+        )}
+        trueScale={tr(
+          "Relief at true scale and ground motion hidden · P = 6 km/s · S = 3.5 km/s in a uniform solid",
+        )}
       >
         <mesh geometry={geometry} castShadow receiveShadow>
           <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
@@ -421,39 +427,49 @@ export default function Earthquakes() {
         </group>
         <Tag
           pos={[0, ground(0, 0) + 0.3, 0.1]}
-          text="Epicenter"
+          text={tr("Epicenter")}
           priority={2}
-          note="The epicenter is the point on the surface vertically above the hypocenter. It is not necessarily where the inclined fault reaches the surface."
+          note={tr(
+            "The epicenter is the point on the surface vertically above the hypocenter. It is not necessarily where the inclined fault reaches the surface.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[0, -d - 0.3, 0.05]}
-          text={`Hypocenter · ${depth.toFixed(0)} km`}
+          text={tr("Hypocenter · {depth} km", { depth: depth.toFixed(0) })}
           priority={2}
           tone="magma"
-          note="Rupture starts at the focus (hypocenter); the red patch shows part of the fault slipping. Here the waves spread as spheres from one point through uniform rock; real ruptures spread across a whole fault surface."
+          note={tr(
+            "Rupture starts at the focus (hypocenter); the red patch shows part of the fault slipping. Here the waves spread as spheres from one point through uniform rock; real ruptures spread across a whole fault surface.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[station[0] + 1.5, station[1] + 0.55, station[2]]}
-          text="Seismometer · 50 km"
-          short="Seismometer"
+          text={tr("Seismometer · 50 km")}
+          short={tr("Seismometer")}
           priority={1}
-          note="The station is 50 km horizontally from the epicenter, so the straight-line distance from the focus is √(depth² + 50²) km. Its drum record shows the P-wave arrival, then the larger S-wave, then the slower, larger surface wave."
+          note={tr(
+            "The station is 50 km horizontally from the epicenter, so the straight-line distance from the focus is √(depth² + 50²) km. Its drum record shows the P-wave arrival, then the larger S-wave, then the slower, larger surface wave.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[faultX - 0.1, ground(faultX, -2.3) + 0.12, -2.3]}
-          text="Fault scarp"
+          text={tr("Fault scarp")}
           tone="fault"
-          note="The fault dips at 60°. Repeated earthquakes have lifted the hanging wall, offsetting the rock layers in the cut face and leaving a small step at the surface. Offsets are schematic."
+          note={tr(
+            "The fault dips at 60°. Repeated earthquakes have lifted the hanging wall, offsetting the rock layers in the cut face and leaving a small step at the surface. Offsets are schematic.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-3.0, -0.7, 0.05]}
-          text="Moho · 35 km"
-          short="Moho"
-          note="Layers: sedimentary cover, granitic upper crust, denser lower crust, then the olive-green mantle below the Moho. Thicknesses are typical continental values, drawn at the scene's scale of 1 unit = 50 km."
+          text={tr("Moho · 35 km")}
+          short={tr("Moho")}
+          note={tr(
+            "Layers: sedimentary cover, granitic upper crust, denser lower crust, then the olive-green mantle below the Moho. Thicknesses are typical continental values, drawn at the scene's scale of 1 unit = 50 km.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
@@ -468,14 +484,20 @@ export default function Earthquakes() {
           {"S: "}
           {w.sRadius.toFixed(1)} {"km"}
         </span>
-        {". Ray path to station: "}
-        {rayKm.toFixed(1)} {"km. Arrivals: P "}
-        {w.pArrival.toFixed(2)} {"s; S "}
-        {w.sArrival.toFixed(2)} {"s; surface wave "}
-        {surfaceArrival.toFixed(1)} {"s."} <br />
-        {
-          "The cut face shows each wave front where it crosses the rock, and the rings show where each front reaches the surface. The violet ring is the slower surface wave, which often brings the strongest, longest shaking; here it is what sways the buildings."
-        }
+        {". "}
+        {tr(
+          "Ray path to station: {ray} km. Arrivals: P {p} s; S {s} s; surface wave {surface} s.",
+          {
+            ray: rayKm.toFixed(1),
+            p: w.pArrival.toFixed(2),
+            s: w.sArrival.toFixed(2),
+            surface: surfaceArrival.toFixed(1),
+          },
+        )}{" "}
+        <br />
+        {tr(
+          "The cut face shows each wave front where it crosses the rock, and the rings show where each front reaches the surface. The violet ring is the slower surface wave, which often brings the strongest, longest shaking; here it is what sways the buildings.",
+        )}
       </ScienceReadout>
     </>
   );

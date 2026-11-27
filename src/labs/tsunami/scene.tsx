@@ -12,6 +12,7 @@ import { FlowWaterMaterial } from "../shared/flow-water";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
+import { useT } from "@/lib/i18n";
 
 const TRANSECT = longWaveTransect();
 /** 1 scene unit = 100 km horizontally. The ocean runs from x = -2.5 (source) to 2.5 (shelf). */
@@ -51,6 +52,7 @@ function floorMetres(x: number, z: number) {
 }
 
 export default function Tsunami() {
+  const tr = useT();
   const { t, trueScale } = useLabState("t", "trueScale");
   useLabTick(1 / 55);
   const source = t < 0.15,
@@ -230,8 +232,12 @@ export default function Tsunami() {
       <ScienceStudio
         slug="tsunami"
         camera={[1.6, 3.2, 6.4]}
-        scale="1 scene unit = 100 km · depth ×20 · wave height a further ×600 · land relief ×80 · seamounts, canyon and town illustrative"
-        trueScale="Depth and wave at one common scale · a meters-high wave is invisible over 4 km of water"
+        scale={tr(
+          "1 scene unit = 100 km · depth ×20 · wave height a further ×600 · land relief ×80 · seamounts, canyon and town illustrative",
+        )}
+        trueScale={tr(
+          "Depth and wave at one common scale · a meters-high wave is invisible over 4 km of water",
+        )}
       >
         <mesh geometry={floor} castShadow receiveShadow>
           <TerrainMaterial attach="material-0" kind="sand" color="#d2d2d2" vertexColors />
@@ -280,10 +286,12 @@ export default function Tsunami() {
             />
             <Tag
               pos={[X0 + 0.32, 0.05, HALF]}
-              text="Seafloor uplift (enlarged)"
-              short="Uplift"
+              text={tr("Seafloor uplift (enlarged)")}
+              short={tr("Uplift")}
               tone="sandstone"
-              note="Sudden slip on the fault pushes the seafloor up by about 1 m in a few minutes. The whole water column above is lifted, making a broad hump on the sea surface. The gold block and arrow show this uplift, greatly enlarged."
+              note={tr(
+                "Sudden slip on the fault pushes the seafloor up by about 1 m in a few minutes. The whole water column above is lifted, making a broad hump on the sea surface. The gold block and arrow show this uplift, greatly enlarged.",
+              )}
               occlude={false}
             />
           </>
@@ -317,23 +325,29 @@ export default function Tsunami() {
         )}
         <Tag
           pos={[-1.7, 0.45, -0.4]}
-          text="Deep ocean · 4000 m"
-          short="Deep ocean"
-          note="An idealized offshore disturbance sends out a 20-minute wave packet with a 0.5 m amplitude. In deep water the wave is fast (about 200 m/s) but low. Seamounts and the trench are illustrative; the front face follows the modeled depth profile exactly."
+          text={tr("Deep ocean · 4000 m")}
+          short={tr("Deep ocean")}
+          note={tr(
+            "An idealized offshore disturbance sends out a 20-minute wave packet with a 0.5 m amplitude. In deep water the wave is fast (about 200 m/s) but low. Seamounts and the trench are illustrative; the front face follows the modeled depth profile exactly.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[1.8, 0.45, -0.4]}
-          text="Shelf · 100–200 m"
-          short="Shelf"
-          note="Wave speed is √(g h), so it falls as the water shallows. Green’s law makes the amplitude grow as depth to the power −1/4, which keeps the wave’s energy flux constant while depth changes slowly."
+          text={tr("Shelf · 100–200 m")}
+          short={tr("Shelf")}
+          note={tr(
+            "Wave speed is √(g h), so it falls as the water shallows. Green’s law makes the amplitude grow as depth to the power −1/4, which keeps the wave’s energy flux constant while depth changes slowly.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[3.15, -0.2, HALF]}
-          text="Coast · run-up not modeled"
-          short="Coast"
-          note="The coastal town shows what is at risk. This model stops at 100 m depth; breaking, run-up and inundation are not calculated."
+          text={tr("Coast · run-up not modeled")}
+          short={tr("Coast")}
+          note={tr(
+            "The coastal town shows what is at risk. This model stops at 100 m depth; breaking, run-up and inundation are not calculated.",
+          )}
           occlude={false}
         />
         {!source && (
@@ -342,7 +356,9 @@ export default function Tsunami() {
             text={`${crest.speed.toFixed(0)} m/s`}
             priority={2}
             tone="sandstone"
-            note="Speed of the wave crest at this depth: c = √(g h). It slows as the water shallows, so the wave bunches up and grows taller."
+            note={tr(
+              "Speed of the wave crest at this depth: c = √(g h). It slows as the water shallows, so the wave bunches up and grows taller.",
+            )}
             occlude={false}
           />
         )}
@@ -352,9 +368,9 @@ export default function Tsunami() {
           viewBox="0 0 600 125"
           className="mx-auto h-24 w-full"
           role="img"
-          aria-label={
-            "Sea-surface displacement in meters across a 500 kilometer transect; vertical axis minus two to plus two meters"
-          }
+          aria-label={tr(
+            "Sea-surface displacement in meters across a 500 kilometer transect; vertical axis minus two to plus two meters",
+          )}
         >
           {[-2, 0, 2].map((y) => (
             <g key={y}>
@@ -380,12 +396,23 @@ export default function Tsunami() {
           </text>
         </svg>
         {source
-          ? `Source stage: the seafloor rises ${uplift.toFixed(2)} m and lifts the water above it by the same amount. The gold block and arrow show the uplift (enlarged). The hump then splits into two waves of about half its height; this transect follows the one heading for the coast.`
-          : `Propagation stage: ${(seconds / 60).toFixed(1)} min · crest ${crest.speed.toFixed(1)} m/s at ${crest.depth.toFixed(0)} m depth. The central crest reaches 100 m depth at ${(TRANSECT.totalTravel / 60).toFixed(1)} min.`}{" "}
+          ? tr(
+              "Source stage: the seafloor rises {uplift} m and lifts the water above it by the same amount. The gold block and arrow show the uplift (enlarged). The hump then splits into two waves of about half its height; this transect follows the one heading for the coast.",
+              { uplift: uplift.toFixed(2) },
+            )
+          : tr(
+              "Propagation stage: {min} min · crest {speed} m/s at {depth} m depth. The central crest reaches 100 m depth at {total} min.",
+              {
+                min: (seconds / 60).toFixed(1),
+                speed: crest.speed.toFixed(1),
+                depth: crest.depth.toFixed(0),
+                total: (TRANSECT.totalTravel / 60).toFixed(1),
+              },
+            )}{" "}
         <br />
-        {
-          "Two stages: a set seafloor uplift, then a simple long-wave model. The gold line follows the crest; the chart shows the true sea-surface height in meters. Fault rupture, breaking, run-up and inundation are not modeled."
-        }
+        {tr(
+          "Two stages: a set seafloor uplift, then a simple long-wave model. The gold line follows the crest; the chart shows the true sea-surface height in meters. Fault rupture, breaking, run-up and inundation are not modeled.",
+        )}
       </ScienceReadout>
     </>
   );

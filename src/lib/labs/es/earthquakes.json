@@ -1,0 +1,135 @@
+{
+  "title": "Los terremotos",
+  "hook": "Un terremoto libera energía cuando la roca se desliza a lo largo de una falla.",
+  "objective": "Localiza el foco y el epicentro de un terremoto y compara cómo viajan por la Tierra los distintos tipos de ondas sísmicas.",
+  "modelDescription": "Un bloque de terreno muestra el hipocentro, donde la falla se desliza bajo tierra, el epicentro en la superficie justo encima y un escarpe de falla. Los frentes de las ondas P y S se extienden como anillos desde el hipocentro hacia un sismómetro, que dibuja las llegadas en su registro. Hacer el foco más profundo alarga el camino de las ondas hasta el sismómetro.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra el hipocentro, el epicentro y el escarpe de falla, que está en otro lugar. Pon la Profundidad del foco en 20 km y predice qué frente de onda llega primero al sismómetro."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Arrastra el control Proceso más allá de las dos llegadas y lee los tiempos. Aumenta la Profundidad del foco y explica por qué se alarga la trayectoria."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo cambia aumentar la profundidad del foco la trayectoria de las ondas y el tiempo de llegada a una estación fija?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "El foco (hipocentro) es…",
+      "choices": [
+        "El punto bajo tierra donde empieza el deslizamiento",
+        "El punto de la superficie encima del deslizamiento",
+        "El lugar donde la sacudida es más fuerte",
+        "El sismómetro que lo registra"
+      ],
+      "explain": "El foco es el lugar dentro de la Tierra donde empieza la ruptura del terremoto. El epicentro es el punto de la superficie que está justo encima."
+    },
+    {
+      "prompt": "Las ondas P…",
+      "choices": [
+        "Son las más lentas de las ondas sísmicas",
+        "Son las más rápidas y cruzan sólidos y líquidos",
+        "Solo viajan por capas de roca sólida",
+        "Solo viajan por la superficie de la Tierra"
+      ],
+      "explain": "Las ondas P transmiten compresiones y expansiones alternas, que pueden soportar tanto los sólidos como los líquidos. Son el tipo principal de onda sísmica más rápido y suelen llegar primero."
+    },
+    {
+      "prompt": "Las ondas superficiales…",
+      "choices": [
+        "Llegan primero, mucho antes que las ondas P",
+        "Atraviesan directamente el núcleo externo líquido",
+        "Llegan después y a menudo causan la mayor parte de los daños",
+        "Son solo otro nombre de las ondas S"
+      ],
+      "explain": "Las ondas Love y Rayleigh viajan por la superficie de la Tierra y pueden producir un movimiento del suelo grande y prolongado. Llegan después de las ondas internas, más rápidas, y pueden causar gran parte de los daños."
+    },
+    {
+      "prompt": "Magnitud frente a intensidad…",
+      "choices": [
+        "Son el mismo número en unidades distintas",
+        "La intensidad es el tamaño de la fuente; la magnitud, la sacudida local",
+        "La intensidad solo se mide en el epicentro",
+        "La magnitud es el tamaño de la fuente; la intensidad, la sacudida local"
+      ],
+      "explain": "La magnitud mide el tamaño de la fuente del terremoto, mientras que la intensidad describe la sacudida y sus efectos en un lugar concreto. Por eso un mismo terremoto puede producir intensidades distintas en lugares distintos."
+    },
+    {
+      "prompt": "¿Dónde suelen ocurrir los mayores terremotos del mundo?",
+      "choices": [
+        "En el centro de continentes estables",
+        "A lo largo de las dorsales oceánicas",
+        "En los megacabalgamientos de las zonas de subducción",
+        "Cerca de los polos norte y sur"
+      ],
+      "explain": "Los mayores terremotos, de magnitud superior a 9, han ocurrido todos en megacabalgamientos donde una placa se hunde bajo otra, como frente a Chile en 1960 y Japón en 2011. Allí las fallas son largas y anchas, así que pueden deslizarse en áreas enormes."
+    }
+  ],
+  "why": [
+    "Un terremoto libera energía cuando la roca se desliza a lo largo de una falla. El foco es la fuente en profundidad y el epicentro está encima; distintas ondas sísmicas transmiten la perturbación a través de la Tierra y a lo largo de su superficie.",
+    "Las ondas P viajan más rápido que las ondas S (aquí, unos 6 km/s frente a 3.5 km/s), así que la onda P siempre llega primero a un sismómetro y el intervalo entre las dos llegadas crece con la distancia. Un foco más profundo alarga el camino del foco a la estación, así que las dos ondas llegan más tarde y el intervalo S–P se amplía.",
+    "El modelo muestra cómo viaja cada tipo de onda; la sacudida y los daños reales también dependen de la fuente, la distancia, el terreno y los edificios."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La magnitud de un terremoto y la intensidad de la sacudida son la misma medida.",
+      "truth": "La magnitud describe el tamaño del terremoto en su fuente. La intensidad describe la sacudida y sus efectos en un lugar concreto, así que varía con la distancia, el terreno y los edificios. Por eso un terremoto puede tener una sola magnitud y muchas intensidades locales distintas."
+    },
+    {
+      "claim": "La mayoría de las muertes por terremotos ocurren cuando el suelo se abre y se traga a las personas.",
+      "truth": "El suelo rara vez se abre mucho. La mayoría de las muertes y lesiones se deben al derrumbe de edificios y a los deslizamientos, tsunamis e incendios que provocan los terremotos. Por eso el diseño de los edificios importa tanto."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Foco",
+      "def": "El punto dentro de la Tierra donde empieza la ruptura de un terremoto, también llamado hipocentro. Después, la ruptura puede extenderse por una superficie de falla mucho mayor. El epicentro es el punto de la superficie que está justo encima."
+    },
+    {
+      "term": "Epicentro",
+      "def": "El punto de la superficie de la Tierra que está justo encima del foco de un terremoto. Ayuda a ubicar el evento en un mapa, pero la sacudida más fuerte puede ocurrir en otro lugar por la ruptura de la falla, la distancia y las condiciones del terreno."
+    },
+    {
+      "term": "Onda P",
+      "def": "Una onda sísmica de compresión, en la que las partículas se mueven en la misma dirección en que viaja la onda. Viaja por sólidos y líquidos y es la onda sísmica más rápida, así que llega primero."
+    },
+    {
+      "term": "Onda S",
+      "def": "Una onda sísmica de cizalla, en la que las partículas se mueven perpendicularmente a la dirección en que viaja la onda. Se propaga por los sólidos, pero no por el núcleo externo líquido."
+    },
+    {
+      "term": "Onda superficial",
+      "def": "Una onda sísmica que viaja por la superficie de la Tierra, como las ondas Love y Rayleigh. Pueden producir un movimiento del suelo fuerte y prolongado, aunque los daños también dependen de la frecuencia, la distancia, el terreno y los edificios. Son distintas de las ondas internas, que viajan a través de la Tierra."
+    },
+    {
+      "term": "Magnitud",
+      "def": "Una medida del tamaño total de un terremoto, que suele darse como magnitud de momento a partir del área de la falla, el deslizamiento y la rigidez de la roca. Un terremoto tiene una sola magnitud, pero la intensidad de su sacudida varía de un lugar a otro. La escala es logarítmica."
+    },
+    {
+      "term": "Intensidad",
+      "def": "La fuerza de la sacudida de un terremoto y sus efectos en un lugar concreto. Depende del terremoto, la distancia, el terreno y las construcciones."
+    }
+  ],
+  "predict": {
+    "prompt": "Un sismómetro está a 50 km de un terremoto. ¿Qué onda crees que llega primero, la P o la S? ¿Con cuánto tiempo de diferencia podrían llegar?"
+  },
+  "cer": {
+    "prompt": "¿Cómo puede el intervalo entre las llegadas de las ondas P y S decirte a qué distancia está un terremoto?",
+    "claim": "El intervalo de tiempo entre las llegadas de las ondas P y S crece con la distancia, así que un intervalo más largo significa un terremoto más lejano.",
+    "evidence": "Con la Profundidad del foco en 20 km, la estación a 50 km del epicentro está a unos 54 km del foco. La onda P (6 km/s) llega a los 9 segundos más o menos, y la onda S (3.5 km/s) a los 15 segundos más o menos, con un intervalo de unos 6 segundos. Aumentar la profundidad alarga la trayectoria y amplía el intervalo.",
+    "reasoning": "Las ondas P viajan más rápido que las S, así que se separan mientras viajan. El intervalo es igual a la distancia multiplicada por (1/3.5 − 1/6) segundos por kilómetro, así que medir el intervalo da la distancia; los intervalos de tres estaciones permiten ubicar el epicentro."
+  },
+  "controls": {
+    "depth": {
+      "label": "Profundidad del foco"
+    }
+  }
+}

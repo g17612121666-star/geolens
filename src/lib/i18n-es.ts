@@ -1193,4 +1193,214 @@ export const ES: Record<string, string> = {
   "Subduction begins": "Comienza la subducción",
   "Ocean closes": "El océano se cierra",
   "Continental collision": "Colisión continental",
+
+  // Lab scenes: earthquakes, tsunami, folds and faults, weathering, mass movement, contours
+  "1 scene unit = 50 km · surface relief ×10 · ground motion hugely exaggerated · buildings not to scale":
+    "1 unidad = 50 km · relieve de la superficie ×10 · movimiento del suelo muy exagerado · edificios no a escala",
+  "Relief at true scale and ground motion hidden · P = 6 km/s · S = 3.5 km/s in a uniform solid":
+    "Relieve a escala real y movimiento del suelo oculto · P = 6 km/s · S = 3.5 km/s en un sólido uniforme",
+  Epicenter: "Epicentro",
+  "The epicenter is the point on the surface vertically above the hypocenter. It is not necessarily where the inclined fault reaches the surface.":
+    "El epicentro es el punto de la superficie que está justo encima del hipocentro. No es necesariamente donde la falla inclinada llega a la superficie.",
+  "Hypocenter · {depth} km": "Hipocentro · {depth} km",
+  "Rupture starts at the focus (hypocenter); the red patch shows part of the fault slipping. Here the waves spread as spheres from one point through uniform rock; real ruptures spread across a whole fault surface.":
+    "La ruptura empieza en el foco (hipocentro); la mancha roja muestra una parte de la falla que se desliza. Aquí las ondas se propagan como esferas desde un punto a través de roca uniforme; las rupturas reales se extienden por toda la superficie de una falla.",
+  "Seismometer · 50 km": "Sismómetro · 50 km",
+  Seismometer: "Sismómetro",
+  "The station is 50 km horizontally from the epicenter, so the straight-line distance from the focus is √(depth² + 50²) km. Its drum record shows the P-wave arrival, then the larger S-wave, then the slower, larger surface wave.":
+    "La estación está a 50 km en horizontal del epicentro, así que la distancia en línea recta desde el foco es √(profundidad² + 50²) km. Su registro en el tambor muestra la llegada de la onda P, luego la onda S, más grande, y después la onda superficial, más lenta y más grande.",
+  "Fault scarp": "Escarpe de falla",
+  "The fault dips at 60°. Repeated earthquakes have lifted the hanging wall, offsetting the rock layers in the cut face and leaving a small step at the surface. Offsets are schematic.":
+    "La falla buza 60°. Los terremotos repetidos han levantado el bloque de techo, desplazando las capas de roca en la cara del corte y dejando un pequeño escalón en la superficie. Los desplazamientos son esquemáticos.",
+  "Moho · 35 km": "Moho · 35 km",
+  "Layers: sedimentary cover, granitic upper crust, denser lower crust, then the olive-green mantle below the Moho. Thicknesses are typical continental values, drawn at the scene's scale of 1 unit = 50 km.":
+    "Capas: cobertura sedimentaria, corteza superior granítica, corteza inferior más densa y luego el manto verde oliva bajo el Moho. Los grosores son valores continentales típicos, dibujados a la escala de la escena de 1 unidad = 50 km.",
+  "Ray path to station: {ray} km. Arrivals: P {p} s; S {s} s; surface wave {surface} s.":
+    "Trayectoria hasta la estación: {ray} km. Llegadas: P {p} s; S {s} s; onda superficial {surface} s.",
+  "The cut face shows each wave front where it crosses the rock, and the rings show where each front reaches the surface. The violet ring is the slower surface wave, which often brings the strongest, longest shaking; here it is what sways the buildings.":
+    "La cara del corte muestra cada frente de onda donde cruza la roca, y los anillos muestran dónde llega cada frente a la superficie. El anillo violeta es la onda superficial, más lenta, que a menudo trae la sacudida más fuerte y larga; aquí es la que balancea los edificios.",
+  "1 scene unit = 100 km · depth ×20 · wave height a further ×600 · land relief ×80 · seamounts, canyon and town illustrative":
+    "1 unidad = 100 km · profundidad ×20 · altura de la ola otras ×600 · relieve de la tierra ×80 · montes submarinos, cañón y pueblo ilustrativos",
+  "Depth and wave at one common scale · a meters-high wave is invisible over 4 km of water":
+    "Profundidad y ola a una misma escala · una ola de metros de altura es invisible sobre 4 km de agua",
+  "Seafloor uplift (enlarged)": "Levantamiento del fondo marino (ampliado)",
+  Uplift: "Levantamiento",
+  "Sudden slip on the fault pushes the seafloor up by about 1 m in a few minutes. The whole water column above is lifted, making a broad hump on the sea surface. The gold block and arrow show this uplift, greatly enlarged.":
+    "Un deslizamiento repentino de la falla levanta el fondo marino cerca de 1 m en pocos minutos. Toda la columna de agua de encima se eleva y forma una amplia joroba en la superficie del mar. El bloque dorado y la flecha muestran este levantamiento, muy ampliado.",
+  "Deep ocean · 4000 m": "Océano profundo · 4000 m",
+  "Deep ocean": "Océano profundo",
+  "An idealized offshore disturbance sends out a 20-minute wave packet with a 0.5 m amplitude. In deep water the wave is fast (about 200 m/s) but low. Seamounts and the trench are illustrative; the front face follows the modeled depth profile exactly.":
+    "Una perturbación idealizada mar adentro emite un tren de olas de 20 minutos con una amplitud de 0.5 m. En aguas profundas la ola es rápida (unos 200 m/s) pero baja. Los montes submarinos y la fosa son ilustrativos; el frente sigue exactamente el perfil de profundidad del modelo.",
+  "Shelf · 100–200 m": "Plataforma · 100–200 m",
+  Shelf: "Plataforma",
+  "Wave speed is √(g h), so it falls as the water shallows. Green’s law makes the amplitude grow as depth to the power −1/4, which keeps the wave’s energy flux constant while depth changes slowly.":
+    "La velocidad de la ola es √(g h), así que disminuye al bajar la profundidad. La ley de Green hace crecer la amplitud según la profundidad elevada a −1/4, lo que mantiene constante el flujo de energía de la ola mientras la profundidad cambia despacio.",
+  "Coast · run-up not modeled": "Costa · el ascenso de la ola no se modela",
+  Coast: "Costa",
+  "The coastal town shows what is at risk. This model stops at 100 m depth; breaking, run-up and inundation are not calculated.":
+    "El pueblo costero muestra lo que está en riesgo. Este modelo se detiene a 100 m de profundidad; no se calculan la rotura de la ola, su ascenso por la costa ni la inundación.",
+  "Speed of the wave crest at this depth: c = √(g h). It slows as the water shallows, so the wave bunches up and grows taller.":
+    "Velocidad de la cresta de la ola a esta profundidad: c = √(g h). Se frena al bajar la profundidad, así que la ola se comprime y crece en altura.",
+  "Sea-surface displacement in meters across a 500 kilometer transect; vertical axis minus two to plus two meters":
+    "Desplazamiento de la superficie del mar en metros a lo largo de un transecto de 500 kilómetros; eje vertical de menos dos a más dos metros",
+  "Source stage: the seafloor rises {uplift} m and lifts the water above it by the same amount. The gold block and arrow show the uplift (enlarged). The hump then splits into two waves of about half its height; this transect follows the one heading for the coast.":
+    "Etapa de origen: el fondo marino sube {uplift} m y eleva lo mismo el agua de encima. El bloque dorado y la flecha muestran el levantamiento (ampliado). Después, la joroba se divide en dos olas de más o menos la mitad de su altura; este transecto sigue la que va hacia la costa.",
+  "Propagation stage: {min} min · crest {speed} m/s at {depth} m depth. The central crest reaches 100 m depth at {total} min.":
+    "Etapa de propagación: {min} min · cresta a {speed} m/s con {depth} m de profundidad. La cresta central llega a 100 m de profundidad a los {total} min.",
+  "Two stages: a set seafloor uplift, then a simple long-wave model. The gold line follows the crest; the chart shows the true sea-surface height in meters. Fault rupture, breaking, run-up and inundation are not modeled.":
+    "Dos etapas: un levantamiento fijo del fondo marino y luego un modelo sencillo de ondas largas. La línea dorada sigue la cresta; el gráfico muestra la altura real de la superficie del mar en metros. No se modelan la ruptura de la falla, la rotura de la ola, su ascenso por la costa ni la inundación.",
+  Conglomerate: "Conglomerado",
+  "Cross-bedded sandstone": "Arenisca con estratificación cruzada",
+  Shale: "Lutita",
+  "Jointed limestone": "Caliza con diaclasas",
+  "Red siltstone": "Limolita roja",
+  Sandstone: "Arenisca",
+  Limestone: "Caliza",
+  Siltstone: "Limolita",
+  "Equal geometric scales · five lithologies mark relative ages · trees and road not to scale":
+    "Escalas geométricas iguales · cinco litologías marcan las edades relativas · árboles y carretera no a escala",
+  "1 scene unit = 1 km · any exploded gaps are for inspection only":
+    "1 unidad = 1 km · las separaciones al despiezar son solo para examinar",
+  "Anticline · older core": "Anticlinal · núcleo más antiguo",
+  "Syncline · younger core": "Sinclinal · núcleo más joven",
+  "These beds are the right way up, so the oldest (conglomerate) is at the bottom. The age of the beds in the core decides anticline or syncline; an overturned fold cannot be named from its shape alone. The dashed line marks the axial plane.":
+    "Estas capas están en su posición normal, así que la más antigua (el conglomerado) está abajo. La edad de las capas del núcleo decide si es anticlinal o sinclinal; un pliegue volcado no se puede nombrar solo por su forma. La línea discontinua marca el plano axial.",
+  "{rock} at the surface": "{rock} en la superficie",
+  "Erosion has kept pace with folding and planed off the top of the anticline, so older beds crop out in its core, with younger ones on either side: a pattern you can map from the surface.":
+    "La erosión ha ido al ritmo del plegamiento y ha arrasado la parte alta del anticlinal, así que en su núcleo afloran capas más antiguas, con otras más jóvenes a cada lado: un patrón que se puede cartografiar desde la superficie.",
+  "Erosion has planed the land down, but the youngest bed survives in the trough of the syncline, with older beds cropping out on either side.":
+    "La erosión ha rebajado el terreno, pero la capa más joven se conserva en el fondo del sinclinal, con capas más antiguas aflorando a cada lado.",
+  "Strike-slip · lateral offset": "Falla de desgarre · desplazamiento lateral",
+  "The road was straight before faulting. The right block moves along a vertical fault, so the road is offset sideways with no vertical step.":
+    "La carretera era recta antes de la falla. El bloque de la derecha se mueve a lo largo de una falla vertical, así que la carretera queda desplazada de lado sin ningún escalón vertical.",
+  Footwall: "Bloque de piso",
+  "The footwall lies below the inclined fault plane. It is held fixed here so the hanging-wall displacement is easy to compare.":
+    "El bloque de piso está debajo del plano de falla inclinado. Aquí se mantiene fijo para que sea fácil comparar el desplazamiento del bloque de techo.",
+  "Hanging wall · down": "Bloque de techo · baja",
+  "Hanging wall · up": "Bloque de techo · sube",
+  "The hanging wall lies above the 60° dipping fault. Motion is parallel to that plane: down for normal faulting, up for reverse faulting. Match the beds across the fault to measure the throw.":
+    "El bloque de techo está encima de la falla, que buza 60°. El movimiento es paralelo a ese plano: hacia abajo en una falla normal y hacia arriba en una inversa. Haz coincidir las capas a través de la falla para medir el salto.",
+  "Oldest · conglomerate": "La más antigua · conglomerado",
+  "Beds from oldest to youngest: {beds}. Beneath them lies older granite basement, which rises into the core of a tall anticline. Soil and grass cap the land surface. Patterns are illustrative textures, not mapped rock units.":
+    "Capas de la más antigua a la más joven: {beds}. Debajo hay un basamento de granito más antiguo, que sube hasta el núcleo de un anticlinal alto. El suelo y la hierba cubren la superficie del terreno. Los dibujos son texturas ilustrativas, no unidades de roca cartografiadas.",
+  "Upright anticline": "Anticlinal derecho",
+  "Upright syncline": "Sinclinal derecho",
+  "Normal fault · extension": "Falla normal · extensión",
+  "Reverse fault · shortening": "Falla inversa · acortamiento",
+  "Strike-slip fault": "Falla de desgarre",
+  "Fold amplitude {amp} m; shortening {pct}%, with bed volume preserved. Erosion keeps pace with folding, so the land surface cuts across the beds.":
+    "Amplitud del pliegue {amp} m; acortamiento {pct} %, conservando el volumen de las capas. La erosión va al ritmo del plegamiento, así que la superficie del terreno corta las capas.",
+  "Relative slip {slip} m.": "Desplazamiento relativo {slip} m.",
+  "Relative slip {slip} m; vertical throw {throw} m.":
+    "Desplazamiento relativo {slip} m; salto vertical {throw} m.",
+  "Press Play or drag Process to deform the section. Explode splits a fold at its axial plane, or pulls fault blocks apart, for inspection; the gap is not a real canyon. The model shows structure, not stress or earthquake timing.":
+    "Pulsa Reproducir o arrastra Proceso para deformar el corte. Separar capas divide un pliegue por su plano axial, o separa los bloques de una falla, para examinarlos; el hueco no es un cañón real. El modelo muestra la estructura, no los esfuerzos ni cuándo ocurren los terremotos.",
+  "Freezing in a joint": "Congelación en una diaclasa",
+  "Carbonate dissolution": "Disolución de carbonatos",
+  "Root growth": "Crecimiento de raíces",
+  "Carbon dioxide bubbled in": "Se burbujea dióxido de carbono",
+  "Carbon dioxide dissolves in the water and forms weak carbonic acid. Outdoors it comes from the air and, in much larger amounts, from soil air, where roots and microbes respire.":
+    "El dióxido de carbono se disuelve en el agua y forma un ácido carbónico débil. Al aire libre proviene del aire y, en cantidades mucho mayores, del aire del suelo, donde respiran las raíces y los microbios.",
+  Ice: "Hielo",
+  "Freezing starts at the top of the joint, where it meets the cold air, so ice seals in the water below. The ice takes up about 9% more room than the water it came from.":
+    "La congelación empieza en la parte alta de la diaclasa, donde toca el aire frío, así que el hielo encierra el agua de abajo. El hielo ocupa cerca de un 9 % más de espacio que el agua de la que vino.",
+  "Liquid water": "Agua líquida",
+  "The joint holds a fixed 7.00 kg of water. As more of it turns to ice, the total volume grows and the walls move apart.":
+    "La diaclasa contiene una cantidad fija de 7.00 kg de agua. A medida que más agua se convierte en hielo, el volumen total crece y las paredes se separan.",
+  "Root wedged in the joint": "Raíz encajada en la diaclasa",
+  "A root that grows into a crack is squeezed flat between the walls. As it thickens, it presses on both walls.":
+    "Una raíz que crece dentro de una grieta queda aplastada entre las paredes. Al engrosarse, presiona sobre las dos paredes.",
+  "Joint widening exaggerated ×10 · joint starts 20 mm wide · water mass fixed":
+    "Ensanchamiento de la diaclasa exagerado ×10 · la diaclasa empieza con 20 mm de ancho · masa de agua fija",
+  "Calcite sphere starts with a 0.3 m radius · dissolution is shown, not a calculated rate · pits, bubbles and ion dots are drawn":
+    "La esfera de calcita empieza con 0.3 m de radio · se muestra la disolución, no una velocidad calculada · los hoyos, las burbujas y los puntos de iones están dibujados",
+  "Root and tree growth in an existing joint are drawn, not calculated · 1 scene unit = 0.5 m":
+    "El crecimiento de la raíz y del árbol en una diaclasa existente está dibujado, no calculado · 1 unidad = 0.5 m",
+  "Joint widening at true scale · 1 scene unit = 0.5 m · joint starts 20 mm wide":
+    "Ensanchamiento de la diaclasa a escala real · 1 unidad = 0.5 m · la diaclasa empieza con 20 mm de ancho",
+  "This view has no exaggeration · 1 scene unit = 0.5 m · ion dots are symbols, not real sizes":
+    "Esta vista no tiene exageración · 1 unidad = 0.5 m · los puntos de iones son símbolos, no tamaños reales",
+  "This view has no exaggeration · 1 scene unit = 0.5 m · root growth is drawn, not calculated":
+    "Esta vista no tiene exageración · 1 unidad = 0.5 m · el crecimiento de la raíz está dibujado, no calculado",
+  "Dissolved ions leave the solid": "Los iones disueltos salen del sólido",
+  "Calcite reacts with carbon dioxide and water to give dissolved calcium and bicarbonate. The dots are symbols; they do not show real ion sizes, numbers or concentrations.":
+    "La calcita reacciona con el dióxido de carbono y el agua y da calcio y bicarbonato disueltos. Los puntos son símbolos; no muestran tamaños, cantidades ni concentraciones reales de los iones.",
+  "{t}% of water mass frozen": "{t} % de la masa de agua congelada",
+  "Water takes up about 9% more volume as ice. Here the joint walls simply move apart; real cracking depends on confinement, water supply and rock strength. Ice lenses fed by migrating water (ice segregation) also break rock.":
+    "El agua ocupa cerca de un 9 % más de volumen como hielo. Aquí las paredes de la diaclasa simplemente se separan; que la roca se agriete de verdad depende del confinamiento, del aporte de agua y de la resistencia de la roca. Las lentes de hielo alimentadas por agua que migra (segregación de hielo) también rompen la roca.",
+  "Root growth can widen an existing joint":
+    "El crecimiento de las raíces puede ensanchar una diaclasa existente",
+  "The root and the moving walls are drawn, not calculated from growth rates or forces. Roots, microbes and lichens also weather rock chemically.":
+    "La raíz y el movimiento de las paredes están dibujados, no calculados a partir de velocidades de crecimiento ni de fuerzas. Las raíces, los microbios y los líquenes también meteorizan la roca químicamente.",
+  "Actual joint {joint} mm · liquid {liquid} L + ice {ice} L = {total} L, from 7.00 kg water (7.00 L as liquid).":
+    "Diaclasa real {joint} mm · líquido {liquid} L + hielo {ice} L = {total} L, a partir de 7.00 kg de agua (7.00 L en estado líquido).",
+  "Solid calcite {solid} kg · dissolved calcite equivalent {dissolved} kg.":
+    "Calcita sólida {solid} kg · calcita disuelta equivalente {dissolved} kg.",
+  "Mechanical: as Process runs, the root thickens and widens the existing joint; both rock pieces stay in place. Chemical (not drawn): acids from roots, microbes and lichens alter minerals on the joint walls.":
+    "Mecánica: mientras avanza el Proceso, la raíz se engrosa y ensancha la diaclasa existente; los dos trozos de roca se quedan en su lugar. Química (no dibujada): los ácidos de las raíces, los microbios y los líquenes alteran los minerales de las paredes de la diaclasa.",
+  "(symbols only).": "(solo símbolos).",
+  "Play shows the order of change, not elapsed years. Weathering changes rock in place; erosion carries the material away. The model does not predict when the rock breaks.":
+    "Reproducir muestra el orden de los cambios, no los años transcurridos. La meteorización cambia la roca en su lugar; la erosión se lleva el material. El modelo no predice cuándo se rompe la roca.",
+  "Spoon-shaped slip surface · the cut face is the 2-D section the factor of safety uses · 1 scene unit = 10 m · no vertical exaggeration":
+    "Superficie de deslizamiento en forma de cuchara · la cara del corte es la sección 2D que usa el factor de seguridad · 1 unidad = 10 m · sin exageración vertical",
+  "One common scale · rotation after failure is illustrative · trees and roots enlarged":
+    "Una misma escala · la rotación después de la rotura es ilustrativa · árboles y raíces ampliados",
+  "Crown / head scarp": "Corona / escarpe principal",
+  "The crown is the top edge of the slide, where the head scarp breaks away. In 3-D the scarp curves round into the hill like a horseshoe, highest in the middle and dying out at the flanks. Cracks in the ground above it show where it may break back next.":
+    "La corona es el borde superior del deslizamiento, donde se desprende el escarpe principal. En 3D, el escarpe se curva hacia dentro de la colina como una herradura, más alto en el centro y desapareciendo en los flancos. Las grietas en el suelo de encima muestran dónde puede romperse a continuación.",
+  Toe: "Pie",
+  "As the block turns, its toe heaves up and is pushed out over the ground below, where it spreads and tears its turf. Real slumps deform as they move, can develop several shear surfaces and may turn into flows.":
+    "Al girar el bloque, su pie se levanta y empuja sobre el terreno de abajo, donde se extiende y rasga el césped. Los deslizamientos rotacionales reales se deforman al moverse, pueden desarrollar varias superficies de cizalla y pueden convertirse en flujos.",
+  "Back-tilted block": "Bloque inclinado hacia atrás",
+  "Turning on its curved base, the block's surface tilts back toward the hill: trees on it lean uphill, and water can pond against the scarp. The rotation is illustrative; the model does not calculate how far or how fast the block moves.":
+    "Al girar sobre su base curva, la superficie del bloque se inclina hacia la colina: los árboles que tiene encima se inclinan cuesta arriba y el agua puede estancarse contra el escarpe. La rotación es ilustrativa; el modelo no calcula cuánto ni a qué velocidad se mueve el bloque.",
+  "Curved shear surface": "Superficie de cizalla curva",
+  "The slip surface is spoon-shaped. The cut face shows its central section, the 2-D slice the factor of safety is calculated for; the model tests this one chosen surface and does not search for the weakest one. Blue lines show water-pressure levels in the soil, not an underground lake. The dashed line is the ground surface before failure.":
+    "La superficie de deslizamiento tiene forma de cuchara. La cara del corte muestra su sección central, el corte 2D para el que se calcula el factor de seguridad; el modelo prueba esta superficie elegida y no busca la más débil. Las líneas azules muestran niveles de presión del agua en el suelo, no un lago subterráneo. La línea discontinua es la superficie del terreno antes de la rotura.",
+  "Factor of safety (resisting ÷ driving forces): below 1 the slope fails":
+    "Factor de seguridad (fuerzas resistentes ÷ fuerzas que impulsan): por debajo de 1 la ladera falla",
+  "0.5 · fails": "0.5 · falla",
+  "1.0 · balance": "1.0 · equilibrio",
+  "2.0 · stable": "2.0 · estable",
+  "Starting factor of safety {factor} · maximum pore pressure {pressure} kPa.":
+    "Factor de seguridad inicial {factor} · presión de poros máxima {pressure} kPa.",
+  "Driving forces exceed resistance: Play shows the slump rotating (illustrative).":
+    "Las fuerzas que impulsan superan la resistencia: Reproducir muestra el deslizamiento girando (ilustrativo).",
+  "Resistance exceeds driving forces: increase Pore pressure to compare.":
+    "La resistencia supera las fuerzas que impulsan: aumenta la Presión de poros para comparar.",
+  "The Bishop calculation is for the central section on the cut face, with cohesion of 2 kPa, a friction angle of 15° and unit weight of 20 kN/m³ for the starting slope.":
+    "El cálculo de Bishop corresponde a la sección central de la cara del corte, con una cohesión de 2 kPa, un ángulo de fricción de 15° y un peso unitario de 20 kN/m³ para la ladera inicial.",
+  "Loading Sugarloaf Mountain…": "Cargando la montaña Sugarloaf…",
+  "Real terrain, Sugarloaf Mountain, Maryland · height exaggerated ×2.5 · {REALTERRAINCREDIT}":
+    "Relieve real de la montaña Sugarloaf, Maryland · altura exagerada ×2.5 · {REALTERRAINCREDIT}",
+  "Height exaggerated ×2.5 · Compare physical scale shows equal horizontal and vertical scales":
+    "Altura exagerada ×2.5 · Comparar con la escala real muestra escalas horizontal y vertical iguales",
+  "1 scene unit = {round} m in all directions · {REALTERRAINCREDIT}":
+    "1 unidad = {round} m en todas las direcciones · {REALTERRAINCREDIT}",
+  "1 scene unit = 100 m in all directions": "1 unidad = 100 m en todas las direcciones",
+  "Index contours are drawn bold and labeled with their height above sea level, so you can tell which way is uphill.":
+    "Las curvas maestras se dibujan en negrita y se rotulan con su altura sobre el nivel del mar, para que sepas hacia dónde sube el terreno.",
+  "Index contours are drawn bold and labeled with their height, so you can tell which way is uphill.":
+    "Las curvas maestras se dibujan en negrita y se rotulan con su altura, para que sepas hacia dónde sube el terreno.",
+  Valley: "Valle",
+  "Low ground between two slopes. Where contours cross it, their V points uphill (upstream).":
+    "Terreno bajo entre dos laderas. Donde lo cruzan las curvas de nivel, su V apunta cuesta arriba (aguas arriba).",
+  Spur: "Espolón",
+  "A ridge of high ground sticking out from the hill. Its contours bend into a V or U that points downhill.":
+    "Una cresta de terreno alto que sobresale de la colina. Sus curvas de nivel se doblan en una V o una U que apunta cuesta abajo.",
+  "Summit · {round} m": "Cumbre · {round} m",
+  "The highest point in this block of USGS elevation data. Look for spurs (contour Vs pointing downhill) and valleys (Vs pointing uphill) on its flanks.":
+    "El punto más alto de este bloque de datos de elevación del USGS. Busca espolones (Vs de las curvas que apuntan cuesta abajo) y valles (Vs que apuntan cuesta arriba) en sus laderas.",
+  "Click any point on the surface to measure its elevation above sea level.":
+    "Haz clic en cualquier punto de la superficie para medir su elevación sobre el nivel del mar.",
+  "Click any point on the surface to measure its elevation above this model's datum.":
+    "Haz clic en cualquier punto de la superficie para medir su elevación sobre el nivel de referencia de este modelo.",
+  "1 km": "1 km",
+  "Cross-section from A to B through the clicked point":
+    "Perfil de A a B que pasa por el punto elegido",
+  "Height exaggerated ×{factor}": "Altura exagerada ×{factor}",
+  "Contour interval {interval} m · clicked point {height} m above sea level. This is real USGS elevation for Sugarloaf Mountain, Maryland. Click the mountain to check a height and draw the A–B cross-section; turn off “3D hill” for the contour map.":
+    "Equidistancia {interval} m · punto elegido {height} m sobre el nivel del mar. Son datos reales de elevación del USGS de la montaña Sugarloaf, Maryland. Haz clic en la montaña para comprobar una altura y trazar el perfil A–B; desactiva “Colina 3D” para ver el mapa topográfico.",
+  "Contour interval {interval} m · clicked point {height} m. Click the hill to check a height and draw the A–B cross-section through that point. Turn off “3D hill” and look from above for its contour map; the elevations stay the same.":
+    "Equidistancia {interval} m · punto elegido {height} m. Haz clic en la colina para comprobar una altura y trazar el perfil A–B que pasa por ese punto. Desactiva “Colina 3D” y mira desde arriba para ver su mapa topográfico; las elevaciones no cambian.",
 };
