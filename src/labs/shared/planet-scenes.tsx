@@ -10,10 +10,12 @@ import { Tag } from "./kit";
 import { solarEphemeris, daylight } from "@/lib/solar";
 import { TerrainMaterial, PlantStand } from "./natural-world";
 import { skyPosition } from "../solar-altitude/sky";
+import { useT } from "@/lib/i18n";
 
 export { LunarModel as LunarScene } from "./lunar-model";
 
 export function SolarAltitudeScene() {
+  const tr = useT();
   const { t, params } = useLabState("t", "params");
   useLabTick(1 / 36);
   const lat = params.latitude ?? 40.7,
@@ -40,8 +42,10 @@ export function SolarAltitudeScene() {
       <ScienceStudio
         slug="solar-altitude"
         horizon
-        scale="Local sky sphere · horizon and solar path use true angles"
-        trueScale="Sky directions are angular · the Sun is drawn larger than its angular diameter"
+        scale={tr("Local sky sphere · horizon and solar path use true angles")}
+        trueScale={tr(
+          "Sky directions are angular · the Sun is drawn larger than its angular diameter",
+        )}
         // Look from the poleward side, so the noon Sun is beyond the dial in both hemispheres.
         key={lat < 0 ? "south" : "north"}
         camera={[4, 2.8, lat < 0 ? -5 : 5]}
@@ -95,28 +99,33 @@ export function SolarAltitudeScene() {
           dashSize={0.08}
           gapSize={0.04}
         />
-        <Tag pos={[0, 0, 2.1]} text="North" occlude={false} priority={1} />
-        <Tag pos={[0, 0, -2.1]} text="South" occlude={false} priority={1} />
-        <Tag pos={[-2.1, 0, 0]} text="East" occlude={false} priority={1} />
-        <Tag pos={[2.1, 0, 0]} text="West" occlude={false} priority={1} />
+        <Tag pos={[0, 0, 2.1]} text={tr("North")} occlude={false} priority={1} />
+        <Tag pos={[0, 0, -2.1]} text={tr("South")} occlude={false} priority={1} />
+        <Tag pos={[-2.1, 0, 0]} text={tr("East")} occlude={false} priority={1} />
+        <Tag pos={[2.1, 0, 0]} text={tr("West")} occlude={false} priority={1} />
         <Tag
           pos={[noon[0], noon[1] + (noonAltitude < 12 ? 0.55 : 0.3), noon[2]]}
-          text={`Noon ${noonAltitude.toFixed(1)}°`}
+          text={tr("Noon {noonAltitude}°", { noonAltitude: noonAltitude.toFixed(1) })}
           priority={2}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {date.toISOString().slice(0, 10)} {"· latitude "}
-        {lat.toFixed(1)}
-        {"° · daylight "}
-        {length.hours.toFixed(2)} {"h at a geometric horizon. Selected local solar time "}
-        {clock}
-        {"; altitude "}
-        {altitude.toFixed(1)}
+        {tr(
+          "{date} · latitude {lat}° · daylight {hours} h at a geometric horizon. Selected local solar time {clock}; altitude {altitude}°.",
+          {
+            date: date.toISOString().slice(0, 10),
+            lat: lat.toFixed(1),
+            hours: length.hours.toFixed(2),
+            clock,
+            altitude: altitude.toFixed(1),
+          },
+        )}{" "}
         {altitude > 0
-          ? "°. The pin's shadow points away from the Sun and is cut off at the edge of the ground. Refraction is ignored."
-          : "°. The Sun is below the horizon, so there is no shadow. Refraction is ignored."}
+          ? tr(
+              "The pin's shadow points away from the Sun and is cut off at the edge of the ground. Refraction is ignored.",
+            )
+          : tr("The Sun is below the horizon, so there is no shadow. Refraction is ignored.")}
       </ScienceReadout>
     </>
   );

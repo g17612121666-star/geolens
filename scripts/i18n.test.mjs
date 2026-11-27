@@ -5,6 +5,8 @@ import test from "node:test";
 import { ES } from "../src/lib/i18n-es.ts";
 import { translate } from "../src/lib/i18n.ts";
 import { PHASE_NAMES, lunarEclipse, lunarPosition } from "../src/lib/lunar-science.ts";
+import { PLANETS } from "../src/lib/planet-science.ts";
+import { DISTANCE_STOPS } from "../src/lib/distance-science.ts";
 
 const ROOT = new URL("../src/", import.meta.url).pathname;
 const files = (dir) =>
@@ -33,10 +35,12 @@ test("names computed by the science modules have Spanish", () => {
   const eclipses = new Set();
   for (let node = 0; node <= 180; node += 2)
     for (const aligned of [false, true])
-      eclipses.add(lunarEclipse(lunarPosition(0.5, node, aligned)));
-  const lunar = [...eclipses].filter((name) => /lunar eclipse/i.test(name));
-  assert.ok(lunar.length >= 2, lunar.join());
-  for (const name of [...PHASE_NAMES, ...lunar]) assert.ok(name in ES, name);
+      for (const phase of [0, 0.5]) eclipses.add(lunarEclipse(lunarPosition(phase, node, aligned)));
+  const lunar = [...eclipses];
+  assert.ok(lunar.filter((name) => /lunar eclipse/i.test(name)).length >= 2, lunar.join());
+  const distances = DISTANCE_STOPS.flatMap((d) => [d.name, d.unit, d.origin, d.target]);
+  for (const name of [...PHASE_NAMES, ...lunar, ...PLANETS.map((p) => p.name), ...distances])
+    assert.ok(name in ES, name);
 });
 
 test("Spanish keeps each string's placeholders, and English stays as written", () => {

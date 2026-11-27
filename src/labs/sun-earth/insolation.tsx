@@ -9,6 +9,7 @@ import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { photoSrcSet } from "@/lib/responsive-image";
 import { beamAxes, footprint, meridianPoint, rayHit, type V3 } from "./beam";
+import { useT } from "@/lib/i18n";
 
 /** Earth's radius in the scene, and the beam: about 880 km across at this scale. */
 const R = 1.3,
@@ -21,6 +22,7 @@ const R = 1.3,
 const v3 = (a: V3) => new THREE.Vector3(...a);
 
 export default function SunEarth() {
+  const tr = useT();
   const { params } = useLabState("params"),
     lat = params.latitude ?? 40.7,
     decl = params.declination ?? 0,
@@ -47,8 +49,10 @@ export default function SunEarth() {
         lights={false}
         space
         camera={[4.4, 1.5, -5.4]}
-        scale="Parallel sunlight at 1 AU · 1361 W/m² normal to the beam · local noon meridian"
-        trueScale="Earth sphere at one scale · beams about 880 km wide · normal arrow enlarged"
+        scale={tr("Parallel sunlight at 1 AU · 1361 W/m² normal to the beam · local noon meridian")}
+        trueScale={tr(
+          "Earth sphere at one scale · beams about 880 km wide · normal arrow enlarged",
+        )}
       >
         <EarthMesh radius={R} sunDirection={sunV} />
         <Atmosphere radius={1.345} />
@@ -63,9 +67,11 @@ export default function SunEarth() {
           <Beam
             target={overhead}
             sun={sun}
-            label={`Sun overhead at ${hemisphere(decl)} · 1× area`}
-            short="Overhead · 1×"
-            note="At the subsolar point the noon Sun is straight overhead: the beam meets the ground square-on and lights the smallest possible patch."
+            label={tr("Sun overhead at {hemisphere} · 1× area", { hemisphere: hemisphere(decl) })}
+            short={tr("Overhead · 1×")}
+            note={tr(
+              "At the subsolar point the noon Sun is straight overhead: the beam meets the ground square-on and lights the smallest possible patch.",
+            )}
             priority={1}
           />
         )}
@@ -73,16 +79,23 @@ export default function SunEarth() {
           <Beam
             target={target}
             sun={sun}
-            label={`${compare ? "Same beam" : "Sun nearly overhead"} · ${(1 / cosine).toFixed(2)}× area`}
-            short={`${(1 / cosine).toFixed(2)}× area`}
-            note="Each beam carries the same power. Where sunlight meets the ground at a low angle, that power is spread over a larger patch, so each square meter receives less: 1/cos of the angle between the sunlight and the vertical. The model's beams are about 880 km wide, so the curving ground stretches the lit patch a little more, and near the day–night line part of the beam passes Earth by."
+            label={tr("{compare} · {cosine}× area", {
+              compare: compare ? tr("Same beam") : tr("Sun nearly overhead"),
+              cosine: (1 / cosine).toFixed(2),
+            })}
+            short={tr("{cosine}× area", { cosine: (1 / cosine).toFixed(2) })}
+            note={tr(
+              "Each beam carries the same power. Where sunlight meets the ground at a low angle, that power is spread over a larger patch, so each square meter receives less: 1/cos of the angle between the sunlight and the vertical. The model's beams are about 880 km wide, so the curving ground stretches the lit patch a little more, and near the day–night line part of the beam passes Earth by.",
+            )}
             priority={2}
           />
         ) : (
           <Tag
             pos={v3(target).multiplyScalar(1.12).toArray() as V3}
-            text="No noon Sun here"
-            note="At this latitude and declination the Sun stays below the horizon all day: polar night."
+            text={tr("No noon Sun here")}
+            note={tr(
+              "At this latitude and declination the Sun stays below the horizon all day: polar night.",
+            )}
             occlude={false}
           />
         )}
@@ -114,8 +127,10 @@ export default function SunEarth() {
               .toArray() as V3
           }
           priority={2}
-          text={`Normal at ${hemisphere(lat)}`}
-          note="The arrow points straight out from the ground at the lit patch (the surface normal). Its angle to the sunlight sets the energy per square meter above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere."
+          text={tr("Normal at {hemisphere}", { hemisphere: hemisphere(lat) })}
+          note={tr(
+            "The arrow points straight out from the ground at the lit patch (the surface normal). Its angle to the sunlight sets the energy per square meter above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere.",
+          )}
           occlude={false}
         />
         <Tag
@@ -126,16 +141,18 @@ export default function SunEarth() {
               .addScaledVector(sunV, 0.8 * RAY_START)
               .toArray() as V3
           }
-          text="Parallel sunlight"
-          note="The Sun is about 150 million km away, so its rays reach Earth almost exactly parallel. Every beam of the same cross-section carries the same power: 1361 watts per square meter of cross-section."
+          text={tr("Parallel sunlight")}
+          note={tr(
+            "The Sun is about 150 million km away, so its rays reach Earth almost exactly parallel. Every beam of the same cross-section carries the same power: 1361 watts per square meter of cross-section.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        <div className="text-center text-xs">Daily mean by latitude (W/m²)</div>
+        <div className="text-center text-xs">{tr("Daily mean by latitude (W/m²)")}</div>
         <div
           className="mx-auto flex max-w-xl items-end justify-center gap-2"
-          aria-label={"Daily mean top-of-atmosphere flux by latitude"}
+          aria-label={tr("Daily mean top-of-atmosphere flux by latitude")}
         >
           {latitudes.map((a) => (
             <div key={a} className="flex w-10 flex-col items-center gap-1">
@@ -148,15 +165,16 @@ export default function SunEarth() {
             </div>
           ))}
         </div>
-        {"Selected latitude: local noon "}
-        {flux.toFixed(0)} {"W/m² · daily mean "}
-        {dailyMeanIrradiance(lat, decl).toFixed(0)} {"W/m². Incidence angle "}
-        {Math.abs(lat - decl).toFixed(1)}
-        {"° from the surface normal"}
-        {Math.abs(lat - decl) > 90 ? " (Sun below the horizon at noon)" : ""}
-        {". Declination "}
-        {decl.toFixed(2)}
-        {"°. These are horizontal top-of-atmosphere values at fixed 1 AU."}
+        {tr(
+          "Selected latitude: local noon {noon} W/m² · daily mean {mean} W/m². Incidence angle {angle}° from the surface normal{below}. Declination {decl}°. These are horizontal top-of-atmosphere values at fixed 1 AU.",
+          {
+            noon: flux.toFixed(0),
+            mean: dailyMeanIrradiance(lat, decl).toFixed(0),
+            angle: Math.abs(lat - decl).toFixed(1),
+            below: Math.abs(lat - decl) > 90 ? " " + tr("(Sun below the horizon at noon)") : "",
+            decl: decl.toFixed(2),
+          },
+        )}
         {params.spots > 0.5 ? (
           <span className="mx-auto mt-2 flex max-w-xl items-center gap-3 text-left">
             <img
@@ -167,9 +185,9 @@ export default function SunEarth() {
               className="h-16 w-16 shrink-0 rounded object-contain"
             />
             <span>
-              {
-                "Real SDO image of the Sun, colored orange in processing. Sunspots are cooler, magnetic regions. This switch does not change the calculation, which uses a fixed solar irradiance."
-              }
+              {tr(
+                "Real SDO image of the Sun, colored orange in processing. Sunspots are cooler, magnetic regions. This switch does not change the calculation, which uses a fixed solar irradiance.",
+              )}
             </span>
           </span>
         ) : null}

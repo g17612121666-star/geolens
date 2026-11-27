@@ -710,4 +710,239 @@ export const ES: Record<string, string> = {
   "Predicted heights above mean lower low water, in local time. Is this station's pattern two highs a day, two unequal highs, or one? Check again in a week and compare the range.":
     "Alturas previstas sobre la bajamar media inferior (MLLW), en hora local. ¿Esta estación tiene dos pleamares al día, dos pleamares desiguales o una sola? Vuelve a mirar dentro de una semana y compara la amplitud.",
   "Source:": "Fuente:",
+
+  // Lab scenes: rotation
+  "New York": "Nueva York",
+  sunrise: "amanecer",
+  sunset: "atardecer",
+  day: "día",
+  night: "noche",
+  "Earth rotates eastward · 15° per mean solar hour · Sun direction held fixed · Equinox geometry: axial tilt left out, so the terminator passes through both poles · City marker enlarged":
+    "La Tierra gira hacia el este · 15° por hora solar media · la dirección del Sol se mantiene fija · geometría de equinoccio: sin inclinación del eje, así que el terminador pasa por los dos polos · marcador de la ciudad ampliado",
+  "Spherical Earth · time-zone lines are ideal 15° meridians, not real borders · Equinox geometry: axial tilt left out":
+    "Tierra esférica · las líneas de los husos horarios son meridianos ideales de 15°, no fronteras reales · geometría de equinoccio: sin inclinación del eje",
+  "The Sun is drawn much closer and smaller than reality. Its light arrives as almost parallel rays, lighting one half of Earth at a time.":
+    "El Sol está dibujado mucho más cerca y más pequeño que en la realidad. Su luz llega como rayos casi paralelos e ilumina una mitad de la Tierra cada vez.",
+  "Follow this marked city as Earth turns. It crosses the terminator into darkness at sunset and back into daylight at sunrise.":
+    "Sigue esta ciudad marcada mientras gira la Tierra. Cruza el terminador hacia la oscuridad al atardecer y vuelve a la luz del día al amanecer.",
+  "Terminator (sunset)": "Terminador (atardecer)",
+  "The boundary between the lit and dark halves of Earth. On this side, rotation carries places from day into night; on the far side, places cross it from night into day at sunrise.":
+    "El límite entre las mitades iluminada y oscura de la Tierra. En este lado, la rotación lleva los lugares del día a la noche; en el lado opuesto, los lugares lo cruzan de la noche al día al amanecer.",
+  "{hours} hours of rotation · {deg}° · {city} local solar time {clock} ({phase}). West-to-east rotation brings successive places into sunlight.":
+    "{hours} horas de rotación · {deg}° · hora solar local en {city}: {clock} ({phase}). La rotación de oeste a este lleva sucesivamente cada lugar a la luz del Sol.",
+  "Civil time zones may depart from these ideal meridians.":
+    "Los husos horarios civiles pueden apartarse de estos meridianos ideales.",
+  "Day and night come from geometry, not time-zone boundaries.":
+    "El día y la noche se deben a la geometría, no a los límites de los husos horarios.",
+
+  // Lab scenes: solar system, Sun and Earth, universe scale
+  "Orbits use one AU scale · Sun and planets at the same scale":
+    "Las órbitas usan una escala en UA · el Sol y los planetas a la misma escala",
+  "Orbits use one AU scale · planets enlarged far more than the Sun, so the Sun looks too small beside them":
+    "Las órbitas usan una escala en UA · los planetas están mucho más ampliados que el Sol, así que el Sol parece demasiado pequeño a su lado",
+  "Mean-radius comparison · one size scale · spacing is a display arrangement":
+    "Comparación de radios medios · una escala de tamaños · la separación es solo una disposición para verlos",
+  "Selected body close-up · radius shown below · comparison Earth shares its size scale":
+    "Primer plano del cuerpo elegido · el radio se indica abajo · la Tierra de comparación comparte su escala de tamaños",
+  "Radii and orbital distances share one scale · labels are visibility symbols":
+    "Los radios y las distancias orbitales comparten una escala · las etiquetas son símbolos para ubicarlos",
+  "Mean radii remain at one relative scale · positions are not orbital distances":
+    "Los radios medios mantienen una escala relativa · las posiciones no son distancias orbitales",
+  "Mean radius {radius} km; orbital period {period} Earth years. Positions come from a fixed model, not today's sky.":
+    "Radio medio: {radius} km; periodo orbital: {period} años terrestres. Las posiciones vienen de un modelo fijo, no del cielo de hoy.",
+  "Mean radius {radius} km; {radius2} Earth radii. The spacing here does not show distance.":
+    "Radio medio: {radius} km; {radius2} radios terrestres. Aquí la separación no indica la distancia.",
+  "Mean radius {p} km. Mercury uses an enhanced-color MESSENGER map. Mars and Saturn use NASA model geometry and mapped materials; Jupiter uses a NASA global map. Venus, Uranus and Neptune have modeled cloud colors, not observed maps.":
+    "Radio medio: {p} km. Mercurio usa un mapa de MESSENGER con colores realzados. Marte y Saturno usan geometría de modelos de la NASA y materiales cartografiados; Júpiter usa un mapa global de la NASA. Venus, Urano y Neptuno tienen colores de nubes modelados, no mapas observados.",
+  "Earth comparison": "Tierra para comparar",
+  "Both bodies use the same radius multiplier. Positions and lighting are arranged for comparison, not an orbital alignment.":
+    "Los dos cuerpos usan el mismo multiplicador de radio. Las posiciones y la iluminación están dispuestas para comparar; no muestran una alineación orbital.",
+  "{planet}: mean radius {radius} km · a = {a} AU · period {period} years.":
+    "{planet}: radio medio {radius} km · a = {a} UA · periodo {period} años.",
+  "Model year {year}; distance {d} AU.": "Año del modelo {year}; distancia {d} UA.",
+  "Model year {year}; the selected planet rotates on the same time scale as the orbital view.":
+    "Año del modelo {year}; el planeta elegido gira con la misma escala de tiempo que la vista orbital.",
+  "All planets begin at perihelion in this model. Choose physical scale (T) to show true radii at the orbital scale, or turn off All eight orbits to examine the inner system.":
+    "En este modelo todos los planetas empiezan en el perihelio. Elige la escala real (T) para mostrar los radios verdaderos a la escala de las órbitas, o desactiva Las ocho órbitas para examinar el sistema interior.",
+  "Planet textures use enhanced-color Mercury imagery, a NASA/GSFC Jupiter map, and NASA/JPL-Caltech maps for Mars and Saturn. Cloud colors for Venus and the ice giants are modeled. Saturn’s rings consist of particles.":
+    "Las texturas de los planetas usan imágenes de Mercurio con colores realzados, un mapa de Júpiter de NASA/GSFC y mapas de NASA/JPL-Caltech para Marte y Saturno. Los colores de las nubes de Venus y de los gigantes helados son modelados. Los anillos de Saturno están formados por partículas.",
+  "Parallel sunlight at 1 AU · 1361 W/m² normal to the beam · local noon meridian":
+    "Luz solar paralela a 1 UA · 1361 W/m² perpendicular al haz · meridiano del mediodía local",
+  "Earth sphere at one scale · beams about 880 km wide · normal arrow enlarged":
+    "Esfera terrestre a una sola escala · haces de unos 880 km de ancho · flecha normal ampliada",
+  "Sun overhead at {hemisphere} · 1× area": "Sol justo encima a {hemisphere} · área 1×",
+  "Overhead · 1×": "Justo encima · 1×",
+  "At the subsolar point the noon Sun is straight overhead: the beam meets the ground square-on and lights the smallest possible patch.":
+    "En el punto subsolar, el Sol del mediodía está justo encima: el haz llega de frente al suelo e ilumina la zona más pequeña posible.",
+  "{compare} · {cosine}× area": "{compare} · área {cosine}×",
+  "Same beam": "El mismo haz",
+  "Sun nearly overhead": "Sol casi justo encima",
+  "{cosine}× area": "área {cosine}×",
+  "Each beam carries the same power. Where sunlight meets the ground at a low angle, that power is spread over a larger patch, so each square meter receives less: 1/cos of the angle between the sunlight and the vertical. The model's beams are about 880 km wide, so the curving ground stretches the lit patch a little more, and near the day–night line part of the beam passes Earth by.":
+    "Cada haz lleva la misma potencia. Donde la luz solar llega al suelo con un ángulo bajo, esa potencia se reparte en una zona más grande, así que cada metro cuadrado recibe menos: 1/cos del ángulo entre la luz solar y la vertical. Los haces del modelo miden unos 880 km de ancho, así que la curvatura del suelo estira un poco más la zona iluminada, y cerca de la línea entre el día y la noche parte del haz pasa de largo junto a la Tierra.",
+  "No noon Sun here": "Aquí no hay Sol al mediodía",
+  "At this latitude and declination the Sun stays below the horizon all day: polar night.":
+    "Con esta latitud y esta declinación, el Sol se queda bajo el horizonte todo el día: noche polar.",
+  "Normal at {hemisphere}": "Normal a {hemisphere}",
+  "The arrow points straight out from the ground at the lit patch (the surface normal). Its angle to the sunlight sets the energy per square meter above the atmosphere; the daily mean also counts the night. Neither value includes clouds or the atmosphere.":
+    "La flecha sale en perpendicular del suelo en la zona iluminada (la normal a la superficie). Su ángulo con la luz solar determina la energía por metro cuadrado por encima de la atmósfera; la media diaria también cuenta la noche. Ninguno de los dos valores incluye las nubes ni la atmósfera.",
+  "Parallel sunlight": "Luz solar paralela",
+  "The Sun is about 150 million km away, so its rays reach Earth almost exactly parallel. Every beam of the same cross-section carries the same power: 1361 watts per square meter of cross-section.":
+    "El Sol está a unos 150 millones de km, así que sus rayos llegan a la Tierra casi exactamente paralelos. Cada haz con la misma sección lleva la misma potencia: 1361 vatios por metro cuadrado de sección.",
+  "Daily mean by latitude (W/m²)": "Media diaria según la latitud (W/m²)",
+  "Daily mean top-of-atmosphere flux by latitude":
+    "Flujo medio diario en el tope de la atmósfera según la latitud",
+  "Selected latitude: local noon {noon} W/m² · daily mean {mean} W/m². Incidence angle {angle}° from the surface normal{below}. Declination {decl}°. These are horizontal top-of-atmosphere values at fixed 1 AU.":
+    "Latitud elegida: mediodía local {noon} W/m² · media diaria {mean} W/m². Ángulo de incidencia de {angle}° respecto a la normal a la superficie{below}. Declinación {decl}°. Son valores sobre una superficie horizontal en el tope de la atmósfera, a 1 UA fija.",
+  "(Sun below the horizon at noon)": "(el Sol está bajo el horizonte al mediodía)",
+  "Real SDO image of the Sun, colored orange in processing. Sunspots are cooler, magnetic regions. This switch does not change the calculation, which uses a fixed solar irradiance.":
+    "Imagen real del Sol tomada por el SDO, coloreada de naranja al procesarla. Las manchas solares son regiones magnéticas más frías. Este interruptor no cambia el cálculo, que usa una irradiancia solar fija.",
+  "{n} years": "{n} años",
+  "{s} seconds (about {m} minutes)": "{s} segundos (unos {m} minutos)",
+  "{s} seconds": "{s} segundos",
+  "{m} minutes": "{m} minutos",
+  "{name} · center separation {value} {unit} · bodies enlarged · Sun and Earth not in proportion: the Sun's radius is about 109 times Earth's":
+    "{name} · separación entre centros {value} {unit} · cuerpos ampliados · el Sol y la Tierra no están en proporción: el radio del Sol es unas 109 veces el de la Tierra",
+  "{name} · center separation {value} {unit} · bodies enlarged · both bodies enlarged by the same factor":
+    "{name} · separación entre centros {value} {unit} · cuerpos ampliados · los dos cuerpos ampliados por el mismo factor",
+  "{name} · body radii and center distance use one scale · locator rings enlarged":
+    "{name} · los radios de los cuerpos y la distancia entre centros usan una escala · anillos de ubicación ampliados",
+  "Physical radius {round} km{stop}. The small wire locator is a visibility symbol; press T for physical radii at the distance scale.":
+    "Radio real: {round} km{stop}. El pequeño localizador de alambre es un símbolo para verlo; pulsa T para ver los radios reales a la escala de la distancia.",
+  "(approximate)": "(aproximado)",
+  "{s} km": "{s} km",
+  "1 AU · {s} million km": "1 UA · {s} millones de km",
+  "{s} light-years · {round} trillion km": "{s} años luz · {round} billones de km",
+  "The whole scale bar: the distance between the two centers. Each tick marks one sixth of it.":
+    "Toda la barra de escala: la distancia entre los dos centros. Cada marca señala una sexta parte de ella.",
+  "Light takes {lightShort}": "La luz tarda {lightShort}",
+  "The moving dot is a light signal traveling at constant speed. At 1× speed, playback squeezes the whole journey into 24 seconds; the readout shows the matching real travel time.":
+    "El punto que se mueve es una señal de luz que viaja a velocidad constante. A velocidad 1×, la reproducción comprime todo el viaje en 24 segundos; los resultados muestran el tiempo de viaje real correspondiente.",
+  "Light travel time {time} · signal progress {p}% · elapsed {elapsed}.":
+    "Tiempo de viaje de la luz {time} · avance de la señal {p} % · tiempo transcurrido {elapsed}.",
+  "Physical sizes are shown; tiny bodies may be smaller than a pixel.":
+    "Se muestran los tamaños reales; los cuerpos diminutos pueden ser más pequeños que un píxel.",
+  "Displayed radius enlargement: {origin} ×{a}; {target} ×{b}.":
+    "Ampliación de los radios mostrados: {origin} ×{a}; {target} ×{b}.",
+  "384400 km is a mean center distance, not a fixed lunar orbit.":
+    "384,400 km es una distancia media entre centros, no una órbita lunar fija.",
+  "1 AU is exactly 149597870.7 km; Earth–Sun distance varies during the year.":
+    "1 UA equivale exactamente a 149,597,870.7 km; la distancia entre la Tierra y el Sol varía a lo largo del año.",
+  "4.24 light-years is a rounded distance to Proxima. The line is a distance comparison, not a sky direction or a map of other stars.":
+    "4.24 años luz es una distancia redondeada hasta Próxima. La línea compara distancias; no es una dirección en el cielo ni un mapa de otras estrellas.",
+  "At 1× speed, Play compresses each light journey into 24 seconds.":
+    "A velocidad 1×, Reproducir comprime cada viaje de la luz en 24 segundos.",
+
+  // Names from the science modules: planets and distances
+  Mercury: "Mercurio",
+  Venus: "Venus",
+  Earth: "Tierra",
+  Mars: "Marte",
+  Jupiter: "Júpiter",
+  Saturn: "Saturno",
+  Uranus: "Urano",
+  Neptune: "Neptuno",
+  "Earth–Moon": "Tierra–Luna",
+  "Sun–Earth reference": "Referencia Sol–Tierra",
+  "Nearest stellar neighbor": "Estrella vecina más cercana",
+  km: "km",
+  AU: "UA",
+  "light-years": "años luz",
+  Moon: "Luna",
+  "Proxima Centauri": "Próxima Centauri",
+
+  // Lab scenes: eclipses and solar altitude
+  Umbra: "Umbra",
+  "Inside the umbra Earth blocks the whole Sun. A Moon wholly inside it is in total eclipse; it still glows red because Earth's atmosphere bends some red sunlight into the shadow.":
+    "Dentro de la umbra, la Tierra tapa todo el Sol. Una Luna que está completamente dentro de ella está en eclipse total; sigue brillando de color rojizo porque la atmósfera de la Tierra desvía algo de luz roja hacia la sombra.",
+  Penumbra: "Penumbra",
+  "In the outer shadow Earth blocks only part of the Sun, so the Moon dims only slightly. Both circles are the shadow's cross-section at the Moon's distance.":
+    "En la sombra exterior, la Tierra tapa solo una parte del Sol, así que la Luna se oscurece solo un poco. Los dos círculos son la sección de la sombra a la distancia de la Luna.",
+  "Moon's path · hourly dots": "Trayectoria de la Luna · puntos cada hora",
+  "Moon's path": "Trayectoria de la Luna",
+  "Where the Moon's center goes in the hours around full Moon; the bright dot marks the moment of full Moon. The Moon moves about its own width each hour. Change Node direction: the tilted orbit can carry the path above or below the shadow.":
+    "Por donde pasa el centro de la Luna en las horas alrededor de la luna llena; el punto brillante marca el momento de la luna llena. La Luna avanza más o menos su propio ancho cada hora. Cambia la Dirección de los nodos: la órbita inclinada puede llevar la trayectoria por encima o por debajo de la sombra.",
+  "Toward Earth and the Sun": "Hacia la Tierra y el Sol",
+  "Toward Earth": "Hacia la Tierra",
+  "This view looks out from Earth along its shadow, with the Sun behind the viewer: Earth, between the Sun and the Moon, casts the shadow.":
+    "Esta vista mira desde la Tierra a lo largo de su sombra, con el Sol detrás del observador: la Tierra, entre el Sol y la Luna, proyecta la sombra.",
+  "Moon and Sun behind you": "La Luna y el Sol, detrás de ti",
+  "Moon behind you": "La Luna, detrás de ti",
+  "This view looks at Earth from the Moon's side. The Moon is about 60 Earth radii away, behind the viewer, with the Sun far beyond it; its shadow falls on the side of Earth facing you. Sizes and distances share one scale.":
+    "Esta vista mira a la Tierra desde el lado de la Luna. La Luna está a unos 60 radios terrestres, detrás del observador, con el Sol mucho más allá; su sombra cae sobre el lado de la Tierra que mira hacia ti. Los tamaños y las distancias comparten una escala.",
+  "Totality here": "Totalidad aquí",
+  "Annular eclipse here": "Eclipse anular aquí",
+  "Inside this narrow spot the Moon covers the whole Sun.":
+    "Dentro de este punto estrecho, la Luna tapa todo el Sol.",
+  "The Moon is too far away to cover the whole Sun, so a ring of sunlight stays visible.":
+    "La Luna está demasiado lejos para tapar todo el Sol, así que queda visible un anillo de luz solar.",
+  "Moon's shadow · 20% lines": "Sombra de la Luna · líneas cada 20 %",
+  "Moon's shadow": "Sombra de la Luna",
+  "The ground darkens with the share of the Sun's disc the Moon covers. Lines mark 20%, 40%, 60% and 80% covered; the outer line is the edge of the partial eclipse. The Moon itself is off-screen; sizes and distances share one scale.":
+    "El suelo se oscurece según la parte del disco del Sol que tapa la Luna. Las líneas marcan el 20 %, 40 %, 60 % y 80 % tapado; la línea exterior es el borde del eclipse parcial. La Luna queda fuera de la pantalla; los tamaños y las distancias comparten una escala.",
+  "Earth · to scale": "Tierra · a escala",
+  "Earth and Moon are drawn at their true sizes compared with the orbit; the rings only mark where they are.":
+    "La Tierra y la Luna están dibujadas a su tamaño real comparado con la órbita; los anillos solo marcan dónde están.",
+  "Earth's shadow": "Sombra de la Tierra",
+  "Earth's shadow points straight away from the Sun and, drawn to scale, is narrow. At full Moon the Moon must lie close to the ecliptic plane, near a node, to pass through it; otherwise it passes above or below.":
+    "La sombra de la Tierra apunta justo en dirección contraria al Sol y, dibujada a escala, es estrecha. En la luna llena, la Luna debe estar cerca del plano de la eclíptica, cerca de un nodo, para atravesarla; si no, pasa por encima o por debajo.",
+  Node: "Nodo",
+  "The line of nodes is where the Moon's orbit crosses the ecliptic plane. An eclipse needs a new or full Moon close to this line. Node direction turns it.":
+    "La línea de los nodos es donde la órbita de la Luna cruza el plano de la eclíptica. Un eclipse necesita una luna nueva o llena cerca de esta línea. La Dirección de los nodos la hace girar.",
+  "Moon's orbit (tilt removed)": "Órbita de la Luna (sin inclinación)",
+  "Moon's orbit · tilted 5°": "Órbita de la Luna · inclinada 5°",
+  "Ecliptic plane": "Plano de la eclíptica",
+  "The dashed circle lies in the plane of Earth's orbit around the Sun.":
+    "El círculo discontinuo está en el plano de la órbita de la Tierra alrededor del Sol.",
+  "Total solar eclipse: the umbra is about {km} km wide where it meets Earth":
+    "Eclipse solar total: la umbra mide unos {km} km de ancho donde llega a la Tierra",
+  "Annular solar eclipse: the Moon is too far to cover the Sun; the antumbra is about {km} km wide":
+    "Eclipse solar anular: la Luna está demasiado lejos para tapar el Sol; la antumbra mide unos {km} km de ancho",
+  "Partial solar eclipse: only the penumbra touches Earth":
+    "Eclipse solar parcial: solo la penumbra toca la Tierra",
+  "The Moon's shadow misses Earth": "La sombra de la Luna no alcanza la Tierra",
+  "New-Moon shadow close-up · kilometers share one scale":
+    "Primer plano de la sombra en la luna nueva · los kilómetros comparten una escala",
+  "Full-Moon shadow close-up · kilometers share one scale":
+    "Primer plano de la sombra en la luna llena · los kilómetros comparten una escala",
+  "Same scale in every direction · atmosphere omitted":
+    "La misma escala en todas las direcciones · sin atmósfera",
+  "{h} h from {moment}: {state}.": "A {h} h de la {moment}: {state}.",
+  "new Moon": "luna nueva",
+  "full Moon": "luna llena",
+  "At this moment the Moon is still approaching the alignment; at 0 h it casts its shadow on Earth.":
+    "En este momento la Luna todavía se acerca a la alineación; a las 0 h proyecta su sombra sobre la Tierra.",
+  "At this moment the Moon is still approaching the alignment; at 0 h it enters Earth's shadow.":
+    "En este momento la Luna todavía se acerca a la alineación; a las 0 h entra en la sombra de la Tierra.",
+  "At this moment the Moon is already past the alignment; at 0 h it casts its shadow on Earth.":
+    "En este momento la Luna ya pasó la alineación; a las 0 h proyecta su sombra sobre la Tierra.",
+  "At this moment the Moon is already past the alignment; at 0 h it enters Earth's shadow.":
+    "En este momento la Luna ya pasó la alineación; a las 0 h entra en la sombra de la Tierra.",
+  "{eclipse}. Turn on Shadow close-up for a closer view.":
+    "{eclipse}. Activa Primer plano de la sombra para verlo más de cerca.",
+  "The surface shows the combined lunar and solar tidal effects.":
+    "La superficie muestra los efectos de marea combinados de la Luna y del Sol.",
+  "Play follows an 8.5-hour window around the selected lunar phase. Change Node direction to compare an eclipse with a missed alignment.":
+    "Reproducir sigue una ventana de 8.5 horas alrededor de la fase lunar elegida. Cambia la Dirección de los nodos para comparar un eclipse con una alineación fallida.",
+  "The equilibrium tidal deformation is enlarged. Coastlines, friction and inertia shape the tides at real coasts.":
+    "La deformación de la marea de equilibrio está ampliada. Las costas, la fricción y la inercia determinan las mareas en las costas reales.",
+  "Local sky sphere · horizon and solar path use true angles":
+    "Esfera celeste local · el horizonte y la trayectoria del Sol usan ángulos reales",
+  "Sky directions are angular · the Sun is drawn larger than its angular diameter":
+    "Las direcciones del cielo son angulares · el Sol está dibujado más grande que su diámetro angular",
+  North: "Norte",
+  South: "Sur",
+  East: "Este",
+  West: "Oeste",
+  "Noon {noonAltitude}°": "Mediodía {noonAltitude}°",
+  "{date} · latitude {lat}° · daylight {hours} h at a geometric horizon. Selected local solar time {clock}; altitude {altitude}°.":
+    "{date} · latitud {lat}° · luz del día {hours} h con un horizonte geométrico. Hora solar local elegida {clock}; altura {altitude}°.",
+  "The pin's shadow points away from the Sun and is cut off at the edge of the ground. Refraction is ignored.":
+    "La sombra del poste apunta en dirección contraria al Sol y se corta en el borde del terreno. No se tiene en cuenta la refracción.",
+  "The Sun is below the horizon, so there is no shadow. Refraction is ignored.":
+    "El Sol está bajo el horizonte, así que no hay sombra. No se tiene en cuenta la refracción.",
+
+  // Names from the science modules: lunar eclipses
+  "Outside Earth’s shadow": "Fuera de la sombra de la Tierra",
+  "Moon misses Earth’s shadow": "La Luna no entra en la sombra de la Tierra",
 };

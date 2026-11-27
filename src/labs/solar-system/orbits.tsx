@@ -10,6 +10,7 @@ import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { PlanetBody } from "./planet-bodies";
 import { StarMesh } from "@/components/globe/star";
+import { useT } from "@/lib/i18n";
 function Orbit({ index, scale }: { index: number; scale: number }) {
   const path = useMemo(
     () =>
@@ -29,6 +30,7 @@ function Orbit({ index, scale }: { index: number; scale: number }) {
   );
 }
 export default function SolarSystem() {
+  const tr = useT();
   const { params, t, trueScale, setParam } = useLabState("params", "t", "trueScale", "setParam");
   useLabTick(1 / 60);
   const mode = Math.round(params.view ?? 0),
@@ -79,16 +81,20 @@ export default function SolarSystem() {
         scale={
           mode === 0
             ? trueScale
-              ? "Orbits use one AU scale · Sun and planets at the same scale"
-              : "Orbits use one AU scale · planets enlarged far more than the Sun, so the Sun looks too small beside them"
+              ? tr("Orbits use one AU scale · Sun and planets at the same scale")
+              : tr(
+                  "Orbits use one AU scale · planets enlarged far more than the Sun, so the Sun looks too small beside them",
+                )
             : mode === 1
-              ? "Mean-radius comparison · one size scale · spacing is a display arrangement"
-              : "Selected body close-up · radius shown below · comparison Earth shares its size scale"
+              ? tr("Mean-radius comparison · one size scale · spacing is a display arrangement")
+              : tr(
+                  "Selected body close-up · radius shown below · comparison Earth shares its size scale",
+                )
         }
         trueScale={
           mode === 0
-            ? "Radii and orbital distances share one scale · labels are visibility symbols"
-            : "Mean radii remain at one relative scale · positions are not orbital distances"
+            ? tr("Radii and orbital distances share one scale · labels are visibility symbols")
+            : tr("Mean radii remain at one relative scale · positions are not orbital distances")
         }
       >
         {mode === 0 ? (
@@ -135,8 +141,14 @@ export default function SolarSystem() {
                     {i === selected && (
                       <Tag
                         pos={[0, r + 0.18 + lift, 0]}
-                        text={PLANETS[i].name}
-                        note={`Mean radius ${PLANETS[i].radius.toLocaleString("en-US")} km; orbital period ${PLANETS[i].period.toFixed(3)} Earth years. Positions come from a fixed model, not today's sky.`}
+                        text={tr(PLANETS[i].name)}
+                        note={tr(
+                          "Mean radius {radius} km; orbital period {period} Earth years. Positions come from a fixed model, not today's sky.",
+                          {
+                            radius: PLANETS[i].radius.toLocaleString("en-US"),
+                            period: PLANETS[i].period.toFixed(3),
+                          },
+                        )}
                         occlude={false}
                       />
                     )}
@@ -153,8 +165,14 @@ export default function SolarSystem() {
                 <Tag
                   // Stagger the closely packed inner-planet labels in the eight-planet row.
                   pos={[0, v.r + 0.35 + (all && !mobile && k < 4 && k % 2 ? 0.6 : 0), 0]}
-                  text={PLANETS[v.i].name}
-                  note={`Mean radius ${PLANETS[v.i].radius.toLocaleString("en-US")} km; ${(PLANETS[v.i].radius / 6371.0084).toFixed(2)} Earth radii. The spacing here does not show distance.`}
+                  text={tr(PLANETS[v.i].name)}
+                  note={tr(
+                    "Mean radius {radius} km; {radius2} Earth radii. The spacing here does not show distance.",
+                    {
+                      radius: PLANETS[v.i].radius.toLocaleString("en-US"),
+                      radius2: (PLANETS[v.i].radius / 6371.0084).toFixed(2),
+                    },
+                  )}
                   occlude={false}
                 />
               </group>
@@ -166,8 +184,11 @@ export default function SolarSystem() {
               <PlanetBody years={years} index={selected} radius={1.2} />
               <Tag
                 pos={[0, 1.7, 0]}
-                text={p.name}
-                note={`Mean radius ${p.radius.toLocaleString("en-US")} km. Mercury uses an enhanced-color MESSENGER map. Mars and Saturn use NASA model geometry and mapped materials; Jupiter uses a NASA global map. Venus, Uranus and Neptune have modeled cloud colors, not observed maps.`}
+                text={tr(p.name)}
+                note={tr(
+                  "Mean radius {p} km. Mercury uses an enhanced-color MESSENGER map. Mars and Saturn use NASA model geometry and mapped materials; Jupiter uses a NASA global map. Venus, Uranus and Neptune have modeled cloud colors, not observed maps.",
+                  { p: p.radius.toLocaleString("en-US") },
+                )}
                 occlude={false}
               />
             </group>
@@ -175,8 +196,10 @@ export default function SolarSystem() {
               <PlanetBody years={years} index={2} radius={(1.2 * 6371.0084) / p.radius} />
               <Tag
                 pos={[0, (1.2 * 6371.0084) / p.radius + 0.35, 0]}
-                text="Earth comparison"
-                note="Both bodies use the same radius multiplier. Positions and lighting are arranged for comparison, not an orbital alignment."
+                text={tr("Earth comparison")}
+                note={tr(
+                  "Both bodies use the same radius multiplier. Positions and lighting are arranged for comparison, not an orbital alignment.",
+                )}
                 occlude={false}
               />
             </group>
@@ -196,22 +219,33 @@ export default function SolarSystem() {
               }}
               className={`min-h-11 rounded-lg border px-2 text-xs ${i === selected ? "border-glacier text-chalk" : "border-white/10 text-mist"}`}
             >
-              {planet.name}
+              {tr(planet.name)}
             </button>
           ))}
         </div>
-        {p.name}
-        {": mean radius "}
-        {p.radius.toLocaleString("en-US")} {"km · a = "}
-        {p.a.toFixed(3)} {"AU · period "}
-        {p.period.toFixed(3)} {"years."}
+        {tr("{planet}: mean radius {radius} km · a = {a} AU · period {period} years.", {
+          planet: tr(p.name),
+          radius: p.radius.toLocaleString("en-US"),
+          a: p.a.toFixed(3),
+          period: p.period.toFixed(3),
+        })}{" "}
         {mode === 0
-          ? ` Model year ${years.toFixed(3)}; distance ${Math.hypot(...selectedPosition).toFixed(3)} AU.`
-          : ` Model year ${years.toFixed(3)}; the selected planet rotates on the same time scale as the orbital view.`}{" "}
+          ? tr("Model year {year}; distance {d} AU.", {
+              year: years.toFixed(3),
+              d: Math.hypot(...selectedPosition).toFixed(3),
+            })
+          : tr(
+              "Model year {year}; the selected planet rotates on the same time scale as the orbital view.",
+              { year: years.toFixed(3) },
+            )}{" "}
         <br />
         {mode === 0
-          ? "All planets begin at perihelion in this model. Choose physical scale (T) to show true radii at the orbital scale, or turn off All eight orbits to examine the inner system."
-          : "Planet textures use enhanced-color Mercury imagery, a NASA/GSFC Jupiter map, and NASA/JPL-Caltech maps for Mars and Saturn. Cloud colors for Venus and the ice giants are modeled. Saturn’s rings consist of particles."}
+          ? tr(
+              "All planets begin at perihelion in this model. Choose physical scale (T) to show true radii at the orbital scale, or turn off All eight orbits to examine the inner system.",
+            )
+          : tr(
+              "Planet textures use enhanced-color Mercury imagery, a NASA/GSFC Jupiter map, and NASA/JPL-Caltech maps for Mars and Saturn. Cloud colors for Venus and the ice giants are modeled. Saturn’s rings consist of particles.",
+            )}
       </ScienceReadout>
     </>
   );

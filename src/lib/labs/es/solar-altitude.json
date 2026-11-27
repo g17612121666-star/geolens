@@ -1,0 +1,128 @@
+{
+  "title": "La altura del Sol y su trayectoria",
+  "hook": "La altura del Sol es su ángulo sobre el horizonte.",
+  "objective": "Compara la trayectoria diaria del Sol en distintas latitudes y explica cómo la estación cambia la altura del Sol al mediodía y la duración del día.",
+  "modelDescription": "Un trozo redondo de terreno con árboles está bajo una cúpula de cielo transparente. La trayectoria del Sol en el día elegido se dibuja como un arco sobre la cúpula, con el Sol en la hora seleccionada, y una curva discontinua bajo el suelo muestra la parte de su círculo que queda bajo el horizonte. La latitud y la época del año cambian cuánto sube el arco y cuánto tiempo está el Sol sobre el horizonte.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Localiza el horizonte, la trayectoria del Sol y la posición elegida del Sol. Mueve la Hora solar local de la mañana a la tarde y sigue al Sol por el cielo."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Cambia la Latitud y el control Año, y luego compara la mayor altura del Sol y la duración de la luz del día. Encuentra los días más largos y más cortos que permite el modelo."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo se combinan la altura del Sol al mediodía y la duración del día para cambiar la energía que se recibe en un día?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "En Nueva York, la altura del Sol al mediodía es mínima alrededor de…",
+      "choices": ["Junio", "Diciembre", "Solo en marzo", "Es igual todos los días"],
+      "explain": "Cerca del solsticio de diciembre, la declinación del Sol está en su punto más al sur. Eso da a Nueva York su menor altura del Sol al mediodía y su periodo de luz más corto del año."
+    },
+    {
+      "prompt": "En el ecuador, la duración del día es…",
+      "choices": [
+        "Corta en junio y larga en diciembre",
+        "De 24 horas en los equinoccios",
+        "Cercana a 12 horas todo el año",
+        "Máxima en los solsticios"
+      ],
+      "explain": "En el ecuador, el límite entre el día y la noche divide la rotación diaria en partes iluminada y oscura casi iguales. Por eso la duración del día se mantiene cerca de 12 horas durante todo el año."
+    },
+    {
+      "prompt": "En invierno, ir a una latitud más alta…",
+      "choices": [
+        "Sube el Sol del mediodía y alarga el día",
+        "Baja el Sol del mediodía pero alarga el día",
+        "No cambia la altura del mediodía ni la duración del día",
+        "Baja el Sol del mediodía y acorta el día"
+      ],
+      "explain": "Ir hacia el polo durante el invierno del hemisferio aumenta la distancia angular respecto a la declinación del Sol. El Sol sigue una trayectoria más baja y más corta sobre el horizonte, y a una latitud lo bastante alta llega la noche polar."
+    },
+    {
+      "prompt": "Si arrastras la Latitud de 40.7° hacia 0°, ¿cómo cambia la trayectoria del Sol?",
+      "choices": [
+        "El Sol del mediodía de invierno sube más y los días se acercan a 12 h",
+        "El Sol del mediodía baja y los días de invierno se acortan aún más",
+        "El Sol está justo encima al mediodía todos los días",
+        "La duración del día varía más entre el verano y el invierno"
+      ],
+      "explain": "Ir de Nueva York hacia el ecuador reduce la variación de la luz del día según la estación y sube el Sol del mediodía en invierno. En el ecuador el día sigue durando cerca de 12 horas, mientras que el Sol del mediodía cambia con la declinación solar."
+    },
+    {
+      "prompt": "Nueva York está a unos 40.7° N. ¿Cuál es la altura del Sol al mediodía en un equinoccio?",
+      "choices": ["Unos 90°", "Unos 23.5°", "Unos 40.7°", "Unos 49.3°"],
+      "explain": "En un equinoccio el Sol está justo encima del ecuador, así que la altura al mediodía es 90° menos la latitud: 90° − 40.7° = 49.3°."
+    }
+  ],
+  "why": [
+    "La altura del Sol es su ángulo sobre el horizonte. Cambia a lo largo del día y del año, mientras que la latitud determina cuánto puede subir el Sol y si llega a salir o a ponerse.",
+    "El eje de la Tierra está inclinado unos 23.4°, así que la declinación del Sol se mueve entre unos 23.4° N y 23.4° S a lo largo del año. Cuando el Sol está sobre tu hemisferio, su trayectoria es más alta y más larga, y los días son más largos; en tu invierno, la trayectoria es más baja y más corta. Cuanto más lejos del ecuador está un lugar, mayor es esta variación estacional.",
+    "El modelo muestra direcciones geométricas del Sol; el relieve local y la refracción atmosférica pueden cambiar la salida o la puesta del Sol que se observa."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Al mediodía solar, el Sol está justo encima en todos los lugares de la Tierra.",
+      "truth": "El mediodía solar local es cuando el Sol llega a su punto más alto del día, pero ese punto no tiene por qué estar justo encima. La altura al mediodía depende de la latitud y de la declinación solar. El Sol solo puede estar justo encima entre los trópicos, y solo en las fechas que corresponden a cada latitud."
+    },
+    {
+      "claim": "El Sol siempre sale justo por el este y se pone justo por el oeste.",
+      "truth": "Eso solo ocurre cerca de los equinoccios. En el verano de Estados Unidos, el Sol sale por el noreste y se pone por el noroeste, con una trayectoria larga y alta; en invierno sale por el sureste y se pone por el suroeste."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Altura del Sol",
+      "def": "El ángulo del Sol sobre el horizonte del observador. Un Sol más alto concentra un haz en un área horizontal más pequeña y acorta la sombra de un objeto vertical. La altura depende de la latitud, la fecha y la hora del día."
+    },
+    {
+      "term": "Trayectoria del Sol",
+      "def": "El arco aparente que sigue el Sol por el cielo durante un día. Su altura, su dirección y su duración sobre el horizonte dependen de la latitud y de la fecha. Comparar trayectorias explica los cambios estacionales de la luz del día y de la longitud de las sombras."
+    },
+    {
+      "term": "Declinación",
+      "def": "La posición angular del Sol al norte o al sur del ecuador celeste, equivalente a la latitud del punto donde el Sol está justo encima. Varía entre unos 23.44° norte y sur a lo largo del año y ayuda a determinar la altura del Sol al mediodía y la duración del día."
+    },
+    {
+      "term": "Altura al mediodía",
+      "def": "El ángulo del Sol sobre el horizonte al mediodía solar local. En un cálculo geométrico sencillo, es 90° menos la diferencia absoluta entre la latitud y la declinación solar. Un valor negativo significa que el Sol se queda bajo el horizonte al mediodía."
+    },
+    {
+      "term": "Duración del día",
+      "def": "El tiempo entre la salida y la puesta del Sol en un lugar. Varía sobre todo con la latitud y la época del año, porque la Tierra tiene el eje inclinado. Es distinta del día solar de unas 24 horas, que incluye la oscuridad."
+    },
+    {
+      "term": "Gnomon",
+      "def": "La parte de un reloj de sol que proyecta la sombra. En un gnomon vertical sobre terreno plano, la longitud de la sombra depende de su altura y de la altura del Sol."
+    },
+    {
+      "term": "Trópicos",
+      "def": "La región entre el trópico de Cáncer y el trópico de Capricornio, a unos 23.44 grados norte y sur. El Sol solo puede estar justo encima dentro de esta franja, en fechas que dependen de la latitud. Los climas tropicales varían mucho en lluvia y en altitud."
+    },
+    {
+      "term": "Latitud",
+      "def": "La posición angular de un lugar al norte o al sur del ecuador, expresada en grados. La latitud ayuda a determinar la altura del Sol y la duración del día según la estación. Las líneas de igual latitud son paralelos, a diferencia de los meridianos, que miden la longitud."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Está el Sol del mediodía justo encima en todos los lugares de la Tierra? Predice la altura del Sol del mediodía en Nueva York en el equinoccio de marzo."
+  },
+  "cer": {
+    "prompt": "¿Cómo cambian la latitud y la época del año la altura del Sol al mediodía y la duración del día?",
+    "claim": "El Sol del mediodía está más alto y los días son más largos cuando la declinación del Sol está cerca de tu latitud; alejarse del ecuador aumenta la variación estacional.",
+    "evidence": "En Nueva York (40.7° N), la altura al mediodía es 90° − 40.7° = 49.3° en los equinoccios, unos 73° en junio y unos 26° en diciembre, con días que duran de unas 9 a 15 horas. Cerca del ecuador, la duración del día se mantiene cerca de 12 horas todo el año.",
+    "reasoning": "La altura al mediodía es 90° menos la diferencia entre la latitud y la declinación solar. Como el eje de la Tierra está inclinado 23.44°, la declinación se mueve entre 23.44° N y S a lo largo del año, y cambia más la trayectoria del Sol en las latitudes altas."
+  },
+  "controls": {
+    "latitude": { "label": "Latitud" },
+    "hour": { "label": "Hora solar local" }
+  }
+}
