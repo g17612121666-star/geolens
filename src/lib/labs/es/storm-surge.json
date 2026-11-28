@@ -1,0 +1,141 @@
+{
+  "title": "Marejada ciclónica",
+  "hook": "Los vientos hacia tierra empujan el agua hacia la costa, y la presión atmosférica más baja también eleva la superficie del agua.",
+  "objective": "Explica cómo los vientos fuertes y la baja presión atmosférica pueden elevar el nivel del agua en la costa, sobre todo sobre una plataforma poco profunda.",
+  "modelDescription": "Una larga sección de mar cruza una plataforma poco profunda hasta una costa con un pueblo, con una línea discontinua para el nivel normal del mar. El viento hacia tierra y la caída de la presión del aire acumulan el agua contra la costa, y una plataforma menos profunda la eleva más. La escala real muestra lo pequeña que es la subida al lado del ancho de la plataforma.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Pon Viento hacia tierra y Caída de presión en cero: el agua queda en el nivel del mar de referencia (línea discontinua). Sube Viento hacia tierra y compara la sobreelevación en la costa con dos valores de Profundidad de la plataforma."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pon Viento hacia tierra en cero y Caída de presión en 3000 Pa para ver solo el efecto de la presión. Luego combina ambos y cambia a Escala real (1:1) para ver lo pequeña que es la subida al lado de la plataforma."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué el mismo viento hacia tierra puede producir una subida mayor del nivel del agua sobre una plataforma menos profunda?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Una marejada ciclónica es…",
+      "choices": [
+        "Una onda rápida causada por un terremoto submarino",
+        "Una marea viva inusualmente alta",
+        "Agua acumulada por el viento y la baja presión",
+        "Una ola causada por un deslizamiento costero"
+      ],
+      "explain": "Los vientos hacia tierra pueden empujar el agua del mar hacia una costa, y la baja presión atmosférica también puede elevar el nivel del mar. Las plataformas poco profundas y la forma de la costa pueden amplificar la marejada ciclónica resultante."
+    },
+    {
+      "prompt": "Un tsunami comienza con…",
+      "choices": [
+        "Vientos muy fuertes sobre el mar",
+        "Una baja presión atmosférica",
+        "Una lluvia muy intensa",
+        "Un movimiento brusco del fondo marino"
+      ],
+      "explain": "El desplazamiento rápido de un gran volumen de agua genera un tsunami, a menudo tras un movimiento vertical del fondo marino. En cambio, una marejada ciclónica se forma por el empuje atmosférico del viento y la presión."
+    },
+    {
+      "prompt": "Si subes Viento hacia tierra, el agua debería…",
+      "choices": [
+        "Acumularse más alto hacia la costa",
+        "Aplanarse",
+        "Subir por igual en toda la plataforma",
+        "Retirarse mar adentro"
+      ],
+      "explain": "Un viento hacia tierra más fuerte ejerce más esfuerzo sobre la superficie del agua y empuja más agua hacia la costa. En el modelo, la sobreelevación resultante también depende de la profundidad de la plataforma."
+    },
+    {
+      "prompt": "El huracán Katrina y la inundación del mar del Norte de 1953 se estudian juntos porque…",
+      "choices": [
+        "Ambos fueron tsunamis causados por terremotos",
+        "Ambos fueron marejadas por viento y baja presión",
+        "Ambos se debieron a crecidas de ríos",
+        "Ambos se debieron solo a mareas vivas muy altas"
+      ],
+      "explain": "En ambos eventos, los vientos de la tormenta y la baja presión elevaron el nivel del agua sobre márgenes poco profundos. Sus distintos tipos de tormenta y de costa influyeron en el momento, la extensión y la gravedad de las inundaciones."
+    },
+    {
+      "prompt": "¿Por qué una marejada ciclónica suele ser más alta sobre una plataforma continental ancha y poco profunda?",
+      "choices": [
+        "El agua poco profunda es más cálida y se dilata mucho más.",
+        "En aguas profundas las mareas son mucho más fuertes.",
+        "El viento acumula más agua donde hay poca profundidad.",
+        "En los mares poco profundos no hay ninguna ola."
+      ],
+      "explain": "En aguas profundas, el agua que empuja el viento puede regresar por debajo. Sobre una plataforma poco profunda no tiene otro camino que subir contra la costa, así que la marejada crece más, como en el norte del golfo de México, el sur del mar del Norte y el golfo de Bengala."
+    }
+  ],
+  "why": [
+    "Los vientos hacia tierra empujan el agua hacia la costa, y la presión atmosférica más baja también eleva la superficie del agua. Las plataformas poco profundas pueden producir una sobreelevación mayor con el mismo empuje.",
+    "El viento arrastra el agua superficial hacia la costa. En la costa el agua no puede escapar, así que se acumula hasta que la pendiente de la superficie del mar empuja hacia atrás con la misma fuerza con que el viento empuja hacia adelante. La pendiente necesaria es mayor en aguas poco profundas, así que una plataforma poco profunda produce una subida mayor. La caída de presión añade alrededor de 1 cm de subida por cada hectopascal.",
+    "Este experimento de plataforma estable excluye las mareas, las olas y la inundación, que hacen falta para evaluar una inundación costera real."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La categoría de viento de un huracán describe por completo su amenaza de inundación costera.",
+      "truth": "La subida del agua en la costa también depende del tamaño, la trayectoria y la duración de la tormenta, de la presión atmosférica y de la forma y profundidad de la costa. La marea, las olas y el caudal de los ríos también influyen en las inundaciones. Por eso, una categoría de viento no puede indicar el nivel del agua ni la inundación en un lugar concreto."
+    },
+    {
+      "claim": "Una marejada ciclónica es solo un conjunto de olas muy grandes.",
+      "truth": "Una marejada eleva toda la superficie del mar, a veces varios metros, durante horas. Las olas de la tormenta van encima de esa agua más alta, y por eso las marejadas pueden inundar terrenos que las olas solas nunca alcanzarían."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Marejada ciclónica",
+      "def": "Una subida del nivel del mar por encima de la marea esperada, causada sobre todo por el viento de una tormenta y la presión atmosférica. La forma de la costa y la profundidad del agua influyen en su tamaño. La marejada se combina con las mareas y el oleaje para determinar el nivel del agua y las inundaciones en la costa."
+    },
+    {
+      "term": "Sobreelevación por viento",
+      "def": "Una subida del nivel del agua donde un viento persistente empuja el agua hacia una orilla. Contribuye a la marejada ciclónica, sobre todo sobre plataformas poco profundas y dentro de bahías. Su tamaño depende del viento, la duración, la profundidad y la forma de la costa."
+    },
+    {
+      "term": "Barómetro invertido",
+      "def": "La tendencia del nivel del mar a subir donde baja la presión atmosférica, y a bajar donde la presión sube. Una estimación aproximada de equilibrio es de alrededor de 1 cm por hectopascal. La marejada ciclónica también depende mucho de los vientos y de la forma de la costa."
+    },
+    {
+      "term": "Plataforma continental",
+      "def": "El borde sumergido de un continente, poco profundo y de pendiente suave, que se extiende hasta un talud continental más empinado. La profundidad y la forma de la plataforma influyen en las mareas, las olas y la marejada ciclónica. Una plataforma poco profunda permite una mayor subida del agua por el viento con el mismo empuje."
+    },
+    {
+      "term": "Tsunami",
+      "def": "Una serie de ondas largas generadas por un desplazamiento rápido del agua, sobre todo durante un gran terremoto submarino. En aguas poco profundas se frenan y pueden crecer en altura. Los tsunamis no se deben a las mareas diarias normales."
+    },
+    {
+      "term": "Inundación de nivel en reposo",
+      "def": "Una inundación medida por el nivel del agua, promediando el efecto de cada ola. El nivel en reposo en la costa incluye la marea y cualquier marejada ciclónica."
+    },
+    {
+      "term": "Isla barrera",
+      "def": "Una isla arenosa y alargada, más o menos paralela a la costa, separada del continente por una laguna u otra agua poco profunda."
+    }
+  ],
+  "predict": {
+    "prompt": "Un huracán se acerca a dos costas: una con aguas profundas mar adentro y otra con una plataforma ancha y poco profunda. ¿Cuál tendrá la marejada ciclónica más alta?"
+  },
+  "cer": {
+    "prompt": "¿Por qué la marejada ciclónica es mayor donde soplan vientos fuertes hacia tierra sobre una plataforma poco profunda?",
+    "claim": "El viento hacia tierra acumula el agua contra la costa, y una plataforma poco profunda hace que esa acumulación sea mucho más alta; la baja presión del aire añade una subida extra más pequeña.",
+    "evidence": "Al subir Viento hacia tierra, sube la sobreelevación en la costa, y con el mismo viento una plataforma poco profunda da una sobreelevación mucho mayor que una de 100 m. Con el viento en cero, una caída de presión de 3,000 Pa eleva el mar solo unos 0.3 m, aproximadamente 1 cm por hectopascal.",
+    "reasoning": "El viento arrastra el agua superficial hacia la costa hasta que la pendiente de la superficie del mar empuja hacia atrás con la misma fuerza con que el viento empuja hacia adelante. En aguas poco profundas, el mismo esfuerzo del viento necesita una pendiente más pronunciada para equilibrarse, así que el agua se acumula más alto. La presión del aire más baja deja que la superficie del mar se abombe un poco hacia arriba."
+  },
+  "controls": {
+    "wind": {
+      "label": "Viento hacia tierra"
+    },
+    "depth": {
+      "label": "Profundidad de la plataforma"
+    },
+    "pressure": {
+      "label": "Caída de presión"
+    }
+  }
+}

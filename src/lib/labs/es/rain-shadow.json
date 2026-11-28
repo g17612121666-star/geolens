@@ -1,0 +1,138 @@
+{
+  "title": "Sombra pluviométrica",
+  "hook": "El aire que asciende se expande y se enfría.",
+  "objective": "Explica por qué el aire que asciende se enfría y produce lluvia en una ladera de barlovento, y deja condiciones más secas en el lado de sotavento.",
+  "modelDescription": "Una cordillera se eleva entre dos tierras bajas, con el viento soplando hacia ella desde un lado. Una parcela de aire sube por la ladera de barlovento, se enfría y forma nubes cuando llega lo bastante alto; luego desciende y se calienta en el lado de sotavento, que queda más seco. La altura de la cordillera y la humedad del aire cambian dónde se forman las nubes. El relieve se dibuja 2.5 veces más alto de lo real, salvo que cambies a la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Predice en qué lado sube y se enfría el aire. Pon Humedad inicial en 20% y Altura de la cordillera en 900 m: ¿por qué no se forman nubes?"
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pon Humedad inicial en 70% y Altura de la cordillera en 2100 m, y sigue la parcela al cruzar la base de las nubes. Compara las temperaturas en el pie de barlovento y en el de sotavento, y explica la diferencia."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué el aire puede llegar al pie de sotavento de una montaña más cálido y más seco que cuando empezó a subir?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "El aire que sube por la ladera de barlovento…",
+      "choices": [
+        "Se calienta y se seca",
+        "Se calienta y se condensa",
+        "Desciende y se despeja",
+        "Se enfría y se condensa"
+      ],
+      "explain": "El aire que asciende encuentra una presión más baja, se expande y se enfría. Si se enfría hasta saturarse, el vapor de agua puede condensarse en gotitas de nube."
+    },
+    {
+      "prompt": "Una sombra pluviométrica se encuentra…",
+      "choices": [
+        "En el lado de sotavento de la barrera",
+        "En el lado de barlovento de la barrera",
+        "Justo en la cima de la cordillera",
+        "En cualquier lugar a la misma altura"
+      ],
+      "explain": "El aire que cruza una montaña puede perder humedad en el lado de barlovento y luego calentarse al descender a favor del viento. La humedad relativa más baja que resulta ayuda a crear una región de sotavento más seca."
+    },
+    {
+      "prompt": "Si la cordillera es más alta que el nivel de condensación de la parcela…",
+      "choices": [
+        "Los dos lados reciben la misma humedad de la nube",
+        "Se forman nubes; el aire llega a sotavento más cálido y seco",
+        "Se forman nubes; el aire llega a sotavento más frío y húmedo",
+        "No se forman nubes en ninguno de los dos lados"
+      ],
+      "explain": "Por encima de su nivel de condensación, la parcela se enfría más despacio porque la condensación libera calor latente. Una vez que la humedad ha caído como lluvia, desciende al ritmo seco, más rápido, así que llega a la misma altura más cálida y seca. El modelo no calcula la cantidad de lluvia."
+    },
+    {
+      "prompt": "¿Por qué Owens Valley (al este de la Sierra Nevada) y Penrith (al este del Lake District) son relativamente secos?",
+      "choices": [
+        "Los dos están muy lejos del mar",
+        "El aire frío del valle impide que se formen nubes",
+        "El aire pierde lluvia en los montes y luego desciende",
+        "Los dos están bajo el cinturón subtropical de alta presión"
+      ],
+      "explain": "Ambos ejemplos tienen aire húmedo que sube por una barrera y desciende por su lado protegido. Sus contrastes de lluvia también dependen de los vientos dominantes, del aporte de humedad y del clima regional."
+    },
+    {
+      "prompt": "¿Por qué el este del estado de Washington es mucho más seco que la costa cercana a Seattle?",
+      "choices": [
+        "Los vientos del oeste pierden gran parte de su lluvia sobre las Cascadas.",
+        "El aire cálido y seco de México llega primero al interior.",
+        "El este de Washington está más lejos de las corrientes cálidas del Pacífico.",
+        "El este de Washington está a mayor altura sobre el nivel del mar."
+      ],
+      "explain": "Los vientos dominantes vienen del Pacífico. El aire húmedo sube por los montes Olímpicos y las Cascadas, deja lluvias y nevadas intensas en sus laderas del oeste, y queda mucho menos cuando el aire desciende hacia la cuenca del Columbia. El mismo patrón hace que el este de Inglaterra sea más seco que el oeste de Escocia o Gales."
+    }
+  ],
+  "why": [
+    "El aire que asciende se expande y se enfría. Si llega a saturarse, puede producirse condensación; después de perder humedad, el descenso por el otro lado de una cordillera puede traer aire más cálido y seco a la misma altura.",
+    "Por debajo de la base de las nubes, el aire que asciende se enfría al ritmo seco, unos 9.8 °C por kilómetro. Por encima, la condensación libera calor latente, así que el aire saturado se enfría más despacio (6 °C/km en este modelo). Una vez que esa agua ha caído como lluvia, el aire que desciende se calienta al ritmo seco, más rápido, durante todo el descenso, así que llega al pie de sotavento más cálido y con menos humedad relativa que al principio.",
+    "La parcela usa gradientes térmicos fijos y supone que toda el agua condensada cae como lluvia; compara temperaturas, pero no calcula la lluvia."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Una montaña crea la humedad que cae como lluvia en su lado de barlovento.",
+      "truth": "El aire que se acerca ya lleva vapor de agua. El ascenso forzado hace que se expanda y se enfríe; si se satura, pueden formarse nubes y lluvia. Después de perder humedad, el aire se calienta al descender, así que el lado de sotavento suele ser más cálido y seco."
+    },
+    {
+      "claim": "El lado de sotavento es seco porque la montaña bloquea el viento por completo.",
+      "truth": "El viento sigue soplando por encima de la montaña. El lado de sotavento es más seco porque el aire ya perdió humedad como lluvia en el lado de barlovento, y se calienta al descender, así que las nubes se evaporan."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Lluvia orográfica",
+      "def": "Precipitación asociada con el ascenso del aire sobre terrenos altos. El aire que asciende se expande y se enfría; si se satura, pueden formarse nubes y luego precipitación. El lado de sotavento puede recibir menos lluvia, según el patrón meteorológico general."
+    },
+    {
+      "term": "Sombra pluviométrica",
+      "def": "Una zona relativamente seca en el lado protegido de un terreno alto. El ascenso y la precipitación pueden quitarle humedad al aire que llega, mientras que el aire que desciende se calienta y su humedad relativa baja. Los vientos dominantes influyen en la intensidad del efecto."
+    },
+    {
+      "term": "Barlovento",
+      "def": "El lado de un relieve que da hacia el viento que llega. El aire húmedo que sube por ahí puede formar nubes y lluvia. Barlovento depende de la dirección del viento, así que no siempre es la misma ladera según la brújula."
+    },
+    {
+      "term": "Sotavento",
+      "def": "El lado protegido del viento dominante. Allí el aire que desciende suele calentarse y tener menos humedad relativa."
+    },
+    {
+      "term": "Enfriamiento adiabático",
+      "def": "El enfriamiento de una parcela de aire que se expande al bajar la presión, sin intercambiar calor con su entorno. El aire que asciende suele enfriarse así."
+    },
+    {
+      "term": "Föhn / chinook",
+      "def": "Un viento cálido, a menudo seco, que desciende por el lado protegido de una cordillera. El aire se calienta al comprimirse durante el descenso, y la pérdida de humedad o las diferencias en el aire de origen pueden intensificar el efecto. Föhn y chinook son nombres regionales."
+    },
+    {
+      "term": "Barrera",
+      "def": "En un modelo de sombra pluviométrica, el terreno alto que obliga a subir al aire que llega; su altura y su orientación influyen en el ascenso."
+    }
+  ],
+  "predict": {
+    "prompt": "El aire húmedo del océano sopla sobre una cordillera. ¿Qué lado de las montañas crees que será más húmedo y cuál más cálido?"
+  },
+  "cer": {
+    "prompt": "¿Por qué el terreno del lado opuesto (de sotavento) de una cordillera suele ser más seco y cálido?",
+    "claim": "El aire pierde su humedad como lluvia en el lado de barlovento, luego desciende y se calienta en el lado de sotavento, y llega más cálido y seco que al principio.",
+    "evidence": "Con 20% de humedad y una cordillera de 900 m, el aire nunca llega a la base de las nubes, así que no se forman nubes. Con 70% de humedad y una cordillera de 2,100 m, la parcela llega a la base de las nubes, se enfría más despacio (6 °C/km) por encima mientras cae la lluvia, y luego se calienta 9.8 °C/km durante todo el descenso, hasta llegar al pie de sotavento más cálida que en el pie de barlovento.",
+    "reasoning": "El aire que asciende se expande y se enfría; una vez saturado, la condensación libera calor latente, así que se enfría más despacio. Después de que el agua cae como lluvia, el aire que desciende se calienta al ritmo seco, más rápido, durante todo el descenso, así que termina más cálido y con menos humedad relativa."
+  },
+  "controls": {
+    "ridge": {
+      "label": "Altura de la cordillera"
+    },
+    "wind": {
+      "label": "Humedad inicial"
+    }
+  }
+}

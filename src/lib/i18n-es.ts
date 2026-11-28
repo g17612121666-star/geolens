@@ -1643,4 +1643,236 @@ export const ES: Record<string, string> = {
   "Surface warm sector {width} km wide.": "Sector cálido en superficie de {width} km de ancho.",
   "Play or drag Process to follow the faster cold front. Slopes and speeds are set by the model, and the clouds are for illustration. A front on a weather chart marks where a sloping boundary meets the ground.":
     "Reproduce o arrastra Proceso para seguir el frente frío, que es más rápido. Las pendientes y las velocidades las fija el modelo, y las nubes son ilustrativas. Un frente en un mapa del tiempo marca dónde un límite inclinado toca el suelo.",
+
+  // Batch E: weather systems and climate scenes
+  "Idealized pressure system about 2,000 km across · heights exaggerated about 25× · coastline, fronts and clouds schematic":
+    "Sistema de presión idealizado de unos 2,000 km de ancho · alturas exageradas unas 25× · costa, frentes y nubes esquemáticos",
+  "At true scale the map is 2,000 km across, but the weather fills only its lowest 12 km: the clouds would be a film thinner than the map's edge":
+    "A escala real el mapa mide 2,000 km de ancho, pero el tiempo atmosférico ocupa solo sus 12 km inferiores: las nubes serían una película más delgada que el borde del mapa",
+  "{level} hPa": "{level} hPa",
+  "Isobar: a line joining places with the same sea-level pressure, here {level} hPa. Around a high the isobars are far apart, so the pressure gradient and the winds are weak.":
+    "Isobara: una línea que une lugares con la misma presión al nivel del mar, aquí {level} hPa. Alrededor de una alta, las isobaras están muy separadas, así que el gradiente de presión y los vientos son débiles.",
+  "Isobar: a line joining places with the same sea-level pressure, here {level} hPa. Isobars packed close together mean a steep pressure gradient and strong winds.":
+    "Isobara: una línea que une lugares con la misma presión al nivel del mar, aquí {level} hPa. Cuando las isobaras están muy juntas, el gradiente de presión es fuerte y los vientos también.",
+  "H · {pressure} hPa · sinking": "A · {pressure} hPa · descenso",
+  "L · {pressure} hPa · rising": "B · {pressure} hPa · ascenso",
+  "H · sinking": "A · descenso",
+  "L · rising": "B · ascenso",
+  "Air sinks from above to replace the air spreading out at the surface. Sinking air warms as it is compressed, which tends to clear the sky. The vertical arrow is exaggerated.":
+    "El aire desciende desde arriba para reemplazar el que se dispersa en la superficie. El aire que desciende se calienta al comprimirse, lo que tiende a despejar el cielo. La flecha vertical está exagerada.",
+  "Air converging at the surface has nowhere to go but up. Rising air cools, and its water vapor condenses into cloud. The vertical arrow is exaggerated.":
+    "El aire que converge en la superficie no tiene otro camino que subir. El aire que asciende se enfría y su vapor de agua se condensa en nubes. La flecha vertical está exagerada.",
+  "Air converges aloft": "El aire converge en altura",
+  "Air spreads out aloft": "El aire se dispersa en altura",
+  "Converges aloft": "Convergencia en altura",
+  "Spreads aloft": "Divergencia en altura",
+  "High in the troposphere, air flows in over the high and sinks, feeding the outflow at the surface.":
+    "En lo alto de la troposfera, el aire fluye hacia la alta y desciende, y alimenta la salida de aire en la superficie.",
+  "Near the top of the troposphere, the rising air spreads out over the low. If more air leaves aloft than arrives at the surface, the low deepens.":
+    "Cerca de la parte superior de la troposfera, el aire que asciende se dispersa sobre la baja. Si sale más aire en altura del que llega en la superficie, la baja se profundiza.",
+  "{hemisphere} · {spin}": "{hemisphere} · {spin}",
+  SH: "HS",
+  NH: "HN",
+  counterclockwise: "sentido antihorario",
+  clockwise: "sentido horario",
+  "Viewed from above. Switching hemisphere reverses the spin, but a low still converges and a high still diverges near the surface. Friction turns the surface wind about 25° across the isobars.":
+    "Visto desde arriba. Cambiar de hemisferio invierte el giro, pero cerca de la superficie una baja sigue convergiendo y una alta sigue divergiendo. La fricción desvía el viento de superficie unos 25° a través de las isobaras.",
+  "Cold front": "Frente frío",
+  "Blue triangles point the way the cold front moves: cold air pushes under the warm air, lifting it steeply into a narrow band of tall shower clouds.":
+    "Los triángulos azules apuntan hacia donde avanza el frente frío: el aire frío se mete por debajo del aire cálido y lo levanta bruscamente en una banda estrecha de nubes altas de chubascos.",
+  "Warm front": "Frente cálido",
+  "Red half circles point the way the warm front moves: warm air slides gently up over the cold air ahead, spreading a wide sheet of layered cloud and steady rain. This is a midlatitude depression, not a tropical cyclone.":
+    "Los semicírculos rojos apuntan hacia donde avanza el frente cálido: el aire cálido sube suavemente sobre el aire frío que tiene delante y extiende una amplia capa de nubes estratificadas y lluvia continua. Es una depresión de latitudes medias, no un ciclón tropical.",
+  "{hemisphere} · {system}. Spin is read from above.":
+    "{hemisphere} · {system}. El giro se observa desde arriba.",
+  "Southern hemisphere": "Hemisferio sur",
+  "Northern hemisphere": "Hemisferio norte",
+  "high pressure, surface divergence and sinking air":
+    "alta presión, divergencia en superficie y aire que desciende",
+  "low pressure, surface convergence and rising air":
+    "baja presión, convergencia en superficie y aire que asciende",
+  "The isobars are far apart, so winds are light. Sinking air usually stops deep cloud forming, but fog or low cloud may persist. Follow the parcels spiraling out from the center.":
+    "Las isobaras están muy separadas, así que los vientos son flojos. El aire que desciende suele impedir que se formen nubes profundas, pero pueden persistir la niebla o las nubes bajas. Sigue las parcelas que salen en espiral desde el centro.",
+  "The isobars are packed close together, so winds are strong. Blue triangles mark the cold front and red half circles the warm front; both point the way the front moves. Follow the parcels spiraling in toward the rising center.":
+    "Las isobaras están muy juntas, así que los vientos son fuertes. Los triángulos azules marcan el frente frío y los semicírculos rojos, el frente cálido; ambos apuntan hacia donde avanza el frente. Sigue las parcelas que entran en espiral hacia el centro, donde el aire asciende.",
+  Tropical: "Tropical",
+  "Tropical climate": "Clima tropical",
+  "Warm throughout the year; rainfall separates rainforest, monsoon and savanna climates.":
+    "Cálido todo el año; la lluvia distingue los climas de selva tropical, monzónico y de sabana.",
+  Dry: "Seco",
+  "Dry climate": "Clima seco",
+  "Rainfall is below a dryness threshold that rises with temperature; dry climates can be hot or cold.":
+    "La lluvia queda por debajo de un umbral de aridez que aumenta con la temperatura; los climas secos pueden ser cálidos o fríos.",
+  Temperate: "Templado",
+  "Temperate climate": "Clima templado",
+  "Mild winters and warm or hot summers; subclasses describe summer warmth and when rain falls.":
+    "Inviernos suaves y veranos templados o calurosos; las subclases describen el calor del verano y la época de lluvias.",
+  "Cold continental": "Continental frío",
+  "Cold continental climate": "Clima continental frío",
+  "Cold winters and warm summers create a marked annual temperature range.":
+    "Los inviernos fríos y los veranos cálidos producen una marcada amplitud térmica anual.",
+  "Polar climate": "Clima polar",
+  "Even the warmest month averages below 10 °C; tundra and ice-cap climates belong to this family.":
+    "Incluso el mes más cálido tiene un promedio inferior a 10 °C; los climas de tundra y de casquete glaciar pertenecen a esta familia.",
+  Singapore: "Singapur",
+  Cairo: "El Cairo",
+  "Washington, DC": "Washington D. C.",
+  "Saint Paul": "Saint Paul",
+  Nuuk: "Nuuk",
+  "Globe to scale · colors show 1991–2020 climate averages":
+    "Globo a escala · los colores muestran los promedios climáticos de 1991–2020",
+  "The globe uses the same geographic scale in both views":
+    "El globo usa la misma escala geográfica en ambas vistas",
+  "{place} is a reference point for {climate}. The code describes long-term temperature and rainfall at this location; nearby highlands and coasts may differ.":
+    "{place} es un punto de referencia del {climate}. El código describe la temperatura y la lluvia a largo plazo en este lugar; las tierras altas y las costas cercanas pueden ser distintas.",
+  "Highlight a climate family": "Resaltar una familia climática",
+  "Explore {place} in Atlas": "Explorar {place} en el Atlas",
+  "Cloud tops: NASA MODIS image of Hurricane Katrina, 28 August 2005 · 1 unit = 50 km · cloud height ×5 · ocean depth ×160":
+    "Cimas de las nubes: imagen MODIS de la NASA del huracán Katrina, 28 de agosto de 2005 · 1 unidad = 50 km · altura de las nubes ×5 · profundidad del océano ×160",
+  "Idealized hurricane · 1 unit = 50 km · cloud height ×5 · ocean depth ×160 (top 150 m) · eye radius 15 km, strongest wind at 30 km":
+    "Huracán idealizado · 1 unidad = 50 km · altura de las nubes ×5 · profundidad del océano ×160 (los 150 m superiores) · radio del ojo de 15 km, viento más fuerte a 30 km",
+  "Clouds at common scale: 15 km tops on a storm 550 km across. The ocean layer stays exaggerated so it remains visible":
+    "Nubes a la misma escala: cimas de 15 km en una tormenta de 550 km de ancho. La capa del océano sigue exagerada para que se vea",
+  "Eye · sinking air": "Ojo · aire que desciende",
+  Eye: "Ojo",
+  "The eye has light winds and sinking air that warms as it is compressed, so it is often clear. It is surrounded by the strongest winds and deepest clouds of the eyewall; it is not a funnel touching the sea.":
+    "El ojo tiene vientos flojos y aire que desciende y se calienta al comprimirse, por eso suele estar despejado. Lo rodean los vientos más fuertes y las nubes más profundas de la pared del ojo; no es un embudo que toque el mar.",
+  "Eyewall · tallest clouds": "Pared del ojo · nubes más altas",
+  Eyewall: "Pared del ojo",
+  "Warm, moist air rises fastest here. As its water vapor condenses it releases latent heat, which warms the core of the storm and keeps the air rising. In this model the wind peaks 30 km from the center; that heat is described, not calculated.":
+    "Aquí el aire cálido y húmedo sube más rápido. Al condensarse su vapor de agua, libera calor latente, que calienta el núcleo de la tormenta y mantiene el aire en ascenso. En este modelo el viento alcanza su máximo a 30 km del centro; ese calor se describe, no se calcula.",
+  "Spiral rainbands": "Bandas de lluvia en espiral",
+  Rainbands: "Bandas de lluvia",
+  "Bands of thunderstorms spiral in toward the eyewall, separated by gaps with lighter rain. In the Northern Hemisphere they curve counterclockwise inward; in the Southern Hemisphere, clockwise.":
+    "Bandas de tormentas eléctricas entran en espiral hacia la pared del ojo, separadas por espacios con lluvia más ligera. En el hemisferio norte se curvan hacia adentro en sentido antihorario; en el hemisferio sur, en sentido horario.",
+  "Inflow · warm, moist air": "Entrada · aire cálido y húmedo",
+  Inflow: "Entrada de aire",
+  "Near the surface, air spirals in toward low pressure at the center, picking up heat and water vapor from the warm sea as it goes.":
+    "Cerca de la superficie, el aire entra en espiral hacia la baja presión del centro y recoge calor y vapor de agua del mar cálido a su paso.",
+  "Outflow aloft": "Salida en altura",
+  Outflow: "Salida de aire",
+  "At the top of the storm, the air that rose in the eyewall spreads outward, often as a cirrus canopy. Removing air aloft lets more air flow in near the surface.":
+    "En la parte alta de la tormenta, el aire que subió por la pared del ojo se extiende hacia afuera, a menudo como un manto de cirros. Al retirarse aire en altura, puede entrar más aire cerca de la superficie.",
+  "Warm sea ≥ 26.5 °C": "Mar cálido ≥ 26.5 °C",
+  "Warm sea": "Mar cálido",
+  "Tropical cyclones usually need surface water of about 26.5 °C or warmer, through a deep enough layer, to keep supplying heat and moisture. The dashed line marks 26.5 °C. Under the core, strong winds mix up cooler water from below, which can weaken a slow-moving storm.":
+    "Los ciclones tropicales suelen necesitar agua superficial de unos 26.5 °C o más, en una capa lo bastante profunda, para seguir recibiendo calor y humedad. La línea discontinua marca 26.5 °C. Bajo el núcleo, los vientos fuertes mezclan hacia arriba agua más fría de abajo, lo que puede debilitar una tormenta que avanza despacio.",
+  "Idealized wind profile: peak at a radius of 30 kilometers, decreasing outward":
+    "Perfil de viento idealizado: máximo a un radio de 30 kilómetros y disminución hacia afuera",
+  "Maximum tangential wind {wind} m/s · model center pressure {pressure} hPa · sea surface {warm} °C away from the core, {cool} °C under the eyewall.":
+    "Viento tangencial máximo {wind} m/s · presión central del modelo {pressure} hPa · superficie del mar a {warm} °C lejos del núcleo y {cool} °C bajo la pared del ojo.",
+  "Northern Hemisphere: counterclockwise viewed from above.":
+    "Hemisferio norte: sentido antihorario visto desde arriba.",
+  "Southern Hemisphere: clockwise viewed from above.":
+    "Hemisferio sur: sentido horario visto desde arriba.",
+  "Use Cutaway to look inside. Orange arrows: warm, moist air flowing in and rising in the eyewall. Blue: outflow at the top. Pale: sinking air in the eye. Wavy lines: evaporation from the warm sea. The ocean colors show temperature; the dashed line is 26.5 °C. Clouds turn as in two hours of a steady, idealized vortex. The cloud structure is typical of a mature hurricane, not a particular storm; switch on Real cloud tops to compare with Hurricane Katrina. The model does not forecast intensity, rainfall, track or landfall.":
+    "Usa el Corte para mirar dentro. Flechas naranjas: aire cálido y húmedo que entra y sube por la pared del ojo. Azul: salida de aire en la cima. Pálida: aire que desciende en el ojo. Líneas onduladas: evaporación del mar cálido. Los colores del océano muestran la temperatura; la línea discontinua es 26.5 °C. Las nubes giran como en dos horas de un vórtice idealizado y estable. La estructura de las nubes es típica de un huracán maduro, no de una tormenta concreta; activa Cimas de nubes reales para comparar con el huracán Katrina. El modelo no pronostica la intensidad, la lluvia, la trayectoria ni la llegada a tierra.",
+  "1 scene unit = 20 km · heights ×1000 · 100 km flat shelf · steady setup · flooding inland is a bathtub estimate · wind waves and town illustrative":
+    "1 unidad de escena = 20 km · alturas ×1000 · plataforma plana de 100 km · sobreelevación estable · la inundación tierra adentro es una estimación tipo bañera · olas de viento y pueblo ilustrativos",
+  "1 scene unit = 20 km · real sea-level rise is small beside shelf width":
+    "1 unidad de escena = 20 km · la subida real del nivel del mar es pequeña al lado del ancho de la plataforma",
+  "Onshore wind {wind} m/s": "Viento hacia tierra {wind} m/s",
+  "Wind {wind} m/s": "Viento {wind} m/s",
+  "Wind stress = air density × drag coefficient × wind speed², using 1.225 kg/m³ and a fixed drag coefficient of 0.0015. Whitecaps and clouds grow with the wind but are only illustrative.":
+    "Esfuerzo del viento = densidad del aire × coeficiente de arrastre × velocidad del viento², con 1.225 kg/m³ y un coeficiente de arrastre fijo de 0.0015. Las crestas blancas y las nubes crecen con el viento, pero son solo ilustrativas.",
+  "Setup {result} m": "Sobreelevación {result} m",
+  "At Physical scale the tide-gauge post is enlarged so it stays visible, and its bands are not to scale.":
+    "Con Escala real, el poste del mareógrafo se agranda para que siga visible, y sus franjas no están a escala.",
+  "Read the tide-gauge post: each red or white band is 1 m.":
+    "Lee el poste del mareógrafo: cada franja roja o blanca mide 1 m.",
+  "The gold ring marks the modeled water level at the coast. The offshore end is held at mean sea level (dashed line), the coast is closed, and the pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.":
+    "El anillo dorado marca el nivel del agua modelado en la costa. El extremo mar adentro se mantiene en el nivel medio del mar (línea discontinua), la costa está cerrada y se supone que la caída de presión crece de manera uniforme desde cero mar adentro hasta su valor completo en la costa.",
+  "Shelf depth {depth} m": "Profundidad de la plataforma {depth} m",
+  "Shelf {depth} m": "Plataforma {depth} m",
+  "The shelf is flat. A shallow shelf lets the wind pile water up more. Real coastal bathymetry, storm track, duration, tide, Coriolis and wave breaking are excluded.":
+    "La plataforma es plana. Una plataforma poco profunda permite que el viento acumule más agua. Se excluyen la batimetría costera real, la trayectoria y la duración de la tormenta, la marea, el efecto de Coriolis y la rotura de las olas.",
+  "Coast flooded · dunes overtopped": "Costa inundada · dunas rebasadas",
+  "Low-lying coast": "Costa baja",
+  Flooded: "Inundada",
+  "The town and dunes show what is exposed.":
+    "El pueblo y las dunas muestran lo que está expuesto.",
+  "The water at the coast is higher than the dune crest in places, so it pours over and floods the lower land behind.":
+    "En algunos puntos, el agua en la costa está más alta que la cresta de las dunas, así que las rebasa e inunda el terreno más bajo que hay detrás.",
+  "Land lower than the water at the coast and open to the sea is shown flooded: a 'bathtub' estimate that assumes the surge lasts long enough to fill it. Real flooding also depends on how long the surge lasts, drainage and defenses; the model itself calculates the water level only up to the coastline.":
+    "El terreno más bajo que el agua en la costa y abierto al mar aparece inundado: una estimación tipo 'bañera' que supone que la marejada dura lo suficiente para llenarlo. Las inundaciones reales también dependen de cuánto dura la marejada, del drenaje y de las defensas; el modelo solo calcula el nivel del agua hasta la línea de costa.",
+  "Water piled up by the storm": "Agua acumulada por la tormenta",
+  "Piled-up water": "Agua acumulada",
+  "On the cut face, the pale band is water piled up by the wind and the blue band beneath it is the rise caused by the low air pressure. Both grow toward the coast; the dashed line is mean sea level.":
+    "En la cara del corte, la franja pálida es el agua acumulada por el viento y la franja azul de abajo es la subida causada por la baja presión atmosférica. Ambas crecen hacia la costa; la línea discontinua es el nivel medio del mar.",
+  "Combined steady setup at the coast {setup} m · wind stress {stress} Pa · pressure drop {drop} Pa ({hpa} hPa), pressure-only rise {rise} m.":
+    "Sobreelevación estable total en la costa {setup} m · esfuerzo del viento {stress} Pa · caída de presión {drop} Pa ({hpa} hPa), subida solo por la presión {rise} m.",
+  "Rise from low pressure": "Subida por la baja presión",
+  "Water piled up by the wind": "Agua acumulada por el viento",
+  "Read the combined setup on the striped tide-gauge post at the coast. Flooding shown inland is a bathtub estimate; tides, waves and flood duration are left out, so this is not a flood forecast.":
+    "Lee la sobreelevación total en el poste a rayas del mareógrafo de la costa. La inundación que se ve tierra adentro es una estimación tipo bañera; no se incluyen las mareas, las olas ni la duración de la inundación, así que no es un pronóstico de inundaciones.",
+  "Cloud base ≈ {height} m": "Base de las nubes ≈ {height} m",
+  "Relief ×2.5 · parcel ascent and descent · simplified lapse rates · plants and clouds not to scale":
+    "Relieve ×2.5 · ascenso y descenso de la parcela · gradientes térmicos simplificados · plantas y nubes sin escala",
+  "1 scene unit = 3 km in every direction · parcel marker, plants and clouds enlarged":
+    "1 unidad de escena = 3 km en todas las direcciones · marcador de la parcela, plantas y nubes agrandados",
+  "{parcel} °C · {parcel2}% RH": "{parcel} °C · HR {parcel2}%",
+  "The air parcel's temperature and relative humidity at this point, from the lab's parcel model.":
+    "La temperatura y la humedad relativa (HR) de la parcela de aire en este punto, según el modelo de parcela del laboratorio.",
+  "Rising air cools until it reaches its dew point. Condensation then starts: the lifting condensation level. The model puts it about 125 m higher for every 1 °C between the starting temperature and dew point.":
+    "El aire que asciende se enfría hasta alcanzar su punto de rocío. Entonces empieza la condensación: es el nivel de condensación por ascenso. El modelo lo sitúa unos 125 m más arriba por cada 1 °C de diferencia entre la temperatura inicial y el punto de rocío.",
+  "Wind · windward side rising": "Viento · ascenso por barlovento",
+  "1 · Wind · windward side rising": "1 · Viento · ascenso por barlovento",
+  "Unsaturated air cools at about 9.8 °C/km. Above cloud base the model uses 6 °C/km; real saturated rates vary with temperature and pressure. Forest grows on the wetter windward slopes.":
+    "El aire no saturado se enfría unos 9.8 °C/km. Por encima de la base de las nubes, el modelo usa 6 °C/km; los gradientes saturados reales varían con la temperatura y la presión. En las laderas de barlovento, más húmedas, crece el bosque.",
+  "Leeward · descending": "Sotavento · descenso",
+  "2 · Leeward · descending": "2 · Sotavento · descenso",
+  "Once its condensed water has rained out, the sinking air warms at about 9.8 °C/km, so it arrives warmer and drier. The lee slopes get less rain: steppe, sagebrush and scattered junipers instead of forest.":
+    "Una vez que su agua condensada ha caído como lluvia, el aire que desciende se calienta unos 9.8 °C/km, así que llega más cálido y seco. Las laderas de sotavento reciben menos lluvia: estepa, artemisa y enebros dispersos en lugar de bosque.",
+  "1 · Wind, windward side rising · 2 · Leeward, descending":
+    "1 · Viento, ascenso por barlovento · 2 · Sotavento, descenso",
+  "Parcel {height} m · {temp} °C · RH {rh}%. Cloud base ≈ {base} m. Leeward foot: {leeTemp} °C, {leeRh}% RH.":
+    "Parcela a {height} m · {temp} °C · HR {rh}%. Base de las nubes ≈ {base} m. Pie de sotavento: {leeTemp} °C, HR {leeRh}%.",
+  "Windward foot (start): 20 °C, {rh}% RH.": "Pie de barlovento (inicio): 20 °C, HR {rh}%.",
+  "This ridge is too low for the air to reach cloud base.":
+    "Esta cordillera es demasiado baja para que el aire llegue a la base de las nubes.",
+  "Condensation removes moisture as the air crosses the ridge.":
+    "La condensación le quita humedad al aire mientras cruza la cordillera.",
+  "Above about {height} m the air is below freezing, so snow falls there.":
+    "Por encima de unos {height} m, el aire está bajo cero, así que ahí cae nieve.",
+  "Colors along the path show the air's temperature: blue is cold, orange is warm.":
+    "Los colores a lo largo del recorrido muestran la temperatura del aire: el azul es frío y el naranja, cálido.",
+  "Ocean depths ×10,000 · 15,000 km section · atmospheric loop and coastal relief schematic":
+    "Profundidades del océano ×10,000 · sección de 15,000 km · circulación atmosférica y relieve costero esquemáticos",
+  "Ocean uses 1 scene unit = 3000 km · atmospheric arrows and coastal relief remain schematic":
+    "El océano usa 1 unidad de escena = 3000 km · las flechas atmosféricas y el relieve costero siguen siendo esquemáticos",
+  "Indonesia · Australia": "Indonesia · Australia",
+  Indonesia: "Indonesia",
+  "The western Pacific warm pool normally brings heavy rain here. During El Niño the rain shifts east and drought becomes more likely.":
+    "La piscina cálida del Pacífico occidental suele traer lluvias intensas aquí. Durante El Niño, la lluvia se desplaza al este y la sequía se vuelve más probable.",
+  "Peru · Andes": "Perú · Andes",
+  Peru: "Perú",
+  "Trade winds push surface water west, so cold, nutrient-rich water upwells off Peru. Weaker trades in El Niño reduce this upwelling and warm the coastal sea.":
+    "Los vientos alisios empujan el agua superficial hacia el oeste, así que frente a Perú aflora agua fría y rica en nutrientes. Con los alisios más débiles de El Niño, este afloramiento disminuye y el mar costero se calienta.",
+  "Convection shifts with warm water": "La convección se desplaza con el agua cálida",
+  Convection: "Convección",
+  "A schematic Walker circulation. In El Niño the main rising air shifts toward the central Pacific and the easterly trade winds weaken. Real events differ in strength and location.":
+    "Una circulación de Walker esquemática. Durante El Niño, el ascenso principal de aire se desplaza hacia el Pacífico central y los alisios del este se debilitan. Los eventos reales difieren en intensidad y ubicación.",
+  "← Trade winds": "← Alisios",
+  "The lower branch of the schematic Walker loop: easterly surface trade winds blow from east to west and push warm surface water toward the west. They weaken in El Niño and strengthen in La Niña.":
+    "La rama inferior del circuito de Walker esquemático: los alisios del este soplan en superficie de este a oeste y empujan el agua superficial cálida hacia el oeste. Se debilitan durante El Niño y se refuerzan durante La Niña.",
+  Thermocline: "Termoclina",
+  "The gold line marks an idealized thermocline, the sharp boundary between warm upper water and colder deep water. Its depth is enlarged ×10,000 unless Physical scale is on.":
+    "La línea dorada marca una termoclina idealizada, el límite marcado entre el agua cálida de arriba y el agua profunda más fría. Su profundidad está agrandada ×10,000, salvo que Escala real esté activada.",
+  "West · {c} °C": "Oeste · {c} °C",
+  "Idealized western equatorial Pacific, toward Indonesia. Temperatures are set teaching values, not observations.":
+    "Pacífico ecuatorial occidental idealizado, hacia Indonesia. Las temperaturas son valores didácticos fijados, no observaciones.",
+  "East · {c} °C": "Este · {c} °C",
+  "Idealized eastern equatorial Pacific, toward South America. Stronger trades usually favor a shallower eastern thermocline and stronger cold-water upwelling.":
+    "Pacífico ecuatorial oriental idealizado, hacia América del Sur. Unos alisios más fuertes suelen favorecer una termoclina oriental menos profunda y un afloramiento más intenso de agua fría.",
+  "{phase} · thermocline west {west} m / east {east} m. Gold: idealized thermocline; amber: warmer upper water; blue: colder water.":
+    "{phase} · termoclina a {west} m en el oeste y a {east} m en el este. Dorado: termoclina idealizada; ámbar: agua superior más cálida; azul: agua más fría.",
+  "Sea surface 20 °C": "Superficie del mar 20 °C",
+  "30 °C, isotherms every 1 °C.": "30 °C, isotermas cada 1 °C.",
+  "The ENSO slider picks a set state; Play only moves the air and does not show years or a forecast. Teleconnections shift the odds (El Niño winters are more often wet across the southern United States) but do not decide any particular season.":
+    "El control ENOS elige un estado fijo; Reproducir solo mueve el aire y no muestra años ni un pronóstico. Las teleconexiones cambian las probabilidades (los inviernos con El Niño suelen ser más húmedos en el sur de Estados Unidos), pero no deciden ninguna temporada en particular.",
+
+  // ENSO phases
+  "El Niño": "El Niño",
+  "La Niña": "La Niña",
+  Neutral: "Neutral",
 };

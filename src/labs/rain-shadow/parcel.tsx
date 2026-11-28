@@ -24,6 +24,7 @@ import {
   temperatureColor,
   toScene,
 } from "./terrain";
+import { useT } from "@/lib/i18n";
 
 /**
  * The range in section: a granite pluton under the crest, with a lobate contact, intruded into
@@ -50,6 +51,7 @@ const SECTION = {
 } as const;
 
 export default function RainShadow() {
+  const tr = useT();
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 30);
   const crest = params.ridge ?? 2100,
@@ -101,15 +103,21 @@ export default function RainShadow() {
     return { points, colors };
   }, [crest, humidity, f]);
   const compact = useIsCompact(),
-    cloudLabel = `Cloud base ≈ ${(Math.round(zones.lcl / 10) * 10).toLocaleString("en-US")} m`;
+    cloudLabel = tr("Cloud base ≈ {height} m", {
+      height: (Math.round(zones.lcl / 10) * 10).toLocaleString("en-US"),
+    });
   const cloudBase = toScene(zones.lcl, f),
     cloudStart = zones.cloud ? -Math.sqrt(-1.05 * Math.log(Math.min(0.999, zones.lcl / crest))) : 0;
   return (
     <>
       <ScienceStudio
         slug="rain-shadow"
-        scale="Relief ×2.5 · parcel ascent and descent · simplified lapse rates · plants and clouds not to scale"
-        trueScale="1 scene unit = 3 km in every direction · parcel marker, plants and clouds enlarged"
+        scale={tr(
+          "Relief ×2.5 · parcel ascent and descent · simplified lapse rates · plants and clouds not to scale",
+        )}
+        trueScale={tr(
+          "1 scene unit = 3 km in every direction · parcel marker, plants and clouds enlarged",
+        )}
         camera={[0.7, 2.2, 8]}
       >
         <GeomorphicTerrain
@@ -137,9 +145,14 @@ export default function RainShadow() {
         {!compact && (
           <Tag
             pos={[x, parcelY + 0.3, 0.05]}
-            text={`${parcel.temperature.toFixed(1)} °C · ${(parcel.relativeHumidity * 100).toFixed(0)}% RH`}
+            text={tr("{parcel} °C · {parcel2}% RH", {
+              parcel: parcel.temperature.toFixed(1),
+              parcel2: (parcel.relativeHumidity * 100).toFixed(0),
+            })}
             tone="sandstone"
-            note="The air parcel's temperature and relative humidity at this point, from the lab's parcel model."
+            note={tr(
+              "The air parcel's temperature and relative humidity at this point, from the lab's parcel model.",
+            )}
             occlude={false}
           />
         )}
@@ -162,7 +175,9 @@ export default function RainShadow() {
               text={compact ? "3" : cloudLabel}
               title={compact ? `3 · ${cloudLabel}` : undefined}
               tone="ice"
-              note="Rising air cools until it reaches its dew point. Condensation then starts: the lifting condensation level. The model puts it about 125 m higher for every 1 °C between the starting temperature and dew point."
+              note={tr(
+                "Rising air cools until it reaches its dew point. Condensation then starts: the lifting condensation level. The model puts it about 125 m higher for every 1 °C between the starting temperature and dew point.",
+              )}
               occlude={false}
             />
           </>
@@ -173,44 +188,51 @@ export default function RainShadow() {
             (compact ? 1.3 : 1.05) + (zones.cloud && cloudBase > 0.85 ? 0.45 : 0),
             0.05,
           ]}
-          text={compact ? "1" : "Wind · windward side rising"}
-          title={compact ? "1 · Wind · windward side rising" : undefined}
-          note="Unsaturated air cools at about 9.8 °C/km. Above cloud base the model uses 6 °C/km; real saturated rates vary with temperature and pressure. Forest grows on the wetter windward slopes."
+          text={compact ? "1" : tr("Wind · windward side rising")}
+          title={compact ? tr("1 · Wind · windward side rising") : undefined}
+          note={tr(
+            "Unsaturated air cools at about 9.8 °C/km. Above cloud base the model uses 6 °C/km; real saturated rates vary with temperature and pressure. Forest grows on the wetter windward slopes.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[2, 1.05, 0.05]}
-          text={compact ? "2" : "Leeward · descending"}
-          title={compact ? "2 · Leeward · descending" : undefined}
-          note="Once its condensed water has rained out, the sinking air warms at about 9.8 °C/km, so it arrives warmer and drier. The lee slopes get less rain: steppe, sagebrush and scattered junipers instead of forest."
+          text={compact ? "2" : tr("Leeward · descending")}
+          title={compact ? tr("2 · Leeward · descending") : undefined}
+          note={tr(
+            "Once its condensed water has rained out, the sinking air warms at about 9.8 °C/km, so it arrives warmer and drier. The lee slopes get less rain: steppe, sagebrush and scattered junipers instead of forest.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
         {compact && (
           <div className="mb-2 text-chalk">
-            {"1 · Wind, windward side rising · 2 · Leeward, descending"}
+            {tr("1 · Wind, windward side rising · 2 · Leeward, descending")}
             {zones.cloud ? ` · 3 · ${cloudLabel}` : ""}
           </div>
         )}
-        {"Parcel "}
-        {metres.toFixed(0)} {"m · "}
-        {parcel.temperature.toFixed(1)} {"°C · RH "}
-        {(parcel.relativeHumidity * 100).toFixed(0)}
-        {"%. Cloud base ≈ "}
-        {Math.max(0, zones.lcl).toFixed(0)} {"m. Leeward foot: "}
-        {downstream.temperature.toFixed(1)} {"°C, "}
-        {(downstream.relativeHumidity * 100).toFixed(0)}
-        {"% RH."} <br />
-        {"Windward foot (start): 20 °C, "}
-        {(humidity * 100).toFixed(0)}
-        {"% RH. "}
+        {tr(
+          "Parcel {height} m · {temp} °C · RH {rh}%. Cloud base ≈ {base} m. Leeward foot: {leeTemp} °C, {leeRh}% RH.",
+          {
+            height: metres.toFixed(0),
+            temp: parcel.temperature.toFixed(1),
+            rh: (parcel.relativeHumidity * 100).toFixed(0),
+            base: Math.max(0, zones.lcl).toFixed(0),
+            leeTemp: downstream.temperature.toFixed(1),
+            leeRh: (downstream.relativeHumidity * 100).toFixed(0),
+          },
+        )}{" "}
+        <br />
+        {tr("Windward foot (start): 20 °C, {rh}% RH.", { rh: (humidity * 100).toFixed(0) })}{" "}
         {crest <= zones.lcl
-          ? "This ridge is too low for the air to reach cloud base."
-          : "Condensation removes moisture as the air crosses the ridge."}{" "}
+          ? tr("This ridge is too low for the air to reach cloud base.")
+          : tr("Condensation removes moisture as the air crosses the ridge.")}{" "}
         {Number.isFinite(zones.snowline) &&
-          `Above about ${(Math.round(zones.snowline / 50) * 50).toLocaleString("en-US")} m the air is below freezing, so snow falls there. `}
-        {"Colors along the path show the air's temperature: blue is cold, orange is warm."}
+          tr("Above about {height} m the air is below freezing, so snow falls there.", {
+            height: (Math.round(zones.snowline / 50) * 50).toLocaleString("en-US"),
+          }) + " "}
+        {tr("Colors along the path show the air's temperature: blue is cold, orange is warm.")}
       </ScienceReadout>
     </>
   );
