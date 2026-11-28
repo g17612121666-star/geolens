@@ -1,0 +1,135 @@
+{
+  "title": "Los movimientos en masa",
+  "hook": "La gravedad empuja una ladera cuesta abajo, mientras que la fricción y la cohesión se resisten al movimiento.",
+  "objective": "Identifica las partes principales de un deslizamiento rotacional y explica cómo la lluvia puede reducir la estabilidad de una ladera.",
+  "modelDescription": "Una ladera con hierba está cortada para mostrar sus capas y una superficie curva bajo la pendiente por donde puede fallar. Al subir la presión del agua en el suelo, la ladera se debilita, y cuando falla, el bloque de suelo que está sobre la superficie curva gira y se desliza cuesta abajo, dejando un escarpe en la corona y un pie abultado.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra la corona, la superficie de cizalla curva y el pie. Lee el factor de seguridad inicial y luego abre Cómo leer estos resultados para ver los valores de resistencia del suelo."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Aumenta la Presión de poros y explica por qué baja la resistencia al disminuir el esfuerzo efectivo. Cuando el factor de seguridad baje de 1, pulsa Reproducir para ver girar el deslizamiento."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo reduce el aumento de la presión de poros la resistencia al deslizamiento a lo largo de la superficie elegida?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Un deslizamiento rotacional se mueve sobre…",
+      "choices": [
+        "Un plano de deslizamiento recto y plano bajo tierra",
+        "La cara vertical del acantilado",
+        "Nada: la roca suelta cae libremente",
+        "Una superficie de deslizamiento curva, en forma de cuchara"
+      ],
+      "explain": "Un deslizamiento rotacional se mueve a lo largo de una superficie de deslizamiento curva, así que el bloque desplazado gira mientras baja. La cabeza se hunde y puede inclinarse hacia atrás, mientras el material se desplaza hacia fuera cerca del pie."
+    },
+    {
+      "prompt": "La lluvia hace que el till falle con más facilidad porque…",
+      "choices": [
+        "La presión del agua en los poros reduce su resistencia",
+        "Se congela y separa el acantilado como una cuña",
+        "Cementa las partículas de arcilla entre sí",
+        "Hace que el till sea más ligero"
+      ],
+      "explain": "Una mayor presión del agua en los poros reduce el esfuerzo efectivo que aprieta las partículas del suelo entre sí. Esto debilita la resistencia por fricción y puede hacer que una ladera falle con más facilidad."
+    },
+    {
+      "prompt": "Cuando la presión de poros baja el factor de seguridad por debajo de 1, Reproducir muestra…",
+      "choices": [
+        "La ladera sigue igual",
+        "La cabeza se hunde y el pie se desplaza hacia fuera",
+        "El pie se hunde y la cabeza se desplaza hacia fuera",
+        "Toda la ladera se desliza como una sola lámina plana"
+      ],
+      "explain": "Un factor de seguridad por debajo de 1 significa que las fuerzas que impulsan el movimiento superan a las que lo resisten. La rotación que se muestra ilustra ese estado inestable; no predice a qué velocidad ni hasta dónde se mueve un deslizamiento real."
+    },
+    {
+      "prompt": "Antes de comparar un deslizamiento costero real con este modelo, comprueba…",
+      "choices": [
+        "Si las dos laderas miran al mar abierto",
+        "Si los dos acantilados tienen la misma altura",
+        "Su material, su presión de poros y la forma del deslizamiento",
+        "Cuánta lluvia cayó en todo ese año"
+      ],
+      "explain": "La resistencia del material, la presión de poros y la geometría de la superficie de rotura determinan si un mecanismo rotacional es plausible. Dos laderas costeras pueden fallar de forma distinta aunque estén en un ambiente parecido."
+    },
+    {
+      "prompt": "¿Qué cambio mejoraría más la estabilidad de una ladera de arcilla húmeda?",
+      "choices": [
+        "Construir casas pesadas en la parte alta",
+        "Cortar el pie de la ladera para ensanchar una carretera",
+        "Quitar los árboles y los arbustos",
+        "Instalar drenajes para bajar la presión de poros"
+      ],
+      "explain": "Los drenajes bajan la presión del agua en la ladera, lo que aumenta la fricción que se resiste al movimiento. Cargar la parte alta, cortar el pie y quitar la vegetación hacen que la rotura sea más probable."
+    }
+  ],
+  "why": [
+    "La gravedad empuja una ladera cuesta abajo, mientras que la fricción y la cohesión se resisten al movimiento. Una presión del agua en los poros cada vez mayor puede reducir el esfuerzo efectivo y la resistencia, y hacer menos estable una superficie de deslizamiento elegida.",
+    "El agua de los poros separa los granos del suelo, así que una parte menor del peso del suelo aprieta los granos entre sí a lo largo de la superficie de deslizamiento. La fricción depende de ese esfuerzo efectivo, así que la resistencia baja mientras el peso que impulsa el movimiento casi no cambia; cuando la resistencia cae por debajo de la fuerza que impulsa, el factor de seguridad baja de 1.",
+    "El factor de seguridad se aplica a la ladera inicial y a su superficie de deslizamiento elegida; la rotación posterior es ilustrativa, no un recorrido calculado."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La lluvia solo puede desestabilizar una ladera haciendo que el material pese más.",
+      "truth": "El agua añadida puede aumentar el peso, pero una presión de poros mayor también puede reducir el esfuerzo efectivo y la resistencia por fricción a lo largo de una posible superficie de deslizamiento. El drenaje, la cohesión, la forma de la ladera y las propiedades del material influyen en la estabilidad, así que el efecto no se explica solo por la masa añadida."
+    },
+    {
+      "claim": "Los deslizamientos siempre ocurren sin ninguna señal de aviso.",
+      "truth": "Muchos deslizamientos vienen precedidos por señales como grietas nuevas en la parte alta de una ladera, terreno abultado cerca del pie, árboles o postes inclinados y manantiales que aparecen. Vigilar estas señales ayuda a avisar a la gente, aunque algunas roturas son muy repentinas."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Deslizamiento rotacional",
+      "def": "Un deslizamiento en el que una masa de suelo o de roca gira a lo largo de una superficie de deslizamiento curva. La parte superior suele hundirse e inclinarse hacia atrás, mientras el material se desplaza hacia fuera cerca del pie. La presión del agua puede reducir la resistencia de la ladera a la rotura."
+    },
+    {
+      "term": "Superficie de cizalla",
+      "def": "Una superficie a lo largo de la cual dos masas vecinas se mueven una respecto a la otra. En un deslizamiento separa el material que se mueve de la ladera de debajo y puede ser curva o casi plana. Es distinta del acantilado expuesto o de la cicatriz del deslizamiento."
+    },
+    {
+      "term": "Corona",
+      "def": "El borde superior de un deslizamiento, donde el material desplazado se separa del terreno estable. Las grietas cerca de la corona pueden marcar el contorno de la rotura que se está formando. Es distinta del pie, donde el material desplazado se acumula más abajo en la ladera."
+    },
+    {
+      "term": "Pie",
+      "def": "El extremo inferior de un deslizamiento u otro depósito de movimiento en masa. El material desplazado puede engrosarse o abultarse allí al frenarse. Es distinto de la corona, donde el material se separa de la ladera estable."
+    },
+    {
+      "term": "Presión de poros",
+      "def": "La presión del agua o del gas dentro de los poros del suelo o de la roca. Al aumentar la presión del agua, puede bajar el esfuerzo efectivo y la resistencia de la ladera a la rotura."
+    },
+    {
+      "term": "Till",
+      "def": "Sedimento sin seleccionar depositado directamente por el hielo de un glaciar, que a menudo contiene una mezcla desde arcilla hasta bloques. Su mala selección lo distingue de muchos depósitos de agua de deshielo retrabajados por el agua que fluye. El till puede formar varios tipos de relieve glaciar."
+    },
+    {
+      "term": "Movimiento en masa",
+      "def": "El movimiento cuesta abajo de roca o de suelo por la gravedad, que incluye caídas, deslizamientos y flujos. El agua puede aumentar el peso o la presión de poros y puede ir mezclada con el material que se mueve. La fuerza que impulsa es la gravedad, no un río ni el viento que transporten el material."
+    }
+  ],
+  "predict": {
+    "prompt": "Después de días de lluvia intensa, ¿crees que una ladera de arcilla tiene más o menos probabilidades de deslizarse? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Por qué la lluvia intensa puede hacer que falle una ladera estable?",
+    "claim": "La lluvia sube la presión del agua en los poros del suelo, lo que reduce la fricción que mantiene unida la ladera hasta que el factor de seguridad baja de 1 y la ladera se desliza.",
+    "evidence": "El factor de seguridad inicial es mayor que 1. Al subir la Presión de poros, baja; cuando cae por debajo de 1, Reproducir muestra el deslizamiento girando sobre su superficie de cizalla curva, con la cabeza hundiéndose y el pie empujado hacia fuera.",
+    "reasoning": "La fricción depende de cuánto se aprietan los granos del suelo entre sí. La presión del agua en los poros separa los granos y reduce este esfuerzo efectivo, mientras el peso que impulsa el deslizamiento casi no cambia. Cuando la resistencia cae por debajo de la fuerza que impulsa, la ladera falla."
+  },
+  "controls": {
+    "rain": {
+      "label": "Presión de poros"
+    }
+  }
+}

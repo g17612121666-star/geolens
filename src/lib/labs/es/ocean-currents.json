@@ -1,0 +1,142 @@
+{
+  "title": "Corrientes oceánicas",
+  "hook": "Los vientos de superficie y la rotación de la Tierra ayudan a organizar los giros oceánicos subtropicales.",
+  "objective": "Sigue las principales corrientes superficiales y explica cómo los vientos y el transporte de calor del océano influyen en el clima regional.",
+  "modelDescription": "Un globo terrestre muestra las corrientes superficiales de una cuenca oceánica como flechas que recorren un giro subtropical, con una corriente rápida y estrecha en el borde occidental y una amplia y lenta en el borde oriental. El giro del Atlántico Norte rota en sentido horario, y la vista puede pasar a los giros del Atlántico Sur, del Pacífico Norte y Sur y del océano Índico.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Elige Atlántico Norte y encuentra sus corrientes de borde occidental y oriental. Sigue las flechas y nombra la corriente del Golfo y la corriente de Canarias."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Cambia a Atlántico Sur y explica por qué rota en sentido contrario. Luego visita los cinco giros subtropicales."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo ayudan los vientos, la rotación de la Tierra y los bordes de las cuencas oceánicas a organizar los grandes giros superficiales?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Un giro es…",
+      "choices": [
+        "Una corriente profunda a lo largo del fondo marino",
+        "Una corriente que solo fluye en invierno",
+        "Una corriente de marea en un estrecho angosto",
+        "Un gran sistema de corrientes superficiales en circuito"
+      ],
+      "explain": "Un giro es un amplio sistema de corrientes oceánicas conectadas, moldeado por el viento, la rotación de la Tierra y los bordes de la cuenca. Los giros subtropicales forman grandes patrones de circulación, no corrientes rectas aisladas."
+    },
+    {
+      "prompt": "La corriente del Golfo es…",
+      "choices": [
+        "Una corriente cálida de borde occidental",
+        "Una corriente costera fría frente a Perú",
+        "Una corriente fría que viene del Ártico",
+        "Una corriente profunda a lo largo del fondo marino"
+      ],
+      "explain": "La corriente del Golfo lleva agua cálida hacia el norte por el lado occidental de la cuenca del Atlántico Norte. Es una corriente de borde rápida y concentrada dentro de la circulación más amplia del Atlántico."
+    },
+    {
+      "prompt": "Seattle está más al norte que Boston, pero sus inviernos son más suaves. ¿Por qué?",
+      "choices": [
+        "La cálida corriente del Golfo pasa junto a Seattle",
+        "Los vientos del oeste traen aire suave del Pacífico",
+        "Seattle está mucho más cerca del ecuador",
+        "Aire cálido del desierto sube desde México"
+      ],
+      "explain": "Los vientos del oeste dominantes llevan a la costa oeste aire que ha cruzado el Pacífico, y el océano guarda calor durante el invierno. Boston, en la costa este, recibe sobre todo aire que ha cruzado el continente frío, así que la corriente del Golfo, mar adentro, la calienta menos. La misma situación ayuda a explicar los inviernos suaves del oeste de Europa."
+    },
+    {
+      "prompt": "Una corriente de borde occidental suele ser…",
+      "choices": [
+        "Amplia, lenta y fría",
+        "Amplia, rápida y fría",
+        "Estrecha, rápida y cálida",
+        "Estrecha, lenta y profunda"
+      ],
+      "explain": "Como el efecto de Coriolis aumenta con la latitud, el flujo de retorno de un giro subtropical se comprime contra su borde occidental. Esto produce corrientes estrechas y rápidas, como la corriente del Golfo y la de Kuroshio."
+    },
+    {
+      "prompt": "¿Por qué los desiertos de Atacama y de Namib están junto a corrientes oceánicas frías?",
+      "choices": [
+        "Las corrientes frías traen lluvias fuertes a la costa.",
+        "El agua fría se evapora más rápido que la cálida y seca el aire.",
+        "Las corrientes frías enfrían el aire y lo mantienen estable y seco.",
+        "Las corrientes arrastran arena del desierto hasta la costa."
+      ],
+      "explain": "El aire enfriado desde abajo por el agua fría es estable y no sube para formar nubes de lluvia. Llueve muy poco, aunque la niebla marina es común."
+    }
+  ],
+  "why": [
+    "Los vientos de superficie y la rotación de la Tierra ayudan a organizar los giros oceánicos subtropicales. Las corrientes cálidas de borde occidental suelen llevar agua hacia el polo, mientras que las corrientes más frías de borde oriental la llevan hacia el ecuador.",
+    "La rotación de la Tierra desvía el agua en movimiento hacia la derecha en el hemisferio norte y hacia la izquierda en el hemisferio sur. Junto con los alisios y los vientos del oeste, esto hace que los giros del norte roten en sentido horario y los del sur en sentido antihorario, y comprime el flujo de retorno de cada giro, hacia el polo, en una corriente de borde occidental estrecha y rápida.",
+    "El globo muestra las rutas generales y la dirección de las corrientes. El ancho de las bandas y la velocidad de los chevrones muestran dónde una corriente es rápida o lenta, con una misma escala para los cinco giros; ninguno es un ancho ni una velocidad medidos, y los chevrones se mueven mucho más rápido que el agua."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Las corrientes oceánicas se mueven solo por diferencias de temperatura del agua.",
+      "truth": "Los vientos y los gradientes de presión impulsan gran parte de la circulación de las capas superiores del océano, y la rotación de la Tierra y las costas dan forma al flujo. La temperatura y la salinidad influyen en la densidad y contribuyen a la circulación de vuelco, mientras que la mezcla conecta distintas profundidades. Los giros superficiales y la circulación profunda están relacionados, pero no se explican solo con la temperatura."
+    },
+    {
+      "claim": "Las corrientes oceánicas frías hacen que las costas cercanas sean húmedas y lluviosas.",
+      "truth": "Las corrientes frías enfrían el aire que tienen encima y lo vuelven estable, así que no sube para formar nubes de lluvia. Las costas junto a corrientes frías, como las de Atacama y Namib, están entre los lugares más secos de la Tierra, aunque a menudo tienen niebla."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Giro",
+      "def": "Un sistema giratorio de corrientes oceánicas a gran escala. Los vientos, la rotación de la Tierra y la forma de las cuencas oceánicas ayudan a organizar los giros subtropicales. Un giro incluye corrientes de distintos anchos, velocidades y temperaturas, no un solo circuito uniforme."
+    },
+    {
+      "term": "Corriente de borde occidental",
+      "def": "Una corriente estrecha y rápida en el lado occidental del giro subtropical de una cuenca oceánica, como la corriente del Golfo o la de Kuroshio. Estas corrientes suelen llevar agua cálida hacia el polo. ‘Occidental’ se refiere al lado del océano, así que fluyen junto a las costas orientales de los continentes."
+    },
+    {
+      "term": "Corriente de borde oriental",
+      "def": "Una corriente en el lado oriental de una cuenca oceánica, como la corriente de Canarias. En los giros subtropicales, estas corrientes suelen ser más amplias, lentas y frías que las de borde occidental, y los vientos costeros también pueden favorecer el afloramiento."
+    },
+    {
+      "term": "Corriente del Golfo",
+      "def": "Una corriente cálida y rápida de borde occidental en el Atlántico Norte, que fluye desde el estrecho de Florida a lo largo del este de Estados Unidos antes de alejarse de la costa."
+    },
+    {
+      "term": "Corriente de Canarias",
+      "def": "La corriente de borde oriental, relativamente fría, que fluye hacia el sur en el giro subtropical del Atlántico Norte. El afloramiento costero frente al noroeste de África puede llevar a la superficie agua más fría y rica en nutrientes."
+    },
+    {
+      "term": "Alta subtropical",
+      "def": "Una región de presión atmosférica relativamente alta que suele estar en el lado de la circulación de Hadley más cercano al polo. El aire que desciende tiende a impedir la formación de nubes, lo que ayuda a explicar muchas regiones secas subtropicales. Su posición y su fuerza varían con la estación y la geografía."
+    },
+    {
+      "term": "Corriente superficial",
+      "def": "El flujo en las capas superiores del océano, impulsado por los vientos y los gradientes de presión y modificado por la rotación, las costas y la mezcla."
+    }
+  ],
+  "predict": {
+    "prompt": "Seattle está más al norte que Boston, pero sus inviernos son más suaves. ¿Qué crees que podría explicarlo?"
+  },
+  "cer": {
+    "prompt": "¿Por qué los grandes giros oceánicos rotan en el sentido en que lo hacen, y por qué sus corrientes occidentales son rápidas y cálidas?",
+    "claim": "Los vientos y la rotación de la Tierra impulsan giros que rotan en sentido horario en el hemisferio norte y antihorario en el sur, con corrientes estrechas, rápidas y cálidas en sus lados occidentales.",
+    "evidence": "El giro del Atlántico Norte rota en sentido horario, con la corriente del Golfo fluyendo hacia el norte por la costa este de EE. UU. y la corriente de Canarias, más fría, fluyendo hacia el sur frente a África. El giro del Atlántico Sur rota en sentido contrario.",
+    "reasoning": "Los alisios y los vientos del oeste empujan el agua superficial alrededor de cada cuenca, y el efecto de Coriolis la desvía a la derecha en el norte y a la izquierda en el sur. Como ese efecto aumenta con la latitud, el flujo de retorno se comprime contra el borde occidental y lleva el calor tropical hacia el polo."
+  },
+  "controls": {
+    "basin": {
+      "label": "Giro oceánico",
+      "options": [
+        "Atlántico Norte",
+        "Atlántico Sur",
+        "Pacífico Norte",
+        "Pacífico Sur",
+        "Océano Índico"
+      ]
+    }
+  }
+}

@@ -18,6 +18,7 @@ import { useLabControls } from "@/lib/store/lab-controls";
 import { defaultParams } from "@/lib/labs/defaults";
 import { labShareUrl } from "@/labs/shared/url-state";
 import { cn } from "@/lib/utils";
+import { useT } from "@/lib/i18n";
 import { useState } from "react";
 
 export function ControlBar({
@@ -46,6 +47,7 @@ export function ControlBar({
   const setParam = useLabControls((s) => s.setParam);
   const reset = useLabControls((s) => s.reset);
   const resetView = useLabControls((s) => s.resetView);
+  const t = useT();
 
   const playback = hasPlayback(lab, params, explode);
   // Hide controls that do nothing in the current view (for example a slider for one experiment).
@@ -170,7 +172,7 @@ export function ControlBar({
             )}
           >
             {tg.label}
-            <span className="ml-2 text-xs">{on ? "On" : "Off"}</span>
+            <span className="ml-2 text-xs">{on ? t("On") : t("Off")}</span>
           </button>
         );
       })}
@@ -185,7 +187,7 @@ export function ControlBar({
         {lab.controls.explode && (
           <label className="flex items-center gap-1.5 pr-2">
             <Layers2 className="size-3.5 text-mist" />
-            <span className="text-[13px] text-mist">Separate layers</span>
+            <span className="text-[13px] text-mist">{t("Separate layers")}</span>
             <input
               type="range"
               min={0}
@@ -194,7 +196,7 @@ export function ControlBar({
               value={explode}
               onChange={(e) => setExplode(Number(e.target.value))}
               className="h-2 w-16 accent-magma"
-              aria-label={"Separate layers"}
+              aria-label={t("Separate layers")}
               aria-valuenow={explode}
               aria-valuetext={`${Math.round(explode * 100)}%`}
               suppressHydrationWarning
@@ -207,7 +209,7 @@ export function ControlBar({
         {lab.controls.slice && (
           <label className="flex items-center gap-1.5 pr-2">
             <Spline className="size-3.5 text-mist" />
-            <span className="text-[13px] text-mist">Cutaway</span>
+            <span className="text-[13px] text-mist">{t("Cutaway")}</span>
             <input
               type="range"
               min={0}
@@ -216,7 +218,7 @@ export function ControlBar({
               value={slice}
               onChange={(e) => setSlice(Number(e.target.value))}
               className="h-2 w-16 accent-ice"
-              aria-label={"Cutaway"}
+              aria-label={t("Cutaway")}
               aria-valuenow={slice}
               aria-valuetext={`${Math.round(slice * 100)}%`}
               suppressHydrationWarning
@@ -262,6 +264,7 @@ export function ViewTools({
   const setTrueScale = useLabControls((s) => s.setTrueScale);
   const [copied, setCopied] = useState(false);
   const [shareFailed, setShareFailed] = useState(false);
+  const t = useT();
   const group = (
     <>
       <IconBtn
@@ -318,7 +321,7 @@ export function ViewTools({
   return (
     <div
       role="toolbar"
-      aria-label="View"
+      aria-label={t("View")}
       aria-orientation="vertical"
       className="pointer-events-auto flex w-12 flex-col items-center gap-1 rounded-2xl border border-white/10 bg-basalt/90 p-1 shadow-[0_8px_30px_rgb(0_0_0/0.12)] backdrop-blur-xl"
     >
@@ -343,12 +346,13 @@ function IconBtn({
   showLabel?: boolean;
   primary?: boolean;
 }) {
+  const t = useT();
   return (
     <button
       type="button"
-      aria-label={label}
+      aria-label={t(label)}
       aria-pressed={active}
-      title={label}
+      title={t(label)}
       onClick={onClick}
       className={cn(
         "inline-flex h-10 min-w-10 items-center justify-center gap-2 rounded-lg px-2.5 text-[13px] text-chalk hover:bg-white/10",
@@ -357,7 +361,7 @@ function IconBtn({
       )}
     >
       {children}
-      {showLabel && <span>{label}</span>}
+      {showLabel && <span>{t(label)}</span>}
     </button>
   );
 }
@@ -366,9 +370,10 @@ function IconBtn({
 function TimeSlider({ lab, label: timeLabel }: { lab: LabMeta; label: string }) {
   const t = useLabControls((s) => s.t);
   const setT = useLabControls((s) => s.setT);
+  const tr = useT();
   return (
     <label className="flex min-w-48 flex-1 items-center gap-3">
-      <span className="hidden shrink-0 text-[13px] text-mist sm:inline">{timeLabel}</span>
+      <span className="hidden shrink-0 text-[13px] text-mist sm:inline">{tr(timeLabel)}</span>
       <input
         type="range"
         min={0}
@@ -378,12 +383,13 @@ function TimeSlider({ lab, label: timeLabel }: { lab: LabMeta; label: string }) 
         value={t}
         onChange={(e) => setT(Number(e.target.value))}
         className="h-2 w-full accent-glacier"
-        aria-label={timeLabel}
+        aria-label={tr(timeLabel)}
         aria-valuenow={t}
         aria-valuetext={
           lab.controls.time === "day"
-            ? `${(t * 24).toFixed(1)} hours${t >= 0.999 ? " (the same orientation as 0 hours)" : ""}`
-            : `${Math.round(t * 100)}% of the process`
+            ? tr("{h} hours", { h: (t * 24).toFixed(1) }) +
+              (t >= 0.999 ? tr(" (the same orientation as 0 hours)") : "")
+            : tr("{p}% of the process", { p: Math.round(t * 100) })
         }
         suppressHydrationWarning
       />

@@ -9,6 +9,7 @@ import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
+import { useT } from "@/lib/i18n";
 /** Ice-wedge polygons: a flat-topped hexagonal lattice, gently warped so cells are irregular. */
 const R = 1.1,
   INNER = (R * Math.sqrt(3)) / 2;
@@ -127,6 +128,7 @@ function sectionSurface(x: number, z: number, growth: number) {
 }
 
 export default function Periglacial() {
+  const tr = useT();
   const { params, t } = useLabState("params", "t");
   useLabTick(1 / 50);
   const growth = params.cycles ?? 0.45,
@@ -226,13 +228,15 @@ export default function Periglacial() {
         camera={view === 0 ? [3.2, 3.4, 7.4] : [3.4, 5, 6]}
         scale={
           view === 0
-            ? "10 m wide, 5 m deep · 0.7 m active layer · common scale"
-            : "Ice-wedge polygon network · idealized pattern, not a field survey · relief exaggerated"
+            ? tr("10 m wide, 5 m deep · 0.7 m active layer · common scale")
+            : tr(
+                "Ice-wedge polygon network · idealized pattern, not a field survey · relief exaggerated",
+              )
         }
         trueScale={
           view === 0
-            ? "1 scene unit = 1 m · no vertical exaggeration · winter crack drawn wider"
-            : "Polygon spacing is illustrative · cracks enlarged for clarity"
+            ? tr("1 scene unit = 1 m · no vertical exaggeration · winter crack drawn wider")
+            : tr("Polygon spacing is illustrative · cracks enlarged for clarity")
         }
       >
         {view === 0 ? (
@@ -269,32 +273,40 @@ export default function Periglacial() {
               pos={[-2.7, 0.65, 0]}
               text={
                 freeze > 0
-                  ? `Refreezing from surface · ${freeze.toFixed(2)} m`
+                  ? tr("Refreezing from surface · {freeze} m", { freeze: freeze.toFixed(2) })
                   : thaw > 0.002
-                    ? `Seasonal thaw · ${thaw.toFixed(2)} m`
-                    : "Active layer frozen"
+                    ? tr("Seasonal thaw · {thaw} m", { thaw: thaw.toFixed(2) })
+                    : tr("Active layer frozen")
               }
-              note="Seasonal thaw deepens through the summer to a maximum of 0.7 m, marked by the dashed line. In autumn the active layer refreezes from the surface downward. Thawed ground is shown darker and wetter."
+              note={tr(
+                "Seasonal thaw deepens through the summer to a maximum of 0.7 m, marked by the dashed line. In autumn the active layer refreezes from the surface downward. Thawed ground is shown darker and wetter.",
+              )}
               occlude={false}
             />
             {winter && (
               <Tag
                 pos={[0.6, 0.25, 1.8]}
-                text="Winter crack"
-                note="In intense winter cold the frozen ground contracts and cracks, usually along the same line through the wedge each year. Real cracks are only millimeters to a centimeter or two wide; the crack is drawn wider here so it can be seen. Next spring, meltwater runs into it and freezes as a new vein of ice."
+                text={tr("Winter crack")}
+                note={tr(
+                  "In intense winter cold the frozen ground contracts and cracks, usually along the same line through the wedge each year. Real cracks are only millimeters to a centimeter or two wide; the crack is drawn wider here so it can be seen. Next spring, meltwater runs into it and freezes as a new vein of ice.",
+                )}
                 occlude={false}
               />
             )}
             <Tag
               pos={[2.7, -2, 1.8]}
-              text="Permafrost"
-              note="Permafrost is ground that stays at or below 0 °C for at least two consecutive years; it is not necessarily solid ice. The pale streaks are lenses of ground ice, most plentiful in the ice-rich ground just below the active layer; beside the wedge the layers bend upward where the growing wedge has pushed them."
+              text={tr("Permafrost")}
+              note={tr(
+                "Permafrost is ground that stays at or below 0 °C for at least two consecutive years; it is not necessarily solid ice. The pale streaks are lenses of ground ice, most plentiful in the ice-rich ground just below the active layer; beside the wedge the layers bend upward where the growing wedge has pushed them.",
+              )}
               occlude={false}
             />
             <Tag
               pos={[-2.6, -3.8, 1.8]}
-              text={`Ice wedge · ${width.toFixed(2)} m at top`}
-              note="Intense winter cold makes frozen ground contract and crack. Meltwater enters the cracks and freezes as thin vertical veins, so the wedge widens year after year and pushes the neighboring layers upward. It is not caused by water simply expanding as it freezes, nor by a glacier."
+              text={tr("Ice wedge · {width} m at top", { width: width.toFixed(2) })}
+              note={tr(
+                "Intense winter cold makes frozen ground contract and crack. Meltwater enters the cracks and freezes as thin vertical veins, so the wedge widens year after year and pushes the neighboring layers upward. It is not caused by water simply expanding as it freezes, nor by a glacier.",
+              )}
               occlude={false}
             />
           </>
@@ -325,8 +337,10 @@ export default function Periglacial() {
             <GrassPatch positions={tussocks} height={0.05} color={winter ? "#bdb59a" : "#7f8150"} />
             <Tag
               pos={[0, 0.7, 0]}
-              text="Thermal-contraction polygon network"
-              note="Troughs lie above the ice wedges, with raised rims beside them and wet, low centers; the cut faces show a wedge beneath every trough. Natural polygons are irregular; this regular network is idealized, not a field survey."
+              text={tr("Thermal-contraction polygon network")}
+              note={tr(
+                "Troughs lie above the ice wedges, with raised rims beside them and wet, low centers; the cut faces show a wedge beneath every trough. Natural polygons are irregular; this regular network is idealized, not a field survey.",
+              )}
               occlude={false}
             />
           </>
@@ -334,15 +348,22 @@ export default function Periglacial() {
       </ScienceStudio>
       <ScienceReadout>
         {winter
-          ? "Winter: the active layer is frozen; intense cold makes the ground contract and crack."
+          ? tr(
+              "Winter: the active layer is frozen; intense cold makes the ground contract and crack.",
+            )
           : freeze > 0
-            ? `Autumn freeze-back: the active layer refreezes from the surface down (${freeze.toFixed(2)} m frozen).`
-            : `Thaw season: the active layer has thawed to ${thaw.toFixed(2)} m of its 0.70 m maximum; the permafrost below stays frozen.`}{" "}
-        {"Long-term wedge development "}
-        {(growth * 100).toFixed(0)}%. <br />
-        {
-          "Play runs through one year. Wedge development compares how much a wedge has grown, not how fast. Ice-wedge polygons differ from frost-sorted stone circles; neither needs a glacier on site."
-        }
+            ? tr(
+                "Autumn freeze-back: the active layer refreezes from the surface down ({freeze} m frozen).",
+                { freeze: freeze.toFixed(2) },
+              )
+            : tr(
+                "Thaw season: the active layer has thawed to {thaw} m of its 0.70 m maximum; the permafrost below stays frozen.",
+                { thaw: thaw.toFixed(2) },
+              )}{" "}
+        {tr("Long-term wedge development {growth}%.", { growth: (growth * 100).toFixed(0) })} <br />
+        {tr(
+          "Play runs through one year. Wedge development compares how much a wedge has grown, not how fast. Ice-wedge polygons differ from frost-sorted stone circles; neither needs a glacier on site.",
+        )}
       </ScienceReadout>
     </>
   );

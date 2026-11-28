@@ -1,0 +1,142 @@
+{
+  "title": "Los puntos calientes",
+  "hook": "Una placa en movimiento puede alejar los volcanes más antiguos de una región de fusión duradera.",
+  "objective": "Usa la dirección en que aumenta la edad de los volcanes para deducir el movimiento relativo de la placa en los ejemplos de Hawái y Yellowstone.",
+  "modelDescription": "Un bloque de fondo oceánico muestra una cadena de islas volcánicas y montes submarinos sobre una placa en movimiento, encima de una pluma fija de manto caliente, dibujada en naranja bajo la placa. El volcán activo está sobre la pluma, en el extremo joven; las islas y los montes submarinos más antiguos y desgastados están más lejos a lo largo de la cadena. Al reproducir el modelo, la placa avanza y un nuevo volcán empieza a crecer. El modelo es esquemático y no está a escala.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra los extremos joven y viejo de la cadena de Hawái. Luego pulsa Reproducir y observa cómo la placa aleja el volcán activo de la pluma mientras empieza a crecer un nuevo monte submarino."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Activa Yellowstone y compara la dirección en que sus volcanes se vuelven más antiguos."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo indica la dirección en que aumenta la edad de los volcanes el movimiento de la placa respecto a la región de fusión?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "En la cadena principal de Hawái, los volcanes más antiguos suelen estar…",
+      "choices": [
+        "Al sureste de la isla activa más joven.",
+        "Junto a una fosa de subducción profunda.",
+        "Repartidos al azar a lo largo de la cadena.",
+        "Al noroeste del extremo sureste activo."
+      ],
+      "explain": "La placa del Pacífico lleva los volcanes hawaianos más antiguos hacia el noroeste respecto a la región de fusión activa. Los centros volcánicos nuevos se forman cerca del extremo sureste de la cadena."
+    },
+    {
+      "prompt": "En la cadena de Yellowstone, los centros más antiguos están…",
+      "choices": [
+        "Hacia el suroeste, por la llanura del río Snake.",
+        "Hacia el noroeste, como en Hawái.",
+        "A lo largo de la dorsal mesoatlántica.",
+        "En el mismo lugar que cada erupción actual."
+      ],
+      "explain": "Los centros volcánicos son cada vez más antiguos hacia el suroeste de Yellowstone, a lo largo de la llanura del río Snake. Este patrón registra el movimiento de la placa de Norteamérica respecto al sistema magmático que tiene debajo."
+    },
+    {
+      "prompt": "Aquí, una pluma del manto se describe mejor como…",
+      "choices": [
+        "Un tubo hueco lleno de lava líquida.",
+        "Manto caliente, casi todo sólido, que sube despacio.",
+        "Una grieta que sube desde el núcleo interno.",
+        "Un solo tubo que alimenta Hawái y Yellowstone."
+      ],
+      "explain": "La roca del manto puede subir despacio sin dejar de ser casi toda sólida. Al bajar la presión durante el ascenso, parte de esa roca caliente puede superar su umbral de fusión y generar magma."
+    },
+    {
+      "prompt": "¿Dónde está Yellowstone respecto a los límites de placas?",
+      "choices": [
+        "En una zona de subducción, como las Cascadas",
+        "En una dorsal de expansión, como Islandia",
+        "En una falla transformante, como San Andrés",
+        "Dentro de la placa de Norteamérica"
+      ],
+      "explain": "Yellowstone está lejos de cualquier límite de placas. Como Hawái, es un sistema volcánico de intraplaca, alimentado por una fuente de calor duradera bajo la placa en movimiento."
+    },
+    {
+      "prompt": "Los volcanes de la isla Grande de Hawái están activos, pero los de Kauaʻi no. ¿Por qué?",
+      "choices": [
+        "El magma de Kauaʻi se congeló cuando el clima se enfrió.",
+        "Kauaʻi está sobre una parte más fría del océano.",
+        "Kauaʻi se ha alejado del punto caliente.",
+        "Los arrecifes de coral bloquean los volcanes de Kauaʻi."
+      ],
+      "explain": "Kauaʻi se formó sobre el punto caliente hace unos 5 millones de años. Desde entonces, la placa del Pacífico la ha llevado hacia el noroeste, lejos de su fuente de magma, así que sus volcanes están extintos y se erosionan."
+    }
+  ],
+  "why": [
+    "Una placa en movimiento puede alejar los volcanes más antiguos de una región de fusión duradera. Comparar la dirección en que aumenta la edad a lo largo de una cadena volcánica ayuda a explicar el movimiento relativo de la placa.",
+    "El volcán activo está sobre la región de fusión. Al moverse la placa, se lleva ese volcán, que se extingue, se enfría, se hunde y se erosiona, y se forma uno nuevo sobre la región de fusión. Por eso los volcanes son más antiguos en la dirección en que se mueve la placa.",
+    "Los cortes ilustran el movimiento y la dirección de las edades; no calculan fechas de erupción ni reproducen toda la estructura de una pluma del manto."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Un punto caliente debe quedarse perfectamente fijo mientras su placa se mueve.",
+      "truth": "Una cadena de edades volcánicas registra el movimiento de una placa respecto a una región de fusión. El movimiento de la placa es importante, pero la fuente también puede desplazarse al moverse el manto. Por eso la dirección y las edades de la cadena acotan el movimiento relativo sin exigir una fuente exactamente quieta."
+    },
+    {
+      "claim": "Los volcanes de Hawái se forman sobre una zona de subducción, como los volcanes de Japón.",
+      "truth": "Hawái está cerca del centro de la placa del Pacífico, a miles de kilómetros del límite de placas más cercano. Su magma viene de la fusión del manto caliente bajo la placa, no de una placa oceánica que se hunde."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Punto caliente",
+      "def": "Una región de vulcanismo persistente que puede estar dentro de una placa o en un límite. Muchos puntos calientes se asocian con el ascenso de material del manto; no todos tienen un origen comprobado en una pluma profunda."
+    },
+    {
+      "term": "Monte submarino",
+      "def": "Una montaña bajo el agua, por lo general volcánica. Un monte submarino no tiene por qué estar en una cadena de punto caliente con edades progresivas ni haber estado alguna vez sobre el nivel del mar."
+    },
+    {
+      "term": "Pluma del manto",
+      "def": "Un ascenso de material del manto especialmente caliente que puede alimentar el vulcanismo de un punto caliente. Es sobre todo roca sólida que se deforma, con posible fusión parcial cerca de la parte superior."
+    },
+    {
+      "term": "Caldera",
+      "def": "Una gran depresión volcánica que se forma sobre todo cuando el terreno se hunde dentro de un depósito de magma subterráneo después de que el magma sale."
+    },
+    {
+      "term": "Cadena de edad progresiva",
+      "def": "Una línea de volcanes que son más antiguos cuanto más lejos están de un punto caliente activo, y que registra el movimiento de la placa sobre él."
+    },
+    {
+      "term": "Vulcanismo de intraplaca",
+      "def": "Actividad volcánica que ocurre dentro de una placa tectónica y no a lo largo de su límite. Hawái es un ejemplo. Entre sus posibles causas están el ascenso del manto y procesos de la litosfera; su ubicación por sí sola no establece la profundidad ni la estructura de la fuente del magma."
+    },
+    {
+      "term": "Fusión parcial",
+      "def": "La fusión de solo una parte de una roca, porque los minerales que la forman no se funden todos en las mismas condiciones. La roca fundida puede separarse y subir mientras queda el material sólido. Esto ayuda a explicar por qué el magma tiene una composición distinta de la de su roca de origen."
+    },
+    {
+      "term": "Guyot",
+      "def": "Un monte submarino sumergido con una cima relativamente plana, que suele formarse cuando una isla volcánica se erosiona cerca del nivel del mar y después se hunde."
+    }
+  ],
+  "predict": {
+    "prompt": "Kauaʻi es una isla hawaiana antigua y la isla Grande es joven. Si el punto caliente se queda en un lugar, ¿hacia dónde crees que se mueve la placa del Pacífico?"
+  },
+  "cer": {
+    "prompt": "¿Cómo muestran las edades de los volcanes a lo largo de una cadena de punto caliente la dirección en que se mueve una placa?",
+    "claim": "La placa se aleja del punto caliente hacia los volcanes más antiguos: la placa del Pacífico se mueve hacia el noroeste sobre el punto caliente de Hawái y la placa de Norteamérica se mueve hacia el suroeste sobre Yellowstone.",
+    "evidence": "En la cadena de Hawái, el volcán más joven y activo está en el extremo sureste y las islas son más antiguas hacia el noroeste; Kauaʻi tiene unos 5 millones de años. Al reproducir el modelo, la placa aleja el volcán activo de la pluma mientras crece un nuevo monte submarino. La cadena de Yellowstone es más antigua hacia el suroeste por la llanura del río Snake, hasta unos 17 millones de años.",
+    "reasoning": "Un punto caliente es una fuente de fusión duradera bajo la placa. Cada volcán se forma sobre ella y luego la placa lo aleja al moverse, así que la línea de volcanes envejece en la dirección del movimiento de la placa."
+  },
+  "controls": {
+    "hawaii": {
+      "label": "Hawái"
+    },
+    "yellowstone": {
+      "label": "Yellowstone"
+    }
+  }
+}

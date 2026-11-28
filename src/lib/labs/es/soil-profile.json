@@ -1,0 +1,148 @@
+{
+  "title": "Perfil del suelo",
+  "hook": "Un perfil del suelo deja ver horizontes formados por los aportes orgánicos, la meteorización y el movimiento de materiales.",
+  "objective": "Identifica los horizontes de un perfil del suelo y compara cómo influyen en su desarrollo el agua, la materia orgánica y el material parental.",
+  "modelDescription": "Una cara vertical de suelo, como la pared de un pozo, muestra los horizontes desde la hojarasca de arriba, pasando por la capa superior oscura y el subsuelo, hasta la roca fragmentada de la base, con raíces que bajan desde la superficie y una escala de profundidad al lado. La cara puede cambiar entre un suelo pardo templado, un suelo oscuro de pradera y un suelo tropical muy meteorizado.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Elige Suelo pardo templado y lee la escala de profundidad. Nombra los horizontes O, A, Bw y C, y luego explica por qué un suelo no tiene por qué tener horizontes E o R."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Elige Ejemplo de Mollisol y compara su capa superior gruesa y oscura. Luego elige Ejemplo de Oxisol y comenta sus límites graduales y su meteorización intensa."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo muestran los perfiles que un suelo no tiene por qué contener todos los horizontes posibles?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "El horizonte R es…",
+      "choices": [
+        "La hojarasca",
+        "La capa de arcilla arrastrada desde arriba",
+        "La roca madre",
+        "El material parental meteorizado"
+      ],
+      "explain": "El horizonte R es la roca madre coherente que hay bajo el suelo y el material parental meteorizado. Las raíces y el agua pueden entrar por sus fracturas, pero no es un horizonte de suelo suelto."
+    },
+    {
+      "prompt": "Un horizonte A grueso y oscuro es típico de…",
+      "choices": [
+        "Un Oxisol",
+        "Los suelos jóvenes de las dunas",
+        "Los suelos de desierto",
+        "Un Mollisol (pastizal)"
+      ],
+      "explain": "Las raíces del pastizal aportan materia orgánica a lo largo de una capa superficial considerable, y los organismos del suelo la mezclan con el material mineral. Esto ayuda a formar el horizonte superficial grueso y oscuro típico de muchos Mollisoles."
+    },
+    {
+      "prompt": "Un Oxisol es…",
+      "choices": [
+        "Un suelo tropical muy meteorizado",
+        "Un suelo de turba encharcado de las tierras altas",
+        "Un suelo joven sobre ceniza volcánica reciente",
+        "Un suelo helado sobre permafrost"
+      ],
+      "explain": "Los Oxisoles se forman con una meteorización intensa y prolongada, y contienen abundantes óxidos de hierro y aluminio. Muchos están en regiones tropicales, donde las condiciones cálidas y húmedas favorecen una meteorización química profunda."
+    },
+    {
+      "prompt": "El horizonte E es…",
+      "choices": [
+        "Una capa oscura rica en humus",
+        "Una capa lavada, a menudo más clara",
+        "Donde se acumula la arcilla arrastrada",
+        "Roca parental meteorizada"
+      ],
+      "explain": "La eluviación quita del horizonte E materiales como arcilla, compuestos de hierro o materia orgánica, y a menudo lo deja más claro. No todos los perfiles del suelo tienen horizonte E."
+    },
+    {
+      "prompt": "¿Cuánto tiempo puede tardar más o menos en formarse una capa de suelo de unos pocos centímetros?",
+      "choices": [
+        "Cientos de años o más",
+        "Unos días después de una lluvia fuerte",
+        "Un invierno lluvioso",
+        "Exactamente diez años"
+      ],
+      "explain": "El suelo se forma despacio a medida que el material parental se meteoriza y se acumula la materia orgánica. Unos pocos centímetros pueden tardar cientos de años, y por eso el suelo erosionado es difícil de reponer."
+    }
+  ],
+  "why": [
+    "Un perfil del suelo deja ver horizontes formados por los aportes orgánicos, la meteorización y el movimiento de materiales. Sus colores y texturas pueden dar pistas, pero no todos los suelos tienen todos los horizontes.",
+    "Bajo el pastizal, raíces densas crecen y mueren a gran profundidad en el suelo, y los organismos del suelo mezclan sus restos con los granos minerales, así que un Mollisol forma un horizonte A grueso y oscuro. En un Oxisol, una meteorización química larga e intensa en condiciones cálidas y húmedas ha descompuesto la mayoría de los minerales y lavado los nutrientes, y deja un subsuelo rojo y grueso, rico en óxidos de hierro y aluminio, con límites graduales.",
+    "Los perfiles elegidos son ejemplos; identificar un orden de suelos también requiere propiedades diagnósticas más allá de que coincida el color."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Todos los suelos tienen la misma secuencia y el mismo espesor de horizontes.",
+      "truth": "Los perfiles del suelo se desarrollan por la interacción entre el material parental, el clima, los organismos, el relieve y el tiempo. Algunos horizontes pueden faltar, estar poco desarrollados o haber sido alterados por la erosión y el uso del suelo. El color ayuda a describir un perfil, pero la clasificación también depende de propiedades y procesos diagnósticos."
+    },
+    {
+      "claim": "El suelo es solo roca molida.",
+      "truth": "El suelo es una mezcla de partículas minerales, materia orgánica, agua, aire y organismos vivos. Se desarrolla despacio a medida que la roca se meteoriza y las plantas, los animales y los microbios añaden y mezclan materia orgánica."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Horizonte",
+      "def": "Una capa dentro de un perfil del suelo que se distingue por propiedades como el color, la textura, la materia orgánica o la acumulación de minerales. Los horizontes se desarrollan por los procesos de formación del suelo. Sus límites pueden ser graduales, y un perfil real no tiene por qué tener todos los horizontes con nombre."
+    },
+    {
+      "term": "Horizonte O",
+      "def": "Una capa del suelo dominada por material orgánico, como la hojarasca y los restos de plantas en descomposición. Puede estar sobre los horizontes minerales en algunos suelos y faltar en otros. Su espesor depende de los aportes, la descomposición y las perturbaciones."
+    },
+    {
+      "term": "Horizonte A",
+      "def": "La capa mineral del suelo más cercana a la superficie, donde la materia orgánica se mezcla con arena, limo y arcilla. El humus suele oscurecerla, pero el color por sí solo no muestra qué tan fértil o profunda es."
+    },
+    {
+      "term": "Horizonte E",
+      "def": "Un horizonte del suelo empobrecido en materiales como la arcilla, el hierro o los compuestos orgánicos que se ha llevado el agua al infiltrarse. A menudo se ve más claro que las capas vecinas. No todos los perfiles del suelo tienen un horizonte E definido."
+    },
+    {
+      "term": "Horizonte B",
+      "def": "Una capa del subsuelo modificada por los procesos de formación del suelo, a menudo con acumulación de arcilla o de compuestos de hierro que vienen de arriba. Compara su color y su estructura con los del horizonte A; un horizonte B no es simplemente cualquier material bajo la capa superior."
+    },
+    {
+      "term": "Horizonte R",
+      "def": "La roca madre dura que hay bajo un perfil del suelo. Es distinta del material parental suelto o parcialmente meteorizado, que suele llamarse horizonte C. Las raíces y el agua pueden entrar por las diaclasas aunque la roca siga consolidada."
+    },
+    {
+      "term": "Mollisol",
+      "def": "Un orden de suelos del USDA caracterizado por un horizonte superficial oscuro y rico en bases, que suele formarse bajo pastizales. No es un sinónimo exacto de todos los chernozems."
+    },
+    {
+      "term": "Oxisol",
+      "def": "Un orden de suelos muy meteorizados, común en las regiones tropicales húmedas, normalmente rico en óxidos de hierro y aluminio. La meteorización y el lavado prolongados pueden dejar poca cantidad de nutrientes disponibles. El color rojo por sí solo no basta para clasificarlo."
+    },
+    {
+      "term": "Horizonte Bw / Bo",
+      "def": "Un horizonte del subsuelo (B). Bw está meteorizado en su lugar, con cambios de color o estructura pero con poco material añadido; Bo es un horizonte óxico muy meteorizado, rico en óxidos de hierro y aluminio, típico de suelos tropicales antiguos."
+    },
+    {
+      "term": "Horizonte C",
+      "def": "El material parental suelto o parcialmente meteorizado bajo el suelo, poco cambiado por los procesos de formación del suelo. La roca madre dura de debajo se llama R."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Por qué crees que los suelos de pastizal, como los de Iowa, tienen una capa superior tan gruesa y oscura?"
+  },
+  "cer": {
+    "prompt": "¿Por qué los suelos de distintos lugares desarrollan horizontes distintos?",
+    "claim": "El clima, la vegetación, el material parental y el tiempo controlan cómo se desarrolla un suelo, así que en lugares distintos se forman horizontes distintos.",
+    "evidence": "El suelo pardo templado tiene horizontes O, A, Bw y C. El ejemplo de Mollisol tiene un horizonte A grueso y oscuro. El ejemplo de Oxisol tiene un subsuelo rojo intenso y muy meteorizado, con límites graduales.",
+    "reasoning": "Bajo el pastizal, las raíces densas mueren y se descomponen a gran profundidad en el suelo, y forman un horizonte A grueso, oscuro y rico en materia orgánica. En los trópicos cálidos y húmedos, una meteorización química intensa durante mucho tiempo descompone la mayoría de los minerales y deja óxidos de hierro y aluminio que tiñen el suelo de rojo."
+  },
+  "controls": {
+    "profile": {
+      "label": "Perfil",
+      "options": ["Suelo pardo templado", "Ejemplo de Mollisol", "Ejemplo de Oxisol"]
+    }
+  }
+}

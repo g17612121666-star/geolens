@@ -22,6 +22,7 @@ import {
   riverBanks,
   riverStage,
 } from "../shared/river-terrain";
+import { useT } from "@/lib/i18n";
 
 const SIDES = landSectionGlsl({ rock: "sandstone", soil: 0.035, regolith: 0.07, beds: 9 });
 const BRIDGE_X = 2.25;
@@ -73,6 +74,7 @@ function Bridge({ f }: { f: number }) {
   );
 }
 export default function Rivers() {
+  const tr = useT();
   const compact = useIsCompact();
   const { params, trueScale, t } = useLabState("params", "trueScale", "t");
   useLabTick(1 / 12);
@@ -119,8 +121,8 @@ export default function Rivers() {
       <ScienceStudio
         horizon
         slug="rivers"
-        scale="Long-profile relief ×12 · channel breadth enlarged"
-        trueScale="Long-profile relief ×1 · channel breadth and vegetation still enlarged"
+        scale={tr("Long-profile relief ×12 · channel breadth enlarged")}
+        trueScale={tr("Long-profile relief ×1 · channel breadth and vegetation still enlarged")}
         camera={[4.7, 5.8, 6.7]}
       >
         <group position={[0, -0.6, 0]}>
@@ -174,39 +176,44 @@ export default function Rivers() {
           })}
           <Tag
             pos={[-2.5, riverBed(-2.5) * f + 0.35, riverZ(-2.5)]}
-            text={compact ? "1" : "Upper course · steeper"}
-            title={"1 · Upper course"}
+            text={compact ? "1" : tr("Upper course · steeper")}
+            title={tr("1 · Upper course")}
             occlude={false}
-            note="A steep long profile often favors incision; channel shape, sediment and discharge also matter."
+            note={tr(
+              "A steep long profile often favors incision; channel shape, sediment and discharge also matter.",
+            )}
           />
           <Tag
             pos={[0.5, riverBed(0.5) * f + 0.35, riverZ(0.5)]}
-            text={compact ? "2" : "Meanders"}
-            title={"2 · Meanders"}
+            text={compact ? "2" : tr("Meanders")}
+            title={tr("2 · Meanders")}
             occlude={false}
-            note="Outside bends tend to erode; slower flow along inside bends favors deposition."
+            note={tr(
+              "Outside bends tend to erode; slower flow along inside bends favors deposition.",
+            )}
           />
           <Tag
             pos={[2.7, riverBed(2.7) * f + 0.4, riverZ(2.7)]}
-            text={compact ? "3" : "Lower course · gentler"}
-            title={"3 · Lower course"}
+            text={compact ? "3" : tr("Lower course · gentler")}
+            title={tr("3 · Lower course")}
             occlude={false}
-            note="Low gradient and a wider channel. Increased discharge raises water level and flow capacity; it does not automatically cause deposition."
+            note={tr(
+              "Low gradient and a wider channel. Increased discharge raises water level and flow capacity; it does not automatically cause deposition.",
+            )}
           />
         </group>
       </ScienceStudio>
       <ScienceReadout>
         {compact && (
           <div className="mb-2 text-chalk">
-            {"1 · Steeper upper course"} <br />
-            {"2 · Meanders · 3 · Gentler lower course"}
+            {tr("1 · Steeper upper course")} <br />
+            {tr("2 · Meanders · 3 · Gentler lower course")}
           </div>
         )}
-        {"Relative discharge "}
-        {q.toFixed(2)}
-        {
-          "× at the source. Tributaries add water downstream, so the channel is wider and deeper there and the water is deeper. Increasing discharge raises the water level; at the highest setting the lower river nearly fills its channel. Play to follow the downstream flow."
-        }
+        {tr(
+          "Relative discharge {q}× at the source. Tributaries add water downstream, so the channel is wider and deeper there and the water is deeper. Increasing discharge raises the water level; at the highest setting the lower river nearly fills its channel. Play to follow the downstream flow.",
+          { q: q.toFixed(2) },
+        )}
       </ScienceReadout>
     </>
   );

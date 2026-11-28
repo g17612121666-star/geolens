@@ -1,0 +1,138 @@
+{
+  "title": "Erosión del suelo",
+  "hook": "Las gotas de lluvia y el agua que fluye pueden desprender y llevarse el suelo.",
+  "objective": "Compara la pérdida de suelo con distinta cobertura vegetal y explica cómo la escorrentía se lleva el sedimento de una ladera.",
+  "modelDescription": "Dos parcelas de ladera están una al lado de la otra: una de suelo desnudo cortado por pequeños canales, los surcos, y otra cubierta de plantas. Mientras corre el modelo, sigue el suelo que queda en su lugar, el que baja por la ladera y el que sale de la parcela, para poder comparar las dos parcelas. Transporte por viento seco muestra el suelo que el viento se lleva de la parcela desnuda. El descenso de la superficie desnuda está exagerado 30 veces, salvo que compares con la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Identifica la parcela desnuda y la cubierta, y luego encuentra las tres reservas de sedimento: en su lugar, en transporte y exportado."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pulsa Reproducir o arrastra Proceso y compara las dos parcelas. Luego activa Transporte por viento seco."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué el sedimento desprendido no sale necesariamente de la parcela de inmediato?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "El sedimento exportado es…",
+      "choices": [
+        "Todo el material desprendido hasta ahora",
+        "El material que ha salido de la parcela",
+        "Suelo nuevo formado por la lluvia",
+        "Sedimento que aún se mueve dentro de la parcela"
+      ],
+      "explain": "El desprendimiento libera sedimento del suelo, pero ese sedimento puede seguir en movimiento o depositarse dentro de la parcela. La exportación cuenta solo el material que cruza el límite de la parcela."
+    },
+    {
+      "prompt": "La reducción del 85% en el desprendimiento en la parcela cubierta es…",
+      "choices": [
+        "Una constante universal de la vegetación.",
+        "Un valor medido en el Dust Bowl.",
+        "Un valor elegido para este modelo.",
+        "Un resultado garantizado de control de la erosión."
+      ],
+      "explain": "La reducción del 85% es un coeficiente elegido para el modelo que aísla el efecto de la cobertura en esta comparación. Una reducción medida dependería del suelo, la vegetación, la lluvia, la pendiente y el manejo."
+    },
+    {
+      "prompt": "Comparar con la escala real (la tecla T) cambia…",
+      "choices": [
+        "La masa calculada de suelo que pierde la parcela.",
+        "El tamaño físico de la parcela.",
+        "Cómo desprende la lluvia el suelo.",
+        "Cuánto se exagera el descenso de la superficie."
+      ],
+      "explain": "El control de escala cambia cuánto se exagera en pantalla el descenso vertical de la superficie. No cambia las transferencias de sedimento calculadas ni su total."
+    },
+    {
+      "prompt": "¿Qué método reduce la erosión del suelo en un campo en pendiente?",
+      "choices": [
+        "Arar pendiente arriba y abajo",
+        "Arar siguiendo las curvas de nivel",
+        "Quitar los setos alrededor del campo",
+        "Dejar el suelo desnudo durante el invierno"
+      ],
+      "explain": "Los surcos que siguen las curvas de nivel frenan el agua que baja y retienen el suelo. Arar pendiente arriba y abajo crea canales que aceleran la escorrentía y la erosión."
+    },
+    {
+      "prompt": "¿Por qué el suelo desnudo pierde más partículas con una lluvia fuerte que el suelo bajo cultivos?",
+      "choices": [
+        "Las gotas lo golpean directamente y sueltan partículas al salpicar.",
+        "El suelo desnudo siempre está hecho solo de arena.",
+        "Los cultivos atraen la lluvia lejos del suelo.",
+        "El suelo desnudo se calienta al sol y sus partículas se disuelven más rápido."
+      ],
+      "explain": "Las hojas y la hojarasca de las plantas absorben el impacto de las gotas de lluvia. En el suelo desnudo, cada gota golpea el suelo y suelta partículas al salpicar, listas para que la escorrentía se las lleve."
+    }
+  ],
+  "why": [
+    "Las gotas de lluvia y el agua que fluye pueden desprender y llevarse el suelo. La cobertura del terreno reduce la exposición y puede frenar el transporte, mientras que el sedimento depositado queda dentro de la cuenca hasta que vuelve a moverse.",
+    "El desprendimiento y la exportación son pasos distintos. Primero, el impacto de las gotas, la escorrentía o el viento sueltan el suelo; luego, ese sedimento pasa un tiempo en transporte, bajando por la ladera o depositándose por un rato, antes de que una parte cruce el borde de la parcela. Por eso la exportación va detrás del desprendimiento, y la reserva en transporte guarda la diferencia.",
+    "El balance de sedimentos elegido es una comparación escolar; las tasas de erosión locales requieren datos sobre la lluvia, el suelo y el manejo del terreno."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La vegetación impide toda la erosión del suelo.",
+      "truth": "La cobertura vegetal puede interceptar las gotas de lluvia, proteger el suelo y frenar el flujo superficial, lo que reduce la erosión. Su eficacia depende de la densidad de la cobertura, las raíces, el estado del suelo, la pendiente y el propio evento. Incluso una ladera con vegetación puede perder sedimento durante una escorrentía intensa u otras perturbaciones."
+    },
+    {
+      "claim": "El suelo se forma tan rápido como se erosiona, así que las pérdidas siempre se reponen.",
+      "truth": "El suelo suele formarse a una fracción de milímetro por año. Un terreno agrícola desnudo en pendiente puede perder suelo muchas veces más rápido, así que la erosión puede quitar en décadas lo que tardó siglos en formarse."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Salpicadura de la lluvia",
+      "def": "El desprendimiento y movimiento de partículas del suelo por el impacto de las gotas de lluvia. Puede iniciar la erosión antes de que se forme una escorrentía continua. La vegetación, la hojarasca y la rugosidad de la superficie reducen el impacto directo sobre el suelo mineral expuesto."
+    },
+    {
+      "term": "Surco",
+      "def": "Un pequeño canal excavado en el suelo por la escorrentía superficial concentrada. A menudo los surcos se pueden borrar con el cultivo normal, a diferencia de las cárcavas, que son más grandes. Muestran que el agua ha empezado a reunirse en rutas preferentes en lugar de fluir como una lámina amplia."
+    },
+    {
+      "term": "Cárcava",
+      "def": "Un canal excavado en el suelo o en material no consolidado por la escorrentía concentrada, más grande y duradero que un surco. En los terrenos agrícolas, una cárcava suele ser demasiado grande para borrarla con la labranza normal y puede crecer con más erosión."
+    },
+    {
+      "term": "Deflación",
+      "def": "La retirada de partículas sueltas de la superficie por el viento. El material fino puede llevarse en suspensión y dejar detrás un residuo más grueso. La deflación quita sedimento; la abrasión es el desgaste de superficies por las partículas que lleva el viento."
+    },
+    {
+      "term": "Horizonte A",
+      "def": "La capa mineral del suelo más cercana a la superficie, donde la materia orgánica se mezcla con arena, limo y arcilla. El humus suele oscurecerla, pero el color por sí solo no muestra qué tan fértil o profunda es."
+    },
+    {
+      "term": "Cobertura",
+      "def": "La vegetación o los restos de plantas que protegen el suelo del impacto directo de las gotas de lluvia y frenan el flujo superficial. Las raíces también pueden ayudar a mantener unidas las partículas. El efecto protector depende del tipo, la densidad y la continuidad de la cobertura."
+    },
+    {
+      "term": "Saltación",
+      "def": "El transporte en pequeños saltos o rebotes, sobre todo de granos de arena movidos por el viento o por el agua que fluye."
+    }
+  ],
+  "predict": {
+    "prompt": "Dos laderas idénticas reciben la misma lluvia fuerte. Una está desnuda y la otra cubierta de plantas. ¿Cuánto menos suelo crees que pierde la ladera cubierta?"
+  },
+  "cer": {
+    "prompt": "¿Por qué un campo desnudo pierde más suelo con una lluvia fuerte que un campo cubierto de plantas?",
+    "claim": "El suelo desnudo pierde mucho más sedimento porque nada lo protege de las gotas de lluvia ni frena la escorrentía.",
+    "evidence": "A lo largo de 60 minutos del modelo, la parcela desnuda exporta mucho más sedimento que la cubierta, donde la cobertura vegetal multiplica el ritmo de desprendimiento por 0.15. Cada parcela empieza con 6,000 kg de suelo superficial, y las reservas en su lugar, en transporte y exportada siempre suman ese total.",
+    "reasoning": "Las gotas de lluvia que golpean el suelo desnudo sueltan partículas, y la escorrentía rápida se las lleva. Las hojas y los restos de plantas absorben el impacto y las raíces sujetan el suelo, así que se desprenden menos partículas y se pierde menos. El valor 0.15 es una elección del modelo, no una constante medida."
+  },
+  "controls": {
+    "veg": {
+      "label": "Parcela de comparación cubierta"
+    },
+    "wind": {
+      "label": "Transporte por viento seco"
+    }
+  }
+}

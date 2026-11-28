@@ -1,0 +1,135 @@
+{
+  "title": "El Sol y la Tierra",
+  "hook": "La misma luz solar se reparte en un área mayor cuando llega a una superficie con un ángulo bajo.",
+  "objective": "Explica cómo la latitud y la declinación del Sol afectan a la energía solar que se recibe al mediodía y a lo largo de un día entero.",
+  "modelDescription": "Un globo terrestre está iluminado por un haz de luz solar dibujado como una banda de rayos, y una zona resaltada muestra dónde cae el haz sobre la superficie. Donde el Sol está bajo, el mismo haz se reparte en una zona más grande que donde está justo encima. La latitud y la declinación solar mueven la zona y cambian el ángulo del Sol.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Pon la Declinación solar en 0° y usa Latitud para comparar el ecuador, los 60° y un polo."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Mueve la Declinación solar a ±23.44° (los solsticios) y compara los valores del mediodía y de la media diaria."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué dos lugares pueden recibir cantidades distintas de energía solar incluso el mismo día?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La referencia de 1361 W/m² se aplica a…",
+      "choices": [
+        "Cualquier zona horizontal del suelo de la Tierra al mediodía.",
+        "Una superficie orientada hacia el Sol a 1 UA, por encima del aire.",
+        "El suelo de cualquiera de los polos en pleno verano.",
+        "La superficie brillante del propio Sol."
+      ],
+      "explain": "La referencia de irradiancia solar mide la potencia que llega por unidad de área a una superficie perpendicular al haz a 1 UA. Una superficie inclinada recibe menos por unidad de área, y la atmósfera de la Tierra modifica además la luz solar que llega al suelo."
+    },
+    {
+      "prompt": "Con declinación cero, el flujo al mediodía a 60° de latitud es…",
+      "choices": [
+        "El doble del valor en el ecuador.",
+        "Cero todo el año.",
+        "La mitad del valor en el ecuador.",
+        "El mismo que en el ecuador."
+      ],
+      "explain": "Con declinación solar cero, la luz del mediodía llega a una superficie horizontal a 60° de latitud con un factor de incidencia de cos 60°, es decir, 0.5. Por eso la energía que llega a lo alto de la atmósfera es la mitad del valor del mediodía en el ecuador."
+    },
+    {
+      "prompt": "¿Por qué un polo en verano puede recibir mucha energía como media diaria?",
+      "choices": [
+        "En verano el polo está mucho más cerca del Sol.",
+        "Las manchas solares dirigen energía extra hacia los polos.",
+        "La atmósfera es más delgada sobre los polos.",
+        "La luz del día continua compensa el Sol bajo."
+      ],
+      "explain": "Una media diaria suma la energía recibida durante todo el día, incluida la duración de la luz. La luz continua del verano puede compensar en parte la poca altura del Sol en un polo."
+    },
+    {
+      "prompt": "Activar Observación de manchas solares cambia…",
+      "choices": [
+        "Solo la fotografía, no el cálculo con irradiancia fija.",
+        "La inclinación del eje de la Tierra, que el modelo vuelve a calcular.",
+        "El cálculo, que se convierte en un pronóstico solar.",
+        "El valor de irradiancia, que se duplica cuando aparecen manchas."
+      ],
+      "explain": "La fotografía es una observación elegida para comparar, mientras que este cálculo mantiene fija su irradiancia solar de referencia. Por eso elegir otra imagen no cambia la energía calculada."
+    },
+    {
+      "prompt": "¿Por qué, en promedio a lo largo del año, suele hacer más frío en los polos que en el ecuador?",
+      "choices": [
+        "Los polos están más lejos del Sol que el ecuador todo el año.",
+        "La luz solar llega con un ángulo bajo y se reparte en más terreno.",
+        "Los polos no tienen luz durante la mitad de cada año.",
+        "La nieve de los polos crea aire frío por sí sola."
+      ],
+      "explain": "En las latitudes altas el Sol está bajo, así que cada haz de luz solar se reparte en un área mayor y atraviesa más atmósfera. Además, la nieve y el hielo brillantes reflejan gran parte de la luz que llega."
+    }
+  ],
+  "why": [
+    "La misma luz solar se reparte en un área mayor cuando llega a una superficie con un ángulo bajo. Por eso la latitud, la declinación solar y la duración del día afectan a la energía que recibe una superficie horizontal.",
+    "Cuando la declinación solar es de +23.44°, el Sol del mediodía está justo encima del trópico de Cáncer. Entonces las latitudes del norte reciben más energía por metro cuadrado al mediodía, y la luz del día larga o continua aumenta aún más su media diaria, mientras que el hemisferio sur recibe menos.",
+    "El cálculo describe la luz solar por encima de la atmósfera; las nubes y la absorción atmosférica cambiarían la energía que llega al suelo."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La luz solar por encima de la atmósfera aporta la misma energía a cada metro cuadrado de suelo.",
+      "truth": "El ángulo de los rayos cambia cómo se reparte la energía que llega sobre una superficie horizontal. Con el Sol más bajo, el mismo haz cubre más terreno, y la duración del día también cambia la energía diaria recibida. Las nubes, la reflexión y la absorción atmosférica modifican además la energía que llega a la superficie."
+    },
+    {
+      "claim": "El Sol es una enorme bola de fuego que arde.",
+      "truth": "En el Sol no arde nada: no hay un fuego con oxígeno. Su energía proviene de la fusión nuclear en el núcleo, donde los núcleos de hidrógeno se unen para formar helio y liberan energía."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Constante solar",
+      "def": "La irradiancia solar total cerca de la distancia orbital media de la Tierra, unos 1,361 W m⁻² sobre una superficie perpendicular a los rayos, por encima de la atmósfera. Varía un poco con el tiempo."
+    },
+    {
+      "term": "Insolación",
+      "def": "La radiación solar que llega a una superficie. Su cantidad depende del ángulo del Sol, de la duración de la luz del día y de las condiciones de la atmósfera. La insolación es una entrada de energía; la temperatura del aire también depende de las pérdidas, el almacenamiento y el transporte de energía."
+    },
+    {
+      "term": "Incidencia",
+      "def": "El ángulo entre los rayos que llegan y una línea perpendicular a la superficie. Un ángulo mayor reparte el mismo haz en más terreno. En cambio, la altura del Sol se mide hacia arriba desde el horizonte."
+    },
+    {
+      "term": "Mancha solar",
+      "def": "Una región relativamente fría y oscura de la fotosfera solar, asociada con campos magnéticos intensos."
+    },
+    {
+      "term": "Tope de la atmósfera",
+      "def": "Un nivel de referencia por encima de casi toda la absorción y la dispersión atmosféricas, que se usa al describir la radiación que entra y sale. La irradiancia solar también necesita una distancia y una orientación de la superficie especificadas."
+    },
+    {
+      "term": "Latitud",
+      "def": "La posición angular de un lugar al norte o al sur del ecuador, expresada en grados. La latitud ayuda a determinar la altura del Sol y la duración del día según la estación. Las líneas de igual latitud son paralelos, a diferencia de los meridianos, que miden la longitud."
+    },
+    {
+      "term": "Fotosfera",
+      "def": "La capa visible del Sol, de la que escapa la mayor parte de su luz observada. Las manchas solares son regiones relativamente más frías y magnéticamente activas dentro de ella."
+    }
+  ],
+  "predict": {
+    "prompt": "En un equinoccio, el Sol del mediodía está justo encima del ecuador. ¿Crees que un lugar a 60° de latitud recibe más o menos de la mitad de la luz solar del mediodía por metro cuadrado? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Por qué un lugar de latitud alta recibe menos energía solar por metro cuadrado al mediodía que un lugar cerca del ecuador?",
+    "claim": "La luz solar llega a las latitudes altas con un ángulo más bajo, así que el mismo haz se reparte en un área mayor de suelo.",
+    "evidence": "Con una declinación de 0°, la energía del mediodía es de unos 1,361 W/m² en el ecuador y de la mitad, unos 680 W/m², a 60°, porque el factor es cos 60° = 0.5. En los polos es cero. En el solsticio de junio (+23.44°), el punto subsolar se mueve al trópico de Cáncer.",
+    "reasoning": "Un haz de luz solar lleva una cantidad fija de energía. Cuando llega inclinado, cubre más terreno, así que cada metro cuadrado recibe menos. La energía es proporcional al coseno del ángulo entre los rayos del Sol y la vertical."
+  },
+  "controls": {
+    "latitude": { "label": "Latitud" },
+    "declination": { "label": "Declinación solar" },
+    "spots": { "label": "Observación de manchas solares" }
+  }
+}

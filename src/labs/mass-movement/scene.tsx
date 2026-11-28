@@ -22,6 +22,7 @@ import {
   slideField,
   slipSpan,
 } from "./slide";
+import { useT } from "@/lib/i18n";
 
 /** Grid of the ground surface: about 2.5 cm (25 cm on the ground) between points. */
 const NX = 300,
@@ -205,6 +206,7 @@ const PRE_FAILURE = Array.from({ length: 81 }, (_, i): [number, number, number] 
 });
 
 export default function MassMovement() {
+  const tr = useT();
   const { params } = useLabState("params");
   useLabTick(1 / 45);
   const rain = params.rain ?? 0.15,
@@ -258,8 +260,12 @@ export default function MassMovement() {
         horizon
         slug="mass-movement"
         camera={[2.4, 3.1, 6.6]}
-        scale="Spoon-shaped slip surface · the cut face is the 2-D section the factor of safety uses · 1 scene unit = 10 m · no vertical exaggeration"
-        trueScale="One common scale · rotation after failure is illustrative · trees and roots enlarged"
+        scale={tr(
+          "Spoon-shaped slip surface · the cut face is the 2-D section the factor of safety uses · 1 scene unit = 10 m · no vertical exaggeration",
+        )}
+        trueScale={tr(
+          "One common scale · rotation after failure is illustrative · trees and roots enlarged",
+        )}
       >
         <SlopeGround angle={angle} />
         <PlantStand kind="broadleaf" positions={STABLE_TREES} scale={0.085} seed={41} />
@@ -303,35 +309,43 @@ export default function MassMovement() {
         ))}
         <Tag
           pos={[(crown[0] + back[0]) / 2, crown[1] + 0.55, -0.55]}
-          text="Crown / head scarp"
-          note="The crown is the top edge of the slide, where the head scarp breaks away. In 3-D the scarp curves round into the hill like a horseshoe, highest in the middle and dying out at the flanks. Cracks in the ground above it show where it may break back next."
+          text={tr("Crown / head scarp")}
+          note={tr(
+            "The crown is the top edge of the slide, where the head scarp breaks away. In 3-D the scarp curves round into the hill like a horseshoe, highest in the middle and dying out at the flanks. Cracks in the ground above it show where it may break back next.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[Math.max(toe[0], span.right) + 0.3, hillside(span.right) + 0.5, -0.35]}
-          text="Toe"
-          note="As the block turns, its toe heaves up and is pushed out over the ground below, where it spreads and tears its turf. Real slumps deform as they move, can develop several shear surfaces and may turn into flows."
+          text={tr("Toe")}
+          note={tr(
+            "As the block turns, its toe heaves up and is pushed out over the ground below, where it spreads and tears its turf. Real slumps deform as they move, can develop several shear surfaces and may turn into flows.",
+          )}
           occlude={false}
         />
         {angle > 0.08 && (
           <Tag
             pos={[back[0] + 0.9, back[1] + 0.35, -0.7]}
-            text="Back-tilted block"
-            note="Turning on its curved base, the block's surface tilts back toward the hill: trees on it lean uphill, and water can pond against the scarp. The rotation is illustrative; the model does not calculate how far or how fast the block moves."
+            text={tr("Back-tilted block")}
+            note={tr(
+              "Turning on its curved base, the block's surface tilts back toward the hill: trees on it lean uphill, and water can pond against the scarp. The rotation is illustrative; the model does not calculate how far or how fast the block moves.",
+            )}
             occlude={false}
           />
         )}
         <Tag
           pos={[0, -0.25, 0.05]}
-          text="Curved shear surface"
-          note="The slip surface is spoon-shaped. The cut face shows its central section, the 2-D slice the factor of safety is calculated for; the model tests this one chosen surface and does not search for the weakest one. Blue lines show water-pressure levels in the soil, not an underground lake. The dashed line is the ground surface before failure."
+          text={tr("Curved shear surface")}
+          note={tr(
+            "The slip surface is spoon-shaped. The cut face shows its central section, the 2-D slice the factor of safety is calculated for; the model tests this one chosen surface and does not search for the weakest one. Blue lines show water-pressure levels in the soil, not an underground lake. The dashed line is the ground surface before failure.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
         <div className="mx-auto mb-2 max-w-md" aria-hidden="true">
           <p className="mb-1 text-[11px] text-mist">
-            {"Factor of safety (resisting ÷ driving forces): below 1 the slope fails"}
+            {tr("Factor of safety (resisting ÷ driving forces): below 1 the slope fails")}
           </p>
           <div className="relative h-2.5 rounded-full bg-gradient-to-r from-[#d0402f] via-[#e3b04b] to-[#4c9a5b]">
             <span
@@ -346,21 +360,22 @@ export default function MassMovement() {
             />
           </div>
           <div className="mt-1 flex justify-between text-[11px] text-mist">
-            <span>0.5 · fails</span>
-            <span>1.0 · balance</span>
-            <span>2.0 · stable</span>
+            <span>{tr("0.5 · fails")}</span>
+            <span>{tr("1.0 · balance")}</span>
+            <span>{tr("2.0 · stable")}</span>
           </div>
         </div>
-        {"Starting factor of safety "}
-        {result.factor.toFixed(2)} {"· maximum pore pressure "}
-        {result.maxPressure.toFixed(1)} {"kPa. "}
+        {tr("Starting factor of safety {factor} · maximum pore pressure {pressure} kPa.", {
+          factor: result.factor.toFixed(2),
+          pressure: result.maxPressure.toFixed(1),
+        })}{" "}
         {result.factor < 1
-          ? "Driving forces exceed resistance: Play shows the slump rotating (illustrative)."
-          : "Resistance exceeds driving forces: increase Pore pressure to compare."}{" "}
+          ? tr("Driving forces exceed resistance: Play shows the slump rotating (illustrative).")
+          : tr("Resistance exceeds driving forces: increase Pore pressure to compare.")}{" "}
         <br />
-        {
-          "The Bishop calculation is for the central section on the cut face, with cohesion of 2 kPa, a friction angle of 15° and unit weight of 20 kN/m³ for the starting slope."
-        }
+        {tr(
+          "The Bishop calculation is for the central section on the cut face, with cohesion of 2 kPa, a friction angle of 15° and unit weight of 20 kN/m³ for the starting slope.",
+        )}
       </ScienceReadout>
     </>
   );

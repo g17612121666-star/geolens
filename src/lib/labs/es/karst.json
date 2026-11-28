@@ -1,0 +1,138 @@
+{
+  "title": "Karst",
+  "hook": "El agua con dióxido de carbono disuelto puede disolver la calcita a lo largo de las diaclasas y los planos de estratificación.",
+  "objective": "Explica cómo el agua disuelve la caliza a lo largo de las diaclasas y forma surcos en la superficie, dolinas y galerías subterráneas.",
+  "modelDescription": "Un bloque de caliza clara está cortado por diaclasas verticales, con la superficie dividida en bloques separados por grietas profundas (un lapiaz) y una depresión en la superficie, una dolina. Con el corte activado, una galería de cueva dentro de la roca muestra estalactitas que cuelgan del techo y estalagmitas que suben desde el suelo, y una línea discontinua sigue el agua desde la dolina hasta un manantial. El relieve está exagerado 1.3 veces.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra los bloques, las grietas del lapiaz y la dolina (una depresión en la superficie)."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Arrastra Apertura de las diaclasas y observa cómo se ensanchan las grietas. Con Corte activado, sigue la ruta discontinua del agua desde la dolina, a través de la roca, hasta el manantial, y encuentra las estalactitas y las estalagmitas."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo influyen las diaclasas y el agua ligeramente ácida en el desarrollo de las galerías en la caliza?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Las grietas de un lapiaz (grykes) son…",
+      "choices": [
+        "Fisuras disueltas en un pavimento de caliza",
+        "Bloques planos entre las fisuras del pavimento",
+        "Cuevas que corren bajo el pavimento",
+        "Depresiones formadas cuando se hunde un techo"
+      ],
+      "explain": "El agua débilmente ácida disuelve la caliza a lo largo de las diaclasas y las ensancha hasta formar grietas. Los bloques que quedan entre esas fisuras se llaman clints."
+    },
+    {
+      "prompt": "Un sumidero (swallow hole) es…",
+      "choices": [
+        "Donde un arroyo sale de debajo de la tierra",
+        "Donde un arroyo superficial se hunde bajo tierra",
+        "Una depresión formada por el hundimiento de un techo",
+        "Una columna donde se unen estalactita y estalagmita"
+      ],
+      "explain": "Un sumidero es una abertura por donde el agua superficial entra en una ruta de drenaje subterránea. Las diaclasas ensanchadas y las galerías de disolución de la caliza suelen ofrecer esa ruta."
+    },
+    {
+      "prompt": "El karst se forma sobre todo en rocas carbonatadas porque…",
+      "choices": [
+        "Las rocas carbonatadas son especialmente blandas",
+        "Las rocas carbonatadas no tienen diaclasas ni grietas",
+        "El ácido carbónico disuelve el carbonato de calcio",
+        "Las rocas carbonatadas se congelan con más facilidad"
+      ],
+      "explain": "El agua de lluvia con dióxido de carbono disuelto forma un ácido carbónico débil, que reacciona con el carbonato de calcio. El flujo por las diaclasas agranda poco a poco las aberturas de las rocas carbonatadas y desarrolla un drenaje kárstico."
+    },
+    {
+      "prompt": "Las cuevas de este laboratorio son…",
+      "choices": [
+        "Tubos de lava",
+        "Túneles excavados por agua de deshielo glaciar",
+        "Fallas que se abrieron",
+        "Cuevas de disolución en rocas carbonatadas"
+      ],
+      "explain": "Estas cuevas se forman cuando el agua que fluye disuelve la roca carbonatada a lo largo de fracturas y otras aberturas. Su origen es químico y distinto del de un tubo de lava, que deja la roca fundida al fluir."
+    },
+    {
+      "prompt": "¿Por qué los arroyos suelen desaparecer en el suelo sobre la caliza?",
+      "choices": [
+        "El agua se absorbe por poros diminutos, como una esponja.",
+        "Se hunde por diaclasas ensanchadas por disolución.",
+        "Se evapora rápido desde la roca clara.",
+        "Se congela dentro de la roca y se queda ahí."
+      ],
+      "explain": "La caliza en sí tiene pocos poros, pero sus diaclasas y planos de estratificación se agrandan por disolución. Los arroyos se hunden por sumideros hacia estas galerías y fluyen bajo tierra."
+    }
+  ],
+  "why": [
+    "El agua con dióxido de carbono disuelto puede disolver la calcita a lo largo de las diaclasas y los planos de estratificación. Las aberturas conectadas pueden convertirse en rutas de drenaje subterráneas, y la calcita puede precipitar después donde escapa el dióxido de carbono.",
+    "El agua se hunde por la dolina y las diaclasas ensanchadas, y luego sigue una galería disuelta a lo largo de un plano de estratificación hasta salir en un manantial. Donde las gotas entran en el aire de la cueva, el dióxido de carbono escapa y la calcita se deposita como estalactitas y estalagmitas.",
+    "El corte ilustra galerías conectadas y la reacción; no calcula el ritmo de crecimiento de las cuevas ni la calidad del agua."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Una cuenca de drenaje subterránea debe tener exactamente el mismo límite que la cuenca superficial.",
+      "truth": "El agua en una roca soluble puede seguir fracturas y galerías conectadas por debajo de una divisoria superficial. Por eso, su ruta subterránea puede llevar a una salida distinta de la que sugiere la topografía. Los trazadores con colorante y otras observaciones ayudan a establecer las conexiones reales del agua subterránea."
+    },
+    {
+      "claim": "La caliza se disuelve rápido, así que las cuevas se forman en pocos años.",
+      "truth": "El agua de lluvia es solo débilmente ácida, así que disolver una galería suele llevar de decenas a cientos de miles de años. La superficie de un pavimento de caliza puede bajar solo unos pocos centímetros en mil años."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Pavimento de caliza",
+      "def": "Una superficie de caliza expuesta, dividida en bloques (clints) y en diaclasas ensanchadas por disolución (grykes). La erosión glaciar puede dejar la roca al descubierto, y después la meteorización química agranda las fracturas. El pavimento registra tanto la exposición como la disolución posterior."
+    },
+    {
+      "term": "Clint",
+      "def": "Un bloque de caliza en la superficie de un pavimento de caliza, separado de los bloques vecinos por diaclasas ensanchadas llamadas grykes. El agua de lluvia con ácido carbónico débil disuelve la roca a lo largo de esas diaclasas y también puede tallar surcos en cada bloque."
+    },
+    {
+      "term": "Gryke",
+      "def": "Una diaclasa o fisura profundizada que separa los bloques de un pavimento de caliza. El agua débilmente ácida disuelve la caliza a lo largo de la fractura y la ensancha. Las plantas suelen crecer en ellas porque retienen suelo y dan refugio."
+    },
+    {
+      "term": "Sumidero",
+      "def": "Una abertura por donde un arroyo superficial entra en un drenaje subterráneo, normalmente en el karst. Una dolina es una depresión y no tiene por qué tener un arroyo que se hunda en ella."
+    },
+    {
+      "term": "Carbonatación",
+      "def": "Una meteorización química en la que el dióxido de carbono disuelto forma un ácido carbónico débil que reacciona con minerales carbonatados como la calcita."
+    },
+    {
+      "term": "Surgencia",
+      "def": "Un lugar donde el agua que fluyó bajo tierra vuelve a la superficie, a menudo como un manantial en terreno kárstico. Los estudios con trazadores pueden relacionar una surgencia con un arroyo que se hunde lejos. La salida visible no revela toda la ruta subterránea."
+    },
+    {
+      "term": "Estalactita",
+      "def": "Un depósito mineral que cuelga del techo de una cueva, que suele formarse cuando el agua que gotea pierde dióxido de carbono y deposita calcita. Una estalagmita crece hacia arriba desde el suelo."
+    }
+  ],
+  "predict": {
+    "prompt": "El agua de lluvia es ligeramente ácida. ¿Qué crees que pasa cuando fluye por las grietas de la caliza durante miles de años?"
+  },
+  "cer": {
+    "prompt": "¿Por qué los arroyos suelen desaparecer en el suelo en las regiones de caliza?",
+    "claim": "Los arroyos desaparecen porque el agua ligeramente ácida ha disuelto y ensanchado las diaclasas de la caliza, lo que deja que el agua se hunda bajo tierra.",
+    "evidence": "Al subir Apertura de las diaclasas, se ensanchan las grietas entre los bloques. Con Corte activado, la ruta discontinua del agua va desde la dolina, por diaclasas ensanchadas, hasta una galería de cueva y sale en un manantial, pasando junto a estalactitas y estalagmitas.",
+    "reasoning": "El agua con dióxido de carbono disuelto forma un ácido carbónico débil, que disuelve la calcita: CaCO₃ + CO₂ + H₂O → Ca²⁺ + 2HCO₃⁻. La disolución es más rápida a lo largo de las diaclasas, así que crecen hasta formar fisuras, dolinas y cuevas."
+  },
+  "controls": {
+    "joint": {
+      "label": "Apertura de las diaclasas"
+    },
+    "cutaway": {
+      "label": "Corte"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "title": "Erosión fluvial",
+  "hook": "El agua en movimiento puede arrancar y transportar material del lecho y las orillas de un río.",
+  "objective": "Explica cómo la erosión fluvial forma cascadas, gargantas y marmitas, y distingue el retroceso de una cascada de la dirección del flujo.",
+  "modelDescription": "Un río pasa sobre una capa de roca resistente y cae como cascada en una poza, excavando río abajo una garganta de paredes empinadas. Los lados del bloque muestran las capas de roca que atraviesa la garganta. Otras vistas muestran marmitas en el lecho de un río, un valle en V y el Gran Cañón real, en Arizona. El relieve se agranda 1.5 veces, salvo que cambies a la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Sigue el agua río abajo y luego encuentra el borde, la capa resistente y la poza."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Cambia Retroceso para mover el borde río arriba y luego pon Elemento en Primer plano de una marmita o en Valle en V."
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica por qué una cascada puede retroceder río arriba mientras el agua sigue fluyendo río abajo."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "A medida que una cascada (un punto de ruptura de pendiente) retrocede, deja…",
+      "choices": [
+        "Un delta en la desembocadura del río",
+        "Un meandro justo debajo de la caída",
+        "Una poza ancha muy río abajo",
+        "Una garganta río abajo de la nueva caída"
+      ],
+      "explain": "La erosión y los derrumbes pueden hacer que una cascada retroceda río arriba. El valle estrecho y de paredes empinadas que queda entre su posición anterior y la actual forma una garganta."
+    },
+    {
+      "prompt": "Las marmitas se forman por…",
+      "choices": [
+        "Guijarros que giran y desgastan el lecho",
+        "Agua ácida que disuelve despacio el lecho de roca",
+        "La helada que rompe el lecho del río",
+        "El hielo que raspa el lecho en invierno"
+      ],
+      "explain": "El agua en remolino puede atrapar piedras y arena en un hueco de la roca y moverlas una y otra vez contra sus paredes. Esta abrasión profundiza y ensancha una marmita."
+    },
+    {
+      "prompt": "Los valles en V son típicos de…",
+      "choices": [
+        "La erosión glaciar en las tierras altas",
+        "La incisión fluvial en las tierras altas",
+        "La erosión lateral en las tierras bajas",
+        "El depósito en las llanuras de inundación"
+      ],
+      "explain": "Un río que excava su lecho crea un fondo de valle estrecho mientras la meteorización y los procesos de ladera rebajan los lados. Juntos, estos procesos suelen producir un perfil en forma de V en los valles de las tierras altas."
+    },
+    {
+      "prompt": "El Gran Cañón se formó sobre todo por…",
+      "choices": [
+        "Un glaciar que excavó una artesa en U",
+        "Un rift que se separó",
+        "Un río que se encajó en una meseta",
+        "El viento que talló un yardang"
+      ],
+      "explain": "El río Colorado excavó las capas de roca mientras evolucionaba el paisaje de la región y la meseta se elevaba. Las rocas expuestas son mucho más antiguas que el cañón que las atraviesa."
+    },
+    {
+      "prompt": "¿Qué es la atrición?",
+      "choices": [
+        "El agua que mete aire a presión en las grietas de la orilla",
+        "Piedras que chocan y se desgastan unas a otras",
+        "Sedimento arrastrado que raspa el lecho y las orillas",
+        "Ácidos débiles del agua que disuelven la roca"
+      ],
+      "explain": "La atrición desgasta la propia carga del río. Al chocar, los guijarros se astillan y se redondean entre sí, así que el sedimento suele volverse más pequeño y liso río abajo."
+    }
+  ],
+  "why": [
+    "El agua en movimiento puede arrancar y transportar material del lecho y las orillas de un río. La acción hidráulica y la abrasión contribuyen a la erosión, y las diferencias de resistencia de las rocas pueden influir en las formas que resultan.",
+    "El agua y las piedras de la poza desgastan la roca más débil que hay bajo la capa resistente. La capa, sin apoyo, queda en voladizo y se derrumba, así que el borde se desplaza río arriba aunque el agua siga fluyendo río abajo, y deja atrás una garganta.",
+    "Las etapas muestran cómo cambian las formas del relieve; no están cronometradas con una tasa de erosión medida."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La meteorización y la erosión fluvial describen el mismo proceso.",
+      "truth": "La meteorización rompe o altera la roca en su lugar, mientras que la erosión desgasta y se lleva el material. Un río puede aprovechar la roca debilitada por la meteorización y usar el sedimento que transporta para desgastar su lecho. Los procesos pueden actuar juntos sin ser intercambiables."
+    },
+    {
+      "claim": "Los ríos excavan sus valles solo con agua.",
+      "truth": "El agua limpia erosiona la roca dura muy despacio. La mayor parte de la erosión fluvial de la roca se debe a la abrasión por la arena, los guijarros y los bloques que lleva el río, con ayuda de la acción hidráulica sobre la roca débil o agrietada."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Punto de ruptura de pendiente",
+      "def": "Un aumento brusco de la pendiente en el perfil longitudinal de un río (knickpoint en inglés). Una cascada es un ejemplo. La roca resistente, el levantamiento o un cambio del nivel de base pueden producirlo, y la erosión puede hacer que migre río arriba."
+    },
+    {
+      "term": "Garganta",
+      "def": "Un valle estrecho de paredes empinadas. Una forma en que puede desarrollarse es por el retroceso de una cascada, que deja río abajo un cauce profundamente excavado. La roca que lo rodea y la historia erosiva del río controlan su forma."
+    },
+    {
+      "term": "Poza",
+      "def": "Un hueco profundo al pie de una cascada, agrandado por el agua turbulenta y el sedimento que golpean el lecho. El socavamiento y los derrumbes pueden contribuir al retroceso de la cascada. La forma de la poza también depende de la estructura de la roca, el caudal y el aporte de sedimento."
+    },
+    {
+      "term": "Marmita",
+      "def": "Un hueco redondeado erosionado en el lecho rocoso de un río por el agua turbulenta y el sedimento que circula en él. Las piedras atrapadas pueden ayudar a la abrasión mientras el agua gira. Es distinta de una gran poza formada justo debajo de una cascada."
+    },
+    {
+      "term": "Valle en V",
+      "def": "Un valle con un perfil transversal más o menos en forma de V, que suele formarse donde la incisión del río y los procesos de ladera actúan juntos. Su forma depende de la roca, el clima y la historia de la erosión. Una forma en V es una prueba que hay que interpretar, no la demostración de que actuó un solo proceso."
+    },
+    {
+      "term": "Acción hidráulica",
+      "def": "La erosión causada por la fuerza del agua en movimiento, incluidos los cambios de presión y el agua o el aire atrapado que actúan dentro de las grietas. Puede soltar material de una orilla o de una costa. La abrasión añade el efecto aparte del sedimento que golpea esas superficies."
+    },
+    {
+      "term": "Abrasión",
+      "def": "El desgaste de la roca por el sedimento que el agua, el viento o el hielo lanzan contra ella. Las pruebas incluyen rayas, superficies pulidas y marmitas. A diferencia de la atrición, la abrasión desgasta la superficie golpeada, no las propias partículas transportadas."
+    },
+    {
+      "term": "Atrición",
+      "def": "La fragmentación y el redondeo de las partículas transportadas al chocar entre sí. Los guijarros pueden volverse más pequeños y lisos con el transporte repetido. Es distinta de la abrasión, en la que esas partículas desgastan el lecho, la orilla u otra superficie fija."
+    }
+  ],
+  "predict": {
+    "prompt": "El agua fluye río abajo por una cascada. ¿Hacia dónde crees que se mueve la propia cascada con el tiempo: río abajo o río arriba?"
+  },
+  "cer": {
+    "prompt": "¿Cómo retrocede una cascada río arriba y deja una garganta, aunque el agua fluya río abajo?",
+    "claim": "Una cascada retrocede río arriba porque el agua socava la roca blanda que hay bajo una capa resistente hasta que la capa se derrumba, y deja una garganta río abajo.",
+    "evidence": "En Cascada y garganta, el borde es de roca resistente sobre estratos más blandos, con una poza al pie. Al subir Retroceso, el borde y la poza se mueven hasta 25 m río arriba, y la garganta se alarga detrás, mientras el agua sigue fluyendo río abajo.",
+    "reasoning": "El agua que cae y las piedras que giran erosionan la poza y la roca más débil bajo la capa más rápido que la propia capa. Sin apoyo, la capa en voladizo se rompe, así que la posición de la caída se mueve río arriba paso a paso."
+  },
+  "controls": {
+    "feature": {
+      "label": "Elemento",
+      "options": [
+        "Cascada y garganta",
+        "Primer plano de una marmita",
+        "Valle en V",
+        "Real: Gran Cañón, AZ"
+      ]
+    },
+    "retreat": {
+      "label": "Retroceso"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "title": "La circulación térmica",
+  "hook": "Un calentamiento desigual puede crear diferencias de presión y una circulación.",
+  "objective": "Explica cómo un calentamiento desigual crea una circulación, y luego aplica ese razonamiento a una brisa costera y a una isla de calor urbana.",
+  "modelDescription": "Una franja de costa muestra el mar junto a la tierra, con un circuito de flechas que representa el aire en movimiento sobre ellos. Por la tarde, el aire cerca del suelo va desde el mar, más fresco, hacia la tierra, más caliente, sube sobre la tierra y vuelve hacia el mar más arriba; por la noche el circuito se invierte. Calor urbano sustituye la costa por una ciudad y el campo que la rodea. Las alturas están dibujadas cuatro veces más altas de lo real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Arrastra el control Día hasta que los resultados muestren la hora local 15 y luego compara las temperaturas del mar y de la tierra. Sigue el flujo en superficie hacia la tierra, más caliente, y el flujo de retorno por arriba."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Ve a la hora local 3: ¿se ha invertido el flujo en superficie? Luego activa Calor urbano (sustituye a la costa) y compara la ciudad con el campo que la rodea."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo produce el contraste de temperatura entre la tierra y el mar una circulación que puede invertirse durante la noche?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "En superficie, una brisa marina sopla…",
+      "choices": [
+        "De la tierra hacia el mar",
+        "Del mar hacia la tierra",
+        "Hacia arriba",
+        "Solo de noche"
+      ],
+      "explain": "Durante el día, la tierra suele calentarse más rápido que el mar vecino, lo que ayuda a que el aire suba sobre la tierra. Las diferencias de presión resultantes pueden atraer aire de superficie más fresco tierra adentro como brisa marina."
+    },
+    {
+      "prompt": "Por la noche, la tierra suele enfriarse más rápido. El flujo en superficie…",
+      "choices": [
+        "Sigue yendo hacia la costa",
+        "Pasa a soplar hacia arriba",
+        "Puede invertirse como brisa terrestre",
+        "Se detiene por completo"
+      ],
+      "explain": "Si por la noche la tierra se enfría por debajo de la temperatura del mar, el patrón de presión local puede invertirse y empujar el aire de superficie hacia el mar. Los vientos generales y la nubosidad pueden debilitar o impedir esta brisa terrestre."
+    },
+    {
+      "prompt": "Una isla de calor urbana es…",
+      "choices": [
+        "Una ciudad refrescada por las brisas marinas.",
+        "Una zona cálida del mar cerca de una costa.",
+        "Una cúpula de aire frío atrapada sobre un valle.",
+        "Una ciudad más caliente que el terreno que la rodea."
+      ],
+      "explain": "Los materiales urbanos almacenan y liberan calor, mientras que la menor vegetación suele limitar el enfriamiento por evaporación. Estos cambios pueden mantener una ciudad más caliente que sus alrededores, sobre todo de noche."
+    },
+    {
+      "prompt": "¿Por qué este laboratorio deja fuera el efecto Coriolis?",
+      "choices": [
+        "Para centrarse en el calentamiento; la rotación puede desviar las brisas reales.",
+        "El efecto Coriolis es exactamente cero en todas las costas.",
+        "El mar no gira junto con la Tierra.",
+        "No se pueden formar diferencias de presión cerca de una costa."
+      ],
+      "explain": "Dejar fuera el efecto Coriolis permite que el laboratorio muestre solo la circulación causada por el calentamiento local. Las brisas reales también se desvían por la rotación de la Tierra y dependen de los vientos generales y del relieve."
+    },
+    {
+      "prompt": "¿Por qué sube el aire caliente?",
+      "choices": [
+        "El calor sube por naturaleza y arrastra el aire caliente.",
+        "El Sol atrae el aire caliente hacia él.",
+        "El aire caliente contiene menos vapor de agua.",
+        "Es menos denso que el aire más fresco que lo rodea."
+      ],
+      "explain": "El calor hace que el aire se expanda, así que un mismo volumen tiene menos masa. Rodeado de aire más denso y fresco, flota y sube."
+    }
+  ],
+  "why": [
+    "Un calentamiento desigual puede crear diferencias de presión y una circulación. El aire caliente se expande y sube, y un flujo de retorno por arriba cierra el circuito.",
+    "La tierra se calienta y se enfría más rápido que el agua, así que por la tarde la tierra está más caliente que el mar y el aire de superficie va hacia la costa; por la noche la tierra puede quedar más fría y el circuito se invierte. Una ciudad almacena calor en el concreto y se enfría menos por evaporación, así que se mantiene más caliente que su campo, sobre todo de noche, y atrae aire de superficie hacia ella.",
+    "El modelo muestra solo el efecto del calentamiento desigual; los vientos reales también dependen de la rotación de la Tierra, la fricción y sistemas meteorológicos más grandes."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Una brisa marina siempre sopla del mar hacia la tierra, de día y de noche.",
+      "truth": "Una brisa marina sopla hacia la costa de día, cuando la tierra está más caliente que el mar. Por la noche, la tierra puede enfriarse por debajo de la temperatura del mar, y entonces puede soplar una brisa terrestre hacia el mar. Los vientos generales, las nubes y las colinas costeras pueden debilitar o detener cualquiera de las dos brisas."
+    },
+    {
+      "claim": "El aire caliente sube porque el calor en sí sube.",
+      "truth": "El aire caliente sube porque es menos denso que el aire más fresco que lo rodea. El aire más fresco y denso baja y empuja hacia arriba al aire caliente, igual que un corcho sube a flote en el agua."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Brisa marina",
+      "def": "Un viento local que sopla del mar hacia la tierra cuando el calentamiento del día hace que la tierra esté más caliente que el agua cercana. Se forma una circulación con aire que sube sobre la tierra y un flujo de retorno por arriba. Los vientos generales más fuertes pueden debilitarla o anularla."
+    },
+    {
+      "term": "Brisa terrestre",
+      "def": "Un viento local de la tierra hacia el mar, sobre todo de noche, cuando la tierra se ha enfriado más rápido. Los vientos de mayor escala pueden debilitarla o impedirla."
+    },
+    {
+      "term": "Isla de calor urbana",
+      "def": "Una zona urbana más caliente que sus alrededores, a menudo sobre todo de noche. Contribuyen los materiales de la superficie, la menor evaporación, la forma de la ciudad y el calor residual."
+    },
+    {
+      "term": "Circulación térmica",
+      "def": "Una circulación causada por diferencias de calentamiento y por los patrones de presión y densidad que resultan. Una brisa marina es un ejemplo local, con aire que sube sobre la tierra más caliente. La rotación y los vientos generales modifican la circulación a mayor escala."
+    },
+    {
+      "term": "Flujo hacia la costa",
+      "def": "Aire que se mueve del mar hacia la tierra. Puede ocurrir en una brisa marina local o dentro de un sistema meteorológico más grande. El término describe la dirección respecto a la costa, no un rumbo fijo de la brújula."
+    },
+    {
+      "term": "Diferencia de presión",
+      "def": "Una diferencia de presión entre dos lugares. Crea una fuerza de gradiente de presión que puede poner el aire en movimiento."
+    },
+    {
+      "term": "Enfriamiento por evaporación",
+      "def": "El enfriamiento que ocurre cuando la evaporación usa energía de una superficie y de su entorno. Una superficie húmeda puede perder energía como calor latente en lugar de calentarse. El efecto depende del agua disponible, la humedad, el viento y la energía que llega."
+    }
+  ],
+  "predict": {
+    "prompt": "En una tarde soleada en la playa, ¿qué se calienta más rápido, la tierra o el mar? ¿Hacia dónde crees que soplará el viento a ras del suelo?"
+  },
+  "cer": {
+    "prompt": "¿Por qué una brisa marina sopla hacia la costa de día y a menudo se invierte por la noche?",
+    "claim": "El calentamiento desigual de la tierra y el mar crea una circulación: de día, el viento en superficie sopla del mar, más fresco, hacia la tierra, más caliente, y por la noche puede invertirse como brisa terrestre.",
+    "evidence": "A la hora local 15, los resultados muestran la tierra más caliente que el mar, con flujo en superficie hacia la costa y un flujo de retorno por arriba. A la hora 3, la tierra está más fría que el mar y el flujo en superficie se invierte. Con Calor urbano activado, la ciudad está más caliente que el campo y el aire fluye hacia ella.",
+    "reasoning": "La tierra se calienta y se enfría más rápido que el agua. El aire más caliente es menos denso y sube, lo que baja la presión en superficie, así que entra por debajo aire más fresco y denso. Cuando el patrón de calentamiento se invierte por la noche, la diferencia de presión y el flujo también se invierten."
+  },
+  "controls": {
+    "landsea": {
+      "label": "Tierra–mar"
+    },
+    "urban": {
+      "label": "Calor urbano"
+    }
+  }
+}

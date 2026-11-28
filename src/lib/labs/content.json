@@ -17,6 +17,8 @@
         "NGSS MS-ESS1-1",
         "NGSS HS-ESS2-4",
         "APES 4.7",
+        "TEKS 6.9A",
+        "TEKS WG.3A",
         "KS3 Space physics"
       ],
       "steps": [
@@ -192,6 +194,7 @@
         "Earth’s real eccentricity is about 0.0167, with perihelion in early January; this experiment starts in March and does not reproduce that timing.",
         "With Axial tilt and Orbit stretch both at 0, every place except the poles has 12-hour days."
       ],
+      "modelDescription": "The Sun sits within Earth's orbit, with Earth shown at four points labeled with the solstices and equinoxes. Each Earth has its tilted axis drawn as a line that keeps pointing the same way in space, so first one hemisphere and then the other leans toward the Sun. The Earth close-up shows one globe with its lit half and the line between day and night. Sizes and distances are drawn for teaching, not to scale.",
       "predict": {
         "prompt": "If Earth's axis had no tilt at all, what would happen to the length of a June day in New York? Explain your guess."
       },
@@ -373,6 +376,7 @@
         "Relative to the Sun, Earth turns 360° in about 24 hours: 15° per hour.",
         "A sidereal day is about 23 h 56 min; a mean solar day is 24 h."
       ],
+      "modelDescription": "A globe of Earth turns eastward with sunlight coming from one side, so half of it is in daylight and half in night. The boundary between them, the terminator, runs from pole to pole, and a marked city is carried from day into night as Earth turns. Time zones can be drawn as bands on the globe.",
       "predict": {
         "prompt": "Dallas is about 15° of longitude east of Phoenix. Will the Sun rise earlier or later in Dallas, and by about how much?"
       },
@@ -562,6 +566,7 @@
         "Without the 3D view: half the Moon is always sunlit; phases are the viewing angle from Earth; eclipses need the Moon near a node of its tilted orbit.",
         "The Moon close-up shows the phase as seen from the Northern Hemisphere. From the Southern Hemisphere the view is rotated, so a waxing Moon is lit on the left."
       ],
+      "modelDescription": "In the orbit view, the Moon circles Earth while sunlight comes from one side, so the Moon always has a sunlit half facing the Sun. A dashed line marks Earth's orbital plane, and the Moon's orbit is tilted about 5 degrees to it. The Moon close-up shows the phase as it looks from Earth's Northern Hemisphere. Sizes and distances are exaggerated.",
       "predict": {
         "prompt": "Does Earth's shadow cause the Moon's crescent phase? Write yes or no and give a reason."
       },
@@ -588,6 +593,8 @@
       "standards": [
         "NGSS MS-ESS2-1",
         "NGSS HS-ESS2-3",
+        "TEKS 6.10B",
+        "TEKS ESS.8B",
         "KS3 Earth and atmosphere",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -659,7 +666,7 @@
             "About 2,260 km"
           ],
           "answer": 0,
-          "explain": "A typical continental crust thickness of about 35 km is well under 1% of Earth's 6371 km radius. Crustal thickness varies considerably, particularly beneath mountain belts."
+          "explain": "A typical continental crust thickness of about 35 km is well under 1% of Earth's 6,371 km radius. Crustal thickness varies considerably, particularly beneath mountain belts."
         },
         {
           "prompt": "How do scientists know what Earth’s core is like?",
@@ -763,6 +770,7 @@
         "This section uses a uniform 35 km reference crust, a core–mantle boundary at radius 3480 km and an inner-core radius of 1221 km.",
         "Oceanic crust is commonly 5–10 km thick and continental crust commonly 30–50 km; real boundaries are not perfectly concentric spheres."
       ],
+      "modelDescription": "A globe of Earth has a wedge cut away to show its layers as nested shells: a thin crust, the thick solid mantle, the liquid outer core and the solid inner core at the center. The layers can be pulled apart. With P and S waves on, wave fronts spread from a source through the interior, so you can compare how each kind crosses the solid mantle and the liquid outer core.",
       "predict": {
         "prompt": "Earthquake S-waves cannot travel through liquid. If part of Earth's core is liquid, where on the far side of Earth would you expect S-waves to be missing?"
       },
@@ -792,6 +800,9 @@
         "NGSS HS-ESS1-5",
         "NGSS HS-ESS2-1",
         "APES 4.1",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS ESS.8G",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -1008,6 +1019,7 @@
         "Time before present steps through 10 Ma snapshots.",
         "If 3D is unavailable, use the photographs and the World map studio."
       ],
+      "modelDescription": "A globe of Earth shows today's plate boundaries as colored lines: teal for divergent boundaries where plates move apart, coral for convergent boundaries where they move together and sand for transform boundaries where they slide past each other. Arrows show plate motion. The globe can step back toward Pangaea in 10-million-year snapshots, mark the Hawaiʻi hotspot and show a section across one type of boundary.",
       "predict": {
         "prompt": "Volcanoes form where plates pull apart and where one plate sinks under another. Would you expect volcanoes along a transform boundary like the San Andreas Fault? Why?"
       },
@@ -1032,6 +1044,8 @@
       "standards": [
         "APHG 1.1",
         "C3 D2.Geo.3.6-8",
+        "TEKS ESS.9A",
+        "TEKS WG.21C",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
       ],
@@ -1230,6 +1244,7 @@
         "These rules are enough for the Check questions and for reading a USGS or OS map extract without the 3D view.",
         "Choose Landscape → Real: Sugarloaf Mountain, MD to read contours on real USGS elevation data (heights above sea level); the model hill is idealized."
       ],
+      "modelDescription": "A green model hill rises from a flat base, with brown contour lines drawn around it at equal heights and labeled in meters. Labels mark a valley and a spur, and a red line from A to B marks a cross-section that appears as a height profile in the results panel. The hill can be flattened into its contour map, and the real Sugarloaf Mountain in Maryland can replace the model hill. Height is exaggerated 2.5 times unless you compare at physical scale.",
       "predict": {
         "prompt": "On a contour map, would you expect the lines to be closer together on a steep slope or a gentle one? Why?"
       },
@@ -1344,7 +1359,7 @@
       ],
       "why": [
         "A river’s long profile usually becomes gentler downstream. Channel shape, water supply and sediment change along its course, helping explain why steep valleys and broad floodplains occur in different reaches.",
-        "Raise Discharge and compare the water level and the width of the wet channel. Play follows the water downstream; the channel itself does not erode.",
+        "Discharge is the volume of water passing each second. In a channel of fixed shape, more water can only get through by flowing deeper and a little faster, so the water level rises and, at high flow, spreads toward the banks. Along the course, tributaries keep adding water, so the channel grows wider and deeper downstream. A larger, smoother channel loses less energy to friction, so the lower river keeps flowing on a gentler gradient, while the small, steep upper river spends its energy cutting down into its bed.",
         "The channel shape stays fixed while the water level changes; the displayed wet margins are an illustration rather than a mapped flood extent. As in real rivers, the model channel becomes wider and deeper downstream and carries deeper water there, because tributaries add discharge along the way."
       ],
       "glossary": [
@@ -1420,6 +1435,7 @@
         ]
       },
       "modelNotes": [],
+      "modelDescription": "A river winds down a block of landscape from a steep, narrow upper reach through wooded bends to a gentler lower reach with farmland and a small town. The block's cut sides show layers of rock and soil beneath the valley. Raising discharge makes the water deeper and wider in the channel.",
       "predict": {
         "prompt": "As a river flows from its source to the sea, do you expect it to get steeper or gentler? Wider or narrower?"
       },
@@ -1446,6 +1462,9 @@
         "NGSS MS-ESS2-4",
         "APES 1.7",
         "APES 4.6",
+        "TEKS 6.10A",
+        "TEKS 7.11A",
+        "TEKS ESS.9D",
         "KS3 Physical geography",
         "AQA A-level 3.1.1"
       ],
@@ -1667,6 +1686,7 @@
       "modelNotes": [
         "Abstraction moves up to 6,000 m³ from an invented 10,000 m³ reservoir into a human-use store."
       ],
+      "modelDescription": "A block of landscape runs from snowy ridges down through soil and a reservoir to the sea, with clouds above and groundwater in the rock below. Choosing a transfer, such as evaporation, precipitation, infiltration or snowmelt, highlights its route between these stores. In drainage-basin mode, taking water from the reservoir lowers its level.",
       "predict": {
         "prompt": "If people take water out of a reservoir faster than rain and rivers refill it, what happens to the total amount of water on Earth?"
       },
@@ -1692,6 +1712,8 @@
         "NGSS MS-ESS1-2",
         "NGSS MS-ESS1-3",
         "NGSS HS-ESS1-4",
+        "TEKS 7.9A",
+        "TEKS 7.9B",
         "KS3 Space physics"
       ],
       "steps": [
@@ -1948,6 +1970,7 @@
         "Mercury’s 4096-pixel MESSENGER map uses enhanced color, not human-eye color.",
         "Jupiter uses a 6000-pixel NASA map; Mars and Saturn use NASA geometry and mapped materials."
       ],
+      "modelDescription": "The Sun sits at the center with the planets moving along their elliptical orbits, starting with the four inner planets; all eight orbits can be shown. Other views line the planets up to compare their sizes or show one planet close up. Sizes and distances are enlarged for teaching unless you switch to physical scale.",
       "predict": {
         "prompt": "Neptune is about 30 times farther from the Sun than Earth. Do you think its year is 30 times longer, more than 30 times longer, or less? Why?"
       },
@@ -1973,6 +1996,8 @@
       "standards": [
         "NGSS MS-ESS1-1",
         "APES 4.7",
+        "TEKS 6.9A",
+        "TEKS WG.3A",
         "KS3 Space physics"
       ],
       "steps": [
@@ -2157,6 +2182,7 @@
         "For a horizontal surface at local noon, the geometric input is 1361 × max(0, cos(latitude − solar declination)).",
         "Declination moves the subsolar latitude between about 23.44° south and north over a year."
       ],
+      "modelDescription": "A globe of Earth is lit by a beam of sunlight drawn as a band of rays, and a highlighted patch shows where the beam lands on the surface. Where the Sun is low, the same beam spreads over a larger patch than where it is overhead. Latitude and solar declination move the patch and change the angle of the Sun.",
       "predict": {
         "prompt": "At an equinox, the noon Sun is overhead at the equator. Do you think a place at 60° latitude gets more or less than half as much noon sunlight per square meter? Why?"
       },
@@ -2368,6 +2394,7 @@
         "The third uses a rounded 4.24 light-years to Proxima Centauri, the nearest star to the Sun.",
         "At 1× speed, every full playback lasts 24 seconds, while the readout gives the corresponding physical travel time: about 1.28 seconds, 499 seconds or 4.24 years."
       ],
+      "modelDescription": "Earth and the Moon sit at the two ends of a straight line marked with a distance scale, and a pulse of light travels along it from Earth toward the Moon. The view can jump to the distance from the Sun to Earth and to the nearest star beyond the Sun. Distances are compressed for teaching unless you switch to physical scale.",
       "predict": {
         "prompt": "Light takes about 1.3 seconds to reach Earth from the Moon. Guess how long it takes light to reach us from the Sun, and from the nearest star."
       },
@@ -2393,6 +2420,7 @@
       "standards": [
         "NGSS MS-ESS1-4",
         "NGSS HS-ESS1-6",
+        "TEKS ESS.7C",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -2590,6 +2618,7 @@
         "The Phanerozoic begins at 538.8 Ma on the ICS 2026/06 chart.",
         "Evidence of life extends back at least about 3.5 billion years, while human history occupies a minute part of the full window."
       ],
+      "modelDescription": "Earth's history is drawn as a spiral ribbon around a central column, colored in bands for the eons and eras, from about 4.54 billion years ago at one end to the present at the other. A marker moves along the ribbon, and the view can zoom in to the last 539 million years or the last 2.58 million years.",
       "predict": {
         "prompt": "If Earth's whole history were one 24-hour day, how long ago in that day do you think humans appeared?"
       },
@@ -2818,6 +2847,7 @@
       "modelNotes": [
         "The close view spans 8.5 hours around full or new Moon; Play and the Transit slider follow that interval."
       ],
+      "modelDescription": "The Moon orbits Earth, and Earth's shadow is drawn behind it as a dark central cone, the umbra, inside a lighter one, the penumbra. A close-up follows the Moon through Earth's shadow in a lunar eclipse, or the Moon's shadow toward Earth in a solar eclipse. Turning the node direction shows why most full and new Moons miss the shadow.",
       "predict": {
         "prompt": "There is a full Moon every month. Do you expect a lunar eclipse every month? Why or why not?"
       },
@@ -2841,6 +2871,7 @@
       ],
       "standards": [
         "NGSS MS-ESS1-1",
+        "TEKS 6.9B",
         "KS3 Space physics",
         "AQA GCSE 3.1.3.2",
         "AQA A-level 3.1.3"
@@ -2996,6 +3027,7 @@
         "time": "month"
       },
       "modelNotes": [],
+      "modelDescription": "Earth is wrapped in a layer of blue ocean stretched into two bulges, one facing the Moon and one on the opposite side, while the Moon circles Earth over a month and the Sun lies off to one side. The bulges are larger at new and full Moon, when the Sun and Moon line up, than at quarter Moon. The bulges are greatly exaggerated.",
       "predict": {
         "prompt": "Do you expect the biggest difference between high and low tide when the Sun and Moon line up with Earth, or when they are at right angles? Why?"
       },
@@ -3021,6 +3053,8 @@
       "standards": [
         "NGSS MS-ESS1-1",
         "APES 4.7",
+        "TEKS 6.9A",
+        "TEKS WG.3A",
         "KS3 Space physics"
       ],
       "steps": [
@@ -3198,6 +3232,7 @@
         "Toward the equator: noon stays high, day length sits near 12 h.",
         "Drag Latitude to about 0° for Nairobi, 26° for Miami, or below 0° for the Southern Hemisphere."
       ],
+      "modelDescription": "A round patch of ground with trees stands under a transparent sky dome. The Sun's path for the chosen day is drawn as an arc across the dome with the Sun at the selected time, and a dashed curve below the ground shows the part of its circle that is below the horizon. Latitude and the time of year change how high the arc climbs and how long the Sun stays up.",
       "predict": {
         "prompt": "Is the noon Sun directly overhead everywhere on Earth? Predict the noon Sun's height in New York on the March equinox."
       },
@@ -3223,6 +3258,9 @@
       "standards": [
         "NGSS MS-ESS2-3",
         "NGSS HS-ESS1-5",
+        "TEKS 7.10A",
+        "TEKS ESS.8C",
+        "TEKS ESS.8H",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -3409,6 +3447,7 @@
         "At about 250 Ma the continental shelves fit together as Pangaea.",
         "Fossil evidence shows a few representative published sites for each species, moved with their plates by the same model. The dots mark where fossils are found, not each species’ full range."
       ],
+      "modelDescription": "A globe shows the continents at a chosen time in the last 250 million years, from the supercontinent Pangaea to their positions today, with pale continental shelves at their edges. Moving the time slider carries the continents to their present places, and fossil evidence can be marked where it links continents that are now apart.",
       "predict": {
         "prompt": "Fossils of the same freshwater reptile, Mesosaurus, are found in Brazil and in southern Africa. How could that happen?"
       },
@@ -3434,6 +3473,9 @@
       "standards": [
         "NGSS MS-ESS2-3",
         "NGSS HS-ESS1-5",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS WG.4B",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
         "OCR GCSE B Global hazards",
@@ -3610,6 +3652,7 @@
         "In the main Hawaiian island chain, older volcanoes generally lie northwest of the currently active southeastern end; Kauaʻi preserves rocks about 5–5.5 Ma old.",
         "The Yellowstone track becomes older southwestward along the Snake River Plain and extends back roughly 17 Ma."
       ],
+      "modelDescription": "A block of ocean floor shows a chain of volcanic islands and seamounts on a moving plate above a fixed plume of hot mantle, drawn in orange below the plate. The active volcano sits over the plume at the young end; older, more worn-down islands and seamounts lie farther along the chain. Playing the model carries the plate along so a new volcano starts to grow. The model is schematic and not to scale.",
       "predict": {
         "prompt": "Kauaʻi is an old Hawaiian island and the Big Island is young. If the hotspot stays in one place, which way do you think the Pacific Plate is moving?"
       },
@@ -3635,6 +3678,10 @@
       "standards": [
         "NGSS MS-ESS2-3",
         "NGSS HS-ESS1-5",
+        "TEKS 7.10B",
+        "TEKS ESS.8C",
+        "TEKS ESS.8E",
+        "TEKS ESS.8F",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
         "OCR GCSE B Global hazards",
@@ -3809,6 +3856,7 @@
         "A full spreading rate of 25 mm/year means each flank moves 12.5 mm/year, or 12.5 km per million years.",
         "Change Full spreading rate and compare the ages labeled at the two ends of the section."
       ],
+      "modelDescription": "A block of ocean floor is split by a mid-ocean ridge, with magma rising beneath it and new crust moving away on both sides, shown by arrows. Bands across the sea floor record times of normal and reversed magnetic polarity and mirror each other on the two sides of the ridge. Age labels mark the oldest crust at each end.",
       "predict": {
         "prompt": "If new seafloor forms at a mid-ocean ridge, where would you expect to find the oldest seafloor?"
       },
@@ -3834,6 +3882,7 @@
       "standards": [
         "NGSS MS-ESS2-5",
         "APES 4.4",
+        "TEKS ESS.11B",
         "KS3 Earth and atmosphere"
       ],
       "steps": [
@@ -4005,6 +4054,7 @@
         "At 6.5 °C/km, a 15 °C surface gives −63 °C at 12 km.",
         "If 3D is unavailable, use the ISS limb photograph, definitions and the teacher note."
       ],
+      "modelDescription": "A globe of Earth is wrapped in thin, colored shells for the layers of the atmosphere, numbered 1 to 4 from the troposphere to the thermosphere. The layers can be pulled apart, and physical scale shows how thin they are beside Earth's radius. The temperature-profile view graphs air temperature against height.",
       "predict": {
         "prompt": "Do you think it gets warmer or colder as you climb a high mountain, even though you are closer to the Sun? Why?"
       },
@@ -4033,6 +4083,10 @@
         "NGSS HS-ESS2-4",
         "APES 4.7",
         "APES 9.3",
+        "TEKS 8.10A",
+        "TEKS 8.11A",
+        "TEKS ESS.11A",
+        "TEKS ESS.11C",
         "KS3 Earth and atmosphere",
         "AQA GCSE 3.1.1.4",
         "Edexcel GCSE A Topic 2",
@@ -4214,6 +4268,7 @@
         "Averaging 1361 W/m² over the globe gives 340.25 W/m² before reflection.",
         "With Greenhouse return on, infrared absorptivity and emissivity are both 0.78."
       ],
+      "modelDescription": "A small coastal landscape under a sky with a cloud layer shows the flows of energy as arrows: sunlight arriving from the Sun, part of it reflected back to space by clouds and the surface, and infrared heat rising from the ground. Molecules of greenhouse gas float in the air. With greenhouse return on, the atmosphere sends part of the outgoing heat back down to the surface.",
       "predict": {
         "prompt": "If Earth's surface became more reflective, for example covered by more snow and ice, would the surface get warmer or cooler? Why?"
       },
@@ -4238,6 +4293,9 @@
       "standards": [
         "NGSS MS-ESS2-5",
         "NGSS MS-ESS2-6",
+        "TEKS 8.10A",
+        "TEKS 8.11B",
+        "TEKS ESS.11F",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -4405,6 +4463,7 @@
       "modelNotes": [
         "The loop is drawn four times taller than true; Physical scale shows the true proportions of a model area 20 km wide and 2 km deep."
       ],
+      "modelDescription": "A strip of coast shows the sea beside land, with a loop of arrows for moving air above them. In the afternoon, air flows near the ground from the cooler sea toward the warmer land, rises over the land and returns out to sea higher up; at night the loop reverses. Urban heat replaces the coast with a town and its countryside. Heights are drawn four times taller than true.",
       "predict": {
         "prompt": "On a sunny afternoon at the beach, which heats up faster, the land or the sea? Which way do you think the wind will blow at ground level?"
       },
@@ -4608,6 +4667,7 @@
         "Coriolis parameter f is ±0.0001 s⁻¹; surface friction uses a linear drag coefficient of 0.00005 s⁻¹.",
         "Turn on Release from rest, then press Play or drag the Process slider to see the first 24 hours."
       ],
+      "modelDescription": "A flat stretch of land is crossed by dashed isobars, lines of equal pressure, with lower pressure on one side. A dial in the middle shows the forces on moving air as arrows: the pressure-gradient force, the Coriolis force and, when it is on, friction. With Coriolis on, the steady wind blows along the isobars; with friction, it crosses them toward lower pressure.",
       "predict": {
         "prompt": "Air flows from high to low pressure. Do you think the wind blows straight across the isobars from high to low? Why or why not?"
       },
@@ -4633,6 +4693,9 @@
       "standards": [
         "NGSS MS-ESS2-6",
         "APES 4.5",
+        "TEKS 8.10B",
+        "TEKS ESS.11B",
+        "TEKS WG.4A",
         "AQA GCSE 3.1.1.3",
         "Edexcel GCSE A Topic 2",
         "Edexcel GCSE B Topic 1",
@@ -4812,6 +4875,7 @@
         "Play a year to move the model ITCZ between 10° S and 10° N.",
         "Physical scale (T) shrinks the cells to their true 12 km depth against Earth’s 6371 km radius."
       ],
+      "modelDescription": "A globe of Earth shows three loops of circulating air in each hemisphere, the Hadley, Ferrel and Polar cells, with arrows for the surface winds: easterly trade winds near the equator, westerlies in the middle latitudes and polar easterlies. Playing a year moves the band of rising air near the equator, the ITCZ, north and south. The cells' depth is exaggerated unless you switch to physical scale.",
       "predict": {
         "prompt": "Many of the world's hot deserts lie near 30° N and 30° S. What do you think the air is doing there: rising or sinking?"
       },
@@ -4989,6 +5053,7 @@
       "modelNotes": [
         "The model uses a cold-front slope of 1:50 and a gentler warm-front slope of 1:150 across a 600 km section."
       ],
+      "modelDescription": "A cross-section of the atmosphere over the ground shows a wedge of cold air pushing under warm air at a steep cold front, and warm air sliding up over cooler air at a gentler warm front, with clouds forming where the warm air rises. Moving the process forward lets the cold front catch up and lift the warm air off the ground. Heights are exaggerated so the slopes can be seen.",
       "predict": {
         "prompt": "When cold air pushes into warm air, which do you think goes underneath, and what happens to the warm air?"
       },
@@ -5170,6 +5235,7 @@
         ]
       },
       "modelNotes": [],
+      "modelDescription": "A weather map laid over land and sea shows a low-pressure system: curved isobars around the center, a cold front and a warm front, and a comma-shaped band of cloud. Arrows show surface air spiraling in toward the low and rising at the center. Switching to an anticyclone shows air sinking and spiraling outward, and the direction of spin reverses in the Southern Hemisphere.",
       "predict": {
         "prompt": "In the Northern Hemisphere, do you think air spins clockwise or counterclockwise around a low-pressure center? Why?"
       },
@@ -5195,6 +5261,7 @@
       "standards": [
         "NGSS MS-ESS2-6",
         "APES 4.8",
+        "TEKS WG.4A",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -5382,6 +5449,7 @@
         "The classification uses Beck et al. V3 for 1991–2020. The globe groups the official 0.1° grid into five families.",
         "Singapore, Cairo, Washington, DC and Saint Paul are reference points from the Atlas 1 km raster; Nuuk is sampled from the 0.1° globe grid. Different resolutions can change classifications near a boundary."
       ],
+      "modelDescription": "A globe of Earth is colored by climate family: A tropical, B dry, C temperate, D cold continental and E polar. The selected family is highlighted, and reference cities are marked on the globe.",
       "predict": {
         "prompt": "The Sahara and the Amazon are both hot. What do you think separates a tropical climate from a hot desert climate?"
       },
@@ -5605,6 +5673,7 @@
         "Orbit the model: the catchment is a 3D landscape, not a flat colored area.",
         "Without the 3D view, sketch a rim (the divide), a source, tributaries joining at a confluence, and an outlet."
       ],
+      "modelDescription": "A bowl-shaped, wooded landscape drains through a main river and its tributaries to one outlet. The basin outline traces the drainage divide along the surrounding ridges, and labels mark the source, a confluence and the outlet. Relief is exaggerated so the shape of the basin is easy to see.",
       "predict": {
         "prompt": "Rain falls on two sides of a hilltop ridge. Will the water from both sides end up in the same river? Why or why not?"
       },
@@ -5632,6 +5701,10 @@
         "NGSS MS-ESS3-3",
         "APES 4.6",
         "APES 5.13",
+        "TEKS 7.11A",
+        "TEKS ESS.12B",
+        "TEKS ESS.12C",
+        "TEKS WG.8B",
         "AQA GCSE 3.1.3.3",
         "Edexcel GCSE A Topic 1",
         "Edexcel GCSE B Topic 4",
@@ -5825,6 +5898,7 @@
         "Urban cover raises the runoff fraction from 0.25 to 0.85 and shortens the delay and storage time. These are teaching assumptions, not values measured at a real site.",
         "The graph shows 24 hours and so cuts off part of the long recession; the model keeps that water in storage. A constant baseflow of 0.05 m³/s stands for groundwater that keeps the river flowing between storms."
       ],
+      "modelDescription": "A wooded river valley shows water draining to the river through a storm. The storm's rainfall and the river's discharge are graphed together over time, so you can follow the rising and falling limbs and the delay between the two peaks. Adding urban cover replaces some of the ground with hard surfaces that send water to the river faster.",
       "predict": {
         "prompt": "If fields around a river are covered with roads and roofs, will the river flood sooner or later after a storm? Higher or lower?"
       },
@@ -5850,6 +5924,8 @@
       "standards": [
         "NGSS MS-ESS2-4",
         "APES 4.6",
+        "TEKS 7.11A",
+        "TEKS ESS.9D",
         "AQA GCSE 3.1.3.3",
         "AQA A-level 3.1.1"
       ],
@@ -6017,6 +6093,7 @@
         "A fixed share of rain and meltwater is lost (40% for the rain-fed river, 25% for the snow-fed one). Of the rest, 70% reaches the river within days and 30% seeps into groundwater that drains slowly over months as baseflow, so both rivers keep flowing between peaks.",
         "The 3D terrain is illustrative: relief is enlarged ten times unless you switch to Physical scale (T), and the channel width and dam are symbols."
       ],
+      "modelDescription": "Two small catchments sit side by side: one fed by rain and one in snowy mountains, where winter precipitation is stored as snow. Their river flows through the year are graphed as a gold curve for the rain-fed river and a blue curve for the snow-fed river. A dam can be added to the snow-fed river to compare its flow with the natural curve. The landscape is illustrative, with relief enlarged ten times unless you switch to physical scale.",
       "predict": {
         "prompt": "A mountain river is fed mainly by melting snow. In which season do you expect its highest flow?"
       },
@@ -6041,7 +6118,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-6",
-        "APES 4.5"
+        "APES 4.5",
+        "TEKS ESS.10C"
       ],
       "steps": [
         {
@@ -6227,6 +6305,7 @@
         ]
       },
       "modelNotes": [],
+      "modelDescription": "A globe of Earth shows the surface currents of one ocean basin as arrows looping around a subtropical gyre, with a fast, narrow current along the western edge and a broad, slow one along the eastern edge. The North Atlantic gyre turns clockwise, and the view can move to the South Atlantic, North and South Pacific and Indian Ocean gyres.",
       "predict": {
         "prompt": "Seattle is farther north than Boston, yet its winters are milder. What do you think could explain this?"
       },
@@ -6250,7 +6329,9 @@
       ],
       "standards": [
         "NGSS HS-ESS2-4",
-        "NGSS HS-ESS2-5"
+        "NGSS HS-ESS2-5",
+        "TEKS ESS.10A",
+        "TEKS ESS.10B"
       ],
       "steps": [
         {
@@ -6464,6 +6545,7 @@
         "This is not the TEOS-10 equation of state; real coefficients and compressibility vary.",
         "Compare 4 °C at 35 g/kg with the same temperature at 32 g/kg: the fresher parcel rises."
       ],
+      "modelDescription": "A cross-section of an ocean basin runs from a warm tropical coast to an icy polar coast. A loop of markers traces warm water moving along the surface toward the pole, sinking near the ice, flowing back along the bottom and rising again. Depth is greatly exaggerated. A second view compares the density of one parcel of water with the water around it.",
       "predict": {
         "prompt": "Which seawater do you think sinks: warm and fresh, or cold and salty? Why?"
       },
@@ -6493,6 +6575,12 @@
         "NGSS HS-ESS2-6",
         "APES 1.4",
         "APES 9.4",
+        "TEKS 6.10A",
+        "TEKS 8.11A",
+        "TEKS 8.11B",
+        "TEKS 8.11C",
+        "TEKS ESS.12E",
+        "TEKS ESS.12F",
         "KS3 Earth and atmosphere",
         "AQA A-level 3.1.1"
       ],
@@ -6712,6 +6800,7 @@
         "The fossil-fuel tap adds 0–10 Pg C/year to air for up to 100 model years.",
         "With the tap open, the fossil-fuel store falls and the fast stores change, while total carbon stays at 12000 Pg C. Extra CO₂ only partly speeds up uptake by plants and the ocean, so by model year 100 about half of the burned carbon is still in the air, close to what is seen on Earth today."
       ],
+      "modelDescription": "A landscape block with forest, soil and rock layers sits beside the ocean, with the atmosphere above, and stores of carbon are marked in each. Highlighted paths show transfers between them, such as photosynthesis, respiration and decay, exchange between air and ocean, burial in sediment and the burning of fossil fuels. Raising the fossil-fuel tap moves carbon from the fossil-fuel store into the air faster.",
       "predict": {
         "prompt": "When fossil fuels are burned, does the carbon disappear, stay in the air, or go somewhere else? Predict where it ends up."
       },
@@ -6735,7 +6824,10 @@
       ],
       "standards": [
         "NGSS HS-ESS2-4",
-        "APES 4.9"
+        "APES 4.9",
+        "TEKS 8.10A",
+        "TEKS ESS.11G",
+        "TEKS WG.3C"
       ],
       "steps": [
         {
@@ -6898,6 +6990,7 @@
         "The ocean cross-section is 15,000 km wide and shows the upper 500 m.",
         "Depth is enlarged 10,000 times unless you switch to Physical scale (T)."
       ],
+      "modelDescription": "A cross-section of the tropical Pacific Ocean shows warm surface water in the west, cooler water in the east and the thermocline separating the warm layer from colder water below. A loop of air, the Walker cell, rises over the warm west and sinks in the east, with trade winds blowing west along the surface. Moving toward El Niño or La Niña shifts the warm water and the thermocline. Depth is greatly exaggerated.",
       "predict": {
         "prompt": "If the trade winds across the Pacific weaken, what do you think happens to the warm water usually piled up near Indonesia?"
       },
@@ -6921,6 +7014,7 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
+        "TEKS WG.4B",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -7134,6 +7228,7 @@
         ]
       },
       "modelNotes": [],
+      "modelDescription": "Two blocks of land stand side by side so their shapes can be compared at the same scale. Each can be set to a mountain, hill, plateau, plain or basin. The results panel gives the elevation and the local relief of each.",
       "predict": {
         "prompt": "Can a high flat plateau have less local relief than a low hill? Explain your guess."
       },
@@ -7159,6 +7254,8 @@
       "standards": [
         "NGSS MS-ESS2-2",
         "NGSS HS-ESS2-5",
+        "TEKS ESS.9C",
+        "TEKS WG.3B",
         "KS3 Physical geography",
         "AQA GCSE 3.1.3.3",
         "Edexcel GCSE A Topic 1",
@@ -7373,6 +7470,7 @@
         "Vertical relief is enlarged 1.5 times in the waterfall and valley views; Physical scale removes the exaggeration.",
         "The Real: Grand Canyon view uses USGS elevation and aerial imagery to show a river that has cut about 1.5 km into a rising plateau."
       ],
+      "modelDescription": "A river flows over a resistant rock layer and drops as a waterfall into a plunge pool, cutting a steep-sided gorge downstream. The block's sides show the layers of rock the gorge cuts through. Other views show potholes in a riverbed, a V-shaped valley and the real Grand Canyon in Arizona. Relief is enlarged 1.5 times unless you switch to physical scale.",
       "predict": {
         "prompt": "Water flows downstream over a waterfall. Which way do you think the waterfall itself moves over time: downstream or upstream?"
       },
@@ -7399,6 +7497,7 @@
       "standards": [
         "NGSS MS-ESS2-2",
         "NGSS HS-ESS2-5",
+        "TEKS ESS.9C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.3.3",
         "Edexcel GCSE A Topic 1",
@@ -7617,6 +7716,7 @@
         "A separate Stokes calculation uses isolated 10–50 μm quartz spheres, still fresh water at 20 °C, density 998 kg/m³ and dynamic viscosity 1.002 mPa·s.",
         "It estimates terminal settling speed and the distance traveled at 0.1 m/s through 2 m depth."
       ],
+      "modelDescription": "A river bends across a wooded floodplain, with the block's sides showing the sediment beneath it. Sand builds a point bar on the inside of the bend, while the faster water on the outside cuts a steep bank, the river cliff. Other views show a river overflowing its floodplain and a river mouth building a delta.",
       "predict": {
         "prompt": "On a river bend, where do you think the water flows fastest: on the inside or the outside of the bend? Where would sand be dropped?"
       },
@@ -7641,7 +7741,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
-        "NGSS HS-ESS2-5"
+        "NGSS HS-ESS2-5",
+        "TEKS ESS.9C"
       ],
       "steps": [
         {
@@ -7816,6 +7917,7 @@
         ]
       },
       "modelNotes": [],
+      "modelDescription": "A landscape block shows two separate river valleys divided by high ground. In later stages, one river erodes back toward the divide, cuts through it and captures the other river's headwaters, which then flow along a new route to a different outlet.",
       "predict": {
         "prompt": "Two rivers start on either side of the same hill. If one erodes back toward the hill much faster, what might happen to the other river?"
       },
@@ -7839,6 +7941,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
+        "TEKS ESS.9C",
+        "TEKS WG.3B",
         "KS3 Physical geography",
         "AQA GCSE 3.1.3.2",
         "Edexcel GCSE A Topic 1",
@@ -8082,6 +8186,7 @@
       "modelNotes": [
         "The chalk headland, with flint bands, stands on a wave-cut platform. The cave and arch are real openings through the rock, drawn at a common scale (1 unit = 10 m)."
       ],
+      "modelDescription": "A chalk headland with bands of flint stands on a flat wave-cut platform, with waves breaking against its cliffs. The headland can be set to show a sea cave, an arch, a stack or a stump. Other views show sand moving along a beach, held back by a groyne, and a spit growing across a bay.",
       "predict": {
         "prompt": "Waves hit a headland of hard rock. What shapes do you think the sea will carve over thousands of years?"
       },
@@ -8105,6 +8210,7 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
+        "TEKS ESS.9C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.3.4",
         "Edexcel GCSE A Topic 1",
@@ -8330,6 +8436,7 @@
         "Default relief is enlarged 1.5 times; Physical scale restores a common kilometer scale.",
         "The Real: Yosemite Valley view uses USGS elevation and aerial imagery; its north–south cross-section shows the real U shape. Heights are exaggerated ×1.5 unless Compare physical scale is on."
       ],
+      "modelDescription": "A valley glacier flows down a U-shaped valley from snowfields at its head, past the equilibrium line, to its snout, with orange markers moving down-valley in the ice. Lowering the ice extent moves the snout back up the valley while the markers keep moving down. Other views show cirques, arêtes and a horn, and the real Yosemite Valley in California. Relief is enlarged 1.5 times unless you switch to physical scale.",
       "predict": {
         "prompt": "If a glacier's snout is retreating up the valley, do you think the ice inside the glacier is moving up-valley or down-valley?"
       },
@@ -8356,6 +8463,7 @@
       "standards": [
         "NGSS MS-ESS2-2",
         "NGSS HS-ESS2-5",
+        "TEKS ESS.9B",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -8535,6 +8643,7 @@
         "Water containing dissolved carbon dioxide can dissolve calcite: CaCO₃ + CO₂ + H₂O → Ca²⁺ + 2HCO₃⁻.",
         "The 60 × 30 m block has its relief exaggerated 1.3 times unless Physical scale is selected."
       ],
+      "modelDescription": "A block of pale limestone is cut by vertical joints, with the surface broken into blocks, clints, separated by deep cracks, grykes, and a surface hollow, a doline. With the cutaway on, a cave passage inside the rock shows stalactites hanging from the roof and stalagmites rising from the floor, and a dashed line traces water from the doline down to a spring. Relief is exaggerated 1.3 times.",
       "predict": {
         "prompt": "Rainwater is slightly acidic. What do you think happens when it flows through cracks in limestone for thousands of years?"
       },
@@ -8559,7 +8668,9 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
-        "NGSS HS-ESS2-1"
+        "NGSS HS-ESS2-1",
+        "TEKS 7.10A",
+        "TEKS ESS.7B"
       ],
       "steps": [
         {
@@ -8750,6 +8861,7 @@
         "In the faults, a 60° dipping plane separates the footwall below it from the hanging wall above.",
         "The maximum relative fault slip is 700 m, and the readout separates that slip from its vertical throw."
       ],
+      "modelDescription": "A block of layered rock shows one structure at a time. Folds bend the layers into an arch, an anticline, or a trough, a syncline. Faults break the block along a sloping plane: the upper block slides down in a normal fault, up in a reverse fault, and sideways in a strike-slip fault.",
       "predict": {
         "prompt": "If rock layers are squeezed from the sides, do you think they will fold, break, or both? What if they are pulled apart?"
       },
@@ -8773,6 +8885,7 @@
       ],
       "standards": [
         "NGSS MS-ESS2-2",
+        "TEKS ESS.9C",
         "AQA A-level 3.1.2"
       ],
       "steps": [
@@ -8971,6 +9084,7 @@
         "The example dune has a gentle windward (stoss) slope and a 32° slip face on its lee side at true scale.",
         "The Real: Great Sand Dunes view uses USGS elevation and aerial imagery; its dunefield is shaped by winds from two directions, unlike the single-wind barchan model."
       ],
+      "modelDescription": "A flat sandy plain carries a crescent-shaped barchan dune whose horns point downwind, with an arrow showing the wind direction. Other views show yardangs, streamlined ridges carved from rock by the wind, and the real Great Sand Dunes in Colorado. Playing the model moves enlarged grains of sand downwind.",
       "predict": {
         "prompt": "A crescent-shaped sand dune has two pointed horns. Which way do you think the wind is blowing: toward the horns or away from them?"
       },
@@ -8994,6 +9108,7 @@
       ],
       "standards": [
         "NGSS MS-ESS2-1",
+        "TEKS 6.10C",
         "KS3 Earth and atmosphere"
       ],
       "steps": [
@@ -9238,6 +9353,7 @@
       "modelNotes": [
         "The pressure readout gives an equivalent depth using a uniform 2800 kg/m³ overburden and 9.81 m/s² gravity."
       ],
+      "modelDescription": "Specimens of igneous, sedimentary and metamorphic rock, loose sediment and magma show the forms that rock material takes. A landscape view places them where they form: sediment on the sea floor, metamorphic rock deep in the mountains and magma beneath a volcano. Choosing a pathway, such as melting or metamorphism, shows where that change happens.",
       "predict": {
         "prompt": "Can a sedimentary rock become an igneous rock without first becoming a metamorphic rock? Explain your guess."
       },
@@ -9262,7 +9378,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-1",
-        "APES 4.2"
+        "APES 4.2",
+        "TEKS WG.3B"
       ],
       "steps": [
         {
@@ -9453,6 +9570,7 @@
         "playback": false
       },
       "modelNotes": [],
+      "modelDescription": "A vertical face of soil, like the wall of a pit, shows the horizons from the leaf litter at the top through dark topsoil and the subsoil to broken rock at the base, with roots reaching down from the surface and a depth scale beside it. The face can be switched between a temperate brown soil, a dark prairie soil and a deeply weathered tropical soil.",
       "predict": {
         "prompt": "Why do you think grassland soils, like those of Iowa, have such a thick, dark top layer?"
       },
@@ -9644,6 +9762,7 @@
         "The USDA texture triangle is a ternary plot: the three percentages must sum to 100.",
         "Silt is calculated as the remainder, so the three always sum to 100."
       ],
+      "modelDescription": "A triangle chart divides soils into texture classes by their percentages of sand, silt and clay, with a point marking the selected mixture. A jar shows the soil settled in layers, and three dishes compare the sizes of sand, silt and clay particles.",
       "predict": {
         "prompt": "Which do you think drains faster after heavy rain: a sandy soil or a clay soil? Why?"
       },
@@ -9667,6 +9786,8 @@
       ],
       "standards": [
         "NGSS MS-ESS2-1",
+        "TEKS ESS.9B",
+        "TEKS WG.3B",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -9850,6 +9971,7 @@
         "The joint starts 20 mm wide. The teaching view exaggerates its widening ten times; Compare physical scale shows the real change.",
         "Solid calcite plus dissolved calcite always adds up to the starting mass (calcite density 2710 kg/m³)."
       ],
+      "modelDescription": "A block of layered rock sits on a grassy base with a crack, a joint, running down it. In one view, water in the joint freezes and the ice widens the crack, shown ten times larger than the real change unless you switch to physical scale. Other views show limestone dissolving in slightly acidic water and roots growing into the rock.",
       "predict": {
         "prompt": "Water seeps into a crack in a rock and freezes overnight. Predict what happens to the crack over many winters."
       },
@@ -9876,6 +9998,8 @@
         "NGSS MS-ESS2-2",
         "NGSS MS-ESS3-3",
         "APES 4.2",
+        "TEKS 6.11B",
+        "TEKS ESS.9C",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -10051,6 +10175,7 @@
         "Sediment leaves the transport store at 0.15 per minute for rain and runoff, or 0.3 for wind.",
         "The teaching view exaggerates surface lowering 30 times; Compare physical scale shows the true lowering."
       ],
+      "modelDescription": "Two hillside plots sit side by side: one of bare soil cut by small channels, rills, and one covered with plants. As the model runs, it tracks soil staying in place, moving down the slope and leaving the plot, so the two plots can be compared. Dry wind transport shows soil blown away from the bare plot. The lowering of the bare surface is exaggerated 30 times unless you compare at physical scale.",
       "predict": {
         "prompt": "Two identical slopes get the same heavy rain. One is bare and one is covered by plants. How much less soil do you think the covered slope loses?"
       },
@@ -10078,6 +10203,10 @@
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
         "APES 4.1",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS ESS.12A",
+        "TEKS WG.3C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -10257,6 +10386,7 @@
         "Compare P and S arrivals at the station 50 km horizontally from the epicenter; the straight-ray distance is √(depth² + 50²).",
         "The violet surface-wave ring is simplified: it starts when the S-wave first reaches the epicenter and then travels at 3.2 km/s."
       ],
+      "modelDescription": "A block of ground shows the hypocenter, where the fault slips underground, the epicenter on the surface above it and a fault scarp. P-wave and S-wave fronts spread out as rings from the hypocenter toward a seismometer, which draws the arrivals on its record. Making the focus deeper lengthens the waves' path to the seismometer.",
       "predict": {
         "prompt": "A seismometer is 50 km from an earthquake. Which wave do you think arrives first, the P-wave or the S-wave? How far apart might they arrive?"
       },
@@ -10285,6 +10415,10 @@
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
         "APES 4.1",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS ESS.12A",
+        "TEKS WG.3C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
@@ -10501,6 +10635,7 @@
         "Eruption styles follow simple rules rather than a simulation: gas drives fragmentation, and sticky magma traps its gas, so less gas is needed for an explosive eruption. Lava lakes, fountains, domes, eruption columns and pyroclastic flows are drawn to show the processes, not to scale.",
         "Turn on Real volcanoes to compare Mauna Loa and Mount St. Helens from USGS elevation data at the same scale (heights from sea level, exaggerated ×3 unless Compare physical scale is on)."
       ],
+      "modelDescription": "A volcano is shown with its slopes cut away to reveal the magma chamber and the conduit leading up to the vent. Viscosity changes the volcano's shape from a broad shield to a steep composite cone, and gas drive changes the eruption from flowing lava to an explosive column of ash. Fissure vents and the real volcanoes Mauna Loa and Mount St. Helens can also be shown. Eruptions are drawn to show the processes, not to scale.",
       "predict": {
         "prompt": "Do you think runny lava or thick, sticky lava builds a steeper volcano? Which is more likely to explode?"
       },
@@ -10525,6 +10660,8 @@
       "standards": [
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
+        "TEKS ESS.12A",
+        "TEKS WG.8B",
         "AQA GCSE 3.1.1.2",
         "Edexcel GCSE B Topic 1",
         "OCR GCSE B Global hazards",
@@ -10694,6 +10831,7 @@
         "In the teaching view depth is enlarged ×20 and wave height a further ×600; Physical scale shows both at true scale.",
         "Gradually varying depth, no reflection and no lateral spreading are strong assumptions; the transect ends in 100 m water before the coast."
       ],
+      "modelDescription": "A long cross-section of ocean runs from deep water onto a shallow shelf and a coast with a town. First the sea floor rises and lifts the water above it; then the wave travels toward the shore, slowing down and growing taller as the water gets shallower. The uplift of the sea floor is enlarged so it can be seen.",
       "predict": {
         "prompt": "Out in the deep ocean, do you think a tsunami is tall or short, fast or slow? What happens as it reaches shallow water?"
       },
@@ -10721,6 +10859,10 @@
         "NGSS MS-ESS2-5",
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
+        "TEKS 8.10C",
+        "TEKS ESS.11F",
+        "TEKS ESS.12B",
+        "TEKS WG.3C",
         "KS3 Physical geography",
         "AQA GCSE 3.1.1.3",
         "Edexcel GCSE A Topic 2",
@@ -10917,6 +11059,7 @@
         "Pressure comes from a steady gradient-wind balance with air density 1.15 kg/m³, a Coriolis parameter of 0.00005 per second and 101300 Pa at 300 km radius.",
         "Cloud depth is 12 km, drawn five times taller in the teaching view (Physical scale, or the T key, shows it 1:1). The cloud tops are a NASA MODIS image of Hurricane Katrina (28 August 2005) at the model's scale; their heights are illustrative, and the clouds are not simulated droplets or rainfall."
       ],
+      "modelDescription": "A tropical cyclone is shown cut away down the middle: the clear eye at the center, the tall ring of cloud of the eyewall and the spiraling rainbands. Arrows show warm, moist air flowing in near the sea, rising in the eyewall, flowing out at the top and sinking in the eye. Changing the intensity changes the winds and the pressure at the center. The clouds are drawn five times taller than true unless you switch to physical scale.",
       "predict": {
         "prompt": "Why do you think hurricanes form over warm oceans and weaken after they move over land?"
       },
@@ -10941,6 +11084,7 @@
       "standards": [
         "NGSS MS-ESS1-1",
         "APHG 1.4",
+        "TEKS WG.21C",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
       ],
@@ -11126,6 +11270,7 @@
         "The equator is 0° latitude, not a line of longitude.",
         "Greenwich is 0° longitude by agreement; Earth’s rotation does not depend on which meridian we call zero."
       ],
+      "modelDescription": "A globe of Earth is covered with a grid of latitude and longitude lines, with the equator and the prime meridian marked. A marker shows the selected location: changing latitude slides it north or south along its meridian, and changing longitude turns the globe to carry it east or west. Arcs drawn from the equator and from the prime meridian show the two angles.",
       "predict": {
         "prompt": "The point 0° latitude, 0° longitude is often thought to be in London. Where do you think it really is?"
       },
@@ -11150,6 +11295,7 @@
       "standards": [
         "APHG 1.1",
         "C3 D2.Geo.3.6-8",
+        "TEKS WG.21C",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
       ],
@@ -11342,6 +11488,7 @@
       "modelNotes": [
         "The surface uses Earth imagery and the projection formulas, cut off at 85° N and S because Mercator stretches the poles to infinity."
       ],
+      "modelDescription": "A globe of Earth with matching gold circles at the equator and at 60 degrees north and south can be peeled open and flattened into a map. As it flattens, the circles stretch or shrink to show how each projection, Mercator, cylindrical equal-area or Winkel compromise, distorts area and shape.",
       "predict": {
         "prompt": "On many world maps Greenland looks about as big as Africa. Do you think it really is? Explain your guess."
       },
@@ -11366,6 +11513,7 @@
       "standards": [
         "APHG 1.4",
         "C3 D2.Geo.1.6-8",
+        "TEKS WG.21C",
         "KS3 Geographical skills",
         "AQA GCSE 3.4"
       ],
@@ -11571,6 +11719,7 @@
         "Six figures subdivide to 100 m, and eight figures to 10 m.",
         "This fictional map covers one 100 km square; its main grid lines are 10 km apart."
       ],
+      "modelDescription": "A map sheet is divided into a square grid with eastings along the bottom and northings up the side, with a scale bar, contour lines and a river. A pin marks the southwest corner of the selected 100-meter square, and lines lead from it to the edges of the map to read its easting and northing. The British National Grid can replace the US National Grid for comparison.",
       "predict": {
         "prompt": "On a grid map, would you read the number along the bottom edge or the number up the side first? Why might the order matter?"
       },
@@ -11598,6 +11747,7 @@
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS2-5",
         "NGSS HS-ESS3-1",
+        "TEKS ESS.9C",
         "AQA GCSE 3.1.3.2",
         "Edexcel GCSE A Topic 1",
         "Edexcel GCSE B Topic 4",
@@ -11777,6 +11927,7 @@
         "A simplified Bishop calculation divides the initial sliding mass into 160 vertical slices.",
         "Effective cohesion is 2 kPa, friction angle 15°, and soil unit weight 20 kN/m³."
       ],
+      "modelDescription": "A grassy hillside is cut away to show its layers and a curved surface beneath the slope where it may fail. As water pressure in the soil rises, the slope weakens, and when it fails, the block of soil above the curved surface rotates and slumps downhill, leaving a scarp at the crown and a bulging toe.",
       "predict": {
         "prompt": "After days of heavy rain, do you think a clay slope becomes more or less likely to slide? Why?"
       },
@@ -11803,6 +11954,9 @@
         "NGSS MS-ESS2-4",
         "NGSS MS-ESS2-6",
         "APES 4.8",
+        "TEKS 8.10A",
+        "TEKS ESS.11F",
+        "TEKS WG.4A",
         "KS3 Physical geography"
       ],
       "steps": [
@@ -11984,6 +12138,7 @@
         "Above cloud base, the model uses a fixed saturated lapse rate of 6 °C/km; real values vary with temperature and pressure.",
         "Relief is drawn 2.5 times taller than true; Physical scale uses the same scale in every direction. Ground color and trees are schematic: the lee side is drawn drier only in proportion to the water the air loses on the way up."
       ],
+      "modelDescription": "A mountain ridge rises between two lowlands, with wind blowing toward it from one side. An air parcel rises up the windward slope, cools and forms cloud once it is high enough, then sinks and warms on the leeward side, which stays drier. Ridge height and the air's humidity change where cloud forms. Relief is drawn 2.5 times taller than true unless you switch to physical scale.",
       "predict": {
         "prompt": "Moist ocean air blows over a mountain range. Which side of the mountains do you think will be wetter, and which side warmer?"
       },
@@ -12010,6 +12165,9 @@
         "NGSS MS-ESS2-4",
         "NGSS MS-ESS3-1",
         "APES 1.7",
+        "TEKS 7.11A",
+        "TEKS ESS.9B",
+        "TEKS ESS.9D",
         "AQA A-level 3.1.1"
       ],
       "steps": [
@@ -12191,6 +12349,7 @@
       "modelNotes": [
         "Hydraulic conductivity is 10 m/day, well radius 0.2 m, outer radius 500 m and confined thickness 12 m."
       ],
+      "modelDescription": "A block of ground is cut away to show soil and sand above water-filled rock, with the water table marking the top of the saturated layer. A well pumps water out, and the water table dips into a cone around it. Turning on the confined aquifer adds a clay layer and a gold line, the potentiometric surface, showing how high water would rise in a well.",
       "predict": {
         "prompt": "If a farmer pumps a lot of water from a well, what do you think happens to the water table around the well?"
       },
@@ -12388,6 +12547,7 @@
         "Crust, mantle and ice densities are 2800, 3300 and 917 kg/m³.",
         "Equal mass above a compensation depth gives an equilibrium depression of ice thickness × 917/3300."
       ],
+      "modelDescription": "A section through the crust shows its layers resting on the denser mantle, with the Moho as the boundary between them. Adding an ice sheet on top presses the crust down into the mantle, and removing it lets the crust rise back. Heights are exaggerated five times, and the width of the ice sheet is schematic.",
       "predict": {
         "prompt": "A thick ice sheet covers a continent. Do you think the land under it stays where it is, sinks or rises? What happens after the ice melts?"
       },
@@ -12411,6 +12571,10 @@
       "standards": [
         "NGSS HS-ESS1-5",
         "NGSS HS-ESS2-1",
+        "TEKS 7.10B",
+        "TEKS ESS.8E",
+        "TEKS ESS.8H",
+        "TEKS WG.4B",
         "AQA A-level 3.1.5"
       ],
       "steps": [
@@ -12604,6 +12768,7 @@
         "The unstretched reference continent is 35 km thick and the oceanic crust about 7 km thick; both overlie solid mantle. Collision thickens the crust to about 65 km beneath peaks about 5–6 km high. Lithosphere and slab thicknesses are simplified to fit the section.",
         "Physical scale removes the ×2 vertical exaggeration. The 300 km section shows only part of a basin."
       ],
+      "modelDescription": "A cross-section through the crust and mantle shows one stage at a time in the life of an ocean: a continent stretching and splitting, a young ocean with a mid-ocean ridge, a wide ocean, subduction beginning, the ocean closing, and finally two continents colliding to build mountains with a deep root. Heights are exaggerated twice unless you switch to physical scale.",
       "predict": {
         "prompt": "The Atlantic Ocean is getting wider today. Do you think oceans can also close? What would happen when the continents meet?"
       },
@@ -12627,7 +12792,8 @@
       ],
       "standards": [
         "APES 4.2",
-        "APES 4.3"
+        "APES 4.3",
+        "TEKS WG.3B"
       ],
       "steps": [
         {
@@ -12724,7 +12890,7 @@
           "term": "Backslope"
         },
         {
-          "term": "Toe",
+          "term": "Toeslope",
           "exam": "Footslope / toeslope"
         },
         {
@@ -12790,6 +12956,7 @@
       "modelNotes": [
         "The model hillslope is 120 m long, with soils shown at the crest, backslope and toe."
       ],
+      "modelDescription": "A hillslope is cut away to show the soil along it, from the crest down the steep backslope to the toe, all formed from the same parent rock. Soil is thin where the slope is steep and thicker at the toe, where material collects. Increasing the slope thins the backslope soil and thickens the soil at the toe.",
       "predict": {
         "prompt": "On a hillside, do you think the soil will be thicker at the top, on the steep middle slope, or at the bottom? Why?"
       },
@@ -13009,6 +13176,7 @@
         "It assumes permafrost lies beneath an active layer that thaws to a maximum depth of 0.7 m each summer.",
         "Wedge development sets the top width between 0.1 and 0.9 m; it does not convert to a number of winters or a growth rate."
       ],
+      "modelDescription": "A section of frozen ground shows permafrost beneath a thin active layer that thaws each summer, with a dashed line marking the depth of the thaw. A wedge of ice tapers down into the ground from a crack at the surface and grows as cracking and refreezing repeat each year. Another view shows the polygon pattern that ice wedges make on the tundra surface.",
       "predict": {
         "prompt": "In Alaska, the ground stays frozen for years at a time. What do you think happens to the top layer of soil each summer?"
       },
@@ -13034,6 +13202,9 @@
       "standards": [
         "NGSS MS-ESS3-2",
         "NGSS HS-ESS3-1",
+        "TEKS ESS.12B",
+        "TEKS ESS.12C",
+        "TEKS WG.8B",
         "AQA GCSE 3.1.1.3",
         "Edexcel GCSE A Topic 2",
         "Edexcel GCSE B Topic 1",
@@ -13233,6 +13404,7 @@
         "This steady experiment has a flat 100 km shelf, an offshore sea level held at zero and a closed coast. The pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.",
         "Wind stress uses air density 1.225 kg/m³ and a constant drag coefficient of 0.0015."
       ],
+      "modelDescription": "A long section of sea runs across a shallow shelf to a coast with a town, with a dashed line for the normal sea level. Onshore wind and falling air pressure pile the water up against the coast, and a shallower shelf raises it more. Physical scale shows how small the rise is beside the width of the shelf.",
       "predict": {
         "prompt": "A hurricane approaches two coasts: one with deep water offshore and one with a wide, shallow shelf. Which coast gets the higher storm surge?"
       },

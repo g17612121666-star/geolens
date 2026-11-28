@@ -1,0 +1,127 @@
+import assert from "node:assert/strict";
+import { readFileSync, readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
+import test from "node:test";
+import ts from "typescript";
+import { ES } from "../src/lib/i18n-es.ts";
+import { translate } from "../src/lib/i18n.ts";
+import { PHASE_NAMES, lunarEclipse, lunarPosition } from "../src/lib/lunar-science.ts";
+import { PLANETS } from "../src/lib/planet-science.ts";
+import { DISTANCE_STOPS } from "../src/lib/distance-science.ts";
+import { GEOLOGIC_UNITS } from "../src/lib/geologic-time-science.ts";
+import { STAGES as WILSON_STAGES } from "../src/labs/wilson-cycle/section.ts";
+import { SUBTROPICAL_GYRES, ensoSection } from "../src/lib/ocean-circulation-science.ts";
+import { CARBON_STORES, carbonFluxes } from "../src/lib/carbon-science.ts";
+import { NAMES as LANDFORMS } from "../src/labs/landform-types/shapes.ts";
+import { SOIL_PROFILES } from "../src/lib/soil-profile-science.ts";
+import { soilTexture } from "../src/lib/soil-science.ts";
+const json = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8"));
+/** Names a lab shows straight from its data files. */
+const DATA_NAMES = [
+  ...json("../src/labs/continental-drift/continent-labels.json").continents.flatMap((c) => [
+    c.name,
+    c.short,
+  ]),
+  ...json("../src/labs/continental-drift/fossil-sites.json").taxa.map((t) => t.kind),
+  ...Object.values(json("../src/labs/shared/real-terrain-sites.json")).map((site) => site.name),
+  ...WILSON_STAGES,
+  ...new Set([-1, 0, 1].map((phase) => ensoSection(phase).phase)),
+  ...SUBTROPICAL_GYRES.flatMap((gyre) => [gyre.name, gyre.western, gyre.eastern]),
+  ...CARBON_STORES,
+  ...LANDFORMS,
+  ...SOIL_PROFILES.flatMap((p) => [p.name, p.context, ...p.horizons.map((h) => h.description)]),
+  ...new Set(
+    Array.from({ length: 21 * 21 }, (_, i) => [5 * (i % 21), 5 * Math.floor(i / 21)])
+      .filter(([sand, clay]) => sand + clay <= 100)
+      .map(([sand, clay]) => soilTexture(sand, clay)),
+  ),
+  ...carbonFluxes([600, 1200, 3000, 6000, 1200], 0).map((flux) => flux.name),
+];
+
+const ROOT = new URL("../src/", import.meta.url).pathname;
+const files = (dir) =>
+  readdirSync(dir).flatMap((name) => {
+    const path = join(dir, name);
+    return statSync(path).isDirectory() ? files(path) : /\.tsx?$/.test(name) ? [path] : [];
+  });
+
+/** Every English string the interface passes to t() or tr() as a literal, or marks with msg(). */
+function literals() {
+  const found = new Map();
+  for (const file of files(ROOT)) {
+    const text = readFileSync(file, "utf8");
+    for (const m of text.matchAll(/\b(?:t|tr|msg)\(\s*"((?:[^"\\]|\\.)*)"/g))
+      found.set(m[1], file.slice(ROOT.length));
+  }
+  return found;
+}
+
+test("every interface string sent for translation has Spanish", () => {
+  const missing = [...literals()].filter(([text]) => !(text in ES));
+  assert.deepEqual(missing, [], "add these to src/lib/i18n-es.ts");
+});
+
+test("names computed by the science modules have Spanish", () => {
+  const eclipses = new Set();
+  for (let node = 0; node <= 180; node += 2)
+    for (const aligned of [false, true])
+      for (const phase of [0, 0.5]) eclipses.add(lunarEclipse(lunarPosition(phase, node, aligned)));
+  const lunar = [...eclipses];
+  assert.ok(lunar.filter((name) => /lunar eclipse/i.test(name)).length >= 2, lunar.join());
+  const distances = DISTANCE_STOPS.flatMap((d) => [d.name, d.unit, d.origin, d.target]);
+  const units = GEOLOGIC_UNITS.map((u) => u.name);
+  for (const name of [
+    ...PHASE_NAMES,
+    ...lunar,
+    ...PLANETS.map((p) => p.name),
+    ...distances,
+    ...units,
+    ...DATA_NAMES,
+  ])
+    assert.ok(name in ES, name);
+});
+
+test("Spanish keeps each string's placeholders, and English stays as written", () => {
+  const holes = (s) => [...s.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort();
+  for (const [en, es] of Object.entries(ES)) assert.deepEqual(holes(es), holes(en), en);
+  assert.equal(translate("en", "Note {n}", { n: 2 }), "Note 2");
+  assert.equal(translate("es", "Note {n}", { n: 2 }), "Nota 2");
+  assert.equal(translate("es", "A string nobody translated"), "A string nobody translated");
+});
+
+test("every t() and tr() call passes exactly the placeholders its text uses", () => {
+  const problems = [];
+  for (const file of files(ROOT)) {
+    const sf = ts.createSourceFile(
+      file,
+      readFileSync(file, "utf8"),
+      ts.ScriptTarget.Latest,
+      true,
+      ts.ScriptKind.TSX,
+    );
+    const visit = (node) => {
+      if (
+        ts.isCallExpression(node) &&
+        ts.isIdentifier(node.expression) &&
+        (node.expression.text === "t" || node.expression.text === "tr") &&
+        node.arguments[0] &&
+        ts.isStringLiteral(node.arguments[0])
+      ) {
+        const text = node.arguments[0].text,
+          vars = node.arguments[1];
+        const holes = [...new Set([...text.matchAll(/\{(\w+)\}/g)].map((m) => m[1]))].sort();
+        // A values object built elsewhere cannot be checked here.
+        if (!vars || ts.isObjectLiteralExpression(vars)) {
+          const keys = (vars?.properties ?? []).map((p) => p.name?.text ?? "?").sort();
+          if (holes.join() !== keys.join()) {
+            const line = sf.getLineAndCharacterOfPosition(node.getStart(sf)).line + 1;
+            problems.push(`${file.slice(ROOT.length)}:${line} {${holes}} given {${keys}}`);
+          }
+        }
+      }
+      ts.forEachChild(node, visit);
+    };
+    visit(sf);
+  }
+  assert.deepEqual(problems, []);
+});

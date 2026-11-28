@@ -6,49 +6,59 @@ import { latLonToXYZ } from "@/lib/geo";
 import { useLabControls } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
+import { msg, useT } from "@/lib/i18n";
 
 const FAMILIES = [
   {
     code: "A",
-    name: "Tropical",
+    name: msg("Tropical"),
+    title: msg("Tropical climate"),
     color: "#449d80",
-    description:
+    description: msg(
       "Warm throughout the year; rainfall separates rainforest, monsoon and savanna climates.",
+    ),
   },
   {
     code: "B",
-    name: "Dry",
+    name: msg("Dry"),
+    title: msg("Dry climate"),
     color: "#d5ac6a",
-    description:
+    description: msg(
       "Rainfall is below a dryness threshold that rises with temperature; dry climates can be hot or cold.",
+    ),
   },
   {
     code: "C",
-    name: "Temperate",
+    name: msg("Temperate"),
+    title: msg("Temperate climate"),
     color: "#93ba74",
-    description:
+    description: msg(
       "Mild winters and warm or hot summers; subclasses describe summer warmth and when rain falls.",
+    ),
   },
   {
     code: "D",
-    name: "Cold continental",
+    name: msg("Cold continental"),
+    title: msg("Cold continental climate"),
     color: "#859fc9",
-    description: "Cold winters and warm summers create a marked annual temperature range.",
+    description: msg("Cold winters and warm summers create a marked annual temperature range."),
   },
   {
     code: "E",
-    name: "Polar",
+    name: msg("Polar"),
+    title: msg("Polar climate"),
     color: "#dddce3",
-    description:
+    description: msg(
       "Even the warmest month averages below 10 °C; tundra and ice-cap climates belong to this family.",
+    ),
   },
 ];
 const EXAMPLES = [
-  { name: "Singapore", lat: 1.35, lon: 103.82, code: "Af", atlas: "sg" },
-  { name: "Cairo", lat: 30.04, lon: 31.24, code: "BWh", atlas: "eg" },
-  { name: "Washington, DC", lat: 38.91, lon: -77.04, code: "Cfa", atlas: "us" },
-  { name: "Saint Paul", lat: 44.95, lon: -93.09, code: "Dfa", atlas: "us-mn" },
-  { name: "Nuuk", lat: 64.18, lon: -51.72, code: "ET", atlas: null },
+  { name: msg("Singapore"), lat: 1.35, lon: 103.82, code: "Af", atlas: "sg" },
+  { name: msg("Cairo"), lat: 30.04, lon: 31.24, code: "BWh", atlas: "eg" },
+  { name: msg("Washington, DC"), lat: 38.91, lon: -77.04, code: "Cfa", atlas: "us" },
+  { name: msg("Saint Paul"), lat: 44.95, lon: -93.09, code: "Dfa", atlas: "us-mn" },
+  { name: msg("Nuuk"), lat: 64.18, lon: -51.72, code: "ET", atlas: null },
 ];
 
 /**
@@ -121,6 +131,7 @@ function Classification({ family }: { family: number }) {
 }
 
 export default function ClimateTypes() {
+  const tr = useT();
   const params = useLabControls((s) => s.params),
     setParam = useLabControls((s) => s.setParam);
   const family = Math.min(4, Math.max(0, Math.round(params.biome ?? 0))),
@@ -135,8 +146,8 @@ export default function ClimateTypes() {
       <ScienceStudio
         slug="climate-types"
         camera={[0, 0.15, 5]}
-        scale="Globe to scale · colors show 1991–2020 climate averages"
-        trueScale="The globe uses the same geographic scale in both views"
+        scale={tr("Globe to scale · colors show 1991–2020 climate averages")}
+        trueScale={tr("The globe uses the same geographic scale in both views")}
       >
         <group rotation={[sample.lat * d, Math.PI - sample.lon * d, 0]}>
           <EarthMesh radius={1.2} lighting="viewer" />
@@ -153,8 +164,11 @@ export default function ClimateTypes() {
           </mesh>
           <Tag
             pos={tagPoint}
-            text={`${sample.name} (${sample.code})`}
-            note={`${sample.name} is a reference point for ${selected.name.toLowerCase()} climate. The code describes long-term temperature and rainfall at this location; nearby highlands and coasts may differ.`}
+            text={`${tr(sample.name)} (${sample.code})`}
+            note={tr(
+              "{place} is a reference point for {climate}. The code describes long-term temperature and rainfall at this location; nearby highlands and coasts may differ.",
+              { place: tr(sample.name), climate: tr(selected.title).toLowerCase() },
+            )}
             occlude={false}
           />
         </group>
@@ -163,7 +177,7 @@ export default function ClimateTypes() {
         <div
           className="grid grid-cols-5 gap-1"
           role="group"
-          aria-label="Highlight a climate family"
+          aria-label={tr("Highlight a climate family")}
         >
           {FAMILIES.map((item, index) => (
             <button
@@ -178,19 +192,19 @@ export default function ClimateTypes() {
                 style={{ backgroundColor: item.color }}
               />
               <span className="font-semibold">{item.code}</span>
-              <span className="mt-1 hidden text-xs sm:block">{item.name}</span>
+              <span className="mt-1 hidden text-xs sm:block">{tr(item.name)}</span>
             </button>
           ))}
         </div>
         <p className="mt-3">
-          <strong>{selected.name} climate.</strong> {selected.description}
+          <strong>{tr(selected.title)}.</strong> {tr(selected.description)}
         </p>
         {sample.atlas && (
           <a
             className="mt-2 inline-block text-glacier underline underline-offset-4"
             href={`/atlas?place=${sample.atlas}`}
           >
-            Explore {sample.name} in Atlas
+            {tr("Explore {place} in Atlas", { place: tr(sample.name) })}
           </a>
         )}
       </ScienceReadout>

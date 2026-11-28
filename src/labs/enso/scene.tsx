@@ -25,7 +25,9 @@ import { FlowStreaks } from "../thermal-circulation/air";
 import { cellPoint, type Cell } from "../thermal-circulation/cell";
 import { SeaSurface } from "./sea-surface";
 import { SST_GRADIENT } from "./sst";
+import { useT } from "@/lib/i18n";
 export default function Enso() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale");
   useLabTick(1 / 35);
   const c = ensoSection(params.enso ?? 0),
@@ -43,8 +45,12 @@ export default function Enso() {
       <ScienceStudio
         slug="enso"
         camera={[1.3, 3.1, 6.6]}
-        scale="Ocean depths ×10,000 · 15,000 km section · atmospheric loop and coastal relief schematic"
-        trueScale="Ocean uses 1 scene unit = 3000 km · atmospheric arrows and coastal relief remain schematic"
+        scale={tr(
+          "Ocean depths ×10,000 · 15,000 km section · atmospheric loop and coastal relief schematic",
+        )}
+        trueScale={tr(
+          "Ocean uses 1 scene unit = 3000 km · atmospheric arrows and coastal relief remain schematic",
+        )}
       >
         <RockPrism
           points={[
@@ -82,18 +88,22 @@ export default function Enso() {
         <LandBlock side="east" base={bottom} />
         <Tag
           pos={[-2.78, 0.45, 0.85]}
-          text="Indonesia · Australia"
-          short="Indonesia"
+          text={tr("Indonesia · Australia")}
+          short={tr("Indonesia")}
           priority={1}
-          note="The western Pacific warm pool normally brings heavy rain here. During El Niño the rain shifts east and drought becomes more likely."
+          note={tr(
+            "The western Pacific warm pool normally brings heavy rain here. During El Niño the rain shifts east and drought becomes more likely.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[2.85, 0.95, 0.85]}
-          text="Peru · Andes"
-          short="Peru"
+          text={tr("Peru · Andes")}
+          short={tr("Peru")}
           priority={1}
-          note="Trade winds push surface water west, so cold, nutrient-rich water upwells off Peru. Weaker trades in El Niño reduce this upwelling and warm the coastal sea."
+          note={tr(
+            "Trade winds push surface water west, so cold, nutrient-rich water upwells off Peru. Weaker trades in El Niño reduce this upwelling and warm the coastal sea.",
+          )}
           occlude={false}
         />
         {[2.05, 2.25, 2.42].map((x, k) => (
@@ -161,56 +171,66 @@ export default function Enso() {
         )}
         <Tag
           pos={[left, 1.95, 0]}
-          text="Convection shifts with warm water"
-          short="Convection"
-          note="A schematic Walker circulation. In El Niño the main rising air shifts toward the central Pacific and the easterly trade winds weaken. Real events differ in strength and location."
+          text={tr("Convection shifts with warm water")}
+          short={tr("Convection")}
+          note={tr(
+            "A schematic Walker circulation. In El Niño the main rising air shifts toward the central Pacific and the easterly trade winds weaken. Real events differ in strength and location.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[center, 0.3, 0.3]}
-          text="← Trade winds"
+          text={tr("← Trade winds")}
           priority={2}
-          note="The lower branch of the schematic Walker loop: easterly surface trade winds blow from east to west and push warm surface water toward the west. They weaken in El Niño and strengthen in La Niña."
+          note={tr(
+            "The lower branch of the schematic Walker loop: easterly surface trade winds blow from east to west and push warm surface water toward the west. They weaken in El Niño and strengthen in La Niña.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-0.9, west + ((east - west) * 1.6) / 5, 0.85]}
-          text="Thermocline"
+          text={tr("Thermocline")}
           priority={1}
-          note="The gold line marks an idealized thermocline, the sharp boundary between warm upper water and colder deep water. Its depth is enlarged ×10,000 unless Physical scale is on."
+          note={tr(
+            "The gold line marks an idealized thermocline, the sharp boundary between warm upper water and colder deep water. Its depth is enlarged ×10,000 unless Physical scale is on.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-2.1, 0.06, 1.15]}
-          text={`West · ${c.westTemperature.toFixed(1)} °C`}
-          note="Idealized western equatorial Pacific, toward Indonesia. Temperatures are set teaching values, not observations."
+          text={tr("West · {c} °C", { c: c.westTemperature.toFixed(1) })}
+          note={tr(
+            "Idealized western equatorial Pacific, toward Indonesia. Temperatures are set teaching values, not observations.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[2.1, 0.06, 1.15]}
-          text={`East · ${c.eastTemperature.toFixed(1)} °C`}
-          note="Idealized eastern equatorial Pacific, toward South America. Stronger trades usually favor a shallower eastern thermocline and stronger cold-water upwelling."
+          text={tr("East · {c} °C", { c: c.eastTemperature.toFixed(1) })}
+          note={tr(
+            "Idealized eastern equatorial Pacific, toward South America. Stronger trades usually favor a shallower eastern thermocline and stronger cold-water upwelling.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {c.phase} {"· thermocline west "}
-        {c.westDepth.toFixed(0)} {"m / east "}
-        {c.eastDepth.toFixed(0)}{" "}
-        {"m. Gold: idealized thermocline; amber: warmer upper water; blue: colder water."}{" "}
+        {tr(
+          "{phase} · thermocline west {west} m / east {east} m. Gold: idealized thermocline; amber: warmer upper water; blue: colder water.",
+          { phase: tr(c.phase), west: c.westDepth.toFixed(0), east: c.eastDepth.toFixed(0) },
+        )}{" "}
         <span className="whitespace-nowrap">
-          {"Sea surface 20 °C "}
+          {tr("Sea surface 20 °C")}{" "}
           <span
             aria-hidden="true"
             className="inline-block h-2.5 w-24 rounded-sm align-middle"
             style={{ background: SST_GRADIENT }}
-          />
-          {" 30 °C, isotherms every 1 °C."}
+          />{" "}
+          {tr("30 °C, isotherms every 1 °C.")}
         </span>
         <br />
-        {
-          "The ENSO slider picks a set state; Play only moves the air and does not show years or a forecast. Teleconnections shift the odds (El Niño winters are more often wet across the southern United States) but do not decide any particular season."
-        }
+        {tr(
+          "The ENSO slider picks a set state; Play only moves the air and does not show years or a forecast. Teleconnections shift the odds (El Niño winters are more often wet across the southern United States) but do not decide any particular season.",
+        )}
       </ScienceReadout>
     </>
   );

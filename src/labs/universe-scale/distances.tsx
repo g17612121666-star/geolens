@@ -8,6 +8,7 @@ import { distanceModel } from "@/lib/distance-science";
 import { LunarSurface } from "../shared/lunar-model";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
+import { useT } from "@/lib/i18n";
 // Earth faces the Sun (to its left) in the Sun–Earth view; elsewhere it shares the key light.
 const SUN_LEFT = new THREE.Vector3(-1, 0.15, 0.45);
 const KEY_LIGHT = new THREE.Vector3(-0.45, 0.3, 1);
@@ -19,6 +20,7 @@ function Body({ name, radius, stop }: { name: string; radius: number; stop: numb
   return <LunarSurface radius={radius} />;
 }
 export default function UniverseScale() {
+  const tr = useT();
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 24);
   const stop = Math.round(params.zoom ?? 0),
@@ -30,18 +32,23 @@ export default function UniverseScale() {
       : stop === 1
         ? 0.18
         : (r1 * s.targetRadiusKm) / s.originRadiusKm,
+    years = (s.lightSeconds / (365.25 * 86400)).toFixed(2),
     lightTime =
       stop === 2
-        ? `${(s.lightSeconds / (365.25 * 86400)).toFixed(2)} years`
+        ? tr("{n} years", { n: years })
         : stop === 1
-          ? `${s.lightSeconds.toFixed(0)} seconds (about ${(s.lightSeconds / 60).toFixed(1)} minutes)`
-          : `${s.lightSeconds.toFixed(2)} seconds`,
+          ? tr("{s} seconds (about {m} minutes)", {
+              s: s.lightSeconds.toFixed(0),
+              m: (s.lightSeconds / 60).toFixed(1),
+            })
+          : tr("{s} seconds", { s: s.lightSeconds.toFixed(2) }),
     lightShort =
       stop === 2
-        ? `${(s.lightSeconds / (365.25 * 86400)).toFixed(2)} years`
+        ? tr("{n} years", { n: years })
         : stop === 1
-          ? `${(s.lightSeconds / 60).toFixed(1)} minutes`
+          ? tr("{m} minutes", { m: (s.lightSeconds / 60).toFixed(1) })
           : `${s.lightSeconds.toFixed(2)} s`,
+    scaleVars = { name: tr(s.name), value: s.value.toLocaleString("en-US"), unit: tr(s.unit) },
     enlarge = (x: number) =>
       x.toLocaleString("en-US", { maximumSignificantDigits: x < 100 ? 3 : 2 });
   return (
@@ -51,8 +58,21 @@ export default function UniverseScale() {
         camera={[0, 1.4, 8]}
         lights={false}
         space
-        scale={`${s.name} · center separation ${s.value.toLocaleString("en-US")} ${s.unit} · bodies enlarged${stop === 1 ? " · Sun and Earth not in proportion: the Sun's radius is about 109 times Earth's" : " · both bodies enlarged by the same factor"}`}
-        trueScale={`${s.name} · body radii and center distance use one scale · locator rings enlarged`}
+        scale={
+          stop === 1
+            ? tr(
+                "{name} · center separation {value} {unit} · bodies enlarged · Sun and Earth not in proportion: the Sun's radius is about 109 times Earth's",
+                scaleVars,
+              )
+            : tr(
+                "{name} · center separation {value} {unit} · bodies enlarged · both bodies enlarged by the same factor",
+                scaleVars,
+              )
+        }
+        trueScale={tr(
+          "{name} · body radii and center distance use one scale · locator rings enlarged",
+          { name: tr(s.name) },
+        )}
       >
         <ambientLight intensity={0.06} />
         <directionalLight position={[-5, 3, 4]} intensity={2.8} />
@@ -70,8 +90,16 @@ export default function UniverseScale() {
             </mesh>
             <Tag
               pos={[0, 0.9, 0]}
-              text={i ? s.target : s.origin}
-              note={`Physical radius ${Math.round(i ? s.targetRadiusKm : s.originRadiusKm).toLocaleString("en-US")} km${stop === 2 && i ? " (approximate)" : ""}. The small wire locator is a visibility symbol; press T for physical radii at the distance scale.`}
+              text={tr(i ? s.target : s.origin)}
+              note={tr(
+                "Physical radius {round} km{stop}. The small wire locator is a visibility symbol; press T for physical radii at the distance scale.",
+                {
+                  round: Math.round(i ? s.targetRadiusKm : s.originRadiusKm).toLocaleString(
+                    "en-US",
+                  ),
+                  stop: stop === 2 && i ? " " + tr("(approximate)") : "",
+                },
+              )}
               occlude={false}
             />
           </group>
@@ -137,51 +165,58 @@ export default function UniverseScale() {
           priority={1}
           text={
             s.unit === "km"
-              ? `${s.value.toLocaleString("en-US")} km`
+              ? tr("{s} km", { s: s.value.toLocaleString("en-US") })
               : s.unit === "AU"
-                ? `1 AU · ${(s.distanceKm / 1e6).toFixed(1)} million km`
-                : `${s.value} light-years · ${Math.round(s.distanceKm / 1e12)} trillion km`
+                ? tr("1 AU · {s} million km", { s: (s.distanceKm / 1e6).toFixed(1) })
+                : tr("{s} light-years · {round} trillion km", {
+                    s: s.value,
+                    round: Math.round(s.distanceKm / 1e12),
+                  })
           }
-          note="The whole scale bar: the distance between the two centers. Each tick marks one sixth of it."
+          note={tr(
+            "The whole scale bar: the distance between the two centers. Each tick marks one sixth of it.",
+          )}
           occlude={false}
         />
         {/* Above the light ray it measures; on a narrow screen it may give way to the scale bar
             label, and the readout repeats it. */}
         <Tag
           pos={[0, 0.42, 0]}
-          text={`Light takes ${lightShort}`}
-          note="The moving dot is a light signal traveling at constant speed. At 1× speed, playback squeezes the whole journey into 24 seconds; the readout shows the matching real travel time."
+          text={tr("Light takes {lightShort}", { lightShort: lightShort })}
+          note={tr(
+            "The moving dot is a light signal traveling at constant speed. At 1× speed, playback squeezes the whole journey into 24 seconds; the readout shows the matching real travel time.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Light travel time "}
-        {lightTime}
-        {" · signal progress "}
-        {(t * 100).toFixed(0)}
-        {"% · elapsed "}
-        {stop === 2
-          ? `${((s.lightSeconds * t) / (365.25 * 86400)).toFixed(2)} years`
-          : `${(s.lightSeconds * t).toFixed(2)} s`}
-        .{" "}
+        {tr("Light travel time {time} · signal progress {p}% · elapsed {elapsed}.", {
+          time: lightTime,
+          p: (t * 100).toFixed(0),
+          elapsed:
+            stop === 2
+              ? tr("{n} years", {
+                  n: ((s.lightSeconds * t) / (365.25 * 86400)).toFixed(2),
+                })
+              : `${(s.lightSeconds * t).toFixed(2)} s`,
+        })}{" "}
         {trueScale
-          ? "Physical sizes are shown; tiny bodies may be smaller than a pixel."
-          : "Displayed radius enlargement: " +
-            s.origin +
-            " ×" +
-            enlarge(r1 / s.originRadius) +
-            "; " +
-            s.target +
-            " ×" +
-            enlarge(r2 / s.targetRadius) +
-            "."}{" "}
+          ? tr("Physical sizes are shown; tiny bodies may be smaller than a pixel.")
+          : tr("Displayed radius enlargement: {origin} ×{a}; {target} ×{b}.", {
+              origin: tr(s.origin),
+              a: enlarge(r1 / s.originRadius),
+              target: tr(s.target),
+              b: enlarge(r2 / s.targetRadius),
+            })}{" "}
         <br />
         {stop === 0
-          ? "384400 km is a mean center distance, not a fixed lunar orbit."
+          ? tr("384400 km is a mean center distance, not a fixed lunar orbit.")
           : stop === 1
-            ? "1 AU is exactly 149597870.7 km; Earth–Sun distance varies during the year."
-            : "4.24 light-years is a rounded distance to Proxima. The line is a distance comparison, not a sky direction or a map of other stars."}{" "}
-        {"At 1× speed, Play compresses each light journey into 24 seconds."}
+            ? tr("1 AU is exactly 149597870.7 km; Earth–Sun distance varies during the year.")
+            : tr(
+                "4.24 light-years is a rounded distance to Proxima. The line is a distance comparison, not a sky direction or a map of other stars.",
+              )}{" "}
+        {tr("At 1× speed, Play compresses each light journey into 24 seconds.")}
       </ScienceReadout>
     </>
   );

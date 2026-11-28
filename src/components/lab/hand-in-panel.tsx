@@ -4,6 +4,7 @@ import type { LabMeta } from "@/lib/labs/types";
 import { encodeHandIn } from "@/lib/hand-in";
 import { useQuizAnswers } from "@/lib/quiz-progress";
 import { useStudentName, useStudentWork, written } from "@/lib/student-work";
+import { useT } from "@/lib/i18n";
 
 /**
  * Hand in without an account: a 10-character code for the teacher's checker and a printable
@@ -14,6 +15,7 @@ export function HandInPanel({ lab }: { lab: LabMeta }) {
   const { work } = useStudentWork(lab.slug);
   const [name, setName] = useStudentName();
   const [copied, setCopied] = useState(false);
+  const t = useT();
   const answered = lab.questions.filter((_, i) => first[i] !== undefined).length;
   const code = useMemo(
     () =>
@@ -41,18 +43,21 @@ export function HandInPanel({ lab }: { lab: LabMeta }) {
       className="rounded-xl border border-white/15 bg-white/[0.04] p-4"
     >
       <p id="hand-in-heading" className="section-label">
-        {"Hand in your work"}
+        {t("Hand in your work")}
       </p>
       <p className="mt-2 text-mist">
         {answered < lab.questions.length
-          ? `Answer all ${lab.questions.length} questions first (${answered} done). `
+          ? t("Answer all {n} questions first ({done} done). ", {
+              n: lab.questions.length,
+              done: answered,
+            })
           : ""}
-        {
-          "Your code records your first answer to each question and whether you wrote your prediction and explanation. Give it to your teacher with your name."
-        }
+        {t(
+          "Your code records your first answer to each question and whether you wrote your prediction and explanation. Give it to your teacher with your name.",
+        )}
       </p>
       <label className="mt-3 block text-[13px] text-mist">
-        {"Your name (stays on this device)"}
+        {t("Your name (stays on this device)")}
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -60,11 +65,11 @@ export function HandInPanel({ lab }: { lab: LabMeta }) {
           autoComplete="name"
         />
       </label>
-      <p className="mt-3 text-[13px] text-mist">{"Your hand-in code"}</p>
+      <p className="mt-3 text-[13px] text-mist">{t("Your hand-in code")}</p>
       <p
         className="mt-1 font-mono text-2xl tracking-[0.15em] text-chalk"
         aria-live="polite"
-        aria-label={`Hand-in code ${code.split("").join(" ")}`}
+        aria-label={t("Hand-in code {code}", { code: code.split("").join(" ") })}
       >
         {code}
       </p>
@@ -74,14 +79,14 @@ export function HandInPanel({ lab }: { lab: LabMeta }) {
           onClick={copy}
           className="inline-flex min-h-11 items-center rounded-full border border-white/20 px-4 text-chalk hover:border-glacier"
         >
-          {copied ? "Copied" : name ? "Copy name and code" : "Copy code"}
+          {t(copied ? "Copied" : name ? "Copy name and code" : "Copy code")}
         </button>
         <Link
           to="/slip/$slug"
           params={{ slug: lab.slug }}
           className="inline-flex min-h-11 items-center rounded-full border border-white/20 px-4 text-chalk hover:border-glacier"
         >
-          {"Print a slip"}
+          {t("Print a slip")}
         </Link>
       </div>
     </section>

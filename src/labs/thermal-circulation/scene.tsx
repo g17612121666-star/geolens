@@ -15,6 +15,7 @@ import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 import { StarMesh } from "@/components/globe/star";
+import { useT } from "@/lib/i18n";
 
 const W = 6,
   D = 2.8,
@@ -80,6 +81,7 @@ function City({ ground }: { ground: (x: number, z: number) => number }) {
 }
 
 export default function ThermalCirculation() {
+  const tr = useT();
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 50);
   const urban = params.urban > 0.5,
@@ -157,8 +159,10 @@ export default function ThermalCirculation() {
       <ScienceStudio
         slug="thermal-circulation"
         camera={[1.6, 3.3, 7.5]}
-        scale="Height ×4 · temperatures set by the model · trees, buildings and clouds not to scale"
-        trueScale="Model area 20 km wide and 2 km deep · trees and buildings enlarged"
+        scale={tr(
+          "Height ×4 · temperatures set by the model · trees, buildings and clouds not to scale",
+        )}
+        trueScale={tr("Model area 20 km wide and 2 km deep · trees and buildings enlarged")}
       >
         <mesh geometry={geometry} castShadow receiveShadow>
           <TerrainMaterial attach="material-0" kind="grass" color="#d4d4d4" vertexColors />
@@ -226,48 +230,69 @@ export default function ThermalCirculation() {
         />
         <Tag
           pos={[urban ? -2.1 : -1.7, 0.12, 1.6]}
-          text={`${urban ? "Rural" : coast ? "Sea" : "Left"} ${c.left.toFixed(1)} °C`}
-          note="These temperatures follow a set daily cycle; they are not calculated from an energy budget. Water warms and cools more slowly than land."
+          text={tr("{side} {temp} °C", {
+            side: urban ? tr("Rural") : coast ? tr("Sea") : tr("Left"),
+            temp: c.left.toFixed(1),
+          })}
+          note={tr(
+            "These temperatures follow a set daily cycle; they are not calculated from an energy budget. Water warms and cools more slowly than land.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[urban ? 0 : 1.7, urban ? 0.75 : 0.2, 1.6]}
-          text={`${urban ? "City" : coast ? "Land" : "Right"} ${c.right.toFixed(1)} °C`}
-          note="Warmer air expands and rises; the pressure differences this creates drive the loop. Cumulus clouds often build where air rises over the warmer side. Real breezes also depend on background wind, moisture and terrain."
+          text={tr("{side} {temp} °C", {
+            side: urban ? tr("City") : coast ? tr("Land") : tr("Right"),
+            temp: c.right.toFixed(1),
+          })}
+          note={tr(
+            "Warmer air expands and rises; the pressure differences this creates drive the loop. Cumulus clouds often build where air rises over the warmer side. Real breezes also depend on background wind, moisture and terrain.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[0, 1.7 * f + 0.25, -D / 2]}
           text={
             direction === 0
-              ? "Equal heating · no loop"
+              ? tr("Equal heating · no loop")
               : urban
-                ? "Surface flow → toward the warmer city"
+                ? tr("Surface flow → toward the warmer city")
                 : direction > 0
-                  ? "Sea breeze · surface flow → onshore"
-                  : "Land breeze · surface flow ← offshore"
+                  ? tr("Sea breeze · surface flow → onshore")
+                  : tr("Land breeze · surface flow ← offshore")
           }
-          note="Heated air expands, so above the warm side the pressure surfaces (white lines at the back) bulge upward: aloft the pressure is higher over the warm side, near the ground lower. Air flows from higher to lower pressure, so it moves toward the warm side along the ground, rises there, returns aloft and sinks over the cool side. Loop height and speed are illustrative."
+          note={tr(
+            "Heated air expands, so above the warm side the pressure surfaces (white lines at the back) bulge upward: aloft the pressure is higher over the warm side, near the ground lower. Air flows from higher to lower pressure, so it moves toward the warm side along the ground, rises there, returns aloft and sinks over the cool side. Loop height and speed are illustrative.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Local hour "}
-        {hour.toFixed(1)} {"· right minus left "}
-        {c.contrast.toFixed(1)} {"°C. "}
+        {tr("Local hour {hour} · right minus left {contrast} °C.", {
+          hour: hour.toFixed(1),
+          contrast: c.contrast.toFixed(1),
+        })}{" "}
         {urban
-          ? "Urban heat island: surface air flows from the cooler countryside toward the warmer city, where it rises. (Urban heat replaces the coast while it is on.)"
+          ? tr(
+              "Urban heat island: surface air flows from the cooler countryside toward the warmer city, where it rises. (Urban heat replaces the coast while it is on.)",
+            )
           : !coast
-            ? "Both settings are off: equal temperature gives no thermal circulation."
+            ? tr("Both settings are off: equal temperature gives no thermal circulation.")
             : direction === 0
-              ? "Sea and land are equally warm: no thermal circulation while the breeze changes direction."
+              ? tr(
+                  "Sea and land are equally warm: no thermal circulation while the breeze changes direction.",
+                )
               : direction > 0
-                ? `${weak ? "Weak sea breeze" : "Sea breeze"}: land warmer than sea, surface flow onshore.`
-                : `${weak ? "Weak land breeze" : "Land breeze"}: land cooler than sea, surface flow offshore.`}{" "}
+                ? weak
+                  ? tr("Weak sea breeze: land warmer than sea, surface flow onshore.")
+                  : tr("Sea breeze: land warmer than sea, surface flow onshore.")
+                : weak
+                  ? tr("Weak land breeze: land cooler than sea, surface flow offshore.")
+                  : tr("Land breeze: land cooler than sea, surface flow offshore.")}{" "}
         <br />
-        {
-          "Play runs through a daily heating cycle; the Sun marks the hour. In real weather the night-time reversal does not always happen."
-        }
+        {tr(
+          "Play runs through a daily heating cycle; the Sun marks the hour. In real weather the night-time reversal does not always happen.",
+        )}
       </ScienceReadout>
     </>
   );

@@ -9,10 +9,12 @@ import { CloudShield, RainCurtains } from "./cloud-shield";
 import { CloudSection, CloudTops } from "./storm-clouds";
 import { OceanSection, OceanSurface } from "./ocean";
 import { KM_TO_UNITS, OCEAN_DEPTH_UNITS, oceanTemperature } from "./field";
+import { useT } from "@/lib/i18n";
 
 type V3 = [number, number, number];
 
 export default function TropicalCyclone() {
+  const tr = useT();
   const { params, t, trueScale, slice } = useLabState("params", "t", "trueScale", "slice");
   useLabTick(1 / 50);
   const strength = params.intensity ?? 0.7,
@@ -50,10 +52,16 @@ export default function TropicalCyclone() {
         camera={[0, 4.4, 8.6]}
         scale={
           satellite
-            ? "Cloud tops: NASA MODIS image of Hurricane Katrina, 28 August 2005 · 1 unit = 50 km · cloud height ×5 · ocean depth ×160"
-            : "Idealized hurricane · 1 unit = 50 km · cloud height ×5 · ocean depth ×160 (top 150 m) · eye radius 15 km, strongest wind at 30 km"
+            ? tr(
+                "Cloud tops: NASA MODIS image of Hurricane Katrina, 28 August 2005 · 1 unit = 50 km · cloud height ×5 · ocean depth ×160",
+              )
+            : tr(
+                "Idealized hurricane · 1 unit = 50 km · cloud height ×5 · ocean depth ×160 (top 150 m) · eye radius 15 km, strongest wind at 30 km",
+              )
         }
-        trueScale="Clouds at common scale: 15 km tops on a storm 550 km across. The ocean layer stays exaggerated so it remains visible"
+        trueScale={tr(
+          "Clouds at common scale: 15 km tops on a storm 550 km across. The ocean layer stays exaggerated so it remains visible",
+        )}
       >
         {/* Frame the storm's core and inner rainbands; the outer sea and bands may run off the edges. */}
         <mesh userData={{ fitProxy: true }} visible={false} position={[0, 0.55, 0.5]}>
@@ -139,52 +147,64 @@ export default function TropicalCyclone() {
 
         <Tag
           pos={[0, 0.35 + 17 * km, 0]}
-          text={open ? "Eye · sinking air" : "Eye"}
-          short="Eye"
+          text={open ? tr("Eye · sinking air") : tr("Eye")}
+          short={tr("Eye")}
           priority={2}
-          note="The eye has light winds and sinking air that warms as it is compressed, so it is often clear. It is surrounded by the strongest winds and deepest clouds of the eyewall; it is not a funnel touching the sea."
+          note={tr(
+            "The eye has light winds and sinking air that warms as it is compressed, so it is often clear. It is surrounded by the strongest winds and deepest clouds of the eyewall; it is not a funnel touching the sea.",
+          )}
           occlude={false}
         />
         <Tag
           pos={open ? onFace(-1, 1.6, 0.04 + 16.8 * km) : [1.6, 0.04 + 15.5 * km, -0.9]}
-          text="Eyewall · tallest clouds"
-          short="Eyewall"
+          text={tr("Eyewall · tallest clouds")}
+          short={tr("Eyewall")}
           priority={2}
-          note="Warm, moist air rises fastest here. As its water vapor condenses it releases latent heat, which warms the core of the storm and keeps the air rising. In this model the wind peaks 30 km from the center; that heat is described, not calculated."
+          note={tr(
+            "Warm, moist air rises fastest here. As its water vapor condenses it releases latent heat, which warms the core of the storm and keeps the air rising. In this model the wind peaks 30 km from the center; that heat is described, not calculated.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-3.4, 0.04 + 10 * km, -2.3]}
-          text="Spiral rainbands"
-          short="Rainbands"
+          text={tr("Spiral rainbands")}
+          short={tr("Rainbands")}
           priority={1}
-          note="Bands of thunderstorms spiral in toward the eyewall, separated by gaps with lighter rain. In the Northern Hemisphere they curve counterclockwise inward; in the Southern Hemisphere, clockwise."
+          note={tr(
+            "Bands of thunderstorms spiral in toward the eyewall, separated by gaps with lighter rain. In the Northern Hemisphere they curve counterclockwise inward; in the Southern Hemisphere, clockwise.",
+          )}
           occlude={false}
         />
         {open && (
           <>
             <Tag
               pos={onFace(-1, 4.3, 0.55)}
-              text="Inflow · warm, moist air"
-              short="Inflow"
+              text={tr("Inflow · warm, moist air")}
+              short={tr("Inflow")}
               tone="sandstone"
-              note="Near the surface, air spirals in toward low pressure at the center, picking up heat and water vapor from the warm sea as it goes."
+              note={tr(
+                "Near the surface, air spirals in toward low pressure at the center, picking up heat and water vapor from the warm sea as it goes.",
+              )}
               occlude={false}
             />
             <Tag
               pos={onFace(1, 4.4, 0.04 + 13 * km)}
-              text="Outflow aloft"
-              short="Outflow"
+              text={tr("Outflow aloft")}
+              short={tr("Outflow")}
               tone="ice"
-              note="At the top of the storm, the air that rose in the eyewall spreads outward, often as a cirrus canopy. Removing air aloft lets more air flow in near the surface."
+              note={tr(
+                "At the top of the storm, the air that rose in the eyewall spreads outward, often as a cirrus canopy. Removing air aloft lets more air flow in near the surface.",
+              )}
               occlude={false}
             />
             <Tag
               pos={onFace(1, 3.1, -0.55 * OCEAN_DEPTH_UNITS)}
-              text="Warm sea ≥ 26.5 °C"
-              short="Warm sea"
+              text={tr("Warm sea ≥ 26.5 °C")}
+              short={tr("Warm sea")}
               tone="magma"
-              note="Tropical cyclones usually need surface water of about 26.5 °C or warmer, through a deep enough layer, to keep supplying heat and moisture. The dashed line marks 26.5 °C. Under the core, strong winds mix up cooler water from below, which can weaken a slow-moving storm."
+              note={tr(
+                "Tropical cyclones usually need surface water of about 26.5 °C or warmer, through a deep enough layer, to keep supplying heat and moisture. The dashed line marks 26.5 °C. Under the core, strong winds mix up cooler water from below, which can weaken a slow-moving storm.",
+              )}
               occlude={false}
             />
           </>
@@ -195,9 +215,9 @@ export default function TropicalCyclone() {
           viewBox="0 0 390 108"
           className="mx-auto h-24 w-full max-w-lg"
           role="img"
-          aria-label={
-            "Idealized wind profile: peak at a radius of 30 kilometers, decreasing outward"
-          }
+          aria-label={tr(
+            "Idealized wind profile: peak at a radius of 30 kilometers, decreasing outward",
+          )}
         >
           <line x1="25" x2="365" y1="80" y2="80" stroke="#8b9f9c" />
           <polyline points={trace} stroke="var(--color-sandstone)" fill="none" strokeWidth="2" />
@@ -214,16 +234,22 @@ export default function TropicalCyclone() {
             {"150 km"}
           </text>
         </svg>
-        {"Maximum tangential wind "}
-        {maximum.toFixed(1)} {"m/s · model center pressure "}
-        {(center.pressure / 100).toFixed(0)} {"hPa · sea surface "}
-        {warmSea.toFixed(1)} {"°C away from the core, "}
-        {coolSea.toFixed(1)} {"°C under the eyewall. "}
-        {spin < 0 ? "Northern Hemisphere: counterclockwise" : "Southern Hemisphere: clockwise"}{" "}
-        {"viewed from above."} <br />
-        {
-          "Use Cutaway to look inside. Orange arrows: warm, moist air flowing in and rising in the eyewall. Blue: outflow at the top. Pale: sinking air in the eye. Wavy lines: evaporation from the warm sea. The ocean colors show temperature; the dashed line is 26.5 °C. Clouds turn as in two hours of a steady, idealized vortex. The cloud structure is typical of a mature hurricane, not a particular storm; switch on Real cloud tops to compare with Hurricane Katrina. The model does not forecast intensity, rainfall, track or landfall."
-        }
+        {tr(
+          "Maximum tangential wind {wind} m/s · model center pressure {pressure} hPa · sea surface {warm} °C away from the core, {cool} °C under the eyewall.",
+          {
+            wind: maximum.toFixed(1),
+            pressure: (center.pressure / 100).toFixed(0),
+            warm: warmSea.toFixed(1),
+            cool: coolSea.toFixed(1),
+          },
+        )}{" "}
+        {spin < 0
+          ? tr("Northern Hemisphere: counterclockwise viewed from above.")
+          : tr("Southern Hemisphere: clockwise viewed from above.")}{" "}
+        <br />
+        {tr(
+          "Use Cutaway to look inside. Orange arrows: warm, moist air flowing in and rising in the eyewall. Blue: outflow at the top. Pale: sinking air in the eye. Wavy lines: evaporation from the warm sea. The ocean colors show temperature; the dashed line is 26.5 °C. Clouds turn as in two hours of a steady, idealized vortex. The cloud structure is typical of a mature hurricane, not a particular storm; switch on Real cloud tops to compare with Hurricane Katrina. The model does not forecast intensity, rainfall, track or landfall.",
+        )}
       </ScienceReadout>
     </>
   );

@@ -24,8 +24,10 @@ import {
   floorMetres,
 } from "./coast";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
+import { useT } from "@/lib/i18n";
 
 export default function StormSurge() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale"),
     wind = params.wind ?? 30,
     depth = params.depth ?? 20,
@@ -239,8 +241,10 @@ export default function StormSurge() {
       <ScienceStudio
         slug="storm-surge"
         camera={[1.2, 2.8, 6.4]}
-        scale="1 scene unit = 20 km · heights ×1000 · 100 km flat shelf · steady setup · flooding inland is a bathtub estimate · wind waves and town illustrative"
-        trueScale="1 scene unit = 20 km · real sea-level rise is small beside shelf width"
+        scale={tr(
+          "1 scene unit = 20 km · heights ×1000 · 100 km flat shelf · steady setup · flooding inland is a bathtub estimate · wind waves and town illustrative",
+        )}
+        trueScale={tr("1 scene unit = 20 km · real sea-level rise is small beside shelf width")}
       >
         <mesh geometry={floor} castShadow receiveShadow>
           <TerrainMaterial attach="material-0" kind="sand" color="#d4d4d4" vertexColors />
@@ -376,64 +380,97 @@ export default function StormSurge() {
           ))}
         <Tag
           pos={[-1.8, 1.0, 0]}
-          text={`Onshore wind ${wind} m/s`}
-          short={`Wind ${wind} m/s`}
+          text={tr("Onshore wind {wind} m/s", { wind: wind })}
+          short={tr("Wind {wind} m/s", { wind: wind })}
           priority={1}
-          note="Wind stress = air density × drag coefficient × wind speed², using 1.225 kg/m³ and a fixed drag coefficient of 0.0015. Whitecaps and clouds grow with the wind but are only illustrative."
+          note={tr(
+            "Wind stress = air density × drag coefficient × wind speed², using 1.225 kg/m³ and a fixed drag coefficient of 0.0015. Whitecaps and clouds grow with the wind but are only illustrative.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[gauge[0] - 0.45, Math.max(setupY, gaugeTop) + 0.2, gauge[1]]}
-          text={`Setup ${result.coastalSetup.toFixed(2)} m`}
+          text={tr("Setup {result} m", { result: result.coastalSetup.toFixed(2) })}
           priority={2}
           tone="sandstone"
-          note={`${trueScale ? "At Physical scale the tide-gauge post is enlarged so it stays visible, and its bands are not to scale." : "Read the tide-gauge post: each red or white band is 1 m."} The gold ring marks the modeled water level at the coast. The offshore end is held at mean sea level (dashed line), the coast is closed, and the pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.`}
+          note={`${
+            trueScale
+              ? tr(
+                  "At Physical scale the tide-gauge post is enlarged so it stays visible, and its bands are not to scale.",
+                )
+              : tr("Read the tide-gauge post: each red or white band is 1 m.")
+          } ${tr(
+            "The gold ring marks the modeled water level at the coast. The offshore end is held at mean sea level (dashed line), the coast is closed, and the pressure drop is assumed to grow steadily from zero offshore to its full value at the coast.",
+          )}`}
           occlude={false}
         />
         <Tag
           pos={[0, -depth * s - 0.3, HALF]}
-          text={`Shelf depth ${depth} m`}
-          short={`Shelf ${depth} m`}
+          text={tr("Shelf depth {depth} m", { depth: depth })}
+          short={tr("Shelf {depth} m", { depth: depth })}
           priority={1}
-          note="The shelf is flat. A shallow shelf lets the wind pile water up more. Real coastal bathymetry, storm track, duration, tide, Coriolis and wave breaking are excluded."
+          note={tr(
+            "The shelf is flat. A shallow shelf lets the wind pile water up more. Real coastal bathymetry, storm track, duration, tide, Coriolis and wave breaking are excluded.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[3.3, 0.85, -0.7]}
-          text={flood.overtopped ? "Coast flooded · dunes overtopped" : "Low-lying coast"}
-          short={flood.overtopped ? "Flooded" : "Coast"}
+          text={flood.overtopped ? tr("Coast flooded · dunes overtopped") : tr("Low-lying coast")}
+          short={flood.overtopped ? tr("Flooded") : tr("Coast")}
           tone={flood.overtopped ? "glacier" : undefined}
-          note={`The town and dunes show what is exposed. ${flood.overtopped ? "The water at the coast is higher than the dune crest in places, so it pours over and floods the lower land behind. " : ""}Land lower than the water at the coast and open to the sea is shown flooded: a 'bathtub' estimate that assumes the surge lasts long enough to fill it. Real flooding also depends on how long the surge lasts, drainage and defenses; the model itself calculates the water level only up to the coastline.`}
+          note={[
+            tr("The town and dunes show what is exposed."),
+            flood.overtopped &&
+              tr(
+                "The water at the coast is higher than the dune crest in places, so it pours over and floods the lower land behind.",
+              ),
+            tr(
+              "Land lower than the water at the coast and open to the sea is shown flooded: a 'bathtub' estimate that assumes the surge lasts long enough to fill it. Real flooding also depends on how long the surge lasts, drainage and defenses; the model itself calculates the water level only up to the coastline.",
+            ),
+          ]
+            .filter(Boolean)
+            .join(" ")}
           occlude={false}
         />
         {level > 0.6 && (
           <Tag
             pos={[COAST - 1.2, eta(COAST - 1.2) * s + 0.22, HALF + 0.02]}
-            text="Water piled up by the storm"
-            short="Piled-up water"
+            text={tr("Water piled up by the storm")}
+            short={tr("Piled-up water")}
             priority={2}
-            note="On the cut face, the pale band is water piled up by the wind and the blue band beneath it is the rise caused by the low air pressure. Both grow toward the coast; the dashed line is mean sea level."
+            note={tr(
+              "On the cut face, the pale band is water piled up by the wind and the blue band beneath it is the rise caused by the low air pressure. Both grow toward the coast; the dashed line is mean sea level.",
+            )}
             occlude={false}
           />
         )}
       </ScienceStudio>
       <ScienceReadout>
-        {"Combined steady setup at the coast "}
-        {result.coastalSetup.toFixed(2)} {"m · wind stress "}
-        {result.stress.toFixed(2)} {"Pa · pressure drop "}
-        {pressure} {"Pa ("}
-        {(pressure / 100).toFixed(0)} {"hPa), pressure-only rise "}
-        {result.inverseBarometer.toFixed(2)} {"m."} <br />
+        {tr(
+          "Combined steady setup at the coast {setup} m · wind stress {stress} Pa · pressure drop {drop} Pa ({hpa} hPa), pressure-only rise {rise} m.",
+          {
+            setup: result.coastalSetup.toFixed(2),
+            stress: result.stress.toFixed(2),
+            drop: pressure,
+            hpa: (pressure / 100).toFixed(0),
+            rise: result.inverseBarometer.toFixed(2),
+          },
+        )}{" "}
+        <br />
         <span style={{ color: "#5fa6cf" }} aria-hidden="true">
           {"■"}
-        </span>
-        {" Raised by low pressure · "}
+        </span>{" "}
+        {tr("Rise from low pressure")}
+        {" · "}
         <span style={{ color: "#9fd8e6" }} aria-hidden="true">
           {"■"}
-        </span>
-        {
-          " piled up by the wind. Read the combined setup on the striped tide-gauge post at the coast. Flooding shown inland is a bathtub estimate; tides, waves and flood duration are left out, so this is not a flood forecast."
-        }
+        </span>{" "}
+        {tr("Water piled up by the wind")}
+        {". "}
+        {tr(
+          "Read the combined setup on the striped tide-gauge post at the coast. Flooding shown inland is a bathtub estimate; tides, waves and flood duration are left out, so this is not a flood forecast.",
+        )}
       </ScienceReadout>
     </>
   );

@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Sun, Moon, Monitor, Palette } from "lucide-react";
 import { usePreferences } from "@/lib/preferences";
+import { useT } from "@/lib/i18n";
 export function PreferencesMenu() {
-  const { theme, setTheme, units, setUnits } = usePreferences(),
+  const { theme, setTheme, units, setUnits, lang, setLang } = usePreferences(),
+    t = useT(),
     [open, setOpen] = useState(false),
     root = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -28,7 +30,7 @@ export function PreferencesMenu() {
       <button
         type="button"
         className="inline-flex size-11 items-center justify-center rounded-xl text-chalk hover:bg-white/8"
-        aria-label="Appearance and units"
+        aria-label={t("Appearance, units and language")}
         aria-expanded={open}
         aria-controls="site-preferences"
         onClick={() => setOpen((v) => !v)}
@@ -41,7 +43,7 @@ export function PreferencesMenu() {
           className="absolute right-0 top-12 z-50 w-64 rounded-2xl border border-white/15 bg-basalt p-4 shadow-xl"
         >
           <fieldset>
-            <legend className="mb-3 text-sm text-mist">Appearance</legend>
+            <legend className="mb-3 text-sm text-mist">{t("Appearance")}</legend>
             <div className="grid grid-cols-3 gap-2">
               {(
                 [
@@ -63,13 +65,13 @@ export function PreferencesMenu() {
                   }
                 >
                   <Icon size={17} />
-                  {label}
+                  {t(label)}
                 </button>
               ))}
             </div>
           </fieldset>
           <fieldset className="mt-4">
-            <legend className="mb-2 text-sm text-mist">Weather units</legend>
+            <legend className="mb-2 text-sm text-mist">{t("Weather units")}</legend>
             <div className="grid grid-cols-2 gap-2">
               {(
                 [
@@ -89,13 +91,43 @@ export function PreferencesMenu() {
                       : "border-white/15 text-chalk")
                   }
                 >
-                  {label}
+                  {t(label)}
                   <span className="text-xs text-mist">{hint}</span>
                 </button>
               ))}
             </div>
             <p className="mt-2 text-xs leading-5 text-mist">
-              For Live weather and earthquake depths. Labs stay metric, as in science class.
+              {t("For Live weather and earthquake depths. Labs stay metric, as in science class.")}
+            </p>
+          </fieldset>
+          <fieldset className="mt-4">
+            <legend className="mb-2 text-sm text-mist">{t("Language")}</legend>
+            <div className="grid grid-cols-2 gap-2">
+              {(
+                [
+                  ["en", "English"],
+                  ["es", "Español"],
+                ] as const
+              ).map(([value, label]) => (
+                <button
+                  key={value}
+                  type="button"
+                  lang={value}
+                  aria-pressed={lang === value}
+                  onClick={() => setLang(value)}
+                  className={
+                    "flex min-h-11 items-center justify-center rounded-xl border text-sm " +
+                    (lang === value
+                      ? "border-glacier bg-glacier/10 text-glacier"
+                      : "border-white/15 text-chalk")
+                  }
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <p className="mt-2 text-xs leading-5 text-mist">
+              {t("Spanish covers the labs translated so far; the rest stay in English.")}
             </p>
           </fieldset>
         </div>

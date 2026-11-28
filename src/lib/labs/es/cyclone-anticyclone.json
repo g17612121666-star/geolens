@@ -1,0 +1,138 @@
+{
+  "title": "Ciclón y anticiclón",
+  "hook": "Alrededor de un sistema de baja presión, el aire tiende a converger cerca de la superficie; alrededor de una alta, tiende a divergir.",
+  "objective": "Compara la presión y el flujo de aire alrededor de un ciclón y de un anticiclón, y relaciona cada patrón con el tiempo que puede traer.",
+  "modelDescription": "Un mapa del tiempo sobre tierra y mar muestra un sistema de baja presión: isobaras curvas alrededor del centro, un frente frío, un frente cálido y una banda de nubes en forma de coma. Las flechas muestran el aire de superficie que entra en espiral hacia la baja y asciende en el centro. Al cambiar a un anticiclón, el aire desciende y sale en espiral, y el sentido del giro se invierte en el hemisferio sur.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra la baja y sigue cómo converge hacia ella el aire de superficie. Fíjate en el sentido del giro visto desde arriba y luego activa Hemisferio sur."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Activa Anticiclón. ¿En qué se diferencia el aire que se dispersa (divergencia) del aire que gira (rotación)? Nombra el movimiento vertical que muestra la flecha exagerada del centro."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿En qué se diferencian la convergencia y la divergencia en superficie de la rotación alrededor de un sistema de presión?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "En el hemisferio norte, un ciclón de latitudes medias gira…",
+      "choices": [
+        "En sentido antihorario",
+        "En sentido horario",
+        "No gira en absoluto",
+        "Solo en vertical"
+      ],
+      "explain": "La fuerza del gradiente de presión atrae el aire hacia la baja, mientras que la desviación de Coriolis en el hemisferio norte actúa hacia la derecha de su movimiento. La circulación resultante es antihoraria, y la fricción en superficie añade un flujo hacia adentro."
+    },
+    {
+      "prompt": "Un anticiclón se asocia con…",
+      "choices": [
+        "Una baja en superficie con aire que asciende y nubes",
+        "Alta presión, aire que desciende y cielos más despejados",
+        "Una alta en superficie con aire que asciende con fuerza",
+        "Baja presión con frentes intensos y lluvia"
+      ],
+      "explain": "El aire suele descender dentro de un anticiclón y calentarse al comprimirse, lo que reduce la humedad relativa. Los cielos más despejados son comunes, aunque las nubes bajas o la niebla pueden persistir bajo una inversión."
+    },
+    {
+      "prompt": "Un nor’easter, una tormenta invernal de la costa este de EE. UU., es…",
+      "choices": [
+        "Un ciclón tropical de mares cálidos",
+        "Un anticiclón con frentes",
+        "Un ciclón de latitudes medias con frentes",
+        "Una baja térmica sobre tierra caliente"
+      ],
+      "explain": "Los nor’easters, como la mayoría de las tormentas invernales de Estados Unidos y Europa, se forman en latitudes medias a lo largo de fuertes contrastes horizontales de temperatura y tienen frentes. Los ciclones tropicales obtienen gran parte de su energía del calor y la humedad de océanos cálidos y tienen otra estructura."
+    },
+    {
+      "prompt": "En el hemisferio norte, un flujo de superficie hacia afuera y en sentido horario indica…",
+      "choices": [
+        "Un ciclón de latitudes medias",
+        "Un ciclón tropical",
+        "Una depresión que se rellena",
+        "Un anticiclón"
+      ],
+      "explain": "En el hemisferio norte, la fuerza del gradiente de presión apunta hacia afuera de una alta y Coriolis desvía el aire en movimiento hacia su derecha. La circulación anticiclónica resultante es horaria, con flujo hacia afuera cerca de la superficie."
+    },
+    {
+      "prompt": "En un mapa del tiempo, isobaras muy juntas alrededor de un centro de baja presión significan…",
+      "choices": [
+        "Vientos flojos y calma",
+        "Una alta presión que crece rápido",
+        "Vientos fuertes cerca de la baja",
+        "Cielos despejados y estables"
+      ],
+      "explain": "Las isobaras muy juntas indican un gradiente de presión fuerte, que impulsa vientos fuertes. Las isobaras muy separadas, comunes en los anticiclones, indican vientos flojos."
+    }
+  ],
+  "why": [
+    "Alrededor de un sistema de baja presión, el aire tiende a converger cerca de la superficie; alrededor de una alta, tiende a divergir. La rotación y la fricción determinan el sentido de la circulación y el flujo que cruza las isobaras.",
+    "El aire no puede amontonarse ni vaciarse en la superficie. Donde el aire de superficie converge hacia una baja tiene que ascender, se enfría y a menudo forma nubes; donde diverge desde una alta, el aire desciende desde arriba para reemplazarlo y se calienta, lo que tiende a despejar el cielo. La rotación es una propiedad aparte: el sentido del giro depende del hemisferio, pero la convergencia y la divergencia no.",
+    "Estos sistemas de presión idealizados muestran patrones de circulación; las nubes y la lluvia dependen de la humedad y la estabilidad, además de la presión."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La alta presión siempre trae tiempo caluroso y soleado.",
+      "truth": "La alta presión suele significar aire que desciende y tiempo estable, pero cómo se siente depende de la estación y la humedad. Un anticiclón puede traer cielos despejados o días de niebla y nubes bajas, y en invierno sus noches tranquilas y despejadas pueden traer heladas fuertes."
+    },
+    {
+      "claim": "En el hemisferio sur, el agua siempre se va por el desagüe en sentido contrario, por el efecto de Coriolis.",
+      "truth": "El efecto de Coriolis importa en sistemas de cientos de kilómetros que duran días, como las depresiones. En un lavabo es demasiado débil; la forma del recipiente y cómo se movía el agua deciden hacia dónde gira."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Ciclón",
+      "def": "Una circulación alrededor de un centro de baja presión: antihoraria en el hemisferio norte y horaria en el sur. Los ciclones tropicales y los extratropicales se forman por procesos distintos."
+    },
+    {
+      "term": "Anticiclón",
+      "def": "Una circulación atmosférica alrededor de una zona de alta presión, comúnmente asociada con aire que desciende. Los vientos de superficie giran en sentido horario en el hemisferio norte y antihorario en el sur. Los cielos despejados son comunes, pero la niebla y las nubes bajas pueden persistir."
+    },
+    {
+      "term": "Depresión",
+      "def": "En meteorología, una zona de baja presión atmosférica; en el uso británico, suele ser un ciclón extratropical."
+    },
+    {
+      "term": "Convergencia",
+      "def": "El movimiento del aire hacia una zona, que junta flujos vecinos. Cerca de la superficie puede obligar al aire a ascender y formar nubes y lluvia si hay suficiente humedad."
+    },
+    {
+      "term": "Divergencia",
+      "def": "La dispersión del aire desde una zona. La divergencia en superficie suele acompañar al aire que desciende en los sistemas de alta presión, mientras que la divergencia en altura puede ayudar a mantener el ascenso del aire de abajo. Aclara si hablas de divergencia cerca de la superficie o en altura."
+    },
+    {
+      "term": "Nube en coma",
+      "def": "Un patrón de nubes curvo, con forma de coma, que se ve a menudo en imágenes de satélite de ciclones extratropicales en desarrollo o maduros."
+    },
+    {
+      "term": "Extratropical",
+      "def": "Fuera de los trópicos. Un ciclón extratropical es un sistema de tormentas que suele asociarse con frentes y contrastes horizontales de temperatura."
+    }
+  ],
+  "predict": {
+    "prompt": "En el hemisferio norte, ¿crees que el aire gira en sentido horario o antihorario alrededor de un centro de baja presión? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Por qué los sistemas de baja presión suelen ser nublados y lluviosos, y los de alta presión, despejados?",
+    "claim": "En una baja, el aire converge y asciende, lo que forma nubes y lluvia; en una alta, el aire desciende y se dispersa, lo que impide que se formen nubes.",
+    "evidence": "Alrededor de la baja, el aire de superficie entra en espiral en sentido antihorario (horario con Hemisferio sur activado) y la flecha del centro apunta hacia arriba, con bandas de nubes y lluvia. Con Anticiclón activado, el aire de superficie sale en espiral en sentido horario, la flecha del centro apunta hacia abajo y en el cielo solo hay cúmulos dispersos.",
+    "reasoning": "El aire que converge cerca del suelo tiene que ir a algún lado, así que asciende; el aire que asciende se enfría y su vapor se condensa. El aire que desciende se calienta al comprimirse, así que las nubes se evaporan. El efecto de Coriolis desvía el aire en movimiento, y eso fija el sentido del giro."
+  },
+  "controls": {
+    "anti": {
+      "label": "Anticiclón"
+    },
+    "sh": {
+      "label": "Hemisferio sur"
+    }
+  }
+}

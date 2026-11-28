@@ -5,36 +5,49 @@ import { useLabState } from "@/lib/store/lab-controls";
 import { TIME_WINDOWS, timeHelix, timeUnit, GEOLOGIC_UNITS } from "@/lib/geologic-time-science";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { InspectHotspot, Tag } from "../shared/kit";
+import { msg, useT } from "@/lib/i18n";
 const EVENTS = [
   {
     age: 3500,
-    name: "Early life",
-    note: "Microbial fossils and stromatolites show life existed by at least about 3.5 billion years ago.",
+    name: msg("Early life"),
+    note: msg(
+      "Microbial fossils and stromatolites show life existed by at least about 3.5 billion years ago.",
+    ),
   },
   {
     age: 2400,
-    name: "Great Oxidation",
-    note: "Oxygen from photosynthesizing microbes began to accumulate in the atmosphere about 2.4 billion years ago.",
+    name: msg("Great Oxidation"),
+    note: msg(
+      "Oxygen from photosynthesizing microbes began to accumulate in the atmosphere about 2.4 billion years ago.",
+    ),
   },
   {
     age: 539,
-    name: "Cambrian explosion",
-    note: "Most major animal groups appear in the fossil record within a few tens of millions of years after about 539 Ma.",
+    name: msg("Cambrian explosion"),
+    note: msg(
+      "Most major animal groups appear in the fossil record within a few tens of millions of years after about 539 Ma.",
+    ),
   },
   {
     age: 250,
-    name: "Pangaea",
-    note: "The supercontinent Pangaea was fully assembled around 250 Ma and began breaking apart in the Mesozoic.",
+    name: msg("Pangaea"),
+    note: msg(
+      "The supercontinent Pangaea was fully assembled around 250 Ma and began breaking apart in the Mesozoic.",
+    ),
   },
   {
     age: 66,
-    name: "K–Pg extinction",
-    note: "An asteroid impact 66 million years ago ended the age of non-avian dinosaurs and opened the Cenozoic.",
+    name: msg("K–Pg extinction"),
+    note: msg(
+      "An asteroid impact 66 million years ago ended the age of non-avian dinosaurs and opened the Cenozoic.",
+    ),
   },
   {
     age: 0.3,
-    name: "Homo sapiens",
-    note: "Our species appears about 300,000 years ago: a sliver of the full window, and only about a third of one turn even in the Quaternary view.",
+    name: msg("Homo sapiens"),
+    note: msg(
+      "Our species appears about 300,000 years ago: a sliver of the full window, and only about a third of one turn even in the Quaternary view.",
+    ),
   },
 ];
 const HELIX_SAMPLES = Array.from(
@@ -94,6 +107,7 @@ function Coil({ span, onPick }: { span: number; onPick: (fraction: number) => vo
   );
 }
 export default function GeologicTime() {
+  const tr = useT();
   const { params, setParam } = useLabState("params", "setParam"),
     span = TIME_WINDOWS[Math.round(params.window ?? 0)],
     progress = params.position ?? 0.55,
@@ -105,8 +119,12 @@ export default function GeologicTime() {
       <ScienceStudio
         slug="geologic-time"
         camera={[4, 3.2, 5.7]}
-        scale={`Equal distance along the coil = equal time · window ${span} Ma to present`}
-        trueScale="Time is proportional to arc length in both views · this is not a rock section"
+        scale={tr("Equal distance along the coil = equal time · window {span} Ma to present", {
+          span: span,
+        })}
+        trueScale={tr(
+          "Time is proportional to arc length in both views · this is not a rock section",
+        )}
       >
         <Coil span={span} onPick={(f) => setParam("position", f)} />
         {GEOLOGIC_UNITS.filter((u) => u.old > 0 && u.young < span).map((u) => {
@@ -121,8 +139,17 @@ export default function GeologicTime() {
             <Tag
               key={u.name}
               pos={[p[0] + out.x, p[1] - 0.22, p[2] + out.z]}
-              text={u.old > span && span === TIME_WINDOWS[2] ? `Quaternary (${u.name})` : u.name}
-              note={`${u.name}: ${u.old.toLocaleString("en-US")}–${u.young.toLocaleString("en-US")} Ma, about ${(((u.old - u.young) / 4540) * 100).toFixed(1)}% of Earth history.`}
+              text={
+                u.old > span && span === TIME_WINDOWS[2]
+                  ? tr("Quaternary ({unit})", { unit: tr(u.name) })
+                  : tr(u.name)
+              }
+              note={tr("{unit}: {old}–{young} Ma, about {share}% of Earth history.", {
+                unit: tr(u.name),
+                old: u.old.toLocaleString("en-US"),
+                young: u.young.toLocaleString("en-US"),
+                share: (((u.old - u.young) / 4540) * 100).toFixed(1),
+              })}
             />
           );
         })}
@@ -133,8 +160,8 @@ export default function GeologicTime() {
           return (
             <InspectHotspot
               key={e.name}
-              name={`${e.name} · ${e.age < 1 ? e.age * 1000 + " ka" : e.age + " Ma"}`}
-              note={e.note}
+              name={`${tr(e.name)} · ${e.age < 1 ? e.age * 1000 + " ka" : e.age + " Ma"}`}
+              note={tr(e.note)}
             >
               <mesh position={p} onClick={() => setParam("position", f)}>
                 <octahedronGeometry args={[0.16, 0]} />
@@ -194,24 +221,33 @@ export default function GeologicTime() {
         <Line points={[selected, [2.6, 0.7, 1.5]]} color="#d8c6a0" />
         <Tag
           pos={[2.7, 0.8, 1.5]}
-          text={`${age < 10 ? age.toFixed(3) : age.toFixed(1)} Ma`}
-          note={`Selected time: ${unit.name}. Ma means millions of years before the present. Equal distance along the coil means equal time; neighboring turns are not close in time.`}
+          text={tr("{age} Ma", { age: age < 10 ? age.toFixed(3) : age.toFixed(1) })}
+          note={tr(
+            "Selected time: {unit}. Ma means millions of years before the present. Equal distance along the coil means equal time; neighboring turns are not close in time.",
+            { unit: unit.name },
+          )}
           occlude={false}
         />
         <Tag
           pos={[2.3, -1.55, -0.9]}
-          text={`${span} Ma`}
+          text={tr("{span} Ma", { span: span })}
           note={
             span === 4540
-              ? "Earth is about 4.54 billion years old. This window starts at that estimate, not at a dated rock boundary."
-              : "This window stretches a shorter interval along the coil. It does not change how long any unit lasted."
+              ? tr(
+                  "Earth is about 4.54 billion years old. This window starts at that estimate, not at a dated rock boundary.",
+                )
+              : tr(
+                  "This window stretches a shorter interval along the coil. It does not change how long any unit lasted.",
+                )
           }
           occlude={false}
         />
         <Tag
           pos={[1.5, 1.5, -0.6]}
-          text="Present"
-          note="Recorded human history is a tiny fraction of the full window. The marker is enlarged so you can see it; the time it stands for is not."
+          text={tr("Present")}
+          note={tr(
+            "Recorded human history is a tiny fraction of the full window. The marker is enlarged so you can see it; the time it stands for is not.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
@@ -219,20 +255,35 @@ export default function GeologicTime() {
         <div className="mb-1 flex flex-wrap justify-center gap-x-4 gap-y-1">
           {GEOLOGIC_UNITS.filter((u) => u.young < span).map((u) => (
             <span key={u.name} style={{ borderBottom: `2px solid ${u.color}` }}>
-              {u.name}
+              {tr(u.name)}
             </span>
           ))}
         </div>
-        {age < 2.58 ? "Quaternary · within the Cenozoic" : unit.name} ·{" "}
-        {age < 10 ? age.toFixed(3) : age.toFixed(1)}
-        {" Ma before present. One turn spans "}
-        {(span / 3).toFixed(2)} {"million years."} <br />
-        {`${span > 3 ? "Pale collars mark eon and era boundaries in their true positions (ICS chart, 2026/06 edition). " : "No era boundary falls in this window: all of it lies in the Quaternary Period of the Cenozoic Era. "}Thin dark rings mark every ${span > 1000 ? 500 : span > 100 ? 50 : 0.25} million years, and gray beads split the window into twelve equal parts of ${(span / 12).toFixed(span > 10 ? 1 : 3)} million years. The central column shows the same window unrolled, so each unit's height is its duration. The Phanerozoic begins at 538.8 Ma, and its eras differ greatly in length. Choose a shorter window to inspect recent time. The coil is a time axis, not a thickness of rock layers or an evolutionary ladder.`}
+        {tr("{unit} · {age} Ma before present. One turn spans {turn} million years.", {
+          unit: age < 2.58 ? tr("Quaternary · within the Cenozoic") : tr(unit.name),
+          age: age < 10 ? age.toFixed(3) : age.toFixed(1),
+          turn: (span / 3).toFixed(2),
+        })}{" "}
+        <br />
+        {(span > 3
+          ? tr(
+              "Pale collars mark eon and era boundaries in their true positions (ICS chart, 2026/06 edition).",
+            )
+          : tr(
+              "No era boundary falls in this window: all of it lies in the Quaternary Period of the Cenozoic Era.",
+            )) + " "}
+        {tr(
+          "Thin dark rings mark every {ring} million years, and gray beads split the window into twelve equal parts of {part} million years. The central column shows the same window unrolled, so each unit's height is its duration. The Phanerozoic begins at 538.8 Ma, and its eras differ greatly in length. Choose a shorter window to inspect recent time. The coil is a time axis, not a thickness of rock layers or an evolutionary ladder.",
+          {
+            ring: span > 1000 ? 500 : span > 100 ? 50 : 0.25,
+            part: (span / 12).toFixed(span > 10 ? 1 : 3),
+          },
+        )}
         <div className="pointer-events-auto mt-1 flex flex-wrap justify-center gap-2">
           {[
-            { age: 3500, label: "Evidence of life ≥3.5 Ga" },
-            { age: 250, label: "Pangaea ≈250 Ma" },
-            { age: 66, label: "K–Pg boundary 66 Ma" },
+            { age: 3500, label: tr("Evidence of life ≥3.5 Ga") },
+            { age: 250, label: tr("Pangaea ≈250 Ma") },
+            { age: 66, label: tr("K–Pg boundary 66 Ma") },
           ].map((mark) => (
             <button
               key={mark.age}

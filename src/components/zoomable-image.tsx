@@ -1,6 +1,7 @@
 import { LoadingProgress } from "@/components/loading-progress";
 import { useEffect, useRef, useState } from "react";
 import { photoSrcSet } from "@/lib/responsive-image";
+import { useT } from "@/lib/i18n";
 
 type View = { scale: number; x: number; y: number };
 const initial: View = { scale: 1, x: 0, y: 0 };
@@ -28,6 +29,7 @@ export function ZoomableImage({
   /** Display width hint; zooming in always switches to the full-size original. */
   sizes?: string;
 }) {
+  const t = useT();
   const image = useRef<HTMLImageElement>(null),
     [imageState, setImageState] = useState<"loading" | "ready" | "error">("loading"),
     [attempt, setAttempt] = useState(0);
@@ -87,8 +89,8 @@ export function ZoomableImage({
       className="relative overflow-hidden focus-visible:outline-2 focus-visible:outline-glacier"
       tabIndex={0}
       role="group"
-      aria-label={`${alt} ${"Ctrl + scroll to zoom; plus and minus keys also zoom; Escape resets."}`}
-      title={"Hold Ctrl and scroll to zoom. Drag the enlarged image to move it."}
+      aria-label={`${alt} ${t("Ctrl + scroll to zoom; plus and minus keys also zoom; Escape resets.")}`}
+      title={t("Hold Ctrl and scroll to zoom. Drag the enlarged image to move it.")}
       style={{
         minHeight: imageState === "ready" ? undefined : "9rem",
         touchAction: view.scale > 1 ? "none" : "auto",
@@ -163,7 +165,7 @@ export function ZoomableImage({
       />
       {imageState === "loading" && (
         <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-lg bg-basalt/95 p-3">
-          <LoadingProgress compact label={"Loading photograph"} />
+          <LoadingProgress compact label={t("Loading photograph")} />
         </div>
       )}
       {imageState === "error" && (
@@ -171,7 +173,7 @@ export function ZoomableImage({
           className="flex min-h-28 flex-col items-center justify-center gap-2 p-4 text-sm"
           role="alert"
         >
-          <span>{"Photograph unavailable."}</span>
+          <span>{t("Photograph unavailable.")}</span>
           <button
             className="min-h-11 underline"
             onClick={() => {
@@ -179,7 +181,7 @@ export function ZoomableImage({
               setAttempt((n) => n + 1);
             }}
           >
-            {"Retry photograph"}
+            {t("Retry photograph")}
           </button>
         </div>
       )}
@@ -188,10 +190,9 @@ export function ZoomableImage({
           type="button"
           onClick={() => setView(initial)}
           className="absolute right-2 top-2 min-h-11 rounded-full border border-white/20 bg-basalt/95 px-3 text-sm text-chalk"
-          aria-label={"Reset image zoom"}
+          aria-label={t("Reset image zoom")}
         >
-          {"Reset · "}
-          {view.scale.toFixed(1)}×
+          {t("Reset · {scale}×", { scale: view.scale.toFixed(1) })}
         </button>
       )}
     </div>

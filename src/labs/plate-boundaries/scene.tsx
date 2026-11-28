@@ -9,6 +9,7 @@ import { latLonToXYZ } from "@/lib/geo";
 import * as THREE from "three";
 import { useLayoutEffect, useRef, type ReactNode } from "react";
 import { useThree } from "@react-three/fiber";
+import { msg, useT } from "@/lib/i18n";
 
 const HAWAII = { lat: 19.4, lon: -155.3 };
 
@@ -38,6 +39,7 @@ function GlobeSpin({ faceHawaii, children }: { faceHawaii: boolean; children: Re
 
 export default function Plates() {
   const { params } = useLabState("params");
+  const tr = useT();
   useLabTick(1 / 16);
   const age = params.ageMa ?? 0,
     section = params.section > 0.5,
@@ -49,13 +51,15 @@ export default function Plates() {
         slug="plate-boundaries"
         scale={
           section
-            ? "Schematic cross-section · arrows show relative motion"
-            : "Globe to scale · boundaries from Bird PB2002 · reconstructed coastlines from GPlates"
+            ? tr("Schematic cross-section · arrows show relative motion")
+            : tr(
+                "Globe to scale · boundaries from Bird PB2002 · reconstructed coastlines from GPlates",
+              )
         }
         trueScale={
           section
-            ? "Schematic cross-section · no measured length or speed scale"
-            : "Spherical geometry unchanged · marker sizes enlarged for legibility"
+            ? tr("Schematic cross-section · no measured length or speed scale")
+            : tr("Spherical geometry unchanged · marker sizes enlarged for legibility")
         }
         camera={section ? [3.5, 2.3, 6.5] : [2.8, 1.2, 3.8]}
       >
@@ -72,9 +76,9 @@ export default function Plates() {
                 <Tag
                   key={e.text}
                   pos={latLonToXYZ(e.lat, e.lon, 1.3)}
-                  text={e.text}
-                  short={e.short}
-                  note={e.note}
+                  text={tr(e.text)}
+                  short={tr(e.short)}
+                  note={tr(e.note)}
                   tone={e.tone}
                   priority={e.priority ?? 0}
                 />
@@ -84,8 +88,10 @@ export default function Plates() {
                 <CityMarker lat={HAWAII.lat} lon={HAWAII.lon} radius={1.26} color="#f99c75" />
                 <Tag
                   pos={latLonToXYZ(HAWAII.lat, HAWAII.lon, 1.4)}
-                  text="Hawaiʻi hotspot"
-                  note="Young volcanism at the southeastern end of the Hawaiian chain. Older islands extend northwest as the Pacific plate moves relative to the hotspot."
+                  text={tr("Hawaiʻi hotspot")}
+                  note={tr(
+                    "Young volcanism at the southeastern end of the Hawaiian chain. Older islands extend northwest as the Pacific plate moves relative to the hotspot.",
+                  )}
                 />
               </>
             )}
@@ -95,22 +101,22 @@ export default function Plates() {
       <ScienceReadout>
         {section ? (
           [
-            "The plates separate, allowing new oceanic crust to form at the ridge.",
-            "An oceanic plate descends beneath another plate at this convergent boundary.",
-            "The plates slide past one another along a transform boundary.",
+            tr("The plates separate, allowing new oceanic crust to form at the ridge."),
+            tr("An oceanic plate descends beneath another plate at this convergent boundary."),
+            tr("The plates slide past one another along a transform boundary."),
           ][kind]
         ) : age < 5 ? (
           <>
             <p>
-              Present-day plate boundaries. White arrows show the direction each plate moves
-              relative to the hotspots; arrow length is not speed. A boundary&apos;s type depends on
-              how the two plates move relative to each other.
+              {tr(
+                "Present-day plate boundaries. White arrows show the direction each plate moves relative to the hotspots; arrow length is not speed. A boundary's type depends on how the two plates move relative to each other.",
+              )}
             </p>
             <div className="mt-2 grid grid-cols-3 gap-2 text-sm">
               {[
-                { name: "Divergent", color: "#69dfce" },
-                { name: "Convergent", color: "#f39676" },
-                { name: "Transform", color: "#e5ca85" },
+                { name: tr("Divergent"), color: "#69dfce" },
+                { name: tr("Convergent"), color: "#f39676" },
+                { name: tr("Transform"), color: "#e5ca85" },
               ].map((item) => (
                 <span key={item.name} className="rounded-lg border border-white/15 px-2 py-2">
                   <span
@@ -123,12 +129,20 @@ export default function Plates() {
             </div>
           </>
         ) : (
-          `Continental positions ${Math.round(age / 10) * 10} million years ago. Move toward the present to compare how the continents have shifted.`
+          tr(
+            "Continental positions {age} million years ago. Move toward the present to compare how the continents have shifted.",
+            { age: Math.round(age / 10) * 10 },
+          )
         )}
-        {hotspot && age >= 5 && !section && " Return to the present to locate Hawaiʻi."} <br />
+        {hotspot && age >= 5 && !section && " " + tr("Return to the present to locate Hawaiʻi.")}{" "}
+        <br />
         {section
-          ? "Arrows show relative plate motion. Compare the section with the surface pattern on the globe."
-          : "The older views carry modern coastlines backward using a plate reconstruction; past sea levels and shorelines also differed."}
+          ? tr(
+              "Arrows show relative plate motion. Compare the section with the surface pattern on the globe.",
+            )
+          : tr(
+              "The older views carry modern coastlines backward using a plate reconstruction; past sea levels and shorelines also differed.",
+            )}
       </ScienceReadout>
     </>
   );
@@ -147,52 +161,64 @@ const EXAMPLES: {
   {
     lat: 35.8,
     lon: -120.4,
-    text: "San Andreas Fault · transform",
-    short: "San Andreas",
+    text: msg("San Andreas Fault · transform"),
+    short: msg("San Andreas"),
     tone: "sandstone",
     priority: 1,
-    note: "The Pacific plate slides northwest past the North American plate, about 4–5 cm per year across the whole boundary. Crust is neither made nor destroyed, but stuck sections slip in earthquakes.",
+    note: msg(
+      "The Pacific plate slides northwest past the North American plate, about 4–5 cm per year across the whole boundary. Crust is neither made nor destroyed, but stuck sections slip in earthquakes.",
+    ),
   },
   {
     lat: 45,
     lon: -125.5,
-    text: "Cascadia · convergent",
-    short: "Cascadia",
+    text: msg("Cascadia · convergent"),
+    short: msg("Cascadia"),
     tone: "magma",
-    note: "The small Juan de Fuca plate sinks beneath North America. Melting above it feeds the Cascade volcanoes, including Mount St. Helens and Mount Rainier.",
+    note: msg(
+      "The small Juan de Fuca plate sinks beneath North America. Melting above it feeds the Cascade volcanoes, including Mount St. Helens and Mount Rainier.",
+    ),
   },
   {
     lat: -30,
     lon: -13.5,
-    text: "Mid-Atlantic Ridge · divergent",
-    short: "Mid-Atlantic Ridge",
+    text: msg("Mid-Atlantic Ridge · divergent"),
+    short: msg("Mid-Atlantic Ridge"),
     tone: "glacier",
     priority: 1,
-    note: "The plates on either side move apart by a few centimeters a year. Magma rises into the gap and forms new ocean floor, so the Atlantic is slowly widening.",
+    note: msg(
+      "The plates on either side move apart by a few centimeters a year. Magma rises into the gap and forms new ocean floor, so the Atlantic is slowly widening.",
+    ),
   },
   {
     lat: -20,
     lon: -71.8,
-    text: "Peru–Chile Trench · convergent",
-    short: "Peru–Chile Trench",
+    text: msg("Peru–Chile Trench · convergent"),
+    short: msg("Peru–Chile Trench"),
     tone: "magma",
-    note: "The Nazca plate dives beneath South America. The deep trench, the Andes and their volcanoes and large earthquakes all come from this subduction.",
+    note: msg(
+      "The Nazca plate dives beneath South America. The deep trench, the Andes and their volcanoes and large earthquakes all come from this subduction.",
+    ),
   },
   {
     lat: 28.5,
     lon: 84,
-    text: "Himalaya · collision",
-    short: "Himalaya",
+    text: msg("Himalaya · collision"),
+    short: msg("Himalaya"),
     tone: "magma",
-    note: "Two continents meet: India pushes north into Eurasia. Continental crust is too buoyant to sink far, so it crumples and thickens into the highest mountains on Earth.",
+    note: msg(
+      "Two continents meet: India pushes north into Eurasia. Continental crust is too buoyant to sink far, so it crumples and thickens into the highest mountains on Earth.",
+    ),
   },
   {
     lat: 1,
     lon: 36.5,
-    text: "East African Rift · divergent",
-    short: "East African Rift",
+    text: msg("East African Rift · divergent"),
+    short: msg("East African Rift"),
     tone: "glacier",
-    note: "A continent beginning to split: the Somali plate pulls away from the rest of Africa, opening rift valleys with volcanoes such as Kilimanjaro nearby.",
+    note: msg(
+      "A continent beginning to split: the Somali plate pulls away from the rest of Africa, opening rift valleys with volcanoes such as Kilimanjaro nearby.",
+    ),
   },
 ];
 

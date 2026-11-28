@@ -5,7 +5,8 @@ import { EarthMesh, Atmosphere } from "@/components/globe/earth";
 import { StarMesh } from "@/components/globe/star";
 import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
-import { LUNAR, lunarPosition, illuminatedFraction } from "@/lib/lunar-science";
+import { LUNAR, lunarPosition, illuminatedFraction, phaseName } from "@/lib/lunar-science";
+import { useT } from "@/lib/i18n";
 import { LunarSurface } from "../shared/lunar-model";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { FlowWaterMaterial } from "../shared/flow-water";
@@ -42,6 +43,7 @@ function PotentialEnvelope({ radius, moon }: { radius: number; moon: [number, nu
 }
 export default function Tides() {
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
+  const tr = useT();
   useLabTick(1 / 32);
   const distance = params.distance ?? LUNAR.distance,
     node = params.node ?? 60,
@@ -50,16 +52,7 @@ export default function Tides() {
     position = moon.map((v) => (v * 2.8) / distance) as [number, number, number],
     radius = trueScale ? (2.8 * LUNAR.earth) / distance : 0.92,
     fraction = illuminatedFraction(moon);
-  const phase =
-    fraction < 0.01
-      ? "New Moon"
-      : fraction > 0.99
-        ? "Full Moon"
-        : Math.abs(fraction - 0.5) < 0.04
-          ? "Quarter Moon"
-          : fraction < 0.5
-            ? "Crescent Moon"
-            : "Gibbous Moon";
+  const phase = tr(phaseName(t, fraction));
   const trace = Array.from({ length: 193 }, (_, i) => {
     const a = (i / 192) * Math.PI * 2,
       n: [number, number, number] = [Math.cos(a), 0, Math.sin(a)],
@@ -71,10 +64,10 @@ export default function Tides() {
     springness = (range - NEAP_RANGE) / (SPRING_RANGE - NEAP_RANGE),
     tideState =
       springness > 0.85
-        ? "spring tides (largest range)"
+        ? tr("spring tides (largest range)")
         : springness < 0.15
-          ? "neap tides (smallest range)"
-          : "between spring and neap";
+          ? tr("neap tides (smallest range)")
+          : tr("between spring and neap");
   const moonLength = Math.hypot(...moon),
     farLobe = moon.map((v) => (-v / moonLength) * radius * (BASE + GAIN * 1.2)) as [
       number,
@@ -88,8 +81,12 @@ export default function Tides() {
         camera={[2, 6.6, 5]}
         lights={false}
         space
-        scale="Earth and Moon enlarged · blue surface shows the tidal effect, greatly exaggerated"
-        trueScale="Earth–Moon sizes and separation share one scale · blue tidal surface still exaggerated"
+        scale={tr(
+          "Earth and Moon enlarged · blue surface shows the tidal effect, greatly exaggerated",
+        )}
+        trueScale={tr(
+          "Earth–Moon sizes and separation share one scale · blue tidal surface still exaggerated",
+        )}
       >
         <directionalLight position={[10, 3, 2]} intensity={3} />
         <ambientLight intensity={0.16} />
@@ -130,14 +127,18 @@ export default function Tides() {
           pos={[position[0], position[1] + radius * 0.4 + 0.22, position[2]]}
           text={phase}
           priority={2}
-          note="The blue surface adds the Moon's and the Sun's tidal effects. Over one synodic month the Moon's direction changes relative to the Sun."
+          note={tr(
+            "The blue surface adds the Moon's and the Sun's tidal effects. Over one synodic month the Moon's direction changes relative to the Sun.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[farLobe[0], farLobe[1] - radius * 0.35, farLobe[2]]}
-          text="Two tidal lobes"
+          text={tr("Two tidal lobes")}
           priority={1}
-          note="The blue surface is an enlarged picture of the tide-raising effect, not a layer of ocean or a predicted water height. Ocean basins, friction and coastlines set real tide times and ranges."
+          note={tr(
+            "The blue surface is an enlarged picture of the tide-raising effect, not a layer of ocean or a predicted water height. Ocean basins, friction and coastlines set real tide times and ranges.",
+          )}
           occlude={false}
         />
         <group position={[3.95, 0.6, 0]}>
@@ -145,24 +146,29 @@ export default function Tides() {
         </group>
         <Tag
           pos={[3.95, 1.15, 0]}
-          text="Sun direction"
-          note="The Sun stays in one direction in this view. At new and full Moon the lunar and solar effects add; at the quarters they partly cancel."
+          text={tr("Sun direction")}
+          note={tr(
+            "The Sun stays in one direction in this view. At new and full Moon the lunar and solar effects add; at the quarters they partly cancel.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Day "}
-        {(t * 29.53059).toFixed(1)} {"of an ideal synodic month · "}
-        {(fraction * 100).toFixed(1)}
-        {"% illuminated · "}
-        {tideState}
-        {" · relative equatorial range "}
-        {range.toFixed(2)} {"(spring 2.19, neap 0.81) · Moon "}
-        {(distance / 1000).toFixed(1)} {"thousand km away."} <br />
-        <span className="formula">{"Lunar tidal strength ∝ 1/r³"}</span>
-        {
-          "; the Sun's effect is 0.46 of the Moon's at mean distance. Earth rotates beneath a pattern that follows the Moon and Sun. This is not a forecast of tide times or heights."
-        }
+        {tr(
+          "Day {day} of an ideal synodic month · {lit}% illuminated · {tide} · relative equatorial range {range} (spring 2.19, neap 0.81) · Moon {km} thousand km away.",
+          {
+            day: (t * 29.53059).toFixed(1),
+            lit: (fraction * 100).toFixed(1),
+            tide: tideState,
+            range: range.toFixed(2),
+            km: (distance / 1000).toFixed(1),
+          },
+        )}{" "}
+        <br />
+        <span className="formula">{tr("Lunar tidal strength ∝ 1/r³")}</span>
+        {tr(
+          "; the Sun's effect is 0.46 of the Moon's at mean distance. Earth rotates beneath a pattern that follows the Moon and Sun. This is not a forecast of tide times or heights.",
+        )}
       </ScienceReadout>
     </>
   );

@@ -11,6 +11,7 @@ import { landSectionGlsl } from "../shared/land-section";
 import { REAL_TERRAIN_CREDIT, siteFrame, useRealHeights } from "../shared/real-terrain";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { contours, hillHeight } from "./geometry";
+import { useT } from "@/lib/i18n";
 
 const SIDES = landSectionGlsl({ rock: "sandstone", soil: 0.03, regolith: 0.05, beds: 12 });
 /** A height field in meters on the 6 × 4 block, with its scale and highest point. */
@@ -46,6 +47,7 @@ const MODEL: Field = (() => {
 const REAL_ID = "sugarloaf-md" as const;
 
 export default function Contours() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale");
   const interval = params.interval ?? 10,
     real = (params.place ?? 0) > 0.5,
@@ -117,8 +119,8 @@ export default function Contours() {
   }, [field, lines, labelStep, spot, interval]);
   if (!field || !g)
     return (
-      <ScienceStudio slug="contours" scale="Loading USGS elevation…" camera={[4.8, 5.8, 7]}>
-        <Tag pos={[0, 0.4, 0]} text="Loading Sugarloaf Mountain…" occlude={false} />
+      <ScienceStudio slug="contours" scale={tr("Loading USGS elevation…")} camera={[4.8, 5.8, 7]}>
+        <Tag pos={[0, 0.4, 0]} text={tr("Loading Sugarloaf Mountain…")} occlude={false} />
       </ScienceStudio>
     );
   const y = (h: number) => ((h - field.lo) / field.unitM) * factor;
@@ -138,13 +140,21 @@ export default function Contours() {
         fitKey={real ? "real" : "model"}
         scale={
           real
-            ? `Real terrain, Sugarloaf Mountain, Maryland · height exaggerated ×2.5 · ${REAL_TERRAIN_CREDIT}`
-            : "Height exaggerated ×2.5 · Compare physical scale shows equal horizontal and vertical scales"
+            ? tr(
+                "Real terrain, Sugarloaf Mountain, Maryland · height exaggerated ×2.5 · {REALTERRAINCREDIT}",
+                { REALTERRAINCREDIT: tr(REAL_TERRAIN_CREDIT) },
+              )
+            : tr(
+                "Height exaggerated ×2.5 · Compare physical scale shows equal horizontal and vertical scales",
+              )
         }
         trueScale={
           real
-            ? `1 scene unit = ${Math.round(field.unitM)} m in all directions · ${REAL_TERRAIN_CREDIT}`
-            : "1 scene unit = 100 m in all directions"
+            ? tr("1 scene unit = {round} m in all directions · {REALTERRAINCREDIT}", {
+                round: Math.round(field.unitM),
+                REALTERRAINCREDIT: tr(REAL_TERRAIN_CREDIT),
+              })
+            : tr("1 scene unit = 100 m in all directions")
         }
         camera={[4.8, 5.8, 7]}
       >
@@ -184,8 +194,12 @@ export default function Contours() {
               text={`${l.height} m`}
               note={
                 real
-                  ? "Index contours are drawn bold and labeled with their height above sea level, so you can tell which way is uphill."
-                  : "Index contours are drawn bold and labeled with their height, so you can tell which way is uphill."
+                  ? tr(
+                      "Index contours are drawn bold and labeled with their height above sea level, so you can tell which way is uphill.",
+                    )
+                  : tr(
+                      "Index contours are drawn bold and labeled with their height, so you can tell which way is uphill.",
+                    )
               }
               tone="sandstone"
             />
@@ -194,16 +208,20 @@ export default function Contours() {
             <>
               <Tag
                 pos={[VALLEY[0], y(hillHeight(...VALLEY)) + 0.12, VALLEY[1]]}
-                text="Valley"
+                text={tr("Valley")}
                 priority={1}
-                note="Low ground between two slopes. Where contours cross it, their V points uphill (upstream)."
+                note={tr(
+                  "Low ground between two slopes. Where contours cross it, their V points uphill (upstream).",
+                )}
                 tone="glacier"
               />
               <Tag
                 pos={[SPUR[0], y(hillHeight(...SPUR)) + 0.12, SPUR[1]]}
-                text="Spur"
+                text={tr("Spur")}
                 priority={1}
-                note="A ridge of high ground sticking out from the hill. Its contours bend into a V or U that points downhill."
+                note={tr(
+                  "A ridge of high ground sticking out from the hill. Its contours bend into a V or U that points downhill.",
+                )}
                 tone="moss"
               />
             </>
@@ -211,9 +229,11 @@ export default function Contours() {
           {real && (
             <Tag
               pos={[field.summit[0], y(field.hi) + 0.32, field.summit[1]]}
-              text={`Summit · ${Math.round(field.hi)} m`}
+              text={tr("Summit · {round} m", { round: Math.round(field.hi) })}
               priority={1}
-              note="The highest point in this block of USGS elevation data. Look for spurs (contour Vs pointing downhill) and valleys (Vs pointing uphill) on its flanks."
+              note={tr(
+                "The highest point in this block of USGS elevation data. Look for spurs (contour Vs pointing downhill) and valleys (Vs pointing uphill) on its flanks.",
+              )}
               occlude={false}
             />
           )}
@@ -248,8 +268,10 @@ export default function Contours() {
             priority={2}
             note={
               real
-                ? "Click any point on the surface to measure its elevation above sea level."
-                : "Click any point on the surface to measure its elevation above this model's datum."
+                ? tr("Click any point on the surface to measure its elevation above sea level.")
+                : tr(
+                    "Click any point on the surface to measure its elevation above this model's datum.",
+                  )
             }
             occlude={false}
           />
@@ -275,7 +297,7 @@ export default function Contours() {
           />
           <Tag
             pos={[-2.55 + barUnits, 0.01, 2.2]}
-            text={real ? "1 km" : "100 m"}
+            text={real ? tr("1 km") : "100 m"}
             occlude={false}
             priority={1}
           />
@@ -286,7 +308,7 @@ export default function Contours() {
           viewBox="0 0 240 64"
           className="mx-auto mb-1 block h-16 w-full max-w-md"
           role="img"
-          aria-label="Cross-section from A to B through the clicked point"
+          aria-label={tr("Cross-section from A to B through the clicked point")}
         >
           <line x1="12" y1="56" x2="232" y2="56" stroke="currentColor" strokeOpacity="0.3" />
           <polygon
@@ -300,18 +322,21 @@ export default function Contours() {
             A
           </text>
           <text x="232" y="9" fontSize="8" fill="currentColor" fillOpacity="0.7" textAnchor="end">
-            {`Height exaggerated ×${profileExaggeration.toFixed(1)}`}
+            {tr("Height exaggerated ×{factor}", { factor: profileExaggeration.toFixed(1) })}
           </text>
           <text x="234" y="60" fontSize="9" fill="currentColor">
             B
           </text>
         </svg>
-        {"Contour interval "}
-        {interval} {"m · clicked point "}
-        {sampled.toFixed(1)}{" "}
         {real
-          ? "m above sea level. This is real USGS elevation for Sugarloaf Mountain, Maryland. Click the mountain to check a height and draw the A–B cross-section; turn off “3D hill” for the contour map."
-          : "m. Click the hill to check a height and draw the A–B cross-section through that point. Turn off “3D hill” and look from above for its contour map; the elevations stay the same."}
+          ? tr(
+              "Contour interval {interval} m · clicked point {height} m above sea level. This is real USGS elevation for Sugarloaf Mountain, Maryland. Click the mountain to check a height and draw the A–B cross-section; turn off “3D hill” for the contour map.",
+              { interval, height: sampled.toFixed(1) },
+            )
+          : tr(
+              "Contour interval {interval} m · clicked point {height} m. Click the hill to check a height and draw the A–B cross-section through that point. Turn off “3D hill” and look from above for its contour map; the elevations stay the same.",
+              { interval, height: sampled.toFixed(1) },
+            )}
       </ScienceReadout>
     </>
   );

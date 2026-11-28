@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { ExternalLink } from "lucide-react";
 import { classroomShareUrl } from "@/lib/classroom-share";
+import { useT } from "@/lib/i18n";
 
 /**
  * A plain link to Google Classroom's share page, opened in a new tab. `href` is the address to
@@ -11,13 +12,14 @@ export function ClassroomShare({
   href,
   current,
   className,
-  children = "Share to Google Classroom",
+  children,
 }: {
   href: string;
   current?: () => string;
   className?: string;
   children?: ReactNode;
 }) {
+  const t = useT();
   return (
     <a
       href={classroomShareUrl(href)}
@@ -29,9 +31,9 @@ export function ClassroomShare({
         if (url) event.currentTarget.href = classroomShareUrl(url);
       }}
     >
-      {children}
+      {children ?? t("Share to Google Classroom")}
       <ExternalLink aria-hidden className="ml-1 inline size-3.5 align-[-2px]" />
-      <span className="sr-only">{" (opens in a new tab)"}</span>
+      <span className="sr-only">{t(" (opens in a new tab)")}</span>
     </a>
   );
 }

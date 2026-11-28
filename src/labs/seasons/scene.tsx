@@ -10,6 +10,7 @@ import { Tag } from "../shared/kit";
 import { StarMesh } from "@/components/globe/star";
 import { latLonToXYZ } from "@/lib/geo";
 import { useIsCompact } from "@/hooks/use-media";
+import { useT } from "@/lib/i18n";
 /** Earth's axis: a rod through the poles with an arrowhead at the north end, toward Polaris. */
 function AxisRod({ length, thickness }: { length: number; thickness: number }) {
   return (
@@ -58,6 +59,7 @@ const SeasonEarth = memo(function SeasonEarth({
 
 export default function Seasons() {
   const [close, setClose] = useState(false);
+  const tr = useT();
   const compact = useIsCompact();
   const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 36);
@@ -105,13 +107,17 @@ export default function Seasons() {
         slug="seasons"
         scale={
           close
-            ? "Earth close-up · rays show sunlight direction · same tilt and year controls"
-            : "Earth enlarged · smaller Earths mark the solstices and equinoxes · the axis keeps one direction in space · physical scale shows true sizes and distances"
+            ? tr("Earth close-up · rays show sunlight direction · same tilt and year controls")
+            : tr(
+                "Earth enlarged · smaller Earths mark the solstices and equinoxes · the axis keeps one direction in space · physical scale shows true sizes and distances",
+              )
         }
         trueScale={
           close
-            ? "Spherical Earth · surface locations to scale · arrows are direction symbols"
-            : "Earth radius and orbit distance share one scale · Earth is a tiny dot at this scale"
+            ? tr("Spherical Earth · surface locations to scale · arrows are direction symbols")
+            : tr(
+                "Earth radius and orbit distance share one scale · Earth is a tiny dot at this scale",
+              )
         }
         lights={false}
         space
@@ -151,8 +157,10 @@ export default function Seasons() {
             <Tag
               pos={[0, 0.15, -0.95]}
               occlude={false}
-              text="Sun"
-              note="The Sun sits at one focus of the orbit. Orbit stretch is a what-if setting; Earth's real eccentricity is about 0.0167."
+              text={tr("Sun")}
+              note={tr(
+                "The Sun sits at one focus of the orbit. Orbit stretch is a what-if setting; Earth's real eccentricity is about 0.0167.",
+              )}
             />
           </>
         )}
@@ -199,9 +207,11 @@ export default function Seasons() {
               // At the southern end of the axis, clear of the declination label above.
               <Tag
                 pos={[0, -radius * 1.5, 0]}
-                text={`Axis · ${tilt.toFixed(1)}° tilt`}
-                short="Axis"
-                note="Earth spins about this axis once a day. It keeps pointing the same way in space (toward Polaris) all year, so the Northern Hemisphere leans toward the Sun in June and away from it in December."
+                text={tr("Axis · {tilt}° tilt", { tilt: tilt.toFixed(1) })}
+                short={tr("Axis")}
+                note={tr(
+                  "Earth spins about this axis once a day. It keeps pointing the same way in space (toward Polaris) all year, so the Northern Hemisphere leans toward the Sun in June and away from it in December.",
+                )}
                 occlude={false}
               />
             )}
@@ -212,17 +222,21 @@ export default function Seasons() {
           // it faces the default view.
           <Tag
             pos={new THREE.Vector3(0.121, -0.3, 0.993).normalize().multiplyScalar(1.1).toArray()}
-            text="Terminator · day–night line"
-            short="Terminator"
-            note="The edge between day and night. Where it crosses a line of latitude shows how long the day is there; at the equinoxes it cuts every parallel in half, giving 12 hours of daylight everywhere."
+            text={tr("Terminator · day–night line")}
+            short={tr("Terminator")}
+            note={tr(
+              "The edge between day and night. Where it crosses a line of latitude shows how long the day is there; at the equinoxes it cuts every parallel in half, giving 12 hours of daylight everywhere.",
+            )}
             occlude={false}
           />
         )}
         {close && (
           <Tag
             pos={[center[0], 1.6, center[2]]}
-            text={`Declination ${declination.toFixed(1)}°`}
-            note="Latitude directly under the Sun. North keeps a fixed direction while Earth orbits."
+            text={tr("Declination {deg}°", { deg: declination.toFixed(1) })}
+            note={tr(
+              "Latitude directly under the Sun. North keeps a fixed direction while Earth orbits.",
+            )}
             occlude={false}
           />
         )}
@@ -231,12 +245,18 @@ export default function Seasons() {
             // Each label sits just above (below, for the March Earth nearest the viewer) its
             // Earth, clear of the Sun at the center.
             const p = orbitPosition(v, ecc, 2.65),
-              names = ["March equinox", "June solstice", "September equinox", "December solstice"];
+              names = [
+                tr("March equinox"),
+                tr("June solstice"),
+                tr("September equinox"),
+                tr("December solstice"),
+              ],
+              months = [tr("Mar"), tr("Jun"), tr("Sep"), tr("Dec")];
             return (
               <Tag
                 key={i}
                 pos={[p[0], i === 0 ? -0.95 : 0.95, p[2]]}
-                text={compact ? ["Mar", "Jun", "Sep", "Dec"][i] : names[i]}
+                text={compact ? months[i] : names[i]}
                 title={names[i]}
                 occlude={false}
               />
@@ -247,37 +267,38 @@ export default function Seasons() {
         <div
           className="pointer-events-auto mb-1 flex justify-center gap-2"
           role="group"
-          aria-label={"Season model view"}
+          aria-label={tr("Season model view")}
         >
           <button
             className={`min-h-11 rounded-lg border border-white/15 px-3 ${!close ? "text-glacier" : ""}`}
             aria-pressed={!close}
             onClick={() => setClose(false)}
           >
-            {"Orbit overview"}
+            {tr("Orbit overview")}
           </button>
           <button
             className={`min-h-11 rounded-lg border border-white/15 px-3 ${close ? "text-glacier" : ""}`}
             aria-pressed={close}
             onClick={() => setClose(true)}
           >
-            {"Earth close-up"}
+            {tr("Earth close-up")}
           </button>
         </div>
-        {"Declination "}
-        {declination.toFixed(1)}
-        {"° · New York "}
-        {daylight(40.7).toFixed(1)} {"h daylight · Sydney "}
-        {daylight(-33.87).toFixed(1)}{" "}
-        {"h · geometric horizon. Gold: tropics · blue: polar circles. Tilt "}
-        {tilt.toFixed(1)}
-        {"°; distance "}
-        {(new THREE.Vector3(...position).length() / 2.65).toFixed(3)} {"AU. "}
+        {tr(
+          "Declination {deg}° · New York {ny} h daylight · Sydney {syd} h · geometric horizon. Gold: tropics · blue: polar circles. Tilt {tilt}°; distance {au} AU.",
+          {
+            deg: declination.toFixed(1),
+            ny: daylight(40.7).toFixed(1),
+            syd: daylight(-33.87).toFixed(1),
+            tilt: tilt.toFixed(1),
+            au: (new THREE.Vector3(...position).length() / 2.65).toFixed(3),
+          },
+        )}{" "}
         {ecc > 0.001
-          ? "Stretched orbit: labels mark directions, not equal time intervals."
+          ? tr("Stretched orbit: labels mark directions, not equal time intervals.")
           : tilt < 0.05
-            ? "No tilt: 12-hour days everywhere except at the poles."
-            : "Set Axial tilt to 0° to see 12-hour days all year."}
+            ? tr("No tilt: 12-hour days everywhere except at the poles.")
+            : tr("Set Axial tilt to 0° to see 12-hour days all year.")}
       </ScienceReadout>
     </>
   );

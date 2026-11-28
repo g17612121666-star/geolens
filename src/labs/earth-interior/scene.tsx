@@ -10,33 +10,42 @@ import { shellSection } from "../shared/science-geometry";
 import { useRockNormal } from "../shared/materials";
 import { SectionMaterial } from "../shared/section-material";
 import { useSectionUniforms } from "../shared/section-utils";
+import { msg, useT } from "@/lib/i18n";
 
 const layers = [
   {
-    name: "Crust",
+    name: msg("Crust"),
     color: "#8d8065",
-    note: "Solid rock. Oceanic crust is commonly 5–10 km thick; continental crust commonly 30–50 km. This reference section uses 35 km.",
+    note: msg(
+      "Solid rock. Oceanic crust is commonly 5–10 km thick; continental crust commonly 30–50 km. This reference section uses 35 km.",
+    ),
     rough: 0.92,
     metal: 0.02,
   },
   {
-    name: "Mantle · solid",
+    name: msg("Mantle · solid"),
     color: "#80704f",
-    note: "Mostly solid silicate rock. It deforms and convects over geological time; it is not a global magma ocean. Base: about 2,890 km depth.",
+    note: msg(
+      "Mostly solid silicate rock. It deforms and convects over geological time; it is not a global magma ocean. Base: about 2,890 km depth.",
+    ),
     rough: 0.84,
     metal: 0.03,
   },
   {
-    name: "Outer core · liquid",
+    name: msg("Outer core · liquid"),
     color: "#ae875b",
-    note: "Liquid iron-rich alloy, from about 2,890 to 5,150 km depth. Transmits P waves but not S (shear) waves. The smooth metallic sheen marks the material; it is not a map of flow.",
+    note: msg(
+      "Liquid iron-rich alloy, from about 2,890 to 5,150 km depth. Transmits P waves but not S (shear) waves. The smooth metallic sheen marks the material; it is not a map of flow.",
+    ),
     rough: 0.2,
     metal: 0.96,
   },
   {
-    name: "Inner core · solid",
+    name: msg("Inner core · solid"),
     color: "#d4d2bf",
-    note: "Solid iron-rich alloy, radius about 1,221 km. High pressure keeps it solid despite its very high temperature. The fine metallic texture marks the material; it does not show real crystal sizes.",
+    note: msg(
+      "Solid iron-rich alloy, radius about 1,221 km. High pressure keeps it solid despite its very high temperature. The fine metallic texture marks the material; it does not show real crystal sizes.",
+    ),
     rough: 0.42,
     metal: 0.9,
   },
@@ -272,6 +281,7 @@ function Layer({
   const g = useMemo(() => shellSection(inner, outer, opening), [inner, outer, opening]);
   useEffect(() => () => g.dispose(), [g]);
   const compact = useIsCompact();
+  const tr = useT();
   const labels = useLabControls((s) => s.labels);
   // A closed globe shows only the crust, so interior tags would point at the surface.
   const showTag = labels && (index === 0 || opening > 0.15);
@@ -283,7 +293,7 @@ function Layer({
   day.anisotropy = 16;
   return (
     <group position={[-offset, 0, 0]}>
-      <InspectHotspot name={l.name} note={l.note}>
+      <InspectHotspot name={tr(l.name)} note={tr(l.note)}>
         <mesh geometry={g} castShadow receiveShadow>
           {index < 2 ? (
             <>
@@ -350,9 +360,9 @@ function Layer({
           />
           <Tag
             pos={[1.05, (1.5 - index) * 0.48, -1.2]}
-            text={compact ? String(index + 1) : l.name}
-            title={`${index + 1} · ${l.name}`}
-            note={l.note}
+            text={compact ? String(index + 1) : tr(l.name)}
+            title={`${index + 1} · ${tr(l.name)}`}
+            note={tr(l.note)}
             occlude={false}
           />
         </>
@@ -462,6 +472,7 @@ function SectionClock({ uniforms }: { uniforms: Record<string, { value: unknown 
 
 export default function EarthInterior() {
   const compact = useIsCompact();
+  const tr = useT();
   const { trueScale, explode, slice, params } = useLabState(
     "trueScale",
     "explode",
@@ -482,8 +493,8 @@ export default function EarthInterior() {
     <>
       <ScienceStudio
         slug="earth-interior"
-        scale="Crust ×4 thickness · T restores a 35 km reference crust"
-        trueScale="Radii to scale · 35 km reference crust · colors identify materials"
+        scale={tr("Crust ×4 thickness · T restores a 35 km reference crust")}
+        trueScale={tr("Radii to scale · 35 km reference crust · colors identify materials")}
         camera={[3.8, 1.5, 3]}
       >
         <SectionClock uniforms={uniforms} />
@@ -514,7 +525,7 @@ export default function EarthInterior() {
             onClick={() => setHeat(false)}
             className={`min-h-11 rounded-lg border px-3 ${!heat ? "border-glacier text-glacier" : "border-white/15"}`}
           >
-            {"Materials"}
+            {tr("Materials")}
           </button>
           <button
             type="button"
@@ -522,7 +533,7 @@ export default function EarthInterior() {
             onClick={() => setHeat(true)}
             className={`min-h-11 rounded-lg border px-3 ${heat ? "border-glacier text-glacier" : "border-white/15"}`}
           >
-            {"Temperature"}
+            {tr("Temperature")}
           </button>
           {heat && (
             <span className="flex items-center gap-2 text-xs">
@@ -536,24 +547,34 @@ export default function EarthInterior() {
           )}
         </div>
         {heat &&
-          "Cut faces show approximate temperature with depth: it climbs steeply through the crust, slowly through the mantle, then rises sharply again near the core–mantle boundary. "}
+          tr(
+            "Cut faces show approximate temperature with depth: it climbs steeply through the crust, slowly through the mantle, then rises sharply again near the core–mantle boundary.",
+          ) + " "}
         {compact && (
           <div className="mb-2 grid grid-cols-2 gap-1 text-left">
             {layers.map((layer, i) => (
               <span key={layer.name} style={{ borderBottom: `2px solid ${layer.color}` }}>
-                {i + 1} · {layer.name}
+                {i + 1} · {tr(layer.name)}
               </span>
             ))}
           </div>
         )}
-        {waves && slice <= 0.05 && "Open the Cutaway to see the wave paths. "}
+        {waves && slice <= 0.05 && tr("Open the Cutaway to see the wave paths.") + " "}
         {waves
-          ? "Blue P waves pass through solid and liquid layers; amber S waves stop at the liquid outer core. Press Play to follow their motion."
-          : "Earth's radius is 6,371 km. The outer-core boundary lies 3,480 km from the center, and the inner core has a radius of 1,221 km."}
-        {explode > 0.01 && " Reset layer spacing to compare depths."} <br />
+          ? tr(
+              "Blue P waves pass through solid and liquid layers; amber S waves stop at the liquid outer core. Press Play to follow their motion.",
+            )
+          : tr(
+              "Earth's radius is 6,371 km. The outer-core boundary lies 3,480 km from the center, and the inner core has a radius of 1,221 km.",
+            )}
+        {explode > 0.01 && " " + tr("Reset layer spacing to compare depths.")} <br />
         {waves
-          ? "The radial paths illustrate transmission through different materials; they do not calculate the curved paths of seismic rays."
-          : "Dashed mantle interfaces mark phase transitions at depths of 410 and 660 km. Colors and textures distinguish materials; the mottled mantle pattern is illustrative, not mapped plumes or slabs."}
+          ? tr(
+              "The radial paths illustrate transmission through different materials; they do not calculate the curved paths of seismic rays.",
+            )
+          : tr(
+              "Dashed mantle interfaces mark phase transitions at depths of 410 and 660 km. Colors and textures distinguish materials; the mottled mantle pattern is illustrative, not mapped plumes or slabs.",
+            )}
       </ScienceReadout>
     </>
   );

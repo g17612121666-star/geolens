@@ -18,13 +18,22 @@ import { PlantStand } from "../shared/natural-world";
 import { SectionMaterial } from "../shared/section-material";
 import { useSectionUniforms, withSurfaceY } from "../shared/section-utils";
 import { terrainBlockGeometry } from "../shared/science-geometry";
+import { msg, useT } from "@/lib/i18n";
 
 const LITHOLOGY = [
-  "Conglomerate",
-  "Cross-bedded sandstone",
-  "Shale",
-  "Jointed limestone",
-  "Red siltstone",
+  msg("Conglomerate"),
+  msg("Cross-bedded sandstone"),
+  msg("Shale"),
+  msg("Jointed limestone"),
+  msg("Red siltstone"),
+];
+/** One-word names for the same beds, for tags on narrow screens. */
+const LITHOLOGY_SHORT = [
+  msg("Conglomerate"),
+  msg("Sandstone"),
+  msg("Shale"),
+  msg("Limestone"),
+  msg("Siltstone"),
 ];
 
 /** Five lithologies, oldest at the base. Laminae follow the restored bedding, so they fold. */
@@ -267,6 +276,7 @@ function Road({
 }
 
 export default function FoldsFaults() {
+  const tr = useT();
   const { params, explode, t } = useLabState("params", "explode", "t");
   useLabTick(1 / 40);
   const kind = params.structure ?? 0,
@@ -322,8 +332,10 @@ export default function FoldsFaults() {
       <ScienceStudio
         slug="folds-faults"
         camera={[3.2, 2.6, 7]}
-        scale="Equal geometric scales · five lithologies mark relative ages · trees and road not to scale"
-        trueScale="1 scene unit = 1 km · any exploded gaps are for inspection only"
+        scale={tr(
+          "Equal geometric scales · five lithologies mark relative ages · trees and road not to scale",
+        )}
+        trueScale={tr("1 scene unit = 1 km · any exploded gaps are for inspection only")}
       >
         {fold && <FoldBlock amplitude={foldAmount} sign={sign} separation={separation} />}
         {beds.map((g, i) => {
@@ -408,20 +420,26 @@ export default function FoldsFaults() {
             )}
             <Tag
               pos={[0, foldTop(0) + 1.15, 0]}
-              text={kind === 0 ? "Anticline · older core" : "Syncline · younger core"}
-              note="These beds are the right way up, so the oldest (conglomerate) is at the bottom. The age of the beds in the core decides anticline or syncline; an overturned fold cannot be named from its shape alone. The dashed line marks the axial plane."
+              text={kind === 0 ? tr("Anticline · older core") : tr("Syncline · younger core")}
+              note={tr(
+                "These beds are the right way up, so the oldest (conglomerate) is at the bottom. The age of the beds in the core decides anticline or syncline; an overturned fold cannot be named from its shape alone. The dashed line marks the axial plane.",
+              )}
               occlude={false}
             />
             {foldAmount > 0.3 && (
               <Tag
                 pos={[0, foldTop(0) + 0.12, -0.55]}
-                text={`${LITHOLOGY[coreBed]} at the surface`}
-                short={LITHOLOGY[coreBed].split(" ").pop()}
+                text={tr("{rock} at the surface", { rock: tr(LITHOLOGY[coreBed]) })}
+                short={tr(LITHOLOGY_SHORT[coreBed])}
                 priority={1}
                 note={
                   kind === 0
-                    ? "Erosion has kept pace with folding and planed off the top of the anticline, so older beds crop out in its core, with younger ones on either side: a pattern you can map from the surface."
-                    : "Erosion has planed the land down, but the youngest bed survives in the trough of the syncline, with older beds cropping out on either side."
+                    ? tr(
+                        "Erosion has kept pace with folding and planed off the top of the anticline, so older beds crop out in its core, with younger ones on either side: a pattern you can map from the surface.",
+                      )
+                    : tr(
+                        "Erosion has planed the land down, but the youngest bed survives in the trough of the syncline, with older beds cropping out on either side.",
+                      )
                 }
                 occlude={false}
               />
@@ -438,22 +456,28 @@ export default function FoldsFaults() {
             {kind === 4 ? (
               <Tag
                 pos={[0, 1.5, 0]}
-                text="Strike-slip · lateral offset"
-                note="The road was straight before faulting. The right block moves along a vertical fault, so the road is offset sideways with no vertical step."
+                text={tr("Strike-slip · lateral offset")}
+                note={tr(
+                  "The road was straight before faulting. The right block moves along a vertical fault, so the road is offset sideways with no vertical step.",
+                )}
                 occlude={false}
               />
             ) : (
               <>
                 <Tag
                   pos={[-1.7 - separation, 1.15, 0]}
-                  text="Footwall"
-                  note="The footwall lies below the inclined fault plane. It is held fixed here so the hanging-wall displacement is easy to compare."
+                  text={tr("Footwall")}
+                  note={tr(
+                    "The footwall lies below the inclined fault plane. It is held fixed here so the hanging-wall displacement is easy to compare.",
+                  )}
                   occlude={false}
                 />
                 <Tag
                   pos={[2.2 + separation + slipX, 1.15 + slipY, 0]}
-                  text={kind === 2 ? "Hanging wall · down" : "Hanging wall · up"}
-                  note="The hanging wall lies above the 60° dipping fault. Motion is parallel to that plane: down for normal faulting, up for reverse faulting. Match the beds across the fault to measure the throw."
+                  text={kind === 2 ? tr("Hanging wall · down") : tr("Hanging wall · up")}
+                  note={tr(
+                    "The hanging wall lies above the 60° dipping fault. Motion is parallel to that plane: down for normal faulting, up for reverse faulting. Match the beds across the fault to measure the throw.",
+                  )}
                   occlude={false}
                 />
               </>
@@ -462,29 +486,40 @@ export default function FoldsFaults() {
         )}
         <Tag
           pos={oldestTag}
-          text="Oldest · conglomerate"
-          note={`Beds from oldest to youngest: ${LITHOLOGY.join(", ")}. Beneath them lies older granite basement, which rises into the core of a tall anticline. Soil and grass cap the land surface. Patterns are illustrative textures, not mapped rock units.`}
+          text={tr("Oldest · conglomerate")}
+          note={tr(
+            "Beds from oldest to youngest: {beds}. Beneath them lies older granite basement, which rises into the core of a tall anticline. Soil and grass cap the land surface. Patterns are illustrative textures, not mapped rock units.",
+            { beds: LITHOLOGY.map((bed) => tr(bed)).join(", ") },
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
         {
           [
-            "Upright anticline",
-            "Upright syncline",
-            "Normal fault · extension",
-            "Reverse fault · shortening",
-            "Strike-slip fault",
+            tr("Upright anticline"),
+            tr("Upright syncline"),
+            tr("Normal fault · extension"),
+            tr("Reverse fault · shortening"),
+            tr("Strike-slip fault"),
           ][kind]
         }
         .{" "}
         {fold
-          ? `Fold amplitude ${(foldAmount * 1000).toFixed(0)} m; shortening ${(foldAmount * 25).toFixed(0)}%, with bed volume preserved. Erosion keeps pace with folding, so the land surface cuts across the beds.`
-          : `Relative slip ${(amount * 0.7 * 1000).toFixed(0)} m${kind === 4 ? "" : `; vertical throw ${Math.abs(slip[1] * 1000).toFixed(0)} m`}.`}{" "}
+          ? tr(
+              "Fold amplitude {amp} m; shortening {pct}%, with bed volume preserved. Erosion keeps pace with folding, so the land surface cuts across the beds.",
+              { amp: (foldAmount * 1000).toFixed(0), pct: (foldAmount * 25).toFixed(0) },
+            )
+          : kind === 4
+            ? tr("Relative slip {slip} m.", { slip: (amount * 0.7 * 1000).toFixed(0) })
+            : tr("Relative slip {slip} m; vertical throw {throw} m.", {
+                slip: (amount * 0.7 * 1000).toFixed(0),
+                throw: Math.abs(slip[1] * 1000).toFixed(0),
+              })}{" "}
         <br />
-        {
-          "Press Play or drag Process to deform the section. Explode splits a fold at its axial plane, or pulls fault blocks apart, for inspection; the gap is not a real canyon. The model shows structure, not stress or earthquake timing."
-        }
+        {tr(
+          "Press Play or drag Process to deform the section. Explode splits a fold at its axial plane, or pulls fault blocks apart, for inspection; the gap is not a real canyon. The model shows structure, not stress or earthquake timing.",
+        )}
       </ScienceReadout>
     </>
   );

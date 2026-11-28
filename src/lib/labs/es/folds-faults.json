@@ -1,0 +1,135 @@
+{
+  "title": "Pliegues y fallas",
+  "hook": "Las capas de roca pueden doblarse en pliegues o romperse y moverse a lo largo de fallas.",
+  "objective": "Compara la deformación de las rocas causada por la compresión, la tensión y el movimiento lateral, usando pliegues y fallas como evidencia.",
+  "modelDescription": "Un bloque de roca en capas muestra una estructura cada vez. Los pliegues doblan las capas en un arco, un anticlinal, o en una artesa, un sinclinal. Las fallas rompen el bloque por un plano inclinado: el bloque de arriba baja en una falla normal, sube en una falla inversa y se desliza de lado en una falla de desgarre.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Elige Anticlinal y encuentra la capa más antigua. Luego elige Sinclinal y explica por qué la edad de las capas, y no solo la forma, define cada pliegue."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Elige Falla normal y nombra el bloque de techo antes de pulsar Reproducir. Elige Falla inversa para ver el deslizamiento opuesto y luego Falla de desgarre para ver el movimiento lateral."
+    },
+    {
+      "title": "Explicar",
+      "body": "Usa el movimiento del bloque de techo para distinguir una falla normal de una falla inversa."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "En este ejemplo derecho, un anticlinal es…",
+      "choices": [
+        "Un pliegue hacia abajo con capas más jóvenes en su núcleo",
+        "Un pliegue hacia arriba con capas más jóvenes en su núcleo",
+        "Un pliegue hacia arriba con capas más antiguas en su núcleo",
+        "Una rotura donde las rocas se deslizan"
+      ],
+      "explain": "Un anticlinal tiene los estratos más antiguos hacia su núcleo, aunque una deformación posterior vuelque el pliegue. En el ejemplo derecho, esta disposición de edades coincide con un arco hacia arriba."
+    },
+    {
+      "prompt": "Una falla normal se forma con…",
+      "choices": [
+        "Compresión; el bloque de techo sube",
+        "Cizalla; los bloques se deslizan de lado",
+        "Compresión; las capas se pliegan hacia arriba",
+        "Extensión; el bloque de techo baja"
+      ],
+      "explain": "La extensión separa la corteza y permite que el bloque de techo baje respecto al bloque de piso a lo largo de una falla normal. El movimiento alarga la corteza a través del sistema de fallas."
+    },
+    {
+      "prompt": "La falla de San Andrés es…",
+      "choices": ["De desgarre", "Normal", "Inversa", "De cabalgamiento"],
+      "explain": "La falla de San Andrés acomoda sobre todo el movimiento horizontal entre bloques de placas vecinos. Este desplazamiento lateral la convierte en una falla de desgarre y en un límite de placas transformante."
+    },
+    {
+      "prompt": "El bloque de techo es…",
+      "choices": [
+        "Siempre el bloque que baja",
+        "El bloque que está encima del plano de falla",
+        "El bloque que está debajo del plano de falla",
+        "Algo que solo aparece en los pliegues"
+      ],
+      "explain": "El bloque de techo es el bloque de roca que está encima de un plano de falla inclinado, mientras que el bloque de piso está debajo. Estos nombres indican la geometría y no dependen de qué bloque se movió hacia arriba."
+    },
+    {
+      "prompt": "¿Qué tipo de fuerza pliega las capas de roca en anticlinales y sinclinales?",
+      "choices": [
+        "La compresión, que aprieta las capas",
+        "La tensión, que separa la corteza",
+        "La erosión, que quita las capas de arriba",
+        "La lluvia, que empapa las capas"
+      ],
+      "explain": "Los pliegues se forman cuando la roca se comprime, por ejemplo donde convergen las placas. En cambio, la tensión tiende a producir fallas normales, y la erosión solo deja al descubierto pliegues que ya existen."
+    }
+  ],
+  "why": [
+    "Las capas de roca pueden doblarse en pliegues o romperse y moverse a lo largo de fallas. La edad, la orientación y el movimiento relativo de las capas ayudan a distinguir estructuras que pueden parecerse vistas desde un solo ángulo.",
+    "El tipo de esfuerzo decide la estructura. La compresión acorta la corteza: la roca que se deforma despacio, a menudo cuando está caliente y profundamente enterrada, se dobla en pliegues, mientras que la roca más fría y frágil se rompe a lo largo de fallas inversas, donde el bloque de techo sube. La tensión estira la corteza, así que el bloque de techo baja por una falla normal. Donde los bloques se empujan de lado uno junto al otro, se forma una falla de desgarre con un movimiento sobre todo horizontal.",
+    "La deformación está fijada de antemano para mostrar la estructura; el modelo no calcula los esfuerzos ni cuándo se rompen las rocas."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El bloque de techo siempre es el lado de una falla que baja.",
+      "truth": "El bloque de techo se define por su posición encima de un plano de falla inclinado. Baja respecto al bloque de piso en una falla normal y sube en una falla inversa. Identifica el plano y los bloques antes de usar su desplazamiento para nombrar el tipo de falla."
+    },
+    {
+      "claim": "La roca es demasiado rígida para doblarse, así que las capas plegadas deben ser en realidad trozos rotos.",
+      "truth": "En lo profundo de la corteza, la alta temperatura y la presión que actúan durante millones de años permiten que la roca se deforme despacio sin romperse. Cerca de la superficie, donde la roca es fría y frágil, los mismos esfuerzos suelen causar fallas."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Anticlinal",
+      "def": "Un pliegue con las rocas más antiguas en su núcleo. En un anticlinal derecho sencillo, las capas forman un arco hacia arriba y se inclinan alejándose del centro; los pliegues volcados pueden tener otra geometría."
+    },
+    {
+      "term": "Sinclinal",
+      "def": "Un pliegue con las rocas más jóvenes en su núcleo. En un sinclinal derecho sencillo, las capas se inclinan hacia el centro; la erosión puede dejar encima una cresta o un valle."
+    },
+    {
+      "term": "Falla normal",
+      "def": "Una falla en la que el bloque de techo baja respecto al bloque de piso. Suele formarse donde la corteza se estira. Determina el movimiento por las capas desplazadas, no solo por la altura actual de la superficie del terreno."
+    },
+    {
+      "term": "Falla inversa",
+      "def": "Una falla en la que el bloque de techo sube respecto al bloque de piso, por lo general bajo compresión. Una falla inversa de poco ángulo se llama cabalgamiento. Las capas de roca desplazadas ayudan a identificar el movimiento incluso después de que la erosión cambie la superficie."
+    },
+    {
+      "term": "De desgarre",
+      "def": "Se dice del movimiento de una falla que es sobre todo horizontal y a lo largo de la línea de la falla. Algunas fallas de desgarre forman límites de placas transformantes; otras están dentro de las placas."
+    },
+    {
+      "term": "Bloque de techo",
+      "def": "El bloque que está encima de un plano de falla inclinado. En una falla normal baja respecto al bloque de piso, mientras que en una falla inversa sube. Los nombres describen la posición respecto al plano, no la altura actual."
+    },
+    {
+      "term": "Bloque de piso",
+      "def": "El bloque de roca que está debajo de un plano de falla inclinado. Identifícalo por la geometría del plano antes de describir el movimiento. En una falla normal, el bloque de techo baja respecto al bloque de piso; en una inversa ocurre lo contrario."
+    },
+    {
+      "term": "Inversión",
+      "def": "En geología estructural, el levantamiento y acortamiento de una cuenca que antes se hundía. Una inversión térmica en meteorología es otro uso distinto de la palabra."
+    }
+  ],
+  "predict": {
+    "prompt": "Si las capas de roca se aprietan desde los lados, ¿crees que se plegarán, se romperán o ambas cosas? ¿Y si se estiran?"
+  },
+  "cer": {
+    "prompt": "¿Cómo puedes saber, a partir de las rocas, si la corteza se comprimió, se estiró o se movió de lado?",
+    "claim": "Los pliegues y las fallas inversas muestran compresión, las fallas normales muestran extensión y las fallas de desgarre muestran movimiento lateral.",
+    "evidence": "En el anticlinal, las capas más antiguas están en el núcleo, y en el sinclinal, las más jóvenes. En una falla normal, el bloque de techo baja por el plano de falla de 60°; en una falla inversa, sube; en una falla de desgarre, los bloques se deslizan de lado. Los resultados separan el deslizamiento del salto vertical.",
+    "reasoning": "Apretar acorta la corteza plegando las capas o empujando un bloque por encima de otro. Estirar la alarga, así que el bloque de techo baja. La cizalla lateral mueve los bloques en horizontal uno junto al otro, como a lo largo de la falla de San Andrés."
+  },
+  "controls": {
+    "structure": {
+      "label": "Estructura",
+      "options": ["Anticlinal", "Sinclinal", "Falla normal", "Falla inversa", "Falla de desgarre"]
+    }
+  }
+}

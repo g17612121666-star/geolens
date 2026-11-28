@@ -19,6 +19,7 @@ import {
   onEscarpment,
   plainRiver,
 } from "./shapes";
+import { useT } from "@/lib/i18n";
 const smooth = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 const height = landformHeight;
 /** Readout numbers for each form at true scale (1 unit = 1 km), sampled on a 50 m grid. */
@@ -158,6 +159,7 @@ function riverPath(kind: number): [number, number][] {
 }
 
 function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number }) {
+  const tr = useT();
   const surface = useMemo(
     () => (px: number, pz: number) => height(kind, px, pz) * vertical,
     [kind, vertical],
@@ -254,17 +256,27 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
       )}
       <Tag
         pos={[0, 0.2, 2.4]}
-        text={NAMES[kind]}
+        text={tr(NAMES[kind])}
         note={
           kind === 0
-            ? "High relief and steep, rugged slopes: forest gives way to alpine grassland, bare rock and snow with height. No single height separates mountains from hills."
+            ? tr(
+                "High relief and steep, rugged slopes: forest gives way to alpine grassland, bare rock and snow with height. No single height separates mountains from hills.",
+              )
             : kind === 1
-              ? "This hill has lower relief and gentler slopes than the mountain. Height alone does not define a landform."
+              ? tr(
+                  "This hill has lower relief and gentler slopes than the mountain. Height alone does not define a landform.",
+                )
               : kind === 2
-                ? "A plateau is a broad, fairly level high surface. Its edges may be steep, exposing the rock layers beneath, and rivers may cut canyons into it. The flat-topped hill in front is a butte: a piece of the plateau left standing as its edge wore back. Plateaus form in different ways."
+                ? tr(
+                    "A plateau is a broad, fairly level high surface. Its edges may be steep, exposing the rock layers beneath, and rivers may cut canyons into it. The flat-topped hill in front is a butte: a piece of the plateau left standing as its edge wore back. Plateaus form in different ways.",
+                  )
                 : kind === 3
-                  ? "A plain has low local relief. Plains can lie at high or low elevation; this one is low, with fields and a meandering river."
-                  : "A basin is lower than the land around it. This one drains through a gap in its rim; others drain inward. The shape alone does not mean it holds a lake."
+                  ? tr(
+                      "A plain has low local relief. Plains can lie at high or low elevation; this one is low, with fields and a meandering river.",
+                    )
+                  : tr(
+                      "A basin is lower than the land around it. This one drains through a gap in its rim; others drain inward. The shape alone does not mean it holds a lake.",
+                    )
         }
         occlude={false}
       />
@@ -272,6 +284,7 @@ function Tile({ kind, x, vertical }: { kind: number; x: number; vertical: number
   );
 }
 export default function LandformTypes() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale"),
     a = Math.round(params.left ?? 0),
     b = Math.round(params.right ?? 3),
@@ -282,36 +295,48 @@ export default function LandformTypes() {
         horizon
         slug="landform-types"
         camera={[3.5, 5.5, 8]}
-        scale="Both samples: 4 × 4 km · relief ×2 · identical comparison scale · trees and buildings enlarged"
-        trueScale="Both samples: 1 scene unit = 1 km · common horizontal and vertical scale · trees, buildings and boulders enlarged"
+        scale={tr(
+          "Both samples: 4 × 4 km · relief ×2 · identical comparison scale · trees and buildings enlarged",
+        )}
+        trueScale={tr(
+          "Both samples: 1 scene unit = 1 km · common horizontal and vertical scale · trees, buildings and boulders enlarged",
+        )}
       >
         <Tile kind={a} x={-2.5} vertical={f} />
         <Tile kind={b} x={2.5} vertical={f} />
       </ScienceStudio>
       <ScienceReadout>
-        {NAMES[a]} {"and "}
-        {NAMES[b]}{" "}
-        {
-          "at the same scale. Compare elevation, local relief, slope and the shape of the surface separately."
-        }
+        {tr(
+          "{a} and {b} at the same scale. Compare elevation, local relief, slope and the shape of the surface separately.",
+          { a: tr(NAMES[a]), b: tr(NAMES[b]) },
+        )}
         <span className="mt-2 grid grid-cols-2 gap-3">
           {[a, b].map((kind, i) => (
             <span key={i}>
               <strong>
-                {i === 0 ? "Left" : "Right"}: {NAMES[kind]}
+                {i === 0
+                  ? tr("Left: {name}", { name: tr(NAMES[kind]) })
+                  : tr("Right: {name}", { name: tr(NAMES[kind]) })}
               </strong>{" "}
               <br />
-              Highest point {STATS[kind].hi.toLocaleString("en-US")} m · lowest{" "}
-              {STATS[kind].lo.toLocaleString("en-US")} m <br />
-              Local relief <strong>{STATS[kind].relief.toLocaleString("en-US")} m</strong> <br />
-              Typical slope {STATS[kind].typical}° · steepest {STATS[kind].steepest}°
+              {tr("Highest point {hi} m · lowest {lo} m", {
+                hi: STATS[kind].hi.toLocaleString("en-US"),
+                lo: STATS[kind].lo.toLocaleString("en-US"),
+              })}{" "}
+              <br />
+              {tr("Local relief")} <strong>{STATS[kind].relief.toLocaleString("en-US")} m</strong>{" "}
+              <br />
+              {tr("Typical slope {typical}° · steepest {steepest}°", {
+                typical: STATS[kind].typical,
+                steepest: STATS[kind].steepest,
+              })}
             </span>
           ))}
         </span>{" "}
         <br />
-        {
-          "Choose any two of the five forms. These are invented surfaces, not real places. Heights are measured from the scene's zero level, taken as sea level; local relief is highest minus lowest point in the 4 × 4 km sample. Slopes are true-scale values, whatever the relief setting. Color and texture help you read them; they do not show origin, climate or rock type."
-        }
+        {tr(
+          "Choose any two of the five forms. These are invented surfaces, not real places. Heights are measured from the scene's zero level, taken as sea level; local relief is highest minus lowest point in the 4 × 4 km sample. Slopes are true-scale values, whatever the relief setting. Color and texture help you read them; they do not show origin, climate or rock type.",
+        )}
       </ScienceReadout>
     </>
   );

@@ -1,0 +1,135 @@
+{
+  "title": "ENOS y la celda de Walker",
+  "hook": "En el Pacífico tropical interactúan los vientos alisios, el agua superficial cálida y la termoclina.",
+  "objective": "Compara las condiciones normales del Pacífico con El Niño y La Niña, y explica cómo los cambios en los vientos y en la temperatura del océano afectan la lluvia.",
+  "modelDescription": "Una sección transversal del océano Pacífico tropical muestra agua superficial cálida en el oeste, agua más fría en el este y la termoclina, que separa la capa cálida del agua más fría de abajo. Un circuito de aire, la celda de Walker, sube sobre el oeste cálido y baja en el este, con los alisios soplando hacia el oeste en superficie. Al pasar hacia El Niño o La Niña se desplazan el agua cálida y la termoclina. La profundidad está muy exagerada.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Empieza en ENOS 0 (neutral) y encuentra el oeste, el este y la termoclina. Sigue el aire que asciende en el oeste y los alisios de superficie que soplan hacia allí."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Mueve ENOS hacia +1 (El Niño) y compara la temperatura del este y la profundidad de la termoclina. Luego prueba −1 (La Niña) y explica el mayor contraste entre oeste y este."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo afecta un cambio en los vientos alisios a la temperatura superficial del Pacífico y al lugar donde asciende el aire?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La celda de Walker es…",
+      "choices": [
+        "Una circulación polar de norte a sur",
+        "Un circuito de este a oeste en el Pacífico tropical",
+        "Un circuito de norte a sur en el Atlántico tropical",
+        "Una corriente superficial del Atlántico"
+      ],
+      "explain": "En condiciones neutrales típicas, el aire asciende sobre el Pacífico tropical occidental, más cálido, y desciende más al este. Los alisios de superficie y un flujo de retorno en altura forman la amplia circulación de Walker, de este a oeste."
+    },
+    {
+      "prompt": "La piscina cálida de El Niño…",
+      "choices": [
+        "Desaparece por completo",
+        "Se desplaza más al oeste, hacia Asia",
+        "Se desplaza al este a través del Pacífico",
+        "Se traslada al océano Índico"
+      ],
+      "explain": "Durante El Niño, los alisios más débiles reducen la acumulación normal de agua superficial cálida en el oeste. El Pacífico ecuatorial central y oriental se calienta, y el patrón de convección se desplaza hacia el este."
+    },
+    {
+      "prompt": "Para un invierno en EE. UU., el ENOS…",
+      "choices": [
+        "Fija el tiempo de toda la temporada",
+        "No tiene ninguna relación con el tiempo de EE. UU.",
+        "Invierte la corriente en chorro cada invierno",
+        "Cambia las probabilidades, pero no decide nada"
+      ],
+      "explain": "El ENOS puede alterar la circulación atmosférica a gran escala y cambiar las probabilidades de algunos patrones del tiempo estacional; durante El Niño, por ejemplo, el sur de Estados Unidos tiende a ser más húmedo de lo normal. El tiempo local también depende de otras influencias, así que una fase del ENOS no puede determinar las condiciones de un mes concreto."
+    },
+    {
+      "prompt": "En este laboratorio, La Niña es…",
+      "choices": [
+        "Pacífico oriental más frío y celda de Walker más fuerte",
+        "Agua más cálida en todo el Pacífico oriental",
+        "Alisios más débiles que en los años normales",
+        "Un desplazamiento de la piscina cálida hacia el este"
+      ],
+      "explain": "La Niña se asocia con agua superficial más fría de lo normal en el Pacífico ecuatorial central y oriental, y a menudo con alisios más fuertes. Estos cambios refuerzan aspectos del contraste habitual de este a oeste en el Pacífico tropical."
+    },
+    {
+      "prompt": "Durante un El Niño fuerte, ¿qué región suele recibir mucha más lluvia de lo normal?",
+      "choices": [
+        "La costa de Perú y Ecuador",
+        "Indonesia y el norte de Australia",
+        "El centro del Sahara",
+        "Siberia central"
+      ],
+      "explain": "El agua cálida y el aire que asciende se desplazan al este durante El Niño, lo que trae lluvias intensas e inundaciones a las costas de Perú y Ecuador, normalmente secas, mientras que Indonesia y Australia suelen volverse más secas."
+    }
+  ],
+  "why": [
+    "En el Pacífico tropical interactúan los vientos alisios, el agua superficial cálida y la termoclina. El Niño y La Niña describen desviaciones del patrón habitual acoplado entre el océano y la atmósfera.",
+    "Normalmente, los alisios del este empujan el agua superficial cálida hacia el oeste y la acumulan sobre una termoclina profunda cerca de Indonesia, mientras que frente a Perú aflora agua fría. Durante El Niño, los alisios se debilitan, el agua cálida se extiende hacia el este, la termoclina se aplana y el aire que asciende y la lluvia siguen al agua cálida hacia el Pacífico central. Durante La Niña, unos alisios más fuertes acentúan el contraste habitual entre oeste y este.",
+    "Los estados elegidos ilustran estas relaciones; sus efectos en el tiempo varían de un evento a otro y de un lugar a otro."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El Niño causa el mismo tiempo en todos los lugares afectados durante cada evento.",
+      "truth": "El ENOS cambia las condiciones del océano y de la atmósfera en el Pacífico tropical, e influye en las probabilidades del tiempo en muchas regiones. La respuesta depende de la estación, de la intensidad del evento y de otras condiciones climáticas. Una tendencia regional a un tiempo más húmedo o más seco no es una garantía para cada lugar, día o evento."
+    },
+    {
+      "claim": "El Niño es una sola tormenta que golpea Sudamérica.",
+      "truth": "El Niño es un patrón de calentamiento del océano y de cambios en los vientos en todo el Pacífico tropical. Dura muchos meses, vuelve cada pocos años y cambia los patrones de lluvia y temperatura lejos del Pacífico."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Celda de Walker",
+      "def": "Una circulación simplificada de este a oeste en el Pacífico tropical, con aire que asciende sobre el agua más cálida y aire que desciende sobre el agua más fría. Su rama cercana a la superficie está ligada a los vientos alisios. Los cambios en esta circulación forman parte del ENOS."
+    },
+    {
+      "term": "ENOS",
+      "def": "El Niño-Oscilación del Sur es un patrón acoplado de variabilidad del océano y de la atmósfera en el Pacífico tropical. Sus fases cálida y fría alteran la temperatura superficial del mar, los alisios y la lluvia. Estas fases cambian las probabilidades de cierto tiempo, en lugar de decidir cada evento local."
+    },
+    {
+      "term": "El Niño",
+      "def": "La fase cálida del ENOS, marcada por temperaturas superficiales del mar inusualmente altas en el Pacífico ecuatorial central y oriental, y por cambios acoplados en la atmósfera."
+    },
+    {
+      "term": "La Niña",
+      "def": "La fase fría del ENOS, con aguas superficiales inusualmente frías en el Pacífico ecuatorial central y oriental, y cambios asociados en los vientos y la lluvia tropicales."
+    },
+    {
+      "term": "Piscina cálida",
+      "def": "Una región de agua superficial tropical inusualmente cálida. En el Pacífico, su extensión y posición cambian con los vientos y el ENOS."
+    },
+    {
+      "term": "Teleconexión",
+      "def": "Una relación estadística entre las variaciones del clima o del tiempo en regiones lejanas, como la influencia del ENOS en las probabilidades de lluvia."
+    },
+    {
+      "term": "Afloramiento",
+      "def": "El ascenso de agua más profunda hacia la superficie, a menudo impulsado por vientos que alejan el agua superficial o por la circulación oceánica a gran escala."
+    }
+  ],
+  "predict": {
+    "prompt": "Si los vientos alisios del Pacífico se debilitan, ¿qué crees que le pasa al agua cálida que suele acumularse cerca de Indonesia?"
+  },
+  "cer": {
+    "prompt": "¿Cómo producen El Niño los cambios en los vientos alisios, y cómo cambian el lugar donde caen las lluvias intensas?",
+    "claim": "Cuando los alisios se debilitan, el agua cálida se extiende hacia el este a través del Pacífico, y el aire que asciende y las lluvias intensas se desplazan al este con ella: eso es El Niño.",
+    "evidence": "En ENOS 0, el agua cálida y el aire que asciende están en el oeste, sobre una termoclina profunda, mientras que en el este hay agua más fría cerca de la superficie. Al mover ENOS a +1, el agua superficial del este se calienta, la termoclina se aplana y la rama ascendente se desplaza al este. En −1 (La Niña), el contraste entre oeste y este se refuerza.",
+    "reasoning": "Normalmente, los alisios empujan el agua superficial cálida hacia el oeste y permiten que aflore agua fría en el este. El aire que asciende y la lluvia siguen al agua más cálida, así que cuando los vientos se debilitan y el agua cálida se extiende, la lluvia se desplaza hacia el Pacífico central y oriental."
+  },
+  "controls": {
+    "enso": {
+      "label": "ENOS"
+    }
+  }
+}

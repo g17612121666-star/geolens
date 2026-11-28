@@ -23,6 +23,7 @@ import {
   profileUnits,
   surfaceUnits,
 } from "./section";
+import { useT } from "@/lib/i18n";
 
 const ss = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 /** Samples of the surface profile across the block, for the cut-face layers. */
@@ -136,6 +137,7 @@ function paint(g: THREE.BufferGeometry, stage: number, relief: number) {
 }
 
 export default function WilsonCycle() {
+  const tr = useT();
   const { params, trueScale, setParam } = useLabState("params", "trueScale", "setParam"),
     stage = Math.round(params.stage ?? 2),
     // Depths and layers ×2; surface relief a further ×2. Physical scale draws everything 1:1.
@@ -194,8 +196,12 @@ export default function WilsonCycle() {
       <ScienceStudio
         slug="wilson-cycle"
         camera={[2.4, 2.8, 7]}
-        scale="Depths and layer thicknesses ×2 · surface relief ×4 · idealized 300 km section through a basin · relief and layers schematic"
-        trueScale="1 scene unit = 50 km in every direction · the section is not the full width of a real ocean"
+        scale={tr(
+          "Depths and layer thicknesses ×2 · surface relief ×4 · idealized 300 km section through a basin · relief and layers schematic",
+        )}
+        trueScale={tr(
+          "1 scene unit = 50 km in every direction · the section is not the full width of a real ocean",
+        )}
       >
         <group scale={[1, f, 1]}>
           <mesh geometry={geometry} castShadow receiveShadow>
@@ -235,37 +241,47 @@ export default function WilsonCycle() {
         />
         <Tag
           pos={[0, Math.max(1.3, peak + 0.85), 0]}
-          text={STAGES[stage]}
-          note="These are idealized stages of ocean-basin opening and closure. A real basin may skip stages or close along a different line from where it opened; this is not a forecast of the Atlantic’s future."
+          text={tr(STAGES[stage])}
+          note={tr(
+            "These are idealized stages of ocean-basin opening and closure. A real basin may skip stages or close along a different line from where it opened; this is not a forecast of the Atlantic’s future.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-2.3, -0.38 * f, D / 2 + 0.05]}
-          text="Continental crust"
-          note="Pink upper and gray lower continental crust, about 35 km thick, thinning at rifted margins under a wedge of sediment. Collision thickens the crust into a deep root under the mountains."
+          text={tr("Continental crust")}
+          note={tr(
+            "Pink upper and gray lower continental crust, about 35 km thick, thinning at rifted margins under a wedge of sediment. Collision thickens the crust into a deep root under the mountains.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[2.1, -1.35 * f, D / 2 + 0.05]}
-          text="Mantle · mostly solid"
-          note="Green: rigid lithospheric mantle, part of the plate. Red-brown: hotter, weaker asthenosphere below. Orange glow marks small amounts of melt, not a magma ocean."
+          text={tr("Mantle · mostly solid")}
+          note={tr(
+            "Green: rigid lithospheric mantle, part of the plate. Red-brown: hotter, weaker asthenosphere below. Orange glow marks small amounts of melt, not a magma ocean.",
+          )}
           occlude={false}
         />
         {stage === 0 && (
           <Tag
             pos={[0, at(0) + 0.35, 0]}
-            text="Rift valley and lake"
+            text={tr("Rift valley and lake")}
             tone="glacier"
-            note="Stretching thins the continent: the valley floor drops along steep normal faults between uplifted shoulders, and fills with lakes, sediment and lava, as in East Africa today. A volcano rises on one shoulder."
+            note={tr(
+              "Stretching thins the continent: the valley floor drops along steep normal faults between uplifted shoulders, and fills with lakes, sediment and lava, as in East Africa today. A volcano rises on one shoulder.",
+            )}
             occlude={false}
           />
         )}
         {stage >= 1 && stage <= 4 && (
           <Tag
             pos={[-gap * 0.6, at(-gap * 0.6) - 0.15 * f, D / 2 + 0.05]}
-            text="Oceanic crust · 7 km"
-            short="Oceanic crust"
-            note="Basalt and gabbro about 7 km thick (dark gray), under a thin skin of mud: thinner and denser than the 35 km continental crust. It forms at ridges and is recycled at trenches, so most ocean floor is less than 200 million years old."
+            text={tr("Oceanic crust · 7 km")}
+            short={tr("Oceanic crust")}
+            note={tr(
+              "Basalt and gabbro about 7 km thick (dark gray), under a thin skin of mud: thinner and denser than the 35 km continental crust. It forms at ridges and is recycled at trenches, so most ocean floor is less than 200 million years old.",
+            )}
             occlude={false}
           />
         )}
@@ -273,9 +289,11 @@ export default function WilsonCycle() {
           <Tag
             priority={1}
             pos={[0.3, at(0) + 0.45, D / 2]}
-            text="Mid-ocean ridge"
+            text={tr("Mid-ocean ridge")}
             tone="magma"
-            note="New oceanic crust forms at the ridge where rising mantle partly melts. The ocean floor sinks from about 2.5 km deep at the ridge to about 5 km as the plate cools and thickens away from it; the shelves at the continents' edges stay shallow."
+            note={tr(
+              "New oceanic crust forms at the ridge where rising mantle partly melts. The ocean floor sinks from about 2.5 km deep at the ridge to about 5 km as the plate cools and thickens away from it; the shelves at the continents' edges stay shallow.",
+            )}
             occlude={false}
           />
         )}
@@ -283,22 +301,28 @@ export default function WilsonCycle() {
           <>
             <Tag
               pos={[gap + ARC, at(gap + ARC) + 0.55, 0.6]}
-              text="Volcanic arc"
+              text={tr("Volcanic arc")}
               tone="magma"
-              note="Water released from the sinking slab lowers the melting point of the mantle above it; the magma rises to build a chain of volcanoes on the edge of the continent."
+              note={tr(
+                "Water released from the sinking slab lowers the melting point of the mantle above it; the magma rises to build a chain of volcanoes on the edge of the continent.",
+              )}
               occlude={false}
             />
             <Tag
               priority={1}
               pos={[gap - 0.05, at(gap) + 0.35, D / 2 + 0.05]}
-              text="Trench"
-              note="The deep-sea trench, about 9 km deep here, marks where the ocean plate bends down into the mantle. Sediment scraped off it piles up against the trench's inner wall."
+              text={tr("Trench")}
+              note={tr(
+                "The deep-sea trench, about 9 km deep here, marks where the ocean plate bends down into the mantle. Sediment scraped off it piles up against the trench's inner wall.",
+              )}
               occlude={false}
             />
             <Tag
               pos={[gap + 0.6, (profile(gap) - 0.6 * SLAB_SLOPE - 0.2) * f, D / 2 + 0.05]}
-              text="Subducting slab"
-              note="Older, colder and denser oceanic lithosphere sinks beneath the continent at the trench."
+              text={tr("Subducting slab")}
+              note={tr(
+                "Older, colder and denser oceanic lithosphere sinks beneath the continent at the trench.",
+              )}
               occlude={false}
             />
           </>
@@ -307,14 +331,19 @@ export default function WilsonCycle() {
           <>
             <Tag
               pos={[0.9, peak + 0.25, D / 2]}
-              text="Mountain belt · suture"
-              note={`Continental crust is too buoyant to subduct far, so it crumples and thickens into a mountain belt with peaks about ${Math.round(elevationKm(5, BELT))} km high here. A thin dark sliver of former ocean floor can remain along the suture between the two continents.`}
+              text={tr("Mountain belt · suture")}
+              note={tr(
+                "Continental crust is too buoyant to subduct far, so it crumples and thickens into a mountain belt with peaks about {round} km high here. A thin dark sliver of former ocean floor can remain along the suture between the two continents.",
+                { round: Math.round(elevationKm(5, BELT)) },
+              )}
               occlude={false}
             />
             <Tag
               pos={[-0.6, -1.0 * f, D / 2 + 0.05]}
-              text="Mountain root"
-              note="The thickened crust (about 65 km here, against 35 km beside it) bulges down into the mantle. Like an iceberg, the buoyant root is several times deeper than the peaks are high; here the surface relief is drawn twice as tall as the depths, so the root looks shallower than it is."
+              text={tr("Mountain root")}
+              note={tr(
+                "The thickened crust (about 65 km here, against 35 km beside it) bulges down into the mantle. Like an iceberg, the buoyant root is several times deeper than the peaks are high; here the surface relief is drawn twice as tall as the depths, so the root looks shallower than it is.",
+              )}
               occlude={false}
             />
           </>
@@ -330,21 +359,24 @@ export default function WilsonCycle() {
               onClick={() => setParam("stage", i)}
               className={`min-h-11 rounded-lg border px-2 text-xs ${i === stage ? "border-glacier text-chalk" : "border-white/10 text-mist"}`}
             >
-              {i + 1}. {name}
+              {i + 1}. {tr(name)}
             </button>
           ))}
         </div>
-        {"Stage "}
-        {stage + 1}/6: {STAGES[stage]}.{" "}
+        {tr("Stage {n}/6: {stage}.", { n: stage + 1, stage: tr(STAGES[stage]) })}{" "}
         {stage < 3
-          ? "Extension and spreading can open a basin."
+          ? tr("Extension and spreading can open a basin.")
           : stage < 5
-            ? "Oceanic lithosphere sinks at the trench; buoyant continental crust resists being pulled down."
-            : "Collision thickens and deforms the continental crust; remnants of an ocean may remain in the suture."}{" "}
+            ? tr(
+                "Oceanic lithosphere sinks at the trench; buoyant continental crust resists being pulled down.",
+              )
+            : tr(
+                "Collision thickens and deforms the continental crust; remnants of an ocean may remain in the suture.",
+              )}{" "}
         <br />
-        {
-          "Select a stage to compare the structure. The reference continental crust is 35 km thick and oceanic crust about 7 km thick."
-        }
+        {tr(
+          "Select a stage to compare the structure. The reference continental crust is 35 km thick and oceanic crust about 7 km thick.",
+        )}
       </ScienceReadout>
     </>
   );

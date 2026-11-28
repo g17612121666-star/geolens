@@ -26,6 +26,25 @@ export function lunarPosition(
 export function illuminatedFraction(p: [number, number, number]) {
   return (1 - p[0] / Math.hypot(...p)) / 2;
 }
+export const PHASE_NAMES = [
+  "New Moon",
+  "Waxing crescent",
+  "First quarter",
+  "Waxing gibbous",
+  "Full Moon",
+  "Waning gibbous",
+  "Last quarter",
+  "Waning crescent",
+] as const;
+/** The everyday name of a phase (0 = new Moon, 0.5 = full Moon) with lit fraction `fraction`. */
+export function phaseName(phase: number, fraction: number): (typeof PHASE_NAMES)[number] {
+  const waxing = phase < 0.5;
+  if (fraction < 0.01) return "New Moon";
+  if (fraction > 0.99) return "Full Moon";
+  if (Math.abs(fraction - 0.5) < 0.03) return waxing ? "First quarter" : "Last quarter";
+  if (waxing) return fraction < 0.5 ? "Waxing crescent" : "Waxing gibbous";
+  return fraction < 0.5 ? "Waning crescent" : "Waning gibbous";
+}
 export function shadowRadii(radius: number, sunDistance: number, behind: number) {
   return {
     umbra: radius - (behind * (LUNAR.sun - radius)) / sunDistance,

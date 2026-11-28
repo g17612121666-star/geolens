@@ -1,20 +1,7 @@
-export type AgeBand =
-  | "KS3"
-  | "GCSE"
-  | "A-level"
-  | "NGSS MS"
-  | "HS Earth Sci"
-  | "APES";
+export type AgeBand = "KS3" | "GCSE" | "A-level" | "NGSS MS" | "HS Earth Sci" | "APES";
 
 export type RealmSlug =
-  | "planet"
-  | "interior"
-  | "atmosphere"
-  | "water"
-  | "landforms"
-  | "soils"
-  | "hazards"
-  | "skills";
+  "planet" | "interior" | "atmosphere" | "water" | "landforms" | "soils" | "hazards" | "skills";
 
 /** A lab is listed only if playable or complete. Shell never gets a card. */
 export type LabStatus = "complete" | "playable" | "shell";
@@ -36,7 +23,7 @@ export type LabStep = {
 export type ShowWhen = { key: string; values: number[] };
 
 export type LabExtra = {
-  options?: {value:number;label:string}[];
+  options?: { value: number; label: string }[];
   showWhen?: ShowWhen;
   key: string;
   label: string;
@@ -68,8 +55,14 @@ export type LabMeta = {
   why: string[];
   /** Scientific assumptions and calculation details, available on demand. */
   modelNotes?: string[];
+  /**
+   * What the 3D model shows, in words, for students who cannot see it. Screen readers read it
+   * when the 3D view takes focus.
+   */
+  modelDescription?: string;
   /** Definitions come from scripts/glossary-definitions.json, added at build time. */
-  glossary: { term: string; def: string; exam?: string }[];
+  /** `key` keeps the English term for lookups (pictures) when the term is shown translated. */
+  glossary: { term: string; def: string; exam?: string; key?: string }[];
   /** Wrong sentences students often say, each with its correction; the first is the headline. */
   misconceptions: { claim: string; truth: string }[];
   cases: { slug: string; label: string }[];

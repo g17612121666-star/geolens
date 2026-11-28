@@ -6,6 +6,7 @@ import { useLabState } from "@/lib/store/lab-controls";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { latLonToXYZ } from "@/lib/geo";
+import { useT } from "@/lib/i18n";
 
 const ring = (lat: number, r: number) =>
   Array.from({ length: 129 }, (_, i) => latLonToXYZ(lat, -180 + (i / 128) * 360, r));
@@ -42,6 +43,7 @@ const hemi = (v: number, pos: string, neg: string) =>
   `${Math.abs(v).toFixed(1)}°${Math.abs(v) < 0.05 ? "" : v < 0 ? neg : pos}`;
 
 export default function GraticuleScene() {
+  const tr = useT();
   const { params } = useLabState("params"),
     lat = params.lat ?? 40.7,
     lon = params.lon ?? -74;
@@ -60,8 +62,10 @@ export default function GraticuleScene() {
       <ScienceStudio
         slug="graticule"
         space
-        scale="Spherical coordinates · lines and marker enlarged for clarity · globe tipped to keep the marker in view"
-        trueScale="Latitude and longitude angles are true; Earth represented as a sphere"
+        scale={tr(
+          "Spherical coordinates · lines and marker enlarged for clarity · globe tipped to keep the marker in view",
+        )}
+        trueScale={tr("Latitude and longitude angles are true; Earth represented as a sphere")}
         lights={false}
         camera={[0, 1, 4.8]}
       >
@@ -75,15 +79,17 @@ export default function GraticuleScene() {
             <Line points={prime} color="#e9d9b4" lineWidth={1.4} />
             <Tag
               pos={latLonToXYZ(0, lon - 35, 1.36)}
-              text="Equator 0°"
-              note="The equator is the 0° line of latitude, halfway between the poles."
+              text={tr("Equator 0°")}
+              note={tr("The equator is the 0° line of latitude, halfway between the poles.")}
             />
             {/* Only label the prime meridian while it is on the visible face of the globe. */}
             {Math.abs(lon) <= 60 && (Math.abs(lon) > 15 || clear(-38)) && (
               <Tag
                 pos={latLonToXYZ(-38, 0, 1.36)}
-                text="Prime meridian 0°"
-                note="The prime meridian through Greenwich is the agreed 0° line of longitude; east and west are measured from it."
+                text={tr("Prime meridian 0°")}
+                note={tr(
+                  "The prime meridian through Greenwich is the agreed 0° line of longitude; east and west are measured from it.",
+                )}
               />
             )}
             {/* Tropics and polar circles, at the latitudes set by Earth's axial tilt. */}
@@ -103,22 +109,28 @@ export default function GraticuleScene() {
             {clear(23.44) && (
               <Tag
                 pos={latLonToXYZ(23.44, lon + 40, 1.34)}
-                text="Tropic of Cancer 23.4°N"
-                note="The furthest north the Sun is ever directly overhead, at the June solstice. Its latitude equals Earth's axial tilt."
+                text={tr("Tropic of Cancer 23.4°N")}
+                note={tr(
+                  "The furthest north the Sun is ever directly overhead, at the June solstice. Its latitude equals Earth's axial tilt.",
+                )}
               />
             )}
             {clear(-23.44) && (
               <Tag
                 pos={latLonToXYZ(-23.44, lon + 50, 1.34)}
-                text="Tropic of Capricorn 23.4°S"
-                note="The furthest south the Sun is ever directly overhead, at the December solstice."
+                text={tr("Tropic of Capricorn 23.4°S")}
+                note={tr(
+                  "The furthest south the Sun is ever directly overhead, at the December solstice.",
+                )}
               />
             )}
             {clear(66.56) && (
               <Tag
                 pos={latLonToXYZ(66.56, lon - 40, 1.34)}
-                text="Arctic Circle 66.6°N"
-                note="North of this line there is at least one day each year when the Sun does not set, and one when it does not rise."
+                text={tr("Arctic Circle 66.6°N")}
+                note={tr(
+                  "North of this line there is at least one day each year when the Sun does not set, and one when it does not rise.",
+                )}
               />
             )}
             {/* Gold = latitude (the marker's parallel and the arc up its meridian);
@@ -142,26 +154,28 @@ export default function GraticuleScene() {
             <Tag
               // Sit the label on the equator side of the marker so it does not cover the dot.
               pos={latLonToXYZ(labelLat, lon, 1.36)}
-              text={`${hemi(lat, "N", "S")} ${hemi(lon, "E", "W")}`}
-              note="Latitude is north or south of the equator. Longitude is east or west of Greenwich. Poles are shared by every meridian."
+              text={`${hemi(lat, tr("N"), tr("S"))} ${hemi(lon, tr("E"), tr("W"))}`}
+              note={tr(
+                "Latitude is north or south of the equator. Longitude is east or west of Greenwich. Poles are shared by every meridian.",
+              )}
               occlude={false}
             />
           </group>
         </group>
       </ScienceStudio>
       <ScienceReadout>
-        {"Latitude "}
-        {hemi(lat, "N", "S")}
-        {" · longitude "}
-        {hemi(lon, "E", "W")}
-        {" · 1° of longitude here ≈ "}
-        {kmPerDegree.toFixed(0)}
-        {" km (111 km at the equator) · local mean solar time "}
-        {lon / 15 >= 0 ? "+" : "−"}
-        {Math.abs(lon / 15).toFixed(2)}
-        {
-          " h from Greenwich. Gold arc measures latitude from the equator; blue arc measures longitude from Greenwich. This does not select a civil time zone."
-        }
+        {tr(
+          "Latitude {lat} · longitude {lon} · 1° of longitude here ≈ {km} km (111 km at the equator) · local mean solar time {time} h from Greenwich.",
+          {
+            lat: hemi(lat, tr("N"), tr("S")),
+            lon: hemi(lon, tr("E"), tr("W")),
+            km: kmPerDegree.toFixed(0),
+            time: `${lon / 15 >= 0 ? "+" : "−"}${Math.abs(lon / 15).toFixed(2)}`,
+          },
+        )}{" "}
+        {tr(
+          "Gold arc measures latitude from the equator; blue arc measures longitude from Greenwich. This does not select a civil time zone.",
+        )}
       </ScienceReadout>
     </>
   );

@@ -1,0 +1,144 @@
+{
+  "title": "Los eclipses",
+  "hook": "Un eclipse requiere que el Sol, la Tierra y la Luna se alineen lo suficiente para que un cuerpo entre en la sombra de otro.",
+  "objective": "Explica cómo deben alinearse el Sol, la Tierra y la Luna para que haya un eclipse, e identifica las regiones de sombra total y parcial.",
+  "modelDescription": "La Luna gira alrededor de la Tierra, y la sombra de la Tierra se dibuja detrás de ella como un cono central oscuro, la umbra, dentro de otro más claro, la penumbra. Un primer plano sigue a la Luna a través de la sombra de la Tierra en un eclipse lunar, o la sombra de la Luna hacia la Tierra en un eclipse solar. Girar la dirección de los nodos muestra por qué la mayoría de las lunas llenas y nuevas no entran en la sombra.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Empieza con el primer plano de la sombra en un eclipse lunar y sigue a la Luna a través de la penumbra y la umbra. Luego pon la Dirección de los nodos en 60° y compara cómo falla la alineación."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Con el Primer plano de la sombra activado, pon Primer plano del eclipse en Lunar — luna llena y la Dirección de los nodos en 0°. Arrastra el control Tránsito a través de la sombra. Luego elige Solar — luna nueva y compara la distancia más cercana y la más lejana de la Luna: ¿es la umbra de la Luna lo bastante larga para llegar a la Tierra?"
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué cambiar la dirección de los nodos de la órbita de la Luna convierte un eclipse en un fallo?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La umbra es…",
+      "choices": [
+        "El núcleo oscuro de la sombra",
+        "La parte exterior y tenue de una sombra",
+        "La mitad de la Luna iluminada por el Sol",
+        "El lado nocturno de la Tierra"
+      ],
+      "explain": "Dentro de la umbra, el cuerpo que causa el eclipse tapa todo el disco del Sol. En la penumbra que la rodea, solo se tapa una parte del Sol."
+    },
+    {
+      "prompt": "Los eclipses son raros porque…",
+      "choices": [
+        "La Luna es demasiado pequeña para tapar el Sol",
+        "La órbita de la Luna está inclinada unos 5°",
+        "Las nubes suelen ocultarlos",
+        "La Luna gira demasiado despacio"
+      ],
+      "explain": "La órbita de la Luna está inclinada unos 5° respecto al plano de la órbita de la Tierra, así que los cuerpos casi nunca se alinean lo suficiente en la luna nueva o la llena. Hay eclipses cuando esa fase ocurre cerca de un nodo de la órbita."
+    },
+    {
+      "prompt": "Un eclipse lunar necesita…",
+      "choices": [
+        "Una luna nueva cerca de un nodo de la órbita",
+        "Cualquier luna llena, esté donde esté la Luna",
+        "Una luna llena cerca de un nodo de la órbita",
+        "Un cuarto creciente cerca de un nodo de la órbita"
+      ],
+      "explain": "En la luna llena, la Tierra está entre el Sol y la Luna. Un eclipse lunar requiere además que la Luna pase cerca de un nodo para que entre en la sombra de la Tierra."
+    },
+    {
+      "prompt": "En una luna llena lejos de un nodo de la órbita, ¿qué suele pasar?",
+      "choices": [
+        "Un eclipse lunar, porque la Luna está llena",
+        "Un eclipse solar, porque la Luna está alineada",
+        "Un eclipse lunar parcial, porque la órbita de la Luna está inclinada",
+        "Casi siempre nada: la Luna pasa por encima o por debajo de la sombra"
+      ],
+      "explain": "Lejos de un nodo, la órbita inclinada de la Luna la lleva por encima o por debajo de la sombra de la Tierra en la luna llena. Por eso la fase llena por sí sola no basta para producir un eclipse lunar."
+    },
+    {
+      "prompt": "¿Por qué un eclipse solar total solo se ve desde una franja estrecha de la Tierra?",
+      "choices": [
+        "La umbra de la Luna es pequeña donde llega a la Tierra.",
+        "Las nubes ocultan el eclipse en casi todos los demás lugares.",
+        "Solo las personas en el ecuador ven el Sol al mediodía.",
+        "La sombra de la Tierra cubre todos los demás lugares en ese momento."
+      ],
+      "explain": "La umbra oscura de la Luna se estrecha hasta medir, como mucho, unos cientos de kilómetros de ancho cuando llega a la Tierra. Fuera de esa franja, los observadores están en la penumbra y solo ven un eclipse parcial."
+    }
+  ],
+  "why": [
+    "Un eclipse requiere que el Sol, la Tierra y la Luna se alineen lo suficiente para que un cuerpo entre en la sombra de otro. La inclinación de la órbita de la Luna suele llevarla por encima o por debajo de la alineación necesaria.",
+    "La distancia importa en los eclipses solares. Cerca de su punto más cercano, la Luna se ve un poco más grande que el Sol, así que su umbra llega a la Tierra y el eclipse puede ser total. Cerca de su punto más lejano, la Luna se ve un poco más pequeña que el Sol, la umbra termina antes de llegar a la Tierra y queda visible un anillo de Sol: un eclipse anular.",
+    "El experimento de la sombra aísla la alineación y el tamaño aparente; no es un calendario de eclipses futuros."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Cada luna llena produce un eclipse lunar.",
+      "truth": "Un eclipse lunar requiere que la luna llena pase por la sombra de la Tierra. El plano de la órbita de la Luna está inclinado unos cinco grados respecto al plano de la órbita de la Tierra, así que la Luna suele pasar por encima o por debajo de esa sombra. Solo hay eclipse cuando la alineación ocurre lo bastante cerca de un nodo de la órbita."
+    },
+    {
+      "claim": "Es seguro mirar el Sol durante un eclipse solar parcial porque está casi todo tapado.",
+      "truth": "Incluso una creciente delgada del Sol es lo bastante brillante para dañar los ojos. Usa lentes certificados para eclipses o proyecta la imagen del Sol a través de un agujero pequeño. Solo durante la totalidad, cuando la Luna tapa todo el disco, es seguro mirar sin protección por un momento."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Umbra",
+      "def": "La parte central de una sombra, donde la fuente de luz queda completamente tapada. Durante un eclipse lunar total, la Luna está dentro de la umbra de la Tierra. La penumbra que la rodea recibe luz de parte de la fuente y produce un oscurecimiento menos completo."
+    },
+    {
+      "term": "Penumbra",
+      "def": "La parte de una sombra donde la fuente de luz está tapada solo en parte. Una Luna en la penumbra de la Tierra se oscurece solo un poco, mucho menos que en la umbra."
+    },
+    {
+      "term": "Nodo",
+      "def": "Uno de los dos lugares donde el plano de la órbita de la Luna cruza el plano de la órbita de la Tierra. Un eclipse requiere una luna nueva o llena lo bastante cerca de un nodo para que el Sol, la Tierra y la Luna se alineen dentro de la sombra correspondiente."
+    },
+    {
+      "term": "Eclíptica",
+      "def": "El plano de la órbita de la Tierra alrededor del Sol, proyectado en el cielo como el recorrido aparente del Sol durante el año. El plano de la órbita de la Luna está inclinado unos cinco grados respecto a ella, así que la mayoría de las lunas nuevas y llenas no producen eclipses."
+    },
+    {
+      "term": "Inclinación orbital",
+      "def": "El ángulo entre el plano de una órbita y un plano de referencia elegido. La órbita de la Luna está inclinada unos cinco grados respecto al plano de la órbita de la Tierra. Por eso la Luna suele pasar por encima o por debajo de la alineación necesaria para un eclipse."
+    },
+    {
+      "term": "Eclipse solar",
+      "def": "Un eclipse en la luna nueva, cuando la Luna pasa entre el Sol y la Tierra cerca de un nodo de su órbita. Con una alineación lo bastante buena, el tamaño aparente de la Luna decide si es total o anular; una alineación menos exacta, o verlo desde fuera de la sombra central, da un eclipse parcial."
+    },
+    {
+      "term": "Eclipse lunar",
+      "def": "Un eclipse que ocurre cuando la Luna pasa por la sombra de la Tierra cerca de la luna llena y de un nodo de su órbita. Puede ser penumbral, parcial o total."
+    },
+    {
+      "term": "Mes sinódico",
+      "def": "El tiempo entre una fase lunar y la siguiente vez que se repite la misma fase, de unos 29.5 días en promedio. Es más largo que el periodo orbital de la Luna respecto a las estrellas porque la Tierra también se mueve alrededor del Sol."
+    }
+  ],
+  "predict": {
+    "prompt": "Hay una luna llena cada mes. ¿Esperas un eclipse lunar cada mes? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Por qué no hay un eclipse en cada luna nueva y cada luna llena?",
+    "claim": "Los eclipses son raros porque la órbita de la Luna está inclinada unos 5°, así que el Sol, la Tierra y la Luna solo se alinean cuando una luna nueva o llena ocurre cerca de un nodo de la órbita.",
+    "evidence": "Con la Dirección de los nodos en 0°, la luna llena atraviesa la umbra de la Tierra y los resultados muestran un eclipse lunar total. Con 60°, la luna llena pasa por encima o por debajo de la sombra y no entra en ella. Activar Alineación para eclipses elimina la inclinación, y entonces cada luna llena entra en la sombra.",
+    "reasoning": "Una sombra solo puede caer sobre un cuerpo que está en la línea que viene del Sol. La órbita inclinada lleva a la Luna por encima o por debajo de esa línea la mayoría de los meses. Solo cerca de los dos lugares donde se cruzan las órbitas, los nodos, la alineación puede ser lo bastante exacta para un eclipse."
+  },
+  "controls": {
+    "node": { "label": "Dirección de los nodos" },
+    "distance": { "label": "Distancia de la Luna" },
+    "eclipse": {
+      "label": "Primer plano del eclipse",
+      "options": ["Lunar — luna llena", "Solar — luna nueva"]
+    },
+    "align": { "label": "Alineación para eclipses" },
+    "shadow": { "label": "Primer plano de la sombra" }
+  }
+}

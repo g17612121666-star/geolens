@@ -7,6 +7,7 @@ import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { latLonToXYZ } from "@/lib/geo";
+import { msg, useT } from "@/lib/i18n";
 
 /**
  * Sun to the left of the default camera, at right angles to the view, so the camera sees half
@@ -14,7 +15,7 @@ import { latLonToXYZ } from "@/lib/geo";
  * moves left to right, carrying places from the lit half across the sunset terminator.
  */
 const SUN = new THREE.Vector3(-1, 0, 0);
-const CITY = { name: "New York", lat: 40.7, lon: -74 };
+const CITY = { name: msg("New York"), lat: 40.7, lon: -74 };
 
 /** Terminator: the great circle at right angles to the Sun direction (equinox geometry). */
 const TERMINATOR = Array.from({ length: 161 }, (_, i): [number, number, number] => {
@@ -27,6 +28,7 @@ const ZONES = Array.from({ length: 24 }, (_, i) =>
 );
 
 export default function RotationScene() {
+  const tr = useT();
   const { t, params } = useLabState("t", "params");
   useLabTick(1 / 28);
   // At t = 0 the 90°E meridian faces the Sun, so Greenwich is at 06:00 local solar time.
@@ -36,12 +38,12 @@ export default function RotationScene() {
     // Equinox: the Sun is above the horizon from 06:00 to 18:00 local solar time everywhere.
     phase =
       Math.abs(solar - 6) < 0.1
-        ? "sunrise"
+        ? tr("sunrise")
         : Math.abs(solar - 18) < 0.1
-          ? "sunset"
+          ? tr("sunset")
           : solar > 6 && solar < 18
-            ? "day"
-            : "night";
+            ? tr("day")
+            : tr("night");
   return (
     <>
       <ScienceStudio
@@ -49,16 +51,22 @@ export default function RotationScene() {
         lights={false}
         space
         camera={[0, 1, 4.8]}
-        scale="Earth rotates eastward · 15° per mean solar hour · Sun direction held fixed · Equinox geometry: axial tilt left out, so the terminator passes through both poles · City marker enlarged"
-        trueScale="Spherical Earth · time-zone lines are ideal 15° meridians, not real borders · Equinox geometry: axial tilt left out"
+        scale={tr(
+          "Earth rotates eastward · 15° per mean solar hour · Sun direction held fixed · Equinox geometry: axial tilt left out, so the terminator passes through both poles · City marker enlarged",
+        )}
+        trueScale={tr(
+          "Spherical Earth · time-zone lines are ideal 15° meridians, not real borders · Equinox geometry: axial tilt left out",
+        )}
       >
         {/* Sun direction marker: same direction as the shader's light, well outside Earth. */}
         <group position={SUN.clone().multiplyScalar(2.45).toArray()}>
           <StarMesh radius={0.17} />
           <Tag
             pos={[0, 0.38, 0]}
-            text="Sunlight"
-            note="The Sun is drawn much closer and smaller than reality. Its light arrives as almost parallel rays, lighting one half of Earth at a time."
+            text={tr("Sunlight")}
+            note={tr(
+              "The Sun is drawn much closer and smaller than reality. Its light arrives as almost parallel rays, lighting one half of Earth at a time.",
+            )}
             occlude={false}
           />
         </group>
@@ -72,9 +80,11 @@ export default function RotationScene() {
           </mesh>
           <Tag
             pos={latLonToXYZ(CITY.lat, CITY.lon, 1.4)}
-            text={CITY.name}
+            text={tr(CITY.name)}
             tone="glacier"
-            note="Follow this marked city as Earth turns. It crosses the terminator into darkness at sunset and back into daylight at sunrise."
+            note={tr(
+              "Follow this marked city as Earth turns. It crosses the terminator into darkness at sunset and back into daylight at sunrise.",
+            )}
           />
           {params.zones > 0.5 ? (
             ZONES.map((points, i) => (
@@ -92,21 +102,28 @@ export default function RotationScene() {
         <Line points={TERMINATOR} color="#d9c397" lineWidth={1.25} />
         <Tag
           pos={[0, -0.62, 1.15]}
-          text="Terminator (sunset)"
-          title="Terminator"
-          note="The boundary between the lit and dark halves of Earth. On this side, rotation carries places from day into night; on the far side, places cross it from night into day at sunrise."
+          text={tr("Terminator (sunset)")}
+          title={tr("Terminator")}
+          note={tr(
+            "The boundary between the lit and dark halves of Earth. On this side, rotation carries places from day into night; on the far side, places cross it from night into day at sunrise.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {(t * 24).toFixed(2)} {"hours of rotation · "}
-        {(t * 360).toFixed(1)}
-        {"° · "}
-        {CITY.name} {"local solar time "}
-        {clock} ({phase}){". West-to-east rotation brings successive places into sunlight. "}
+        {tr(
+          "{hours} hours of rotation · {deg}° · {city} local solar time {clock} ({phase}). West-to-east rotation brings successive places into sunlight.",
+          {
+            hours: (t * 24).toFixed(2),
+            deg: (t * 360).toFixed(1),
+            city: tr(CITY.name),
+            clock,
+            phase,
+          },
+        )}{" "}
         {params.zones > 0.5
-          ? "Civil time zones may depart from these ideal meridians."
-          : "Day and night come from geometry, not time-zone boundaries."}
+          ? tr("Civil time zones may depart from these ideal meridians.")
+          : tr("Day and night come from geometry, not time-zone boundaries.")}
       </ScienceReadout>
     </>
   );

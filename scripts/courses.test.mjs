@@ -19,7 +19,7 @@ test("every standard in the registry belongs to exactly one course unit", () => 
 test("course and unit ids are unique, and the US courses come first", () => {
   assert.deepEqual(
     COURSES.map((c) => c.id),
-    ["ms", "hs", "apes", "aphg", "england"],
+    ["ms", "hs", "apes", "aphg", "texas", "england"],
   );
   const units = COURSES.flatMap((c) => c.units.map((u) => u.id));
   assert.equal(new Set(units).size, units.length);

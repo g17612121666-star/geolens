@@ -1,0 +1,141 @@
+{
+  "title": "Ciclón tropical",
+  "hook": "Un ciclón tropical atrae aire húmedo hacia adentro cerca de la superficie, con un ascenso intenso en la pared del ojo y una salida de aire en altura.",
+  "objective": "Identifica el ojo, la pared del ojo y las bandas de lluvia de un ciclón tropical, y explica cómo el agua cálida del océano mantiene su circulación.",
+  "modelDescription": "Se muestra un ciclón tropical cortado por la mitad: el ojo despejado en el centro, el alto anillo de nubes de la pared del ojo y las bandas de lluvia en espiral. Las flechas muestran el aire cálido y húmedo que entra cerca del mar, sube por la pared del ojo, sale por la parte alta y desciende en el ojo. Al cambiar la intensidad cambian los vientos y la presión del centro. Las nubes se dibujan cinco veces más altas de lo real, salvo que cambies a la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra el ojo, la pared del ojo y las bandas de lluvia. Sigue las flechas de la entrada de aire, el ascenso y la salida, y encuentra el aire que desciende en el ojo."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Lee el perfil del viento y encuentra su máximo a 30 km. Cambia Intensidad y observa la presión del centro: ¿por qué ese número es solo una estimación del modelo?"
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Qué relación hay entre los vientos más fuertes cerca de la pared del ojo y el cambio de presión hacia el centro?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La pared del ojo es…",
+      "choices": [
+        "El centro tranquilo y despejado de la tormenta",
+        "Las bandas exteriores de chubascos fuertes",
+        "El frente frío que va detrás",
+        "El anillo de viento y lluvia más fuertes"
+      ],
+      "explain": "La pared del ojo rodea el ojo, relativamente tranquilo, y contiene aire que asciende con fuerza y convección profunda. Los vientos más fuertes cerca de la superficie suelen darse en este anillo o muy cerca de él."
+    },
+    {
+      "prompt": "Los ciclones tropicales necesitan…",
+      "choices": [
+        "Agua oceánica cálida y poca cizalladura del viento",
+        "Agua fría y una cizalladura del viento fuerte",
+        "Un fuerte contraste de temperatura entre masas de aire",
+        "Aire seco sobre tierra"
+      ],
+      "explain": "El agua cálida del océano puede aportar calor y humedad, y una cizalladura vertical del viento débil ayuda a que la convección organizada siga alineada con la circulación. Estas condiciones favorables no garantizan por sí solas que se forme un ciclón."
+    },
+    {
+      "prompt": "Una ventisca invernal sobre las Grandes Llanuras suele ser…",
+      "choices": [
+        "Un ciclón tropical",
+        "Un ciclón de latitudes medias",
+        "Un anticiclón",
+        "Un gran brote de tornados"
+      ],
+      "explain": "Las tormentas invernales de Estados Unidos, como las de Europa, suelen ser ciclones extratropicales asociados con contrastes entre masas de aire y con frentes. Su estructura y sus fuentes de energía son distintas de las de un ciclón tropical sobre agua cálida."
+    },
+    {
+      "prompt": "La escala Saffir–Simpson clasifica…",
+      "choices": [
+        "Todas las tormentas invernales y nor’easters de EE. UU.",
+        "Los huracanes según la lluvia total que dejan",
+        "Los ciclones tropicales, según la velocidad del viento",
+        "Solo la altura de la marejada ciclónica"
+      ],
+      "explain": "La escala Saffir–Simpson asigna las categorías de los huracanes según la velocidad máxima del viento sostenido. No clasifica tormentas extratropicales como los nor’easters ni representa los peligros de lluvia y marejada de una tormenta."
+    },
+    {
+      "prompt": "¿Por qué un ciclón tropical suele debilitarse después de pasar sobre tierra?",
+      "choices": [
+        "Las montañas devuelven sus vientos hacia el mar.",
+        "La tierra es demasiado seca para que el aire gire.",
+        "Pierde su fuente de aire oceánico cálido y húmedo.",
+        "La luz del día calienta la tormenta hasta evaporarla."
+      ],
+      "explain": "Un ciclón tropical obtiene su energía del calor y la humedad del agua cálida del mar. Sobre tierra esa fuente se corta y la fricción frena los vientos, aunque las lluvias intensas y las inundaciones pueden continuar muy tierra adentro."
+    }
+  ],
+  "why": [
+    "Un ciclón tropical atrae aire húmedo hacia adentro cerca de la superficie, con un ascenso intenso en la pared del ojo y una salida de aire en altura. Su ojo tiene vientos más débiles y, a menudo, aire que desciende; no es lo mismo que el embudo de un tornado.",
+    "El aire gira más rápido a medida que se acerca al centro, así que el viento es más fuerte en la pared del ojo y disminuye fuera de ella. Para mantener el aire que se mueve rápido en una trayectoria circular cerrada, la presión debe bajar mucho hacia el centro: un viento máximo más fuerte necesita una baja más profunda, y por eso la presión central del modelo baja al subir Intensidad.",
+    "El vórtice ideal relaciona el viento y la presión mediante supuestos explícitos; no calcula el desarrollo de la tormenta, la lluvia ni la trayectoria."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La calma del ojo significa que el ciclón tropical ya pasó y que el peligro terminó.",
+      "truth": "El ojo está rodeado por la pared del ojo, donde los vientos y la convección son fuertes. Si el ojo pasa por un lugar, la pared opuesta puede llegar tras una calma temporal, con el viento en otra dirección. La lluvia, las inundaciones y el nivel del agua en la costa también pueden seguir siendo peligrosos lejos de los vientos más fuertes."
+    },
+    {
+      "claim": "Los huracanes, los tifones y los ciclones son tipos distintos de tormenta.",
+      "truth": "Todos son ciclones tropicales. El nombre depende del océano: huracán en el Atlántico y el Pacífico nororiental, tifón en el Pacífico noroccidental y ciclón en el océano Índico y el Pacífico sur."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Ciclón tropical",
+      "def": "Un sistema de baja presión organizado y giratorio, de núcleo cálido, que se forma sobre aguas tropicales o subtropicales. Las tormentas fuertes pueden formar un ojo y una pared del ojo. Huracán y tifón son nombres regionales para la misma clase de tormenta."
+    },
+    {
+      "term": "Ojo",
+      "def": "La región central, relativamente tranquila, de un ciclón tropical desarrollado, a menudo con aire que desciende y menos nubes. La pared del ojo que lo rodea tiene una convección mucho más intensa y vientos más fuertes. Entrar en el ojo no significa que la tormenta haya terminado."
+    },
+    {
+      "term": "Pared del ojo",
+      "def": "El anillo de convección profunda alrededor del ojo de un ciclón tropical, que suele tener sus vientos más fuertes y su lluvia más intensa. Su posición y estructura pueden cambiar a medida que evoluciona la tormenta. Es distinta del ojo, más tranquilo, y de las bandas de lluvia en espiral exteriores."
+    },
+    {
+      "term": "Banda de lluvia",
+      "def": "Una banda alargada o curva de chubascos y tormentas eléctricas dentro de un sistema de tormentas. Los ciclones tropicales suelen tener bandas de lluvia en espiral fuera de la pared del ojo. Su lluvia y sus vientos pueden afectar lugares muy alejados del ojo, con grandes diferencias entre tormentas."
+    },
+    {
+      "term": "Marejada ciclónica",
+      "def": "Una subida del nivel del mar por encima de la marea esperada, causada sobre todo por el viento de una tormenta y la presión atmosférica. La forma de la costa y la profundidad del agua influyen en su tamaño. La marejada se combina con las mareas y el oleaje para determinar el nivel del agua y las inundaciones en la costa."
+    },
+    {
+      "term": "Saffir–Simpson",
+      "def": "Una escala de huracanes de cinco categorías basada en la velocidad máxima del viento sostenido. No clasifica la lluvia, la marejada ciclónica ni el impacto total de un ciclón."
+    },
+    {
+      "term": "Ciclón de latitudes medias",
+      "def": "Un sistema extratropical de baja presión que se forma por contrastes de temperatura y suele asociarse con frentes cálidos y fríos."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Por qué crees que los huracanes se forman sobre océanos cálidos y se debilitan después de pasar sobre tierra?"
+  },
+  "cer": {
+    "prompt": "¿Dónde están los vientos más fuertes de un huracán, y por qué una tormenta más fuerte tiene una presión central más baja?",
+    "claim": "Los vientos más fuertes están en la pared del ojo, alrededor del ojo en calma, y una tormenta más fuerte necesita un centro de baja presión más profundo para que sus vientos rápidos sigan girando.",
+    "evidence": "El perfil del viento sube desde un centro en calma hasta su máximo a 30 km, en la pared del ojo, y luego baja hacia afuera. Al subir Intensidad, el viento máximo pasa de 38 a 80 m/s y baja la presión central del modelo.",
+    "reasoning": "El aire entra en espiral y se acelera al acercarse al centro. Para mantener el aire que se mueve rápido en una trayectoria circular cerrada, la presión debe bajar mucho hacia el centro. El agua cálida del océano aporta la humedad cuya condensación libera el calor que alimenta la pared del ojo."
+  },
+  "controls": {
+    "intensity": {
+      "label": "Intensidad"
+    },
+    "sh": {
+      "label": "Hemisferio sur"
+    },
+    "satellite": {
+      "label": "Cimas de nubes reales"
+    }
+  }
+}

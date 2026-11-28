@@ -13,6 +13,7 @@ import { Tag } from "../shared/kit";
 import { landscapeRandom as random } from "../shared/landscape-noise";
 import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
+import { useLang, useT } from "@/lib/i18n";
 const hill = catchmentRelief;
 const ss = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
 function Basin({
@@ -127,6 +128,8 @@ function Basin({
   );
 }
 export default function RiverHydrology() {
+  const tr = useT(),
+    locale = useLang() === "es" ? "es-US" : "en-US";
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 65);
   const dam = params.dam > 0.5,
@@ -140,7 +143,7 @@ export default function RiverHydrology() {
     // Fixed axis (undammed snow-fed peak) so switching the dam on visibly lowers the peak.
     max = Math.max(...a.series.map((s) => s.flow), ...free.series.map((s) => s.flow)) * 1.1,
     date = (d: number) =>
-      new Date(Date.UTC(2001, 0, d + 1)).toLocaleDateString("en-US", {
+      new Date(Date.UTC(2001, 0, d + 1)).toLocaleDateString(locale, {
         day: "numeric",
         month: "short",
         timeZone: "UTC",
@@ -160,21 +163,27 @@ export default function RiverHydrology() {
       <ScienceStudio
         slug="river-hydrology"
         camera={[4, 5, 8]}
-        scale="Two invented 100 km² catchments · relief ×10 · channel width symbolic"
-        trueScale="Terrain uses 1 scene unit = 3.125 km · river width, dam and vegetation remain enlarged symbols"
+        scale={tr("Two invented 100 km² catchments · relief ×10 · channel width symbolic")}
+        trueScale={tr(
+          "Terrain uses 1 scene unit = 3.125 km · river width, dam and vegetation remain enlarged symbols",
+        )}
       >
         <Basin x={-2.15} snow={0} flow={av.flow} dam={false} vertical={f} />
         <Basin x={2.15} snow={bv.snow} flow={bv.flow} dam={dam} vertical={f} />
         <Tag
           pos={[-2.15, 0.25, 2]}
-          text={`Rain-fed · ${av.flow.toFixed(2)} m³/s`}
-          note="An invented maritime regime with wetter winters. 40% of the rain is lost (for example to evaporation) and a ten-day store delays the rest. Not fitted to the Thames."
+          text={tr("Rain-fed · {av} m³/s", { av: av.flow.toFixed(2) })}
+          note={tr(
+            "An invented maritime regime with wetter winters. 40% of the rain is lost (for example to evaporation) and a ten-day store delays the rest. Not fitted to the Thames.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[2.15, 0.25, 2]}
-          text={`Snow-fed · ${bv.flow.toFixed(2)} m³/s`}
-          note="An invented temperature cycle stores winter snowfall. Above 0 °C, up to 3 mm of snow-water equivalent melts per degree per day, and a seven-day store delays the runoff. The dam adds a 60-day reservoir, not a real operating rule."
+          text={tr("Snow-fed · {bv} m³/s", { bv: bv.flow.toFixed(2) })}
+          note={tr(
+            "An invented temperature cycle stores winter snowfall. Above 0 °C, up to 3 mm of snow-water equivalent melts per degree per day, and a seven-day store delays the runoff. The dam adds a 60-day reservoir, not a real operating rule.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
@@ -183,9 +192,9 @@ export default function RiverHydrology() {
           viewBox="0 0 600 106"
           className="mx-auto h-28 w-full"
           role="img"
-          aria-label={
-            "Annual daily discharge: rain-fed in gold and snow-fed in blue (dashed: snow-fed without the dam), linked to the selected day"
-          }
+          aria-label={tr(
+            "Annual daily discharge: rain-fed in gold and snow-fed in blue (dashed: snow-fed without the dam), linked to the selected day",
+          )}
         >
           <line x1="35" x2="565" y1="78" y2="78" stroke="#718a84" />
           <polyline
@@ -219,27 +228,42 @@ export default function RiverHydrology() {
             {"m³/s"}
           </text>
           <text x="35" y="101" fill="var(--color-mist)" fontSize="12">
-            {"Jan"}
+            {tr("Jan")}
           </text>
           <text x="295" y="101" fill="var(--color-mist)" fontSize="12">
-            {"Jul"}
+            {tr("Jul")}
           </text>
           <text x="540" y="101" fill="var(--color-mist)" fontSize="12">
-            {"Dec"}
+            {tr("Dec")}
           </text>
         </svg>
-        {`${date(day)} · snow store ${bv.snow.toFixed(0)} mm water equivalent, melt `}
-        {`${bv.melt.toFixed(1)} mm/day. Annual peak: rain-fed (gold) ${pa.flow.toFixed(1)} m³/s `}
-        {`on ${date(pa.day)}; snow-fed (blue) ${pb.flow.toFixed(1)} m³/s on ${date(pb.day)}`}
-        {dam
-          ? ` (${peak(free.series).flow.toFixed(1)} m³/s on ${date(peak(free.series).day)} without the dam, dashed).`
-          : "."}{" "}
+        {tr("{date} · snow store {snow} mm water equivalent, melt {melt} mm/day.", {
+          date: date(day),
+          snow: bv.snow.toFixed(0),
+          melt: bv.melt.toFixed(1),
+        })}{" "}
+        {tr(
+          "Annual peak: rain-fed (gold) {rain} m³/s on {rainDate}; snow-fed (blue) {snow} m³/s on {snowDate}.",
+          {
+            rain: pa.flow.toFixed(1),
+            rainDate: date(pa.day),
+            snow: pb.flow.toFixed(1),
+            snowDate: date(pb.day),
+          },
+        )}{" "}
+        {dam &&
+          tr("Without the dam (dashed), the snow-fed peak would be {flow} m³/s on {date}.", {
+            flow: peak(free.series).flow.toFixed(1),
+            date: date(peak(free.series).day),
+          })}
         <br />
-        {`Day ${day + 1} of a repeating year. Dam `}
-        {dam ? "on: the reservoir stores the melt peak and releases it more slowly" : "off"}
-        {
-          ". Both regimes are invented and repeat every year; they are not forecasts or records of real rivers."
-        }
+        {tr("Day {day} of a repeating year.", { day: day + 1 })}{" "}
+        {dam
+          ? tr("Dam on: the reservoir stores the melt peak and releases it more slowly.")
+          : tr("Dam off.")}{" "}
+        {tr(
+          "Both regimes are invented and repeat every year; they are not forecasts or records of real rivers.",
+        )}
       </ScienceReadout>
     </>
   );

@@ -9,6 +9,7 @@ import { PlantStand } from "../shared/natural-world";
 import { Tag } from "../shared/kit";
 import { fbm } from "../shared/hazard-utils";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
+import { useT } from "@/lib/i18n";
 
 /** Floor of the neighboring (donor) valley, which flows east along z ≈ -0.9. */
 const donor = (x: number) => 0.8 - 0.08 * x;
@@ -27,6 +28,7 @@ function valley(floor: number, top: number, d: number, along: number, width: num
 }
 
 export default function RiverCapture() {
+  const tr = useT();
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 40);
   const stage = Math.round(params.stage ?? 0),
@@ -129,8 +131,10 @@ export default function RiverCapture() {
         horizon
         slug="river-capture"
         camera={[2.7, 6.4, 5.8]}
-        scale="Invented 6 × 4 km catchments · relief ×2 · three selected stages"
-        trueScale="1 scene unit = 1 km · common distances · water and vegetation symbols enlarged"
+        scale={tr("Invented 6 × 4 km catchments · relief ×2 · three selected stages")}
+        trueScale={tr(
+          "1 scene unit = 1 km · common distances · water and vegetation symbols enlarged",
+        )}
       >
         <group scale={[1, v, 1]}>
           <GeomorphicTerrain
@@ -185,62 +189,80 @@ export default function RiverCapture() {
           />
           <Tag
             pos={[-2.4, 1.25, -1.7]}
-            text={stage === 2 ? "Captured headwaters" : "Neighboring river"}
-            note="Before capture these headwaters flow east across the scene. After capture they turn into the lower captor valley. Channel widths and tracer speeds do not show discharge."
+            text={stage === 2 ? tr("Captured headwaters") : tr("Neighboring river")}
+            note={tr(
+              "Before capture these headwaters flow east across the scene. After capture they turn into the lower captor valley. Channel widths and tracer speeds do not show discharge.",
+            )}
             occlude={false}
           />
           <Tag
             pos={[2.7, 1.32, donorZ(2.7)]}
-            text={stage === 2 ? "East outlet · misfit stream" : "East outlet"}
-            short="Outlet"
+            text={stage === 2 ? tr("East outlet · misfit stream") : tr("East outlet")}
+            short={tr("Outlet")}
             tone="glacier"
             note={
               stage === 2
-                ? "Only a small misfit stream now leaves the scene here, flowing east. The water from the captured headwaters leaves by the captor's outlet instead."
-                : "The neighboring river leaves the scene here, flowing east. Everything upstream of this point drains through it."
+                ? tr(
+                    "Only a small misfit stream now leaves the scene here, flowing east. The water from the captured headwaters leaves by the captor's outlet instead.",
+                  )
+                : tr(
+                    "The neighboring river leaves the scene here, flowing east. Everything upstream of this point drains through it.",
+                  )
             }
             occlude={false}
           />
           <Tag
             pos={[captorX(1.8) + 0.55, captor(1.8) + 0.05, 1.8]}
-            text={stage === 2 ? "South outlet · both rivers" : "South outlet"}
-            short="Outlet"
+            text={stage === 2 ? tr("South outlet · both rivers") : tr("South outlet")}
+            short={tr("Outlet")}
             tone="glacier"
             note={
               stage === 2
-                ? "After capture, the captor stream leaves the scene here, flowing south, with the water of both catchments."
-                : "The captor stream leaves the scene here, flowing south. Its catchment is separate from the neighboring river's until the divide is breached."
+                ? tr(
+                    "After capture, the captor stream leaves the scene here, flowing south, with the water of both catchments.",
+                  )
+                : tr(
+                    "The captor stream leaves the scene here, flowing south. Its catchment is separate from the neighboring river's until the divide is breached.",
+                  )
             }
             occlude={false}
           />
           <Tag
             pos={[-0.45, 0.6, 1.5]}
-            text="Captor stream"
+            text={tr("Captor stream")}
             priority={1}
-            note="Headward erosion extends this lower valley toward the divide. When the divide is breached, the lower route can divert the neighboring river. Base level, rock type and structure all affect how fast it cuts back."
+            note={tr(
+              "Headward erosion extends this lower valley toward the divide. When the divide is breached, the lower route can divert the neighboring river. Base level, rock type and structure all affect how fast it cuts back.",
+            )}
             occlude={false}
           />
           {stage === 2 && (
             <>
               <Tag
                 pos={[2, 0.85, -0.95]}
-                text="Beheaded reach"
-                note="A smaller stream may now occupy the former valley, which looks too large for it (a misfit stream). An elbow of capture and a misfit stream are clues, but proving capture needs other geological evidence. The dashed line traces the former course."
+                text={tr("Beheaded reach")}
+                note={tr(
+                  "A smaller stream may now occupy the former valley, which looks too large for it (a misfit stream). An elbow of capture and a misfit stream are clues, but proving capture needs other geological evidence. The dashed line traces the former course.",
+                )}
                 occlude={false}
               />
               <Tag
                 pos={[-0.25, 0.95, -0.55]}
-                text="Elbow of capture"
-                short="Elbow"
+                text={tr("Elbow of capture")}
+                short={tr("Elbow")}
                 priority={2}
-                note="The sharp bend where the captured river now turns into the captor valley."
+                note={tr(
+                  "The sharp bend where the captured river now turns into the captor valley.",
+                )}
                 occlude={false}
               />
               <Tag
                 pos={[0.65, 1.2, -1.2]}
-                text="Wind gap"
+                text={tr("Wind gap")}
                 priority={2}
-                note="A low, dry col in the old valley floor between the elbow and the beheaded stream. No river flows through it now, but its shape shows that a larger river once did."
+                note={tr(
+                  "A low, dry col in the old valley floor between the elbow and the beheaded stream. No river flows through it now, but its shape shows that a larger river once did.",
+                )}
                 occlude={false}
               />
             </>
@@ -251,15 +273,17 @@ export default function RiverCapture() {
       <ScienceReadout>
         {
           [
-            "Before capture: two separate drainage routes.",
-            "Headward erosion: the captor approaches the divide.",
-            "After capture: headwater flow turns into the lower outlet; the former downstream reach loses that supply.",
+            tr("Before capture: two separate drainage routes."),
+            tr("Headward erosion: the captor approaches the divide."),
+            tr(
+              "After capture: headwater flow turns into the lower outlet; the former downstream reach loses that supply.",
+            ),
           ][stage]
         }{" "}
         <br />
-        {
-          "The gold arrow shows headward erosion extending the valley upstream, while its water still flows downstream. The stages are not dated. Play follows the current water route."
-        }
+        {tr(
+          "The gold arrow shows headward erosion extending the valley upstream, while its water still flows downstream. The stages are not dated. Play follows the current water route.",
+        )}
       </ScienceReadout>
     </>
   );

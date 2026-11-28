@@ -1,0 +1,147 @@
+{
+  "title": "El tiempo geológico",
+  "hook": "La historia de la Tierra abarca unos 4,540 millones de años.",
+  "objective": "Lee fechas en millones de años y compara las duraciones desiguales de los grandes intervalos de la historia de la Tierra.",
+  "modelDescription": "La historia de la Tierra se dibuja como una cinta en espiral alrededor de una columna central, coloreada en franjas para los eones y las eras, desde hace unos 4,540 millones de años en un extremo hasta el presente en el otro. Un marcador se mueve por la cinta, y la vista puede acercarse a los últimos 539 millones de años o a los últimos 2.58 millones de años.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Pon la Ventana de tiempo en Historia de la Tierra y mueve Más antiguo → presente hasta el extremo más antiguo."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Acércate al presente y luego cambia la Ventana de tiempo a Fanerozoico o Cuaternario."
+    },
+    {
+      "title": "Explicar",
+      "body": "Elige dos intervalos y compara sus duraciones. ¿Cómo cambia ampliar una ventana de tiempo los detalles que puedes ver?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Ma significa…",
+      "choices": [
+        "Minutos atrás",
+        "Millones de años atrás",
+        "Metros de altitud",
+        "Millones de años a partir de ahora"
+      ],
+      "explain": "Ma es la abreviatura geológica de un millón de años. Por eso una edad de 100 Ma se refiere a unos 100 millones de años antes del presente."
+    },
+    {
+      "prompt": "En la línea de tiempo, Pangea está…",
+      "choices": [
+        "Cerca de la formación de la Tierra, hace unos 4500 Ma",
+        "Al comienzo mismo del largo Precámbrico",
+        "Dentro de los últimos cientos de millones de años",
+        "En los últimos miles de años"
+      ],
+      "explain": "Pangea se formó a finales del Paleozoico y empezó a fragmentarse durante el Mesozoico. Estos eventos ocurrieron miles de millones de años después de que se formara la Tierra."
+    },
+    {
+      "prompt": "En esta espiral, la historia humana es…",
+      "choices": [
+        "Más o menos la mitad de toda la espiral",
+        "Toda la última vuelta",
+        "Un tramo anterior a la primera vida",
+        "Una marca delgada justo al final"
+      ],
+      "explain": "La historia humana escrita abarca solo unos pocos miles de años, comparada con los unos 4,540 millones de años de la Tierra. En una línea de tiempo geológica a escala uniforme ocupa un intervalo diminuto cerca del presente."
+    },
+    {
+      "prompt": "La ventana completa de 4540 Ma empieza en…",
+      "choices": [
+        "Una edad aproximada de la propia Tierra.",
+        "El límite K–Pg, cuando se extinguieron los dinosaurios.",
+        "La formación del supercontinente Pangea.",
+        "El comienzo de las glaciaciones del Cuaternario."
+      ],
+      "explain": "La ventana de 4540 Ma se aproxima a la edad de la Tierra, basada en evidencia radiométrica. Pangea se formó mucho después, dentro de los últimos cientos de millones de años."
+    },
+    {
+      "prompt": "¿Qué ocurrió primero?",
+      "choices": [
+        "La extinción de los dinosaurios no avianos",
+        "La formación de los primeros océanos",
+        "La formación de Pangea",
+        "La aparición de los primeros trilobites"
+      ],
+      "explain": "Ya había océanos en la Tierra primitiva hace más de 4,000 millones de años. Los trilobites aparecieron hace unos 520 millones de años, Pangea se formó hace unos 335 millones de años y los dinosaurios se extinguieron hace 66 millones de años."
+    }
+  ],
+  "why": [
+    "La historia de la Tierra abarca unos 4,540 millones de años. Colocar los eventos en una línea de tiempo proporcional muestra lo reciente que es la historia humana y por qué un intervalo corto cerca del presente puede ocultar eventos mucho más antiguos.",
+    "La misma distancia a lo largo de la espiral siempre representa el mismo tiempo, así que el largo Precámbrico ocupa la mayor parte de la ventana completa. Elegir una ventana más corta estira el tiempo reciente a lo largo de la espiral y deja ver eventos que se amontonan cerca del presente; no cambia cuánto duró ningún intervalo.",
+    "La línea de tiempo es una escala para comparar edades; las fechas de los eventos tienen incertidumbres distintas y no deben leerse todas como igual de precisas."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El Gran Cañón es tan antiguo como las rocas que se ven en sus paredes.",
+      "truth": "Las rocas se formaron antes de que la erosión las dejara al descubierto en el cañón. La formación de las rocas, su deformación, el levantamiento y el encajamiento del río pertenecen a partes distintas de la historia geológica y requieren evidencias distintas para datarlos. Por eso una roca antigua puede formar la pared de un relieve mucho más joven."
+    },
+    {
+      "claim": "Los dinosaurios y los primeros humanos vivieron al mismo tiempo.",
+      "truth": "Los dinosaurios no avianos se extinguieron hace unos 66 millones de años. Nuestra especie apareció hace solo unos 300,000 años, así que los separan decenas de millones de años. Las aves son los descendientes vivos de los dinosaurios."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Ma",
+      "def": "Un millón de años. Se usa a menudo para edades geológicas, como 66 Ma; Myr suele indicar una duración de un millón de años."
+    },
+    {
+      "term": "ka",
+      "def": "Mil años. Se usa con una referencia de edad para expresar fechas geológicas, por ejemplo, 20 ka antes del presente."
+    },
+    {
+      "term": "Tiempo profundo",
+      "def": "El inmenso lapso de la historia geológica, que se remonta unos 4,540 millones de años hasta la formación de la Tierra."
+    },
+    {
+      "term": "Pangea",
+      "def": "Un supercontinente que se formó a finales del Paleozoico y se fragmentó durante el Mesozoico. Su reconstrucción usa evidencia de rocas, fósiles, magnetismo y márgenes continentales. Pangea fue uno de varios supercontinentes de la historia de la Tierra, no la corteza original de la Tierra."
+    },
+    {
+      "term": "Cámbrico",
+      "def": "El primer periodo de la era Paleozoica, que empezó hace unos 539 millones de años; sus rocas registran una gran diversificación de la vida animal."
+    },
+    {
+      "term": "K–Pg",
+      "def": "El límite entre el Cretácico y el Paleógeno, hace unos 66 millones de años, que marca una gran extinción masiva asociada con el impacto de Chicxulub y con cambios ambientales más amplios."
+    },
+    {
+      "term": "Espiral del tiempo",
+      "def": "Una línea de tiempo enrollada en hélice para ahorrar espacio. En este laboratorio, todas las vueltas tienen el mismo radio y la misma distancia a lo largo de la espiral significa el mismo tiempo; las vueltas que quedan una junto a otra no están cerca en el tiempo."
+    },
+    {
+      "term": "Precámbrico",
+      "def": "El lapso informal de la historia de la Tierra anterior al periodo Cámbrico, que abarca los eones Hádico, Arcaico y Proterozoico."
+    }
+  ],
+  "predict": {
+    "prompt": "Si toda la historia de la Tierra fuera un día de 24 horas, ¿hace cuánto tiempo dentro de ese día crees que aparecieron los humanos?"
+  },
+  "cer": {
+    "prompt": "¿Por qué la historia humana escrita se ve tan pequeña en una línea de tiempo de la historia de la Tierra?",
+    "claim": "La historia humana es una fracción diminuta de los 4,540 millones de años de historia de la Tierra, así que en una línea de tiempo a escala uniforme es solo una marca delgada al final.",
+    "evidence": "En la ventana Historia de la Tierra (4,540 Ma), el largo Precámbrico ocupa la mayor parte de la espiral. Nuestra especie aparece hace solo unos 300,000 años y la historia escrita hace unos pocos miles de años, algo que solo se ve en la ventana del Cuaternario (2.58 Ma).",
+    "reasoning": "En una línea de tiempo proporcional, las mismas distancias representan el mismo tiempo. Unos pocos miles de años son más o menos una millonésima parte de 4,540 millones de años, así que se reducen casi a nada. Acercarse a una ventana más corta extiende el tiempo reciente sin cambiar cuánto duró ningún intervalo."
+  },
+  "controls": {
+    "window": {
+      "label": "Ventana de tiempo",
+      "options": [
+        "Historia de la Tierra — 4540 Ma",
+        "Fanerozoico — 538.8 Ma",
+        "Cuaternario — 2.58 Ma"
+      ]
+    },
+    "position": {
+      "label": "Más antiguo → presente"
+    }
+  }
+}

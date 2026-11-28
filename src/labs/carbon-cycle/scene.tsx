@@ -14,6 +14,7 @@ import { terrainBlockGeometry } from "../shared/science-geometry";
 import { SectionMaterial } from "../shared/section-material";
 import { farmland, fbm } from "../shared/hazard-utils";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
+import { useT } from "@/lib/i18n";
 /** Anchor points for each store in the diorama: atmosphere, biosphere, ocean, sediment, fossil. */
 const POS: [number, number, number][] = [
   [0, 2.3, 0],
@@ -187,6 +188,7 @@ function StoreGauge({ radius, color }: { radius: number; color: string }) {
 const COLOURS = ["#a6cccf", "#829b69", "#568798", "#bda88b", "#45403a"];
 
 export default function CarbonCycle() {
+  const tr = useT();
   const { params, t, setParam } = useLabState("params", "t", "setParam");
   useLabTick(1 / 65);
   const compact = useIsCompact(),
@@ -213,8 +215,10 @@ export default function CarbonCycle() {
       <ScienceStudio
         slug="carbon-cycle"
         camera={[0.6, 2.2, 9]}
-        scale="Invented closed budget · gauge volume ∝ stored carbon · landscape, molecules and smoke illustrative"
-        trueScale="Volumes encode this invented budget, not observed global reservoir sizes"
+        scale={tr(
+          "Invented closed budget · gauge volume ∝ stored carbon · landscape, molecules and smoke illustrative",
+        )}
+        trueScale={tr("Volumes encode this invented budget, not observed global reservoir sizes")}
       >
         <Diorama biosphere={budget.stores[1]} atmosphere={budget.stores[0]} tap={tap} t={t} />
         {positions.map((pos, i) => (
@@ -224,10 +228,16 @@ export default function CarbonCycle() {
               pos={[0, radii[i] * 0.6 + 0.3, 0]}
               text={
                 compact
-                  ? CARBON_STORES[i]
-                  : `${CARBON_STORES[i]} · ${budget.stores[i].toFixed(0)} Pg C`
+                  ? tr(CARBON_STORES[i])
+                  : tr("{store} · {budget} Pg C", {
+                      store: tr(CARBON_STORES[i]),
+                      budget: budget.stores[i].toFixed(0),
+                    })
               }
-              note={`${budget.stores[i].toFixed(1)} Pg C in this invented teaching budget, not a measured estimate of Earth’s carbon. Sphere volume, not radius, shows the amount; the trees and molecules inside are symbols.`}
+              note={tr(
+                "{budget} Pg C in this invented teaching budget, not a measured estimate of Earth’s carbon. Sphere volume, not radius, shows the amount; the trees and molecules inside are symbols.",
+                { budget: budget.stores[i].toFixed(1) },
+              )}
               occlude={false}
             />
           </group>
@@ -293,13 +303,20 @@ export default function CarbonCycle() {
         )}
       </ScienceStudio>
       <ScienceReadout>
-        {"Model year "}
-        {(t * 100).toFixed(1)} · {flux.name}: {flux.rate.toFixed(2)} {"Pg C/year. Burned "}
-        {budget.emitted.toFixed(1)} {"Pg C; total "}
-        {budget.total.toFixed(1)} {"Pg C stays fixed."} <br />
-        {
-          "Click a bead on a faint arc to follow another transfer. 1 Pg C = 10¹² kg of carbon; every transfer removes from one store exactly what it adds to another."
-        }
+        {tr(
+          "Model year {year} · {flux}: {rate} Pg C/year. Burned {burned} Pg C; total {total} Pg C stays fixed.",
+          {
+            year: (t * 100).toFixed(1),
+            flux: tr(flux.name),
+            rate: flux.rate.toFixed(2),
+            burned: budget.emitted.toFixed(1),
+            total: budget.total.toFixed(1),
+          },
+        )}{" "}
+        <br />
+        {tr(
+          "Click a bead on a faint arc to follow another transfer. 1 Pg C = 10¹² kg of carbon; every transfer removes from one store exactly what it adds to another.",
+        )}
       </ScienceReadout>
     </>
   );

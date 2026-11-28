@@ -1,0 +1,135 @@
+{
+  "title": "Régimen fluvial",
+  "hook": "Un régimen fluvial describe el patrón estacional del caudal.",
+  "objective": "Compara los patrones anuales del caudal de los ríos y explica cómo la lluvia, el deshielo y las presas pueden cambiar su calendario.",
+  "modelDescription": "Dos cuencas pequeñas están una al lado de la otra: una alimentada por la lluvia y otra en montañas nevadas, donde la precipitación del invierno se almacena como nieve. Sus caudales a lo largo del año se grafican con una curva dorada para el río pluvial y una curva azul para el río nival. Se puede añadir una presa al río nival para comparar su caudal con la curva natural. El paisaje es ilustrativo, con el relieve agrandado diez veces, salvo que cambies a la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Lee las curvas de caudal dorada (pluvial) y azul (nival). Arrastra el control Año por el invierno y encuentra dónde se almacena el agua como nieve."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Sigue el deshielo de primavera y compara su pico de caudal con el pico de invierno del río pluvial (los resultados dan las dos fechas). Activa Presa en el río nival y compara el nuevo pico con la curva discontinua sin la presa."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo cambia el calendario del caudal de un río cuando la precipitación se almacena como nieve?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Un régimen nival depende de…",
+      "choices": [
+        "Las tormentas de verano",
+        "Los ciclos de las mareas",
+        "El deshielo de la nieve",
+        "Los manantiales de agua subterránea"
+      ],
+      "explain": "Un régimen nival refleja el agua almacenada como nieve estacional y liberada cuando suben las temperaturas. Esto suele producir un aumento del caudal en primavera o a principios del verano, en lugar de una respuesta inmediata a la precipitación del invierno."
+    },
+    {
+      "prompt": "Un régimen pluvial sigue…",
+      "choices": [
+        "La evaporación desde el río",
+        "El calendario del deshielo",
+        "El derretimiento de los glaciares",
+        "La estacionalidad de la lluvia"
+      ],
+      "explain": "Un régimen pluvial depende sobre todo de cómo se reparte la lluvia a lo largo del año. La evaporación, el almacenamiento en el suelo y el agua subterránea pueden cambiar cuándo esa lluvia aparece como caudal."
+    },
+    {
+      "prompt": "El año del Misisipi es…",
+      "choices": [
+        "Una cuenca enorme de deshielo y lluvia, regulada por presas",
+        "El régimen repentino de un pequeño arroyo de montaña",
+        "Un flujo de manantial que casi no varía en todo el año",
+        "Un régimen marcado sobre todo por el deshielo glaciar en verano"
+      ],
+      "explain": "El Misisipi reúne la escorrentía de una cuenca muy grande con patrones de lluvia y deshielo muy distintos. Los embalses, el uso del agua y las obras en el río también modifican su caudal estacional."
+    },
+    {
+      "prompt": "Un hidrograma de tormenta y una gráfica de régimen se diferencian porque…",
+      "choices": [
+        "Son la misma gráfica a distintas escalas",
+        "Uno abarca horas tras una tormenta; la otra, un año típico",
+        "Uno grafica la lluvia total; la otra, el caudal del río",
+        "Uno se mide y la otra siempre se modela"
+      ],
+      "explain": "Un hidrograma de tormenta sigue el caudal durante y después de una lluvia concreta, a menudo durante horas o días. Una gráfica de régimen resume el patrón estacional que se repite, normalmente con valores mensuales."
+    },
+    {
+      "prompt": "¿Qué suele pasar con el caudal de un río aguas abajo de una gran presa?",
+      "choices": [
+        "El río deja de fluir por completo.",
+        "Los picos bajan y los caudales bajos suben.",
+        "Las crecidas son más grandes y frecuentes.",
+        "El patrón anual no cambia."
+      ],
+      "explain": "El embalse almacena agua cuando el caudal es alto y la libera después. Aguas abajo, los picos de las crecidas se reducen y los caudales de la estación seca suelen ser mayores, lo que suaviza el régimen."
+    }
+  ],
+  "why": [
+    "Un régimen fluvial describe el patrón estacional del caudal. La lluvia puede llegar rápido al río, mientras que la nieve almacena el agua hasta que se derrite; un embalse puede suavizar y retrasar el caudal resultante.",
+    "En la cuenca nival, la precipitación del invierno cae bajo 0 °C y forma un manto de nieve, así que el caudal sigue muy bajo aunque esté llegando agua. Cuando las temperaturas superan el punto de congelación, la nieve almacenada se derrite en pocas semanas y produce un pico marcado a finales de la primavera. El río pluvial, en cambio, alcanza su pico en invierno, cuando la lluvia es mayor y la evaporación menor. Un embalse almacena parte del pico del deshielo y lo libera en los meses siguientes, así que el pico es más bajo, más tardío y más largo.",
+    "Las dos cuencas repiten el mismo año inventado, y la presa muestra cómo funciona el almacenamiento, no una regla de operación real."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El patrón estacional del caudal de un río depende solo de cuánto llueve cada mes.",
+      "truth": "La lluvia importa, pero la acumulación y el deshielo de la nieve, la evaporación, el almacenamiento subterráneo y la operación de los embalses pueden cambiar el momento del caudal. El agua que cae en una estación puede llegar al río en otra. Por eso, para explicar un régimen hacen falta tanto los aportes como los procesos que retrasan o retiran el agua."
+    },
+    {
+      "claim": "Una presa hace que un río deje de fluir.",
+      "truth": "Una presa almacena agua en un embalse y la libera a lo largo del año. Suele bajar los picos de las crecidas y subir los caudales bajos, lo que cambia el régimen del río, pero el agua sigue fluyendo aguas abajo."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Régimen",
+      "def": "El patrón estacional característico del caudal de un río, influido por la lluvia, el deshielo, el almacenamiento y la regulación humana."
+    },
+    {
+      "term": "Nival",
+      "def": "Se dice del régimen de un río muy influido por el deshielo estacional. El caudal suele aumentar durante la temporada de deshielo. Es distinto de un régimen glaciar, dominado por el derretimiento del hielo de los glaciares."
+    },
+    {
+      "term": "Pluvial",
+      "def": "Se dice del régimen de un río controlado sobre todo por la lluvia; la estacionalidad de su caudal refleja la lluvia y el almacenamiento en la cuenca."
+    },
+    {
+      "term": "Deshielo",
+      "def": "El agua que se libera cuando la nieve acumulada pasa de hielo sólido a líquido. El deshielo estacional puede producir una fuerte subida del caudal en primavera o en verano. Su momento depende de la temperatura, la radiación, la altitud y el espesor del manto de nieve."
+    },
+    {
+      "term": "Caudal",
+      "def": "El volumen de agua que atraviesa una sección de un río por unidad de tiempo, normalmente medido en m³ s⁻¹. Con una velocidad media v y un área de la sección A, Q = Av."
+    },
+    {
+      "term": "Caudal base",
+      "def": "La parte constante del caudal de un río, aportada sobre todo por el agua subterránea y otras reservas lentas entre lluvias."
+    },
+    {
+      "term": "Regulación por presas",
+      "def": "Los cambios en el momento y la magnitud del caudal de un río causados por almacenar agua en un embalse y liberarla."
+    }
+  ],
+  "predict": {
+    "prompt": "Un río de montaña se alimenta sobre todo de nieve derretida. ¿En qué estación esperas su mayor caudal?"
+  },
+  "cer": {
+    "prompt": "¿Por qué un río nival alcanza su pico en otra época del año que un río pluvial, y cómo cambia eso una presa?",
+    "claim": "Un río nival alcanza su pico a finales de la primavera, cuando se derrite la nieve almacenada, mientras que un río pluvial lo alcanza en la estación más lluviosa; una presa baja el pico, lo retrasa y lo reparte en el tiempo.",
+    "evidence": "La curva azul nival sigue baja durante el invierno mientras se acumula la nieve y luego sube bruscamente con el deshielo de primavera. La curva dorada pluvial alcanza su pico en invierno. Al activar Presa en el río nival, el pico es más bajo, más tardío y más largo que en la curva discontinua sin la presa.",
+    "reasoning": "Bajo 0 °C, la precipitación se almacena como nieve en lugar de escurrir, así que solo llega al río cuando suben las temperaturas. Un embalse almacena parte del pico del deshielo y lo libera en los meses siguientes."
+  },
+  "controls": {
+    "dam": {
+      "label": "Presa en el río nival"
+    }
+  }
+}

@@ -26,6 +26,7 @@ import {
 } from "./geometry";
 import { Cirques } from "./cirques";
 import RealYosemite from "./real-yosemite";
+import { useT } from "@/lib/i18n";
 
 const smooth = THREE.MathUtils.smoothstep;
 /** The glacier at its largest recent extent, which left the terminal moraine and the trimline. */
@@ -112,6 +113,7 @@ export default function Glaciers() {
 }
 
 function ModelGlaciers() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale");
   useLabTick(1 / 50);
   const extent = params.extent ?? 0.5,
@@ -188,10 +190,12 @@ function ModelGlaciers() {
         camera={[5.6, 7, 3.2]}
         scale={
           cirques
-            ? "6 × 6 km cirque block · relief ×1.5 · ice flows away from the headwalls"
-            : "6 × 4 km valley · relief ×1.5 · ice always flows down-valley"
+            ? tr("6 × 6 km cirque block · relief ×1.5 · ice flows away from the headwalls")
+            : tr("6 × 4 km valley · relief ×1.5 · ice always flows down-valley")
         }
-        trueScale="1 scene unit = 1 km · equal geometric scales · debris, cracks and vegetation enlarged"
+        trueScale={tr(
+          "1 scene unit = 1 km · equal geometric scales · debris, cracks and vegetation enlarged",
+        )}
       >
         <group scale={[1, vertical, 1]}>
           {cirques ? (
@@ -234,14 +238,18 @@ function ModelGlaciers() {
                   />
                   <Tag
                     pos={[elaX, iceSurface(elaX, 0.5, length) + 0.25, 0.75]}
-                    text="Equilibrium line"
-                    note="Above this line more snow falls each year than melts, so snow builds up and turns to ice (the accumulation zone); below it, melting removes more than falls (the ablation zone). The balance between the two decides whether the snout advances or retreats."
+                    text={tr("Equilibrium line")}
+                    note={tr(
+                      "Above this line more snow falls each year than melts, so snow builds up and turns to ice (the accumulation zone); below it, melting removes more than falls (the ablation zone). The balance between the two decides whether the snout advances or retreats.",
+                    )}
                     occlude={false}
                   />
                   <Tag
                     pos={[snout - 0.1, floorHeight(snout) + 0.18, 0.55]}
-                    text="Snout"
-                    note="The lower end of the glacier, also called the terminus. Ice keeps arriving here from up-valley; the snout retreats when melting removes ice faster than it arrives. Meltwater streams out from under it."
+                    text={tr("Snout")}
+                    note={tr(
+                      "The lower end of the glacier, also called the terminus. Ice keeps arriving here from up-valley; the snout retreats when melting removes ice faster than it arrives. Meltwater streams out from under it.",
+                    )}
                     occlude={false}
                   />
                   <Tag
@@ -250,35 +258,45 @@ function ModelGlaciers() {
                       iceSurface(Math.min(snout - 0.5, 0.9), 0, length) + 0.06,
                       0,
                     ]}
-                    text="Medial moraine"
+                    text={tr("Medial moraine")}
                     priority={-1}
-                    note="Where two glaciers meet, the rock debris along their touching edges joins into one dark stripe down the middle of the ice. Here the two cirque glaciers at the head merge below the ridge between them."
+                    note={tr(
+                      "Where two glaciers meet, the rock debris along their touching edges joins into one dark stripe down the middle of the ice. Here the two cirque glaciers at the head merge below the ridge between them.",
+                    )}
                     occlude={false}
                   />
                 </>
               )}
               <Tag
                 pos={[-2.55, 1.75, -0.5]}
-                text="Accumulation"
-                note="Snow that survives from year to year compacts into firn and then glacier ice, which flows down-valley from these two cirque basins."
+                text={tr("Accumulation")}
+                note={tr(
+                  "Snow that survives from year to year compacts into firn and then glacier ice, which flows down-valley from these two cirque basins.",
+                )}
                 occlude={false}
               />
               <Tag
                 pos={[0.2, 1.55, 1.25]}
-                text="U-shaped trough"
-                note="Abrasion and plucking by debris-laden ice widen and deepen the valley, leaving a flat floor and steep walls. The paler rock below the trimline was scraped bare by the ice at its largest. Switch off Ice to see the bed."
+                text={tr("U-shaped trough")}
+                note={tr(
+                  "Abrasion and plucking by debris-laden ice widen and deepen the valley, leaving a flat floor and steep walls. The paler rock below the trimline was scraped bare by the ice at its largest. Switch off Ice to see the bed.",
+                )}
                 occlude={false}
               />
               <Tag
                 pos={[HANGING.x, land(HANGING.x, -1.45) + 0.12, -1.45]}
-                text="Hanging valley"
-                note="A smaller glacier cut this side valley less deeply than the main glacier cut the trough, so when the ice melted its floor was left hanging high above the trough floor. Its stream now falls over the lip as a waterfall."
+                text={tr("Hanging valley")}
+                note={tr(
+                  "A smaller glacier cut this side valley less deeply than the main glacier cut the trough, so when the ice melted its floor was left hanging high above the trough floor. Its stream now falls over the lip as a waterfall.",
+                )}
                 occlude={false}
               />
               <Tag
                 pos={[MORAINE_X + 0.12, 0.42, -0.85]}
-                text="Terminal moraine"
-                note="A ridge of unsorted debris piled up at the snout when the glacier was at its longest. The smaller ridge up-valley is a recessional moraine, where the snout paused as it retreated. Even while a glacier retreats, its ice still flows down-valley."
+                text={tr("Terminal moraine")}
+                note={tr(
+                  "A ridge of unsorted debris piled up at the snout when the glacier was at its longest. The smaller ridge up-valley is a recessional moraine, where the snout paused as it retreated. Even while a glacier retreats, its ice still flows down-valley.",
+                )}
                 occlude={false}
               />
             </>
@@ -289,21 +307,23 @@ function ModelGlaciers() {
       <ScienceReadout>
         {cirques ? (
           <>
-            {
-              "Three neighboring cirques leave arêtes between them and a horn in the center. Switch off Ice to see the bare rock and the tarns in the cirque floors."
-            }{" "}
+            {tr(
+              "Three neighboring cirques leave arêtes between them and a horn in the center. Switch off Ice to see the bare rock and the tarns in the cirque floors.",
+            )}{" "}
             <br />
-            {
-              "Relief is exaggerated ×1.5; Physical scale removes this. Ice and flow tracers are schematic, and Ice extent applies only to Valley glacier."
-            }
+            {tr(
+              "Relief is exaggerated ×1.5; Physical scale removes this. Ice and flow tracers are schematic, and Ice extent applies only to Valley glacier.",
+            )}
           </>
         ) : (
           <>
-            {"Glacier length "}
-            {length.toFixed(2)} {"km. Play always moves ice down-valley."} <br />
-            {
-              "Ice extent compares margin positions; it does not reverse the flow or model mass balance. Switch off Ice to see the trough and debris."
-            }
+            {tr("Glacier length {length} km. Play always moves ice down-valley.", {
+              length: length.toFixed(2),
+            })}{" "}
+            <br />
+            {tr(
+              "Ice extent compares margin positions; it does not reverse the flow or model mass balance. Switch off Ice to see the trough and debris.",
+            )}
           </>
         )}
       </ScienceReadout>

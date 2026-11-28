@@ -8,6 +8,8 @@ import {
   shadowRadii,
   equilibriumTide,
   solarEclipse,
+  phaseName,
+  PHASE_NAMES,
 } from "../src/lib/lunar-science.ts";
 
 test("inclined circular orbit preserves distance and has two nodes, not an eclipse every month", () => {
@@ -62,4 +64,9 @@ test("solar eclipse: total when the Moon is near, annular when far, partial or a
     .map((_, i) => solarEclipse(lunarPosition(0, i / 10)))
     .find((e) => e.kind === "partial");
   assert.ok(partial && partial.offset > LUNAR.earth);
+});
+
+test("phase names follow the month: waxing before full Moon, waning after, quarters at half lit", () => {
+  const named = (phase) => phaseName(phase, illuminatedFraction(lunarPosition(phase, 0, true)));
+  assert.deepEqual([0, 0.1, 0.25, 0.4, 0.5, 0.6, 0.75, 0.9].map(named), [...PHASE_NAMES]);
 });

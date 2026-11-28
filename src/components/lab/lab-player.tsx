@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { hasPlayback } from "@/lib/labs/playback";
-import { useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode, type CSSProperties } from "react";
 import type { LabMeta } from "@/lib/labs/types";
 import { defaultParams } from "@/lib/labs/defaults";
 import { useLabControls } from "@/lib/store/lab-controls";
@@ -14,6 +14,10 @@ import { labShareUrl, applyLabUrl, useLabUrlSync } from "@/labs/shared/url-state
 import { ClassroomShare } from "@/components/classroom-share";
 import { absUrl } from "@/lib/seo";
 import { recordLabVisit } from "@/lib/recent-labs";
+import { MODEL_DESCRIPTION_ID, MODEL_LABEL_ID, ORBIT_KEYS } from "@/labs/shared/model-access";
+import { LangScope, useT, type Lang } from "@/lib/i18n";
+import { usePreferences } from "@/lib/preferences";
+import { hasSpanish, inSpanish, useSpanishLab } from "@/lib/labs/spanish";
 
 const KEYS: { key: string; does: string }[] = [
   { key: "Space", does: "Play / pause" },
@@ -26,10 +30,53 @@ const KEYS: { key: string; does: string }[] = [
   { key: "Click", does: "Inspect a named part" },
   { key: "Drag", does: "Rotate the model" },
   { key: "Ctrl + scroll", does: "Zoom in or out" },
+  { key: "Tab", does: "Focus the 3D view, then use these keys:" },
+  ...ORBIT_KEYS,
   { key: "?", does: "This list" },
 ];
 
-export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
+/**
+ * A lab in the reader's language. A lab with a Spanish translation shows it to Spanish readers;
+ * one without stays wholly in English, interface included, with a note in Spanish saying so.
+ */
+export function LabPlayer({ lab: source, scene }: { lab: LabMeta; scene: ReactNode }) {
+  const preferred = usePreferences((s) => s.lang);
+  const spanish = useSpanishLab(source.slug, preferred === "es");
+  const lab = useMemo(() => (spanish ? inSpanish(source, spanish) : source), [source, spanish]);
+  const lang: Lang = preferred === "es" && spanish ? "es" : "en";
+  // The page is Spanish only while it shows a translated lab; the rest of the site is English.
+  useEffect(() => {
+    if (lang !== "es") return;
+    const root = document.documentElement;
+    root.lang = "es";
+    return () => {
+      root.lang = "en";
+    };
+  }, [lang]);
+  return (
+    <LangScope value={lang}>
+      <LabPlayerView
+        lab={lab}
+        scene={scene}
+        lang={lang}
+        untranslated={preferred === "es" && !hasSpanish(source.slug)}
+      />
+    </LangScope>
+  );
+}
+
+function LabPlayerView({
+  lab,
+  scene,
+  lang,
+  untranslated,
+}: {
+  lab: LabMeta;
+  scene: ReactNode;
+  lang: Lang;
+  untranslated: boolean;
+}) {
+  const t = useT();
   const [interactive, setInteractive] = useState(false);
   const hydrate = useLabControls((s) => s.hydrate);
   const toggle = useLabControls((s) => s.toggle);
@@ -194,17 +241,17 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
   const keysPanel = keysOpen && (
     <div
       role="dialog"
-      aria-label="Shortcuts"
+      aria-label={t("Shortcuts")}
       className="pointer-events-auto fixed left-1/2 top-24 z-50 max-h-[70vh] w-[min(26rem,calc(100%-2rem))] -translate-x-1/2 overflow-y-auto rounded-2xl border border-white/10 bg-basalt/95 p-4 backdrop-blur-xl"
     >
       <div className="flex items-center justify-between">
-        <p className="section-label">{"Shortcuts"}</p>
+        <p className="section-label">{t("Shortcuts")}</p>
         <button
           type="button"
           className="text-sm text-mist hover:text-chalk"
           onClick={() => setKeysOpen(false)}
         >
-          {"Close"}
+          {t("Close")}
         </button>
       </div>
       <ul className="mt-3 space-y-1.5 font-mono text-sm text-chalk">
@@ -214,7 +261,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
         ].map((row) => (
           <li key={row.key} className="flex justify-between gap-4">
             <span className="text-glacier">{row.key}</span>
-            <span className="text-mist">{row.does}</span>
+            <span className="text-mist">{t(row.does)}</span>
           </li>
         ))}
       </ul>
@@ -223,14 +270,27 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
 
   const titleBlock = (
     <div ref={heading} className={projector ? "max-w-3xl" : "max-w-2xl"}>
+      {untranslated && (
+        <p lang="es" className="mb-2 text-sm text-sandstone">
+          Este laboratorio todavía no está traducido al español, así que se muestra en inglés.
+        </p>
+      )}
       <h1 className="font-display text-[24px] leading-8 text-chalk md:text-[32px] md:leading-10">
         {lab.title}
       </h1>
+      <span id={MODEL_LABEL_ID} className="sr-only">
+        {t("{title}: 3D model", { title: lab.title })}
+      </span>
+      {lab.modelDescription && (
+        <p id={MODEL_DESCRIPTION_ID} className="sr-only">
+          {lab.modelDescription}
+        </p>
+      )}
       {!projector && (compact || !shortViewport) && (
         <>
           <p className="mt-2 text-sm leading-6 text-chalk/85">{lab.objective}</p>
           <p className="mt-1 text-xs text-mist">
-            Drag to rotate · Ctrl + scroll to zoom · pinch on a touch screen
+            {t("Drag to rotate · Ctrl + scroll to zoom · pinch on a touch screen")}
           </p>
         </>
       )}
@@ -241,14 +301,14 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             params={{ slug: lab.slug }}
             className="inline-flex h-9 items-center rounded-md border border-white/15 bg-basalt/90 px-3 text-chalk hover:border-glacier"
           >
-            Teacher notes
+            {t("Teacher notes")}
           </Link>
           <Link
             to="/worksheet/$slug"
             params={{ slug: lab.slug }}
             className="inline-flex h-9 items-center rounded-md border border-white/15 bg-basalt/90 px-3 text-chalk hover:border-glacier"
           >
-            Worksheet
+            {t("Worksheet")}
           </Link>
           <ClassroomShare
             href={absUrl(`/lab/${lab.slug}`)}
@@ -270,6 +330,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
         inert={!interactive}
         id="main"
         role="main"
+        lang={lang}
         className="min-h-dvh bg-void pt-16"
       >
         <div className="px-4 pb-3">{titleBlock}</div>
@@ -307,7 +368,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
                   .catch(() => setShareStatus("Use the address bar to share"));
               }}
             >
-              {shareStatus}
+              {t(shareStatus)}
             </button>
             {" · "}
             <button
@@ -315,7 +376,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
               className="text-glacier underline"
               onClick={() => setKeysOpen((v) => !v)}
             >
-              {"Shortcuts"}
+              {t("Shortcuts")}
             </button>
           </p>
           <div className="grid gap-3 p-3 sm:grid-cols-2">
@@ -338,6 +399,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
       inert={!interactive}
       id="main"
       role="main"
+      lang={lang}
       style={{ "--lab-controls-height": `${barHeight}px` } as CSSProperties}
       className="relative h-dvh overflow-hidden bg-void"
     >
@@ -387,7 +449,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
             className="h-11 rounded-full border border-white/10 bg-basalt/80 px-4 text-sm text-chalk"
             onClick={() => setDrawer(drawer === "steps" ? null : "steps")}
           >
-            {"Steps"}
+            {t("Steps")}
           </button>
           <button
             type="button"
@@ -397,7 +459,7 @@ export function LabPlayer({ lab, scene }: { lab: LabMeta; scene: ReactNode }) {
               setDrawer(drawer === "why" ? null : "why");
             }}
           >
-            {"Why"}
+            {t("Why")}
           </button>
         </div>
       )}

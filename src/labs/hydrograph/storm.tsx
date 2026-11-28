@@ -5,7 +5,9 @@ import { CatchmentLandscape } from "../shared/catchment-landscape";
 import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { stormHydrograph } from "@/lib/hydrology-science";
+import { useT } from "@/lib/i18n";
 export default function Hydrograph() {
+  const tr = useT();
   const { params, t, setT } = useLabState("params", "t", "setT");
   useLabTick(1 / 40);
   const urban = params.urban ?? 0.2,
@@ -28,8 +30,10 @@ export default function Hydrograph() {
     <>
       <ScienceStudio
         slug="hydrograph"
-        scale="1 km² idealized catchment · relief, river width and vegetation enlarged · 24-hour storm view"
-        trueScale="Storm model uses SI volumes and time · land geometry is conceptual"
+        scale={tr(
+          "1 km² idealized catchment · relief, river width and vegetation enlarged · 24-hour storm view",
+        )}
+        trueScale={tr("Storm model uses SI volumes and time · land geometry is conceptual")}
         camera={[3, 2.8, 5]}
       >
         <CatchmentLandscape urban={urban} rain={row.rain / 32} flow={Math.sqrt(flow)} divide />
@@ -45,7 +49,9 @@ export default function Hydrograph() {
           <Tag
             pos={[0.12, 0.98, 0]}
             text={`${row.q.toFixed(2)} m³/s`}
-            note="The bar shows discharge at the selected hour on a fixed 0–5 m³/s scale, not water depth. The river width and rain in the landscape match the same hour on the graph."
+            note={tr(
+              "The bar shows discharge at the selected hour on a fixed 0–5 m³/s scale, not water depth. The river width and rain in the landscape match the same hour on the graph.",
+            )}
             occlude={false}
           />
         </group>
@@ -56,7 +62,10 @@ export default function Hydrograph() {
             viewBox="0 0 700 116"
             className="mx-auto h-28 w-full"
             role="img"
-            aria-label={`Storm hydrograph: peak ${data.peak.q.toFixed(2)} cubic meters per second, lag ${data.lag.toFixed(2)} hours`}
+            aria-label={tr("Storm hydrograph: peak {q} cubic meters per second, lag {lag} hours", {
+              q: data.peak.q.toFixed(2),
+              lag: data.lag.toFixed(2),
+            })}
           >
             {[0, 0.5, 1].map((f) => (
               <g key={f}>
@@ -126,7 +135,7 @@ export default function Hydrograph() {
               {"m³/s"}
             </text>
             <text x="680" y="13" textAnchor="end" fill="var(--color-sandstone)" fontSize="11">
-              {"Rain: 0–32 mm/h (gold); Q (blue); dashed: rain and Q peaks"}
+              {tr("Rain: 0–32 mm/h (gold); Q (blue); dashed: rain and Q peaks")}
             </text>
           </svg>
           <input
@@ -136,19 +145,22 @@ export default function Hydrograph() {
             step=".001"
             value={t}
             onChange={(e) => setT(Number(e.target.value))}
-            aria-label={"Storm hour"}
+            aria-label={tr("Storm hour")}
             className="h-2 w-full accent-glacier"
           />
         </div>
-        {hour.toFixed(1)} {"h · rain "}
-        {row.rain.toFixed(1)} {"mm/h · Q "}
-        {row.q.toFixed(2)} {"m³/s · peak "}
-        {data.peak.q.toFixed(2)} {"m³/s · lag "}
-        {data.lag.toFixed(2)} {"h."} <br />
-        {"Runoff fraction "}
-        {data.coefficient.toFixed(2)}
-        {"; storage time "}
-        {data.tau.toFixed(2)} {"h in this model catchment."}
+        {tr("{hour} h · rain {rain} mm/h · Q {q} m³/s · peak {peak} m³/s · lag {lag} h.", {
+          hour: hour.toFixed(1),
+          rain: row.rain.toFixed(1),
+          q: row.q.toFixed(2),
+          peak: data.peak.q.toFixed(2),
+          lag: data.lag.toFixed(2),
+        })}{" "}
+        <br />
+        {tr("Runoff fraction {fraction}; storage time {tau} h in this model catchment.", {
+          fraction: data.coefficient.toFixed(2),
+          tau: data.tau.toFixed(2),
+        })}
       </ScienceReadout>
     </>
   );

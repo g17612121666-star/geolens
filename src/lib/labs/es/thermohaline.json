@@ -1,0 +1,142 @@
+{
+  "title": "Cinta transportadora termohalina",
+  "hook": "La densidad del agua de mar depende de la temperatura y la salinidad.",
+  "objective": "Explica cómo el enfriamiento y los cambios de salinidad afectan la densidad del agua de mar, y relaciona el hundimiento y el ascenso del agua con la circulación de vuelco del océano.",
+  "modelDescription": "Una sección transversal de una cuenca oceánica va desde una costa tropical cálida hasta una costa polar helada. Un circuito de marcadores sigue el agua cálida que avanza por la superficie hacia el polo, se hunde cerca del hielo, vuelve por el fondo y sube de nuevo. La profundidad está muy exagerada. Una segunda vista compara la densidad de una parcela de agua con la del agua que la rodea.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "En la sección de la cuenca, sigue la rama superior cálida desde la costa tropical hasta la costa polar helada, el hundimiento allí, el retorno profundo y el afloramiento. Nombra los vientos y la mezcla como motores, además de la densidad."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Elige Experimento de densidad y compara la densidad de la parcela con la del agua de referencia. Con Proceso en 0, la parcela está a media profundidad; con 4 °C y 35 g/kg, pulsa Reproducir y observa cómo se hunde."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué el enfriamiento y el aporte de agua dulce pueden tener efectos opuestos sobre si una parcela de agua de mar se hunde?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Termohalino significa…",
+      "choices": [
+        "Circulación impulsada solo por el viento",
+        "Circulación impulsada solo por las mareas",
+        "Circulación fijada por la cobertura de hielo marino",
+        "Densidad fijada por la temperatura y la sal"
+      ],
+      "explain": "El enfriamiento suele aumentar la densidad del agua de mar, y añadir sal también la hace más densa. Estos efectos de la temperatura y la salinidad ayudan a determinar si el agua superficial puede hundirse bajo el agua que la rodea."
+    },
+    {
+      "prompt": "El agua profunda se forma en…",
+      "choices": [
+        "Mares de latitudes altas, fríos y a menudo salados",
+        "Los mares poco profundos del ecuador",
+        "El Pacífico occidental tropical y cálido",
+        "Lagunas costeras poco profundas y protegidas"
+      ],
+      "explain": "Un fuerte enfriamiento en latitudes altas puede hacer que el agua de mar superficial sea lo bastante densa para hundirse, sobre todo donde la salinidad es alta. La formación de hielo marino puede aumentar aún más la salinidad del agua cercana al expulsar la sal."
+    },
+    {
+      "prompt": "La cinta transportadora es…",
+      "choices": [
+        "Una corriente superficial rápida",
+        "Una lenta circulación global por densidad",
+        "Un giro superficial impulsado por el viento",
+        "Un único río profundo dentro del océano"
+      ],
+      "explain": "La imagen de la cinta transportadora une zonas de hundimiento, de transporte profundo y de regreso hacia la superficie. La circulación de vuelco real sigue muchas rutas y también depende de los vientos y la mezcla; no es una sola banda continua."
+    },
+    {
+      "prompt": "El aporte de agua dulce en latitudes altas…",
+      "choices": [
+        "Siempre detiene la circulación rápidamente",
+        "Aumenta la densidad y acelera el hundimiento",
+        "Puede bajar la densidad y reducir el hundimiento",
+        "No tiene efecto en la densidad del océano"
+      ],
+      "explain": "El agua dulce baja la salinidad superficial y suele bajar la densidad, lo que puede reforzar la estratificación y frenar la mezcla profunda. La respuesta de toda la circulación también depende de la temperatura, los vientos y el lugar donde entra el agua dulce."
+    },
+    {
+      "prompt": "¿Qué agua se hundiría por debajo de las demás?",
+      "choices": [
+        "Agua cálida y dulce",
+        "Agua cálida y salada",
+        "Agua fría y dulce",
+        "Agua fría y salada"
+      ],
+      "explain": "El agua fría es más densa que la cálida, y el agua salada es más densa que la dulce. El agua fría y salada es la más densa, y por eso se hunde en los mares de latitudes altas."
+    }
+  ],
+  "why": [
+    "La densidad del agua de mar depende de la temperatura y la salinidad. El enfriamiento y los cambios de salinidad pueden contribuir a la formación de agua profunda, que conecta las aguas superficiales con una circulación más lenta por el interior del océano.",
+    "Enfriar una parcela de 10 °C a 4 °C la hace unos 1.2 kg/m³ más densa que el agua que la rodea, así que se hunde. El aporte de agua dulce actúa al revés: bajar la salinidad de 35 a 32 g/kg la hace unos 2.3 kg/m³ menos densa, lo que supera el efecto del enfriamiento, así que una parcela fría pero dulce se queda cerca de la superficie. Por eso el agua de deshielo, la lluvia y los ríos que llegan en latitudes altas pueden debilitar la formación de agua profunda.",
+    "La circulación real tiene varios motores, entre ellos los vientos y la mezcla; no es una sola cinta transportadora impulsada solo por la temperatura y la salinidad."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La cinta transportadora oceánica es un solo tubo continuo que lleva el agua por una ruta fija.",
+      "truth": "La imagen de la cinta transportadora simplifica una red de corrientes que se ramifican, de mezcla y de intercambios entre profundidades. La temperatura y la salinidad influyen en la densidad, mientras que los vientos y la mezcla también ayudan a impulsar la circulación. Una parcela puede seguir muchas rutas y tardar tiempos muy distintos en moverse entre regiones del océano."
+    },
+    {
+      "claim": "El derretimiento del hielo marino sube el nivel del mar tanto como el de los mantos de hielo.",
+      "truth": "El hielo marino ya flota y desplaza su propio peso en agua, así que al derretirse apenas cambia el nivel del mar. El hielo que se derrite sobre tierra, como el de los mantos de hielo de Groenlandia y la Antártida, añade agua nueva al océano y sube el nivel del mar."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Termohalino",
+      "def": "Relacionado con las diferencias de densidad del agua de mar causadas por la temperatura y la salinidad. Contribuyen a la circulación de vuelco del océano junto con el viento y la mezcla."
+    },
+    {
+      "term": "Densidad",
+      "def": "La masa dividida entre el volumen, medida en kg m⁻³. En la mayoría de las condiciones del océano, enfriar el agua de mar o aumentar su salinidad la hace más densa."
+    },
+    {
+      "term": "NADW",
+      "def": "Agua Profunda del Atlántico Norte (NADW, por sus siglas en inglés): un grupo de masas de agua profunda formadas por enfriamiento, mezcla y hundimiento en el Atlántico Norte y los mares vecinos."
+    },
+    {
+      "term": "Formación de agua profunda",
+      "def": "El hundimiento de agua de mar superficial lo bastante densa hacia las partes más profundas del océano. El enfriamiento y el aumento de la salinidad pueden contribuir, sobre todo en latitudes altas. Es una parte de una circulación de vuelco compleja que también incluye la mezcla y el afloramiento."
+    },
+    {
+      "term": "Afloramiento",
+      "def": "El ascenso de agua más profunda hacia la superficie, a menudo impulsado por vientos que alejan el agua superficial o por la circulación oceánica a gran escala."
+    },
+    {
+      "term": "Cinta transportadora",
+      "def": "Una descripción simplificada de la circulación oceánica profunda y superficial conectada. El flujo real incluye corrientes que se ramifican, mezcla, vientos y diferencias de densidad."
+    },
+    {
+      "term": "Salinidad",
+      "def": "La concentración de sales disueltas en el agua. La evaporación y la formación de hielo marino pueden aumentar la salinidad del agua de mar, mientras que la lluvia, los ríos y el hielo que se derrite pueden bajarla. La salinidad y la temperatura juntas influyen mucho en la densidad del agua de mar."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Qué agua de mar crees que se hunde: la cálida y dulce, o la fría y salada? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Por qué se hunde el agua fría y salada, y cómo podría el hielo que se derrite debilitar la formación de agua profunda?",
+    "claim": "Enfriar el agua de mar y añadirle sal la hacen más densa, así que el agua fría y salada se hunde; añadir agua dulce de deshielo baja la densidad y puede impedir que se hunda.",
+    "evidence": "En el Experimento de densidad, enfriar una parcela de 10 °C a 4 °C con 35 g/kg la hace unos 1.2 kg/m³ más densa que el agua de referencia, y se hunde. Bajar la salinidad de 35 a 32 g/kg la hace unos 2.3 kg/m³ menos densa, así que una parcela fría pero dulce se queda cerca de la superficie.",
+    "reasoning": "La densidad depende de la temperatura y la salinidad. El agua más densa que la que la rodea se hunde. En latitudes altas, el agua dulce del hielo que se derrite, de la lluvia y de los ríos puede superar el efecto del enfriamiento, lo que reduce el hundimiento y frena la circulación de vuelco."
+  },
+  "controls": {
+    "view": {
+      "label": "Experimento",
+      "options": ["Sección de la circulación de vuelco", "Experimento de densidad"]
+    },
+    "temperature": {
+      "label": "Temperatura de la parcela"
+    },
+    "salinity": {
+      "label": "Salinidad absoluta"
+    }
+  }
+}

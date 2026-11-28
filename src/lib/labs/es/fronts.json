@@ -1,0 +1,131 @@
+{
+  "title": "Los frentes como cuñas",
+  "hook": "Un frente meteorológico separa masas de aire con distinta temperatura y densidad.",
+  "objective": "Compara los frentes cálidos, fríos y ocluidos, y explica cómo el movimiento de masas de aire contrastadas produce nubes y lluvia.",
+  "modelDescription": "Un corte de la atmósfera sobre el suelo muestra una cuña de aire frío que se mete bajo el aire cálido en un frente frío empinado, y aire cálido que sube por encima del aire más fresco en un frente cálido más suave, con nubes donde sube el aire cálido. Al avanzar el proceso, el frente frío alcanza al cálido y separa el aire cálido del suelo. Las alturas están exageradas para que se vean las pendientes.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra el aire frío, el sector cálido y el aire fresco que va delante. Compara las pendientes del frente frío y del frente cálido."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Arrastra el control Proceso hasta 0.70, donde el frente frío alcanza al cálido y el sector cálido desaparece del suelo. Sigue avanzando y lee en el panel de resultados a qué altura ha subido el aire cálido."
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica cómo las pendientes y el movimiento de masas de aire contrastadas influyen en dónde sube el aire cálido."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Un frente frío es…",
+      "choices": [
+        "Un muro vertical de aire frío",
+        "Aire cálido que sube sobre aire frío",
+        "Una línea donde el aire deja de moverse",
+        "Aire frío que se mete bajo aire más cálido"
+      ],
+      "explain": "El aire frío que avanza es más denso que el aire más cálido que tiene delante y se mete por debajo. El ascenso forzado puede producir nubes y precipitación a lo largo de un límite frontal relativamente empinado."
+    },
+    {
+      "prompt": "Un frente cálido suele tener…",
+      "choices": [
+        "Una pendiente suave, con nubes por delante",
+        "Una pendiente más empinada que un frente frío",
+        "Un límite vertical sin nubes",
+        "Chubascos intensos solo detrás del frente"
+      ],
+      "explain": "En un frente cálido, el aire cálido que avanza sube poco a poco sobre una masa de aire más frío que retrocede. Su pendiente más suave suele extender las nubes y la precipitación por una zona amplia delante del frente en superficie."
+    },
+    {
+      "prompt": "Oclusión significa…",
+      "choices": [
+        "El frente cálido alcanza al frente frío que va delante",
+        "El frente frío separa el sector cálido del suelo",
+        "Dos masas de aire cálido se unen en la superficie",
+        "El frente se detiene y se disuelve poco a poco"
+      ],
+      "explain": "Una oclusión se forma cuando un frente frío alcanza a un frente cálido y separa el sector cálido del suelo. La estructura resultante depende de las temperaturas de las dos masas de aire más frías."
+    },
+    {
+      "prompt": "El frente dibujado en un mapa del Servicio Meteorológico Nacional es…",
+      "choices": [
+        "Un muro vertical de aire desde el suelo hasta el espacio",
+        "El borde de la franja de nubes en las imágenes de satélite",
+        "Donde un límite inclinado toca el suelo",
+        "El lugar donde cae toda la lluvia"
+      ],
+      "explain": "Un frente en un mapa del tiempo marca donde el límite inclinado entre masas de aire toca la superficie de la Tierra. Las nubes y la precipitación pueden extenderse lejos de esa línea porque el aire sube a lo largo del límite que hay encima."
+    },
+    {
+      "prompt": "Después de que un frente frío pasa por el Medio Oeste, el tiempo suele volverse…",
+      "choices": [
+        "Más cálido y húmedo, con llovizna",
+        "Tranquilo y con niebla durante varios días",
+        "Más fresco y despejado, con chubascos",
+        "Igual hasta el siguiente frente cálido"
+      ],
+      "explain": "Detrás de un frente frío llega aire más frío y seco. El cielo suele despejarse, con ratos de sol y chubascos dispersos, y el viento suele cambiar de dirección, a menudo hacia el noroeste."
+    }
+  ],
+  "why": [
+    "Un frente meteorológico separa masas de aire con distinta temperatura y densidad. Una masa de aire más fría puede meterse bajo el aire más cálido, mientras que un frente cálido sube de forma más gradual sobre el aire frío que tiene delante.",
+    "El frente frío avanza más rápido que el cálido, así que el sector cálido se estrecha. Cuando el aire frío alcanza al aire fresco que va delante, el aire cálido es empujado hacia arriba y deja de tocar el suelo: es una oclusión. El frente ocluido en un mapa marca donde las dos masas de aire más frías se encuentran en la superficie.",
+    "Las pendientes y las velocidades de los frentes están fijadas para mostrar la geometría; las nubes no predicen la lluvia."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Un frente es un muro sólido que mantiene completamente separadas dos masas de aire.",
+      "truth": "Un frente es una zona de transición en la que cambian propiedades como la temperatura y la humedad. Su pendiente y su movimiento influyen en cómo sube el aire, y las nubes y la precipitación dependen de la humedad y la estabilidad. Hay mezcla, y los frentes reales tienen formas más complejas que una sola línea divisoria."
+    },
+    {
+      "claim": "Un frente cálido trae tiempo cálido y soleado.",
+      "truth": "Un frente cálido suele traer nubes cada vez más espesas y un largo periodo de lluvia constante, mientras el aire cálido sube suavemente sobre el aire frío. Las temperaturas suben cuando el frente ha pasado, pero el sector cálido también suele estar nublado."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Frente frío",
+      "def": "El límite que avanza de una masa de aire más fría que desplaza al aire más cálido. El ascenso cerca del frente puede producir nubes y lluvia, y el tiempo depende de la humedad y la estabilidad."
+    },
+    {
+      "term": "Frente cálido",
+      "def": "El límite donde una masa de aire más cálido avanza sobre aire más frío cerca de la superficie. El ascenso gradual puede producir nubes en capas extensas y precipitación. El tiempo exacto depende de la humedad, la estabilidad y el sistema de tormenta más grande."
+    },
+    {
+      "term": "Oclusión",
+      "def": "El proceso en el que un frente frío alcanza a un frente cálido y separa de la superficie el aire cálido que había entre ambos. El frente ocluido resultante puede tener nubes y precipitación extensas, según las masas de aire implicadas."
+    },
+    {
+      "term": "Sector cálido",
+      "def": "El aire más templado entre el frente cálido y el frente frío en un ciclón de latitudes medias."
+    },
+    {
+      "term": "Traza en superficie",
+      "def": "En el laboratorio de frentes, la línea donde un límite inclinado entre masas de aire toca la superficie de la Tierra. Se dibuja con observaciones meteorológicas. El borde de una franja de nubes visible puede estar en otro lugar y no ubica el frente con precisión."
+    },
+    {
+      "term": "Masa de aire",
+      "def": "Un gran volumen de aire con una temperatura y una humedad parecidas, adquiridas sobre una región de origen."
+    },
+    {
+      "term": "Línea de turbonada",
+      "def": "Una franja estrecha y a menudo violenta de convección, por lo general a lo largo de un frente frío o delante de él."
+    }
+  ],
+  "predict": {
+    "prompt": "Cuando el aire frío empuja contra el aire cálido, ¿cuál crees que va por debajo, y qué le pasa al aire cálido?"
+  },
+  "cer": {
+    "prompt": "¿Por qué los frentes traen nubes y lluvia?",
+    "claim": "En un frente, el aire cálido sube sobre el aire más frío y denso; al subir se enfría y su vapor de agua se condensa en nubes y lluvia.",
+    "evidence": "El frente frío tiene una pendiente empinada (1:50 en el modelo) y el cálido, una suave (1:150), con nubes sobre los dos límites inclinados. Con Proceso en 0.70, el frente frío alcanza al cálido y el sector cálido se separa del suelo, y el panel de resultados indica a qué altura ha subido.",
+    "reasoning": "El aire frío es más denso, así que se queda debajo y levanta el aire cálido como una cuña. El aire que sube se expande y se enfría; cuando llega a su punto de rocío, el vapor de agua se condensa. Un frente frío empinado levanta el aire rápido y da chubascos cortos e intensos; un frente cálido suave da lluvias más extensas y constantes."
+  },
+  "controls": {}
+}

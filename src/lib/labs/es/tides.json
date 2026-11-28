@@ -1,0 +1,131 @@
+{
+  "title": "Las mareas",
+  "hook": "La atracción gravitatoria de la Luna varía de un lado a otro de la Tierra y produce un efecto generador de mareas con dos amplios abultamientos.",
+  "objective": "Explica cómo las posiciones relativas de la Luna y el Sol producen la diferencia entre las mareas vivas y las mareas muertas.",
+  "modelDescription": "La Tierra está cubierta por una capa de océano azul estirada en dos abultamientos, uno hacia la Luna y otro en el lado opuesto, mientras la Luna gira alrededor de la Tierra durante un mes y el Sol queda a un lado. Los abultamientos son mayores en la luna nueva y la llena, cuando el Sol y la Luna se alinean, que en los cuartos. Los abultamientos están muy exagerados.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Reproduce el mes e identifica los dos amplios abultamientos de marea, uno hacia la Luna y otro en el lado opuesto de la Tierra."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Arrastra el control Mes hasta la luna nueva o la llena, y luego hasta un cuarto. Compara los lóbulos azules de la marea y la amplitud relativa en los resultados, y luego describe la diferencia entre las mareas vivas y las mareas muertas."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué la amplitud de la marea es mayor cuando el Sol y la Luna se alinean que cuando forman un ángulo recto?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "¿Por qué hay dos abultamientos?",
+      "choices": [
+        "La atracción de la Luna varía de un lado a otro de la Tierra",
+        "Dos lunas tiran desde lados opuestos",
+        "Los vientos amontonan agua en los dos lados",
+        "La rotación de la Tierra lanza el agua hacia fuera"
+      ],
+      "explain": "La atracción gravitatoria de la Luna varía de un lado a otro de la Tierra y produce aceleraciones de marea dirigidas hacia fuera del centro de la Tierra, tanto en el lado cercano como en el lejano. Los dos abultamientos describen una respuesta ideal de equilibrio; las mareas reales también dependen de la forma de las cuencas y del movimiento del agua."
+    },
+    {
+      "prompt": "Las mareas vivas ocurren cuando…",
+      "choices": [
+        "Es primavera",
+        "El Sol y la Luna se alinean con la Tierra",
+        "El Sol y la Luna forman un ángulo recto",
+        "La Luna está más lejos de la Tierra"
+      ],
+      "explain": "Cerca de la luna nueva y la llena, los efectos de marea del Sol y de la Luna se refuerzan a lo largo del mismo eje. Esto suele producir la mayor amplitud entre la pleamar y la bajamar, llamada marea viva."
+    },
+    {
+      "prompt": "Las mareas muertas son…",
+      "choices": [
+        "La menor amplitud, y solo ocurren en invierno",
+        "La mayor amplitud, en la luna nueva y la llena",
+        "La menor amplitud, con el Sol y la Luna en ángulo recto",
+        "Mareas causadas por vientos que soplan hacia la costa"
+      ],
+      "explain": "Cerca del cuarto creciente y del cuarto menguante, el Sol y la Luna están en direcciones aproximadamente perpendiculares vistas desde la Tierra. Sus efectos de marea se compensan en parte y producen una amplitud menor, llamada marea muerta."
+    },
+    {
+      "prompt": "Si haces una pausa cuando el Sol y la Luna forman un ángulo recto, la amplitud es…",
+      "choices": [
+        "Viva: las dos atracciones se suman, así que la amplitud es mayor",
+        "Cero: las atracciones del Sol y la Luna se anulan exactamente",
+        "Igual que siempre: el Sol no influye en las mareas",
+        "Muerta: las atracciones se anulan en parte, así que es menor"
+      ],
+      "explain": "En esta disposición en ángulo recto, la contribución del Sol reduce en parte la amplitud de la marea lunar. La amplitud de marea muerta resultante es menor, no cero, y el término no se refiere a ninguna estación del año."
+    },
+    {
+      "prompt": "¿Por qué la pleamar llega unos 50 minutos más tarde cada día?",
+      "choices": [
+        "La rotación de la Tierra se hace más lenta cada día.",
+        "El Sol retrasa la marea 50 minutos.",
+        "La Luna avanza en su órbita, así que la Tierra debe girar un poco más.",
+        "El agua del océano tarda unos 50 minutos más en cruzar cada cuenca."
+      ],
+      "explain": "Mientras la Tierra gira una vez, la Luna avanza unos 13° en su órbita en el mismo sentido. La Tierra tiene que girar un poco más, unos 50 minutos, para que un lugar vuelva a quedar bajo la Luna."
+    }
+  ],
+  "why": [
+    "La atracción gravitatoria de la Luna varía de un lado a otro de la Tierra y produce un efecto generador de mareas con dos amplios abultamientos. El Sol también contribuye: cuando sus efectos se alinean producen mareas vivas, y cuando son aproximadamente perpendiculares producen mareas muertas.",
+    "En la luna nueva y la llena, el Sol y la Luna están en una misma línea, así que sus lóbulos de marea apuntan en la misma dirección y se suman: la amplitud es grande (mareas vivas). En los cuartos forman un ángulo recto, así que los lóbulos del Sol rellenan los bajos de la Luna: la amplitud es menor (mareas muertas), pero nunca cero, porque el efecto de la Luna es aproximadamente el doble que el del Sol.",
+    "Estas son mareas de equilibrio; las costas, la profundidad del océano y la resonancia de las cuencas influyen mucho en la altura y la hora reales de las mareas."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Las mareas vivas solo ocurren en primavera.",
+      "truth": "Las mareas vivas son periodos de amplitud de marea relativamente grande alrededor de la luna nueva y la llena, cuando los efectos generadores de mareas del Sol y de la Luna se refuerzan. Ocurren durante todo el año. La altura y la hora en una costa real también dependen de la profundidad del agua, la forma de la cuenca y las condiciones locales."
+    },
+    {
+      "claim": "Todas las costas tienen dos pleamares al día, a las mismas horas cada día.",
+      "truth": "Muchas costas, entre ellas la mayor parte de la costa atlántica de Estados Unidos y Gran Bretaña, tienen dos pleamares y dos bajamares al día, pero partes del golfo de México tienen solo una, y la costa del Pacífico de Estados Unidos tiene dos pleamares desiguales. Además, la pleamar llega unos 50 minutos más tarde cada día, porque la Luna avanza en su órbita."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Marea viva",
+      "def": "Una marea de amplitud relativamente grande, que ocurre alrededor de la luna nueva y la llena, cuando los efectos generadores de mareas del Sol y de la Luna se refuerzan. En inglés se llama spring tide, aunque no tiene nada que ver con la primavera. Las costas y las cuencas de cada lugar modifican la respuesta."
+    },
+    {
+      "term": "Marea muerta",
+      "def": "Un periodo de amplitud de marea relativamente pequeña, por lo general cerca del cuarto creciente y del cuarto menguante. Los efectos generadores de mareas del Sol y de la Luna se oponen en parte. La forma de la costa y el ritmo de las mareas en cada lugar modifican la amplitud observada."
+    },
+    {
+      "term": "Sicigia",
+      "def": "Una alineación casi en línea recta de tres cuerpos celestes. En el sistema Sol–Tierra–Luna ocurre alrededor de la luna nueva y la llena y contribuye a las mareas vivas. Un eclipse requiere además una alineación lo bastante exacta con el nodo orbital y la sombra correspondientes."
+    },
+    {
+      "term": "Cuadratura",
+      "def": "La disposición en que el Sol y la Luna aparecen separados unos 90 grados vistos desde la Tierra, cerca de un cuarto lunar. Esta geometría se asocia con las mareas muertas, aunque las mareas locales responden con retraso y dependen de su cuenca oceánica."
+    },
+    {
+      "term": "Abultamiento de marea",
+      "def": "Una elevación idealizada de la superficie del océano en un modelo de marea de equilibrio. Las mareas reales son ondas en movimiento, modificadas por la forma de la cuenca, la profundidad, la rotación y las costas."
+    },
+    {
+      "term": "Amplitud de marea",
+      "def": "La diferencia vertical entre una pleamar y la bajamar siguiente en un lugar. En general aumenta alrededor de las mareas vivas y disminuye alrededor de las mareas muertas. La forma de la costa, la profundidad del agua y la resonancia de la cuenca influyen mucho en la amplitud local."
+    },
+    {
+      "term": "Marea semidiurna",
+      "def": "Un patrón de marea con dos pleamares y dos bajamares en cada día lunar, que dura en promedio unas 24 horas y 50 minutos."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Esperas la mayor diferencia entre la pleamar y la bajamar cuando el Sol y la Luna se alinean con la Tierra, o cuando forman un ángulo recto? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Por qué la amplitud de la marea es mayor en la luna nueva y la llena que en los cuartos?",
+    "claim": "Cuando el Sol y la Luna se alinean con la Tierra, sus efectos de marea se suman y producen mareas vivas de gran amplitud; cuando forman un ángulo recto, se anulan en parte y producen mareas muertas más pequeñas.",
+    "evidence": "En la luna nueva y la llena, los lóbulos de marea del Sol y de la Luna apuntan en la misma dirección, y los resultados muestran la mayor amplitud relativa. En los cuartos, los lóbulos del Sol rellenan los bajos de la Luna y la amplitud es menor, pero nunca cero.",
+    "reasoning": "Las mareas se deben a la diferencia en la atracción de la Luna y del Sol de un lado a otro de la Tierra, que estira los océanos en dos abultamientos. El efecto de marea de la Luna es aproximadamente el doble que el del Sol, así que los efectos alineados se suman en una gran amplitud, mientras que los efectos en ángulo recto se restan pero dejan en su lugar la marea de la Luna."
+  },
+  "controls": {}
+}

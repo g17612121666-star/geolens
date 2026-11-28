@@ -1,0 +1,135 @@
+{
+  "title": "La isostasia",
+  "hook": "Añadir una carga de hielo cambia la altura de equilibrio de la corteza.",
+  "objective": "Explica cómo responde la corteza a la carga y la descarga, usando un manto de hielo para explorar el hundimiento y el rebote.",
+  "modelDescription": "Un corte a través de la corteza muestra sus capas apoyadas sobre el manto, más denso, con el Moho como límite entre ellos. Añadir un manto de hielo encima hunde la corteza en el manto, y quitarlo deja que la corteza vuelva a subir. Las alturas están exageradas cinco veces, y el ancho del manto de hielo es esquemático.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Identifica la corteza, el Moho y el manto sólido. Pon el Grosor del hielo en 0 m, predice hacia dónde se moverá la corteza y luego ponlo en 3000 m."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Calcula 3000 × 917/3300 y compáralo con el hundimiento que muestran los resultados. Cambia a la Escala real para quitar la exageración vertical ×5; el ancho del manto de hielo sigue siendo esquemático."
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica por qué añadir una carga de hielo hunde la corteza y por qué quitarla permite el rebote."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Isostasia significa…",
+      "choices": [
+        "La corteza está fija al núcleo",
+        "La corteza flota en equilibrio sobre el manto",
+        "Las placas solo se mueven en sus bordes",
+        "Las montañas se sostienen porque la roca es resistente"
+      ],
+      "explain": "La isostasia describe la tendencia al equilibrio gravitatorio entre las cargas de la litosfera y el material que tienen debajo. El manto es casi todo sólido, pero puede deformarse y fluir a lo largo del tiempo geológico."
+    },
+    {
+      "prompt": "Después de que se funde un manto de hielo, el terreno…",
+      "choices": [
+        "Se queda hundido para siempre",
+        "Se hunde más al drenarse el agua",
+        "Sube despacio: rebote glacial",
+        "Sube al instante cuando se funde el hielo"
+      ],
+      "explain": "Quitar un manto de hielo reduce la carga sobre la litosfera y permite que se levante mientras el manto de debajo se reajusta. Esta respuesta puede continuar durante miles de años después de que el hielo se haya fundido."
+    },
+    {
+      "prompt": "Si aumentas el Grosor del hielo, el bloque de corteza debería…",
+      "choices": [
+        "Flotar más alto",
+        "Quedarse al mismo nivel",
+        "Inclinarse pero mantener su altura media",
+        "Hundirse y desplazar manto"
+      ],
+      "explain": "Añadir hielo aumenta el peso que sostiene el material de debajo. En este modelo de equilibrio local, el bloque de corteza se hunde más hasta desplazar suficiente manto, más denso, para sostener la carga añadida."
+    },
+    {
+      "prompt": "¿Qué proceso relaciona las playas levantadas del oeste de Escocia con la costa que sube de la bahía de Hudson?",
+      "choices": [
+        "Las dos perdieron su hielo y todavía rebotan",
+        "Las dos se hunden bajo los sedimentos",
+        "Las dos están sobre un punto caliente que sube",
+        "Las dos se pliegan hacia arriba por un choque de placas"
+      ],
+      "explain": "Las dos regiones tuvieron mantos de hielo gruesos cuya desaparición inició un levantamiento de la corteza que aún continúa. Las costas levantadas registran el cambio resultante del nivel del terreno respecto al mar, junto con cualquier cambio del nivel del mar."
+    },
+    {
+      "prompt": "El terreno alrededor del golfo de Botnia, entre Suecia y Finlandia, todavía sube casi 1 cm al año. ¿Por qué?",
+      "choices": [
+        "La roca del manto todavía vuelve a fluir después de que se fundió el manto de hielo.",
+        "Se está formando un nuevo volcán bajo el golfo.",
+        "Los sedimentos de los ríos empujan el terreno hacia arriba.",
+        "El mar Báltico se está secando, así que pesa menos agua sobre el terreno."
+      ],
+      "explain": "Un manto de hielo grueso hundió el terreno durante la última glaciación. Se fundió hace unos 10,000 años, y el lento regreso de la roca del manto bajo la región todavía levanta el terreno."
+    }
+  ],
+  "why": [
+    "Añadir una carga de hielo cambia la altura de equilibrio de la corteza. En el modelo local de Airy, un manto más denso sostiene una columna de corteza menos densa, y al quitar la carga su posición de equilibrio sube.",
+    "En equilibrio, cada columna debe tener la misma masa por encima de un nivel de compensación profundo. El hielo añade masa, así que la columna se hunde hasta apartar una masa igual de manto: 1 m de hielo (917 kg/m³) desplaza unos 0.28 m de manto (3300 kg/m³). Como el hielo es mucho menos denso que la roca del manto, incluso 3000 m de hielo bajan el terreno solo unos 830 m.",
+    "El experimento calcula un desplazamiento de equilibrio; el rebote real lleva tiempo, porque el manto sólido se deforma despacio."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El rebote posglacial muestra que el manto bajo la corteza es lava líquida.",
+      "truth": "El manto es casi todo roca sólida que puede deformarse lentamente a lo largo de mucho tiempo. Cuando se quita una carga de hielo, el terreno sube hacia un nuevo equilibrio mientras la roca del manto vuelve a fluir despacio. Este laboratorio calcula el equilibrio final, no la rapidez del rebote."
+    },
+    {
+      "claim": "Desde la última glaciación, las costas solo han cambiado porque subió el nivel del mar.",
+      "truth": "El nivel del terreno también cambió. Las zonas que estaban bajo hielo grueso, como la bahía de Hudson, Escocia y Escandinavia, todavía suben, mientras que algunas zonas más allá del antiguo borde del hielo, entre ellas la región de la bahía de Chesapeake y partes del sur de Inglaterra, se hunden despacio. Las costas registran la combinación."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Isostasia",
+      "def": "El equilibrio en el que la litosfera flota sobre el manto, más denso, que tiene debajo. Añadir o quitar una gran carga, como un manto de hielo, hace que el terreno se hunda o suba despacio. El manto fluye lentamente como roca sólida, no como un líquido."
+    },
+    {
+      "term": "Rebote glacial",
+      "def": "El ascenso gradual del terreno después de que desaparece una gran carga de hielo. La Tierra sólida se ajusta mientras el material del manto fluye despacio con el tiempo. El rebote cambia el nivel relativo del mar en cada lugar, aunque el nivel medio global del mar pueda estar subiendo."
+    },
+    {
+      "term": "Playa levantada",
+      "def": "Una antigua playa que hoy está por encima del nivel actual del mar por un levantamiento del terreno, por un descenso del nivel del mar o por ambos."
+    },
+    {
+      "term": "Litosfera",
+      "def": "La capa externa y rígida de la Tierra, formada por la corteza y la parte más alta del manto. Está dividida en placas tectónicas y descansa sobre la astenosfera, más débil. Por eso la litosfera es más gruesa que la corteza sola."
+    },
+    {
+      "term": "Astenosfera",
+      "def": "Una parte mecánicamente débil del manto superior, bajo la litosfera. Es sobre todo roca sólida que se deforma lentamente a lo largo del tiempo geológico."
+    },
+    {
+      "term": "Raíz",
+      "def": "En la isostasia, la parte inferior engrosada de la corteza continental bajo una cordillera. La corteza, menos densa, se extiende más hondo en el manto y ayuda a sostener un relieve alto. El término describe la estructura de la corteza, no una forma literal como la de una planta."
+    },
+    {
+      "term": "Eustático",
+      "def": "Se dice de un cambio en el nivel medio global del mar, por ejemplo por un cambio en el volumen de agua del océano o en la capacidad de las cuencas oceánicas."
+    }
+  ],
+  "predict": {
+    "prompt": "Un manto de hielo grueso cubre un continente. ¿Crees que el terreno de debajo se queda donde está, se hunde o sube? ¿Qué pasa después de que el hielo se funde?"
+  },
+  "cer": {
+    "prompt": "¿Por qué el terreno que estuvo cubierto de hielo grueso durante la última glaciación sigue subiendo hoy?",
+    "claim": "El peso de un manto de hielo hunde la corteza en el manto, y después de que el hielo se funde, el terreno vuelve a subir despacio mientras la roca del manto regresa por debajo.",
+    "evidence": "Subir el Grosor del hielo a 3,000 m baja la columna de corteza unos 830 m en los resultados, lo que coincide con 3,000 × 917 ÷ 3,300. Quitar el hielo devuelve la columna a su nivel inicial. El terreno alrededor de la bahía de Hudson y del golfo de Botnia todavía sube hoy.",
+    "reasoning": "La corteza flota en equilibrio sobre el manto, más denso. Añadir hielo añade masa, así que la columna se hunde hasta desplazar una masa igual de manto. Como el manto fluye muy despacio, el rebote después de la fusión tarda miles de años."
+  },
+  "controls": {
+    "ice": {
+      "label": "Grosor del hielo"
+    }
+  }
+}

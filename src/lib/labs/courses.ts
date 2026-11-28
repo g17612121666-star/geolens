@@ -7,7 +7,7 @@ import type { LabSummary } from "./types";
  * standards in that unit, so a unit reads as a teaching sequence rather than a lookup table.
  * (/teachers/standards lists every lab under every standard.)
  */
-export type CourseId = "ms" | "hs" | "apes" | "aphg" | "england";
+export type CourseId = "ms" | "hs" | "apes" | "aphg" | "texas" | "england";
 
 export type CourseUnit = {
   id: string;
@@ -91,6 +91,20 @@ export const COURSES: Course[] = [
     units: [
       { id: "aphg-1", title: "Unit 1: Thinking Geographically", standards: withPrefix("APHG 1.") },
       { id: "c3", title: "C3 Framework: geography, grades 6 to 8", standards: withPrefix("C3 ") },
+    ],
+  },
+  {
+    id: "texas",
+    short: "Texas (TEKS)",
+    title: "Texas Essential Knowledge and Skills",
+    summary:
+      "The Earth and space strand of grades 6 to 8 science, the high school Earth Systems Science course, and the physical geography and map skills of World Geography Studies.",
+    units: [
+      { id: "tx-6", title: "Grade 6 science", standards: withPrefix("TEKS 6.") },
+      { id: "tx-7", title: "Grade 7 science", standards: withPrefix("TEKS 7.") },
+      { id: "tx-8", title: "Grade 8 science", standards: withPrefix("TEKS 8.") },
+      { id: "tx-ess", title: "Earth Systems Science", standards: withPrefix("TEKS ESS.") },
+      { id: "tx-wg", title: "World Geography Studies", standards: withPrefix("TEKS WG.") },
     ],
   },
   {

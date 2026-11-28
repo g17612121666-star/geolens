@@ -228,6 +228,9 @@ footer.ink-band a:hover {color:#62e2c9;}
 /* Links inside running text are underlined, so they never rely on color alone. */
 :where(p, li, dd) > a.text-ice {text-decoration-line:underline;text-underline-offset:3px;}
 
+/* A lab's 3D view takes keyboard focus; its ring sits inside the edge so nothing clips it. */
+.orbit-view:focus-visible {outline:3px solid var(--color-glacier);outline-offset:-3px;}
+
 /* A selected toggle's teal text on a teal tint needs a deeper teal in daylight for 4.5:1 contrast. */
 :root[data-theme="light"] .bg-glacier\/15.text-glacier {color:#055a4c;}
 

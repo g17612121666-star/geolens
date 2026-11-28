@@ -70,7 +70,9 @@ const SEABED_ROCK = new THREE.Color("#8f8c7a"),
   SEA_SAND = new THREE.Color("#b9a983"),
   BEACH = new THREE.Color("#dccb9f");
 import { Tag } from "../shared/kit";
+import { useT } from "@/lib/i18n";
 function Headland({ stage }: { stage: number }) {
+  const tr = useT();
   const geometry = useMemo(() => createHeadlandFront(stage === 0), [stage]);
   const bed = useMemo(() => seabed(stage), [stage]);
   const bedColour = useMemo(
@@ -192,17 +194,21 @@ function Headland({ stage }: { stage: number }) {
       )}
       <Tag
         pos={[-0.9, 0.08, 1.25]}
-        text="Wave-cut platform"
-        short="Platform"
+        text={tr("Wave-cut platform")}
+        short={tr("Platform")}
         tone="glacier"
-        note="A gently sloping rock shelf left behind as waves cut the cliff back, shown here at low tide: exposed at the cliff foot, with rock pools and fallen chalk blocks and flints, and sloping under the sea offshore. It shows where the cliff once stood."
+        note={tr(
+          "A gently sloping rock shelf left behind as waves cut the cliff back, shown here at low tide: exposed at the cliff foot, with rock pools and fallen chalk blocks and flints, and sloping under the sea offshore. It shows where the cliff once stood.",
+        )}
         occlude={false}
       />
       <Tag
         priority={1}
         pos={stage === 3 ? [0.57, 0.6, 0] : stage === 2 ? [0.6, 2.05, 0] : [0.35, 2.2, -0.6]}
-        text={["Sea cave", "Sea arch", "Sea stack", "Stump"][stage]}
-        note="Waves exploit joints in the chalk to enlarge a cave. It can break through to form an arch; the roof collapses to leave a stack, and erosion lowers the stack to a stump. Rock structure controls the details, and the stages are not dated."
+        text={[tr("Sea cave"), tr("Sea arch"), tr("Sea stack"), tr("Stump")][stage]}
+        note={tr(
+          "Waves exploit joints in the chalk to enlarge a cave. It can break through to form an arch; the roof collapses to leave a stack, and erosion lowers the stack to a stump. Rock structure controls the details, and the stages are not dated.",
+        )}
         occlude={false}
       />
     </>
@@ -233,6 +239,7 @@ function CliffFootDebris({ stage }: { stage: number }) {
   );
 }
 export default function Coasts() {
+  const tr = useT();
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 40);
   const mode = Math.round(params.view ?? 0),
@@ -299,13 +306,13 @@ export default function Coasts() {
         camera={[4.3, 3.4, 7]}
         scale={
           mode === 0
-            ? "Headland: 1 scene unit = 10 m · common distances"
-            : "Beach / spit: 1 scene unit = 20 m · vertical ×2"
+            ? tr("Headland: 1 scene unit = 10 m · common distances")
+            : tr("Beach / spit: 1 scene unit = 20 m · vertical ×2")
         }
         trueScale={
           mode === 0
-            ? "Headland: common 10 m scale · water symbols enlarged"
-            : "Beach / spit: common 20 m scale · grains and vegetation enlarged"
+            ? tr("Headland: common 10 m scale · water symbols enlarged")
+            : tr("Beach / spit: common 20 m scale · grains and vegetation enlarged")
         }
       >
         {mode === 0 ? (
@@ -373,22 +380,28 @@ export default function Coasts() {
               text={
                 mode === 1
                   ? constructive
-                    ? "Berm-building example"
-                    : "Eroded profile example"
-                  : "Mainland"
+                    ? tr("Berm-building example")
+                    : tr("Eroded profile example")
+                  : tr("Mainland")
               }
               note={
                 mode === 1
-                  ? "These two beach profiles show a possible net gain (a berm) or loss of sand. Real outcomes also depend on wave height and period, grain size, beach slope and tide level."
-                  : "The spit is attached to the mainland at this end. Sediment drifting along the coast feeds its growth."
+                  ? tr(
+                      "These two beach profiles show a possible net gain (a berm) or loss of sand. Real outcomes also depend on wave height and period, grain size, beach slope and tide level.",
+                    )
+                  : tr(
+                      "The spit is attached to the mainland at this end. Sediment drifting along the coast feeds its growth.",
+                    )
               }
               occlude={false}
             />
             {mode === 1 && groyne && (
               <Tag
                 pos={[-0.55, 0.42, -0.2]}
-                text="Sand trapped up-drift"
-                note="The groyne interrupts longshore drift, so sand accumulates on the up-drift side and the beach there widens."
+                text={tr("Sand trapped up-drift")}
+                note={tr(
+                  "The groyne interrupts longshore drift, so sand accumulates on the up-drift side and the beach there widens.",
+                )}
                 occlude={false}
               />
             )}
@@ -405,12 +418,20 @@ export default function Coasts() {
                     ]
               }
               text={
-                mode === 1 ? (groyne ? "Down-drift supply reduced" : "Longshore transport") : "Spit"
+                mode === 1
+                  ? groyne
+                    ? tr("Down-drift supply reduced")
+                    : tr("Longshore transport")
+                  : tr("Spit")
               }
               note={
                 mode === 1
-                  ? "Swash runs up the beach at an angle and backwash returns straight down the slope, so grains zigzag along the shore; currents also move sediment. The groyne traps this supply, though on real coasts some sand passes round groynes and wave direction changes."
-                  : "A spit is attached to land at one end and grows into open water as drifting sediment builds up. A hooked end can record changing waves and currents. Sheltered water behind it fills with mud and salt marsh. Spit extent is a chosen shape, not a predicted growth rate."
+                  ? tr(
+                      "Swash runs up the beach at an angle and backwash returns straight down the slope, so grains zigzag along the shore; currents also move sediment. The groyne traps this supply, though on real coasts some sand passes round groynes and wave direction changes.",
+                    )
+                  : tr(
+                      "A spit is attached to land at one end and grows into open water as drifting sediment builds up. A hooked end can record changing waves and currents. Sheltered water behind it fills with mud and salt marsh. Spit extent is a chosen shape, not a predicted growth rate.",
+                    )
               }
               occlude={false}
             />
@@ -435,9 +456,9 @@ export default function Coasts() {
         <Arrow from={[-2, 0.55, 2]} to={[-1.3, 0.55, 0.8]} width={5} color="#a7d0d3" />
         <Tag
           pos={[-2.7, 1.1, 2.4]}
-          text="Wave approach"
+          text={tr("Wave approach")}
           priority={1}
-          note="Waves reach the shore at an angle. The arrow is a symbol, not to scale."
+          note={tr("Waves reach the shore at an angle. The arrow is a symbol, not to scale.")}
           occlude={false}
         />
         {mode === 2 && drift && (
@@ -445,9 +466,11 @@ export default function Coasts() {
             <Arrow from={[-2.8, 0.3, 0.45]} to={[-0.6, 0.3, 0.3]} width={5} color="#f0c889" />
             <Tag
               pos={[-1.7, 0.05, 1.1]}
-              text="Longshore drift"
+              text={tr("Longshore drift")}
               priority={2}
-              note="Sediment moved along the coast by oblique waves keeps traveling in the same direction where the coast turns inland, and is deposited to build the spit."
+              note={tr(
+                "Sediment moved along the coast by oblique waves keeps traveling in the same direction where the coast turns inland, and is deposited to build the spit.",
+              )}
               occlude={false}
             />
           </>
@@ -455,16 +478,28 @@ export default function Coasts() {
       </ScienceStudio>
       <ScienceReadout>
         {mode === 0
-          ? "Look into the cave from the sea, then compare the arch, stack and stump. The chalk headland, banded with dark flint, stands on a wave-cut platform; the cave has a back wall."
+          ? tr(
+              "Look into the cave from the sea, then compare the arch, stack and stump. The chalk headland, banded with dark flint, stands on a wave-cut platform; the cave has a back wall.",
+            )
           : mode === 1
-            ? "Swash moves grains diagonally up the beach; backwash returns them straight downslope. The zigzag is one simplified pathway."
-            : "A spit grows from the shore across a bay, sheltering a shallow lagoon with salt marsh behind it. Change Spit extent to compare its length; the water beyond its tip stays open."}{" "}
+            ? tr(
+                "Swash moves grains diagonally up the beach; backwash returns them straight downslope. The zigzag is one simplified pathway.",
+              )
+            : tr(
+                "A spit grows from the shore across a bay, sheltering a shallow lagoon with salt marsh behind it. Change Spit extent to compare its length; the water beyond its tip stays open.",
+              )}{" "}
         <br />
         {mode === 1
           ? groyne
-            ? "Groyne on: grains are trapped on the up-drift side, so less reaches the beach beyond. The groyne creates no new sediment."
-            : "Toggle Constructive waves to compare a beach with a berm and an eroded beach; both are example profiles."
-          : "No erosion or growth rate is calculated. Rock structure, waves, tides and sediment supply control real coasts."}
+            ? tr(
+                "Groyne on: grains are trapped on the up-drift side, so less reaches the beach beyond. The groyne creates no new sediment.",
+              )
+            : tr(
+                "Toggle Constructive waves to compare a beach with a berm and an eroded beach; both are example profiles.",
+              )
+          : tr(
+              "No erosion or growth rate is calculated. Rock structure, waves, tides and sediment supply control real coasts.",
+            )}
       </ScienceReadout>
     </>
   );

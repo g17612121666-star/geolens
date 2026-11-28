@@ -8,6 +8,7 @@ import { SectionMaterial } from "../shared/section-material";
 import { GrassPatch, DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
 import { landscapeRandom as random } from "../shared/landscape-noise";
+import { useT } from "@/lib/i18n";
 const hex = (h: string) => {
   const c = new THREE.Color(h);
   // Work in sRGB like CSS hex; SectionMaterial converts to linear.
@@ -120,6 +121,7 @@ vec3 sectionGlow(vec3 p,vec3 w){return vec3(0.);}`;
 }
 
 export default function SoilProfile() {
+  const tr = useT();
   const { params } = useLabState("params"),
     index = Math.round(params.profile ?? 0),
     profile = SOIL_PROFILES[index],
@@ -137,8 +139,10 @@ export default function SoilProfile() {
         horizon
         slug="soil-profile"
         camera={[2, 1.4, 6]}
-        scale="Example 2 m profile, drawn to scale · not every soil has every O–A–E–B–C horizon"
-        trueScale="1 scene unit = 1 m · grains and roots enlarged for visibility"
+        scale={tr(
+          "Example 2 m profile, drawn to scale · not every soil has every O–A–E–B–C horizon",
+        )}
+        trueScale={tr("1 scene unit = 1 m · grains and roots enlarged for visibility")}
       >
         <mesh geometry={geometry}>
           <SectionMaterial
@@ -186,8 +190,12 @@ export default function SoilProfile() {
               )}
               <Tag
                 pos={[1.85, labelY, 0.51]}
-                text={`${h.code} · ${(top * 100).toFixed(0)}–${(h.bottom * 100).toFixed(0)} cm`}
-                note={h.description}
+                text={tr("{h} · {top}–{h2} cm", {
+                  h: h.code,
+                  top: (top * 100).toFixed(0),
+                  h2: (h.bottom * 100).toFixed(0),
+                })}
+                note={tr(h.description)}
                 occlude={false}
               />
             </group>
@@ -225,10 +233,10 @@ export default function SoilProfile() {
         ))}
       </ScienceStudio>
       <ScienceReadout>
-        {profile.name}. {profile.context} <br />
-        {
-          "Depths are teaching examples, not field measurements. These examples have no E (leached) or R (bedrock) horizon, though other soils do. Select a horizon label to read what it means."
-        }
+        {tr(profile.name)}. {tr(profile.context)} <br />
+        {tr(
+          "Depths are teaching examples, not field measurements. These examples have no E (leached) or R (bedrock) horizon, though other soils do. Select a horizon label to read what it means.",
+        )}
       </ScienceReadout>
     </>
   );

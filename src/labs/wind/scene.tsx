@@ -13,6 +13,7 @@ import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
 import { FlowWaterMaterial } from "../shared/flow-water";
 import { CloudVolume } from "../atmosphere-layers/weather-volumes";
+import { msg, useT } from "@/lib/i18n";
 
 /** Isobar spacing implied by 0.001 m/s² over 150 km at 1.2 kg/m³, in hPa. */
 const ISOBAR_HPA = (1.2 * 0.001 * 150000) / 100;
@@ -20,7 +21,16 @@ const ISOBAR_HPA = (1.2 * 0.001 * 150000) / 100;
 const FORCE_X = -0.4,
   PLATE_Y = 0.42,
   PLATE_R = 1.45;
-const COMPASS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+const COMPASS = [
+  msg("N"),
+  msg("NE"),
+  msg("E"),
+  msg("SE"),
+  msg("S"),
+  msg("SW"),
+  msg("W"),
+  msg("NW"),
+];
 const toward = (u: number, v: number) =>
   COMPASS[Math.round((((Math.atan2(u, v) * 180) / Math.PI + 360) % 360) / 45) % 8];
 const ss = (x: number, a: number, b: number) => THREE.MathUtils.smoothstep(x, a, b);
@@ -124,6 +134,7 @@ function AirTracers({
   );
 }
 export default function Wind() {
+  const tr = useT();
   const { params, t } = useLabState("params", "t");
   useLabTick(1 / 45);
   const coriolis = (params.coriolis ?? 1) > 0.5,
@@ -150,28 +161,34 @@ export default function Wind() {
     ];
   const forces = [
     {
-      name: "Pressure gradient",
-      short: "Pressure",
+      name: tr("Pressure gradient"),
+      short: tr("Pressure"),
       vector: w.pressure,
       color: "#e4bd80",
       tone: "sandstone" as const,
-      note: "Air is pushed from high toward low pressure, at right angles to the isobars: 0.001 m/s² here, per kilogram of air.",
+      note: tr(
+        "Air is pushed from high toward low pressure, at right angles to the isobars: 0.001 m/s² here, per kilogram of air.",
+      ),
     },
     {
-      name: "Coriolis",
-      short: "Coriolis",
+      name: tr("Coriolis"),
+      short: tr("Coriolis"),
       vector: w.coriolis,
       color: "#88cbd8",
       tone: "glacier" as const,
-      note: "Earth's rotation deflects moving air to the right in the Northern Hemisphere and to the left in the Southern, at right angles to the wind. It grows with wind speed and is zero for still air.",
+      note: tr(
+        "Earth's rotation deflects moving air to the right in the Northern Hemisphere and to the left in the Southern, at right angles to the wind. It grows with wind speed and is zero for still air.",
+      ),
     },
     {
-      name: "Friction",
-      short: "Friction",
+      name: tr("Friction"),
+      short: tr("Friction"),
       vector: w.drag,
       color: "#d39685",
       tone: "magma" as const,
-      note: "Near the ground, friction with the surface slows the wind and acts against its direction.",
+      note: tr(
+        "Near the ground, friction with the surface slows the wind and acts against its direction.",
+      ),
     },
   ];
   return (
@@ -179,8 +196,10 @@ export default function Wind() {
       <ScienceStudio
         slug="wind"
         camera={[1.5, 7, 5]}
-        scale="East–north plane · forces share one scale, wind another · relief, trees and towns not to scale"
-        trueScale="Forces: 0.001 m/s² per 1.1 units · wind: 10 m/s per 0.7 units"
+        scale={tr(
+          "East–north plane · forces share one scale, wind another · relief, trees and towns not to scale",
+        )}
+        trueScale={tr("Forces: 0.001 m/s² per 1.1 units · wind: 10 m/s per 0.7 units")}
       >
         <Landscape />
         <PressureField />
@@ -197,26 +216,33 @@ export default function Wind() {
             />
             <Tag
               pos={[2.75, landHeight(2.75, z) + 0.08, z]}
-              text={`${(1014 + z * ISOBAR_HPA).toFixed(1)} hPa`}
-              note={`Isobars join points of equal surface pressure. With the lab's pressure-gradient acceleration of 0.001 m/s² and air density 1.2 kg/m³, neighboring lines 150 km apart differ by about ${ISOBAR_HPA.toFixed(1)} hPa. The pressure values themselves are only examples.`}
+              text={tr("{z} hPa", { z: (1014 + z * ISOBAR_HPA).toFixed(1) })}
+              note={tr(
+                "Isobars join points of equal surface pressure. With the lab's pressure-gradient acceleration of 0.001 m/s² and air density 1.2 kg/m³, neighboring lines 150 km apart differ by about {ISOBARHPA} hPa. The pressure values themselves are only examples.",
+                { ISOBARHPA: ISOBAR_HPA.toFixed(1) },
+              )}
               occlude={false}
             />
           </group>
         ))}
         <Tag
           pos={[-2.2, 0.1, -2.4]}
-          text="Lower pressure · north"
-          short="Low · north"
+          text={tr("Lower pressure · north")}
+          short={tr("Low · north")}
           priority={1}
-          note="The fixed pressure gradient points north, across these parallel isobars. No fronts or curved pressure centers are included."
+          note={tr(
+            "The fixed pressure gradient points north, across these parallel isobars. No fronts or curved pressure centers are included.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-2.2, 0.1, 2.4]}
-          text="Higher pressure · south"
-          short="High · south"
+          text={tr("Higher pressure · south")}
+          short={tr("High · south")}
           priority={1}
-          note="The pressure-gradient force is 0.001 m/s² (force per kilogram of air). All force arrows show force per unit mass."
+          note={tr(
+            "The pressure-gradient force is 0.001 m/s² (force per kilogram of air). All force arrows show force per unit mass.",
+          )}
           occlude={false}
         />
         <ForcePlate />
@@ -265,10 +291,12 @@ export default function Wind() {
           // Beyond the arrow's tip, so the label never covers the arrows it describes.
           <Tag
             pos={windLabel}
-            text={`Wind ${w.speed.toFixed(1)} m/s`}
+            text={tr("Wind {w} m/s", { w: w.speed.toFixed(1) })}
             short={`${w.speed.toFixed(0)} m/s`}
             priority={4}
-            note="The white arrow is the wind's velocity, not another force, and uses its own scale: 10 m/s per 0.7 units. In steady flow it lies where the forces balance: along the isobars without friction, angled toward low pressure with it."
+            note={tr(
+              "The white arrow is the wind's velocity, not another force, and uses its own scale: 10 m/s per 0.7 units. In steady flow it lies where the forces balance: along the isobars without friction, angled toward low pressure with it.",
+            )}
             occlude={false}
           />
         )}
@@ -290,35 +318,55 @@ export default function Wind() {
         )}
       </ScienceStudio>
       <ScienceReadout>
-        {south ? "Southern" : "Northern"} {"hemisphere: wind "}
-        {w.speed.toFixed(1)} {"m/s"}
+        {south
+          ? tr("Southern hemisphere: wind {speed} m/s", { speed: w.speed.toFixed(1) })
+          : tr("Northern hemisphere: wind {speed} m/s", { speed: w.speed.toFixed(1) })}{" "}
         {w.speed < 0.05
-          ? " (air at rest)"
-          : ` blowing from the ${toward(-w.u, -w.v)} toward the ${toward(w.u, w.v)}, ${
-              Math.abs(across) < 1
-                ? "along the isobars"
-                : `crossing the isobars at ${Math.abs(across).toFixed(0)}° toward ${
-                    across > 0 ? "lower" : "higher"
-                  } pressure`
-            }`}
+          ? tr("(air at rest)")
+          : Math.abs(across) < 1
+            ? tr("blowing from the {from} toward the {to}, along the isobars", {
+                from: tr(toward(-w.u, -w.v)),
+                to: tr(toward(w.u, w.v)),
+              })
+            : across > 0
+              ? tr(
+                  "blowing from the {from} toward the {to}, crossing the isobars at {angle}° toward lower pressure",
+                  {
+                    from: tr(toward(-w.u, -w.v)),
+                    to: tr(toward(w.u, w.v)),
+                    angle: Math.abs(across).toFixed(0),
+                  },
+                )
+              : tr(
+                  "blowing from the {from} toward the {to}, crossing the isobars at {angle}° toward higher pressure",
+                  {
+                    from: tr(toward(-w.u, -w.v)),
+                    to: tr(toward(w.u, w.v)),
+                    angle: Math.abs(across).toFixed(0),
+                  },
+                )}
         {". "}
         {w.steady
-          ? "Steady force balance."
-          : `${(t * 24).toFixed(1)} h after release from rest.`}{" "}
-        <span className="text-sandstone">{"Gold: pressure gradient"}</span> ·{" "}
-        <span className="text-glacier">{"Blue: Coriolis"}</span> ·{" "}
-        <span className="text-magma">{"Coral: friction"}</span> {"· White: wind velocity."} <br />
-        {w.steady ? "" : "The pale curve traces the wind since release. "}
-        {"Eastward "}
-        {w.u.toFixed(2)}
-        {", northward "}
-        {w.v.toFixed(2)} {"m/s. "}
-        {w.steady ? "The pale streaks drift with the wind. " : ""}
+          ? tr("Steady force balance.")
+          : tr("{hours} h after release from rest.", { hours: (t * 24).toFixed(1) })}{" "}
+        <span className="text-sandstone">{tr("Gold: pressure gradient")}</span> ·{" "}
+        <span className="text-glacier">{tr("Blue: Coriolis")}</span> ·{" "}
+        <span className="text-magma">{tr("Coral: friction")}</span> · {tr("White: wind velocity.")}{" "}
+        <br />
+        {w.steady ? "" : tr("The pale curve traces the wind since release.") + " "}
+        {tr("Eastward {u}, northward {v} m/s.", { u: w.u.toFixed(2), v: w.v.toFixed(2) })}{" "}
+        {w.steady ? tr("The pale streaks drift with the wind.") + " " : ""}
         {!coriolis && !friction
-          ? "Without Coriolis or friction, this constant gradient keeps accelerating the air (the arrow is capped at 40 m/s)."
+          ? tr(
+              "Without Coriolis or friction, this constant gradient keeps accelerating the air (the arrow is capped at 40 m/s).",
+            )
           : !friction && transient
-            ? "Without friction the wind keeps oscillating about the geostrophic wind and never settles."
-            : "Constant-Coriolis (f-plane) model with a fixed pressure gradient. Streaks leaving one edge reappear at the other (150 km per scene unit)."}
+            ? tr(
+                "Without friction the wind keeps oscillating about the geostrophic wind and never settles.",
+              )
+            : tr(
+                "Constant-Coriolis (f-plane) model with a fixed pressure gradient. Streaks leaving one edge reappear at the other (150 km per scene unit).",
+              )}
       </ScienceReadout>
     </>
   );

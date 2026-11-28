@@ -85,3 +85,37 @@ test("a search for a standard code finds that standard, and an NGSS group finds 
   for (const words of ["glaciers", "4.1", "MS-ESS9-1", "ESS2", ""])
     assert.deepEqual(matchStandards(words), [], words);
 });
+
+test("Texas TEKS: every Earth and space expectation for grades 6 to 8 and every Earth Systems Science concept", () => {
+  const codes = STANDARDS.filter((s) => s.framework === "TEKS").map((s) => s.code);
+  for (const code of codes) assert.match(code, /^(\d\.\d+|ESS\.\d+|WG\.\d+)[A-H]$/, code);
+  // 19 TAC §112.26 to §112.28 (2021): knowledge and skills 9 to 11 in each grade.
+  assert.equal(codes.filter((c) => /^[678]\./.test(c)).length, 23);
+  // 19 TAC §112.49 (2021): science concepts (c)(5) to (c)(12).
+  assert.equal(codes.filter((c) => c.startsWith("ESS.")).length, 42);
+  // Grade-level expectations come before the high school courses.
+  assert.ok(codes.indexOf("8.11C") < codes.indexOf("ESS.5A"));
+  assert.ok(codes.indexOf("ESS.12F") < codes.indexOf("WG.3A"));
+});
+
+test("a TEKS code finds its expectation, and a knowledge-and-skills number finds the group", async () => {
+  const { matchStandards } = await import("../src/lib/labs/standards.ts");
+  assert.deepEqual(matchStandards("TEKS 6.9A"), ["TEKS 6.9A"]);
+  assert.deepEqual(matchStandards("8.10c"), ["TEKS 8.10C"]);
+  assert.deepEqual(matchStandards(" ess.8e "), ["TEKS ESS.8E"]);
+  assert.deepEqual(matchStandards("TEKS 8.10"), ["TEKS 8.10A", "TEKS 8.10B", "TEKS 8.10C"]);
+  assert.equal(matchStandards("ESS.8").length, 8);
+  assert.deepEqual(matchStandards("WG.4"), ["TEKS WG.4A", "TEKS WG.4B"]);
+  // A bare grade-level number could be another framework's topic, so it needs "TEKS".
+  assert.deepEqual(matchStandards("8.10"), []);
+});
+
+test("labs with Texas tags are offered under the Texas filter and the Texas course", async () => {
+  const { COURSE_BY_ID } = await import("../src/lib/labs/courses.ts");
+  const texas = COURSE_BY_ID.texas.units.flatMap((u) => u.standards);
+  const tagged = labs.filter((l) => l.standards.some((id) => id.startsWith("TEKS ")));
+  assert.ok(tagged.length >= 40, `${tagged.length} labs tagged`);
+  for (const lab of tagged)
+    for (const id of lab.standards.filter((s) => s.startsWith("TEKS ")))
+      assert.ok(texas.includes(id), `${lab.slug}: ${id} is in no Texas unit`);
+});

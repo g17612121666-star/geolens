@@ -1,0 +1,139 @@
+{
+  "title": "La expansión del fondo oceánico",
+  "hook": "La nueva corteza oceánica se forma en una dorsal de expansión y se aleja hacia ambos lados.",
+  "objective": "Explica cómo se forma la nueva corteza oceánica en una dorsal y cómo las franjas magnéticas registran la expansión a cada lado.",
+  "modelDescription": "Un bloque de fondo oceánico está partido por una dorsal oceánica, con magma que sube por debajo y corteza nueva que se aleja hacia ambos lados, como muestran las flechas. Unas franjas sobre el fondo marino registran épocas de polaridad magnética normal e invertida y se reflejan entre sí a los dos lados de la dorsal. Unas etiquetas de edad marcan la corteza más antigua en cada extremo.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra el eje de la dorsal y las etiquetas de edad en cada extremo del corte. Pon la Velocidad de expansión total en 25 mm/año y calcula la media velocidad de cada flanco."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pulsa Reproducir para pasar la secuencia de inversiones y sigue los marcadores emparejados. Compara las franjas anchas y las estrechas; las inversiones no ocurren a intervalos regulares."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué aparecen franjas magnéticas que coinciden a los dos lados de una dorsal, y qué nos pueden decir sus anchos?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La corteza más nueva está…",
+      "choices": [
+        "En los continentes",
+        "Solo en la fosa",
+        "En el núcleo interno",
+        "En el eje de la dorsal"
+      ],
+      "explain": "El magma sube y se solidifica en una dorsal de expansión, y forma nueva corteza oceánica. La expansión continua aleja esa corteza del eje, así que en general es más antigua cuanto más lejos está."
+    },
+    {
+      "prompt": "Las franjas son simétricas porque…",
+      "choices": [
+        "Los dos lados de la dorsal añaden corteza",
+        "Las corrientes oceánicas ordenan las franjas",
+        "Solo una placa se aleja",
+        "Las inversiones ocurren a intervalos regulares"
+      ],
+      "explain": "La corteza nueva se forma a los dos lados de la dorsal y registra la misma secuencia de cambios de polaridad magnética. La expansión lleva esos registros hacia fuera en franjas que coinciden a grandes rasgos, aunque sus anchos pueden ser distintos si la expansión es asimétrica."
+    },
+    {
+      "prompt": "Las franjas magnéticas registran…",
+      "choices": [
+        "Cambios en la temperatura del océano",
+        "Inversiones magnéticas congeladas en el basalto",
+        "La edad de las capas de sedimento de encima",
+        "Variaciones en la salinidad del agua de mar"
+      ],
+      "explain": "Cuando el basalto se enfría, sus minerales magnéticos fijan un registro del campo geomagnético de ese momento. Las sucesivas inversiones y la expansión continua crean franjas de polaridad normal e invertida."
+    },
+    {
+      "prompt": "El fondo oceánico antiguo se destruye en…",
+      "choices": [
+        "Las dorsales oceánicas",
+        "Las fallas transformantes",
+        "Las fosas de subducción",
+        "Los valles de rift continentales"
+      ],
+      "explain": "En una fosa de subducción, la litosfera oceánica se dobla y desciende hacia el manto. Los límites transformantes acomodan sobre todo el movimiento lateral y no hacen ese reciclaje."
+    },
+    {
+      "prompt": "¿Dónde suele estar la corteza oceánica más antigua?",
+      "choices": [
+        "En la cresta de una dorsal oceánica",
+        "Cerca del eje de la dorsal, bajo una capa fina de sedimento",
+        "Repartida por igual en todo el fondo oceánico",
+        "Lejos de las dorsales, cerca de algunas fosas y márgenes"
+      ],
+      "explain": "La corteza se forma en la dorsal y se aleja hacia ambos lados, así que es más antigua cuanto más lejos está. La corteza más antigua está más lejos de la dorsal, a menudo cerca de fosas donde al final será subducida."
+    }
+  ],
+  "why": [
+    "La nueva corteza oceánica se forma en una dorsal de expansión y se aleja hacia ambos lados. En general, su edad aumenta con la distancia, mientras que las franjas magnéticas registran los cambios de polaridad del campo magnético de la Tierra.",
+    "Cada franja de corteza nueva conserva la polaridad magnética que tenía cuando se enfrió en el eje, así que la misma secuencia de franjas se lleva hacia fuera en los dos flancos. Las inversiones ocurren a intervalos irregulares, así que el ancho de las franjas varía aunque la velocidad de expansión no cambie.",
+    "El experimento usa una historia de expansión elegida; las dorsales reales cambian de velocidad y pueden expandirse de forma asimétrica."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Cada franja magnética del fondo oceánico representa la misma cantidad de tiempo.",
+      "truth": "Las inversiones geomagnéticas ocurren a intervalos irregulares, y la velocidad de expansión puede cambiar. El ancho de una franja depende de la duración de su intervalo de polaridad y de la velocidad con que la corteza se alejó de la dorsal. Las secuencias que coinciden son una evidencia más sólida que suponer inversiones igualmente espaciadas."
+    },
+    {
+      "claim": "El fondo oceánico es la parte más antigua de la superficie de la Tierra.",
+      "truth": "Casi todo el fondo oceánico tiene menos de unos 200 millones de años, porque la corteza oceánica se recicla en las zonas de subducción. Algunas rocas continentales tienen más de 4,000 millones de años."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Velocidad de expansión",
+      "def": "La rapidez con que se separan las placas en una dorsal de expansión, que suele expresarse en centímetros por año. La velocidad total mide la separación entre los dos lados; la media velocidad mide el movimiento de un lado respecto a la dorsal, así que importa saber cuál se usa."
+    },
+    {
+      "term": "Inversión magnética",
+      "def": "Un cambio en la polaridad del campo magnético de la Tierra. Los minerales magnéticos de una roca volcánica que se enfría pueden conservar la dirección del campo en el momento en que se formaron. Las inversiones ocurren a intervalos irregulares, así que no todas las franjas magnéticas representan duraciones iguales."
+    },
+    {
+      "term": "Dorsal oceánica",
+      "def": "Un sistema de montañas submarinas en un límite de expansión, donde el ascenso y la fusión del manto forman nueva corteza oceánica. En general, el fondo marino es más antiguo cuanto más lejos está del eje de expansión."
+    },
+    {
+      "term": "Vine–Matthews",
+      "def": "La hipótesis que relaciona las anomalías magnéticas simétricas del fondo oceánico con la expansión en las dorsales y con las inversiones del campo magnético de la Tierra. La corteza recién enfriada registra el campo en el momento de formarse. Comparar las secuencias de anomalías con las edades de las inversiones aporta evidencia del movimiento de las placas."
+    },
+    {
+      "term": "Corteza oceánica",
+      "def": "La capa rocosa externa bajo la mayoría de las cuencas oceánicas, formada sobre todo por basalto y gabro, con unos siete kilómetros de grosor en promedio. Se forma en las dorsales de expansión y al final se recicla en las zonas de subducción. Es solo una parte de una placa oceánica."
+    },
+    {
+      "term": "Franja magnética",
+      "def": "Una banda de corteza oceánica cuyos minerales magnéticos registran una polaridad determinada del campo. La expansión del fondo oceánico aleja de la dorsal la corteza recién formada y produce secuencias de polaridad que coinciden a grandes rasgos a sus dos lados. El ancho de las franjas también depende de la velocidad de expansión."
+    },
+    {
+      "term": "Punto de Curie",
+      "def": "La temperatura por encima de la cual un material pierde su ordenamiento ferromagnético o ferrimagnético espontáneo; unos 580 °C en la magnetita pura."
+    },
+    {
+      "term": "Zona de fractura",
+      "def": "Una larga cicatriz en el fondo marino que continúa más allá del final de una falla transformante que desplaza una dorsal oceánica. A diferencia de la falla transformante, no es un límite de placas activo: los dos lados pertenecen a la misma placa."
+    }
+  ],
+  "predict": {
+    "prompt": "Si el nuevo fondo marino se forma en una dorsal oceánica, ¿dónde esperarías encontrar el fondo marino más antiguo?"
+  },
+  "cer": {
+    "prompt": "¿Cómo muestran las franjas magnéticas y las edades de las rocas que el fondo oceánico se expande?",
+    "claim": "La nueva corteza oceánica se forma en la dorsal y se aleja hacia ambos lados, así que la roca más joven está en la dorsal y las franjas magnéticas que coinciden se reflejan a uno y otro lado.",
+    "evidence": "Las etiquetas de edad aumentan con la distancia a la dorsal en los dos flancos. Con una velocidad de expansión total de 25 mm/año, cada flanco se mueve 12.5 mm/año, es decir, 12.5 km por millón de años. El patrón de franjas es simétrico, con franjas anchas y estrechas porque las inversiones ocurren en momentos irregulares.",
+    "reasoning": "Cuando la lava se enfría en la dorsal, los minerales magnéticos registran la dirección del campo magnético de la Tierra. Cuando el campo se invierte, la corteza recién formada registra la nueva dirección, así que cada franja es una banda de tiempo que se aleja hacia ambos lados."
+  },
+  "controls": {
+    "rate": {
+      "label": "Velocidad de expansión total"
+    }
+  }
+}

@@ -15,6 +15,7 @@ import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { GeomorphicTerrain, DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
+import { useT } from "@/lib/i18n";
 
 /** The ground the dunes and yardangs stand on (true-scale units: 1 = 10 m). */
 const FLOOR = 0.04;
@@ -52,6 +53,7 @@ export default function Aeolian() {
 }
 
 function ModelAeolian() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale");
   useLabTick(1 / 40);
   const mode = Math.round(params.feature ?? 0),
@@ -131,8 +133,10 @@ function ModelAeolian() {
         horizon
         slug="aeolian"
         camera={mode === 0 ? [0.9, 5.6, 5.4] : [-1.6, 4, 7]}
-        scale="60 × 40 m example · relief ×2 · ripples and grains enlarged · wind follows the arrow"
-        trueScale="1 scene unit = 10 m · equal distances · ripples and sand grains enlarged"
+        scale={tr(
+          "60 × 40 m example · relief ×2 · ripples and grains enlarged · wind follows the arrow",
+        )}
+        trueScale={tr("1 scene unit = 10 m · equal distances · ripples and sand grains enlarged")}
       >
         <group scale={[1, v, 1]}>
           <GeomorphicTerrain
@@ -182,9 +186,11 @@ function ModelAeolian() {
           />
           <Tag
             pos={[-2.1, windY + 0.15, -1.55]}
-            text="Wind"
+            text={tr("Wind")}
             priority={2}
-            note="The prevailing wind blows along this arrow. Sand moves downwind, the steep slip face forms on the downwind side and the barchan's horns trail downwind."
+            note={tr(
+              "The prevailing wind blows along this arrow. Sand moves downwind, the steep slip face forms on the downwind side and the barchan's horns trail downwind.",
+            )}
             occlude={false}
           />
           <Tag
@@ -193,13 +199,17 @@ function ModelAeolian() {
                 ? sandPoint(DUNE.x - 0.6 * DUNE.stoss, 0.4, 0.12)
                 : [main.x + 0.25 * main.length, FLOOR + main.height + 0.12, main.z]
             }
-            text={mode === 0 ? "Gentler stoss slope" : "Wind-eroded ridges"}
-            short={mode === 0 ? "Windward" : "Eroded ridges"}
+            text={mode === 0 ? tr("Gentler stoss slope") : tr("Wind-eroded ridges")}
+            short={mode === 0 ? tr("Windward") : tr("Eroded ridges")}
             priority={1}
             note={
               mode === 0
-                ? "Wind carries sand up the gentle windward (stoss) slope by saltation and surface creep; the finest grains travel in suspension. The ripples and grains shown are enlarged so they show."
-                : "Yardangs are streamlined ridges carved by the wind, usually aligned with the strongest winds. Sand-laden wind abrades the blunt upwind heads and cuts grooves along the ridges; deflation removes the loosened grains. They are eroded rock, not piles of dune sand."
+                ? tr(
+                    "Wind carries sand up the gentle windward (stoss) slope by saltation and surface creep; the finest grains travel in suspension. The ripples and grains shown are enlarged so they show.",
+                  )
+                : tr(
+                    "Yardangs are streamlined ridges carved by the wind, usually aligned with the strongest winds. Sand-laden wind abrades the blunt upwind heads and cuts grooves along the ridges; deflation removes the loosened grains. They are eroded rock, not piles of dune sand.",
+                  )
             }
             occlude={false}
           />
@@ -207,9 +217,11 @@ function ModelAeolian() {
             // Partway down the lee face of the main barchan, beyond its center line.
             <Tag
               pos={sandPoint(DUNE.x + 0.4, -0.42, 0.06)}
-              text="Steep slip face"
-              short="Slip face"
-              note="Sand blown over the brink piles up on the lee side until it slides down in small avalanches, so this face stays near the angle of repose, about 32° for dry sand. The relief here is doubled, so it looks steeper."
+              text={tr("Steep slip face")}
+              short={tr("Slip face")}
+              note={tr(
+                "Sand blown over the brink piles up on the lee side until it slides down in small avalanches, so this face stays near the angle of repose, about 32° for dry sand. The relief here is doubled, so it looks steeper.",
+              )}
               occlude={false}
               priority={1}
             />
@@ -220,13 +232,17 @@ function ModelAeolian() {
                 ? sandPoint(DUNE.x + 0.85 * DUNE.horn, 0.9 * DUNE.halfWidth, 0.14)
                 : [main.x + 0.88 * main.length, FLOOR + 0.2, main.z]
             }
-            text={mode === 0 ? "Horns point downwind" : "Tapered downwind ends"}
-            short={mode === 0 ? "Horns" : "Tapered ends"}
+            text={mode === 0 ? tr("Horns point downwind") : tr("Tapered downwind ends")}
+            short={mode === 0 ? tr("Horns") : tr("Tapered ends")}
             priority={1}
             note={
               mode === 0
-                ? "The crescent tips lie downwind of the central crest. The slip face is 32° at true scale; doubled relief makes it look steeper. Real angles of repose vary."
-                : "Each ridge has a blunt, steep head facing the wind and a long tail tapering downwind, like an upturned boat hull. These illustrative ridges do not give a wind speed or erosion rate."
+                ? tr(
+                    "The crescent tips lie downwind of the central crest. The slip face is 32° at true scale; doubled relief makes it look steeper. Real angles of repose vary.",
+                  )
+                : tr(
+                    "Each ridge has a blunt, steep head facing the wind and a long tail tapering downwind, like an upturned boat hull. These illustrative ridges do not give a wind speed or erosion rate.",
+                  )
             }
             occlude={false}
           />
@@ -234,12 +250,16 @@ function ModelAeolian() {
       </ScienceStudio>
       <ScienceReadout>
         {mode === 0
-          ? "Barchan: deposited sand, a gentler windward slope and a steeper lee slip face below a sharp brink. Dune position moves the dune downwind without a set speed. Between the dunes lies a gravel floor: barchans form where sand is scarce."
-          : "Yardang: soft, bedded rock carved into streamlined ridges, aligned broadly with the erosive wind, with sand drifting along the corridors between them."}{" "}
+          ? tr(
+              "Barchan: deposited sand, a gentler windward slope and a steeper lee slip face below a sharp brink. Dune position moves the dune downwind without a set speed. Between the dunes lies a gravel floor: barchans form where sand is scarce.",
+            )
+          : tr(
+              "Yardang: soft, bedded rock carved into streamlined ridges, aligned broadly with the erosive wind, with sand drifting along the corridors between them.",
+            )}{" "}
         <br />
-        {
-          "Play shows enlarged grains hopping downwind; the dune shape is not simulated from sand transport. Many deserts have rock or gravel surfaces; a dune needs a supply of sand."
-        }
+        {tr(
+          "Play shows enlarged grains hopping downwind; the dune shape is not simulated from sand transport. Many deserts have rock or gravel surfaces; a dune needs a supply of sand.",
+        )}
       </ScienceReadout>
     </>
   );

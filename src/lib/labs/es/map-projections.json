@@ -1,0 +1,143 @@
+{
+  "title": "Proyecciones cartográficas",
+  "hook": "Una proyección cartográfica pasa posiciones de una superficie curva a un plano.",
+  "objective": "Compara cómo las proyecciones cartográficas representan una Tierra curva en una superficie plana, e identifica las distorsiones que introduce cada una.",
+  "modelDescription": "Un globo terrestre con círculos dorados iguales en el ecuador y a 60 grados norte y sur puede abrirse y aplanarse hasta formar un mapa. Al aplanarse, los círculos se estiran o se encogen para mostrar cómo cada proyección (Mercator, cilíndrica equivalente o Winkel de compromiso) distorsiona el área y la forma.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Compara Groenlandia y África en el globo antes de aplanarlo. Predice qué propiedades pueden cambiar en el mapa."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Arrastra Aplanar hasta 1.00 para cada opción de Proyección. Compara los círculos dorados del mismo tamaño en el ecuador y a 60° N y S, y luego describe el equilibrio entre el área y la forma."
+    },
+    {
+      "title": "Explicar",
+      "body": "Elige un uso para un mapa y explica qué distorsión importaría más para ese propósito."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "En un mapamundi de Mercator, Groenlandia se ve…",
+      "choices": [
+        "Mucho más pequeña de lo que es",
+        "De su tamaño real, comparada con África y Europa",
+        "Casi tan grande como África, que es mucho mayor",
+        "Aplastada, como si estuviera cerca del ecuador"
+      ],
+      "explain": "La escala de Mercator aumenta mucho hacia los polos y agranda en el mapa las áreas de latitudes altas. Por eso, Groenlandia parece mucho más grande en relación con África de lo que justifica su área real."
+    },
+    {
+      "prompt": "Una proyección equivalente se construye para…",
+      "choices": [
+        "Conservar los rumbos de la brújula",
+        "Mostrar las rutas más cortas como líneas rectas",
+        "Conservar las formas correctas en todas partes",
+        "Conservar los tamaños relativos de las regiones"
+      ],
+      "explain": "Una proyección equivalente conserva la proporción de áreas entre las regiones del mapa. Aplanar la superficie curva sigue obligando a distorsionar otras propiedades, como las formas locales o las distancias."
+    },
+    {
+      "prompt": "¿Por qué se usó mucho la proyección de Mercator para navegar en el mar?",
+      "choices": [
+        "Las líneas de rumbo constante son rectas",
+        "Muestra las áreas reales",
+        "Muestra las distancias reales en todas partes",
+        "Es la que menos distorsiona en total"
+      ],
+      "explain": "Una loxodrómica mantiene un rumbo de brújula constante, y Mercator la representa como una línea recta. Esta propiedad hizo útil la proyección para trazar rumbos de navegación, aunque distorsiona el área."
+    },
+    {
+      "prompt": "El globo de este laboratorio es…",
+      "choices": [
+        "La vista más distorsionada",
+        "La referencia sin distorsión",
+        "Otro mapa de Mercator más",
+        "Un mapa plano equivalente"
+      ],
+      "explain": "Un globo representa las posiciones sobre una superficie curva sin aplanarlas antes en un plano. Compararlo con un mapa plano revela las distorsiones que introduce la proyección."
+    },
+    {
+      "prompt": "¿Qué propiedad distorsiona más la proyección de Mercator?",
+      "choices": [
+        "Los ángulos locales entre líneas",
+        "Los rumbos de la brújula",
+        "El área en latitudes altas",
+        "La forma de las áreas pequeñas"
+      ],
+      "explain": "Mercator mantiene correctos los ángulos locales y los rumbos, así que las formas pequeñas se ven bien. El precio es que la escala crece hacia los polos, así que las áreas de latitudes altas, como Groenlandia y la Antártida, se ven demasiado grandes."
+    }
+  ],
+  "why": [
+    "Una proyección cartográfica pasa posiciones de una superficie curva a un plano. Toda proyección distorsiona alguna combinación de área, forma, distancia y dirección, así que la elección correcta depende del propósito del mapa.",
+    "En un mapa cilíndrico, cada paralelo se dibuja tan largo como el ecuador, así que a 60° N o S el mapa se estira de este a oeste al doble de su longitud real. Mercator estira de norte a sur en la misma medida para conservar las formas y los ángulos locales, así que allí las áreas aparecen cuatro veces más grandes. El mapa equivalente, en cambio, aplasta a la mitad de norte a sur, lo que mantiene las áreas reales pero aplana las formas.",
+    "Juzga cada proyección cuando esté totalmente aplanada; las formas intermedias son una transición visual, no una proyección aparte."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Un solo mapamundi plano puede conservar todas las áreas, formas, distancias y direcciones.",
+      "truth": "Aplanar la superficie curva de la Tierra introduce distorsión de forma inevitable. Una proyección puede conservar una propiedad elegida, como el área, mientras cambia otras. Compara un mapa con un globo y elige su proyección según la tarea, en lugar de suponer que todas las comparaciones visuales son igual de fiables."
+    },
+    {
+      "claim": "El norte tiene que estar arriba en un mapa porque así es la Tierra en realidad.",
+      "truth": "Poner el norte arriba es una convención. La Tierra no tiene arriba ni abajo en el espacio, y algunos mapas se dibujan con el sur arriba o con el Pacífico en el centro. Lo que importa es que el mapa muestre claramente su orientación."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Proyección",
+      "def": "Un método matemático para representar en un mapa plano posiciones de una superficie curva. Toda proyección del mundo cambia alguna combinación de área, forma, distancia o dirección. Su utilidad depende de qué propiedades importan para el uso que se le quiere dar al mapa."
+    },
+    {
+      "term": "Mercator",
+      "def": "Una proyección cartográfica cilíndrica conforme en la que los rumbos de brújula constantes se trazan como líneas rectas. Es útil para navegar, pero las áreas se agrandan mucho hacia los polos, así que en ella no se pueden comparar directamente las superficies de tierra."
+    },
+    {
+      "term": "Equivalente",
+      "def": "Se dice de una proyección que conserva las áreas relativas de las regiones de un mapa. Para lograrlo en una superficie plana hay que distorsionar las formas y los ángulos. Los mapas equivalentes son útiles para comparar el tamaño o la distribución de regiones geográficas."
+    },
+    {
+      "term": "Conforme",
+      "def": "Se dice de una proyección cartográfica que conserva los ángulos locales y las formas pequeñas. Es útil para los rumbos, pero el área puede distorsionarse mucho en un mapamundi. Una proyección conforme no puede conservar además el área de todas las regiones."
+    },
+    {
+      "term": "Loxodrómica",
+      "def": "Una trayectoria de rumbo de brújula constante, que aparece como una línea recta en un mapa de Mercator (rhumb line en inglés). Salvo a lo largo de un meridiano o del ecuador, no es la ruta más corta sobre una esfera."
+    },
+    {
+      "term": "Husos de globo",
+      "def": "Franjas estrechas de un mapa, en forma de huso, pensadas para ajustarse alrededor de un globo; las franjas pequeñas reducen la distorsión necesaria para cubrir una esfera."
+    },
+    {
+      "term": "Proyección de compromiso",
+      "def": "Una proyección cartográfica que equilibra varios tipos de distorsión sin conservar ninguna propiedad con exactitud en todas partes."
+    },
+    {
+      "term": "Distorsión",
+      "def": "Un cambio en el área, la forma, la distancia o la dirección causado al proyectar una superficie curva sobre un plano. Ningún mapamundi plano las conserva todas en todas partes."
+    }
+  ],
+  "predict": {
+    "prompt": "En muchos mapamundis, Groenlandia parece casi tan grande como África. ¿Crees que lo es de verdad? Explica tu idea."
+  },
+  "cer": {
+    "prompt": "¿Por qué todo mapa plano distorsiona algo, y por qué Mercator hace que Groenlandia se vea tan grande?",
+    "claim": "Ningún mapa plano puede mantener correctos a la vez el área, la forma, la distancia y la dirección; Mercator conserva las formas locales y los rumbos de brújula, pero agranda las áreas hacia los polos.",
+    "evidence": "Con Aplanar en 1.00, los círculos dorados iguales de Mercator siguen redondos, pero crecen mucho más a 60° N y S que en el ecuador. La proyección cilíndrica equivalente mantiene iguales las áreas de los círculos, pero los aplasta en latitudes altas. En el globo, Groenlandia es mucho más pequeña que África.",
+    "reasoning": "Una esfera no se puede aplanar sin estirarla o aplastarla. Un mapa cilíndrico estira cada paralelo hasta la longitud del ecuador, lo que duplica la escala de este a oeste a 60°. Mercator estira de norte a sur en la misma medida para conservar las formas, así que allí las áreas aparecen unas cuatro veces más grandes."
+  },
+  "controls": {
+    "morph": {
+      "label": "Aplanar"
+    },
+    "projection": {
+      "label": "Proyección",
+      "options": ["Mercator", "Cilíndrica equivalente", "Winkel I de compromiso"]
+    }
+  }
+}

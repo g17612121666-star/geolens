@@ -1,0 +1,127 @@
+{
+  "title": "El interior de la Tierra",
+  "hook": "Las ondas sísmicas revelan una Tierra con capas que difieren en composición y en estado físico.",
+  "objective": "Identifica las capas principales de la Tierra y explica cómo las ondas sísmicas aportan evidencia de que el núcleo externo es líquido.",
+  "modelDescription": "A un globo terrestre se le ha quitado una cuña para mostrar sus capas, una dentro de otra: una corteza delgada, el manto sólido y grueso, el núcleo externo líquido y el núcleo interno sólido en el centro. Las capas se pueden separar. Con las ondas P y S activadas, los frentes de onda se extienden desde un foco a través del interior, así que puedes comparar cómo cruza cada tipo el manto sólido y el núcleo externo líquido.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Gira el corte y luego cambia Corte y Separar capas. Identifica las cuatro capas y lee su estado físico."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Vuelve a poner Separar capas en 0 %, luego activa Ondas P/S y pulsa Reproducir. Compara cómo viajan las ondas por el manto sólido y por el núcleo externo líquido."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo nos ayuda el comportamiento de las ondas P y S a distinguir el manto del núcleo externo?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "¿Qué capa es de metal líquido?",
+      "choices": ["Corteza", "Núcleo externo", "Manto", "Núcleo interno"],
+      "explain": "El núcleo externo es una aleación de hierro líquida, pero el núcleo interno es sólido: la presión mucho mayor en el centro eleva la temperatura a la que se funde el metal."
+    },
+    {
+      "prompt": "¿Por qué hay una zona de sombra de ondas S directas en el lado opuesto de la Tierra?",
+      "choices": [
+        "Las ondas S se debilitan antes de poder cruzar el planeta.",
+        "El núcleo interno sólido refleja todas las ondas S.",
+        "Las ondas S no pueden viajar por el núcleo externo líquido.",
+        "La corteza absorbe las ondas S en el lado opuesto."
+      ],
+      "explain": "Las ondas S deforman el material por cizallamiento, y un líquido no puede soportar el esfuerzo de cizalla necesario para transmitirlas. Por eso el núcleo externo líquido impide que las ondas S directas lleguen al lado opuesto a través del núcleo."
+    },
+    {
+      "prompt": "¿Por qué importa para el campo magnético que el núcleo externo sea líquido?",
+      "choices": [
+        "No importa; el campo viene de las rocas magnéticas de la corteza.",
+        "Su peso mantiene magnetizado el núcleo interno sólido.",
+        "Su calor mantiene el manto magnetizado para siempre.",
+        "El metal líquido en convección mantiene la geodinamo."
+      ],
+      "explain": "La convección en el núcleo externo líquido, que conduce la electricidad, genera y mantiene corrientes eléctricas. Esas corrientes sostienen gran parte del campo magnético de la Tierra mediante la geodinamo."
+    },
+    {
+      "prompt": "Más o menos, ¿qué grosor tiene la corteza continental comparada con el radio de la Tierra (~6,371 km)?",
+      "choices": ["Unos 35 km", "Unos 2,000 km", "Unos 3,200 km", "Unos 2,260 km"],
+      "explain": "Un grosor típico de la corteza continental, de unos 35 km, es mucho menos del 1 % de los 6,371 km del radio de la Tierra. El grosor de la corteza varía bastante, sobre todo bajo las cordilleras."
+    },
+    {
+      "prompt": "¿Cómo saben los científicos cómo es el núcleo de la Tierra?",
+      "choices": [
+        "Unas perforaciones han llegado al límite entre el núcleo y el manto.",
+        "La lava de los volcanes viene directamente del núcleo.",
+        "Las ondas sísmicas cambian de velocidad y de trayectoria en el interior.",
+        "Los satélites fotografían el núcleo a través de la corteza."
+      ],
+      "explain": "Ninguna perforación ha atravesado la corteza. Las ondas sísmicas de los terremotos se aceleran, se frenan y se desvían en los límites entre capas, y las ondas S no pueden cruzar el núcleo externo líquido; estos patrones revelan las capas."
+    }
+  ],
+  "why": [
+    "Las ondas sísmicas revelan una Tierra con capas que difieren en composición y en estado físico. El manto es sobre todo roca sólida, el núcleo externo es líquido y el núcleo interno es sólido.",
+    "Las ondas P son de compresión y atraviesan tanto sólidos como líquidos. Las ondas S son de cizalla, y un líquido no resiste el cizallamiento, así que las ondas S registradas en el lado opuesto de la Tierra no pueden haber cruzado el núcleo externo. Esta zona de sombra de las ondas S es la principal evidencia de que el núcleo externo es líquido.",
+    "El corte muestra una estructura de referencia. Sus trayectorias de ondas indican qué capas transmiten cada onda; no calculan los tiempos de llegada de los terremotos."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El manto es una capa continua de magma líquido.",
+      "truth": "El manto es sobre todo roca sólida que puede deformarse lentamente a lo largo del tiempo geológico. En ciertos lugares hay fusión parcial que aporta magma, pero eso no hace que todo el manto sea líquido. El núcleo externo líquido de la Tierra es una capa distinta, formada principalmente por metal."
+    },
+    {
+      "claim": "El interior de la Tierra está caliente porque el calor del Sol penetra hasta allí.",
+      "truth": "La luz del Sol solo calienta los primeros metros del suelo. El calor interno de la Tierra proviene de su formación y de la desintegración de elementos radiactivos en las rocas, y fluye hacia fuera, hacia la superficie."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Corteza",
+      "def": "La capa de roca sólida más externa de la Tierra. La corteza oceánica tiene en promedio unos 7 km de grosor; la continental suele medir entre 30 y 70 km."
+    },
+    {
+      "term": "Manto",
+      "def": "La capa rocosa entre la corteza y el núcleo de la Tierra, que llega hasta unos 2,900 km de profundidad. Es sobre todo sólida, pero puede deformarse y circular muy lentamente. En ciertos lugares hay pequeñas cantidades de roca parcialmente fundida; no es una capa de magma en todo el planeta."
+    },
+    {
+      "term": "Núcleo externo",
+      "def": "La capa metálica líquida de la Tierra, formada sobre todo por hierro con níquel y elementos más ligeros, entre unos 2,890 y 5,150 km de profundidad. No transmite ondas de cizalla."
+    },
+    {
+      "term": "Núcleo interno",
+      "def": "La región central y sólida de la Tierra, formada sobre todo por una aleación rica en hierro, que se extiende unos 1,220 km desde el centro. La alta presión la mantiene sólida a pesar de su temperatura. La rodea el núcleo externo líquido."
+    },
+    {
+      "term": "Onda P",
+      "def": "Una onda sísmica de compresión, en la que las partículas se mueven en la misma dirección en que viaja la onda. Viaja por sólidos y líquidos y es la onda sísmica más rápida, así que llega primero."
+    },
+    {
+      "term": "Onda S",
+      "def": "Una onda sísmica de cizalla, en la que las partículas se mueven perpendicularmente a la dirección en que viaja la onda. Se propaga por los sólidos, pero no por el núcleo externo líquido."
+    },
+    {
+      "term": "Litosfera",
+      "def": "La capa externa y rígida de la Tierra, formada por la corteza y la parte más alta del manto. Está dividida en placas tectónicas y descansa sobre la astenosfera, más débil. Por eso la litosfera es más gruesa que la corteza sola."
+    },
+    {
+      "term": "Geodinamo",
+      "def": "La generación del campo magnético de la Tierra por el movimiento del metal líquido del núcleo externo, que conduce la electricidad, bajo la influencia de la rotación de la Tierra."
+    }
+  ],
+  "predict": {
+    "prompt": "Las ondas S de los terremotos no pueden viajar por un líquido. Si parte del núcleo de la Tierra es líquida, ¿en qué parte del lado opuesto de la Tierra esperarías que no llegaran ondas S?"
+  },
+  "cer": {
+    "prompt": "¿Cómo muestran las ondas de los terremotos que el núcleo externo de la Tierra es líquido?",
+    "claim": "El núcleo externo es líquido porque las ondas S no pueden atravesarlo.",
+    "evidence": "Con las Ondas P/S activadas, las ondas P viajan por el manto sólido, el núcleo externo líquido y el núcleo interno sólido, y se desvían en cada límite. Las ondas S viajan por el manto pero se detienen en el límite entre el núcleo y el manto, a unos 2,900 km de profundidad (radio de 3,480 km), y dejan una gran zona de sombra de ondas S en el lado opuesto de la Tierra.",
+    "reasoning": "Las ondas S son ondas de cizalla, y los líquidos no resisten el cizallamiento, así que las ondas S no pueden viajar por un líquido. Que no lleguen al lado opuesto significa que la capa bajo el manto es líquida. Las ondas P son ondas de compresión, que sí cruzan los líquidos, así que siguen llegando, aunque refractadas."
+  },
+  "controls": {
+    "waves": { "label": "Ondas P/S" }
+  }
+}

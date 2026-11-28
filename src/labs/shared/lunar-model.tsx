@@ -10,6 +10,7 @@ import {
   lunarPosition,
   illuminatedFraction,
   lunarEclipse,
+  phaseName as phaseNameOf,
   shadowRadii,
   equilibriumTide,
   solarEclipse,
@@ -18,6 +19,7 @@ import { useLabTick } from "@/labs/tick";
 import { Tag } from "./kit";
 import { ScienceStudio, ScienceReadout, Arrow } from "./science-kit";
 import { liveUniforms } from "@/lib/shader-uniforms";
+import { useT } from "@/lib/i18n";
 
 export function LunarSurface({
   position = [0, 0, 0],
@@ -189,6 +191,7 @@ function LunarShadow({
   aligned: boolean;
   distance: number;
 }) {
+  const tr = useT();
   const scale = 1 / 6000,
     behind = Math.hypot(...p),
     at = shadowRadii(LUNAR.earth, LUNAR.au, behind),
@@ -264,37 +267,45 @@ function LunarShadow({
       />
       <Tag
         pos={[screen, umbra * 0.66, umbra * 0.66]}
-        text="Umbra"
+        text={tr("Umbra")}
         priority={2}
-        note="Inside the umbra Earth blocks the whole Sun. A Moon wholly inside it is in total eclipse; it still glows red because Earth's atmosphere bends some red sunlight into the shadow."
+        note={tr(
+          "Inside the umbra Earth blocks the whole Sun. A Moon wholly inside it is in total eclipse; it still glows red because Earth's atmosphere bends some red sunlight into the shadow.",
+        )}
         occlude={false}
       />
       <Tag
         pos={[screen, -penumbra * 0.75, penumbra * 0.62]}
-        text="Penumbra"
+        text={tr("Penumbra")}
         priority={2}
-        note="In the outer shadow Earth blocks only part of the Sun, so the Moon dims only slightly. Both circles are the shadow's cross-section at the Moon's distance."
+        note={tr(
+          "In the outer shadow Earth blocks only part of the Sun, so the Moon dims only slightly. Both circles are the shadow's cross-section at the Moon's distance.",
+        )}
         occlude={false}
       />
       <Tag
         pos={[lunar[0], lunar[1] + moon + 0.22, lunar[2]]}
-        text="Moon"
+        text={tr("Moon")}
         priority={3}
         occlude={false}
       />
       <Tag
         pos={[end[0], end[1] - 0.22, end[2]]}
-        text="Moon's path · hourly dots"
-        short="Moon's path"
+        text={tr("Moon's path · hourly dots")}
+        short={tr("Moon's path")}
         priority={1}
-        note="Where the Moon's center goes in the hours around full Moon; the bright dot marks the moment of full Moon. The Moon moves about its own width each hour. Change Node direction: the tilted orbit can carry the path above or below the shadow."
+        note={tr(
+          "Where the Moon's center goes in the hours around full Moon; the bright dot marks the moment of full Moon. The Moon moves about its own width each hour. Change Node direction: the tilted orbit can carry the path above or below the shadow.",
+        )}
         occlude={false}
       />
       <Tag
         pos={[1.5, -0.25, 0]}
-        text="Toward Earth and the Sun"
-        short="Toward Earth"
-        note="This view looks out from Earth along its shadow, with the Sun behind the viewer: Earth, between the Sun and the Moon, casts the shadow."
+        text={tr("Toward Earth and the Sun")}
+        short={tr("Toward Earth")}
+        note={tr(
+          "This view looks out from Earth along its shadow, with the Sun behind the viewer: Earth, between the Sun and the Moon, casts the shadow.",
+        )}
         occlude={false}
       />
     </>
@@ -337,6 +348,7 @@ const COVERAGE_FRAGMENT = /* glsl */ `
 
 /** The Moon's shadow on Earth at new Moon, with lines of equal coverage of the Sun. */
 function SolarShadow({ p }: { p: [number, number, number] }) {
+  const tr = useT();
   const eclipse = solarEclipse(p);
   const scale = 1 / 6000,
     moon = new THREE.Vector3(...p).multiplyScalar(scale),
@@ -395,9 +407,11 @@ function SolarShadow({ p }: { p: [number, number, number] }) {
       />
       <Tag
         pos={labelAt.toArray()}
-        text="Moon and Sun behind you"
-        short="Moon behind you"
-        note="This view looks at Earth from the Moon's side. The Moon is about 60 Earth radii away, behind the viewer, with the Sun far beyond it; its shadow falls on the side of Earth facing you. Sizes and distances share one scale."
+        text={tr("Moon and Sun behind you")}
+        short={tr("Moon behind you")}
+        note={tr(
+          "This view looks at Earth from the Moon's side. The Moon is about 60 Earth radii away, behind the viewer, with the Sun far beyond it; its shadow falls on the side of Earth facing you. Sizes and distances share one scale.",
+        )}
         occlude={false}
       />
       {(eclipse.kind === "total" || eclipse.kind === "annular") && (
@@ -406,22 +420,26 @@ function SolarShadow({ p }: { p: [number, number, number] }) {
             .clone()
             .addScaledVector(direction, -Math.sqrt(Math.max(0, earth ** 2 - center.lengthSq())))
             .toArray()}
-          text={eclipse.kind === "total" ? "Totality here" : "Annular eclipse here"}
+          text={eclipse.kind === "total" ? tr("Totality here") : tr("Annular eclipse here")}
           priority={2}
           note={
             eclipse.kind === "total"
-              ? "Inside this narrow spot the Moon covers the whole Sun."
-              : "The Moon is too far away to cover the whole Sun, so a ring of sunlight stays visible."
+              ? tr("Inside this narrow spot the Moon covers the whole Sun.")
+              : tr(
+                  "The Moon is too far away to cover the whole Sun, so a ring of sunlight stays visible.",
+                )
           }
           occlude={false}
         />
       )}
       <Tag
         pos={[0, earth + 0.3, 0]}
-        text="Moon's shadow · 20% lines"
-        short="Moon's shadow"
+        text={tr("Moon's shadow · 20% lines")}
+        short={tr("Moon's shadow")}
         priority={1}
-        note="The ground darkens with the share of the Sun's disc the Moon covers. Lines mark 20%, 40%, 60% and 80% covered; the outer line is the edge of the partial eclipse. The Moon itself is off-screen; sizes and distances share one scale."
+        note={tr(
+          "The ground darkens with the share of the Sun's disc the Moon covers. Lines mark 20%, 40%, 60% and 80% covered; the outer line is the edge of the partial eclipse. The Moon itself is off-screen; sizes and distances share one scale.",
+        )}
         occlude={false}
       />
     </>
@@ -440,6 +458,7 @@ function TrueScaleMarkers({
   earth: number;
   distance: number;
 }) {
+  const tr = useT();
   const length = 2.65,
     km = (units: number) => (units / 2.2) * distance,
     end = shadowRadii(LUNAR.earth, LUNAR.au, km(length)),
@@ -472,15 +491,19 @@ function TrueScaleMarkers({
       </Billboard>
       <Tag
         pos={[0.05, -0.28, 0.12]}
-        text="Earth · to scale"
-        short="Earth"
-        note="Earth and Moon are drawn at their true sizes compared with the orbit; the rings only mark where they are."
+        text={tr("Earth · to scale")}
+        short={tr("Earth")}
+        note={tr(
+          "Earth and Moon are drawn at their true sizes compared with the orbit; the rings only mark where they are.",
+        )}
         occlude={false}
       />
       <Tag
         pos={[-length + 0.1, 0.2, 0]}
-        text="Earth's shadow"
-        note="Earth's shadow points straight away from the Sun and, drawn to scale, is narrow. At full Moon the Moon must lie close to the ecliptic plane, near a node, to pass through it; otherwise it passes above or below."
+        text={tr("Earth's shadow")}
+        note={tr(
+          "Earth's shadow points straight away from the Sun and, drawn to scale, is narrow. At full Moon the Moon must lie close to the ecliptic plane, near a node, to pass through it; otherwise it passes above or below.",
+        )}
         occlude={false}
       />
     </>
@@ -489,6 +512,7 @@ function TrueScaleMarkers({
 
 /** Where the tilted lunar orbit crosses the ecliptic: eclipses need a new or full Moon near here. */
 function NodeGuides({ node, aligned }: { node: number; aligned: boolean }) {
+  const tr = useT();
   const a = (node * Math.PI) / 180,
     ends = [1, -1].map((k) => [2.2 * k * Math.cos(a), 0, -2.2 * k * Math.sin(a)]) as [
       number,
@@ -509,34 +533,39 @@ function NodeGuides({ node, aligned }: { node: number; aligned: boolean }) {
       ))}
       <Tag
         pos={[ends[0][0], 0.25, ends[0][2]]}
-        text="Node"
-        note="The line of nodes is where the Moon's orbit crosses the ecliptic plane. An eclipse needs a new or full Moon close to this line. Node direction turns it."
+        text={tr("Node")}
+        note={tr(
+          "The line of nodes is where the Moon's orbit crosses the ecliptic plane. An eclipse needs a new or full Moon close to this line. Node direction turns it.",
+        )}
         occlude={false}
       />
       <Tag
         pos={[low[0], low[1] - 0.3, low[2]]}
-        text={aligned ? "Moon's orbit (tilt removed)" : "Moon's orbit · tilted 5°"}
+        text={aligned ? tr("Moon's orbit (tilt removed)") : tr("Moon's orbit · tilted 5°")}
         occlude={false}
       />
       <Tag
         pos={[-2.2 * Math.cos(0.35), 0.2, -2.2 * Math.sin(0.35)]}
-        text="Ecliptic plane"
-        note="The dashed circle lies in the plane of Earth's orbit around the Sun."
+        text={tr("Ecliptic plane")}
+        note={tr("The dashed circle lies in the plane of Earth's orbit around the Sun.")}
         occlude={false}
       />
     </>
   );
 }
-function solarEclipseText(p: [number, number, number]) {
+function solarEclipseText(p: [number, number, number], tr: ReturnType<typeof useT>) {
   const e = solarEclipse(p),
     km = Math.round(e.width / 10) * 10;
   return e.kind === "total"
-    ? `Total solar eclipse: the umbra is about ${km} km wide where it meets Earth`
+    ? tr("Total solar eclipse: the umbra is about {km} km wide where it meets Earth", { km })
     : e.kind === "annular"
-      ? `Annular solar eclipse: the Moon is too far to cover the Sun; the antumbra is about ${km} km wide`
+      ? tr(
+          "Annular solar eclipse: the Moon is too far to cover the Sun; the antumbra is about {km} km wide",
+          { km },
+        )
       : e.kind === "partial"
-        ? "Partial solar eclipse: only the penumbra touches Earth"
-        : "The Moon's shadow misses Earth";
+        ? tr("Partial solar eclipse: only the penumbra touches Earth")
+        : tr("The Moon's shadow misses Earth");
 }
 /**
  * The Moon at the eight principal phases, faint, lit by the same sunlight as everything else:
@@ -589,6 +618,7 @@ function PhaseIcon({ fraction, waxing }: { fraction: number; waxing: boolean }) 
 
 export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides" }) {
   const [near, setNear] = useState(false);
+  const tr = useT();
   const { t, params, trueScale } = useLabState("t", "params", "trueScale");
   useLabTick(1 / 32);
   const node = params.node ?? 60,
@@ -638,22 +668,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
       solar ? solarEclipse(q).kind !== "none" : !/misses|Outside/.test(lunarEclipse(q)),
     timingMiss =
       !hitAt(shadowPoint) && hitAt(lunarPosition(solar ? 0 : 0.5, node, aligned, distance));
-  const phaseName =
-    fraction < 0.01
-      ? "New Moon"
-      : fraction > 0.99
-        ? "Full Moon"
-        : Math.abs(fraction - 0.5) < 0.03
-          ? t < 0.5
-            ? "First quarter"
-            : "Last quarter"
-          : t < 0.5
-            ? fraction < 0.5
-              ? "Waxing crescent"
-              : "Waxing gibbous"
-            : fraction < 0.5
-              ? "Waning crescent"
-              : "Waning gibbous";
+  const phaseName = tr(phaseNameOf(t, fraction));
   const disc = slug === "moon-phases" && near,
     cosine = -p[0] / Math.hypot(...p),
     discSun: [number, number, number] = [
@@ -674,21 +689,25 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
         }
         scale={
           disc
-            ? "Moon near side · LROC color + LOLA measured relief · no vertical exaggeration"
+            ? tr("Moon near side · LROC color + LOLA measured relief · no vertical exaggeration")
             : focus
-              ? `${solar ? "New" : "Full"}-Moon shadow close-up · kilometers share one scale`
+              ? solar
+                ? tr("New-Moon shadow close-up · kilometers share one scale")
+                : tr("Full-Moon shadow close-up · kilometers share one scale")
               : physical
-                ? "Earth–Moon radii and separation share one scale"
+                ? tr("Earth–Moon radii and separation share one scale")
                 : moonScale > 1
-                  ? "Earth and Moon enlarged · Moon drawn 1.8× its size relative to Earth · separation shortened"
-                  : "Earth and Moon enlarged · correct size ratio · separation shortened"
+                  ? tr(
+                      "Earth and Moon enlarged · Moon drawn 1.8× its size relative to Earth · separation shortened",
+                    )
+                  : tr("Earth and Moon enlarged · correct size ratio · separation shortened")
         }
         trueScale={
           disc
-            ? "Reference lunar radius 1737.4 km · relief shares the radius scale"
+            ? tr("Reference lunar radius 1737.4 km · relief shares the radius scale")
             : focus
-              ? "Same scale in every direction · atmosphere omitted"
-              : "Earth–Moon radii and separation share one scale"
+              ? tr("Same scale in every direction · atmosphere omitted")
+              : tr("Earth–Moon radii and separation share one scale")
         }
       >
         {disc ? (
@@ -738,14 +757,18 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               pos={[position[0], position[1] + 0.3 + moonRadius, position[2]]}
               text={phaseName}
               occlude={false}
-              note="The phase is the illuminated fraction viewed from Earth. It is not Earth's shadow falling on the Moon."
+              note={tr(
+                "The phase is the illuminated fraction viewed from Earth. It is not Earth's shadow falling on the Moon.",
+              )}
             />
             <group position={[3.35, 0, 0]}>
               <StarMesh radius={0.24} />
               <Tag
                 pos={[0, 0.5, 0]}
-                text="Sunlight"
-                note="Not to scale: the real Sun is about 109 times Earth's diameter and about 390 times farther away than the Moon. Its light reaches Earth and Moon as parallel rays from this side."
+                text={tr("Sunlight")}
+                note={tr(
+                  "Not to scale: the real Sun is about 109 times Earth's diameter and about 390 times farther away than the Moon. Its light reaches Earth and Moon as parallel rays from this side.",
+                )}
                 occlude={false}
               />
             </group>
@@ -762,7 +785,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
           <div className="mb-2 flex items-center justify-center gap-3">
             <PhaseIcon fraction={fraction} waxing={t < 0.5} />
             <span>
-              {"As seen from Earth (Northern Hemisphere): "}
+              {tr("As seen from Earth (Northern Hemisphere):")}{" "}
               <strong>{phaseName.toLowerCase()}</strong>
             </span>
           </div>
@@ -775,7 +798,7 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               aria-pressed={!near}
               onClick={() => setNear(false)}
             >
-              {"Orbit geometry"}
+              {tr("Orbit geometry")}
             </button>
             <button
               type="button"
@@ -783,28 +806,73 @@ export function LunarModel({ slug }: { slug: "moon-phases" | "eclipses" | "tides
               aria-pressed={near}
               onClick={() => setNear(true)}
             >
-              {"Moon close-up"}
+              {tr("Moon close-up")}
             </button>
           </div>
         )}
         {focus
-          ? `${((t - 0.5) * 0.012 * 29.53059 * 24).toFixed(2)} h from ${solar ? "new" : "full"} Moon: ${solar ? solarEclipseText(shadowPoint) : lunarEclipse(shadowPoint)}.${timingMiss ? ` At this moment the Moon is ${t < 0.5 ? "still approaching" : "already past"} the alignment; at 0 h it ${solar ? "casts its shadow on Earth" : "enters Earth's shadow"}.` : ""}`
-          : `At day ${(t * 29.53059).toFixed(1)} of the model month, the Moon is ${(fraction * 100).toFixed(1)}% illuminated as seen from Earth (${phaseName.replace(/^\w/, (c) => c.toLowerCase())}).`}{" "}
+          ? tr("{h} h from {moment}: {state}.", {
+              h: ((t - 0.5) * 0.012 * 29.53059 * 24).toFixed(2),
+              moment: solar ? tr("new Moon") : tr("full Moon"),
+              state: solar
+                ? solarEclipseText(shadowPoint, tr)
+                : tr(lunarEclipse(shadowPoint)).toLowerCase(),
+            }) +
+            (!timingMiss
+              ? ""
+              : " " +
+                (t < 0.5
+                  ? solar
+                    ? tr(
+                        "At this moment the Moon is still approaching the alignment; at 0 h it casts its shadow on Earth.",
+                      )
+                    : tr(
+                        "At this moment the Moon is still approaching the alignment; at 0 h it enters Earth's shadow.",
+                      )
+                  : solar
+                    ? tr(
+                        "At this moment the Moon is already past the alignment; at 0 h it casts its shadow on Earth.",
+                      )
+                    : tr(
+                        "At this moment the Moon is already past the alignment; at 0 h it enters Earth's shadow.",
+                      )))
+          : tr(
+              "At day {day} of the model month, the Moon is {lit}% illuminated as seen from Earth ({phase}).",
+              {
+                day: (t * 29.53059).toFixed(1),
+                lit: (fraction * 100).toFixed(1),
+                phase: phaseName.replace(/^\w/, (c) => c.toLowerCase()),
+              },
+            )}{" "}
         {slug === "moon-phases" && !focus && /lunar eclipse/i.test(lunarEclipse(p))
-          ? `Earth's shadow now falls on the Moon: ${lunarEclipse(p).toLowerCase()}. `
+          ? tr("Earth's shadow now falls on the Moon: {eclipse}.", {
+              eclipse: tr(lunarEclipse(p)).toLowerCase(),
+            }) + " "
           : ""}
         {slug === "eclipses" && !focus
-          ? lunarEclipse(p) + ". Turn on Shadow close-up for a closer view."
+          ? tr("{eclipse}. Turn on Shadow close-up for a closer view.", {
+              eclipse: tr(lunarEclipse(p)),
+            })
           : slug === "tides"
-            ? "The surface shows the combined lunar and solar tidal effects."
-            : `The Moon's orbit is tilted by ${aligned ? "0" : LUNAR.inclination}°.`}{" "}
+            ? tr("The surface shows the combined lunar and solar tidal effects.")
+            : tr("The Moon's orbit is tilted by {deg}°.", {
+                deg: aligned ? "0" : LUNAR.inclination,
+              })}{" "}
         <br />
         {focus &&
-          "Play follows an 8.5-hour window around the selected lunar phase. Change Node direction to compare an eclipse with a missed alignment. "}
+          tr(
+            "Play follows an 8.5-hour window around the selected lunar phase. Change Node direction to compare an eclipse with a missed alignment.",
+          ) + " "}
         {slug === "tides"
-          ? "The equilibrium tidal deformation is enlarged. Coastlines, friction and inertia shape the tides at real coasts. "
-          : "The orbit model illustrates phase and eclipse geometry without predicting a calendar date. "}
-        {"Lunar terrain data come from NASA SVS, LROC and LOLA, with colors adapted for this view."}
+          ? tr(
+              "The equilibrium tidal deformation is enlarged. Coastlines, friction and inertia shape the tides at real coasts.",
+            ) + " "
+          : tr(
+              "The orbit model illustrates phase and eclipse geometry without predicting a calendar date.",
+            ) + " "}
+        {tr(
+          "Lunar terrain data come from NASA SVS, LROC and LOLA, with colors adapted for this view.",
+        )}
       </ScienceReadout>
     </>
   );

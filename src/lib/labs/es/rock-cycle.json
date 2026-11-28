@@ -1,0 +1,145 @@
+{
+  "title": "El ciclo de las rocas",
+  "hook": "Las rocas pueden cambiar por fusión, cristalización, meteorización, depósito, enterramiento y metamorfismo.",
+  "objective": "Sigue varias rutas posibles por el ciclo de las rocas y explica cómo la fusión, el enfriamiento, la presión y la meteorización transforman las rocas.",
+  "modelDescription": "Muestras de roca ígnea, sedimentaria y metamórfica, de sedimento suelto y de magma presentan las formas que adopta el material rocoso. Una vista del paisaje las sitúa donde se forman: el sedimento en el fondo del mar, la roca metamórfica en lo profundo de las montañas y el magma bajo un volcán. Al elegir una ruta, como la fusión o el metamorfismo, se ve dónde ocurre ese cambio.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Identifica los tres grupos de rocas, el sedimento suelto y el magma. En el paisaje, fíjate en dónde se forma cada uno: en el fondo del mar, en lo profundo de las montañas o bajo el volcán."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Usa Ruta del material para probar varias rutas, entre ellas una de metamorfismo (sin fusión) y una de fusión, y observa dónde ocurre cada una. Luego mueve Temperatura elegida y Presión elegida: donde la línea naranja de temperatura cruza la línea blanca de profundidad, esas condiciones se dan en la corteza. Cambia la Vista a Muestras de roca para comparar las rocas de cerca."
+    },
+    {
+      "title": "Explicar",
+      "body": "Elige una ruta que no incluya la fusión y explica cómo transforma la roca original."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Por lo general, el metamorfismo significa…",
+      "choices": [
+        "Un cambio en los minerales o la textura de una roca sólida.",
+        "La fusión completa de una roca hasta convertirse en magma.",
+        "El depósito y la compactación de nuevas capas de sedimento.",
+        "El enfriamiento de coladas de lava en la superficie."
+      ],
+      "explain": "El metamorfismo cambia los minerales o la textura de una roca en respuesta a condiciones como el calor, la presión y los fluidos, mientras la roca sigue siendo en gran parte sólida. La fusión produce magma e inicia una ruta de transformación distinta."
+    },
+    {
+      "prompt": "La roca fundida se convierte en roca ígnea mediante…",
+      "choices": [
+        "Solo calentamiento.",
+        "Enfriamiento y solidificación.",
+        "Solo meteorización.",
+        "Solo un aumento de la presión."
+      ],
+      "explain": "Al perder calor la roca fundida, pueden cristalizar minerales y formar una roca ígnea. En cambio, un enfriamiento muy rápido puede conservar parte del material, o todo, como vidrio volcánico."
+    },
+    {
+      "prompt": "¿Qué afirmación sobre el ciclo de las rocas es correcta?",
+      "choices": [
+        "Todas las rocas siguen el mismo circuito ordenado, en un solo sentido.",
+        "Todas las rocas sedimentarias tienen capas idénticas.",
+        "Distintas rutas pueden saltarse etapas o repetir cambios.",
+        "Todas las rocas metamórficas son foliadas."
+      ],
+      "explain": "Una roca puede seguir muchas rutas según su enterramiento, levantamiento, meteorización, calentamiento y fusión. El ciclo de las rocas describe transformaciones posibles, no una secuencia fija que toda roca deba completar."
+    },
+    {
+      "prompt": "La temperatura y la presión por sí solas…",
+      "choices": [
+        "Fijan la cantidad exacta de fusión que ocurre.",
+        "Fijan los minerales finales de todas las rocas.",
+        "Indican exactamente qué edad tiene la roca.",
+        "No bastan sin la composición y los fluidos."
+      ],
+      "explain": "La temperatura y la presión ayudan a acotar los cambios posibles, pero también importan la composición inicial, los fluidos y la duración. Dos rocas a la misma temperatura y presión no tienen por qué desarrollar minerales ni texturas idénticos."
+    },
+    {
+      "prompt": "¿Qué roca se forma a partir de capas de sedimento compactadas y cementadas?",
+      "choices": ["Granito", "Arenisca", "Mármol", "Basalto"],
+      "explain": "La arenisca es una roca sedimentaria formada por granos de arena que fueron enterrados, compactados y cementados. El granito y el basalto son ígneos, y el mármol es metamórfico."
+    }
+  ],
+  "why": [
+    "Las rocas pueden cambiar por fusión, cristalización, meteorización, depósito, enterramiento y metamorfismo. Estos procesos forman una red de rutas posibles, no un recorrido obligatorio por todos los tipos de roca.",
+    "Cada ruta necesita sus propias condiciones. La meteorización y el depósito ocurren en la superficie; el enterramiento compacta y cementa el sedimento; la roca más profunda y caliente se recristaliza sin dejar de ser sólida (metamorfismo); solo cuando hace el calor suficiente para que se funda parte de la roca, una ruta lleva al magma, que debe enfriarse para volver a ser roca ígnea.",
+    "Las rutas conectan procesos a distintas profundidades y escalas de tiempo; la animación no asigna una sola duración a todo el ciclo."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La roca metamórfica se forma cuando una roca existente se funde por completo.",
+      "truth": "El metamorfismo cambia los minerales o la textura de una roca mientras esta sigue siendo en gran parte sólida, bajo condiciones distintas de temperatura, presión o fluidos. La fusión completa produce magma, y su cristalización posterior forma roca ígnea. El ciclo de las rocas incluye distintas rutas posibles, no una secuencia obligatoria."
+    },
+    {
+      "claim": "Las rocas nunca cambian una vez formadas.",
+      "truth": "Las rocas cambian constantemente, pero por lo general muy despacio. En la superficie se meteorizan y se erosionan; enterradas y comprimidas se vuelven metamórficas, o se funden y vuelven a cristalizar, a lo largo de miles a millones de años."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Ígnea",
+      "def": "Se dice de la roca que se forma cuando el magma o la lava se enfría y cristaliza. El enfriamiento lento bajo tierra suele producir cristales más grandes que el enfriamiento rápido en la superficie. Por eso la textura aporta evidencia de la historia de enfriamiento, aunque la composición también influye en los minerales presentes."
+    },
+    {
+      "term": "Sedimentaria",
+      "def": "Se dice de la roca formada a partir de sedimento acumulado o por precipitación química o biológica. Los sedimentos clásticos suelen convertirse en roca por compactación y cementación. La estratificación, los granos y los fósiles pueden conservar evidencia del ambiente donde se depositaron."
+    },
+    {
+      "term": "Metamórfica",
+      "def": "Se dice de la roca transformada por el calor, la presión o fluidos químicamente activos sin dejar de ser, en su mayor parte, sólida. Pueden desarrollarse nuevos minerales o nuevas texturas. Si el material se funde y luego cristaliza, la roca resultante es ígnea."
+    },
+    {
+      "term": "Litificación",
+      "def": "La transformación de sedimento suelto en roca sedimentaria sólida, por lo general mediante compactación y cementación. La presión reduce el espacio poroso, mientras que entre los granos pueden precipitar minerales. La litificación no suele requerir que el sedimento se funda."
+    },
+    {
+      "term": "Foliación",
+      "def": "Una estructura plana en la roca metamórfica, formada por minerales alineados o por bandas de distinta composición. Suele desarrollarse bajo esfuerzos dirigidos. La foliación es distinta de la estratificación sedimentaria, aunque ambas pueden verse como capas en un afloramiento."
+    },
+    {
+      "term": "Magma",
+      "def": "Roca fundida en parte o por completo bajo la superficie, que a menudo contiene cristales y gases disueltos. La roca fundida que sale a la superficie en una erupción se llama lava."
+    },
+    {
+      "term": "Meteorización (formación de sedimento)",
+      "def": "La descomposición o alteración de la roca en su lugar, que aporta partículas y material disuelto que pueden entrar en rutas sedimentarias. Después, la erosión retira el material, el transporte lo lleva y el depósito lo acumula en otro lugar. Son procesos conectados, no nombres intercambiables."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Puede una roca sedimentaria convertirse en roca ígnea sin pasar antes por roca metamórfica? Explica tu predicción."
+  },
+  "cer": {
+    "prompt": "¿Todas las rocas siguen la misma ruta por el ciclo de las rocas?",
+    "claim": "No: las rocas pueden seguir muchas rutas, saltándose o repitiendo etapas, según las condiciones de temperatura, presión y superficie que encuentran.",
+    "evidence": "Ruta del material ofrece rutas como Fusión: roca sedimentaria (directamente a magma), Metamorfismo: roca ígnea (sin fusión) y la meteorización de cualquier grupo de rocas hasta sedimento. Los resultados muestran que el metamorfismo necesita calor y presión por debajo del punto de fusión, mientras que la fusión necesita unos 650 °C o más.",
+    "reasoning": "Cada cambio depende de las condiciones que encuentra la roca. El enterramiento y el calentamiento pueden transformar una roca en estado sólido o fundirla; el levantamiento expone cualquier roca a la meteorización. Por eso el ciclo es una red de rutas posibles, no un único circuito."
+  },
+  "controls": {
+    "view": { "label": "Vista", "options": ["Muestras de roca", "En el paisaje"] },
+    "process": {
+      "label": "Ruta del material",
+      "options": [
+        "Enfriamiento y cristalización",
+        "Meteorización: roca ígnea",
+        "Meteorización: roca sedimentaria",
+        "Meteorización: roca metamórfica",
+        "Depósito, enterramiento y litificación",
+        "Metamorfismo: roca ígnea",
+        "Metamorfismo: roca sedimentaria",
+        "Fusión: roca ígnea",
+        "Fusión: roca sedimentaria",
+        "Fusión: roca metamórfica"
+      ]
+    },
+    "temp": { "label": "Temperatura elegida" },
+    "pressure": { "label": "Presión elegida" }
+  }
+}

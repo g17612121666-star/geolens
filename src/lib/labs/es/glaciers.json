@@ -1,0 +1,150 @@
+{
+  "title": "Relieve glaciar",
+  "hook": "El hielo de un glaciar fluye pendiente abajo por la gravedad, incluso cuando su borde retrocede.",
+  "objective": "Explica cómo el hielo en movimiento da forma a un valle, y distingue la dirección del flujo del hielo del avance o el retroceso de su borde.",
+  "modelDescription": "Un glaciar de valle fluye por un valle en U desde los campos de nieve de su cabecera, pasando por la línea de equilibrio, hasta su frente, con marcadores naranjas que se mueven valle abajo dentro del hielo. Al bajar la extensión del hielo, el frente retrocede valle arriba mientras los marcadores siguen bajando. Otras vistas muestran circos, aristas y un pico piramidal, y el valle de Yosemite real, en California. El relieve se agranda 1.5 veces, salvo que cambies a la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Pulsa Reproducir y sigue los marcadores naranjas mientras el hielo fluye valle abajo desde la zona de acumulación, pasando por la línea de equilibrio, hasta el frente."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Baja Extensión del hielo y observa cómo el frente retrocede valle arriba. Pulsa Reproducir: los marcadores siguen moviéndose valle abajo aunque el borde haya retrocedido."
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica cómo puede retroceder el borde de un glaciar aunque su hielo siga fluyendo valle abajo."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Una arista es…",
+      "choices": [
+        "Una depresión en forma de cuenco bajo un pico",
+        "Una cresta afilada como un cuchillo entre circos",
+        "Un pico puntiagudo con tres caras",
+        "Una cresta de derrubios que deja el hielo"
+      ],
+      "explain": "Los glaciares que erosionan circos vecinos pueden empinar las paredes a ambos lados de la cresta que los separa. La cresta estrecha que queda entre ellos es una arista."
+    },
+    {
+      "prompt": "Un pico piramidal (horn) es…",
+      "choices": [
+        "Una cresta estrecha entre dos circos",
+        "Una depresión en forma de cuenco en una montaña",
+        "Un pico tallado por tres o más circos",
+        "Un escalón de roca en el fondo de un valle"
+      ],
+      "explain": "Cuando varios circos erosionan hacia la misma cumbre, empinan sus lados desde distintas direcciones. La cumbre afilada que queda es un pico piramidal, también llamado horn."
+    },
+    {
+      "prompt": "¿En qué se diferencia una artesa en U de un valle en V?",
+      "choices": [
+        "Las dos se excavan de la misma forma",
+        "Los ríos ensanchan y profundizan; el hielo excava hacia abajo",
+        "Las dos se forman solo por meteorización",
+        "El hielo ensancha y profundiza; los ríos excavan hacia abajo"
+      ],
+      "explain": "Un glaciar de valle desgasta y arranca tanto el fondo como las laderas de un valle que ya existía, y lo ensancha y profundiza. Un río suele concentrar la erosión en un cauce más estrecho, lo que ayuda a producir un perfil en forma de V."
+    },
+    {
+      "prompt": "El valle de Yosemite es sobre todo…",
+      "choices": [
+        "Una artesa glaciar en U excavada en granito",
+        "Un cañón fluvial como el Gran Cañón",
+        "Un pavimento de caliza",
+        "Un campo de barjanes"
+      ],
+      "explain": "Los glaciares agrandaron una y otra vez un antiguo valle fluvial en la roca granítica de Yosemite. Su erosión produjo el fondo amplio y las paredes empinadas típicos de su artesa glaciar."
+    },
+    {
+      "prompt": "¿Qué tan rápido se mueven normalmente los glaciares de valle?",
+      "choices": [
+        "No se mueven, porque el hielo es sólido",
+        "De metros a cientos de metros al año",
+        "Varios kilómetros cada hora",
+        "Solo los días en que el hielo se derrite"
+      ],
+      "explain": "El hielo puede deformarse despacio como un fluido muy rígido, y el agua de deshielo de la base le ayuda a deslizarse. La mayoría de los glaciares de valle se mueven desde unos pocos metros hasta unos cientos de metros al año."
+    }
+  ],
+  "why": [
+    "El hielo de un glaciar fluye pendiente abajo por la gravedad, incluso cuando su borde retrocede. La erosión del hielo y de los derrubios que lleva puede profundizar los valles y dar forma a circos, aristas y picos piramidales.",
+    "Por encima de la línea de equilibrio, la nieve que sobrevive a cada verano se compacta en hielo; por debajo, cada año se derrite más hielo del que cae como nieve. El hielo se deforma y se desliza pendiente abajo por su propio peso, y lleva hielo desde la zona de acumulación hacia el frente. Cuando la fusión en el frente quita hielo más rápido de lo que el flujo lo entrega, el frente retrocede valle arriba aunque el propio hielo siga moviéndose valle abajo.",
+    "Cambiar la extensión del hielo compara posiciones del borde; no invierte el flujo del hielo ni calcula el balance de masa del glaciar."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Un glaciar que retrocede tiene que estar fluyendo cuesta arriba.",
+      "truth": "El hielo de un glaciar suele moverse pendiente abajo por la gravedad, incluso cuando su frente retrocede. El frente retrocede cuando la pérdida local de hielo supera al aporte de hielo que se mueve hacia él. La velocidad del hielo y el cambio de posición del frente describen aspectos distintos del comportamiento de un glaciar."
+    },
+    {
+      "claim": "Los glaciares están congelados en su sitio y no se mueven.",
+      "truth": "Los glaciares fluyen cuesta abajo por su propio peso, deformándose por dentro y deslizándose sobre su lecho. Los glaciares de valle suelen moverse de metros a cientos de metros al año, y algunos glaciares de desagüe se mueven varios kilómetros al año."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Circo",
+      "def": "Una depresión en forma de cuenco, de paredes empinadas, en la cabecera de un valle glaciar, agrandada por la erosión del hielo y la meteorización. Después de que el hielo se retira, puede ocuparla un lago, llamado lago de circo."
+    },
+    {
+      "term": "Arista",
+      "def": "Una cresta estrecha y afilada que se forma donde los glaciares erosionan valles o circos contiguos. Striding Edge, en el Lake District, es un ejemplo."
+    },
+    {
+      "term": "Pico piramidal",
+      "def": "Un pico de montaña afilado y piramidal, formado por la erosión de glaciares en varios de sus lados (horn en inglés); el Matterhorn es un ejemplo muy conocido."
+    },
+    {
+      "term": "Artesa en U",
+      "def": "Un valle de fondo amplio y paredes empinadas producido o agrandado por la erosión glaciar. Contrasta con el perfil en V, más estrecho, que suele asociarse a la incisión de un río. Después, los ríos y los procesos de ladera siguen modificando el valle glaciar."
+    },
+    {
+      "term": "Morrena",
+      "def": "Una acumulación de derrubios transportados o depositados por un glaciar, que incluye las morrenas laterales, centrales, terminales y de fondo."
+    },
+    {
+      "term": "Till",
+      "def": "Sedimento sin seleccionar depositado directamente por el hielo de un glaciar, que a menudo contiene una mezcla desde arcilla hasta bloques. Su mala selección lo distingue de muchos depósitos de agua de deshielo retrabajados por el agua que fluye. El till puede formar varios tipos de relieve glaciar."
+    },
+    {
+      "term": "Valle colgado",
+      "def": "Un valle afluente cuyo fondo está por encima del fondo de la artesa glaciar principal. El glaciar mayor suele erosionar más hondo que su afluente. Después de que el hielo se retira, una cascada puede unir los dos niveles del valle."
+    },
+    {
+      "term": "Drumlin",
+      "def": "Una colina alargada y aerodinámica formada bajo el hielo en movimiento, normalmente de sedimento glaciar y a veces con roca en su interior. Su eje largo suele seguir la dirección del antiguo flujo del hielo."
+    }
+  ],
+  "predict": {
+    "prompt": "Si el frente de un glaciar retrocede valle arriba, ¿crees que el hielo dentro del glaciar se mueve valle arriba o valle abajo?"
+  },
+  "cer": {
+    "prompt": "¿Cómo puede retroceder el frente de un glaciar mientras su hielo sigue moviéndose valle abajo?",
+    "claim": "El hielo siempre fluye valle abajo; el frente retrocede cuando la fusión en el frente quita hielo más rápido de lo que el flujo lo entrega.",
+    "evidence": "Al pulsar Reproducir, los marcadores naranjas se mueven valle abajo desde la zona de acumulación, pasando por la línea de equilibrio, hasta el frente. Al bajar Extensión del hielo, el frente retrocede valle arriba, pero los marcadores siguen moviéndose valle abajo.",
+    "reasoning": "Un glaciar es una cinta transportadora de hielo en movimiento. La posición de su borde depende del balance entre el hielo que llega y el hielo que se derrite en el frente, no de la dirección del flujo."
+  },
+  "controls": {
+    "view": {
+      "label": "Vista del relieve",
+      "options": [
+        "Glaciar de valle",
+        "Circos, aristas y pico piramidal",
+        "Real: valle de Yosemite, CA"
+      ]
+    },
+    "extent": {
+      "label": "Extensión del hielo"
+    },
+    "ice": {
+      "label": "Hielo"
+    }
+  }
+}

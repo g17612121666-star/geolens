@@ -10,6 +10,7 @@ import { terrainBlockGeometry } from "./science-geometry";
 import { SectionMaterial } from "./section-material";
 import { withSurfaceY } from "./section-utils";
 import { landSectionGlsl } from "./land-section";
+import { msg, useT } from "@/lib/i18n";
 
 /** Fictional relief for the coordinate exercise (u east, v south, both 0–1). */
 function surveyHeight(u: number, v: number) {
@@ -145,6 +146,7 @@ function drape(a: [number, number], b: [number, number], lift = 0.012, n = 48) {
 }
 
 export function GridReferenceScene() {
+  const tr = useT();
   const { params } = useLabState("params"),
     e = Math.round(params.easting ?? 246),
     n = Math.round(params.northing ?? 513),
@@ -158,8 +160,11 @@ export function GridReferenceScene() {
     <>
       <ScienceStudio
         slug="grid-references"
-        scale={`Fictional 100 km square of the ${bng ? "British National Grid" : "US National Grid (UTM)"} · eastings first, then northings · relief exaggerated`}
-        trueScale="Same grid scale east–west and north–south · relief is still exaggerated"
+        scale={tr(
+          "Fictional 100 km square of the {grid} · eastings first, then northings · relief exaggerated",
+          { grid: bng ? tr("British National Grid") : tr("US National Grid (UTM)") },
+        )}
+        trueScale={tr("Same grid scale east–west and north–south · relief is still exaggerated")}
         camera={[0, 5.5, 3.8]}
         horizon
       >
@@ -281,25 +286,27 @@ export function GridReferenceScene() {
         />
         {/* Two 10 km segments (dark, then gray), so each segment matches one grid square. */}
         <Tag pos={[0.8, 0.02, 2.75]} text="0" occlude={false} variant="axis" />
-        <Tag pos={[1.6, 0.02, 2.75]} text="20 km" occlude={false} variant="axis" />
+        <Tag pos={[1.6, 0.02, 2.75]} text={tr("20 km")} occlude={false} variant="axis" />
         <Tag
           pos={[x, y + 0.75, z]}
           text={`${String(e).padStart(3, "0")} ${String(n).padStart(3, "0")}`}
           priority={2}
-          note="Six figures identify a 100 m grid square. The marker shows its southwest corner; it is not a surveyed point accurate to one meter."
+          note={tr(
+            "Six figures identify a 100 m grid square. The marker shows its southwest corner; it is not a surveyed point accurate to one meter.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Along first: "}
-        {(e * 0.1).toFixed(1)} {"km east. Then up: "}
-        {(n * 0.1).toFixed(1)}{" "}
-        {
-          "km north. Each slider step is 100 m; grid lines are 10 km apart. Brown contours, woodland, river, road and villages are fictional landmarks; the relief is exaggerated so the contours read as hills. "
-        }
+        {tr(
+          "Along first: {east} km east. Then up: {north} km north. Each slider step is 100 m; grid lines are 10 km apart. Brown contours, woodland, river, road and villages are fictional landmarks; the relief is exaggerated so the contours read as hills.",
+          { east: (e * 0.1).toFixed(1), north: (n * 0.1).toFixed(1) },
+        )}{" "}
         {bng
-          ? "A British National Grid reference also needs its 100 km letter pair, such as SH."
-          : "A full US National Grid reference also needs its UTM zone and 100 km square letters, such as 18T WL."}
+          ? tr("A British National Grid reference also needs its 100 km letter pair, such as SH.")
+          : tr(
+              "A full US National Grid reference also needs its UTM zone and 100 km square letters, such as 18T WL.",
+            )}
       </ScienceReadout>
     </>
   );
@@ -409,30 +416,37 @@ function areaScale(lat: number, kind: number) {
 /** Greenland and Africa, labeled near their centers. Areas: CIA World Factbook. */
 const LANDMASSES = [
   {
-    name: "Greenland",
+    name: msg("Greenland"),
     lat: 73,
     lon: -41,
-    note: "About 2.2 million km², roughly one-fourteenth of Africa. Near 70° N, Mercator stretches lengths almost three times and areas more than eight times, so Greenland looks almost as large as Africa.",
+    note: msg(
+      "About 2.2 million km², roughly one-fourteenth of Africa. Near 70° N, Mercator stretches lengths almost three times and areas more than eight times, so Greenland looks almost as large as Africa.",
+    ),
   },
   {
-    name: "Africa",
+    name: msg("Africa"),
     lat: 4,
     lon: 19,
-    note: "About 30.4 million km². It straddles the equator, where Mercator distorts least, so its size on that map stays close to the truth.",
+    note: msg(
+      "About 30.4 million km². It straddles the equator, where Mercator distorts least, so its size on that map stays close to the truth.",
+    ),
   },
 ];
 
 export function ProjectionScene() {
+  const tr = useT();
   const { params } = useLabState("params"),
     morph = params.morph ?? 0,
     kind = Math.round(params.projection ?? 0),
-    names = ["Mercator", "Lambert cylindrical equal-area", "Winkel I compromise"];
+    names = [tr("Mercator"), tr("Lambert cylindrical equal-area"), tr("Winkel I compromise")];
   return (
     <>
       <ScienceStudio
         slug="map-projections"
-        scale="Globe → flat map · shown to 85° N and S · every flat map distorts distance, shape or area"
-        trueScale="No flat world map preserves all distances, shapes and areas"
+        scale={tr(
+          "Globe → flat map · shown to 85° N and S · every flat map distorts distance, shape or area",
+        )}
+        trueScale={tr("No flat world map preserves all distances, shapes and areas")}
         // Level with the map center, so the flat map is not foreshortened into a trapezoid.
         camera={[0, 0, 6]}
       >
@@ -491,8 +505,8 @@ export function ProjectionScene() {
             <Tag
               key={m.name}
               pos={[v[0] * 1.02, v[1] * 1.02, v[2] * 1.02 + 0.03 * morph]}
-              text={m.name}
-              note={m.note}
+              text={tr(m.name)}
+              note={tr(m.note)}
               occlude={false}
               priority={1}
             />
@@ -517,18 +531,24 @@ export function ProjectionScene() {
         )}
       </ScienceStudio>
       <ScienceReadout>
-        {names[kind]} · {Math.round(morph * 100)}
-        {"% flattened. "}
+        {tr("{projection} · {percent}% flattened.", {
+          projection: names[kind],
+          percent: Math.round(morph * 100),
+        })}{" "}
         {kind === 0
-          ? "Mercator keeps local shapes and angles; areas grow strongly toward the poles."
+          ? tr("Mercator keeps local shapes and angles; areas grow strongly toward the poles.")
           : kind === 1
-            ? "When fully flat, this map keeps true relative areas; shapes are distorted."
-            : "This compromise spreads distortion between area and shape; it keeps neither exactly."}{" "}
-        {
-          "The gold circles are the same size on the globe; compare their shape and area on the flat map. "
-        }
-        {`At 60° a circle's map area is ×${areaScale(60, kind).toFixed(2)} its area at the equator. `}
-        {"In-between stages are a visual transition, not a projection."}
+            ? tr("When fully flat, this map keeps true relative areas; shapes are distorted.")
+            : tr(
+                "This compromise spreads distortion between area and shape; it keeps neither exactly.",
+              )}{" "}
+        {tr(
+          "The gold circles are the same size on the globe; compare their shape and area on the flat map.",
+        )}{" "}
+        {tr("At 60° a circle's map area is ×{factor} its area at the equator.", {
+          factor: areaScale(60, kind).toFixed(2),
+        })}{" "}
+        {tr("In-between stages are a visual transition, not a projection.")}
       </ScienceReadout>
     </>
   );

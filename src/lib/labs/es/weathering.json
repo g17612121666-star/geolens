@@ -1,0 +1,135 @@
+{
+  "title": "La meteorización",
+  "hook": "La meteorización cambia la roca en su lugar.",
+  "objective": "Compara cómo el agua que se congela, el agua débilmente ácida y las raíces que crecen descomponen la roca en su lugar.",
+  "modelDescription": "Un bloque de roca en capas descansa sobre una base de hierba, con una grieta, una diaclasa, que lo recorre hacia abajo. En una vista, el agua de la diaclasa se congela y el hielo ensancha la grieta, que se muestra diez veces más grande que el cambio real, salvo que cambies a la escala real. Otras vistas muestran la caliza disolviéndose en agua ligeramente ácida y raíces que crecen dentro de la roca.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Elige Congelación en una diaclasa y compara el volumen antes y después de congelarse. Usa Comparar con la escala real para separar el ensanchamiento real de la exageración ×10."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Elige Disolución de carbonatos y lee la reacción y las masas totales. Luego elige Crecimiento de raíces y nombra sus efectos mecánicos y químicos."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo cambia cada proceso de meteorización la roca en su lugar, y qué haría falta para transportar los fragmentos?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La gelifracción es…",
+      "choices": ["Química", "Biológica", "Crecimiento de cristales de sal", "Mecánica"],
+      "explain": "El agua que se congela dentro de las grietas, incluido el crecimiento del hielo a medida que entra más agua, puede ejercer esfuerzos sobre la roca de alrededor. Esto rompe la roca físicamente sin necesidad de un cambio químico en sus minerales."
+    },
+    {
+      "prompt": "La carbonatación ataca…",
+      "choices": [
+        "Las rocas carbonatadas, mediante el ácido carbónico",
+        "El granito, mediante la acción de las heladas",
+        "Los minerales de hierro, al oxidarse con el aire",
+        "Los cristales de sal de la arenisca"
+      ],
+      "explain": "El dióxido de carbono disuelto en el agua forma un ácido carbónico débil, que reacciona con los minerales carbonatados. Esta disolución ayuda a agrandar las fracturas y a formar el relieve kárstico en la caliza."
+    },
+    {
+      "prompt": "La meteorización biológica incluye…",
+      "choices": [
+        "Solo los animales que cavan sus madrigueras",
+        "Raíces, líquenes y animales que excavan",
+        "Solo las raíces de las plantas que crecen en las grietas",
+        "La lluvia que disuelve los pavimentos de caliza"
+      ],
+      "explain": "Los seres vivos pueden romper la roca físicamente, por ejemplo con el crecimiento de las raíces, o químicamente con ácidos y otros compuestos. Por eso la meteorización biológica incluye más de un mecanismo de descomposición."
+    },
+    {
+      "prompt": "Meteorización frente a erosión…",
+      "choices": [
+        "Dos palabras para exactamente el mismo proceso",
+        "La erosión rompe la roca; la meteorización se la lleva",
+        "La meteorización rompe la roca en su lugar; la erosión se la lleva",
+        "La meteorización solo ocurre en los desiertos cálidos"
+      ],
+      "explain": "La meteorización altera o descompone el material donde está expuesto. La erosión retira el material de su posición original mediante agentes como el agua, el viento, el hielo o la gravedad."
+    },
+    {
+      "prompt": "¿Cuál de estos es un ejemplo de meteorización química?",
+      "choices": [
+        "El hielo que se expande en una grieta",
+        "La lluvia que disuelve despacio la caliza",
+        "Las raíces que separan la roca",
+        "La roca que se descama al calentarse y enfriarse"
+      ],
+      "explain": "La meteorización química cambia los propios minerales. El agua de lluvia con dióxido de carbono reacciona con el carbonato de calcio y se lo lleva disuelto."
+    }
+  ],
+  "why": [
+    "La meteorización cambia la roca en su lugar. El agua que se congela, la disolución química y la actividad biológica pueden debilitarla mediante mecanismos distintos, que a menudo actúan juntos antes de que la erosión transporte el material.",
+    "El agua que se congela y las raíces que crecen empujan las paredes de la diaclasa y rompen la roca físicamente sin cambiar sus minerales. En cambio, el ácido carbónico reacciona con la calcita, así que el sólido se reduce mientras la misma masa de carbonato de calcio se va disuelta en forma de iones.",
+    "Las masas de agua y de calcita que se muestran se conservan, pero el volumen del agua crece cerca de un 9 % al congelarse. Las animaciones no calculan la rapidez de la meteorización."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La meteorización química y la mecánica son alternativas separadas que no pueden actuar juntas.",
+      "truth": "Varios procesos de meteorización pueden afectar a la misma roca. Las grietas mecánicas exponen superficies nuevas a las reacciones químicas, mientras que la alteración química puede debilitar el material para que se rompa después. La temperatura, el agua, los seres vivos y las propiedades de la roca influyen en qué procesos son más eficaces en cada lugar."
+    },
+    {
+      "claim": "La meteorización es demasiado lenta para verla en una vida humana.",
+      "truth": "Parte de la meteorización se ve en unas pocas décadas. Las lápidas antiguas de caliza pierden sus letras, los edificios de arenisca se descaman y se desmoronan, y las heladas pueden partir una roca en un solo invierno."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Meteorización mecánica",
+      "def": "La ruptura física de la roca en trozos más pequeños sin cambiar su composición mineral. Pueden contribuir la acción de las heladas y la expansión o la descarga. Los fragmentos se quedan cerca de su origen hasta que la erosión los transporta."
+    },
+    {
+      "term": "Meteorización química",
+      "def": "La alteración o disolución de los minerales mediante reacciones químicas con el agua, los gases y las sustancias disueltas. La carbonatación, la hidrólisis y la oxidación son ejemplos. A diferencia de la meteorización mecánica, estas reacciones cambian la composición de los minerales además del aspecto de la roca."
+    },
+    {
+      "term": "Meteorización biológica",
+      "def": "La descomposición o alteración química de la roca causada por los seres vivos. Las raíces pueden ensanchar las grietas, mientras que los ácidos orgánicos de las plantas y los microbios reaccionan con los minerales. Actúa mediante procesos mecánicos y químicos, no como un mecanismo aparte."
+    },
+    {
+      "term": "Gelifracción",
+      "def": "La ruptura de la roca asociada con el agua que se congela y el crecimiento del hielo en las grietas. La congelación y el deshielo repetidos y la segregación de hielo pueden ensanchar las fracturas."
+    },
+    {
+      "term": "Carbonatación",
+      "def": "Una meteorización química en la que el dióxido de carbono disuelto forma un ácido carbónico débil que reacciona con minerales carbonatados como la calcita."
+    },
+    {
+      "term": "Meteorización",
+      "def": "La ruptura física o la alteración química de la roca en la superficie de la Tierra o cerca de ella, sin que el material sea transportado. La meteorización química también interviene en el ciclo lento del carbono."
+    },
+    {
+      "term": "Erosión",
+      "def": "El desgaste y la retirada de material por el agua en movimiento, el viento, el hielo o la gravedad. La meteorización descompone el material en su lugar."
+    }
+  ],
+  "predict": {
+    "prompt": "El agua se filtra en una grieta de una roca y se congela por la noche. Predice qué le pasa a la grieta a lo largo de muchos inviernos."
+  },
+  "cer": {
+    "prompt": "¿Cómo puede el agua romper la roca sin llevarla a ningún lugar?",
+    "claim": "El agua rompe la roca en su lugar al congelarse en las grietas (meteorización mecánica) y al disolver minerales como la calcita (meteorización química).",
+    "evidence": "En Congelación en una diaclasa, el agua se expande cerca de un 9 % al convertirse en hielo y empuja las paredes de la diaclasa (se muestra ×10, salvo que actives Comparar con la escala real). En Disolución de carbonatos, la calcita se disuelve mientras la calcita sólida más la disuelta siempre suman la masa inicial.",
+    "reasoning": "El hielo es menos denso que el agua (917 frente a 1000 kg/m³), así que el agua que se congela ocupa más espacio y abre las grietas como una cuña. El ácido carbónico débil reacciona con la calcita y se la lleva disuelta. Los dos procesos descomponen la roca sin transportarla, y esa es la diferencia con la erosión."
+  },
+  "controls": {
+    "method": {
+      "label": "Mecanismo",
+      "options": [
+        "Congelación en una diaclasa",
+        "Disolución de carbonatos",
+        "Crecimiento de raíces"
+      ]
+    }
+  }
+}

@@ -30,6 +30,7 @@ import {
   rillGrowth,
   rillShape,
 } from "./plots";
+import { useT } from "@/lib/i18n";
 
 /** Grid: about 1.8 cm across the slope (9 cm on the ground), fine enough to shape the rills. */
 const NX = 360,
@@ -320,11 +321,29 @@ const MEADOW_TUFTS = Array.from({ length: 700 }, (_, i): [number, number, number
     !(z > TROUGH.z0 - 0.05 && z < TROUGH.z1 + 0.05),
 );
 
-function plotNote(r: ReturnType<typeof soilExport>, wind: boolean) {
-  return `Model soil budget: ${r.remaining.toFixed(1)} kg in place, ${r.moving.toFixed(1)} kg in transport and ${r.exported.toFixed(1)} kg exported, always totaling 6000 kg. Cover multiplies detachment by 0.15, a chosen value, not a measured reduction. ${wind ? "Wind carries exported soil off through the air, so the trough stays empty" : "Exported soil collects in the trough at the plot's foot"}; the dark topsoil in the cut face thins as the surface lowers.`;
+function plotNote(r: ReturnType<typeof soilExport>, wind: boolean, tr: ReturnType<typeof useT>) {
+  return [
+    tr(
+      "Model soil budget: {remaining} kg in place, {moving} kg in transport and {exported} kg exported, always totaling 6000 kg.",
+      {
+        remaining: r.remaining.toFixed(1),
+        moving: r.moving.toFixed(1),
+        exported: r.exported.toFixed(1),
+      },
+    ),
+    tr("Cover multiplies detachment by 0.15, a chosen value, not a measured reduction."),
+    wind
+      ? tr(
+          "Wind carries exported soil off through the air, so the trough stays empty; the dark topsoil in the cut face thins as the surface lowers.",
+        )
+      : tr(
+          "Exported soil collects in the trough at the plot's foot; the dark topsoil in the cut face thins as the surface lowers.",
+        ),
+  ].join(" ");
 }
 
 export default function SoilErosion() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale");
   useLabTick(1 / 55);
   // The ground is rebuilt in steps; the readout follows lab time continuously.
@@ -369,8 +388,12 @@ export default function SoilErosion() {
         horizon
         slug="soil-erosion"
         camera={[-4.8, 4.6, 7.2]}
-        scale="Two 20 × 10 m runoff plots on one 12% slope · surface lowering exaggerated ×30 · rill depths schematic · raindrops and grains enlarged"
-        trueScale="1 scene unit = 5 m · true mean surface lowering · rill depths schematic · raindrops and grains still enlarged"
+        scale={tr(
+          "Two 20 × 10 m runoff plots on one 12% slope · surface lowering exaggerated ×30 · rill depths schematic · raindrops and grains enlarged",
+        )}
+        trueScale={tr(
+          "1 scene unit = 5 m · true mean surface lowering · rill depths schematic · raindrops and grains still enlarged",
+        )}
       >
         <Field lowering={lowering} rill={rill} covered={covered} wind={wind} />
         {PLOTS.map((plot, p) => (
@@ -437,29 +460,33 @@ export default function SoilErosion() {
         )}
         <Tag
           pos={[(PLOT.bare.x0 + PLOT.bare.x1) / 2, top + 0.5, PLOT.z0 + 0.2]}
-          text="Bare plot"
-          note={plotNote(budgets[0], wind)}
+          text={tr("Bare plot")}
+          note={plotNote(budgets[0], wind, tr)}
           occlude={false}
         />
         <Tag
           pos={[(PLOT.compare.x0 + PLOT.compare.x1) / 2, top + 0.5, PLOT.z0 + 0.2]}
-          text={covered ? "Covered plot" : "Bare plot"}
-          note={plotNote(budgets[1], wind)}
+          text={covered ? tr("Covered plot") : tr("Bare plot")}
+          note={plotNote(budgets[1], wind, tr)}
           occlude={false}
         />
         {rill > 0.012 && (
           <Tag
             pos={[PLOT.bare.x0 - 0.15, ground(0.4) + 0.45, 0.4]}
-            text="Rills · soil in transport"
-            note="Runoff gathers into small channels that cut down as they carry the loosened soil. Muddy water is soil in transport; rill depths here are schematic, not calculated."
+            text={tr("Rills · soil in transport")}
+            note={tr(
+              "Runoff gathers into small channels that cut down as they carry the loosened soil. Muddy water is soil in transport; rill depths here are schematic, not calculated.",
+            )}
             occlude={false}
           />
         )}
         {!wind && (
           <Tag
             pos={[PLOT.bare.x0 - 0.1, ground(TROUGH.z1) + 0.2, TROUGH.z1 + 0.25]}
-            text="Trough · exported soil"
-            note="Soil that has left the plot settles in the trough at its foot, so the exported store can be weighed. The fill here grows with the model's exported soil."
+            text={tr("Trough · exported soil")}
+            note={tr(
+              "Soil that has left the plot settles in the trough at its foot, so the exported store can be weighed. The fill here grows with the model's exported soil.",
+            )}
             occlude={false}
           />
         )}
@@ -471,24 +498,22 @@ export default function SoilErosion() {
 
 /** Live numbers for both plots, following lab time continuously. */
 function SoilReadout({ covered, wind }: { covered: boolean; wind: boolean }) {
+  const tr = useT();
   const { t } = useLabState("t"),
     a = soilExport(t * 60, false, wind),
     b = soilExport(t * 60, covered, wind);
   return (
     <ScienceReadout>
-      <p>
-        {"Model minute "}
-        {(t * 60).toFixed(1)}
-      </p>
+      <p>{tr("Model minute {minute}", { minute: (t * 60).toFixed(1) })}</p>
       <dl className="mt-1 grid w-fit grid-cols-[auto_auto_auto_auto_auto] gap-x-5 gap-y-0.5 text-left tabular-nums">
         <dt />
-        <dd className="text-mist">{"Still in place"}</dd>
-        <dd className="text-mist">{"In transport"}</dd>
-        <dd className="text-mist">{"Carried off (exported)"}</dd>
-        <dd className="text-mist">{"Ground lowered (average)"}</dd>
+        <dd className="text-mist">{tr("Still in place")}</dd>
+        <dd className="text-mist">{tr("In transport")}</dd>
+        <dd className="text-mist">{tr("Carried off (exported)")}</dd>
+        <dd className="text-mist">{tr("Ground lowered (average)")}</dd>
         {[
-          { name: "Bare plot (left)", r: a },
-          { name: covered ? "Covered plot (right)" : "Bare plot (right)", r: b },
+          { name: tr("Bare plot (left)"), r: a },
+          { name: covered ? tr("Covered plot (right)") : tr("Bare plot (right)"), r: b },
         ].map(({ name, r }) => (
           <Fragment key={name}>
             <dt className="text-mist">{name}</dt>
@@ -500,13 +525,15 @@ function SoilReadout({ covered, wind }: { covered: boolean; wind: boolean }) {
         ))}
       </dl>
       <p className="mt-2">
-        {
-          "Each plot starts with 6000 kg of loose surface soil; the three stores always add up to 6000 kg. Ground lowering counts all soil loosened so far, including soil still in transport. "
-        }
+        {tr(
+          "Each plot starts with 6000 kg of loose surface soil; the three stores always add up to 6000 kg. Ground lowering counts all soil loosened so far, including soil still in transport.",
+        )}{" "}
         {wind
-          ? "Dry wind-transport example."
-          : "Rain splash and runoff example; muddy water runs in rills down the bare plot and settles in its trough, and the rill depths are schematic, not calculated."}{" "}
-        {"Model values for comparison only, not predictions for a real field."}
+          ? tr("Dry wind-transport example.")
+          : tr(
+              "Rain splash and runoff example; muddy water runs in rills down the bare plot and settles in its trough, and the rill depths are schematic, not calculated.",
+            )}{" "}
+        {tr("Model values for comparison only, not predictions for a real field.")}
       </p>
     </ScienceReadout>
   );

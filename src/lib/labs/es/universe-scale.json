@@ -1,0 +1,136 @@
+{
+  "title": "La escala del universo",
+  "hook": "Las distancias dentro del sistema solar suelen medirse en unidades astronómicas; las distancias entre estrellas se miden mejor en años luz.",
+  "objective": "Compara distancias dentro y fuera del sistema solar, usando el tiempo que tarda la luz en recorrerlas para entender mejor su escala.",
+  "modelDescription": "La Tierra y la Luna están en los dos extremos de una línea recta marcada con una escala de distancias, y un pulso de luz viaja por ella desde la Tierra hacia la Luna. La vista puede saltar a la distancia del Sol a la Tierra y a la estrella más cercana después del Sol. Las distancias están comprimidas para enseñar, salvo que cambies a la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Lee la distancia media entre la Tierra y la Luna y luego pulsa Reproducir para enviar una señal de luz."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Cambia a la escala real y luego usa Comparación de distancias para saltar a la referencia Sol–Tierra y a la estrella vecina más cercana."
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica qué te dice el tiempo de viaje de la luz sobre la distancia. ¿Cómo afecta a la comparación cambiar la escala de la vista?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Un año luz mide…",
+      "choices": [
+        "Una duración.",
+        "La masa de una estrella.",
+        "Una distancia.",
+        "La intensidad de la luz."
+      ],
+      "explain": "Un año luz es la distancia que recorre la luz en el vacío durante un año juliano. La palabra año describe el tiempo de viaje que se usa para definir la distancia, no el tipo de magnitud que se mide."
+    },
+    {
+      "prompt": "Si un diagrama interestelar usa una sola escala para todo, puede mostrar…",
+      "choices": [
+        "Las estrellas como grandes bolas vecinas.",
+        "Los tamaños reales de las estrellas, pero con las distancias comprimidas.",
+        "Las estrellas y los planetas con un mismo tamaño legible.",
+        "Las separaciones reales, pero con estrellas más pequeñas que un píxel."
+      ],
+      "explain": "Las distancias entre las estrellas son muchísimo mayores que sus radios. Por eso un diagrama que muestre las separaciones interestelares a una sola escala puede dibujar los discos de las estrellas más pequeños que un píxel de la pantalla."
+    },
+    {
+      "prompt": "La referencia de 1 UA es…",
+      "choices": [
+        "Exactamente 149,597,870.7 km.",
+        "Exactamente un año luz.",
+        "Una distancia fija entre la Tierra y el Sol todos los días.",
+        "La distancia media entre la Tierra y la Luna."
+      ],
+      "explain": "La unidad astronómica es una longitud definida de exactamente 149,597,870.7 km. La distancia real de la Tierra al Sol cambia a lo largo de su órbita elíptica, así que no siempre es exactamente 1 UA."
+    },
+    {
+      "prompt": "La luz del Sol tarda unos 8 minutos en llegar a la Tierra. ¿Qué nos dice esto?",
+      "choices": [
+        "Vemos el Sol como era hace unos 8 minutos.",
+        "El Sol está a 8 años luz de la Tierra.",
+        "La luz solar se frena al atravesar el espacio.",
+        "El Sol sale 8 minutos antes de que podamos verlo."
+      ],
+      "explain": "La luz viaja a unos 300,000 km por segundo, y el Sol está a unos 150 millones de km. La luz que vemos salió del Sol unos 8 minutos antes, así que siempre lo vemos un poco en el pasado."
+    },
+    {
+      "prompt": "¿Qué lista está ordenada de menor a mayor?",
+      "choices": [
+        "Galaxia, sistema solar, estrella, planeta",
+        "Planeta, estrella, galaxia, sistema solar",
+        "Sistema solar, planeta, galaxia, estrella",
+        "Planeta, estrella, sistema solar, galaxia"
+      ],
+      "explain": "Un planeta gira alrededor de una estrella; una estrella y todo lo que la orbita forman un sistema planetario, como el sistema solar; y una galaxia contiene miles de millones de estrellas y sus sistemas."
+    }
+  ],
+  "why": [
+    "Las distancias dentro del sistema solar suelen medirse en unidades astronómicas; las distancias entre estrellas se miden mejor en años luz. Cambiar de escala ayuda a separar el tamaño de un objeto de su distancia.",
+    "La luz recorre la distancia media entre la Tierra y la Luna en unos 1.28 segundos y 1 UA en unos 499 segundos (8.3 minutos), pero tarda unos 4.24 años en llegar a Próxima Centauri. Como la luz viaja a una velocidad fija en el vacío, cada tiempo de viaje es una medida directa de la distancia.",
+    "Cada comparación usa su propia escala lineal, así que el mismo espacio en la pantalla representa 384,400 km en una vista y unos 40 billones de km en otra. En la escala didáctica los cuerpos están ampliados para que se vean; en la escala real se reducen a puntos, lo que muestra que los espacios entre los cuerpos son mucho mayores que los propios cuerpos."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Un año luz es un periodo de tiempo, así que una estrella a 4.24 años luz habla de tiempo y no de distancia.",
+      "truth": "Un año luz es una distancia: lo que recorre la luz en un año juliano, unos 9.46 billones de km. Próxima Centauri está a unos 4.24 años luz, así que su luz tarda unos 4.24 años en llegarnos; el tiempo de viaje es cómo se define la distancia, no la magnitud que se mide."
+    },
+    {
+      "claim": "Las estrellas de una constelación están cerca unas de otras en el espacio.",
+      "truth": "Las estrellas de una constelación solo parecen cercanas en nuestro cielo. Pueden estar a distancias muy distintas: en Orión, Betelgeuse está a unos 500–600 años luz, mientras que Rigel está a unos 860."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Unidad astronómica",
+      "def": "Una longitud definida de 149,597,870,700 m, aproximadamente la distancia media de la Tierra al Sol; se abrevia UA (en inglés, au o AU)."
+    },
+    {
+      "term": "Año luz",
+      "def": "La distancia que recorre la luz en el vacío en un año (365.25 días): unos 9.46 × 10¹⁵ m. Es una distancia, no un periodo de tiempo."
+    },
+    {
+      "term": "Potencia de diez",
+      "def": "Un número escrito como 10 elevado a un exponente, que se usa para expresar cantidades muy grandes o muy pequeñas y comparar sus escalas."
+    },
+    {
+      "term": "Orden de magnitud",
+      "def": "Un paso de escala de un factor de diez. Dos cantidades que difieren en tres órdenes de magnitud difieren más o menos en un factor de mil."
+    },
+    {
+      "term": "Salto de escala",
+      "def": "Un cambio entre vistas que representan tamaños o distancias muy distintos. Cada vista necesita su propia escala, porque una sola pantalla no puede mostrarlos todos con detalle."
+    },
+    {
+      "term": "Pársec",
+      "def": "La distancia a la que una unidad astronómica abarca un segundo de arco; unos 3.26 años luz, o 3.086 × 10¹⁶ m."
+    },
+    {
+      "term": "Estrellas cercanas",
+      "def": "Las estrellas del vecindario del Sol, cuyas distancias suelen darse en años luz o en pársecs. El sistema estelar más cercano es Alfa Centauri."
+    }
+  ],
+  "predict": {
+    "prompt": "La luz tarda unos 1.3 segundos en llegar a la Tierra desde la Luna. Adivina cuánto tarda la luz en llegarnos desde el Sol y desde la estrella más cercana."
+  },
+  "cer": {
+    "prompt": "¿Qué mide un año luz, y cómo muestra el tiempo de viaje de la luz la escala del espacio?",
+    "claim": "Un año luz es una distancia: lo que recorre la luz en un año. Los tiempos de viaje de la luz muestran que las estrellas están muchísimo más lejos que cualquier cosa del sistema solar.",
+    "evidence": "La luz recorre la distancia entre la Tierra y la Luna (384,400 km) en unos 1.28 segundos y 1 UA en unos 499 segundos (8.3 minutos), pero tarda unos 4.24 años en llegar a Próxima Centauri.",
+    "reasoning": "La luz viaja a una velocidad fija en el vacío, unos 300,000 km/s, así que su tiempo de viaje es una medida directa de la distancia. Un tiempo de años en lugar de minutos significa que la estrella más cercana está unas 270,000 veces más lejos que el Sol."
+  },
+  "controls": {
+    "zoom": {
+      "label": "Comparación de distancias",
+      "options": ["Tierra–Luna", "Referencia Sol–Tierra", "Estrella vecina más cercana"]
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "title": "Cuenca hidrográfica",
+  "hook": "Una cuenca hidrográfica recoge el agua que fluye hacia una salida común.",
+  "objective": "Sigue el recorrido del agua por una cuenca hidrográfica y explica cómo la divisoria de aguas conecta los afluentes con una salida compartida.",
+  "modelDescription": "Un paisaje boscoso en forma de cuenco drena por un río principal y sus afluentes hacia una sola salida. El contorno de la cuenca sigue la divisoria de aguas por las cumbres que la rodean, y las etiquetas marcan el nacimiento, una confluencia y la salida. El relieve está exagerado para que la forma de la cuenca se vea con facilidad.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Usa Contorno de la cuenca para mostrar la divisoria de aguas y sigue el borde de la cuenca. Identifica qué laderas drenan hacia la misma salida."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pon Elemento en Afluente y pulsa Reproducir para seguir el agua por un afluente hasta su confluencia con el río principal. Luego oculta las etiquetas y pídele a un compañero que encuentre el nacimiento, la confluencia y la salida."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo determina la divisoria de aguas qué laderas aportan agua a la misma salida del río?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Una divisoria de aguas (watershed) es…",
+      "choices": [
+        "La desembocadura del río",
+        "El cauce principal del río",
+        "El nacimiento del río",
+        "La línea que separa dos cuencas"
+      ],
+      "explain": "La divisoria de aguas sigue el terreno más alto que separa la escorrentía superficial que llega a sistemas fluviales distintos. Forma el límite exterior de la cuenca elegida."
+    },
+    {
+      "prompt": "Una confluencia es…",
+      "choices": [
+        "Donde se unen los afluentes",
+        "Donde un río llega al mar",
+        "Donde empieza un río",
+        "Donde un río se divide"
+      ],
+      "explain": "Una confluencia es el punto de unión de dos o más cauces. Sus caudales se combinan y siguen río abajo por un cauce compartido."
+    },
+    {
+      "prompt": "La desembocadura es…",
+      "choices": [
+        "El manantial, la turbera o el lago donde nace el río",
+        "Donde entra en el mar, en un lago o en un río más grande",
+        "Siempre un delta que avanza mar adentro",
+        "El tramo más empinado y rápido del río"
+      ],
+      "explain": "La desembocadura es el extremo río abajo, donde un río entra en otra masa de agua. Que se forme ahí un delta depende de cuánto sedimento llega y de lo rápido que las olas, las mareas o las corrientes se lo llevan."
+    },
+    {
+      "prompt": "La cuenca hidrográfica incluye…",
+      "choices": [
+        "Solo los cauces que aparecen en el mapa",
+        "Solo la llanura de inundación junto al río",
+        "Todo el terreno que drena hacia el río",
+        "Solo el río y su agua subterránea"
+      ],
+      "explain": "La lluvia que cae en las laderas de la cuenca puede llegar al río por escorrentía superficial, por flujo en el suelo o por flujo subterráneo. Por eso, la cuenca incluye el terreno que aporta agua, además de los cauces visibles."
+    },
+    {
+      "prompt": "Llueve justo al otro lado de la divisoria de una cuenca. ¿Adónde va la escorrentía?",
+      "choices": [
+        "A este río, pero más despacio",
+        "A ningún lado, porque toda se evapora",
+        "Directo al cauce principal de este río",
+        "A un sistema fluvial vecino"
+      ],
+      "explain": "La divisoria de aguas es el límite de la cuenca. La lluvia que cae del otro lado drena hacia otro río, aunque los dos lugares estén muy cerca."
+    }
+  ],
+  "why": [
+    "Una cuenca hidrográfica recoge el agua que fluye hacia una salida común. La divisoria de aguas la separa de las cuencas vecinas; los afluentes conectan los aportes de las laderas con el río principal.",
+    "La lluvia que cae en cualquier punto dentro de la divisoria baja por la pendiente hasta el cauce más cercano. Los afluentes recogen el agua de sus propias laderas y la entregan al río principal en una confluencia, así que el caudal aumenta río abajo hasta que todo sale por la salida.",
+    "El terreno es una cuenca didáctica inventada, y los trazos en movimiento muestran rutas, no tiempos de viaje medidos."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Toda la lluvia que cae en una cuenca hidrográfica llega al río de inmediato.",
+      "truth": "La lluvia puede ser interceptada, infiltrarse en el suelo, recargar el agua subterránea, evaporarse o convertirse en escorrentía superficial. Estas rutas tienen tiempos de viaje distintos, y parte del agua queda almacenada o se va por evapotranspiración. La respuesta del río depende tanto de la lluvia como del estado previo de la cuenca."
+    },
+    {
+      "claim": "Los ríos fluyen de norte a sur.",
+      "truth": "Los ríos fluyen cuesta abajo, en la dirección en que se inclina el terreno. El Nilo fluye hacia el norte, hasta el Mediterráneo, y el río Tay fluye hacia el este; el ‘norte’ es solo la parte de arriba del mapa."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Divisoria de aguas (watershed)",
+      "def": "La línea de terreno alto que separa dos cuencas hidrográficas; en México también se llama parteaguas. En inglés, watershed significa esta divisoria en el Reino Unido, pero en Estados Unidos suele significar toda la cuenca; fíjate en el contexto."
+    },
+    {
+      "term": "Cuenca hidrográfica",
+      "def": "El área de terreno que drenan un río y sus afluentes, limitada por la divisoria de aguas."
+    },
+    {
+      "term": "Nacimiento",
+      "def": "El punto donde empieza el cauce de un río, que puede ser un manantial, la salida de un lago o la unión de pequeños flujos. El río también recibe agua a lo largo de su curso, así que su nacimiento no es su único aporte de agua."
+    },
+    {
+      "term": "Afluente",
+      "def": "Un arroyo o río que se une a un cauce más grande en una confluencia. Su caudal y sus sedimentos se suman al río de aguas abajo. Un afluente puede tener su propia cuenca, incluida dentro del sistema fluvial mayor."
+    },
+    {
+      "term": "Confluencia",
+      "def": "El lugar donde se unen dos arroyos o ríos. Aguas abajo, el río lleva el agua y los sedimentos de ambos."
+    },
+    {
+      "term": "Desembocadura",
+      "def": "El lugar donde un río entra en un mar, un lago u otro río. Su forma depende del aporte de sedimentos, del movimiento del agua y de la topografía local. Algunas desembocaduras forman deltas, otras forman estuarios con mareas y otras entran directamente en un cauce mayor."
+    },
+    {
+      "term": "Interfluvio",
+      "def": "El terreno alto entre valles o cauces vecinos. Sus laderas envían el agua hacia los cauces cercanos. Un interfluvio puede estar dentro de una cuenca mayor y no es necesariamente el límite de toda esa cuenca."
+    }
+  ],
+  "predict": {
+    "prompt": "Llueve a ambos lados de la cresta de una colina. ¿El agua de los dos lados terminará en el mismo río? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Qué decide a qué río llega la lluvia que cae en una ladera?",
+    "claim": "Lo decide la divisoria de aguas: toda la lluvia que cae dentro de la divisoria drena hacia la misma salida, y la lluvia que cae justo fuera va a un río vecino.",
+    "evidence": "Con Contorno de la cuenca activado, la divisoria sigue el terreno alto alrededor del borde de la cuenca. Al seguir un afluente se ve el agua bajar hasta una confluencia y luego hasta la única salida; las laderas más allá del borde drenan en la dirección contraria.",
+    "reasoning": "El agua fluye cuesta abajo. La divisoria es la línea de terreno más alto entre cuencas, así que separa las laderas que drenan hacia una salida de las que drenan hacia otra."
+  },
+  "controls": {
+    "feature": {
+      "label": "Elemento",
+      "options": ["Nacimiento", "Afluente", "Confluencia", "Salida"]
+    },
+    "overlay": {
+      "label": "Contorno de la cuenca"
+    }
+  }
+}

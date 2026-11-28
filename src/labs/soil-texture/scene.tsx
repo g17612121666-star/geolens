@@ -6,15 +6,17 @@ import { soilFractions, soilTexture, TEXTURE_COLOURS } from "@/lib/soil-science"
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { DebrisField } from "../shared/geomorphic-terrain";
 import { Tag } from "../shared/kit";
+import { useT } from "@/lib/i18n";
 const xyz = (sand: number, clay: number): [number, number, number] => [
   ((100 - sand - clay - sand) / 100) * 1.7,
   0.02,
   1 - (2.95 * clay) / 100,
 ];
 export default function SoilTexture() {
+  const tr = useT();
   const { params } = useLabState("params"),
     { sand, clay, silt } = soilFractions(params.sand ?? 40, params.clay ?? 20),
-    name = soilTexture(sand, clay);
+    name = tr(soilTexture(sand, clay));
   const g = useMemo(() => {
     const p: number[] = [],
       colors: number[] = [],
@@ -94,8 +96,10 @@ export default function SoilTexture() {
     <>
       <ScienceStudio
         slug="soil-texture"
-        scale="USDA texture triangle · percentages sum to 100 · fine-earth fraction only"
-        trueScale="Positions on the triangle are exact · the slab’s thickness is only for display"
+        scale={tr("USDA texture triangle · percentages sum to 100 · fine-earth fraction only")}
+        trueScale={tr(
+          "Positions on the triangle are exact · the slab’s thickness is only for display",
+        )}
         camera={[0, 5.4, 4.4]}
       >
         <mesh geometry={tile} castShadow receiveShadow>
@@ -143,18 +147,18 @@ export default function SoilTexture() {
           <AxisNumber key={`cn${v}`} pos={xyz(100 - v, v)} offset={[-0.2, -0.1]} text={`${v}`} />,
           <AxisNumber key={`tn${v}`} pos={xyz(0, 100 - v)} offset={[0.2, -0.1]} text={`${v}`} />,
         ])}
-        <AxisNumber pos={xyz(50, 0)} offset={[0, 0.36]} text="← sand %" />
-        <AxisNumber pos={xyz(50, 50)} offset={[-0.62, -0.3]} text="clay % ↑" />
-        <AxisNumber pos={xyz(0, 50)} offset={[0.62, -0.3]} text="silt % ↓" />
+        <AxisNumber pos={xyz(50, 0)} offset={[0, 0.36]} text={tr("← sand %")} />
+        <AxisNumber pos={xyz(50, 50)} offset={[-0.62, -0.3]} text={tr("clay % ↑")} />
+        <AxisNumber pos={xyz(0, 50)} offset={[0.62, -0.3]} text={tr("silt % ↓")} />
         <mesh position={xyz(sand, clay)}>
           <sphereGeometry args={[0.055, 24, 16]} />
           <meshStandardMaterial color="#fff2d2" metalness={0.2} roughness={0.3} />
         </mesh>
         <group position={[0, 0, 2.0]}>
           {[
-            { label: "sand", fraction: sand, x: -1.3 },
-            { label: "silt", fraction: silt, x: 0 },
-            { label: "clay", fraction: clay, x: 1.3 },
+            { label: tr("sand"), fraction: sand, x: -1.3 },
+            { label: tr("silt"), fraction: silt, x: 0 },
+            { label: tr("clay"), fraction: clay, x: 1.3 },
           ].map((sample, k) => (
             <group key={k} position={[sample.x, 0, 0]}>
               <mesh position={[0, -0.03, 0]} receiveShadow>
@@ -205,36 +209,39 @@ export default function SoilTexture() {
               <Tag
                 pos={[0, 0.02, 0.55]}
                 text={`${sample.fraction.toFixed(0)}% ${sample.label}`}
-                note="Enlarged samples show angular sand and silt grains and flat clay plates, drawn in size order (sand largest, clay smallest). Real sand grains can be over 1,000 times wider than clay plates, so sizes are not to scale and grain counts are not measurements. The percentage is by mass of the fine earth."
+                note={tr(
+                  "Enlarged samples show angular sand and silt grains and flat clay plates, drawn in size order (sand largest, clay smallest). Real sand grains can be over 1,000 times wider than clay plates, so sizes are not to scale and grain counts are not measurements. The percentage is by mass of the fine earth.",
+                )}
                 occlude={false}
               />
             </group>
           ))}
         </group>
         <SettlingJar sand={sand} silt={silt} clay={clay} />
-        <Tag pos={[-1.9, 0.04, 1.1]} text="100% sand" occlude={false} />
-        <Tag pos={[1.9, 0.04, 1.1]} text="100% silt" occlude={false} />
-        <Tag pos={[0, 0.04, -2.15]} text="100% clay" occlude={false} />
+        <Tag pos={[-1.9, 0.04, 1.1]} text={tr("100% sand")} occlude={false} />
+        <Tag pos={[1.9, 0.04, 1.1]} text={tr("100% silt")} occlude={false} />
+        <Tag pos={[0, 0.04, -2.15]} text={tr("100% clay")} occlude={false} />
         <Tag
           pos={[xyz(sand, clay)[0], 0.4, xyz(sand, clay)[2]]}
           text={name}
-          note="The class depends on particle sizes, not color, fertility or organic content. Silt is whatever remains after sand and clay, so the total stays at 100%."
+          note={tr(
+            "The class depends on particle sizes, not color, fertility or organic content. Silt is whatever remains after sand and clay, so the total stays at 100%.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
         <span className="formula">
-          {sand.toFixed(0)}
-          {"% sand + "}
-          {silt.toFixed(0)}
-          {"% silt + "}
-          {clay.toFixed(0)}
-          {"% clay = 100%"}
+          {tr("{sand}% sand + {silt}% silt + {clay}% clay = 100%", {
+            sand: sand.toFixed(0),
+            silt: silt.toFixed(0),
+            clay: clay.toFixed(0),
+          })}
         </span>{" "}
-        · {name}
-        {
-          ". USDA size limits: sand 0.05–2 mm, silt 0.002–0.05 mm, clay <0.002 mm. The jar shows how the same mix settles in water. Class colors are a key, not soil photographs."
-        }
+        · {name}.{" "}
+        {tr(
+          "USDA size limits: sand 0.05–2 mm, silt 0.002–0.05 mm, clay <0.002 mm. The jar shows how the same mix settles in water. Class colors are a key, not soil photographs.",
+        )}
       </ScienceReadout>
     </>
   );
@@ -264,6 +271,7 @@ function AxisNumber({
  * so layer thicknesses follow the selected fractions. Water and glass are schematic.
  */
 function SettlingJar({ sand, silt, clay }: { sand: number; silt: number; clay: number }) {
+  const tr = useT();
   const height = 1.2,
     radius = 0.32,
     layers = [
@@ -311,8 +319,10 @@ function SettlingJar({ sand, silt, clay }: { sand: number; silt: number; clay: n
       </mesh>
       <Tag
         pos={[0, height + 0.25, 0]}
-        text="Jar test"
-        note="Shake a soil sample with water and let it stand: sand settles within a minute, silt within hours, and clay can take a day or more. Measuring each layer estimates the texture you can then read on the triangle."
+        text={tr("Jar test")}
+        note={tr(
+          "Shake a soil sample with water and let it stand: sand settles within a minute, silt within hours, and clay can take a day or more. Measuring each layer estimates the texture you can then read on the triangle.",
+        )}
         occlude={false}
       />
     </group>

@@ -1,0 +1,134 @@
+{
+  "title": "El viento, la FGP y Coriolis",
+  "hook": "El aire se acelera en respuesta a las diferencias de presión.",
+  "objective": "Explica cómo las diferencias de presión ponen el aire en movimiento y cómo la rotación de la Tierra y la fricción con la superficie cambian su dirección.",
+  "modelDescription": "Un terreno llano está cruzado por isobaras discontinuas, líneas de igual presión, con la presión más baja a un lado. Un dial en el centro muestra como flechas las fuerzas sobre el aire en movimiento: la fuerza del gradiente de presión, la fuerza de Coriolis y, cuando está activada, la fricción. Con Coriolis activado, el viento estable sopla a lo largo de las isobaras; con fricción, las cruza hacia la presión más baja.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra el lado de presión más baja y predice hacia dónde apunta la flecha del gradiente de presión. Luego activa y desactiva Hemisferio sur y compara el viento estable."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Activa Fricción: ¿cruza ahora el viento las isobaras, y hacia qué lado? Luego activa Soltar desde el reposo y arrastra el control Proceso para ver cómo se forma el viento."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué añadir fricción cambia tanto la velocidad como la dirección del viento?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La fuerza del gradiente de presión (FGP) apunta…",
+      "choices": [
+        "A lo largo de las isobaras",
+        "Siempre hacia el este",
+        "De la presión baja a la alta",
+        "De la presión alta a la baja"
+      ],
+      "explain": "Una diferencia de presión ejerce una fuerza neta de la presión más alta hacia la más baja. Un gradiente de presión más pronunciado produce una fuerza mayor por unidad de masa de aire."
+    },
+    {
+      "prompt": "En el hemisferio norte, el efecto Coriolis desvía el aire en movimiento hacia…",
+      "choices": ["La derecha", "La izquierda", "Arriba", "Ningún lado"],
+      "explain": "Visto desde la Tierra en rotación, el aire en movimiento se desvía hacia la derecha de su dirección de avance en el hemisferio norte. La “derecha” es relativa a la dirección de avance, no una dirección fija de la brújula."
+    },
+    {
+      "prompt": "La fricción cerca de la superficie hace que el viento…",
+      "choices": [
+        "Sea más rápido y más geostrófico",
+        "Cruce las isobaras hacia la presión baja",
+        "Pierda toda la desviación de Coriolis",
+        "Sople en línea recta de la presión alta a la baja"
+      ],
+      "explain": "La fricción con la superficie frena el viento y debilita su desviación de Coriolis. Entonces la fuerza del gradiente de presión da al flujo una componente que cruza las isobaras hacia la presión más baja."
+    },
+    {
+      "prompt": "El parámetro de Coriolis horizontal f es cero en…",
+      "choices": ["Los polos", "Chicago", "El ecuador", "Solo en la tropopausa"],
+      "explain": "Para el movimiento horizontal, el parámetro de Coriolis es proporcional al seno de la latitud. Es cero en el ecuador y cambia de signo entre los dos hemisferios."
+    },
+    {
+      "prompt": "Un viento del oeste sopla…",
+      "choices": [
+        "Del este hacia el oeste",
+        "Hacia el oeste, mar adentro",
+        "Del oeste hacia el este",
+        "Solo a lo largo de la costa oeste de un país"
+      ],
+      "explain": "La dirección del viento siempre indica de dónde viene el aire. En las latitudes medias de Estados Unidos, los vientos dominantes del oeste llevan el aire y los sistemas meteorológicos de oeste a este."
+    }
+  ],
+  "why": [
+    "El aire se acelera en respuesta a las diferencias de presión. La rotación de la Tierra desvía su movimiento, mientras que la fricción con la superficie cambia tanto la velocidad del viento como el ángulo con que cruza las líneas de presión.",
+    "El aire que parte del reposo empieza a moverse hacia la presión más baja, pero Coriolis lo desvía hacia la derecha en el hemisferio norte (hacia la izquierda en el sur) hasta que el viento corre a lo largo de las isobaras, con Coriolis equilibrando la fuerza del gradiente de presión: es el viento geostrófico. La fricción frena el aire, lo que debilita Coriolis, así que la fuerza del gradiente de presión gana un poco y el viento cruza las isobaras hacia la presión más baja.",
+    "El campo de presión fijo y el rozamiento sencillo aíslan estas fuerzas; el modelo no predice el viento en ningún lugar real."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El viento siempre sopla en línea recta de la presión alta a la baja.",
+      "truth": "La fuerza del gradiente de presión empuja el aire hacia la presión más baja, pero la rotación de la Tierra desvía el aire en movimiento y la fricción lo frena cerca del suelo. Por encima de la capa de superficie, los vientos soplan casi a lo largo de las isobaras; cerca del suelo las cruzan en ángulo hacia la presión más baja."
+    },
+    {
+      "claim": "Un viento recibe el nombre de la dirección hacia la que sopla.",
+      "truth": "Los vientos reciben el nombre de la dirección de la que vienen. Un viento del oeste sopla del oeste hacia el este, y un viento del norte viene del norte."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Coriolis",
+      "def": "Una fuerza aparente causada por la rotación de la Tierra, que desvía el aire y el agua en movimiento hacia la derecha en el hemisferio norte y hacia la izquierda en el sur. Su efecto sobre el movimiento horizontal es cero en el ecuador y máximo en los polos."
+    },
+    {
+      "term": "FGP",
+      "def": "Fuerza del gradiente de presión: la fuerza por unidad de masa asociada con una diferencia de presión, dirigida de la presión más alta hacia la más baja."
+    },
+    {
+      "term": "Viento geostrófico",
+      "def": "Un viento idealizado en el que la fuerza del gradiente de presión está equilibrada por la aceleración de Coriolis, así que el flujo corre paralelo a isobaras rectas. Es más útil por encima de la capa de fricción de la superficie y lejos del ecuador."
+    },
+    {
+      "term": "Fricción",
+      "def": "El rozamiento entre el aire en movimiento y la superficie, que frena el viento y cambia su dirección. Cerca del suelo, esto permite que el viento cruce las isobaras hacia la presión más baja. Más arriba en la atmósfera, la fricción con la superficie es mucho más débil."
+    },
+    {
+      "term": "Isobara",
+      "def": "Una línea que une lugares con la misma presión atmosférica en un mapa del tiempo. Las isobaras muy juntas indican un gradiente de presión grande en una distancia dada. El viento también responde a la rotación de la Tierra y a la fricción, así que no sigue simplemente ese gradiente."
+    },
+    {
+      "term": "Ley de Buys Ballot",
+      "def": "Si te pones de espaldas al viento en el hemisferio norte, la presión más baja suele quedar a tu izquierda; en el hemisferio sur ocurre lo contrario. La fricción con la superficie modifica el ángulo."
+    },
+    {
+      "term": "Gradiente de presión",
+      "def": "El cambio de la presión atmosférica en una distancia dada. Un gradiente mayor ejerce una fuerza del gradiente de presión más fuerte sobre el aire. Las isobaras muy juntas suelen indicar un gradiente fuerte, pero el viento también depende de la fricción y de la rotación de la Tierra."
+    }
+  ],
+  "predict": {
+    "prompt": "El aire fluye de la presión alta a la baja. ¿Crees que el viento sopla en línea recta a través de las isobaras, de la alta a la baja? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Por qué el viento, por encima del suelo, sopla a lo largo de las isobaras en lugar de ir directo hacia la presión baja?",
+    "claim": "La rotación de la Tierra desvía el aire en movimiento hasta que el efecto Coriolis equilibra la fuerza del gradiente de presión, así que el viento sopla a lo largo de las isobaras; cerca del suelo, la fricción hace que las cruce hacia la presión baja.",
+    "evidence": "Con Soltar desde el reposo, el aire empieza hacia la presión más baja y gira a la derecha en el hemisferio norte (a la izquierda con Hemisferio sur activado) hasta que corre paralelo a las isobaras. Activar Fricción frena el viento, que entonces cruza las isobaras en ángulo hacia la presión más baja.",
+    "reasoning": "El efecto Coriolis desvía el aire en movimiento hacia la derecha en el hemisferio norte y crece con la velocidad del viento. Se alcanza un viento estable cuando equilibra exactamente la fuerza del gradiente de presión. La fricción frena el aire y debilita la desviación, así que la fuerza de presión gana un poco."
+  },
+  "controls": {
+    "coriolis": {
+      "label": "Coriolis"
+    },
+    "friction": {
+      "label": "Fricción"
+    },
+    "sh": {
+      "label": "Hemisferio sur"
+    },
+    "transient": {
+      "label": "Soltar desde el reposo"
+    }
+  }
+}

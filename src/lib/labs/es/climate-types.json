@@ -1,0 +1,136 @@
+{
+  "title": "Tipos de clima",
+  "hook": "Compara las familias climáticas del mundo a partir de los patrones de temperatura y lluvia a largo plazo.",
+  "objective": "Explora las cinco grandes familias climáticas y explica cómo los patrones de temperatura y lluvia a largo plazo determinan su distribución en el mundo.",
+  "modelDescription": "Un globo terrestre está coloreado por familia climática: A tropical, B seco, C templado, D continental frío y E polar. La familia elegida aparece resaltada, y en el globo se marcan ciudades de referencia.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Lee la leyenda de la A a la E e identifica la familia resaltada en el globo."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Elige Tropical y luego Seco. Compara su distribución y explica por qué la temperatura por sí sola no basta para distinguirlas."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué hay que tener en cuenta la lluvia junto con la temperatura al comparar los climas tropicales y los secos?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La clasificación de Köppen–Geiger se basa sobre todo en…",
+      "choices": [
+        "El tiempo de hoy en una estación meteorológica.",
+        "La latitud y la altura sobre el nivel del mar.",
+        "La temperatura y la lluvia mensuales a largo plazo.",
+        "Solo las plantas que se ven en una fotografía."
+      ],
+      "explain": "Las clases de Köppen–Geiger usan umbrales basados en la temperatura y la precipitación mensuales a largo plazo, incluida la época del año en que ocurren. La vegetación refleja esas condiciones, pero no se usa para definir las clases."
+    },
+    {
+      "prompt": "Un clima B puede ser…",
+      "choices": [
+        "Solo cálido.",
+        "Solo hielo polar.",
+        "Una garantía de lluvia todos los días.",
+        "Seco, y además cálido o frío."
+      ],
+      "explain": "Los climas B se definen por la aridez: una lluvia por debajo de un umbral que depende de la temperatura y de la época en que cae la lluvia. Luego, una última letra distingue los climas secos cálidos (h) de los fríos (k)."
+    },
+    {
+      "prompt": "La etiqueta Cfa de Washington D. C. se aplica a…",
+      "choices": [
+        "Un punto, un conjunto de datos y un periodo.",
+        "Todos los lugares de Estados Unidos.",
+        "El tiempo que se espera mañana en D. C.",
+        "Todas las tierras bajas del este de EE. UU."
+      ],
+      "explain": "Una etiqueta climática describe los datos del lugar muestreado durante el periodo de referencia elegido. Otros lugares del mismo país pueden tener clases distintas por la altitud, la influencia de la costa o los patrones regionales de lluvia."
+    },
+    {
+      "prompt": "La familia polar incluye…",
+      "choices": [
+        "Solo paisajes cubiertos de hielo permanente.",
+        "Los climas de tundra y de casquete glaciar.",
+        "Todos los lugares con un invierno frío.",
+        "Solo lugares del hemisferio sur."
+      ],
+      "explain": "Tanto los climas de tundra como los de casquete glaciar tienen un promedio inferior a 10 °C en su mes más cálido. La tundra llega al menos a 0 °C en su mes más cálido, mientras que un clima de casquete glaciar se mantiene por debajo de 0 °C."
+    },
+    {
+      "prompt": "¿Qué enunciado describe el clima y no el tiempo?",
+      "choices": [
+        "Hoy llueve con fuerza en Chicago.",
+        "Mañana habrá viento en Denver.",
+        "Anoche fue la noche más fría de todo el invierno.",
+        "Seattle promedia unos 1,000 mm de lluvia al año."
+      ],
+      "explain": "Un promedio de muchos años describe el clima. Los otros enunciados describen las condiciones de días concretos, es decir, el tiempo."
+    }
+  ],
+  "why": [
+    "Köppen–Geiger agrupa los climas según la temperatura y la lluvia mensuales a largo plazo. Las familias tropical, seca, templada, continental y polar describen distintas combinaciones de calor, estacionalidad y humedad.",
+    "Las familias forman un patrón porque el calor y la humedad no llegan de forma pareja. Los climas tropicales están cerca del ecuador, donde hace calor todo el año. Los climas secos se concentran bajo el aire que desciende en los subtrópicos, en el interior de los continentes y en las sombras pluviométricas. Los climas templados, continentales fríos y polares siguen a medida que los inviernos se vuelven más fríos hacia los polos; los continentales fríos casi no existen en el hemisferio sur porque hay poca tierra en esas latitudes. Las montañas altas pueden tener clima polar incluso en los trópicos.",
+    "Los colores resumen el periodo de referencia 1991–2020; la clase climática de un lugar no determina su tiempo actual ni su vegetación exacta."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Un solo día de tiempo inusual puede cambiar la clasificación climática de un lugar.",
+      "truth": "Las clases climáticas salen de estadísticas a largo plazo, como 30 años de temperatura y lluvia mensuales. Una ola de calor o un día muy lluvioso es un solo evento dentro de ese registro. Solo un cambio duradero en esas estadísticas puede llegar a cambiar la clase de un lugar."
+    },
+    {
+      "claim": "El tiempo y el clima significan lo mismo.",
+      "truth": "El tiempo es el estado de la atmósfera durante horas o días. El clima es el patrón del tiempo a largo plazo, normalmente promediado durante 30 años: como dice el refrán, el clima es lo que esperas y el tiempo es lo que te toca."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Köppen",
+      "def": "Un sistema de clasificación climática que agrupa los lugares según la temperatura y la precipitación mensuales a largo plazo. Sus códigos de letras describen umbrales climáticos y estacionalidad. La vegetación puede sugerir un clima, pero un paisaje o el tiempo de un día no determinan la clasificación."
+    },
+    {
+      "term": "Bioma",
+      "def": "Una gran región ecológica caracterizada por su vegetación y los organismos asociados, muy influida por el clima, los suelos y las perturbaciones."
+    },
+    {
+      "term": "Cfb",
+      "def": "Clima templado oceánico de Köppen, sin estación seca y con veranos templados más que calurosos. Londres es un ejemplo conocido."
+    },
+    {
+      "term": "BWh",
+      "def": "Clima desértico cálido de Köppen: la precipitación queda por debajo del umbral de aridez de los desiertos y la temperatura media anual es de al menos 18 °C."
+    },
+    {
+      "term": "Af",
+      "def": "Clima de selva tropical de Köppen: todos los meses tienen un promedio de al menos 18 °C y reciben al menos 60 mm de precipitación."
+    },
+    {
+      "term": "Continentalidad",
+      "def": "La influencia de la distancia al océano en el clima de un lugar. Los lugares del interior suelen tener una mayor amplitud térmica estacional porque la tierra se calienta y se enfría más rápido que el agua. Los vientos dominantes, la altitud y las corrientes cercanas también afectan el contraste."
+    },
+    {
+      "term": "Clima",
+      "def": "El patrón estadístico del tiempo durante un periodo largo, normalmente 30 años, que incluye promedios, variación estacional y extremos."
+    }
+  ],
+  "predict": {
+    "prompt": "El Sahara y la Amazonia son calurosos. ¿Qué crees que distingue un clima tropical de un clima desértico cálido?"
+  },
+  "cer": {
+    "prompt": "¿Por qué la temperatura por sí sola no basta para saber a qué familia climática pertenece un lugar?",
+    "claim": "Las familias climáticas dependen de la temperatura y de la precipitación, así que dos lugares igual de calurosos pueden pertenecer a familias distintas.",
+    "evidence": "Al elegir Tropical se resalta una franja cerca del ecuador que incluye las cuencas del Amazonas y del Congo. Al elegir Seco se resaltan el Sahara, Arabia y el centro de Australia, cerca de los 30° N y S, además de interiores y sombras pluviométricas en otras partes. Ambas incluyen lugares que son calurosos todo el año.",
+    "reasoning": "El sistema de Köppen–Geiger usa la temperatura y la precipitación mensuales a largo plazo. Un clima seco (B) se define por tener muy poca precipitación para su temperatura, sea cual sea esa temperatura. El aire que asciende cerca del ecuador trae lluvias intensas, mientras que el aire subtropical que desciende mantiene secos los desiertos."
+  },
+  "controls": {
+    "biome": {
+      "label": "Familia climática",
+      "options": ["A — Tropical", "B — Seco", "C — Templado", "D — Continental frío", "E — Polar"]
+    }
+  }
+}

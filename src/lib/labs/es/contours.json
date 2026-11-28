@@ -1,0 +1,133 @@
+{
+  "title": "Curvas de nivel ↔ relieve 3D",
+  "hook": "Una curva de nivel une lugares que están a la misma altura.",
+  "objective": "Relaciona la separación y la forma de las curvas de nivel con la altura y la pendiente de un paisaje, y luego distingue un valle de un espolón.",
+  "modelDescription": "Una colina modelo verde se eleva sobre una base plana, con curvas de nivel marrones dibujadas a su alrededor a alturas iguales y rotuladas en metros. Unas etiquetas marcan un valle y un espolón, y una línea roja de A a B marca un perfil que aparece como un perfil de alturas en el panel de resultados. La colina se puede aplanar en su mapa topográfico, y la montaña Sugarloaf real, en Maryland, puede sustituir a la colina modelo. La altura está exagerada 2.5 veces, salvo que compares a la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Desactiva y activa Colina 3D para comparar el mapa topográfico con la colina. Sigue un valle y un espolón, y compara hacia dónde se doblan sus curvas de nivel."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Cambia la Equidistancia sin cambiar el relieve. Compara las curvas de nivel muy juntas y las muy separadas, y explica la diferencia de pendiente."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo puede la misma equidistancia representar una pendiente suave en un lugar y una pendiente empinada en otro?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Las curvas de nivel que forman una V que apunta cuesta arriba suelen marcar…",
+      "choices": [
+        "Un espolón de terreno alto",
+        "Un acantilado empinado",
+        "Un valle o un arroyo",
+        "Un punto acotado"
+      ],
+      "explain": "Una curva de nivel cruza un valle más arriba cerca del arroyo que en las laderas vecinas, así que su V apunta aguas arriba. El agua corre cuesta abajo en la dirección contraria."
+    },
+    {
+      "prompt": "Un espolón es…",
+      "choices": [
+        "Una hondonada cerrada marcada por anillos de altura decreciente.",
+        "Un valle entre dos crestas; las Vs de sus curvas apuntan cuesta arriba.",
+        "Una pendiente empinada donde las curvas de nivel se juntan.",
+        "Una cresta de terreno alto; las Vs de sus curvas apuntan cuesta abajo."
+      ],
+      "explain": "Un espolón sobresale del terreno alto hacia un terreno más bajo. Las curvas de nivel rodean ese saliente, con su V o su U apuntando cuesta abajo."
+    },
+    {
+      "prompt": "La equidistancia es de 10 m. Si entre dos puntos cruzas cinco intervalos, la diferencia de altura es…",
+      "choices": ["50 m", "10 m", "25 m", "500 m"],
+      "explain": "La diferencia de altura es igual al número de intervalos multiplicado por la equidistancia. Cinco intervalos de 10 m dan 50 m."
+    },
+    {
+      "prompt": "Las curvas de nivel muy separadas significan…",
+      "choices": [
+        "Una pendiente empinada",
+        "Una pendiente suave",
+        "Un acantilado",
+        "Terreno al nivel del mar"
+      ],
+      "explain": "Las curvas de nivel muy separadas muestran que una subida de altura dada ocurre a lo largo de una distancia horizontal larga. Esa relación menor entre subida y distancia significa una pendiente más suave."
+    },
+    {
+      "prompt": "En un mapa, los anillos de las curvas de nivel suben hacia un pequeño anillo cerrado en el centro. ¿Qué es?",
+      "choices": [
+        "Una hondonada con agua",
+        "Una colina o una cumbre",
+        "El valle de un río",
+        "El borde de un acantilado"
+      ],
+      "explain": "Las curvas cerradas cuya altura aumenta hacia el centro marcan una colina o una cumbre. Si las alturas disminuyeran hacia dentro, el anillo marcaría una hondonada."
+    }
+  ],
+  "why": [
+    "Una curva de nivel une lugares que están a la misma altura. Las curvas muy juntas indican una pendiente empinada, mientras que una separación mayor indica una pendiente más suave; sus patrones revelan valles, crestas y cumbres.",
+    "Donde una curva de nivel cruza un valle, tiene que subir por el fondo del valle hasta encontrar terreno de la misma altura, así que su V apunta cuesta arriba. Alrededor de un espolón sobresale el terreno alto, así que la V o la U de la curva apunta cuesta abajo.",
+    "El mismo relieve construido aparece en las dos vistas, así que cambiar la equidistancia cambia el detalle del mapa, no la colina."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La curva en V de una curva de nivel siempre apunta cuesta abajo.",
+      "truth": "Donde una curva de nivel cruza el valle de un arroyo, su curva suele apuntar cuesta arriba y aguas arriba. Alrededor de un espolón que sobresale, la curva apunta cuesta abajo. Usa las alturas rotuladas y los cursos de agua cercanos para distinguirlos; la forma de una sola línea sin contexto puede engañar."
+    },
+    {
+      "claim": "Las curvas de nivel son caminos o límites que se podrían ver en el terreno.",
+      "truth": "Las curvas de nivel son líneas imaginarias que unen puntos de igual altura sobre el nivel del mar. No se ven en el paisaje, pero caminar a lo largo de una te mantendría siempre a la misma altura."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Curva de nivel",
+      "def": "Una línea en un mapa que une puntos a la misma altura sobre un nivel de referencia indicado. Las curvas juntas suelen indicar terreno empinado, y una separación mayor, una pendiente más suave. Las curvas de nivel se dibujan en los mapas; no se ven en el terreno."
+    },
+    {
+      "term": "Equidistancia",
+      "def": "La diferencia de altura entre dos curvas de nivel vecinas. Revisa la leyenda del mapa antes de calcular una pendiente o la altura de una colina. En la mayoría de los mapas la equidistancia no cambia, mientras que la separación de las líneas cambia con la pendiente del terreno."
+    },
+    {
+      "term": "Punto acotado",
+      "def": "La altura indicada de un punto concreto en un mapa, que suele medirse sobre un nivel de referencia vertical especificado. Da un valor rotulado donde las curvas de nivel muestran el relieve general. No da la altura de cada punto cercano."
+    },
+    {
+      "term": "Espolón",
+      "def": "Una cresta que sobresale del terreno alto entre valles. Las curvas de nivel suelen formar Vs o Us que apuntan cuesta abajo a lo largo de ella. En el valle de un arroyo, las curvas equivalentes suelen apuntar cuesta arriba, lo que ayuda a distinguirlos en un mapa."
+    },
+    {
+      "term": "Valle",
+      "def": "Una zona alargada de terreno bajo entre laderas más altas, a menudo con un arroyo o un río. El agua y el hielo pueden crear valles con perfiles transversales distintos. Donde las curvas de nivel cruzan el valle de un arroyo, sus curvas suelen apuntar aguas arriba, hacia el terreno más alto."
+    },
+    {
+      "term": "Otero",
+      "def": "Una colina pequeña, por lo general redondeada, que sobresale del terreno cercano. En un mapa topográfico suele aparecer como líneas cerradas una dentro de otra, con la altura aumentando hacia el centro. Lee las alturas rotuladas para distinguirlo de una hondonada cerrada."
+    }
+  ],
+  "predict": {
+    "prompt": "En un mapa topográfico, ¿esperarías que las líneas estuvieran más juntas en una pendiente empinada o en una suave? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Cómo puedes distinguir una pendiente empinada de una suave, y un valle de un espolón, usando las curvas de nivel?",
+    "claim": "Las curvas de nivel muy juntas indican una pendiente empinada, las muy separadas una pendiente suave, y una V que apunta cuesta arriba marca un valle, mientras que una que apunta cuesta abajo marca un espolón.",
+    "evidence": "Al activar Colina 3D se ve que la parte más empinada de la colina está donde las curvas de nivel se juntan. Siguiendo el valle de un arroyo, las curvas apuntan cuesta arriba; a lo largo del espolón de una cresta, apuntan cuesta abajo. Cambiar la equidistancia de 5 m a 20 m quita detalle, pero mantiene el mismo patrón.",
+    "reasoning": "Cada curva de nivel une puntos de igual altura y las líneas vecinas difieren en la equidistancia. Donde la altura cambia rápido en poca distancia, las líneas tienen que estar más juntas. Las curvas se doblan aguas arriba donde cruzan un valle porque el terreno baja hacia el arroyo."
+  },
+  "controls": {
+    "place": {
+      "label": "Paisaje",
+      "options": ["Colina modelo", "Real: montaña Sugarloaf, MD"]
+    },
+    "interval": {
+      "label": "Equidistancia"
+    },
+    "mode3d": {
+      "label": "Colina 3D"
+    }
+  }
+}

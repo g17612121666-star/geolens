@@ -13,6 +13,7 @@ import { fbm } from "../shared/hazard-utils";
 import { useQuality } from "../shared/perf";
 import { useIsCompact } from "@/hooks/use-media";
 import { meanSlope } from "./geometry";
+import { useT } from "@/lib/i18n";
 import {
   BASE,
   CHAMBER,
@@ -63,6 +64,7 @@ function LocalClipping() {
 
 function ModelVolcanoes() {
   const { params, slice, t, trueScale } = useLabState("params", "slice", "t", "trueScale");
+  const tr = useT();
   useLabTick(1 / 9);
   const q = useQuality(),
     compact = useIsCompact();
@@ -215,7 +217,7 @@ function ModelVolcanoes() {
     fissure ? [-s, y, cut] : [-Math.sin(opening) * s, y, Math.cos(opening) * s];
   const rightFace = (s: number, y: number): V3 =>
     fissure ? [s, y, cut] : [Math.sin(opening) * s, y, Math.cos(opening) * s];
-  const typeName = e.form > 0.5 ? "Composite cone" : "Shield volcano";
+  const typeName = e.form > 0.5 ? tr("Composite cone") : tr("Shield volcano");
   // With pyroclastic flows labeled on the left flank, the volcano's name moves to the right.
   const typeAt = (collapse ? 1 : -1) * e.radius * 0.62,
     pdcMid = pdcPaths[0][Math.floor(pdcPaths[0].length * 0.72)];
@@ -224,83 +226,119 @@ function ModelVolcanoes() {
     : style === STYLE.effusive
       ? {
           pos: [0.32, L.rim + 0.22, -0.2] as V3,
-          text: "Lava lake",
-          note: "Runny basalt with little gas pours out quietly. Molten lava fills a pit in the summit caldera, its dark crust splitting to show the glow beneath, and overflows as lava flows.",
+          text: tr("Lava lake"),
+          note: tr(
+            "Runny basalt with little gas pours out quietly. Molten lava fills a pit in the summit caldera, its dark crust splitting to show the glow beneath, and overflows as lava flows.",
+          ),
         }
       : style === STYLE.fountain
         ? {
             pos: [0.28, L.vent + fountainHeight * 0.95, 0] as V3,
-            text: "Lava fountain",
-            note: "In runny basalt, gas bubbles grow and escape easily. Near the vent they burst out together and throw molten spatter upward; fountains at Kīlauea have reached hundreds of meters.",
+            text: tr("Lava fountain"),
+            note: tr(
+              "In runny basalt, gas bubbles grow and escape easily. Near the vent they burst out together and throw molten spatter upward; fountains at Kīlauea have reached hundreds of meters.",
+            ),
           }
         : style === STYLE.dome
           ? {
               pos: [0.3, L.vent + domeRadius * 0.7 + 0.16, 0] as V3,
-              text: "Lava dome",
-              note: "Sticky magma that has lost most of its gas on the way up oozes out slowly and piles up over the vent. A growing dome can collapse and send out pyroclastic flows.",
+              text: tr("Lava dome"),
+              note: tr(
+                "Sticky magma that has lost most of its gas on the way up oozes out slowly and piles up over the vent. A growing dome can collapse and send out pyroclastic flows.",
+              ),
             }
           : {
               pos: [0.62, L.rim + columnHeight * 0.45, 0] as V3,
-              text: "Eruption column",
-              note: "Expanding gas shatters the magma into ash and pumice, which rise in a hot jet until the mixture spreads out as an umbrella cloud. Real columns rise 10–40 km, far higher than drawn here.",
+              text: tr("Eruption column"),
+              note: tr(
+                "Expanding gas shatters the magma into ash and pumice, which rise in a hot jet until the mixture spreads out as an umbrella cloud. Real columns rise 10–40 km, far higher than drawn here.",
+              ),
             };
 
   const scale = fissure
-    ? "Idealized fissure eruption · relative geometry · fountains, dike width and trees not to scale"
-    : "Idealized forms · heights exaggerated about 2.5× · conduit, magma chamber and eruptions not to scale";
+    ? tr(
+        "Idealized fissure eruption · relative geometry · fountains, dike width and trees not to scale",
+      )
+    : tr(
+        "Idealized forms · heights exaggerated about 2.5× · conduit, magma chamber and eruptions not to scale",
+      );
   const trueScaleText = fissure
-    ? "Teaching view unchanged: the fissure plain is already low relief · fountains and trees not to scale"
-    : "Slopes reduced to about real proportions (shields about 4–8°, composite cones about 13–25° on average) · magma chamber, eruptions and trees still schematic";
+    ? tr(
+        "Teaching view unchanged: the fissure plain is already low relief · fountains and trees not to scale",
+      )
+    : tr(
+        "Slopes reduced to about real proportions (shields about 4–8°, composite cones about 13–25° on average) · magma chamber, eruptions and trees still schematic",
+      );
 
   type Label = { pos: V3; text: string; note: string; tone?: "magma" };
   const labels: Label[] = [
     fissure
       ? {
           pos: [-0.9, 0.5, -1.4],
-          text: "Fissure vents",
-          note: "A long crack can erupt basalt as a ‘curtain of fire’, building low spatter ramparts and small cones along its length. A fissure is a vent shape, not a type of magma.",
+          text: tr("Fissure vents"),
+          note: tr(
+            "A long crack can erupt basalt as a ‘curtain of fire’, building low spatter ramparts and small cones along its length. A fissure is a vent shape, not a type of magma.",
+          ),
         }
       : {
           pos: [typeAt, L.h(typeAt, -0.45) + 0.24, -0.45],
           text: typeName,
-          note: `A volcano’s shape builds up over many eruptions. ${
-            e.form > 0.5
-              ? "A composite cone (stratovolcano) is built from alternating layers of explosive ash and pumice and thick, sticky lava flows, so it grows steep and tall; the cutaway shows these layers."
-              : "A shield is built from thousands of thin, runny basalt flows that spread far before they set, so it grows broad and gentle; in the cutaway, red rubbly flow tops separate the layers."
-          } Viscosity, eruption rate, gas and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative.`,
+          note: tr(
+            "A volcano’s shape builds up over many eruptions. {how} Viscosity, eruption rate, gas and erosion all play a part; this is a comparison, not a prediction. Dark tongues are older lava flows; snow and forest are illustrative.",
+            {
+              how:
+                e.form > 0.5
+                  ? tr(
+                      "A composite cone (stratovolcano) is built from alternating layers of explosive ash and pumice and thick, sticky lava flows, so it grows steep and tall; the cutaway shows these layers.",
+                    )
+                  : tr(
+                      "A shield is built from thousands of thin, runny basalt flows that spread far before they set, so it grows broad and gentle; in the cutaway, red rubbly flow tops separate the layers.",
+                    ),
+            },
+          ),
         },
   ];
   if (styleTag) labels.push(styleTag);
   if (collapse && pdcMid)
     labels.push({
       pos: [pdcMid[0], L.h(pdcMid[0], pdcMid[1]) + 0.36, pdcMid[1]],
-      text: "Pyroclastic flow",
+      text: tr("Pyroclastic flow"),
       tone: "magma",
-      note: "When part of the column collapses, hot ash, rock and gas race down the slopes at 100 km/h or more. Pyroclastic flows and volcanic mudflows have killed far more people than lava flows.",
+      note: tr(
+        "When part of the column collapses, hot ash, rock and gas race down the slopes at 100 km/h or more. Pyroclastic flows and volcanic mudflows have killed far more people than lava flows.",
+      ),
     });
   if (sliced) {
     if (!fissure || Math.abs(cut) < 2.0)
       labels.push({
         pos: leftFace(fissure ? 1.3 : CHAMBER.a * 1.45, CHAMBER.y - 0.03),
-        text: "Magma chamber",
+        text: tr("Magma chamber"),
         tone: "magma",
-        note: "Molten and partly crystalline rock collects in the crust below the volcano, with gas dissolved in it under pressure. Its size and depth here are schematic: real chambers are often several kilometers down.",
+        note: tr(
+          "Molten and partly crystalline rock collects in the crust below the volcano, with gas dissolved in it under pressure. Its size and depth here are schematic: real chambers are often several kilometers down.",
+        ),
       });
     labels.push(
       style === STYLE.explosive
         ? {
             pos: rightFace(0.85, fragmentation),
-            text: "Fragmentation level",
+            text: tr("Fragmentation level"),
             tone: "magma",
-            note: "Magma rises through the conduit and, as the pressure on it falls, its gas comes out as bubbles that keep growing. Here they have grown so much that the froth bursts: the magma shatters into ash and pumice, carried up by fast-expanding gas.",
+            note: tr(
+              "Magma rises through the conduit and, as the pressure on it falls, its gas comes out as bubbles that keep growing. Here they have grown so much that the froth bursts: the magma shatters into ash and pumice, carried up by fast-expanding gas.",
+            ),
           }
         : {
             pos: rightFace(0.85, (chamberTop + L.vent) / 2),
-            text: fissure ? "Feeder dike · bubbles grow" : "Conduit · bubbles grow",
+            text: fissure ? tr("Feeder dike · bubbles grow") : tr("Conduit · bubbles grow"),
             tone: "magma",
             note: fissure
-              ? "Below a fissure, magma rises through a long, thin, sheet-like crack called a dike. As the pressure on it falls, dissolved gas forms bubbles that grow on the way up. Its width here is exaggerated."
-              : "Magma rises from the chamber through this pipe. As the pressure on it falls, dissolved gas comes out as bubbles that grow on the way up. In runny magma they escape easily; in sticky magma they are trapped. Its width here is exaggerated.",
+              ? tr(
+                  "Below a fissure, magma rises through a long, thin, sheet-like crack called a dike. As the pressure on it falls, dissolved gas forms bubbles that grow on the way up. Its width here is exaggerated.",
+                )
+              : tr(
+                  "Magma rises from the chamber through this pipe. As the pressure on it falls, dissolved gas comes out as bubbles that grow on the way up. In runny magma they escape easily; in sticky magma they are trapped. Its width here is exaggerated.",
+                ),
           },
     );
   }
@@ -460,34 +498,56 @@ function ModelVolcanoes() {
             {labels.map((l, i) => `${i + 1} · ${l.text.split(" · ")[0]}`).join(" · ")}
           </div>
         )}
-        {"Viscosity "}
-        {v.toFixed(2)} {"· Gas drive "}
-        {gas.toFixed(2)} ·{" "}
-        {fissure ? "fissure vents" : e.form > 0.5 ? "steep composite cone" : "broad shield"}.{" "}
+        {tr("Viscosity {v} · Gas drive {gas} · {form}.", {
+          v: v.toFixed(2),
+          gas: gas.toFixed(2),
+          form: fissure
+            ? tr("fissure vents")
+            : e.form > 0.5
+              ? tr("steep composite cone")
+              : tr("broad shield"),
+        })}{" "}
         {!fissure &&
-          `Average flank slope about ${Math.round(slopeReal)}° at real proportions${
-            trueScale ? "" : ` (${Math.round(slopeDrawn)}° as drawn)`
-          }. `}
+          (trueScale
+            ? tr("Average flank slope about {real}° at real proportions.", {
+                real: Math.round(slopeReal),
+              })
+            : tr("Average flank slope about {real}° at real proportions ({drawn}° as drawn).", {
+                real: Math.round(slopeReal),
+                drawn: Math.round(slopeDrawn),
+              })) + " "}
         {style === STYLE.explosive
           ? collapse
-            ? "Sticky, gas-rich magma traps its bubbles until it shatters into ash: the column spreads into an umbrella cloud while parts of it collapse as pyroclastic flows (shown qualitatively)."
+            ? tr(
+                "Sticky, gas-rich magma traps its bubbles until it shatters into ash: the column spreads into an umbrella cloud while parts of it collapse as pyroclastic flows (shown qualitatively).",
+              )
             : composite
-              ? "Sticky, gas-rich magma traps its bubbles until it shatters into ash, feeding an eruption column (shown qualitatively)."
-              : "With this much gas even runny basalt shatters into ash and an eruption column rises (shown qualitatively)."
+              ? tr(
+                  "Sticky, gas-rich magma traps its bubbles until it shatters into ash, feeding an eruption column (shown qualitatively).",
+                )
+              : tr(
+                  "With this much gas even runny basalt shatters into ash and an eruption column rises (shown qualitatively).",
+                )
           : style === STYLE.dome
             ? fissure
-              ? "Sticky, gas-poor lava squeezes out along the crack as short, thick flows."
-              : "Sticky magma with little gas oozes out slowly and piles up as a lava dome in the crater."
+              ? tr("Sticky, gas-poor lava squeezes out along the crack as short, thick flows.")
+              : tr(
+                  "Sticky magma with little gas oozes out slowly and piles up as a lava dome in the crater.",
+                )
             : style === STYLE.fountain
               ? fissure
-                ? "Gas-rich runny basalt erupts as a curtain of fire along the crack, feeding lava flows."
-                : "Gas-rich runny basalt throws up a lava fountain that feeds lava flows."
+                ? tr(
+                    "Gas-rich runny basalt erupts as a curtain of fire along the crack, feeding lava flows.",
+                  )
+                : tr("Gas-rich runny basalt throws up a lava fountain that feeds lava flows.")
               : fissure
-                ? "Runny basalt pours out along the crack and spreads as lava flows."
-                : "Runny basalt with little gas fills a lava lake and pours out as long lava flows."}{" "}
-        {
-          "Use Cutaway to look inside the volcano. Gas, contact with water and ascent conditions also affect how explosive an eruption is; basalt can erupt explosively too."
-        }
+                ? tr("Runny basalt pours out along the crack and spreads as lava flows.")
+                : tr(
+                    "Runny basalt with little gas fills a lava lake and pours out as long lava flows.",
+                  )}{" "}
+        {tr(
+          "Use Cutaway to look inside the volcano. Gas, contact with water and ascent conditions also affect how explosive an eruption is; basalt can erupt explosively too.",
+        )}
       </ScienceReadout>
     </>
   );

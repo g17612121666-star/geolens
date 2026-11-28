@@ -30,6 +30,7 @@ import {
   plateHeight,
   type Setting,
 } from "./islands";
+import { useT } from "@/lib/i18n";
 
 const COOLED = new THREE.Color("#2d2a2b"),
   MOLTEN = new THREE.Color("#c2441c"),
@@ -184,6 +185,7 @@ function Track({
   /** Both sections are shown: spread the labels so they do not overlap. */
   stacked?: boolean;
 }) {
+  const tr = useT();
   const { continental, top, plateBase } = setting;
   const height = useMemo(() => plateHeight(setting), [setting]);
   const plate = useMemo(() => {
@@ -379,63 +381,81 @@ function Track({
       {!stacked && (
         <Tag
           pos={[0.1, (continental ? top : SEA) + 1.27 + tagLift, 0]}
-          text={continental ? "Plate moves SW" : "Plate moves NW"}
+          text={continental ? tr("Plate moves SW") : tr("Plate moves NW")}
           priority={2}
           note={
             continental
-              ? "The North American Plate moves southwest relative to the Yellowstone heat source, so the active center appears to migrate northeast."
-              : "The Pacific Plate moves northwest relative to the Hawaiian heat source, carrying each volcano away from the place where it formed."
+              ? tr(
+                  "The North American Plate moves southwest relative to the Yellowstone heat source, so the active center appears to migrate northeast.",
+                )
+              : tr(
+                  "The Pacific Plate moves northwest relative to the Hawaiian heat source, carrying each volcano away from the place where it formed.",
+                )
           }
           occlude={false}
         />
       )}
       <Tag
         pos={[-2.2, (continental ? top : SEA) + 1.3 + tagLift, -0.6]}
-        text={continental ? "Yellowstone · NE" : "Hawaiʻi · SE"}
-        short={continental ? "Yellowstone" : "Hawaiʻi"}
+        text={continental ? tr("Yellowstone · NE") : tr("Hawaiʻi · SE")}
+        short={continental ? tr("Yellowstone") : tr("Hawaiʻi")}
         priority={3}
         note={
           continental
-            ? "Young end of the Yellowstone volcanic track: a caldera with a lake, geysers and a magma reservoir in the crust. Older volcanic centers extend southwest along the flat basalt Snake River Plain."
-            : "The southeastern end is the active shield volcano, the broadest and tallest on the track: thousands of thin, runny basalt flows build its gentle slopes. Black recent lava runs down the flank to the sea, a lava lake glows in the summit caldera, and rain forest grows on the wet northeast side. The caldera and flows are drawn larger than they really are. Kauaʻi, to the northwest, preserves rocks about 5–5.5 million years old."
+            ? tr(
+                "Young end of the Yellowstone volcanic track: a caldera with a lake, geysers and a magma reservoir in the crust. Older volcanic centers extend southwest along the flat basalt Snake River Plain.",
+              )
+            : tr(
+                "The southeastern end is the active shield volcano, the broadest and tallest on the track: thousands of thin, runny basalt flows build its gentle slopes. Black recent lava runs down the flank to the sea, a lava lake glows in the summit caldera, and rain forest grows on the wet northeast side. The caldera and flows are drawn larger than they really are. Kauaʻi, to the northwest, preserves rocks about 5–5.5 million years old.",
+              )
         }
         occlude={false}
       />
       <Tag
         pos={[1.9, (continental ? top : SEA) + 0.85 + tagLift, 0.6]}
-        text={continental ? "Older · SW" : "Older · NW"}
-        short="Older"
+        text={continental ? tr("Older · SW") : tr("Older · NW")}
+        short={tr("Older")}
         note={
           continental
-            ? "The southwest end of the recognized Yellowstone track reaches roughly 17 Ma. Older calderas are buried by later basalt; these depressions are symbols, not surveyed caldera outlines."
-            : "Moving away from the plume, islands cool, sink and erode: green valleys, then a coral atoll ring around a lagoon, then a drowned flat-topped seamount. Shapes are illustrative, not real coastlines."
+            ? tr(
+                "The southwest end of the recognized Yellowstone track reaches roughly 17 Ma. Older calderas are buried by later basalt; these depressions are symbols, not surveyed caldera outlines.",
+              )
+            : tr(
+                "Moving away from the plume, islands cool, sink and erode: green valleys, then a coral atoll ring around a lagoon, then a drowned flat-topped seamount. Shapes are illustrative, not real coastlines.",
+              )
         }
         occlude={false}
       />
       {!continental && !stacked && newborn > 0.5 && (
         <Tag
           pos={[PLUME_X, top + 0.45 + tagLift * 0.5, 0]}
-          text="New seamount"
+          text={tr("New seamount")}
           tone="magma"
-          note="Fresh eruptions build a new submarine volcano above the plume, as Kamaʻehuakanaloa (Lōʻihi) is doing southeast of the Island of Hawaiʻi today."
+          note={tr(
+            "Fresh eruptions build a new submarine volcano above the plume, as Kamaʻehuakanaloa (Lōʻihi) is doing southeast of the Island of Hawaiʻi today.",
+          )}
           occlude={false}
         />
       )}
       {!continental && !stacked && (
         <Tag
           pos={[PLUME_X + 3 * SPACING + shift, SEA + 0.25 + tagLift * 0.5, 0]}
-          text="Atoll"
+          text={tr("Atoll")}
           tone="glacier"
-          note="Coral reefs keep growing upward at sea level while the extinct volcano beneath them subsides, leaving a ring of reef around a lagoon."
+          note={tr(
+            "Coral reefs keep growing upward at sea level while the extinct volcano beneath them subsides, leaving a ring of reef around a lagoon.",
+          )}
           occlude={false}
         />
       )}
       <Tag
         pos={[PLUME_X - 0.75, -1.2, D / 2 + 0.05]}
-        text="Mantle plume"
+        text={tr("Mantle plume")}
         priority={1}
         tone="magma"
-        note="In the plume hypothesis, hot but mostly solid mantle rises slowly. Partial melting near the top feeds magma up through the plate; it is not a hollow pipe or a column of liquid magma. Geometry and colors are schematic."
+        note={tr(
+          "In the plume hypothesis, hot but mostly solid mantle rises slowly. Partial melting near the top feeds magma up through the plate; it is not a hollow pipe or a column of liquid magma. Geometry and colors are schematic.",
+        )}
         occlude={false}
       />
     </group>
@@ -443,6 +463,7 @@ function Track({
 }
 
 export default function Hotspots() {
+  const tr = useT();
   const { params, t } = useLabState("params", "t");
   useLabTick(1 / 30);
   const hawaii = params.hawaii > 0.5,
@@ -453,34 +474,42 @@ export default function Hotspots() {
       <ScienceStudio
         slug="hotspots"
         camera={[2.4, 3.6, 7.6]}
-        scale="Separate hotspot sections · track directions are real · relief, plate and plume not to scale"
-        trueScale="No true depth or distance scale · plate thickness and plume are schematic"
+        scale={tr(
+          "Separate hotspot sections · track directions are real · relief, plate and plume not to scale",
+        )}
+        trueScale={tr("No true depth or distance scale · plate thickness and plume are schematic")}
       >
         {hawaii && <Track setting={OCEAN} z={both ? -1.25 : 0} t={t} stacked={both} />}
         {yellowstone && <Track setting={LAND} z={both ? 1.25 : 0} t={t} stacked={both} />}
         {!hawaii && !yellowstone && (
           <Tag
             pos={[0, 0, 0]}
-            text="Choose a hotspot"
-            note="Enable Hawaiʻi or Yellowstone in the controls to compare an oceanic and a continental setting."
+            text={tr("Choose a hotspot")}
+            note={tr(
+              "Enable Hawaiʻi or Yellowstone in the controls to compare an oceanic and a continental setting.",
+            )}
             occlude={false}
           />
         )}
       </ScienceStudio>
       <ScienceReadout>
         {hawaii
-          ? "Hawaiʻi's volcanic islands become older toward the northwest; Kauaʻi's rocks are about 5–5.5 million years old. "
+          ? tr(
+              "Hawaiʻi's volcanic islands become older toward the northwest; Kauaʻi's rocks are about 5–5.5 million years old.",
+            ) + " "
           : ""}
         {yellowstone
-          ? "Yellowstone's volcanic track goes back about 17 million years, with older sites toward the southwest. "
+          ? tr(
+              "Yellowstone's volcanic track goes back about 17 million years, with older sites toward the southwest.",
+            ) + " "
           : ""}
         {!hawaii && !yellowstone
-          ? "Select Hawaiʻi, Yellowstone or both to compare their volcanic tracks."
-          : "Press Play to follow plate motion above each hotspot."}{" "}
+          ? tr("Select Hawaiʻi, Yellowstone or both to compare their volcanic tracks.")
+          : tr("Press Play to follow plate motion above each hotspot.")}{" "}
         <br />
-        {
-          "Here the plume is held still and the plate moves over it at no set speed. The arrow shows plate motion: right is northwest for Hawaiʻi and southwest for Yellowstone."
-        }
+        {tr(
+          "Here the plume is held still and the plate moves over it at no set speed. The arrow shows plate motion: right is northwest for Hawaiʻi and southwest for Yellowstone.",
+        )}
       </ScienceReadout>
     </>
   );

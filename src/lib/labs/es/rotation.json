@@ -1,0 +1,127 @@
+{
+  "title": "La rotación de la Tierra y el terminador",
+  "hook": "La Tierra gira hacia el este y lleva cada lugar a la luz del Sol y luego a la oscuridad.",
+  "objective": "Explica cómo la rotación de la Tierra hacia el este produce el día y la noche, y relaciona una diferencia de 15° de longitud con una hora de tiempo solar.",
+  "modelDescription": "Un globo terrestre gira hacia el este con la luz del Sol llegando desde un lado, así que una mitad está de día y la otra de noche. El límite entre ellas, el terminador, va de polo a polo, y una ciudad marcada pasa del día a la noche a medida que gira la Tierra. Los husos horarios se pueden dibujar como franjas sobre el globo.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Observa cómo gira la Tierra hacia el este y sigue una ciudad marcada desde la luz del día hasta la oscuridad. Identifica el terminador antes de activar Husos horarios."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Haz una pausa y mueve el control Día. Comprueba que un cuarto de vuelta tarda seis horas y luego explica por qué los husos horarios no causan el día y la noche."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo ayuda seguir una ciudad a través del terminador a explicar la relación entre la rotación y la hora solar local?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "¿Hacia dónde gira la Tierra, vista desde encima del polo norte?",
+      "choices": [
+        "En el sentido de las agujas del reloj (de este a oeste).",
+        "No gira; el Sol gira alrededor de la Tierra.",
+        "Cambia de sentido cada seis meses.",
+        "En sentido contrario a las agujas del reloj (de oeste a este)."
+      ],
+      "explain": "La Tierra gira de oeste a este, lo que se ve en sentido contrario a las agujas del reloj desde encima del polo norte. Esta rotación hace que el Sol parezca cruzar el cielo de este a oeste."
+    },
+    {
+      "prompt": "¿Por qué 15° de longitud equivalen a una hora?",
+      "choices": [
+        "La Tierra gira 360° en 24 horas, es decir, 15° cada hora.",
+        "Porque hay exactamente 15 husos horarios en el mundo.",
+        "Porque Greenwich se situó 15° al este de la línea de cambio de fecha.",
+        "Porque el sistema métrico divide el círculo en horas."
+      ],
+      "explain": "Un día solar medio corresponde a 360° de rotación respecto al Sol, así que 360° divididos entre 24 horas dan 15° por hora. Los límites de los husos horarios civiles también reflejan decisiones políticas y prácticas."
+    },
+    {
+      "prompt": "¿Qué afirmación explica correctamente el día y la noche?",
+      "choices": [
+        "La órbita de la Tierra alrededor del Sol causa el día y la noche.",
+        "La rotación de la Tierra lleva cada lugar a la luz del Sol y fuera de ella.",
+        "El Sol da la vuelta a la Tierra una vez al día.",
+        "Los husos horarios deciden a qué horas recibe luz cada lugar de la Tierra."
+      ],
+      "explain": "La rotación lleva cada lugar a la luz del Sol y fuera de ella, y así produce el día y la noche. Los husos horarios asignan horas de reloj a los lugares; no hacen que cambie la iluminación."
+    },
+    {
+      "prompt": "Si es mediodía solar en Denver (~105° O), ¿qué hora solar local es más o menos en Nueva York (~74° O)?",
+      "choices": [
+        "Las 10:00 — Nueva York está al oeste de Denver.",
+        "Medianoche.",
+        "Cerca de las 14:00 — 30° son dos horas de adelanto.",
+        "La misma, porque están en el mismo país."
+      ],
+      "explain": "Nueva York está unos 30° al este de Denver, así que llega al mediodía solar unas dos horas antes, porque la Tierra gira 15° cada hora. Por eso su hora solar local es cerca de las 14:00 cuando en Denver es mediodía."
+    },
+    {
+      "prompt": "¿Por qué el Sol sale antes en Boston que en Detroit el mismo día?",
+      "choices": [
+        "La Tierra gira hacia el este, así que Boston entra primero en la luz del Sol.",
+        "Boston está un poco más al norte, así que ve el Sol primero.",
+        "Los husos horarios adelantan el amanecer en Nueva Inglaterra.",
+        "Boston está a mayor altitud, así que ve el Sol antes."
+      ],
+      "explain": "Boston está unos 12° al este de Detroit, casi a la misma latitud, y las dos ciudades usan la hora del Este. Como la Tierra gira de oeste a este, los lugares más al este entran primero en la luz del Sol, unos 4 minutos antes por cada grado de longitud, así que en Boston amanece unos 50 minutos antes."
+    }
+  ],
+  "why": [
+    "La Tierra gira hacia el este y lleva cada lugar a la luz del Sol y luego a la oscuridad. El límite entre el día y la noche se llama terminador; separa la mitad iluminada de la Tierra de la mitad sin iluminar.",
+    "Respecto al Sol, la Tierra gira 360° en unas 24 horas, así que cada lugar recorre 15° de longitud cada hora. Por eso un cuarto de vuelta, de 90°, tarda seis horas: en el modelo, Nueva York pasa del amanecer al mediodía solar. Los husos horarios solo ponen nombre a las horas del reloj; no causan el día y la noche.",
+    "Las franjas de los husos horarios dividen la longitud en intervalos ideales de 15°; los husos horarios civiles reales siguen decisiones locales y fronteras. El modelo muestra la geometría de un equinoccio, con el eje de la Tierra perpendicular a la luz del Sol, así que el terminador pasa por los dos polos y todos los lugares tienen unas 12 horas de luz. En otras épocas del año, el eje inclinado inclina el terminador y la duración del día cambia con la latitud."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Los husos horarios determinan dónde es de día y dónde es de noche.",
+      "truth": "La rotación de la Tierra lleva los lugares a la luz del Sol y fuera de ella. Los husos horarios asignan horas civiles a las regiones; sus límites reflejan decisiones políticas y prácticas. Cambiar el límite de un huso horario cambiaría la hora del reloj, pero el amanecer y el atardecer seguirían dependiendo de la rotación de la Tierra y de la dirección del Sol."
+    },
+    {
+      "claim": "El Sol cruza el cielo porque da la vuelta a la Tierra cada día.",
+      "truth": "La Tierra gira de oeste a este una vez al día, así que el Sol parece salir por el este y ponerse por el oeste. El Sol no gira alrededor de la Tierra; la Tierra gira alrededor del Sol una vez al año."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Rotación",
+      "def": "El giro de un cuerpo sobre su propio eje. La rotación de la Tierra produce el ciclo del día y la noche y contribuye al movimiento diario aparente del cielo. Es distinta de la traslación, que describe el movimiento orbital alrededor de otro cuerpo."
+    },
+    {
+      "term": "Terminador",
+      "def": "La línea que separa la mitad iluminada de un planeta o de una luna de su mitad oscura. En la Tierra, cada lugar la cruza al amanecer y al atardecer, y su ángulo respecto a los polos cambia con las estaciones."
+    },
+    {
+      "term": "Meridiano",
+      "def": "Una línea de longitud que va de un polo al otro. El mediodía solar local de un lugar ocurre cuando el Sol cruza su meridiano local. Los meridianos se juntan en los polos, así que la distancia entre longitudes vecinas disminuye hacia las latitudes altas."
+    },
+    {
+      "term": "Huso horario",
+      "def": "Una región que usa una hora civil estándar acordada. Sus límites siguen decisiones políticas y prácticas, y no miden necesariamente 15° de ancho."
+    },
+    {
+      "term": "Día sidéreo",
+      "def": "El tiempo que tarda la Tierra en dar una vuelta completa respecto a las estrellas lejanas, unas 23 horas y 56 minutos. El día solar medio es más largo porque la Tierra también avanza en su órbita y tiene que girar un poco más para volver a mirar al Sol."
+    },
+    {
+      "term": "Día solar",
+      "def": "El tiempo entre dos pasos sucesivos del Sol por el meridiano local, de 24 horas en promedio. Es un poco más largo que el día sidéreo porque la Tierra también avanza en su órbita mientras gira."
+    }
+  ],
+  "predict": {
+    "prompt": "Dallas está unos 15° de longitud al este de Phoenix. ¿Saldrá el Sol antes o después en Dallas, y más o menos cuánto?"
+  },
+  "cer": {
+    "prompt": "¿Qué causa el día y la noche, y por qué los lugares a distintas longitudes llegan al mediodía a horas distintas?",
+    "claim": "La rotación de la Tierra hacia el este lleva cada lugar a la luz del Sol y fuera de ella, y cada 15° de longitud hacia el este el mediodía solar llega más o menos una hora antes.",
+    "evidence": "Mover el control Día un cuarto de la escala gira la Tierra 90° en 6 horas. Una ciudad que se sigue a través del terminador pasa de la luz del día a la oscuridad sin que el Sol se mueva. Activar Husos horarios cambia las etiquetas del reloj, pero no dónde está el límite entre el día y la noche.",
+    "reasoning": "La Tierra gira 360° respecto al Sol en unas 24 horas, así que 360 ÷ 24 = 15° por hora. Los lugares más al este entran primero en la luz del Sol. Los husos horarios son etiquetas humanas para los relojes, así que no pueden causar el día y la noche."
+  },
+  "controls": { "zones": { "label": "Husos horarios" } }
+}
