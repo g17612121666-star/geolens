@@ -8,6 +8,7 @@ import { useLabState } from "@/lib/store/lab-controls";
 import { useLabTick } from "@/labs/tick";
 import { ScienceStudio, ScienceReadout } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
+import { msg, useT } from "@/lib/i18n";
 function CondensationBelt({ latitude, radius }: { latitude: number; radius: number }) {
   const ref = useRef<InstancedMesh>(null);
   useLayoutEffect(() => {
@@ -87,26 +88,32 @@ const WIND_BELTS = [
   {
     lat: 15,
     lon: 25,
-    text: "Trade winds",
-    short: "Trades",
+    text: msg("Trade winds"),
+    short: msg("Trades"),
     tone: "sandstone",
-    note: "Air returning toward the equator in the Hadley cell is turned west by Earth's rotation, giving the steady northeast trade winds (southeast trades south of the equator).",
+    note: msg(
+      "Air returning toward the equator in the Hadley cell is turned west by Earth's rotation, giving the steady northeast trade winds (southeast trades south of the equator).",
+    ),
   },
   {
     lat: 45,
     lon: 25,
-    text: "Westerlies",
-    short: "Westerlies",
+    text: msg("Westerlies"),
+    short: msg("Westerlies"),
     tone: "glacier",
-    note: "Surface air in the midlatitudes flows poleward and is turned east by Earth's rotation. These westerlies steer most US weather systems from west to east.",
+    note: msg(
+      "Surface air in the midlatitudes flows poleward and is turned east by Earth's rotation. These westerlies steer most US weather systems from west to east.",
+    ),
   },
   {
     lat: 68,
     lon: 40,
-    text: "Polar easterlies",
-    short: "Easterlies",
+    text: msg("Polar easterlies"),
+    short: msg("Easterlies"),
     tone: "sandstone",
-    note: "Cold air spreading away from the polar high is turned west by Earth's rotation. These winds are weaker and less steady than the trades.",
+    note: msg(
+      "Cold air spreading away from the polar high is turned west by Earth's rotation. These winds are weaker and less steady than the trades.",
+    ),
   },
 ] as const;
 
@@ -115,24 +122,29 @@ const PRESSURE_BELTS = [
   {
     lat: 30,
     lon: 0,
-    text: "High · 30°",
-    title: "Subtropical high",
-    short: "H",
+    text: msg("High · 30°"),
+    title: msg("Subtropical high"),
+    short: msg("H"),
     tone: "glacier",
-    note: "Subtropical high: air sinking where the Hadley and Ferrel cells meet warms and dries as it descends. Many of the world's hot deserts lie near 30°, such as the Sonoran and the Sahara.",
+    note: msg(
+      "Subtropical high: air sinking where the Hadley and Ferrel cells meet warms and dries as it descends. Many of the world's hot deserts lie near 30°, such as the Sonoran and the Sahara.",
+    ),
   },
   {
     lat: 60,
     lon: -35,
-    text: "Low · 60°",
-    title: "Subpolar low",
-    short: "L",
+    text: msg("Low · 60°"),
+    title: msg("Subpolar low"),
+    short: msg("L"),
     tone: "magma",
-    note: "Subpolar low: air rising where cold polar air meets milder midlatitude air brings clouds, storms and frequent rain near 60°.",
+    note: msg(
+      "Subpolar low: air rising where cold polar air meets milder midlatitude air brings clouds, storms and frequent rain near 60°.",
+    ),
   },
 ] as const;
 
 export default function ThreeCell() {
+  const tr = useT();
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 55);
   const three = (params.three ?? 1) > 0.5,
@@ -141,19 +153,19 @@ export default function ThreeCell() {
     height = trueScale ? (radius * 12000) / 6371000 : 0.34;
   const bands = three
     ? [
-        { name: "Hadley", a: itcz, b: 30, direct: true, color: "#dbb986" },
-        { name: "Ferrel", a: 30, b: 60, direct: false, color: "#94c6c5" },
-        { name: "Polar", a: 60, b: 89, direct: true, color: "#d7e4e3" },
+        { name: msg("Hadley"), a: itcz, b: 30, direct: true, color: "#dbb986" },
+        { name: msg("Ferrel"), a: 30, b: 60, direct: false, color: "#94c6c5" },
+        { name: msg("Polar"), a: 60, b: 89, direct: true, color: "#d7e4e3" },
       ]
-    : [{ name: "One cell", a: itcz, b: 89, direct: true, color: "#dbb986" }];
+    : [{ name: msg("One cell"), a: itcz, b: 89, direct: true, color: "#dbb986" }];
   return (
     <>
       <ScienceStudio
         slug="three-cell"
         camera={[0, 1, 5.5]}
         lights={false}
-        scale="Cell depth enlarged · average circulation, not individual weather systems"
-        trueScale="Cell depth 12 km, Earth radius 6371 km · wind arrows enlarged"
+        scale={tr("Cell depth enlarged · average circulation, not individual weather systems")}
+        trueScale={tr("Cell depth 12 km, Earth radius 6371 km · wind arrows enlarged")}
       >
         <group rotation={[0, Math.PI, 0]}>
           <EarthMesh radius={radius} lighting="viewer" />
@@ -217,10 +229,10 @@ export default function ThreeCell() {
               <Tag
                 key={w.text}
                 pos={latLonToXYZ(w.lat, w.lon, radius * 1.07)}
-                text={w.text}
-                short={w.short}
+                text={tr(w.text)}
+                short={tr(w.short)}
                 tone={w.tone}
-                note={w.note}
+                note={tr(w.note)}
                 priority={1}
               />
             ))}
@@ -229,11 +241,11 @@ export default function ThreeCell() {
               <Tag
                 key={p.text}
                 pos={latLonToXYZ(p.lat, p.lon, radius * 1.03)}
-                text={p.text}
-                title={p.title}
-                short={p.short}
+                text={tr(p.text)}
+                title={tr(p.title)}
+                short={tr(p.short)}
                 tone={p.tone}
-                note={p.note}
+                note={tr(p.note)}
                 priority={1}
               />
             ))}
@@ -244,12 +256,17 @@ export default function ThreeCell() {
               <Tag
                 key={b.name}
                 pos={latLonToXYZ(mid, -80, radius * 1.004 + height * 0.5)}
-                text={b.name}
+                text={tr(b.name)}
                 priority={2}
                 note={
                   b.name === "Ferrel"
-                    ? "The Ferrel cell is an average, ‘indirect’ circulation kept going mainly by heat and momentum carried by midlatitude weather systems. Real air follows those systems, not a neat permanent loop."
-                    : `${b.name}: air rises at the lower-latitude end, flows poleward aloft, sinks farther poleward and returns toward the equator near the surface. Real boundaries vary.`
+                    ? tr(
+                        "The Ferrel cell is an average, ‘indirect’ circulation kept going mainly by heat and momentum carried by midlatitude weather systems. Real air follows those systems, not a neat permanent loop.",
+                      )
+                    : tr(
+                        "{cell}: air rises at the lower-latitude end, flows poleward aloft, sinks farther poleward and returns toward the equator near the surface. Real boundaries vary.",
+                        { cell: tr(b.name) },
+                      )
                 }
                 occlude={false}
               />
@@ -258,23 +275,34 @@ export default function ThreeCell() {
         </group>
         <Tag
           pos={[2.1, Math.sin((itcz * Math.PI) / 180) * radius + 0.1, 0]}
-          text={`ITCZ ${Math.abs(itcz).toFixed(1)}°${itcz < 0 ? "S" : "N"}`}
+          text={tr("ITCZ {lat}°{hemisphere}", {
+            lat: Math.abs(itcz).toFixed(1),
+            hemisphere: itcz < 0 ? tr("S") : tr("N"),
+          })}
           priority={2}
-          note="The model moves the ITCZ 10° either side of the equator each year. The real ITCZ varies with longitude, land, ocean and season; it does not simply follow the overhead Sun."
+          note={tr(
+            "The model moves the ITCZ 10° either side of the equator each year. The real ITCZ varies with longitude, land, ocean and season; it does not simply follow the overhead Sun.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
         {three
-          ? "Hadley and Polar cells are driven by rising warm air and sinking cold air; the Ferrel cell is sustained by heat and momentum transferred by weather systems."
-          : "Without rotation, this model shows one large circulation cell in each hemisphere, with rising tropical air and sinking polar air."}{" "}
+          ? tr(
+              "Hadley and Polar cells are driven by rising warm air and sinking cold air; the Ferrel cell is sustained by heat and momentum transferred by weather systems.",
+            )
+          : tr(
+              "Without rotation, this model shows one large circulation cell in each hemisphere, with rising tropical air and sinking polar air.",
+            )}{" "}
         <br />
         {three
-          ? "Gold: trade winds and polar easterlies · blue: midlatitude westerlies. Sinking air near 30° builds the subtropical highs, where many deserts lie, from the Sonoran to the Sahara; rising air at the ITCZ and near 60° brings frequent rain. "
+          ? tr(
+              "Gold: trade winds and polar easterlies · blue: midlatitude westerlies. Sinking air near 30° builds the subtropical highs, where many deserts lie, from the Sonoran to the Sahara; rising air at the ITCZ and near 60° brings frequent rain.",
+            ) + " "
           : ""}
-        {
-          "The enlarged cloud belt marks the model ITCZ; it is not observed cloud. It is hidden at Physical scale."
-        }
+        {tr(
+          "The enlarged cloud belt marks the model ITCZ; it is not observed cloud. It is hidden at Physical scale.",
+        )}
       </ScienceReadout>
     </>
   );

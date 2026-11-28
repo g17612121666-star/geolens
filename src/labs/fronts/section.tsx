@@ -12,6 +12,7 @@ import { PlantStand, TerrainMaterial } from "../shared/natural-world";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
+import { useT } from "@/lib/i18n";
 
 function airVolume(bottom: (x: number) => number, top: (x: number) => number, factor: number) {
   const shape = new THREE.Shape(),
@@ -43,6 +44,7 @@ function airVolume(bottom: (x: number) => number, top: (x: number) => number, fa
   return geometry;
 }
 export default function Fronts() {
+  const tr = useT();
   const { t, trueScale } = useLabState("t", "trueScale");
   useLabTick(1 / 45);
   const f = trueScale ? 1 : 20,
@@ -69,8 +71,8 @@ export default function Fronts() {
     <>
       <ScienceStudio
         slug="fronts"
-        scale="Vertical dimensions ×20 · cold slope 1:50 · warm slope 1:150"
-        trueScale="Same scale in every direction · 1 scene unit = 100 km"
+        scale={tr("Vertical dimensions ×20 · cold slope 1:50 · warm slope 1:150")}
+        trueScale={tr("Same scale in every direction · 1 scene unit = 100 km")}
         camera={[0.2, 1.8, 8]}
       >
         <FrontGround />
@@ -147,14 +149,24 @@ export default function Fronts() {
         {!s.occluded && <ChartFront x={s.warmFront / 100} kind="warm" />}
         <Tag
           pos={[-2.4, 0.15, 0.98]}
-          text="Cold air"
-          note={`The advancing cold air pushes under the warmer air. The boundary rises 1 km for every 50 km across${trueScale ? "." : "; the teaching view stretches heights ×20."}`}
+          text={tr("Cold air")}
+          note={
+            trueScale
+              ? tr(
+                  "The advancing cold air pushes under the warmer air. The boundary rises 1 km for every 50 km across.",
+                )
+              : tr(
+                  "The advancing cold air pushes under the warmer air. The boundary rises 1 km for every 50 km across; the teaching view stretches heights ×20.",
+                )
+          }
           occlude={false}
         />
         <Tag
           pos={[0, (s.ceiling / 100) * f + 0.4, 0]}
-          text={s.occluded ? "Warm air lifted off surface" : "Warm sector"}
-          note="When the cold front catches the warm front, the warm sector is lifted off the ground (occlusion). This example is a cold occlusion; real occlusions vary."
+          text={s.occluded ? tr("Warm air lifted off surface") : tr("Warm sector")}
+          note={tr(
+            "When the cold front catches the warm front, the warm sector is lifted off the ground (occlusion). This example is a cold occlusion; real occlusions vary.",
+          )}
           occlude={false}
         />
         <Tag
@@ -163,20 +175,27 @@ export default function Fronts() {
               ? [2.9, ((s.cold(290) + Math.max(s.cold(290), s.cool(290))) / 200) * f + 0.03, 0.98]
               : [2.5, 0.15, 0.98]
           }
-          text="Cool air ahead"
-          note="The warm-front boundary slopes 1:150. Clouds show where rising air can condense; they are not a calculated cloud base or rainfall rate."
+          text={tr("Cool air ahead")}
+          note={tr(
+            "The warm-front boundary slopes 1:150. Clouds show where rising air can condense; they are not a calculated cloud base or rainfall rate.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {"Section spans 600 km. "}
+        {tr("Section spans 600 km.")}{" "}
         {s.occluded
-          ? `Occluded: the cold front has caught the warm front, so the warm air no longer touches the ground. Its lowest point, where the two frontal surfaces meet, is ${s.liftAtMeeting.toFixed(2)} km above the ground.`
-          : `Surface warm sector ${(s.warmFront - s.coldFront).toFixed(0)} km wide.`}{" "}
+          ? tr(
+              "Occluded: the cold front has caught the warm front, so the warm air no longer touches the ground. Its lowest point, where the two frontal surfaces meet, is {height} km above the ground.",
+              { height: s.liftAtMeeting.toFixed(2) },
+            )
+          : tr("Surface warm sector {width} km wide.", {
+              width: (s.warmFront - s.coldFront).toFixed(0),
+            })}{" "}
         <br />
-        {
-          "Play or drag Process to follow the faster cold front. Slopes and speeds are set by the model, and the clouds are for illustration. A front on a weather chart marks where a sloping boundary meets the ground."
-        }
+        {tr(
+          "Play or drag Process to follow the faster cold front. Slopes and speeds are set by the model, and the clouds are for illustration. A front on a weather chart marks where a sloping boundary meets the ground.",
+        )}
       </ScienceReadout>
     </>
   );

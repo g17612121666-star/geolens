@@ -1,0 +1,129 @@
+{
+  "title": "La atmósfera, una capa delgada",
+  "hook": "Las capas de la atmósfera se distinguen sobre todo por cómo cambia la temperatura con la altitud.",
+  "objective": "Identifica las principales capas de la atmósfera y explica cómo los cambios de temperatura con la altura ayudan a distinguirlas.",
+  "modelDescription": "Un globo terrestre está envuelto en capas delgadas de colores que representan las capas de la atmósfera, numeradas del 1 al 4 desde la troposfera hasta la termosfera. Las capas se pueden separar, y la escala real muestra lo delgadas que son comparadas con el radio de la Tierra. La vista del perfil de temperatura representa la temperatura del aire frente a la altura.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Abre Globo de capas y nombra las regiones 1–4 con la leyenda. Usa Separar capas para apartar las regiones y luego vuelve a ponerlo en 0 %. Cambia a la Escala real y compara el grosor de la atmósfera con el radio de la Tierra."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Abre Perfil de temperatura. Con un gradiente térmico de 6.5 °C/km, el aire a 12 km está a 15 − 12 × 6.5 = −63 °C. Pon el Gradiente térmico en 4 °C/km y comprueba que pasa a 15 − 12 × 4 = −33 °C."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo distingue el perfil de temperatura las capas de la atmósfera, si no hay un límite sólido entre ellas?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "¿Dónde ocurre casi todo el tiempo atmosférico?",
+      "choices": ["Termosfera", "Mesosfera", "Troposfera", "Exosfera"],
+      "explain": "La troposfera contiene la mayor parte del vapor de agua de la atmósfera y tiene una fuerte mezcla vertical. Estas condiciones concentran las nubes, la precipitación y casi todo el tiempo atmosférico conocido en la capa más baja de la atmósfera."
+    },
+    {
+      "prompt": "Un gradiente térmico de 6.5 °C/km significa…",
+      "choices": [
+        "La temperatura sube 6.5 °C por cada kilómetro de altura.",
+        "La presión baja 6.5 hPa por cada kilómetro de altura.",
+        "La estratosfera se calienta 6.5 °C por kilómetro.",
+        "La temperatura baja unos 6.5 °C por cada kilómetro de altura."
+      ],
+      "explain": "Un gradiente térmico de 6.5 °C/km significa que la temperatura baja unos 6.5 °C por cada kilómetro que subes. Es un promedio; los perfiles reales varían según el tiempo, el lugar y la estación."
+    },
+    {
+      "prompt": "¿Por qué la estratosfera es más cálida a medida que subes?",
+      "choices": [
+        "El ozono absorbe el ultravioleta y calienta esa capa.",
+        "El calor que sube del suelo se acumula allí.",
+        "Las nubes altas atrapan el calor en esa capa.",
+        "Está más cerca del Sol que el suelo."
+      ],
+      "explain": "El ozono absorbe la radiación ultravioleta y convierte parte de esa energía en calor. Esta absorción produce el aumento de la temperatura con la altura que caracteriza a gran parte de la estratosfera."
+    },
+    {
+      "prompt": "Denver está a una milla de altura. ¿Su tiempo atmosférico sigue siendo de la troposfera?",
+      "choices": [
+        "No. A esa altura está en la estratosfera.",
+        "Sí. La tropopausa sigue estando muchos km más arriba.",
+        "Solo en invierno, cuando la tropopausa está más alta.",
+        "No. El tiempo atmosférico solo ocurre cerca del nivel del mar."
+      ],
+      "explain": "Denver está a unos 1.6 km sobre el nivel del mar, pero allí la tropopausa suele estar a más de 10 km de altura. Su tiempo atmosférico sigue siendo de la troposfera."
+    },
+    {
+      "prompt": "¿Más o menos qué parte de la masa de la atmósfera está en la troposfera?",
+      "choices": ["Cerca del 10 %", "Cerca del 33 %", "Cerca del 75 %", "Toda"],
+      "explain": "El aire está comprimido por el peso del aire de encima, así que es más denso cerca del suelo. Aunque la troposfera solo tiene unos 8–17 km de espesor, contiene más o menos tres cuartas partes o más de la masa de la atmósfera."
+    }
+  ],
+  "why": [
+    "Las capas de la atmósfera se distinguen sobre todo por cómo cambia la temperatura con la altitud. Casi todo el tiempo atmosférico ocurre en la troposfera, mientras que la absorción de la radiación ultravioleta ayuda a calentar la estratosfera, que está encima.",
+    "La troposfera se calienta sobre todo desde el suelo, así que su temperatura suele bajar con la altura, unos 6.5 °C por kilómetro en promedio. Cada límite entre capas es donde se invierte esa tendencia: la temperatura deja de bajar en la tropopausa, sube en la estratosfera, vuelve a bajar en la mesosfera y sube en la termosfera.",
+    "Los límites de las capas varían con el lugar y la estación; la atmósfera está dibujada más gruesa para poder examinar su estructura vertical."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La tropopausa es el límite superior de la atmósfera.",
+      "truth": "La tropopausa es solo el límite entre la troposfera y la estratosfera. El aire continúa mucho más arriba, cada vez más tenue. Su altura cambia con la latitud, la estación y el tiempo atmosférico."
+    },
+    {
+      "claim": "Cuanto más alto subes, más calor hace, porque estás más cerca del Sol.",
+      "truth": "En la troposfera, la temperatura suele bajar con la altura, unos 6.5 °C por kilómetro en promedio. El aire se calienta sobre todo desde el suelo, y unos pocos kilómetros no cambian realmente la distancia al Sol."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Troposfera",
+      "def": "La capa más baja de la atmósfera, que contiene la mayor parte de la masa del aire y casi todo el tiempo atmosférico. Suele tener unos 8 km de espesor cerca de los polos y 16–18 km en los trópicos."
+    },
+    {
+      "term": "Tropopausa",
+      "def": "El límite entre la troposfera y la estratosfera, que se identifica sobre todo por un cambio en el gradiente vertical de temperatura. Su altitud varía con la latitud y el tiempo atmosférico."
+    },
+    {
+      "term": "Gradiente térmico",
+      "def": "La rapidez con que cambia la temperatura con la altura en la atmósfera. El gradiente ambiental describe el aire de alrededor medido; el gradiente adiabático describe una parcela de aire que sube o baja. Hay una inversión donde la temperatura aumenta con la altura."
+    },
+    {
+      "term": "Estratosfera",
+      "def": "La capa de la atmósfera que está encima de la troposfera y llega hasta unos 50 km de altitud. En general, la temperatura aumenta con la altura porque el ozono absorbe la radiación ultravioleta. Esta estratificación estable limita la mezcla vertical, a diferencia de la troposfera de abajo."
+    },
+    {
+      "term": "Mesosfera",
+      "def": "La capa de la atmósfera que está más o menos entre 50 y 85 km sobre la superficie, en la que la temperatura suele bajar con la altitud. Aquí se vuelven luminosos muchos meteoros."
+    },
+    {
+      "term": "Termosfera",
+      "def": "La capa de la atmósfera, muy tenue, que está por encima de unos 85 km, donde la temperatura sube con la altitud porque los gases absorben radiación solar muy energética. Aquí ocurren la mayoría de las auroras."
+    },
+    {
+      "term": "Radiosonda",
+      "def": "Un paquete de instrumentos que lleva un globo y que mide propiedades de la atmósfera como la temperatura, la humedad y la presión mientras sube. Seguir su posición también revela los vientos. Un sondeo es una muestra vertical en un momento y un lugar, no un mapa completo de la atmósfera."
+    },
+    {
+      "term": "Capa de ozono",
+      "def": "Una región de la estratosfera con una concentración relativamente alta de ozono. La absorción de la radiación ultravioleta ayuda a calentar esta capa y reduce la cantidad que llega al suelo. Es una región difusa de gas, no una cáscara protectora sólida."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Crees que hace más calor o más frío a medida que subes una montaña alta, aunque estés más cerca del Sol? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Cómo muestran los cambios de temperatura con la altura los límites entre las capas de la atmósfera?",
+    "claim": "Cada límite entre capas es una altura donde se invierte la tendencia de la temperatura: la temperatura baja en la troposfera, sube en la estratosfera, baja en la mesosfera y sube en la termosfera.",
+    "evidence": "Con un gradiente térmico de 6.5 °C/km, una superficie a 15 °C da −63 °C a 12 km, la tropopausa del modelo. Por encima, el perfil se calienta hasta unos 50 km, se enfría hasta unos 85 km y luego vuelve a calentarse.",
+    "reasoning": "La troposfera se calienta sobre todo desde el suelo, así que se enfría con la altura. El ozono absorbe la radiación ultravioleta en la estratosfera y la calienta. Unos pocos kilómetros no cambian realmente la distancia al Sol, así que el patrón lo determina la altura sobre el suelo, no la cercanía al Sol."
+  },
+  "controls": {
+    "lapse": {
+      "label": "Gradiente térmico"
+    }
+  }
+}

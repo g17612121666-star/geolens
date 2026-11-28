@@ -1,0 +1,139 @@
+{
+  "title": "La circulación de tres celdas",
+  "hook": "El calentamiento solar desigual y la rotación de la Tierra organizan la circulación general de la atmósfera.",
+  "objective": "Localiza las celdas de Hadley, de Ferrel y polar, y relaciona su circulación con los patrones generales de vientos y lluvias.",
+  "modelDescription": "Un globo terrestre muestra tres circuitos de aire en cada hemisferio, las celdas de Hadley, de Ferrel y polar, con flechas para los vientos en superficie: los alisios del este cerca del ecuador, los vientos del oeste en las latitudes medias y los vientos polares del este. Al reproducir un año, la franja de aire que sube cerca del ecuador, la ZCIT, se mueve al norte y al sur. La profundidad de las celdas está exagerada, salvo que cambies a la escala real.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra en el globo las celdas de Hadley, de Ferrel y polar. Sigue los vientos del este y del oeste en superficie."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Desactiva Tres celdas para ver un solo circuito movido por el calor y luego vuelve a activarlo. Compara la celda de Ferrel, mantenida por los sistemas meteorológicos, con las celdas de Hadley y polar, movidas por el calor. Pulsa Reproducir para mover la ZCIT a lo largo de un año y luego explica por qué la ZCIT real se mueve de forma menos ordenada."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo ayudan el aire que sube y el que baja a explicar los patrones generales de lluvia, y por qué la celda de Ferrel necesita otra explicación?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La celda de Hadley tiene aire que sube cerca de…",
+      "choices": [
+        "Los polos",
+        "Los subtrópicos, cerca de los 30°",
+        "El ecuador / la ZCIT",
+        "El frente polar, cerca de los 60°"
+      ],
+      "explain": "El fuerte calentamiento tropical y la convergencia en superficie favorecen el ascenso del aire cerca de la ZCIT. Este ascenso forma la rama ascendente de la circulación idealizada de Hadley."
+    },
+    {
+      "prompt": "La ZCIT se desplaza al norte y al sur durante el año porque…",
+      "choices": [
+        "La atracción de la Luna desplaza los alisios",
+        "Las mareas mueven la zona de aire que sube",
+        "La velocidad de rotación de la Tierra cambia según la estación",
+        "El calentamiento estacional mueve la zona de convergencia"
+      ],
+      "explain": "Los cambios estacionales del calentamiento y las diferencias entre la tierra y el océano desplazan la zona donde convergen los vientos tropicales de superficie. Su posición varía con la longitud y no sigue simplemente la latitud que está justo bajo el Sol."
+    },
+    {
+      "prompt": "La celda de Ferrel se llama “indirecta” porque…",
+      "choices": [
+        "La mantienen los remolinos del tiempo de las latitudes medias.",
+        "La mueve directamente el calentamiento local de la superficie.",
+        "Gira en sentido contrario a la rotación de la Tierra.",
+        "Solo existe sobre los océanos."
+      ],
+      "explain": "Los sistemas meteorológicos de las latitudes medias transportan calor e impulso y mantienen la circulación media de Ferrel. Su aire sube en el lado más frío, hacia el polo, y baja en el lado más cálido: lo contrario de lo que produciría el calentamiento por sí solo."
+    },
+    {
+      "prompt": "¿Por qué la Tierra difiere de una circulación sencilla de una sola celda?",
+      "choices": [
+        "La Tierra se calienta igual en todas las latitudes.",
+        "La rotación y los remolinos del tiempo transforman el flujo.",
+        "Los océanos bloquean el aire que va hacia los polos.",
+        "Las montañas dividen la celda única en tres."
+      ],
+      "explain": "La rotación de la Tierra limita el movimiento a gran escala, mientras que los sistemas meteorológicos redistribuyen el calor y el impulso. Sus efectos combinados producen una circulación más compleja que un solo circuito directo del ecuador al polo."
+    },
+    {
+      "prompt": "¿Por qué muchos de los desiertos cálidos del mundo están cerca de los 30° N y 30° S?",
+      "choices": [
+        "El Sol está justo encima allí todo el año.",
+        "Los alisios llevan lluvia allí desde el mar.",
+        "Son los lugares más alejados de los océanos.",
+        "Allí el aire baja, se calienta y se seca."
+      ],
+      "explain": "El aire que subió en la ZCIT desciende en los subtrópicos. El aire que baja se calienta por compresión y su humedad relativa disminuye, así que a las nubes les cuesta formarse."
+    }
+  ],
+  "why": [
+    "El calentamiento solar desigual y la rotación de la Tierra organizan la circulación general de la atmósfera. Las regiones donde el aire sube y baja ayudan a explicar los alisios, los vientos del oeste y los grandes cinturones de presión.",
+    "El aire que sube en la ZCIT se enfría y se condensa, y produce intensas lluvias tropicales; el aire que baja cerca de los 30° se calienta y se seca, y da lugar a las altas subtropicales y a los desiertos. El aire que sube cerca de los 60° trae lluvias frecuentes en las latitudes medias. Como la Tierra gira, el aire que cruza latitudes se desvía, así que el flujo de superficie hacia el ecuador se convierte en los alisios y los vientos polares del este, mientras que el flujo hacia el polo se convierte en los vientos del oeste.",
+    "El patrón de tres celdas es un esquema medio; la circulación real cambia con las estaciones, los continentes y el tiempo atmosférico."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Las tres celdas de la atmósfera son circuitos fijos que siguen las parcelas de aire una por una.",
+      "truth": "El modelo de tres celdas muestra la circulación media según la latitud. El aire real se mueve con sistemas meteorológicos cambiantes y se mezcla entre regiones. Los continentes, las estaciones y los océanos alteran el patrón, y la celda de Ferrel se mantiene sobre todo por los sistemas meteorológicos de las latitudes medias, no por un circuito sencillo de convección."
+    },
+    {
+      "claim": "Los grandes desiertos cálidos están en el ecuador porque es el lugar más caluroso.",
+      "truth": "El ecuador es sobre todo húmedo, porque allí el aire sube y forma lluvias intensas. Los desiertos del Sahara, de Arabia y de Australia están cerca de los 30° N y S, donde el aire baja en la celda de Hadley, se calienta y se seca."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Celda de Hadley",
+      "def": "La circulación tropical media en la que el aire sube cerca de la zona de convergencia ecuatorial, va hacia el polo por arriba y desciende en los subtrópicos. El flujo de retorno cerca de la superficie contribuye a los alisios. La circulación real se desplaza con las estaciones y los continentes."
+    },
+    {
+      "term": "Celda de Ferrel",
+      "def": "La circulación media de las latitudes medias, con aire que va hacia el polo cerca de la superficie y hacia el ecuador por arriba. A diferencia de las celdas de Hadley y polar, no la mueve directamente el calentamiento; la mantienen en gran parte los sistemas meteorológicos que pasan."
+    },
+    {
+      "term": "Celda polar",
+      "def": "La circulación media en la que el aire frío baja cerca de un polo y va hacia el ecuador cerca de la superficie, y vuelve hacia el polo por arriba. Forma parte de un modelo simplificado de la circulación global. El tiempo polar real es menos uniforme que un solo circuito cerrado."
+    },
+    {
+      "term": "ZCIT",
+      "def": "La zona de convergencia intertropical: una franja cambiante donde se encuentran los alisios tropicales y donde a menudo sube aire húmedo. Su posición varía con la estación, los océanos y el calentamiento de la tierra."
+    },
+    {
+      "term": "Vientos alisios",
+      "def": "Los vientos tropicales dominantes de superficie que soplan hacia la zona de convergencia ecuatorial. La rotación de la Tierra les da una componente del este: en general vienen del noreste en el hemisferio norte y del sureste en el sur. Su posición y su fuerza varían según la estación."
+    },
+    {
+      "term": "Alta subtropical",
+      "def": "Una región de presión atmosférica relativamente alta que suele estar en el lado de la circulación de Hadley más cercano al polo. El aire que desciende tiende a impedir la formación de nubes, lo que ayuda a explicar muchas regiones secas subtropicales. Su posición y su fuerza varían con la estación y la geografía."
+    },
+    {
+      "term": "Ecuador térmico",
+      "def": "Una franja con las temperaturas medias más altas en una estación dada. Se desplaza con el calentamiento estacional y la geografía, y no siempre coincide con el ecuador geográfico ni con la ZCIT."
+    },
+    {
+      "term": "Vientos del oeste",
+      "def": "Los vientos dominantes con una componente de oeste a este en gran parte de las latitudes medias. Ayudan a dirigir muchos sistemas meteorológicos, aunque cada viento cambia a medida que se mueven los sistemas de presión. Su patrón medio refleja la circulación atmosférica y la rotación de la Tierra."
+    }
+  ],
+  "predict": {
+    "prompt": "Muchos de los desiertos cálidos del mundo están cerca de los 30° N y 30° S. ¿Qué crees que hace allí el aire: sube o baja?"
+  },
+  "cer": {
+    "prompt": "¿Cómo explica la circulación de tres celdas dónde están las selvas tropicales y los desiertos cálidos del mundo?",
+    "claim": "Las selvas tropicales están cerca del ecuador, donde el aire sube en la celda de Hadley, y los desiertos cálidos están cerca de los 30° N y S, donde ese aire baja.",
+    "evidence": "En el modelo, el aire sube en la ZCIT cerca del ecuador, va hacia el polo por arriba y baja cerca de los 30°, y luego vuelve como los alisios del este. Al reproducir un año, la ZCIT del modelo se mueve entre los 10° S y los 10° N.",
+    "reasoning": "El aire que sube se expande y se enfría, así que su vapor de agua se condensa en nubes y lluvias intensas. El aire que baja se comprime y se calienta, lo que baja su humedad relativa e impide que se formen nubes, y así aparecen las altas subtropicales y los desiertos."
+  },
+  "controls": {
+    "three": {
+      "label": "Tres celdas"
+    }
+  }
+}

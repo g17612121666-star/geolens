@@ -15,6 +15,7 @@ import { GuideLine as Line } from "@/labs/shared/guide-line";
 import { ScientificText } from "@/components/scientific-text";
 import { useIsCompact } from "@/hooks/use-media";
 import { FluxBand } from "./flux-band";
+import { useT } from "@/lib/i18n";
 
 interface EnergyLabel {
   pos: [number, number, number];
@@ -66,6 +67,7 @@ function reflectedPath(absorbedWidth: number, reflectedWidth: number): [number, 
 }
 
 export default function EnergyBudget() {
+  const tr = useT();
   const { params } = useLabState("params");
   useLabTick(1 / 12);
   const albedo = params.albedo ?? 0.3,
@@ -80,47 +82,63 @@ export default function EnergyBudget() {
   const entries: (EnergyLabel | false)[] = [
     {
       pos: [-3.75, 1.2, 0.2],
-      text: `Sunlight in ${b.incoming.toFixed(0)} W/m²`,
+      text: tr("Sunlight in {flux} W/m²", { flux: b.incoming.toFixed(0) }),
       tone: "sandstone",
-      note: "Earth intercepts 1361 W/m² across a disc but spreads it over a sphere with four times the area, so the global average is a quarter: 340 W/m².",
+      note: tr(
+        "Earth intercepts 1361 W/m² across a disc but spreads it over a sphere with four times the area, so the global average is a quarter: 340 W/m².",
+      ),
     },
     {
       pos: [-1.35, SPACE + 0.45, 0.2],
-      text: `Reflected ${b.reflected.toFixed(0)} W/m²`,
-      note: "Planetary albedo is the fraction of incoming sunlight reflected to space, mostly by clouds, with some from air and bright surfaces such as snow and ice.",
+      text: tr("Reflected {flux} W/m²", { flux: b.reflected.toFixed(0) }),
+      note: tr(
+        "Planetary albedo is the fraction of incoming sunlight reflected to space, mostly by clouds, with some from air and bright surfaces such as snow and ice.",
+      ),
     },
     {
       pos: [0.25, 0.42, 0.2],
-      text: `Surface emits ${b.surfaceUp.toFixed(0)}`,
+      text: tr("Surface emits {flux}", { flux: b.surfaceUp.toFixed(0) }),
       tone: "magma",
-      note: "The warm surface radiates infrared. A warmer surface radiates more (Stefan–Boltzmann law: emission rises with the fourth power of temperature).",
+      note: tr(
+        "The warm surface radiates infrared. A warmer surface radiates more (Stefan–Boltzmann law: emission rises with the fourth power of temperature).",
+      ),
     },
     greenhouse && {
       pos: [-0.95, 0.85, 0.2],
-      text: `Back radiation ${b.backRadiation.toFixed(0)}`,
+      text: tr("Back radiation {flux}", { flux: b.backRadiation.toFixed(0) }),
       tone: "ice",
-      note: "The layer emits infrared in both directions. The half sent downward warms the surface further, which is the greenhouse effect.",
+      note: tr(
+        "The layer emits infrared in both directions. The half sent downward warms the surface further, which is the greenhouse effect.",
+      ),
     },
     {
       pos: [1.9, SPACE + 0.45, 0.2],
-      text: `To space ${b.outgoing.toFixed(0)} W/m²`,
-      note: "Outgoing infrared = surface radiation escaping through the window + infrared the layer emits upward. At equilibrium it equals the sunlight absorbed.",
+      text: tr("To space {flux} W/m²", { flux: b.outgoing.toFixed(0) }),
+      note: tr(
+        "Outgoing infrared = surface radiation escaping through the window + infrared the layer emits upward. At equilibrium it equals the sunlight absorbed.",
+      ),
     },
     {
       pos: [HALF_W + 0.25, greenhouse ? (LAYER_LOW + LAYER_HIGH) / 2 : 1.4, 0],
-      text: greenhouse ? "IR layer · ε = 0.78" : "No infrared absorption",
-      note: "One layer absorbs and emits the same share of infrared at every wavelength but lets sunlight through. The hugely enlarged molecules stand for greenhouse gases: carbon dioxide (linear), water vapor (bent) and methane; their vibrations absorb infrared. Convection, evaporation and wavelength detail are left out.",
+      text: greenhouse ? tr("IR layer · ε = 0.78") : tr("No infrared absorption"),
+      note: tr(
+        "One layer absorbs and emits the same share of infrared at every wavelength but lets sunlight through. The hugely enlarged molecules stand for greenhouse gases: carbon dioxide (linear), water vapor (bent) and methane; their vibrations absorb infrared. Convection, evaporation and wavelength detail are left out.",
+      ),
     },
     {
       pos: [HALF_W - 0.6, -0.25, HALF_D + 0.05],
-      text: `Surface ${surfaceC.toFixed(1)} °C`,
+      text: tr("Surface {temp} °C", { temp: surfaceC.toFixed(1) }),
       tone: "magma",
-      note: "The equilibrium surface temperature: the temperature at which the surface emits exactly what it receives from sunlight and back radiation.",
+      note: tr(
+        "The equilibrium surface temperature: the temperature at which the surface emits exactly what it receives from sunlight and back radiation.",
+      ),
     },
     {
       pos: [HALF_W + 0.35, TOP, 0],
-      text: "Top of atmosphere",
-      note: "The energy balance is measured here: sunlight absorbed must equal infrared leaving for the climate to be steady.",
+      text: tr("Top of atmosphere"),
+      note: tr(
+        "The energy balance is measured here: sunlight absorbed must equal infrared leaving for the climate to be steady.",
+      ),
     },
   ];
   const labels = entries
@@ -130,8 +148,12 @@ export default function EnergyBudget() {
     <>
       <ScienceStudio
         slug="energy-budget"
-        scale="One-layer radiation experiment · band widths are proportional to global mean fluxes · heights are schematic"
-        trueScale="The one-layer model has no altitude; the layer stands for all infrared-absorbing gases"
+        scale={tr(
+          "One-layer radiation experiment · band widths are proportional to global mean fluxes · heights are schematic",
+        )}
+        trueScale={tr(
+          "The one-layer model has no altitude; the layer stands for all infrared-absorbing gases",
+        )}
         camera={[0.7, 0.75, 9]}
       >
         <Landscape whiteness={whiteness} />
@@ -215,28 +237,30 @@ export default function EnergyBudget() {
           </ol>
         )}
         <span className="text-sandstone">
-          {"Sunlight absorbed "}
-          {b.absorbed.toFixed(1)}
+          {tr("Sunlight absorbed {flux}", { flux: b.absorbed.toFixed(1) })}
         </span>{" "}
         ·{" "}
         <span className="text-magma">
-          {"Surface emits "}
-          {b.surfaceUp.toFixed(1)}
+          {tr("Surface emits {flux}", { flux: b.surfaceUp.toFixed(1) })}
         </span>{" "}
         ·{" "}
         <span className="text-glacier">
-          {"Back radiation "}
-          {b.backRadiation.toFixed(1)}
+          {tr("Back radiation {flux}", { flux: b.backRadiation.toFixed(1) })}
         </span>{" "}
-        {"W/m². Equilibrium surface temperature "}
-        {surfaceC.toFixed(1)} {"°C · top-of-atmosphere balance "}
-        {Math.abs(b.absorbed - b.outgoing) < 0.05
-          ? "0.0"
-          : (b.absorbed - b.outgoing).toFixed(1)}{" "}
-        {"W/m²."} <br />
-        {
-          "Yellow: sunlight absorbed; cream: sunlight reflected. Orange: infrared from the surface. Blue: infrared emitted by the layer, up to space and back down to the surface. Each band’s width is proportional to its flux. Top-of-atmosphere balance is sunlight absorbed minus infrared to space; zero means equilibrium. In the model, a higher albedo brings more cloud, and snow and sea ice spreading from the poleward edge."
-        }
+        {tr(
+          "W/m². Equilibrium surface temperature {temp} °C · top-of-atmosphere balance {balance} W/m².",
+          {
+            temp: surfaceC.toFixed(1),
+            balance:
+              Math.abs(b.absorbed - b.outgoing) < 0.05
+                ? "0.0"
+                : (b.absorbed - b.outgoing).toFixed(1),
+          },
+        )}{" "}
+        <br />
+        {tr(
+          "Yellow: sunlight absorbed; cream: sunlight reflected. Orange: infrared from the surface. Blue: infrared emitted by the layer, up to space and back down to the surface. Each band’s width is proportional to its flux. Top-of-atmosphere balance is sunlight absorbed minus infrared to space; zero means equilibrium. In the model, a higher albedo brings more cloud, and snow and sea ice spreading from the poleward edge.",
+        )}
       </ScienceReadout>
     </>
   );

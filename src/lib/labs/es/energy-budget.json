@@ -1,0 +1,142 @@
+{
+  "title": "El balance de energía de la Tierra",
+  "hook": "La Tierra refleja parte de la luz solar que le llega y absorbe el resto.",
+  "objective": "Sigue la energía que entra y sale de la Tierra, y explica cómo la reflexión y la absorción atmosférica afectan a la temperatura de la superficie.",
+  "modelDescription": "Un pequeño paisaje costero bajo un cielo con una capa de nubes muestra los flujos de energía como flechas: la luz solar que llega del Sol, la parte que reflejan al espacio las nubes y la superficie, y el calor infrarrojo que sube del suelo. En el aire flotan moléculas de gases de efecto invernadero. Con Retorno de efecto invernadero activado, la atmósfera devuelve hacia la superficie parte del calor que sale.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Pon el Albedo en 0.3 y desactiva Retorno de efecto invernadero. Lee la temperatura de la superficie y luego explica por qué los 1361 W/m² que llegan se dividen entre cuatro."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Activa Retorno de efecto invernadero. Compara lo que emite la superficie con lo que sale al espacio en el tope de la atmósfera. ¿Sigue siendo cero el balance en el tope de la atmósfera?"
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica por qué un cambio en la luz solar reflejada o en la absorción de infrarrojo cambia la temperatura necesaria para el balance de energía."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "¿Qué llega primero al suelo desde el Sol?",
+      "choices": [
+        "Onda larga del aire",
+        "El propio infrarrojo de la Tierra",
+        "Solo ultravioleta",
+        "Luz solar de onda corta"
+      ],
+      "explain": "El Sol está muy caliente, así que emite sobre todo longitudes de onda cortas, como la luz visible. El suelo, mucho más frío, absorbe esta luz solar y luego emite su propio infrarrojo de onda larga."
+    },
+    {
+      "prompt": "El albedo es…",
+      "choices": [
+        "La fracción de la luz solar que se refleja",
+        "La fracción de la luz solar que se absorbe",
+        "El calor que emite una superficie",
+        "El calor que atrapan las nubes"
+      ],
+      "explain": "El albedo compara la energía de onda corta reflejada con la que llega. Una superficie de albedo alto refleja una fracción mayor y absorbe menos de la luz solar que recibe."
+    },
+    {
+      "prompt": "¿Por qué una pradera nevada de las Montañas Rocosas puede calentar el aire menos que un suelo oscuro y desnudo?",
+      "choices": [
+        "La nieve está más fría, así que absorbe más.",
+        "Su albedo es mayor, así que absorbe menos.",
+        "El suelo oscuro refleja más que la nieve.",
+        "La nieve emite más radiación de onda larga."
+      ],
+      "explain": "La nieve refleja mucha más luz solar que el suelo oscuro, así que se absorbe menos energía para calentar la superficie y el aire de encima. Parte de la energía que sí absorbe la nieve se usa para fundirla en lugar de calentarla."
+    },
+    {
+      "prompt": "En este laboratorio, el retorno de efecto invernadero es…",
+      "choices": [
+        "Luz solar que reflejan las nubes.",
+        "Luz solar que absorbe el ozono en la estratosfera.",
+        "Infrarrojo de la atmósfera hacia la superficie.",
+        "Calor que sube por convección."
+      ],
+      "explain": "Los gases de efecto invernadero y las nubes absorben infrarrojo y lo emiten en todas las direcciones, también hacia abajo. Este infrarrojo que baja añade energía a la superficie, que también emite su propio infrarrojo hacia arriba."
+    },
+    {
+      "prompt": "Cuando el hielo marino del Ártico se reduce en verano, ¿qué le pasa al albedo de la región?",
+      "choices": [
+        "Aumenta, así que se refleja más luz solar.",
+        "No cambia, porque el agua es azul.",
+        "Deja de importar, porque el agua está fría.",
+        "Disminuye, así que se absorbe más luz solar."
+      ],
+      "explain": "El hielo y la nieve reflejan gran parte de la luz solar que les llega, mientras que el agua abierta y oscura absorbe la mayor parte. Menos hielo significa un albedo menor y más energía absorbida, lo que puede causar más fusión."
+    }
+  ],
+  "why": [
+    "La Tierra refleja parte de la luz solar que le llega y absorbe el resto. Su temperatura se ajusta hasta que la radiación térmica que sale equilibra la energía absorbida; los gases de efecto invernadero cambian el intercambio de radiación térmica.",
+    "Con Retorno de efecto invernadero activado, la superficie recibe la luz solar más el infrarrojo que la capa emite de vuelta hacia abajo, así que debe emitir más, y estar más caliente, que sin la capa. Solo una parte del infrarrojo de la superficie escapa directamente, pero una vez alcanzado el balance, el infrarrojo que sale al espacio sigue siendo igual a la luz solar absorbida.",
+    "Este modelo sencillo solo incluye la radiación; deja fuera la convección, la evaporación y el tiempo atmosférico."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Los gases de efecto invernadero calientan la Tierra sobre todo atrapando la luz solar visible que llega.",
+      "truth": "Los gases de efecto invernadero dejan pasar la mayor parte de la luz solar visible, y gran parte de ella se absorbe en la superficie. La superficie calentada emite infrarrojo, que los gases de efecto invernadero y las nubes absorben y vuelven a emitir, en parte hacia abajo. Por eso la superficie tiene que estar más caliente para que escape al espacio la energía suficiente para equilibrar la luz solar absorbida."
+    },
+    {
+      "claim": "El efecto invernadero se debe al agujero de la capa de ozono.",
+      "truth": "Son problemas distintos. El agujero de ozono es un adelgazamiento del ozono de la estratosfera que deja llegar más ultravioleta al suelo. El efecto invernadero es la absorción y la reemisión de infrarrojo por gases como el dióxido de carbono y el vapor de agua."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Albedo",
+      "def": "La fracción de la luz solar que refleja una superficie, expresada de cero a uno o como porcentaje. La nieve fresca suele tener un albedo alto, y el suelo oscuro, uno menor. El albedo no tiene unidades; la energía reflejada, en vatios por metro cuadrado, es un flujo."
+    },
+    {
+      "term": "Onda corta",
+      "def": "Radiación de las longitudes de onda más cortas, que llevan la mayor parte de la energía solar que llega, incluida la luz visible y partes del ultravioleta y del infrarrojo. La superficie de la Tierra, mucho más fría, emite en cambio sobre todo radiación de onda larga. Onda corta no significa solo luz visible."
+    },
+    {
+      "term": "Onda larga",
+      "def": "Radiación infrarroja térmica que emiten la superficie y la atmósfera de la Tierra. Suele tener longitudes de onda más largas que la mayor parte de la radiación solar que llega. Los gases de efecto invernadero absorben y emiten partes de este espectro e influyen en la rapidez con que la energía escapa al espacio."
+    },
+    {
+      "term": "Efecto invernadero",
+      "def": "El calentamiento de la superficie de un planeta y de la parte baja de su atmósfera porque los gases y las nubes absorben y emiten radiación infrarroja térmica, lo que frena la pérdida de energía hacia el espacio."
+    },
+    {
+      "term": "Balance de energía",
+      "def": "Una contabilidad de la energía que entra y sale de un sistema, como la Tierra o un trozo de suelo. Un desequilibrio persistente cambia la energía almacenada y puede causar calentamiento o enfriamiento. Un balance de superficie también incluye la evaporación y las transferencias de calor sensible."
+    },
+    {
+      "term": "Absorción",
+      "def": "La captación de radiación por un material, que gana energía y suele calentarse. El suelo oscuro suele absorber más luz solar que la nieve brillante. La absorción es distinta de la reflexión, que devuelve la radiación, y de la transmisión, que la deja pasar."
+    },
+    {
+      "term": "Emisión",
+      "def": "La liberación de radiación por la materia. La superficie y la atmósfera de la Tierra están lo bastante frías como para emitir sobre todo radiación infrarroja térmica. Esto es distinto de la reflexión, que redirige la radiación que llega sin absorberla antes."
+    },
+    {
+      "term": "Insolación",
+      "def": "La radiación solar que llega a una superficie. Su cantidad depende del ángulo del Sol, de la duración de la luz del día y de las condiciones de la atmósfera. La insolación es una entrada de energía; la temperatura del aire también depende de las pérdidas, el almacenamiento y el transporte de energía."
+    }
+  ],
+  "predict": {
+    "prompt": "Si la superficie de la Tierra se volviera más reflectante, por ejemplo cubierta por más nieve y hielo, ¿la superficie se calentaría o se enfriaría? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Cómo cambian el albedo y los gases de efecto invernadero la temperatura de la superficie de la Tierra?",
+    "claim": "Un albedo mayor enfría la superficie porque se absorbe menos luz solar, y los gases de efecto invernadero calientan la superficie porque devuelven energía infrarroja hacia abajo.",
+    "evidence": "Los 1,361 W/m² que llegan equivalen a una media de 340.25 W/m² sobre todo el globo. Subir el Albedo por encima de 0.3 baja la luz solar absorbida y la temperatura de la superficie. Activar Retorno de efecto invernadero hace que la superficie emita más infrarrojo que antes, mientras la energía que sale en el tope de la atmósfera sigue equilibrando la luz solar absorbida.",
+    "reasoning": "En equilibrio, la Tierra debe emitir tanta energía como absorbe. Reflejar más luz solar deja menos para absorber. Una capa que absorbe y vuelve a emitir infrarrojo devuelve parte de la emisión de la superficie, así que la superficie tiene que estar más caliente para emitir suficiente energía que escape."
+  },
+  "controls": {
+    "albedo": {
+      "label": "Albedo"
+    },
+    "greenhouse": {
+      "label": "Retorno de efecto invernadero"
+    }
+  }
+}

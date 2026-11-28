@@ -1403,4 +1403,244 @@ export const ES: Record<string, string> = {
     "Equidistancia {interval} m · punto elegido {height} m sobre el nivel del mar. Son datos reales de elevación del USGS de la montaña Sugarloaf, Maryland. Haz clic en la montaña para comprobar una altura y trazar el perfil A–B; desactiva “Colina 3D” para ver el mapa topográfico.",
   "Contour interval {interval} m · clicked point {height} m. Click the hill to check a height and draw the A–B cross-section through that point. Turn off “3D hill” and look from above for its contour map; the elevations stay the same.":
     "Equidistancia {interval} m · punto elegido {height} m. Haz clic en la colina para comprobar una altura y trazar el perfil A–B que pasa por ese punto. Desactiva “Colina 3D” y mira desde arriba para ver su mapa topográfico; las elevaciones no cambian.",
+
+  // Lab scenes: atmosphere layers, energy budget, thermal circulation, wind, three-cell model, fronts
+  Troposphere: "Troposfera",
+  "Tropopause drawn at 12 km; really about 8 km at the poles and 16–18 km in the tropics. Most weather happens here.":
+    "La tropopausa está dibujada a 12 km; en realidad está a unos 8 km en los polos y a 16–18 km en los trópicos. Aquí ocurre la mayor parte del tiempo atmosférico.",
+  Stratosphere: "Estratosfera",
+  "Ozone absorbs ultraviolet radiation; temperature generally rises with height.":
+    "El ozono absorbe la radiación ultravioleta; en general, la temperatura sube con la altura.",
+  Mesosphere: "Mesosfera",
+  "Temperature generally falls with height; many meteors become luminous here.":
+    "En general, la temperatura baja con la altura; aquí se vuelven luminosos muchos meteoros.",
+  Thermosphere: "Termosfera",
+  "Shown only to 500 km; its top varies with solar activity and the air thins out beyond. Temperatures are very high, but the gas is so thin it would not feel hot.":
+    "Se muestra solo hasta 500 km; su límite superior varía con la actividad solar y el aire se enrarece más allá. Las temperaturas son muy altas, pero el gas es tan tenue que no se sentiría caliente.",
+  "{lo}–{hi} km shown. {note}": "{lo}–{hi} km mostrados. {note}",
+  "{lo}–{hi} km. {note}": "{lo}–{hi} km. {note}",
+  "Reference temperature profile · horizontal: °C · vertical: km":
+    "Perfil de temperatura de referencia · horizontal: °C · vertical: km",
+  "Altitude ×8 · gas layers, not solid shells · press T for true thickness":
+    "Altitud ×8 · capas de gas, no cáscaras sólidas · pulsa T para ver el grosor real",
+  "Reference temperature profile · axes use different labeled units":
+    "Perfil de temperatura de referencia · los ejes usan unidades distintas, indicadas",
+  "Earth and altitude share a scale · layer boundaries are approximate":
+    "La Tierra y la altitud comparten una escala · los límites de las capas son aproximados",
+  "Temperature profile": "Perfil de temperatura",
+  "The troposphere part follows your lapse rate. Above it the curve is a typical average profile, not a measured sounding. Dashed lines mark the model's layer boundaries at 12, 50 and 85 km, where the temperature trend reverses.":
+    "La parte de la troposfera sigue tu gradiente térmico. Por encima, la curva es un perfil medio típico, no un sondeo medido. Las líneas discontinuas marcan los límites de las capas del modelo a 12, 50 y 85 km, donde se invierte la tendencia de la temperatura.",
+  "Atmosphere view": "Vista de la atmósfera",
+  "Layer globe": "Globo de capas",
+  "At 12 km:": "A 12 km:",
+  "with a lapse rate of {lapse} °C/km.": "con un gradiente térmico de {lapse} °C/km.",
+  "{lo}–{hi} km shown": "{lo}–{hi} km mostrados",
+  "The profile starts at 15 °C at the surface. Separating the layers helps you identify them, but real air has no gaps between layers.":
+    "El perfil empieza en 15 °C en la superficie. Separar las capas ayuda a identificarlas, pero el aire real no tiene huecos entre capas.",
+  Aurora: "Aurora",
+  "Charged particles from the Sun, guided by Earth's magnetic field, make oxygen glow green (about 100–200 km) and red (higher) in an oval around each magnetic pole. Brightness is illustrative.":
+    "Las partículas cargadas del Sol, guiadas por el campo magnético de la Tierra, hacen brillar el oxígeno de verde (a unos 100–200 km) y de rojo (más arriba) en un óvalo alrededor de cada polo magnético. El brillo es ilustrativo.",
+  "ISS · ~410 km": "EEI · ~410 km",
+  "The International Space Station orbits in the thermosphere, where the air is so thin it barely slows the station. Model size hugely enlarged.":
+    "La Estación Espacial Internacional orbita en la termosfera, donde el aire es tan tenue que casi no la frena. El tamaño del modelo está muy ampliado.",
+  "Sunlight in {flux} W/m²": "Entra luz solar: {flux} W/m²",
+  "Earth intercepts 1361 W/m² across a disc but spreads it over a sphere with four times the area, so the global average is a quarter: 340 W/m².":
+    "La Tierra intercepta 1361 W/m² sobre un disco, pero los reparte sobre una esfera con cuatro veces más área, así que la media global es la cuarta parte: 340 W/m².",
+  "Reflected {flux} W/m²": "Reflejada: {flux} W/m²",
+  "Planetary albedo is the fraction of incoming sunlight reflected to space, mostly by clouds, with some from air and bright surfaces such as snow and ice.":
+    "El albedo planetario es la fracción de la luz solar que llega y se refleja al espacio, sobre todo por las nubes, con una parte del aire y de superficies brillantes como la nieve y el hielo.",
+  "Surface emits {flux}": "La superficie emite {flux}",
+  "The warm surface radiates infrared. A warmer surface radiates more (Stefan–Boltzmann law: emission rises with the fourth power of temperature).":
+    "La superficie caliente irradia infrarrojo. Una superficie más caliente irradia más (ley de Stefan–Boltzmann: la emisión aumenta con la cuarta potencia de la temperatura).",
+  "Back radiation {flux}": "Contrarradiación {flux}",
+  "The layer emits infrared in both directions. The half sent downward warms the surface further, which is the greenhouse effect.":
+    "La capa emite infrarrojo en las dos direcciones. La mitad que va hacia abajo calienta más la superficie: ese es el efecto invernadero.",
+  "To space {flux} W/m²": "Al espacio: {flux} W/m²",
+  "Outgoing infrared = surface radiation escaping through the window + infrared the layer emits upward. At equilibrium it equals the sunlight absorbed.":
+    "Infrarrojo saliente = radiación de la superficie que escapa por la ventana + infrarrojo que la capa emite hacia arriba. En equilibrio, es igual a la luz solar absorbida.",
+  "IR layer · ε = 0.78": "Capa IR · ε = 0.78",
+  "No infrared absorption": "Sin absorción de infrarrojo",
+  "One layer absorbs and emits the same share of infrared at every wavelength but lets sunlight through. The hugely enlarged molecules stand for greenhouse gases: carbon dioxide (linear), water vapor (bent) and methane; their vibrations absorb infrared. Convection, evaporation and wavelength detail are left out.":
+    "Una capa absorbe y emite la misma proporción de infrarrojo en todas las longitudes de onda, pero deja pasar la luz solar. Las moléculas, muy ampliadas, representan los gases de efecto invernadero: dióxido de carbono (lineal), vapor de agua (angular) y metano; sus vibraciones absorben infrarrojo. Se dejan fuera la convección, la evaporación y el detalle por longitudes de onda.",
+  "Surface {temp} °C": "Superficie {temp} °C",
+  "The equilibrium surface temperature: the temperature at which the surface emits exactly what it receives from sunlight and back radiation.":
+    "La temperatura de equilibrio de la superficie: la temperatura a la que la superficie emite exactamente lo que recibe de la luz solar y de la contrarradiación.",
+  "Top of atmosphere": "Tope de la atmósfera",
+  "The energy balance is measured here: sunlight absorbed must equal infrared leaving for the climate to be steady.":
+    "El balance de energía se mide aquí: la luz solar absorbida debe ser igual al infrarrojo que sale para que el clima sea estable.",
+  "One-layer radiation experiment · band widths are proportional to global mean fluxes · heights are schematic":
+    "Experimento de radiación con una capa · el ancho de las bandas es proporcional a los flujos medios globales · las alturas son esquemáticas",
+  "The one-layer model has no altitude; the layer stands for all infrared-absorbing gases":
+    "El modelo de una capa no tiene altitud; la capa representa todos los gases que absorben infrarrojo",
+  "Sunlight absorbed {flux}": "Luz solar absorbida {flux}",
+  "W/m². Equilibrium surface temperature {temp} °C · top-of-atmosphere balance {balance} W/m².":
+    "W/m². Temperatura de equilibrio de la superficie {temp} °C · balance en el tope de la atmósfera {balance} W/m².",
+  "Yellow: sunlight absorbed; cream: sunlight reflected. Orange: infrared from the surface. Blue: infrared emitted by the layer, up to space and back down to the surface. Each band’s width is proportional to its flux. Top-of-atmosphere balance is sunlight absorbed minus infrared to space; zero means equilibrium. In the model, a higher albedo brings more cloud, and snow and sea ice spreading from the poleward edge.":
+    "Amarillo: luz solar absorbida; crema: luz solar reflejada. Naranja: infrarrojo de la superficie. Azul: infrarrojo que emite la capa, hacia el espacio y de vuelta hacia la superficie. El ancho de cada banda es proporcional a su flujo. El balance en el tope de la atmósfera es la luz solar absorbida menos el infrarrojo que va al espacio; cero significa equilibrio. En el modelo, un albedo mayor trae más nubes, y nieve y hielo marino que se extienden desde el borde hacia el polo.",
+  "Height ×4 · temperatures set by the model · trees, buildings and clouds not to scale":
+    "Altura ×4 · temperaturas fijadas por el modelo · árboles, edificios y nubes no a escala",
+  "Model area 20 km wide and 2 km deep · trees and buildings enlarged":
+    "Área del modelo de 20 km de ancho y 2 km de alto · árboles y edificios ampliados",
+  "{side} {temp} °C": "{side} {temp} °C",
+  Rural: "Campo",
+  Sea: "Mar",
+  Left: "Izquierda",
+  "These temperatures follow a set daily cycle; they are not calculated from an energy budget. Water warms and cools more slowly than land.":
+    "Estas temperaturas siguen un ciclo diario fijo; no se calculan a partir de un balance de energía. El agua se calienta y se enfría más despacio que la tierra.",
+  City: "Ciudad",
+  Land: "Tierra",
+  Right: "Derecha",
+  "Warmer air expands and rises; the pressure differences this creates drive the loop. Cumulus clouds often build where air rises over the warmer side. Real breezes also depend on background wind, moisture and terrain.":
+    "El aire más caliente se expande y sube; las diferencias de presión que esto crea mueven el circuito. Los cúmulos suelen formarse donde sube el aire, sobre el lado más caliente. Las brisas reales también dependen del viento general, la humedad y el relieve.",
+  "Equal heating · no loop": "Calentamiento igual · sin circuito",
+  "Surface flow → toward the warmer city": "Flujo en superficie → hacia la ciudad más caliente",
+  "Sea breeze · surface flow → onshore": "Brisa marina · flujo en superficie → hacia la costa",
+  "Land breeze · surface flow ← offshore": "Brisa terrestre · flujo en superficie ← hacia el mar",
+  "Heated air expands, so above the warm side the pressure surfaces (white lines at the back) bulge upward: aloft the pressure is higher over the warm side, near the ground lower. Air flows from higher to lower pressure, so it moves toward the warm side along the ground, rises there, returns aloft and sinks over the cool side. Loop height and speed are illustrative.":
+    "El aire calentado se expande, así que sobre el lado caliente las superficies de presión (las líneas blancas del fondo) se abomban hacia arriba: en altura, la presión es mayor sobre el lado caliente, y cerca del suelo, menor. El aire va de la presión más alta a la más baja, así que se mueve hacia el lado caliente a ras del suelo, sube allí, vuelve por arriba y baja sobre el lado frío. La altura y la velocidad del circuito son ilustrativas.",
+  "Local hour {hour} · right minus left {contrast} °C.":
+    "Hora local {hour} · derecha menos izquierda {contrast} °C.",
+  "Urban heat island: surface air flows from the cooler countryside toward the warmer city, where it rises. (Urban heat replaces the coast while it is on.)":
+    "Isla de calor urbana: el aire en superficie va desde el campo, más fresco, hacia la ciudad, más caliente, donde sube. (El calor urbano sustituye a la costa mientras está activado.)",
+  "Both settings are off: equal temperature gives no thermal circulation.":
+    "Los dos ajustes están desactivados: con temperaturas iguales no hay circulación térmica.",
+  "Sea and land are equally warm: no thermal circulation while the breeze changes direction.":
+    "El mar y la tierra están igual de calientes: no hay circulación térmica mientras la brisa cambia de dirección.",
+  "Weak sea breeze: land warmer than sea, surface flow onshore.":
+    "Brisa marina débil: la tierra está más caliente que el mar y el flujo en superficie va hacia la costa.",
+  "Sea breeze: land warmer than sea, surface flow onshore.":
+    "Brisa marina: la tierra está más caliente que el mar y el flujo en superficie va hacia la costa.",
+  "Weak land breeze: land cooler than sea, surface flow offshore.":
+    "Brisa terrestre débil: la tierra está más fría que el mar y el flujo en superficie va hacia el mar.",
+  "Land breeze: land cooler than sea, surface flow offshore.":
+    "Brisa terrestre: la tierra está más fría que el mar y el flujo en superficie va hacia el mar.",
+  "Play runs through a daily heating cycle; the Sun marks the hour. In real weather the night-time reversal does not always happen.":
+    "Reproducir recorre un ciclo diario de calentamiento; el Sol marca la hora. En el tiempo real, la inversión nocturna no siempre ocurre.",
+  N: "N",
+  NE: "NE",
+  E: "E",
+  SE: "SE",
+  S: "S",
+  SW: "SO",
+  W: "O",
+  NW: "NO",
+  "Pressure gradient": "Gradiente de presión",
+  Pressure: "Presión",
+  "Air is pushed from high toward low pressure, at right angles to the isobars: 0.001 m/s² here, per kilogram of air.":
+    "El aire es empujado de la presión alta hacia la baja, perpendicular a las isobaras: aquí 0.001 m/s² por kilogramo de aire.",
+  Coriolis: "Coriolis",
+  "Earth's rotation deflects moving air to the right in the Northern Hemisphere and to the left in the Southern, at right angles to the wind. It grows with wind speed and is zero for still air.":
+    "La rotación de la Tierra desvía el aire en movimiento hacia la derecha en el hemisferio norte y hacia la izquierda en el sur, perpendicular al viento. Crece con la velocidad del viento y es cero para el aire en calma.",
+  Friction: "Fricción",
+  "Near the ground, friction with the surface slows the wind and acts against its direction.":
+    "Cerca del suelo, la fricción con la superficie frena el viento y actúa en contra de su dirección.",
+  "East–north plane · forces share one scale, wind another · relief, trees and towns not to scale":
+    "Plano este–norte · las fuerzas comparten una escala, y el viento otra · relieve, árboles y pueblos no a escala",
+  "Forces: 0.001 m/s² per 1.1 units · wind: 10 m/s per 0.7 units":
+    "Fuerzas: 0.001 m/s² por 1.1 unidades · viento: 10 m/s por 0.7 unidades",
+  "{z} hPa": "{z} hPa",
+  "Isobars join points of equal surface pressure. With the lab's pressure-gradient acceleration of 0.001 m/s² and air density 1.2 kg/m³, neighboring lines 150 km apart differ by about {ISOBARHPA} hPa. The pressure values themselves are only examples.":
+    "Las isobaras unen puntos de igual presión en superficie. Con la aceleración del gradiente de presión del laboratorio, de 0.001 m/s², y una densidad del aire de 1.2 kg/m³, las líneas vecinas, separadas 150 km, difieren en unos {ISOBARHPA} hPa. Los valores de presión son solo ejemplos.",
+  "Lower pressure · north": "Presión más baja · norte",
+  "Low · north": "Baja · norte",
+  "The fixed pressure gradient points north, across these parallel isobars. No fronts or curved pressure centers are included.":
+    "El gradiente de presión fijo apunta al norte, a través de estas isobaras paralelas. No se incluyen frentes ni centros de presión curvos.",
+  "Higher pressure · south": "Presión más alta · sur",
+  "High · south": "Alta · sur",
+  "The pressure-gradient force is 0.001 m/s² (force per kilogram of air). All force arrows show force per unit mass.":
+    "La fuerza del gradiente de presión es de 0.001 m/s² (fuerza por kilogramo de aire). Todas las flechas de fuerza muestran la fuerza por unidad de masa.",
+  "Wind {w} m/s": "Viento {w} m/s",
+  "The white arrow is the wind's velocity, not another force, and uses its own scale: 10 m/s per 0.7 units. In steady flow it lies where the forces balance: along the isobars without friction, angled toward low pressure with it.":
+    "La flecha blanca es la velocidad del viento, no otra fuerza, y usa su propia escala: 10 m/s por 0.7 unidades. En un flujo estable queda donde se equilibran las fuerzas: a lo largo de las isobaras sin fricción, y en ángulo hacia la presión baja con ella.",
+  "Southern hemisphere: wind {speed} m/s": "Hemisferio sur: viento de {speed} m/s",
+  "Northern hemisphere: wind {speed} m/s": "Hemisferio norte: viento de {speed} m/s",
+  "(air at rest)": "(aire en calma)",
+  "blowing from the {from} toward the {to}, along the isobars":
+    "que sopla del {from} hacia el {to}, a lo largo de las isobaras",
+  "blowing from the {from} toward the {to}, crossing the isobars at {angle}° toward lower pressure":
+    "que sopla del {from} hacia el {to}, cruzando las isobaras a {angle}° hacia la presión más baja",
+  "blowing from the {from} toward the {to}, crossing the isobars at {angle}° toward higher pressure":
+    "que sopla del {from} hacia el {to}, cruzando las isobaras a {angle}° hacia la presión más alta",
+  "Steady force balance.": "Equilibrio de fuerzas estable.",
+  "{hours} h after release from rest.": "{hours} h después de soltarlo desde el reposo.",
+  "Gold: pressure gradient": "Dorado: gradiente de presión",
+  "Blue: Coriolis": "Azul: Coriolis",
+  "Coral: friction": "Coral: fricción",
+  "White: wind velocity.": "Blanco: velocidad del viento.",
+  "The pale curve traces the wind since release.":
+    "La curva clara traza el viento desde que se soltó.",
+  "Eastward {u}, northward {v} m/s.": "Hacia el este {u}, hacia el norte {v} m/s.",
+  "The pale streaks drift with the wind.": "Las estelas claras se desplazan con el viento.",
+  "Without Coriolis or friction, this constant gradient keeps accelerating the air (the arrow is capped at 40 m/s).":
+    "Sin Coriolis ni fricción, este gradiente constante sigue acelerando el aire (la flecha se limita a 40 m/s).",
+  "Without friction the wind keeps oscillating about the geostrophic wind and never settles.":
+    "Sin fricción, el viento sigue oscilando alrededor del viento geostrófico y nunca se estabiliza.",
+  "Constant-Coriolis (f-plane) model with a fixed pressure gradient. Streaks leaving one edge reappear at the other (150 km per scene unit).":
+    "Modelo de Coriolis constante (plano f) con un gradiente de presión fijo. Las estelas que salen por un borde vuelven a aparecer por el otro (150 km por unidad).",
+  "Trade winds": "Vientos alisios",
+  Trades: "Alisios",
+  "Air returning toward the equator in the Hadley cell is turned west by Earth's rotation, giving the steady northeast trade winds (southeast trades south of the equator).":
+    "El aire que vuelve hacia el ecuador en la celda de Hadley se desvía hacia el oeste por la rotación de la Tierra, lo que produce los constantes alisios del noreste (alisios del sureste al sur del ecuador).",
+  Westerlies: "Vientos del oeste",
+  "Surface air in the midlatitudes flows poleward and is turned east by Earth's rotation. These westerlies steer most US weather systems from west to east.":
+    "El aire en superficie de las latitudes medias va hacia el polo y la rotación de la Tierra lo desvía hacia el este. Estos vientos del oeste mueven la mayoría de los sistemas meteorológicos de Estados Unidos de oeste a este.",
+  "Polar easterlies": "Vientos polares del este",
+  Easterlies: "Del este",
+  "Cold air spreading away from the polar high is turned west by Earth's rotation. These winds are weaker and less steady than the trades.":
+    "El aire frío que se aleja de la alta presión polar se desvía hacia el oeste por la rotación de la Tierra. Estos vientos son más débiles y menos constantes que los alisios.",
+  "High · 30°": "Alta · 30°",
+  "Subtropical high": "Alta subtropical",
+  H: "A",
+  "Subtropical high: air sinking where the Hadley and Ferrel cells meet warms and dries as it descends. Many of the world's hot deserts lie near 30°, such as the Sonoran and the Sahara.":
+    "Alta subtropical: el aire que baja donde se encuentran las celdas de Hadley y de Ferrel se calienta y se seca al descender. Muchos de los desiertos cálidos del mundo están cerca de los 30°, como el de Sonora y el Sahara.",
+  "Low · 60°": "Baja · 60°",
+  "Subpolar low": "Baja subpolar",
+  L: "B",
+  "Subpolar low: air rising where cold polar air meets milder midlatitude air brings clouds, storms and frequent rain near 60°.":
+    "Baja subpolar: el aire que sube donde el aire polar frío se encuentra con el aire más templado de las latitudes medias trae nubes, tormentas y lluvias frecuentes cerca de los 60°.",
+  Hadley: "Hadley",
+  Ferrel: "Ferrel",
+  Polar: "Polar",
+  "One cell": "Una sola celda",
+  "Cell depth enlarged · average circulation, not individual weather systems":
+    "Profundidad de las celdas ampliada · circulación media, no sistemas meteorológicos individuales",
+  "Cell depth 12 km, Earth radius 6371 km · wind arrows enlarged":
+    "Profundidad de las celdas: 12 km; radio de la Tierra: 6371 km · flechas de viento ampliadas",
+  "The Ferrel cell is an average, ‘indirect’ circulation kept going mainly by heat and momentum carried by midlatitude weather systems. Real air follows those systems, not a neat permanent loop.":
+    "La celda de Ferrel es una circulación media e “indirecta”, mantenida sobre todo por el calor y el impulso que llevan los sistemas meteorológicos de las latitudes medias. El aire real sigue esos sistemas, no un circuito ordenado y permanente.",
+  "{cell}: air rises at the lower-latitude end, flows poleward aloft, sinks farther poleward and returns toward the equator near the surface. Real boundaries vary.":
+    "{cell}: el aire sube en el extremo de menor latitud, va hacia el polo por arriba, baja más cerca del polo y vuelve hacia el ecuador cerca de la superficie. Los límites reales varían.",
+  "ITCZ {lat}°{hemisphere}": "ZCIT {lat}°{hemisphere}",
+  "The model moves the ITCZ 10° either side of the equator each year. The real ITCZ varies with longitude, land, ocean and season; it does not simply follow the overhead Sun.":
+    "El modelo mueve la ZCIT 10° a cada lado del ecuador cada año. La ZCIT real varía con la longitud, la tierra, el océano y la estación; no sigue simplemente al Sol que está justo encima.",
+  "Hadley and Polar cells are driven by rising warm air and sinking cold air; the Ferrel cell is sustained by heat and momentum transferred by weather systems.":
+    "Las celdas de Hadley y polar se mueven por el aire caliente que sube y el aire frío que baja; la celda de Ferrel se mantiene por el calor y el impulso que transfieren los sistemas meteorológicos.",
+  "Without rotation, this model shows one large circulation cell in each hemisphere, with rising tropical air and sinking polar air.":
+    "Sin rotación, este modelo muestra una gran celda de circulación en cada hemisferio, con aire tropical que sube y aire polar que baja.",
+  "Gold: trade winds and polar easterlies · blue: midlatitude westerlies. Sinking air near 30° builds the subtropical highs, where many deserts lie, from the Sonoran to the Sahara; rising air at the ITCZ and near 60° brings frequent rain.":
+    "Dorado: alisios y vientos polares del este · azul: vientos del oeste de las latitudes medias. El aire que baja cerca de los 30° forma las altas subtropicales, donde están muchos desiertos, desde el de Sonora hasta el Sahara; el aire que sube en la ZCIT y cerca de los 60° trae lluvias frecuentes.",
+  "The enlarged cloud belt marks the model ITCZ; it is not observed cloud. It is hidden at Physical scale.":
+    "La franja de nubes ampliada marca la ZCIT del modelo; no son nubes observadas. Se oculta en la Escala real.",
+  "Vertical dimensions ×20 · cold slope 1:50 · warm slope 1:150":
+    "Dimensiones verticales ×20 · pendiente fría 1:50 · pendiente cálida 1:150",
+  "Same scale in every direction · 1 scene unit = 100 km":
+    "La misma escala en todas las direcciones · 1 unidad = 100 km",
+  "Cold air": "Aire frío",
+  "The advancing cold air pushes under the warmer air. The boundary rises 1 km for every 50 km across.":
+    "El aire frío que avanza se mete por debajo del aire más cálido. El límite sube 1 km por cada 50 km de distancia.",
+  "The advancing cold air pushes under the warmer air. The boundary rises 1 km for every 50 km across; the teaching view stretches heights ×20.":
+    "El aire frío que avanza se mete por debajo del aire más cálido. El límite sube 1 km por cada 50 km de distancia; la vista didáctica estira las alturas ×20.",
+  "Warm air lifted off surface": "Aire cálido separado de la superficie",
+  "Warm sector": "Sector cálido",
+  "When the cold front catches the warm front, the warm sector is lifted off the ground (occlusion). This example is a cold occlusion; real occlusions vary.":
+    "Cuando el frente frío alcanza al frente cálido, el sector cálido se separa del suelo (oclusión). Este ejemplo es una oclusión fría; las oclusiones reales varían.",
+  "Cool air ahead": "Aire fresco delante",
+  "The warm-front boundary slopes 1:150. Clouds show where rising air can condense; they are not a calculated cloud base or rainfall rate.":
+    "El límite del frente cálido tiene una pendiente de 1:150. Las nubes muestran dónde se puede condensar el aire que sube; no son una base de nubes ni una intensidad de lluvia calculadas.",
+  "Section spans 600 km.": "El corte abarca 600 km.",
+  "Occluded: the cold front has caught the warm front, so the warm air no longer touches the ground. Its lowest point, where the two frontal surfaces meet, is {height} km above the ground.":
+    "Ocluido: el frente frío ha alcanzado al frente cálido, así que el aire cálido ya no toca el suelo. Su punto más bajo, donde se encuentran las dos superficies frontales, está a {height} km sobre el suelo.",
+  "Surface warm sector {width} km wide.": "Sector cálido en superficie de {width} km de ancho.",
+  "Play or drag Process to follow the faster cold front. Slopes and speeds are set by the model, and the clouds are for illustration. A front on a weather chart marks where a sloping boundary meets the ground.":
+    "Reproduce o arrastra Proceso para seguir el frente frío, que es más rápido. Las pendientes y las velocidades las fija el modelo, y las nubes son ilustrativas. Un frente en un mapa del tiempo marca dónde un límite inclinado toca el suelo.",
 };
