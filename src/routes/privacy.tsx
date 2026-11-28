@@ -57,7 +57,7 @@ function Privacy() {
         </p>
         <p>
           {
-            "Maps load tiles from OpenFreeMap / OpenStreetMap, and the live-weather tool loads forecasts from the National Weather Service for places in the United States and from Open-Meteo elsewhere. When you open a live-data panel in a lab, tide predictions come from NOAA Tides & Currents and river readings from USGS Water Data; the ENSO update is fetched from NOAA by Geolens itself. Like any web request, these share your IP address with those services. If the map tiles fail to load, the atlas shows a simple Natural Earth coastline built into the site."
+            "Maps load tiles from OpenFreeMap / OpenStreetMap, and relief and ocean-depth maps load elevation tiles from the Terrain Tiles open dataset on Amazon Web Services. The live-weather tool loads forecasts from the National Weather Service for places in the United States and from Open-Meteo elsewhere. When you open a live-data panel in a lab, tide predictions come from NOAA Tides & Currents and river readings from USGS Water Data; the ENSO update is fetched from NOAA by Geolens itself. Like any web request, these share your IP address with those services. If the map tiles fail to load, the atlas shows a simple Natural Earth coastline built into the site."
           }
         </p>
         <p>

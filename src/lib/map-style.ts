@@ -1,4 +1,7 @@
-/** Keyless basemaps: OpenFreeMap vector, OSM raster, then bundled Natural Earth. */
+/**
+ * Keyless basemaps: OpenFreeMap vector, OSM raster, then bundled Natural Earth. Relief and
+ * bathymetry draw on OpenFreeMap with elevation from the Terrain Tiles open dataset.
+ */
 
 export const FIORD = "https://tiles.openfreemap.org/styles/fiord";
 export const LIBERTY = "https://tiles.openfreemap.org/styles/liberty";
@@ -39,30 +42,172 @@ export const OSM_RASTER_STYLE = rasterStyle(
   19,
 );
 
-export const OSM_RELIEF_STYLE = rasterStyle(
-  "topo",
-  [
-    "https://a.tile.opentopomap.org/{z}/{x}/{y}.png",
-    "https://b.tile.opentopomap.org/{z}/{x}/{y}.png",
-    "https://c.tile.opentopomap.org/{z}/{x}/{y}.png",
-  ],
-  "© OpenStreetMap contributors, SRTM · OpenTopoMap (CC-BY-SA)",
-  17,
-);
+/**
+ * Elevation from the Terrain Tiles open dataset on AWS (SRTM, GMTED2010, ETOPO1, 3DEP and
+ * others; credits on /image-credits#elevation). Heights are encoded in the tile colors, and the
+ * map shades relief and colors ocean depth from them itself, so no other tile server is needed.
+ */
+export const TERRAIN_TILES =
+  "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png";
+const DEM = "terrain";
+const DEM_SOURCE = {
+  type: "raster-dem" as const,
+  tiles: [TERRAIN_TILES],
+  tileSize: 256,
+  encoding: "terrarium" as const,
+  maxzoom: 15,
+  attribution:
+    '<a href="/image-credits#elevation">Elevation: Terrain Tiles</a> (USGS, NOAA and others)',
+};
 
-/** GEBCO-derived ocean floor via Esri’s ocean basemap. Classroom bathymetry, not a chart for navigation. */
-export const ESRI_OCEAN_STYLE = rasterStyle(
-  "ocean",
-  ["https://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}"],
-  "Esri / GEBCO / NOAA · ocean bathymetry",
-  16,
-);
+type StyleLayer = { id: string; type: string; filter?: unknown; [key: string]: unknown };
+type StyleDoc = { sources: Record<string, unknown>; layers: StyleLayer[]; [key: string]: unknown };
 
-export const OPEN_TOPO_TILES = [
-  "https://a.tile.opentopomap.org/{z}/{x}/{y}.png",
-  "https://b.tile.opentopomap.org/{z}/{x}/{y}.png",
-  "https://c.tile.opentopomap.org/{z}/{x}/{y}.png",
-];
+const insertBefore = (layers: StyleLayer[], id: string, added: StyleLayer[]) => {
+  const at = layers.findIndex((l) => l.id === id);
+  return at < 0 ? [...layers, ...added] : [...layers.slice(0, at), ...added, ...layers.slice(at)];
+};
+
+/**
+ * OpenFreeMap with a light height tint under the land cover and shaded relief over it. Water, roads
+ * and labels stay on top. Land below sea level keeps the plain map color.
+ */
+export function withRelief(style: StyleDoc): StyleDoc {
+  const tint: StyleLayer = {
+    id: "relief-tint",
+    type: "color-relief",
+    source: DEM,
+    paint: {
+      // Stronger at world scale, lighter close up so streets and land cover stay clear.
+      "color-relief-opacity": ["interpolate", ["linear"], ["zoom"], 0, 0.6, 8, 0.5, 12, 0.35],
+      "color-relief-color": [
+        "interpolate",
+        ["linear"],
+        ["elevation"],
+        0,
+        "rgba(0,0,0,0)",
+        1,
+        "#a9c79a",
+        400,
+        "#d8d9a4",
+        1200,
+        "#d3b98c",
+        2500,
+        "#b08d6e",
+        4500,
+        "#efece8",
+      ],
+    },
+  };
+  const shade: StyleLayer = {
+    id: "relief-shade",
+    type: "hillshade",
+    source: DEM,
+    paint: {
+      // Slopes look gentler on coarse world-scale tiles, so shade them more there.
+      "hillshade-exaggeration": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        0,
+        0.85,
+        6,
+        0.7,
+        10,
+        0.55,
+        14,
+        0.45,
+      ],
+      "hillshade-shadow-color": "rgba(38,44,40,0.6)",
+      "hillshade-highlight-color": "rgba(255,255,255,0.3)",
+    },
+  };
+  return {
+    ...style,
+    sources: { ...style.sources, [DEM]: DEM_SOURCE },
+    layers: insertBefore(insertBefore(style.layers, "park", [tint]), "water", [shade]),
+  };
+}
+
+const OCEAN = ["==", ["get", "class"], "ocean"];
+
+/**
+ * OpenFreeMap with the sea colored by depth. The coastline comes from the map's own ocean
+ * polygons, water down to 500 m (the continental shelves and upper slopes) keeps a pale blue, and
+ * deeper water darkens, so slopes, ridges and trenches show. No dry land is that low (the lowest,
+ * beside the Dead Sea, is about 440 m below sea level), so the depth colors fall only on the sea.
+ * Lakes and rivers keep their usual blue. Like a printed ocean-floor map it has no place names or
+ * other labels, so a map quiz cannot be answered by reading them. Classroom bathymetry, not a
+ * chart for navigation.
+ */
+export function withBathymetry(style: StyleDoc): StyleDoc {
+  const water = style.layers.find((l) => l.id === "water");
+  const notOcean = ["!", OCEAN];
+  const layers = style.layers
+    .filter((l) => l.type !== "symbol")
+    .map((l) =>
+      l.id === "water" ? { ...l, filter: l.filter ? ["all", l.filter, notOcean] : notOcean } : l,
+    );
+  return {
+    ...style,
+    sources: { ...style.sources, [DEM]: DEM_SOURCE },
+    layers: insertBefore(layers, "park", [
+      {
+        id: "ocean-base",
+        type: "fill",
+        source: water?.source ?? "openmaptiles",
+        "source-layer": "water",
+        filter: OCEAN,
+        paint: { "fill-color": "#b9dbee" },
+      },
+      {
+        id: "ocean-depth",
+        type: "color-relief",
+        source: DEM,
+        paint: {
+          "color-relief-color": [
+            "interpolate",
+            ["linear"],
+            ["elevation"],
+            -8000,
+            "#0b1f50",
+            -6000,
+            "#12346a",
+            -4500,
+            "#1b4a84",
+            -3000,
+            "#2f68a3",
+            -2000,
+            "#4a87bd",
+            -1000,
+            "#79afd6",
+            -500,
+            "rgba(185,219,238,0)",
+          ],
+        },
+      },
+      {
+        id: "ocean-shade",
+        type: "hillshade",
+        source: DEM,
+        paint: {
+          "hillshade-exaggeration": 0.35,
+          "hillshade-shadow-color": "rgba(10,25,50,0.5)",
+          "hillshade-highlight-color": "rgba(255,255,255,0.18)",
+        },
+      },
+    ]),
+  };
+}
+
+type TransformStyle = (previous: unknown, next: StyleDoc) => StyleDoc;
+
+/** The change a basemap makes to the OpenFreeMap style it starts from, if any. */
+export function basemapTransform(basemap: MapBasemap): TransformStyle | undefined {
+  if (basemap === "relief") return (_previous, next) => withRelief(next);
+  if (basemap === "bathymetry") return (_previous, next) => withBathymetry(next);
+  return undefined;
+}
 
 export const NATURAL_EARTH_STYLE = {
   version: 8 as const,
@@ -106,7 +251,7 @@ type MapEvent = {
 type MapLike = {
   on: (ev: string, fn: (e?: MapEvent) => void) => void;
   off: (ev: string, fn: (e?: MapEvent) => void) => void;
-  setStyle: (s: unknown) => unknown;
+  setStyle: (s: unknown, options: { diff: boolean; transformStyle?: TransformStyle }) => unknown;
   getStyle: () => { sources?: Record<string, { type?: string }> } | undefined;
 };
 
@@ -115,13 +260,10 @@ export function basemapStyle(basemap: MapBasemap) {
   return {
     // Liberty: OpenFreeMap's light, well-labeled style. The dark Fiord style left place names
     // and coastlines too faint to read in both site themes.
-    openfreemap: LIBERTY, osm: OSM_RASTER_STYLE,
-    relief: OSM_RELIEF_STYLE, bathymetry: ESRI_OCEAN_STYLE, "natural-earth": NATURAL_EARTH_STYLE,
+    // Relief and bathymetry are OpenFreeMap plus layers drawn from elevation (basemapTransform).
+    openfreemap: LIBERTY, osm: OSM_RASTER_STYLE, relief: LIBERTY, bathymetry: LIBERTY,
+    "natural-earth": NATURAL_EARTH_STYLE,
   }[basemap];
-}
-
-export function preferredRaster(relief?: boolean) {
-  return relief ? OSM_RELIEF_STYLE : OSM_RASTER_STYLE;
 }
 
 export function attachStyleFallback(
@@ -160,8 +302,13 @@ export function attachStyleFallback(
     opts.onBasemap?.(current); opts.onPhase?.("loading");
     timer = setTimeout(advance, opts.timeoutMs ?? 8000);
     try {
-      if (replace) map.setStyle(basemapStyle(current));
-      else identifySources();
+      if (replace) {
+        // Reload in full rather than diff: relief, bathymetry and the plain map share OpenFreeMap's
+        // tiles, and a diff would keep them without the fresh tile loads that show it is healthy.
+        const transformStyle = basemapTransform(current);
+        const options = transformStyle ? { diff: false, transformStyle } : { diff: false };
+        map.setStyle(basemapStyle(current), options);
+      } else identifySources();
     } catch { advance(); }
   };
   const onData = (e?: MapEvent) => {
@@ -197,7 +344,9 @@ export function attachStyleFallback(
   map.on("style.load", identifySources);
   map.on("sourcedata", onData);
   map.on("error", onError);
-  select(current, false);
+  // Relief and bathymetry maps start from an empty style (LibreMap) and load OpenFreeMap with their
+  // layers here; the other basemaps are already loading.
+  select(current, Boolean(basemapTransform(current)));
   return Object.assign(() => {
     disposed = true; clear();
     map.off("style.load", identifySources);

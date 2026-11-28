@@ -933,9 +933,17 @@ function MapStudio() {
             measurements, draw a polygon smaller than a hemisphere without crossing its own edges.
           </p>
           <p>
-            Basemaps are supplied by OpenFreeMap, OpenStreetMap contributors, OpenTopoMap and Esri
-            Ocean using GEBCO ocean-depth data. Attribution for the active basemap remains on each
-            map.
+            Basemaps are supplied by OpenFreeMap and OpenStreetMap contributors. Relief shading and
+            ocean depth are drawn by the map itself from the Terrain Tiles open dataset on AWS
+            (USGS, NOAA ETOPO1 and others; see{" "}
+            <Link
+              to="/image-credits"
+              hash="elevation"
+              className="text-ice underline decoration-ice/40 underline-offset-4"
+            >
+              Map elevation data
+            </Link>
+            ). Attribution for the active basemap remains on each map.
           </p>
         </div>
       </details>

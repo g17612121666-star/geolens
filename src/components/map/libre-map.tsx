@@ -1,7 +1,13 @@
 import { LoadingProgress } from "@/components/loading-progress";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { attachStyleFallback, basemapStyle, type MapBasemap, type MapPhase } from "@/lib/map-style";
+import {
+  attachStyleFallback,
+  basemapStyle,
+  basemapTransform,
+  type MapBasemap,
+  type MapPhase,
+} from "@/lib/map-style";
 import { pageScrollUnlessCtrl } from "@/lib/embedded-wheel";
 
 export { FIORD, LIBERTY } from "@/lib/map-style";
@@ -71,8 +77,9 @@ const CREDIT: Record<MapBasemap, string> = {
   openfreemap: "OpenFreeMap vector · OpenStreetMap contributors",
   osm: "OpenStreetMap contributors · raster basemap",
   "natural-earth": "Natural Earth 110m land — offline fallback. Coastlines only.",
-  relief: "OpenTopoMap relief · OSM / SRTM · land elevation",
-  bathymetry: "Esri Ocean / GEBCO. Seafloor as color. Not a navigation chart.",
+  relief: "OpenFreeMap with shaded relief · elevation: Terrain Tiles on AWS (USGS and others)",
+  bathymetry:
+    "Ocean depth as color from ETOPO1 (NOAA) via Terrain Tiles on AWS. Not a navigation chart.",
 };
 
 function meridians(): { type: string; features: unknown[] } {
@@ -492,7 +499,12 @@ export function LibreMap({
         } catch {
           /* already set */
         }
-        const style = styleUrl ?? basemapStyle(requestedBaseRef.current);
+        // Relief and bathymetry start empty; the fallback loads OpenFreeMap and adds their layers.
+        const style =
+          styleUrl ??
+          (basemapTransform(requestedBaseRef.current)
+            ? { version: 8 as const, sources: {}, layers: [] }
+            : basemapStyle(requestedBaseRef.current));
         const m = new maplibregl.Map({
           container: el,
           style,
