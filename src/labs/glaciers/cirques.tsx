@@ -17,6 +17,7 @@ import {
 } from "./cirque-geometry";
 import { IceMaterial } from "./ice-material";
 import { GNEISS, MEADOW, ROCK, SNOW, TILL, shape } from "./ground";
+import { useT } from "@/lib/i18n";
 
 const smooth = THREE.MathUtils.smoothstep;
 const SCREE = new THREE.Color("#968e81");
@@ -143,6 +144,7 @@ function inFirstCirque(along: number, across: number, lift: number): [number, nu
 }
 
 export function Cirques({ ice }: { ice: boolean }) {
+  const tr = useT();
   // The arête between the first two cirques, partway down from the summit.
   const ridge = useMemo(() => {
     const a = (CIRQUES[0].angle + CIRQUES[1].angle) / 2,
@@ -174,28 +176,36 @@ export function Cirques({ ice }: { ice: boolean }) {
       {ice && <CirqueMarkers />}
       <Tag
         pos={[0, cirqueHeight(0, 0) + 0.18, 0]}
-        text="Horn"
-        note="Where three or more cirques have eroded back into one summit, they leave a steep pyramidal peak with a face above each cirque. This three-cirque form is an invented example, not a surveyed mountain."
+        text={tr("Horn")}
+        note={tr(
+          "Where three or more cirques have eroded back into one summit, they leave a steep pyramidal peak with a face above each cirque. This three-cirque form is an invented example, not a surveyed mountain.",
+        )}
         occlude={false}
       />
       <Tag
         pos={ridge}
-        text="Arête"
-        note="A knife-edged ridge left between neighboring cirques, where their headwalls have been cut back toward each other. It is rock that remains, not a wall of deposited debris."
+        text={tr("Arête")}
+        note={tr(
+          "A knife-edged ridge left between neighboring cirques, where their headwalls have been cut back toward each other. It is rock that remains, not a wall of deposited debris.",
+        )}
         occlude={false}
       />
       <Tag
         pos={inFirstCirque(0.05, 0.25, ice ? 0.3 : 0.12)}
-        text="Cirque"
-        note="A bowl-shaped hollow with a steep headwall and a flat or overdeepened floor, eroded at the head of a glacier. Freeze–thaw loosens the headwall, and the ice plucks and scrapes the floor."
+        text={tr("Cirque")}
+        note={tr(
+          "A bowl-shaped hollow with a steep headwall and a flat or overdeepened floor, eroded at the head of a glacier. Freeze–thaw loosens the headwall, and the ice plucks and scrapes the floor.",
+        )}
         occlude={false}
       />
       {!ice && (
         <Tag
           pos={tarn}
-          text="Tarn"
+          text={tr("Tarn")}
           priority={-1}
-          note="A lake filling the overdeepened floor of a cirque, held in by the rock lip at its mouth. Ice scoured the floor deeper than the lip, so water collects once the glacier has gone."
+          note={tr(
+            "A lake filling the overdeepened floor of a cirque, held in by the rock lip at its mouth. Ice scoured the floor deeper than the lip, so water collects once the glacier has gone.",
+          )}
           occlude={false}
         />
       )}

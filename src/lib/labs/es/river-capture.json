@@ -1,0 +1,136 @@
+{
+  "title": "Captura fluvial",
+  "hook": "La erosión remontante puede extender un río hasta una cuenca vecina y desviar su cabecera.",
+  "objective": "Explica cómo la erosión remontante puede desviar la cabecera de un río e identifica las pruebas que quedan en el antiguo cauce.",
+  "modelDescription": "Un bloque de paisaje muestra dos valles fluviales separados por terreno alto. En etapas posteriores, uno de los ríos erosiona hacia atrás, hacia la divisoria, la atraviesa y captura la cabecera del otro río, que entonces fluye por una ruta nueva hacia otra salida.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Identifica las dos rutas del agua separadas y sus salidas."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pon Etapa de formación en Acercándose a la divisoria y luego en Después de la captura, y reproduce la nueva ruta del agua."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo afecta desviar la cabecera al río capturado y a la parte abandonada de su antiguo valle?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Un codo de captura es…",
+      "choices": [
+        "Un bucle de meandro en una llanura de inundación amplia",
+        "Una cascada en una franja de roca",
+        "Una curva cerrada en el punto de captura",
+        "Donde se unen dos ríos iguales"
+      ],
+      "explain": "Cuando un arroyo se desvía hacia un sistema de drenaje vecino, puede girar bruscamente en el punto de captura. Ese cambio brusco de curso puede formar un codo de captura."
+    },
+    {
+      "prompt": "Un arroyo decapitado…",
+      "choices": [
+        "Gana agua extra",
+        "Excava más rápido que antes",
+        "Se apodera de un río vecino",
+        "Pierde su cabecera y se achica"
+      ],
+      "explain": "Un arroyo decapitado pierde parte de su área de drenaje aguas arriba y, por eso, suele perder caudal. El arroyo que queda puede ser demasiado pequeño para explicar el tamaño del valle que heredó."
+    },
+    {
+      "prompt": "Una captura es más probable cuando…",
+      "choices": [
+        "Un río erosiona hacia su cabecera más rápido que su vecino",
+        "Los dos ríos erosionan sus valles al mismo ritmo",
+        "La divisoria entre ellos es de roca resistente",
+        "Mareas fuertes empujan agua de mar por ambos valles"
+      ],
+      "explain": "Un arroyo con mayor ventaja erosiva puede alargar su cabecera hacia una cuenca vecina. Si rompe la divisoria, puede desviar la cabecera vecina hacia su propio cauce."
+    },
+    {
+      "prompt": "¿Qué ilustra la estructura de control Old River del Misisipi?",
+      "choices": [
+        "Una captura fluvial natural por erosión remontante",
+        "Obras de ingeniería que limitan el desvío de un río",
+        "Una cascada que retrocede río arriba",
+        "Un meandro cortado que forma un lago en herradura"
+      ],
+      "explain": "La estructura de control Old River regula cómo se reparte el caudal del Misisipi hacia el Atchafalaya. Es un ejemplo de gestión de un posible desvío fluvial, que es distinto de la erosión remontante que muestra el modelo de captura."
+    },
+    {
+      "prompt": "¿Qué es un collado seco (wind gap)?",
+      "choices": [
+        "Una muesca en una cresta tallada por vientos fuertes",
+        "Una muesca seca que queda tras la captura de un río",
+        "Una cascada en el punto de captura",
+        "Un paso abierto en una cresta por un glaciar"
+      ],
+      "explain": "Un collado seco es una muesca de valle a través de una cresta por la que ya no pasa ningún río, normalmente porque el arroyo que la excavó fue capturado aguas arriba. El ‘wind’ del nombre en inglés es solo un nombre: el viento no la talló."
+    }
+  ],
+  "why": [
+    "La erosión remontante puede extender un río hasta una cuenca vecina y desviar su cabecera. La nueva ruta puede dejar un codo de captura y un antiguo valle con un arroyo mucho más pequeño.",
+    "El río captor tiene un curso más empinado hacia una salida más baja, así que erosiona hacia su cabecera más rápido que su vecino. Cuando la cabecera de su valle rompe la divisoria, la cabecera vecina toma la ruta más baja y empinada. Más allá del codo, el antiguo valle queda con un collado seco y un arroyo inadaptado mucho más pequeño.",
+    "Las etapas elegidas muestran un solo mecanismo de captura; su separación no representa una tasa de erosión ni una secuencia con fechas."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Una divisoria de aguas es permanente, así que un río no puede ganar la cabecera de otro.",
+      "truth": "La erosión, los cambios tectónicos u otros ajustes del paisaje pueden desplazar una divisoria y desviar el flujo hacia una cuenca vecina. El río que captura gana área de drenaje, mientras que el antiguo cauce puede llevar un arroyo más pequeño. Formas como los collados secos ayudan a reconstruir el cambio."
+    },
+    {
+      "claim": "La captura fluvial ocurre de repente, durante una sola tormenta.",
+      "truth": "La captura suele llegar tras miles de años de erosión remontante, mientras un arroyo excava hacia la cuenca de su vecino. La rotura final de la divisoria puede ser rápida, pero el proceso previo es lento."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Codo de captura",
+      "def": "Una curva cerrada que marca dónde un sistema de drenaje ha desviado el agua de otro. Puede ayudar a reconstruir una captura fluvial si se combina con un collado seco o un valle inadaptado. Una curva cerrada por sí sola no basta para demostrar una captura."
+    },
+    {
+      "term": "Arroyo decapitado",
+      "def": "Un arroyo cuya antigua cabecera ha sido desviada hacia otro sistema de drenaje por una captura fluvial."
+    },
+    {
+      "term": "Río pirata",
+      "def": "El arroyo que gana agua al capturar la cabecera de otro sistema de drenaje. Puede alargar su valle por erosión remontante. El término describe un cambio en la conexión del drenaje, no un tipo distinto de agua que fluye."
+    },
+    {
+      "term": "Collado seco",
+      "def": "Un valle que cruza una divisoria de aguas y que ya no contiene el arroyo que lo excavó (wind gap en inglés). Puede ser una prueba de captura fluvial o de otro cambio en el drenaje. Compara su forma con la de los valles vecinos y con la red actual de arroyos."
+    },
+    {
+      "term": "Erosión remontante",
+      "def": "El alargamiento de un valle o cauce hacia su nacimiento por la erosión. Con el tiempo puede desplazar una divisoria y ayudar a que un río capture la cabecera de otro. Describe un crecimiento hacia aguas arriba, no agua que fluye cuesta arriba."
+    },
+    {
+      "term": "Divisoria de aguas (watershed)",
+      "def": "La línea de terreno alto que separa dos cuencas hidrográficas; en México también se llama parteaguas. En inglés, watershed significa esta divisoria en el Reino Unido, pero en Estados Unidos suele significar toda la cuenca; fíjate en el contexto."
+    },
+    {
+      "term": "Arroyo inadaptado",
+      "def": "Un arroyo más pequeño que el valle que ocupa, a veces después de una captura fluvial o de la pérdida del caudal de antiguas aguas de deshielo glaciar."
+    }
+  ],
+  "predict": {
+    "prompt": "Dos ríos nacen a cada lado de la misma colina. Si uno erosiona hacia la colina mucho más rápido, ¿qué podría pasarle al otro río?"
+  },
+  "cer": {
+    "prompt": "¿Cómo puede un río capturar la cabecera de otro?",
+    "claim": "Un río que erosiona hacia su cabecera más rápido puede atravesar la divisoria y desviar hacia su curso la cabecera de otro río.",
+    "evidence": "En Cuencas separadas, dos ríos drenan hacia salidas distintas. En Acercándose a la divisoria, el río que erosiona más rápido ha excavado hasta muy cerca del cauce del otro. Después de la captura, el río de arriba gira bruscamente en un codo de captura hacia la nueva ruta, y el río decapitado de abajo queda más pequeño, con una muesca seca llamada collado seco.",
+    "reasoning": "La erosión remontante alarga un río en su nacimiento. Un río más empinado, o uno sobre roca más débil, erosiona hacia atrás más rápido; cuando rompe la divisoria, el agua toma la ruta más baja y empinada, así que el otro río pierde su cabecera."
+  },
+  "controls": {
+    "stage": {
+      "label": "Etapa de formación",
+      "options": ["Cuencas separadas", "Acercándose a la divisoria", "Después de la captura"]
+    }
+  }
+}

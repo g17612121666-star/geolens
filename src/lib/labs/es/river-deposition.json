@@ -1,0 +1,146 @@
+{
+  "title": "Depósito fluvial",
+  "hook": "El sedimento se deposita cuando las condiciones de transporte ya no lo mantienen en movimiento.",
+  "objective": "Explica dónde depositan sedimento los ríos y compara cómo se forman las barras de meandro, los diques naturales y los deltas.",
+  "modelDescription": "Un río forma una curva a través de una llanura de inundación boscosa, y los lados del bloque muestran el sedimento de debajo. La arena forma una barra de meandro en el lado interior de la curva, mientras que el agua más rápida del lado exterior excava una orilla empinada, la orilla de erosión. Otras vistas muestran un río que se desborda sobre su llanura de inundación y una desembocadura que forma un delta.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra la barra de meandro en el lado interior de la curva y la orilla de erosión (orilla cóncava) en el exterior."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pon Ambiente en Llanura de inundación desbordada y activa o desactiva Agua desbordada; luego cambia a Desembocadura en delta. Cambia Diámetro del grano, pulsa Reproducir y abre Cómo leer estos resultados para comparar las velocidades de sedimentación."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué un río puede erosionar su orilla exterior mientras deposita sedimento en la interior?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Una pendiente de deslizamiento (slip-off slope) es…",
+      "choices": [
+        "El talud de la curva exterior",
+        "Depósito en la curva interior",
+        "Erosión en la curva interior",
+        "Una cresta junto al cauce"
+      ],
+      "explain": "El flujo alrededor de un meandro lleva sedimento hacia la curva interior, donde la velocidad cerca de la orilla y la capacidad de transporte suelen ser menores. El depósito allí forma una barra de meandro y su superficie de pendiente suave."
+    },
+    {
+      "prompt": "Los diques naturales se forman cuando…",
+      "choices": [
+        "Las olas forman crestas en la costa",
+        "El río erosiona despacio sus orillas hacia arriba",
+        "El agua de crecida deja carga gruesa junto a las orillas",
+        "La arcilla fina se deposita en el lecho del cauce"
+      ],
+      "explain": "Cuando el agua de una crecida sale del cauce, se frena y deposita gran parte de su sedimento en suspensión más grueso cerca de las orillas. Las crecidas repetidas pueden formar diques naturales elevados junto al río."
+    },
+    {
+      "prompt": "La bahía de Chesapeake y el Hudson terminan en estuarios y no en deltas porque…",
+      "choices": [
+        "Estos ríos no llevan nada de sedimento al mar",
+        "Estos ríos fluyen demasiado despacio para dejar carga",
+        "Las olas son demasiado débiles para mover sedimento ahí",
+        "Las mareas y los valles inundados superan a la formación del delta"
+      ],
+      "explain": "Un intercambio fuerte de mareas puede redistribuir el sedimento del río, y la subida del nivel relativo del mar puede inundar un valle fluvial. Estas condiciones favorecen un estuario cuando el aporte de sedimento no basta para que un delta avance."
+    },
+    {
+      "prompt": "La orilla exterior de un meandro es sobre todo un lugar de…",
+      "choices": [
+        "Erosión de una orilla cóncava",
+        "Depósito de una barra de meandro",
+        "Formación de diques por las crecidas",
+        "Agua quieta con pocos cambios"
+      ],
+      "explain": "Cerca de la orilla exterior de un meandro suelen darse un flujo más rápido y un mayor esfuerzo cortante. El socavamiento y el derrumbe de la orilla ayudan entonces a que la curva migre hacia afuera."
+    },
+    {
+      "prompt": "¿Por qué un río deja gran parte de su carga donde entra en el mar o en un lago?",
+      "choices": [
+        "Se frena y pierde energía.",
+        "El agua salada disuelve el sedimento.",
+        "Las olas empujan el sedimento río arriba.",
+        "El lecho se vuelve de pronto mucho más empinado."
+      ],
+      "explain": "Cuando el agua del río entra en una gran masa de agua quieta, se extiende y se frena. Ya no puede llevar tanto sedimento, así que el depósito forma elementos como los deltas."
+    }
+  ],
+  "why": [
+    "El sedimento se deposita cuando las condiciones de transporte ya no lo mantienen en movimiento. Las curvas interiores, las llanuras de inundación y las desembocaduras crean ambientes distintos para clasificar y almacenar el sedimento.",
+    "En una curva, el flujo más rápido y profundo se desvía hacia la orilla exterior y la socava, mientras que una corriente en espiral (helicoidal) arrastra el sedimento del lecho hacia la orilla interior, más lenta y menos profunda, donde forma una barra de meandro. Cuando el agua de una crecida sale del cauce, o un río entra en el mar, el flujo se extiende y se frena, así que los granos más gruesos se depositan primero: junto a las orillas forman diques naturales, y en la desembocadura forman un delta.",
+    "El experimento de sedimentación aparte describe pequeñas esferas de cuarzo en agua quieta; la turbulencia del río y la floculación pueden cambiar su comportamiento."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Un río deposita todo su sedimento en cuanto el agua se frena.",
+      "truth": "El depósito depende de la capacidad del flujo para mantener en movimiento ciertas partículas. El material más grueso suele depositarse o detenerse primero cuando baja la capacidad de transporte, mientras que las partículas más finas pueden seguir en suspensión más río abajo. El tamaño del sedimento, la turbulencia, la profundidad del agua y el aporte que llega influyen en el resultado."
+    },
+    {
+      "claim": "Las llanuras de inundación son planas porque la gente las niveló para cultivar.",
+      "truth": "Las llanuras de inundación se forman de manera natural. Cada crecida extiende una capa delgada de sedimento fino por el fondo del valle, y los meandros que migran retrabajan los depósitos, lo que produce una superficie amplia y plana."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Pendiente de deslizamiento",
+      "def": "La orilla interior de una curva de un río, de pendiente suave, donde el sedimento tiende a acumularse como una barra de meandro (slip-off slope en inglés). Contrasta con la orilla exterior, más empinada. Ambas se forman a medida que la curva migra y su flujo redistribuye el sedimento."
+    },
+    {
+      "term": "Orilla cóncava",
+      "def": "La orilla exterior de una curva de un río, que se está erosionando, donde la parte más rápida del flujo suele acercarse a la orilla. Una pared empinada o raíces al descubierto pueden revelar erosión activa. El depósito suele darse en una barra de meandro al otro lado del cauce."
+    },
+    {
+      "term": "Dique",
+      "def": "Una orilla elevada junto a un río, formada de manera natural por el sedimento que dejan las crecidas o construida para reducir las inundaciones."
+    },
+    {
+      "term": "Llanura de inundación",
+      "def": "Terreno relativamente plano junto a un río, formado por la migración del cauce y el depósito de las crecidas, que puede inundarse cuando el río se desborda."
+    },
+    {
+      "term": "Delta",
+      "def": "Un cuerpo de sedimento que se forma donde un río entra en un mar o un lago y deposita suficiente material para que se acumule. Su superficie suele estar cruzada por canales distributarios."
+    },
+    {
+      "term": "Estuario",
+      "def": "Una masa de agua costera parcialmente cerrada donde el agua dulce se encuentra y se mezcla con el agua de mar, influida por las mareas."
+    },
+    {
+      "term": "Flujo helicoidal",
+      "def": "Una circulación secundaria, en espiral, dentro de una curva de un río, que se suma a la corriente que va río abajo. El movimiento cerca del lecho ayuda a llevar sedimento hacia la orilla interior, mientras que el flujo fuerte cerca de la orilla exterior favorece la erosión. El patrón varía con la forma del cauce y el caudal."
+    }
+  ],
+  "predict": {
+    "prompt": "En una curva de un río, ¿dónde crees que fluye más rápido el agua: en el lado interior o en el exterior? ¿Dónde se depositaría la arena?"
+  },
+  "cer": {
+    "prompt": "¿Por qué un río forma barras de meandro en el lado interior de las curvas, diques naturales en sus orillas y un delta en su desembocadura?",
+    "claim": "Un río deposita sedimento dondequiera que se frena: en el lado interior de las curvas, en el borde del cauce durante las crecidas y donde entra en agua quieta en su desembocadura.",
+    "evidence": "La barra de meandro está en el lado interior de la curva, más lento, frente a la orilla cóncava que se erosiona en el exterior. Con Agua desbordada activado, el sedimento más grueso cae más cerca del cauce y forma diques naturales. En el tubo de sedimentación, los granos más grandes se depositan más rápido: un grano de 50 μm se hunde mucho más rápido que uno de 10 μm.",
+    "reasoning": "El agua más lenta tiene menos energía para llevar sedimento, así que deja primero los granos más pesados. La velocidad de sedimentación aumenta con el tamaño del grano, así que los granos gruesos se depositan cerca de donde se frena el flujo y los finos viajan más lejos."
+  },
+  "controls": {
+    "feature": {
+      "label": "Ambiente",
+      "options": [
+        "Curva y barra de meandro",
+        "Llanura de inundación desbordada",
+        "Desembocadura en delta"
+      ]
+    },
+    "grain": {
+      "label": "Diámetro del grano"
+    },
+    "flood": {
+      "label": "Agua desbordada"
+    }
+  }
+}

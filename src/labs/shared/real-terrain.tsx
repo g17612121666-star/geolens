@@ -7,6 +7,7 @@ import { terrainBlockGeometry } from "./science-geometry";
 import { withSurfaceY } from "./section-utils";
 import { SectionMaterial } from "./section-material";
 import { landSectionGlsl, type LandSection } from "./land-section";
+import { msg } from "@/lib/i18n";
 
 /**
  * Real landscapes baked from public-domain USGS data by scripts/fetch-real-terrain.py:
@@ -15,8 +16,9 @@ import { landSectionGlsl, type LandSection } from "./land-section";
 export type RealSiteId = keyof typeof SITES;
 export type RealSite = (typeof SITES)[RealSiteId];
 export const REAL_SITES = SITES as Record<RealSiteId, RealSite>;
-export const REAL_TERRAIN_CREDIT =
-  "Elevation: USGS 3D Elevation Program · imagery: USGS The National Map (public domain)";
+export const REAL_TERRAIN_CREDIT = msg(
+  "Elevation: USGS 3D Elevation Program · imagery: USGS The National Map (public domain)",
+);
 
 const cache = new Map<RealSiteId, Promise<Float32Array>>();
 function loadHeights(id: RealSiteId) {

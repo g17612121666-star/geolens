@@ -1,0 +1,140 @@
+{
+  "title": "Tipos de relieve",
+  "hook": "La altitud, el relieve, la pendiente y la forma describen propiedades distintas del terreno.",
+  "objective": "Compara la altitud y la forma de montañas, colinas, mesetas, llanuras y cuencas con una misma escala.",
+  "modelDescription": "Dos bloques de terreno están uno al lado del otro para comparar sus formas a la misma escala. Cada uno puede ser una montaña, una colina, una meseta, una llanura o una cuenca. El panel de resultados da la altitud y el relieve local de cada uno.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Compara Montaña con Llanura a la misma escala. Usa los resultados para distinguir la altitud (el punto más alto) del relieve local (el punto más alto menos el más bajo)."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pon Relieve derecho en Meseta y explica su superficie alta y plana. Luego compara Colina con Cuenca y gira la vista."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué la altitud por sí sola no basta para distinguir una meseta, una montaña y una llanura?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Una meseta es…",
+      "choices": [
+        "Un valle profundo y estrecho",
+        "Un pico volcánico en forma de cono",
+        "Una llanura de inundación baja y plana",
+        "Una zona elevada con la cima plana"
+      ],
+      "explain": "Una meseta está elevada respecto al terreno que la rodea, pero conserva una superficie amplia y relativamente plana. Los ríos pueden cortarla en valles y cañones sin que pierda su carácter general de meseta."
+    },
+    {
+      "prompt": "Una cuenca es…",
+      "choices": [
+        "Una zona más baja rodeada de tierras más altas",
+        "Un pico de montaña alto y aislado",
+        "Una altiplanicie plana y elevada",
+        "Una cresta estrecha entre dos valles profundos"
+      ],
+      "explain": "Una cuenca es una zona más baja que el terreno que la rodea. El agua puede converger hacia su fondo, aunque no todas las cuencas están cerradas por completo ni drenan hacia su interior."
+    },
+    {
+      "prompt": "Las montañas y las colinas se diferencian sobre todo en…",
+      "choices": [
+        "Una altura fija de exactamente 600 m",
+        "El relieve y la pendiente, de forma gradual",
+        "El tipo de roca que tienen debajo",
+        "Si la cima tiene nieve"
+      ],
+      "explain": "Las montañas y las colinas se diferencian en altura relativa, pendiente y relieve, pero esas propiedades varían de forma continua. No hay un único umbral de altura que se use igual en todos los países y contextos."
+    },
+    {
+      "prompt": "El Gran Cañón se describe mejor como…",
+      "choices": [
+        "Una cordillera plegada",
+        "Una artesa glaciar en U",
+        "Un cañón excavado en una meseta",
+        "Una cuenca sin ningún río"
+      ],
+      "explain": "El río Colorado y sus afluentes excavaron la elevada meseta del Colorado. Por eso, el cañón es un valle profundo dentro de una meseta, y no una artesa glaciar ni una montaña aislada."
+    },
+    {
+      "prompt": "¿Qué forma del relieve se construye sobre todo por depósito?",
+      "choices": [
+        "Una amplia llanura de inundación",
+        "Un cañón fluvial profundo",
+        "Un circo glaciar",
+        "Un acantilado de una costa rocosa"
+      ],
+      "explain": "Una llanura de inundación se forma con el sedimento que un río deja durante las crecidas y a medida que se desplazan sus meandros. Los cañones, los circos y los acantilados se excavan sobre todo por erosión."
+    }
+  ],
+  "why": [
+    "La altitud, el relieve, la pendiente y la forma describen propiedades distintas del terreno. Una meseta puede estar muy por encima del nivel del mar y seguir siendo bastante plana, y una cuenca se define por estar más baja que el terreno cercano.",
+    "La altitud es la altura sobre el nivel del mar; el relieve local es la diferencia entre el terreno más alto y el más bajo de los alrededores. Una meseta y una montaña pueden ser altas, pero la meseta tiene una cima amplia y de pendiente suave limitada por bordes empinados, mientras que la montaña se eleva hasta un pico con laderas empinadas por todos lados. Una llanura y una meseta pueden ser planas; la meseta está muy por encima del terreno que la rodea. Una cuenca se define por estar más baja que su entorno, no por su altura absoluta.",
+    "Las cinco muestras de terreno usan una misma escala para compararlas; la forma por sí sola no establece el proceso ni el tipo de roca que formaron un paisaje."
+  ],
+  "misconceptions": [
+    {
+      "claim": "La forma de un relieve nos dice qué proceso único lo creó.",
+      "truth": "Un paisaje puede registrar varios procesos que actuaron en momentos distintos. Un río puede ocupar un valle ensanchado por el hielo, y la estructura de la roca influye tanto en la erosión como en los deslizamientos de las laderas. La forma da pistas, pero para interpretar la historia también hacen falta pruebas como los sedimentos, las relaciones entre rocas y la cronología."
+    },
+    {
+      "claim": "Las montañas mantienen la misma altura para siempre.",
+      "truth": "Las montañas se elevan por el levantamiento tectónico y se desgastan por la meteorización y la erosión. El Himalaya sigue elevándose, mientras que cordilleras más antiguas, como los Apalaches y las Tierras Altas de Escocia, fueron mucho más altas de lo que son hoy."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Montaña",
+      "def": "Una forma del relieve con una altitud y un relieve considerables respecto a su entorno. No hay una única altura aceptada en todo el mundo que separe las montañas de las colinas."
+    },
+    {
+      "term": "Colina",
+      "def": "Una zona de terreno elevado, con relieve por encima de su entorno, en general más pequeña que una montaña. Importan la forma y el contexto local: no hay una altura universal que separe las dos. Las curvas de nivel pueden mostrar su cima, sus laderas y su altura relativa."
+    },
+    {
+      "term": "Meseta",
+      "def": "Una extensa zona de terreno elevado y relativamente plano. Los ríos pueden cortarla en valles y cañones profundos mientras quedan restos de la superficie alta. Meseta describe un relieve amplio, no un tipo de roca concreto."
+    },
+    {
+      "term": "Llanura",
+      "def": "Una zona amplia de relieve relativamente bajo, a menudo, pero no siempre, a poca altitud. Las llanuras pueden formarse por depósito, por erosión o por otros procesos. Lo plano no basta para identificar cómo se formó una llanura concreta."
+    },
+    {
+      "term": "Cuenca",
+      "def": "Una zona baja rodeada de terreno más alto. Una cuenca hidrográfica es el área de terreno que envía agua a un río, lago u otra salida concretos."
+    },
+    {
+      "term": "Relieve",
+      "def": "La variación de la altitud dentro de una zona, que a menudo se expresa como la diferencia entre sus puntos más alto y más bajo."
+    },
+    {
+      "term": "Cañón",
+      "def": "Un valle profundo de laderas empinadas, normalmente excavado por un río en terreno alto, como una meseta. La resistencia de la roca, el levantamiento y los cambios del nivel de base influyen en cómo se forma."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Puede una meseta alta y plana tener menos relieve local que una colina baja? Explica tu idea."
+  },
+  "cer": {
+    "prompt": "¿Cómo te ayudan la altitud y el relieve a distinguir montañas, mesetas, colinas, llanuras y cuencas?",
+    "claim": "Las formas del relieve se distinguen por la altitud (qué tan alto) y por el relieve (cuánto varía la altura): las montañas son altas y con gran relieve, las mesetas son altas pero de cima plana, y las llanuras son bajas y planas.",
+    "evidence": "A la misma escala, los resultados muestran la montaña con el punto más alto y el mayor relieve, la meseta con una cima alta pero poco relieve en ella, y la llanura baja y con poco relieve. El punto más bajo de la cuenca está por debajo del terreno que la rodea.",
+    "reasoning": "La altitud mide la altura sobre una referencia, mientras que el relieve mide la diferencia entre los puntos más alto y más bajo de una zona. Una meseta puede ser alta pero tener un relieve suave en la cima, con sus pendientes más fuertes solo en los bordes."
+  },
+  "controls": {
+    "left": {
+      "label": "Relieve izquierdo",
+      "options": ["Montaña", "Colina", "Meseta", "Llanura", "Cuenca"]
+    },
+    "right": {
+      "label": "Relieve derecho",
+      "options": ["Montaña", "Colina", "Meseta", "Llanura", "Cuenca"]
+    }
+  }
+}

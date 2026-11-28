@@ -21,6 +21,7 @@ import { CloudVolume } from "../atmosphere-layers/weather-volumes";
 import { Tag } from "../shared/kit";
 import { PlantStand } from "../shared/natural-world";
 import { CAP_ROCK } from "./rocks";
+import { useT } from "@/lib/i18n";
 
 const smooth = THREE.MathUtils.smoothstep;
 const GRASS = new THREE.Color("#6f8c4a"),
@@ -207,6 +208,7 @@ function FlowMarkers({ path }: { path: [number, number, number][] }) {
 
 /** The waterfall, its retreating lip and the gorge it has left behind. */
 export function Waterfall({ progress }: { progress: number }) {
+  const tr = useT();
   const lip = waterfallLip(progress),
     head = gorgeHalfWidth(lip, progress),
     edge = lip + OVERHANG * 0.75,
@@ -305,20 +307,26 @@ export function Waterfall({ progress }: { progress: number }) {
       <FlowMarkers path={markers} />
       <Tag
         pos={[lip - 0.1, top + 0.45, -head - 0.3]}
-        text="Lip and resistant cap"
-        note="In this example harder sandstone lies on top of weaker mudstone. The plunge pool and spray wear back the weaker rock, the cap is left overhanging, and it eventually collapses, so the waterfall retreats upstream. Not every waterfall forms this way."
+        text={tr("Lip and resistant cap")}
+        note={tr(
+          "In this example harder sandstone lies on top of weaker mudstone. The plunge pool and spray wear back the weaker rock, the cap is left overhanging, and it eventually collapses, so the waterfall retreats upstream. Not every waterfall forms this way.",
+        )}
         occlude={false}
       />
       <Tag
         pos={[lip + 0.7, pool + 0.6, 0.2]}
-        text="Plunge pool"
-        note="Falling water, turbulence and swirling stones deepen a pool at the foot of the fall. The fallen blocks come from the collapsed cap. The pool depth and retreat distance are chosen, not calculated."
+        text={tr("Plunge pool")}
+        note={tr(
+          "Falling water, turbulence and swirling stones deepen a pool at the foot of the fall. The fallen blocks come from the collapsed cap. The pool depth and retreat distance are chosen, not calculated.",
+        )}
         occlude={false}
       />
       <Tag
         pos={[2.6, 0.75, 0]}
-        text="Gorge"
-        note="As the waterfall retreats it leaves a steep-sided gorge downstream. Its walls expose the cap rock above the weaker beds, and fallen blocks pile up as talus at their foot."
+        text={tr("Gorge")}
+        note={tr(
+          "As the waterfall retreats it leaves a steep-sided gorge downstream. Its walls expose the cap rock above the weaker beds, and fallen blocks pile up as talus at their foot.",
+        )}
         occlude={false}
       />
       {/* Flow (blue) and retreat (orange) point in opposite directions. */}
@@ -326,8 +334,10 @@ export function Waterfall({ progress }: { progress: number }) {
       <Arrow from={[2.6, 2.1, -1.3]} to={[lip + 0.1, 2.1, -1.3]} color="#e4bd82" width={2} />
       <Tag
         pos={[2.6, 2.3, -1.3]}
-        text="Retreat upstream"
-        note="The lip moves upstream, against the flow, as the cap collapses block by block. The gorge it leaves behind lengthens downstream of the new lip."
+        text={tr("Retreat upstream")}
+        note={tr(
+          "The lip moves upstream, against the flow, as the cap collapses block by block. The gorge it leaves behind lengthens downstream of the new lip.",
+        )}
         occlude={false}
       />
     </>

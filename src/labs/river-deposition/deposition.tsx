@@ -12,6 +12,7 @@ import { PlantStand } from "../shared/natural-world";
 import { Buildings } from "../shared/hazard-parts";
 import { farmland, settlement } from "../shared/hazard-utils";
 import type { LandSection } from "../shared/land-section";
+import { useT } from "@/lib/i18n";
 
 // One meander bend: its apex lies away from the default camera, so the point bar inside it faces
 // the viewer, and the channel swings back toward the front near each end of the block.
@@ -164,6 +165,7 @@ const MEADOW = new THREE.Color("#86a55a"),
   SWAMP = new THREE.Color("#6d7f4b");
 
 export default function RiverDeposition() {
+  const tr = useT();
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 40);
   const mode = Math.round(params.feature ?? 0),
@@ -307,8 +309,10 @@ export default function RiverDeposition() {
         horizon
         slug="river-deposition"
         camera={[3.5, 4.3, 7]}
-        scale="600 × 400 m conceptual reach · relief ×5 · sediment symbols enlarged"
-        trueScale="1 scene unit = 100 m · one geometric scale · water, sediment and vegetation symbols enlarged"
+        scale={tr("600 × 400 m conceptual reach · relief ×5 · sediment symbols enlarged")}
+        trueScale={tr(
+          "1 scene unit = 100 m · one geometric scale · water, sediment and vegetation symbols enlarged",
+        )}
       >
         <group scale={[1, v, 1]}>
           <GeomorphicTerrain
@@ -344,14 +348,18 @@ export default function RiverDeposition() {
             <>
               <Tag
                 pos={[-0.2, 0.15, bend(-0.2) + HALF + 0.35]}
-                text="Point bar"
-                note="Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonized by grass and trees. Spiraling (helicoidal) flow and sediment supply also shape the bar, so surface speed alone does not explain it."
+                text={tr("Point bar")}
+                note={tr(
+                  "Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonized by grass and trees. Spiraling (helicoidal) flow and sediment supply also shape the bar, so surface speed alone does not explain it.",
+                )}
                 occlude={false}
               />
               <Tag
                 pos={[0.55, 0.24, bend(0.55) - HALF - 0.15]}
-                text="River cliff"
-                note="On the outside of the bend the deepest, fastest flow undercuts the bank, which collapses to leave a steep cliff exposing the floodplain sediments."
+                text={tr("River cliff")}
+                note={tr(
+                  "On the outside of the bend the deepest, fastest flow undercuts the bank, which collapses to leave a steep cliff exposing the floodplain sediments.",
+                )}
                 occlude={false}
               />
               <Arrow
@@ -365,14 +373,18 @@ export default function RiverDeposition() {
             <>
               <Tag
                 pos={[0.2, 0.24, 0.32]}
-                text="Natural levee"
-                note="When the river overtops its banks the flow slows at once, so the coarsest sediment drops beside the channel. Repeated floods build these low ridges. They are sedimentary landforms, not constructed flood defenses."
+                text={tr("Natural levee")}
+                note={tr(
+                  "When the river overtops its banks the flow slows at once, so the coarsest sediment drops beside the channel. Repeated floods build these low ridges. They are sedimentary landforms, not constructed flood defenses.",
+                )}
                 occlude={false}
               />
               <Tag
                 pos={[1.7, 0.2, -1.4]}
-                text="Floodplain"
-                note="Finer silt and clay travel farther in overbank flow and settle in the lower, wetter backswamp. The cut face shows the flood layers thinning away from the channel."
+                text={tr("Floodplain")}
+                note={tr(
+                  "Finer silt and clay travel farther in overbank flow and settle in the lower, wetter backswamp. The cut face shows the flood layers thinning away from the channel.",
+                )}
                 occlude={false}
               />
             </>
@@ -380,14 +392,18 @@ export default function RiverDeposition() {
             <>
               <Tag
                 pos={[0.5, 0.1, 0.75]}
-                text="Distributaries"
-                note="A delta grows where the river supplies sediment faster than waves and tides remove it. Channels split and shift; the three branches here are illustrative. The cut face shows flat topsets over seaward-sloping foresets."
+                text={tr("Distributaries")}
+                note={tr(
+                  "A delta grows where the river supplies sediment faster than waves and tides remove it. Channels split and shift; the three branches here are illustrative. The cut face shows flat topsets over seaward-sloping foresets.",
+                )}
                 occlude={false}
               />
               <Tag
                 pos={[1.7, 0.1, -1.1]}
-                text="River mouth"
-                note="Not every river mouth builds a delta. Tides, waves, sea-level history and sediment supply can maintain an estuary instead. The brown plume shows sediment carried out into the sea."
+                text={tr("River mouth")}
+                note={tr(
+                  "Not every river mouth builds a delta. Tides, waves, sea-level history and sediment supply can maintain an estuary instead. The brown plume shows sediment carried out into the sea.",
+                )}
                 occlude={false}
               />
             </>
@@ -436,26 +452,39 @@ export default function RiverDeposition() {
           </mesh>
           <Tag
             pos={[0, 0.65, 0]}
-            text="Settling · 2 m / 20 min"
-            note="A separate, enlarged tube, not at landscape scale. One play-through lasts 20 minutes; the grain falls through 2 m of still fresh water at its Stokes settling speed."
+            text={tr("Settling · 2 m / 20 min")}
+            note={tr(
+              "A separate, enlarged tube, not at landscape scale. One play-through lasts 20 minutes; the grain falls through 2 m of still fresh water at its Stokes settling speed.",
+            )}
             occlude={false}
           />
         </group>
       </ScienceStudio>
       <ScienceReadout>
         {mode === 0
-          ? "Inner-bank point bar opposite an undercut river cliff. Flow tracers move downstream; the bar does not grow in this model."
+          ? tr(
+              "Inner-bank point bar opposite an undercut river cliff. Flow tracers move downstream; the bar does not grow in this model.",
+            )
           : mode === 1
-            ? `${flood ? "Overbank flow shown" : "Channel flow shown"} · natural levees border a lower floodplain. Toggle Overbank water to compare.`
-            : "A delta of river sediment, crossed by branching distributaries, builds out into the sea. Not every river mouth builds a delta; many end in estuaries."}{" "}
+            ? flood
+              ? tr(
+                  "Overbank flow shown · natural levees border a lower floodplain. Toggle Overbank water to compare.",
+                )
+              : tr(
+                  "Channel flow shown · natural levees border a lower floodplain. Toggle Overbank water to compare.",
+                )
+            : tr(
+                "A delta of river sediment, crossed by branching distributaries, builds out into the sea. Not every river mouth builds a delta; many end in estuaries.",
+              )}{" "}
         <br />
-        {"Separate settling experiment: "}
-        {grain.toFixed(0)} {"μm quartz spheres settle at "}
-        {(settlingVelocity(grain * 1e-6) * 1000).toFixed(2)}{" "}
-        {
-          "mm/s in still 20 °C fresh water; at 0.1 m/s horizontal transport through 2 m depth, distance ≈ "
-        }
-        {settlingDistance(grain * 1e-6).toFixed(0)} {"m. Turbulence and flocculation are excluded."}
+        {tr(
+          "Separate settling experiment: {grain} μm quartz spheres settle at {speed} mm/s in still 20 °C fresh water; at 0.1 m/s horizontal transport through 2 m depth, distance ≈ {distance} m. Turbulence and flocculation are excluded.",
+          {
+            grain: grain.toFixed(0),
+            speed: (settlingVelocity(grain * 1e-6) * 1000).toFixed(2),
+            distance: settlingDistance(grain * 1e-6).toFixed(0),
+          },
+        )}
       </ScienceReadout>
     </>
   );

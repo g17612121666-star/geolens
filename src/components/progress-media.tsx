@@ -7,6 +7,7 @@ import {
 } from "react";
 import { LoadingProgress } from "./loading-progress";
 import { CARD_SIZES, photoSrcSet } from "@/lib/responsive-image";
+import { msg, useT } from "@/lib/i18n";
 export function ProgressImage({
   className = "",
   src,
@@ -18,6 +19,7 @@ export function ProgressImage({
   onError,
   ...props
 }: ImgHTMLAttributes<HTMLImageElement>) {
+  const t = useT();
   const ref = useRef<HTMLImageElement>(null),
     [state, setState] = useState("loading"),
     [attempt, setAttempt] = useState(0);
@@ -54,7 +56,7 @@ export function ProgressImage({
         <span
           className="pointer-events-none absolute inset-x-2 bottom-2"
           role="progressbar"
-          aria-label="Loading photograph"
+          aria-label={t("Loading photograph")}
         >
           <span className="block h-1 overflow-hidden rounded-full bg-black/40">
             <span className="loading-progress-sweep block h-full rounded-full bg-glacier" />
@@ -63,7 +65,7 @@ export function ProgressImage({
       )}
       {state === "error" && (
         <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-basalt p-4 text-center text-sm text-mist">
-          <span>{alt || "Photograph unavailable"}</span>
+          <span>{alt || t("Photograph unavailable")}</span>
           <button
             type="button"
             className="min-h-11 rounded-full border border-white/20 px-4 text-chalk"
@@ -74,7 +76,7 @@ export function ProgressImage({
               setAttempt((n) => n + 1);
             }}
           >
-            Retry photograph
+            {t("Retry photograph")}
           </button>
         </span>
       )}
@@ -86,10 +88,11 @@ type ProgressFrameProps = IframeHTMLAttributes<HTMLIFrameElement> & {
   loadingDetail?: string;
 };
 export function ProgressFrame({
-  loadingLabel = "Loading video player",
-  loadingDetail = "The film stays paused until you play it.",
+  loadingLabel = msg("Loading video player"),
+  loadingDetail = msg("The film stays paused until you play it."),
   ...props
 }: ProgressFrameProps) {
+  const t = useT();
   const wrapper = useRef<HTMLDivElement>(null);
   const [state, setState] = useState<"loading" | "ready" | "slow">("loading");
   const [attempt, setAttempt] = useState(0);
@@ -128,7 +131,7 @@ export function ProgressFrame({
       />
       {state === "loading" && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-basalt/95 p-5">
-          <LoadingProgress label={loadingLabel} detail={loadingDetail} />
+          <LoadingProgress label={t(loadingLabel)} detail={t(loadingDetail)} />
         </div>
       )}
       {state === "slow" && (
@@ -136,14 +139,14 @@ export function ProgressFrame({
           className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-basalt/95 p-5 text-center text-sm text-mist"
           role="status"
         >
-          <p>This content is taking longer than expected to load.</p>
+          <p>{t("This content is taking longer than expected to load.")}</p>
           <div className="flex flex-wrap justify-center gap-3">
             <button
               type="button"
               onClick={() => setAttempt((n) => n + 1)}
               className="min-h-11 rounded-full border border-white/20 px-4 text-chalk"
             >
-              Try again
+              {t("Try again")}
             </button>
             {props.src && (
               <a
@@ -152,7 +155,7 @@ export function ProgressFrame({
                 rel="noreferrer"
                 className="inline-flex min-h-11 items-center px-3 text-glacier underline"
               >
-                Open separately
+                {t("Open separately")}
               </a>
             )}
           </div>

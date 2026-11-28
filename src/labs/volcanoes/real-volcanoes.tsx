@@ -105,10 +105,10 @@ export default function RealVolcanoes() {
         slug="volcanoes"
         scale={tr(
           "Real terrain at one scale (1 unit = 10 km) · heights from sea level ×3 · {credit}",
-          { credit: REAL_TERRAIN_CREDIT },
+          { credit: tr(REAL_TERRAIN_CREDIT) },
         )}
         trueScale={tr("Real terrain at one scale: 1 unit = 10 km in all directions · {credit}", {
-          credit: REAL_TERRAIN_CREDIT,
+          credit: tr(REAL_TERRAIN_CREDIT),
         })}
         camera={[1.2, 3.4, 6.6]}
       >

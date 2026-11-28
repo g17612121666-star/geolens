@@ -142,7 +142,7 @@ export default function Contours() {
           real
             ? tr(
                 "Real terrain, Sugarloaf Mountain, Maryland · height exaggerated ×2.5 · {REALTERRAINCREDIT}",
-                { REALTERRAINCREDIT: REAL_TERRAIN_CREDIT },
+                { REALTERRAINCREDIT: tr(REAL_TERRAIN_CREDIT) },
               )
             : tr(
                 "Height exaggerated ×2.5 · Compare physical scale shows equal horizontal and vertical scales",
@@ -152,7 +152,7 @@ export default function Contours() {
           real
             ? tr("1 scene unit = {round} m in all directions · {REALTERRAINCREDIT}", {
                 round: Math.round(field.unitM),
-                REALTERRAINCREDIT: REAL_TERRAIN_CREDIT,
+                REALTERRAINCREDIT: tr(REAL_TERRAIN_CREDIT),
               })
             : tr("1 scene unit = 100 m in all directions")
         }

@@ -1,0 +1,156 @@
+{
+  "title": "Costas",
+  "hook": "Las olas erosionan la roca, transportan sedimento y lo depositan a lo largo de la costa.",
+  "objective": "Explica cómo la erosión costera forma cuevas, arcos y farallones, y cómo la deriva litoral y los espigones cambian el movimiento del sedimento de la playa.",
+  "modelDescription": "Un promontorio de creta con bandas de pedernal se levanta sobre una plataforma de abrasión plana, con olas que rompen contra sus acantilados. El promontorio puede mostrar una cueva marina, un arco, un farallón o un tocón. Otras vistas muestran arena que se mueve a lo largo de una playa, retenida por un espigón, y una flecha que crece a través de una bahía.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Pon Etapa del promontorio en Cueva, mira dentro de la cueva marina y encuentra su pared del fondo. Luego cambia Etapa del promontorio para comparar el arco, el farallón y el tocón sobre la plataforma de abrasión."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Pon Ambiente en Transporte en la playa y activa Espigón; luego elige Flecha y bahía y cambia Extensión de la flecha."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo puede afectar a las playas más alejadas a lo largo de la costa que un espigón retenga sedimento?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La deriva litoral mueve el sedimento…",
+      "choices": [
+        "Directo mar adentro",
+        "Playa arriba y luego recto hacia abajo",
+        "A lo largo de la playa, siempre contra el viento",
+        "A lo largo de la playa, con el flujo de ascenso"
+      ],
+      "explain": "Las olas que llegan en ángulo llevan el sedimento en diagonal playa arriba con el flujo de ascenso. La resaca vuelve más directamente pendiente abajo, lo que produce un movimiento neto a lo largo de la costa con las olas repetidas."
+    },
+    {
+      "prompt": "Un farallón es…",
+      "choices": [
+        "Un pilar que queda cuando se derrumba un arco",
+        "Una cueva excavada en un promontorio",
+        "Una cresta de arena unida a tierra",
+        "Un tocón de roca bajo que se cubre con marea alta"
+      ],
+      "explain": "La erosión de las olas puede agrandar una cueva hasta convertirla en un arco que atraviesa el promontorio. Cuando se derrumba el techo del arco, queda un pilar aislado: un farallón."
+    },
+    {
+      "prompt": "Los espigones de una playa de Nueva Jersey…",
+      "choices": [
+        "Añaden arena a lo largo de toda la costa",
+        "Retienen arena de un lado y dejan sin arena el otro",
+        "Detienen toda la erosión de la costa",
+        "Empujan la arena mar adentro, a aguas más profundas"
+      ],
+      "explain": "Los espigones interrumpen el sedimento que se transporta a lo largo de la playa y favorecen que se acumule del lado de donde viene la deriva. Si no llega sedimento de otra parte, puede llegar menos a la costa del otro lado."
+    },
+    {
+      "prompt": "¿Cómo debería evaluarse un muro de contención dentro del balance de toda la costa?",
+      "choices": [
+        "Como una solución permanente para toda la costa",
+        "Solo por su costo por metro",
+        "También por sus efectos en las costas cercanas",
+        "Solo por su altura"
+      ],
+      "explain": "Un muro de contención protege un tramo concreto, pero puede alterar el reflejo de las olas, la socavación local y los intercambios de sedimento. Por eso, sus efectos deben evaluarse dentro del sistema de sedimentos costero conectado."
+    },
+    {
+      "prompt": "¿Dónde se forma una flecha?",
+      "choices": [
+        "Donde la deriva litoral lleva arena más allá de una curva de la costa",
+        "Donde las olas excavan una cueva que atraviesa un promontorio",
+        "Donde un río deja su carga en un lago",
+        "Donde dos arcos vecinos se derrumban y se acumulan sus escombros"
+      ],
+      "explain": "Donde la línea de costa cambia de dirección, por ejemplo en la desembocadura de un río, la deriva litoral sigue llevando arena hacia aguas abiertas. Forma una cresta estrecha de arena o de grava, como Sandy Hook, en Nueva Jersey, o Spurn Point, en Inglaterra."
+    }
+  ],
+  "why": [
+    "Las olas erosionan la roca, transportan sedimento y lo depositan a lo largo de la costa. Las formas que resultan dependen de la estructura de la roca, la dirección de las olas, el aporte de sedimento y el balance del material que entra y sale de un tramo de costa.",
+    "Las olas atacan las diaclasas de un promontorio y agrandan una cueva hasta que lo atraviesa y forma un arco; luego el techo se derrumba y deja un farallón, que se desgasta hasta quedar como un tocón. Donde las olas llegan en ángulo, el flujo de ascenso lleva el sedimento en diagonal playa arriba y la resaca lo devuelve recto hacia abajo, así que el material deriva a lo largo de la costa. Un espigón retiene esta deriva del lado de donde viene, y donde la costa gira hacia tierra adentro, la deriva sigue y forma una flecha.",
+    "La escena muestra algunos procesos costeros elegidos; la respuesta de una costa real también depende de su balance de sedimentos más amplio."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Los espigones crean sedimento nuevo para la playa sin afectar las costas cercanas.",
+      "truth": "Los espigones interrumpen el movimiento del sedimento a lo largo de la costa y pueden retener material de un lado. Redistribuyen un aporte que ya existe en lugar de crearlo, y pueden reducir lo que llega más adelante en la costa. Por eso, sus efectos deben considerarse dentro del balance de sedimentos más amplio."
+    },
+    {
+      "claim": "La deriva litoral siempre mueve la arena en la dirección en que sopla el viento ese día.",
+      "truth": "El sedimento se mueve en la dirección que fija el ángulo de las olas, que refleja sobre todo el viento dominante y las tormentas lejanas a lo largo de semanas y estaciones. En un día concreto, la deriva puede ir en sentido contrario."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Ola constructiva",
+      "def": "Una descripción escolar de las olas que tienden a formar playa porque el flujo de ascenso lleva más sedimento hacia tierra del que se lleva la resaca. Que una playa crezca de verdad también depende del aporte de sedimento, la pendiente y las condiciones cambiantes a lo largo de todo el ciclo de las olas."
+    },
+    {
+      "term": "Ola destructiva",
+      "def": "Una descripción didáctica de las olas que tienden a quitar sedimento de una playa, con una resaca fuerte en comparación con el flujo de ascenso. El cambio neto también depende del sedimento y de las condiciones de las olas."
+    },
+    {
+      "term": "Deriva litoral",
+      "def": "El movimiento neto del sedimento de la playa a lo largo de una costa, cuando las olas oblicuas impulsan el flujo de ascenso playa arriba y la gravedad devuelve la resaca pendiente abajo. Su dirección depende del ángulo de llegada de las olas. Las estructuras que interrumpen el aporte pueden cambiar las playas más alejadas a lo largo de la costa."
+    },
+    {
+      "term": "Flecha",
+      "def": "Un depósito alargado de arena o grava, unido a tierra por un extremo y que se extiende hacia el agua, normalmente formado por el transporte de sedimento a lo largo de la costa."
+    },
+    {
+      "term": "Farallón",
+      "def": "Un pilar aislado de roca costera que queda por la erosión y el retroceso del acantilado, a veces tras el derrumbe de un arco marino. Old Harry Rocks, en Dorset, son farallones de creta; muy cerca, Durdle Door es un arco de caliza."
+    },
+    {
+      "term": "Tocón",
+      "def": "El resto bajo de un farallón erosionado, que a menudo solo se ve con marea baja. La acción de las olas y la meteorización reducen la roca aislada con el tiempo. La secuencia cueva–arco–farallón–tocón es útil, aunque las costas reales pueden seguir historias más complicadas."
+    },
+    {
+      "term": "Espigón",
+      "def": "Una estructura que se extiende a través de una playa para interrumpir el movimiento del sedimento a lo largo de la costa. La arena puede acumularse del lado de donde viene la deriva mientras la playa del otro lado recibe menos. Sus efectos deben considerarse dentro del balance de sedimentos costero más amplio."
+    },
+    {
+      "term": "Balance de sedimentos",
+      "def": "Una cuenta del sedimento que entra, sale y se almacena dentro de un área definida. Una playa puede erosionarse cuando las pérdidas superan al aporte, aunque haya depósito por poco tiempo. Indica los límites y el periodo antes de comparar entradas y salidas."
+    }
+  ],
+  "predict": {
+    "prompt": "Las olas golpean un promontorio de roca dura. ¿Qué formas crees que tallará el mar a lo largo de miles de años?"
+  },
+  "cer": {
+    "prompt": "¿Cómo cambia un promontorio de cueva a tocón con el tiempo?",
+    "claim": "Las olas erosionan los puntos débiles de un promontorio y forman una cueva, que se convierte en un arco, luego en un farallón cuando el arco se derrumba y, por último, en un tocón.",
+    "evidence": "Al avanzar por Etapa del promontorio se ve una cueva excavada en la base del acantilado, una abertura que atraviesa todo el promontorio (arco), un pilar que queda aparte después de que cae el techo (farallón) y un resto bajo sobre la plataforma de abrasión (tocón).",
+    "reasoning": "El ataque de las olas se concentra en las diaclasas y las fallas, y las agranda hasta formar cuevas. Cuando se unen las cuevas de ambos lados, se forma un arco. La erosión en su base y la meteorización del techo hacen que se derrumbe, y el farallón aislado se sigue desgastando."
+  },
+  "controls": {
+    "view": {
+      "label": "Ambiente",
+      "options": ["Promontorio rocoso", "Transporte en la playa", "Flecha y bahía"]
+    },
+    "stage": {
+      "label": "Etapa del promontorio",
+      "options": ["Cueva", "Arco", "Farallón", "Tocón"]
+    },
+    "spit": {
+      "label": "Extensión de la flecha"
+    },
+    "constructive": {
+      "label": "Olas constructivas"
+    },
+    "drift": {
+      "label": "Partículas de deriva litoral"
+    },
+    "groyne": {
+      "label": "Espigón"
+    }
+  }
+}

@@ -2117,4 +2117,314 @@ export const ES: Record<string, string> = {
   "Burial / sedimentation": "Enterramiento / sedimentación",
   "Geological degassing": "Desgasificación geológica",
   "Fossil-fuel combustion": "Quema de combustibles fósiles",
+
+  // Batch G: rivers, coasts and glaciers scenes
+  "High relief and steep, rugged slopes: forest gives way to alpine grassland, bare rock and snow with height. No single height separates mountains from hills.":
+    "Relieve alto y laderas empinadas y escarpadas: con la altura, el bosque da paso a pastizales alpinos, roca desnuda y nieve. No hay una altura única que separe las montañas de las colinas.",
+  "This hill has lower relief and gentler slopes than the mountain. Height alone does not define a landform.":
+    "Esta colina tiene menos relieve y laderas más suaves que la montaña. La altura por sí sola no define una forma del relieve.",
+  "A plateau is a broad, fairly level high surface. Its edges may be steep, exposing the rock layers beneath, and rivers may cut canyons into it. The flat-topped hill in front is a butte: a piece of the plateau left standing as its edge wore back. Plateaus form in different ways.":
+    "Una meseta es una superficie alta, amplia y bastante plana. Sus bordes pueden ser empinados y dejar ver las capas de roca de abajo, y los ríos pueden excavar cañones en ella. La colina de cima plana del frente es un cerro testigo: un trozo de la meseta que quedó en pie mientras su borde retrocedía. Las mesetas se forman de distintas maneras.",
+  "A plain has low local relief. Plains can lie at high or low elevation; this one is low, with fields and a meandering river.":
+    "Una llanura tiene poco relieve local. Las llanuras pueden estar a gran o a poca altitud; esta es baja, con campos y un río con meandros.",
+  "A basin is lower than the land around it. This one drains through a gap in its rim; others drain inward. The shape alone does not mean it holds a lake.":
+    "Una cuenca está más baja que el terreno que la rodea. Esta drena por una abertura en su borde; otras drenan hacia adentro. La forma por sí sola no significa que tenga un lago.",
+  "Both samples: 4 × 4 km · relief ×2 · identical comparison scale · trees and buildings enlarged":
+    "Ambas muestras: 4 × 4 km · relieve ×2 · misma escala de comparación · árboles y edificios agrandados",
+  "Both samples: 1 scene unit = 1 km · common horizontal and vertical scale · trees, buildings and boulders enlarged":
+    "Ambas muestras: 1 unidad de escena = 1 km · misma escala horizontal y vertical · árboles, edificios y bloques de roca agrandados",
+  "{a} and {b} at the same scale. Compare elevation, local relief, slope and the shape of the surface separately.":
+    "{a} y {b} a la misma escala. Compara por separado la altitud, el relieve local, la pendiente y la forma de la superficie.",
+  "Left: {name}": "Izquierda: {name}",
+  "Right: {name}": "Derecha: {name}",
+  "Highest point {hi} m · lowest {lo} m": "Punto más alto {hi} m · más bajo {lo} m",
+  "Local relief": "Relieve local",
+  "Typical slope {typical}° · steepest {steepest}°":
+    "Pendiente típica {typical}° · máxima {steepest}°",
+  "Choose any two of the five forms. These are invented surfaces, not real places. Heights are measured from the scene's zero level, taken as sea level; local relief is highest minus lowest point in the 4 × 4 km sample. Slopes are true-scale values, whatever the relief setting. Color and texture help you read them; they do not show origin, climate or rock type.":
+    "Elige dos de las cinco formas. Son superficies inventadas, no lugares reales. Las alturas se miden desde el nivel cero de la escena, que se toma como el nivel del mar; el relieve local es el punto más alto menos el más bajo en la muestra de 4 × 4 km. Las pendientes son valores a escala real, sea cual sea el ajuste del relieve. El color y la textura te ayudan a leerlas; no muestran el origen, el clima ni el tipo de roca.",
+  "Abrasion in a pothole": "Abrasión en una marmita",
+  "Turbulent flow swirls stones around a hollow in the river bed and grinds it deeper. The block is cut through the middle of the pothole so you can see its profile. The stones are enlarged; fine sediment carried in suspension also abrades the walls.":
+    "El flujo turbulento hace girar piedras dentro de un hueco del lecho del río y lo desgasta cada vez más hondo. El bloque está cortado por la mitad de la marmita para que veas su perfil. Las piedras están agrandadas; el sedimento fino que va en suspensión también desgasta las paredes.",
+  "Cut face": "Cara del corte",
+  "A vertical slice through the pothole and the bedrock around it, as if the rock had been sawn in half.":
+    "Un corte vertical a través de la marmita y de la roca que la rodea, como si la roca se hubiera serrado por la mitad.",
+  "V-shaped valley": "Valle en V",
+  "The river cuts down into its bed while weathering, soil creep and small slides lower the valley sides. Together they give a V-shaped cross-section. The river alone does not cut the whole valley side, and not every river valley is V-shaped.":
+    "El río excava su lecho mientras la meteorización, la reptación del suelo y pequeños deslizamientos rebajan las laderas del valle. Juntos dan un perfil transversal en forma de V. El río solo no excava toda la ladera, y no todos los valles fluviales tienen forma de V.",
+  "Interlocking spurs": "Espolones entrelazados",
+  "The winding stream erodes the outsides of its bends, leaving ridges of higher ground that jut out alternately from each side of the valley and overlap when you look up it.":
+    "El arroyo sinuoso erosiona el lado exterior de sus curvas y deja crestas de terreno más alto que sobresalen alternadamente de cada lado del valle y se superponen cuando miras valle arriba.",
+  "Pothole close-up · 1 unit = 1 m · block cut through the hollow · stones enlarged":
+    "Primer plano de una marmita · 1 unidad = 1 m · bloque cortado a través del hueco · piedras agrandadas",
+  "60 × 40 m terrain · vertical ×1.5 · retreat stages not dated":
+    "Terreno de 60 × 40 m · vertical ×1.5 · etapas de retroceso sin fecha",
+  "60 × 40 m terrain · vertical ×1.5 · fixed valley shape":
+    "Terreno de 60 × 40 m · vertical ×1.5 · forma del valle fija",
+  "Pothole geometry at common meter scale · stones enlarged":
+    "Geometría de la marmita a la misma escala en metros · piedras agrandadas",
+  "1 scene unit = 10 m · equal horizontal and vertical scale":
+    "1 unidad de escena = 10 m · misma escala horizontal y vertical",
+  "Water flows downstream; the waterfall retreats upstream by {retreat} m in this chosen sequence. Change Retreat to expose a longer gorge.":
+    "El agua fluye río abajo; la cascada retrocede {retreat} m río arriba en esta secuencia elegida. Cambia Retroceso para dejar ver una garganta más larga.",
+  "Flow swirls stones around a hollow in the bedrock. The block is cut through the center of a 1.24 m wide, 0.85 m deep example.":
+    "El flujo hace girar piedras dentro de un hueco de la roca. El bloque está cortado por el centro de un ejemplo de 1.24 m de ancho y 0.85 m de profundidad.",
+  "A narrow channel cuts the valley floor while weathering and slope processes lower both sides. The water flows downstream; the valley shape does not change.":
+    "Un cauce estrecho excava el fondo del valle mientras la meteorización y los procesos de ladera rebajan ambos lados. El agua fluye río abajo; la forma del valle no cambia.",
+  "Play animates the flow only; the model gives no erosion rate or landform age. Choose a feature, rotate the model and compare it with the photograph.":
+    "Reproducir solo anima el flujo; el modelo no da una tasa de erosión ni la edad del relieve. Elige un elemento, gira el modelo y compáralo con la fotografía.",
+  "North–south cross-section across the Grand Canyon": "Perfil norte–sur a través del Gran Cañón",
+  "Colorado River": "Río Colorado",
+  "The river has cut about 1.5 km down into the Colorado Plateau over roughly the last 5 to 6 million years, carrying the eroded rock away downstream.":
+    "El río ha excavado unos 1.5 km en la meseta del Colorado en los últimos 5 a 6 millones de años, aproximadamente, y se ha llevado río abajo la roca erosionada.",
+  "South Rim · Grand Canyon Village": "Borde Sur · Grand Canyon Village",
+  "The flat, forested plateau surface. Its edge is the canyon rim.":
+    "La superficie plana y boscosa de la meseta. Donde termina está el borde del cañón.",
+  "Side canyons and buttes": "Cañones laterales y cerros testigo",
+  "Side streams and weathering widen the canyon. Hard layers form cliffs; softer layers wear back into slopes, giving the stepped walls.":
+    "Los arroyos laterales y la meteorización ensanchan el cañón. Las capas duras forman acantilados; las más blandas se desgastan en pendientes, lo que da paredes escalonadas.",
+  "Real USGS elevation for the Grand Canyon near Grand Canyon Village, Arizona. The red line crosses the canyon from north to south: the river sits about {lo} m above sea level, the rims rise to about {hi} m. A river that keeps cutting down while the land rises makes a deep canyon rather than a wide valley.":
+    "Elevación real del USGS del Gran Cañón cerca de Grand Canyon Village, Arizona. La línea roja cruza el cañón de norte a sur: el río está a unos {lo} m sobre el nivel del mar, y los bordes suben hasta unos {hi} m. Un río que sigue excavando mientras el terreno se eleva forma un cañón profundo en lugar de un valle ancho.",
+  "Lip and resistant cap": "Borde y capa resistente",
+  "In this example harder sandstone lies on top of weaker mudstone. The plunge pool and spray wear back the weaker rock, the cap is left overhanging, and it eventually collapses, so the waterfall retreats upstream. Not every waterfall forms this way.":
+    "En este ejemplo, una arenisca más dura está encima de una lutita más débil. La poza y el rocío desgastan la roca más débil, la capa queda en voladizo y termina por derrumbarse, así que la cascada retrocede río arriba. No todas las cascadas se forman así.",
+  "Plunge pool": "Poza",
+  "Falling water, turbulence and swirling stones deepen a pool at the foot of the fall. The fallen blocks come from the collapsed cap. The pool depth and retreat distance are chosen, not calculated.":
+    "El agua que cae, la turbulencia y las piedras que giran profundizan una poza al pie de la cascada. Los bloques caídos vienen de la capa derrumbada. La profundidad de la poza y la distancia de retroceso se eligen, no se calculan.",
+  Gorge: "Garganta",
+  "As the waterfall retreats it leaves a steep-sided gorge downstream. Its walls expose the cap rock above the weaker beds, and fallen blocks pile up as talus at their foot.":
+    "Al retroceder, la cascada deja río abajo una garganta de paredes empinadas. Sus paredes muestran la roca de la capa sobre los estratos más débiles, y los bloques caídos se acumulan como talud de derrubios a su pie.",
+  "Retreat upstream": "Retroceso río arriba",
+  "The lip moves upstream, against the flow, as the cap collapses block by block. The gorge it leaves behind lengthens downstream of the new lip.":
+    "El borde se desplaza río arriba, contra la corriente, a medida que la capa se derrumba bloque a bloque. La garganta que deja atrás se alarga río abajo del nuevo borde.",
+  "600 × 400 m conceptual reach · relief ×5 · sediment symbols enlarged":
+    "Tramo conceptual de 600 × 400 m · relieve ×5 · símbolos de sedimento agrandados",
+  "1 scene unit = 100 m · one geometric scale · water, sediment and vegetation symbols enlarged":
+    "1 unidad de escena = 100 m · una sola escala geométrica · símbolos de agua, sedimento y vegetación agrandados",
+  "Point bar": "Barra de meandro",
+  "Sand and gravel build out on the inside of the bend, where the flow is slower and shallower. Older bars become the curved ridges behind, colonized by grass and trees. Spiraling (helicoidal) flow and sediment supply also shape the bar, so surface speed alone does not explain it.":
+    "La arena y la grava se acumulan en el lado interior de la curva, donde el flujo es más lento y menos profundo. Las barras más antiguas forman las crestas curvas de detrás, colonizadas por pasto y árboles. El flujo en espiral (helicoidal) y el aporte de sedimento también dan forma a la barra, así que la velocidad en superficie no basta para explicarla.",
+  "River cliff": "Orilla de erosión",
+  "On the outside of the bend the deepest, fastest flow undercuts the bank, which collapses to leave a steep cliff exposing the floodplain sediments.":
+    "En el lado exterior de la curva, el flujo más profundo y rápido socava la orilla, que se derrumba y deja un talud empinado que muestra los sedimentos de la llanura de inundación.",
+  "Natural levee": "Dique natural",
+  "When the river overtops its banks the flow slows at once, so the coarsest sediment drops beside the channel. Repeated floods build these low ridges. They are sedimentary landforms, not constructed flood defenses.":
+    "Cuando el río se desborda, el flujo se frena de inmediato, así que el sedimento más grueso cae junto al cauce. Las crecidas repetidas forman estas crestas bajas. Son formas sedimentarias, no defensas construidas contra las inundaciones.",
+  Floodplain: "Llanura de inundación",
+  "Finer silt and clay travel farther in overbank flow and settle in the lower, wetter backswamp. The cut face shows the flood layers thinning away from the channel.":
+    "El limo y la arcilla, más finos, viajan más lejos con el agua desbordada y se depositan en la zona pantanosa, más baja y húmeda. La cara del corte muestra cómo las capas de las crecidas se adelgazan lejos del cauce.",
+  Distributaries: "Canales distributarios",
+  "A delta grows where the river supplies sediment faster than waves and tides remove it. Channels split and shift; the three branches here are illustrative. The cut face shows flat topsets over seaward-sloping foresets.":
+    "Un delta crece donde el río aporta sedimento más rápido de lo que lo quitan las olas y las mareas. Los canales se dividen y cambian de lugar; las tres ramas de aquí son ilustrativas. La cara del corte muestra capas superiores planas sobre capas frontales inclinadas hacia el mar.",
+  "River mouth": "Desembocadura",
+  "Not every river mouth builds a delta. Tides, waves, sea-level history and sediment supply can maintain an estuary instead. The brown plume shows sediment carried out into the sea.":
+    "No todas las desembocaduras forman un delta. Las mareas, las olas, la historia del nivel del mar y el aporte de sedimento pueden mantener un estuario en su lugar. La pluma marrón muestra el sedimento que sale hacia el mar.",
+  "Settling · 2 m / 20 min": "Sedimentación · 2 m / 20 min",
+  "A separate, enlarged tube, not at landscape scale. One play-through lasts 20 minutes; the grain falls through 2 m of still fresh water at its Stokes settling speed.":
+    "Un tubo aparte y agrandado, no a la escala del paisaje. Una reproducción completa dura 20 minutos; el grano cae 2 m en agua dulce quieta a su velocidad de sedimentación de Stokes.",
+  "Inner-bank point bar opposite an undercut river cliff. Flow tracers move downstream; the bar does not grow in this model.":
+    "Barra de meandro en la orilla interior, frente a una orilla de erosión socavada. Los trazadores del flujo se mueven río abajo; la barra no crece en este modelo.",
+  "Overbank flow shown · natural levees border a lower floodplain. Toggle Overbank water to compare.":
+    "Se muestra el agua desbordada · los diques naturales bordean una llanura de inundación más baja. Activa o desactiva Agua desbordada para comparar.",
+  "Channel flow shown · natural levees border a lower floodplain. Toggle Overbank water to compare.":
+    "Se muestra el flujo en el cauce · los diques naturales bordean una llanura de inundación más baja. Activa o desactiva Agua desbordada para comparar.",
+  "A delta of river sediment, crossed by branching distributaries, builds out into the sea. Not every river mouth builds a delta; many end in estuaries.":
+    "Un delta de sedimento fluvial, cruzado por canales distributarios ramificados, avanza hacia el mar. No todas las desembocaduras forman un delta; muchas terminan en estuarios.",
+  "Separate settling experiment: {grain} μm quartz spheres settle at {speed} mm/s in still 20 °C fresh water; at 0.1 m/s horizontal transport through 2 m depth, distance ≈ {distance} m. Turbulence and flocculation are excluded.":
+    "Experimento de sedimentación aparte: esferas de cuarzo de {grain} μm se depositan a {speed} mm/s en agua dulce quieta a 20 °C; con un transporte horizontal de 0.1 m/s a través de 2 m de profundidad, la distancia ≈ {distance} m. Se excluyen la turbulencia y la floculación.",
+  "Invented 6 × 4 km catchments · relief ×2 · three selected stages":
+    "Cuencas inventadas de 6 × 4 km · relieve ×2 · tres etapas elegidas",
+  "1 scene unit = 1 km · common distances · water and vegetation symbols enlarged":
+    "1 unidad de escena = 1 km · distancias a la misma escala · símbolos de agua y vegetación agrandados",
+  "Captured headwaters": "Cabecera capturada",
+  "Neighboring river": "Río vecino",
+  "Before capture these headwaters flow east across the scene. After capture they turn into the lower captor valley. Channel widths and tracer speeds do not show discharge.":
+    "Antes de la captura, esta cabecera fluye hacia el este a través de la escena. Después de la captura gira hacia el valle captor, más bajo. El ancho de los cauces y la velocidad de los trazadores no muestran el caudal.",
+  "East outlet · misfit stream": "Salida este · arroyo inadaptado",
+  "East outlet": "Salida este",
+  "Only a small misfit stream now leaves the scene here, flowing east. The water from the captured headwaters leaves by the captor's outlet instead.":
+    "Ahora solo un pequeño arroyo inadaptado sale de la escena por aquí, hacia el este. El agua de la cabecera capturada sale, en cambio, por la salida del río captor.",
+  "The neighboring river leaves the scene here, flowing east. Everything upstream of this point drains through it.":
+    "El río vecino sale de la escena por aquí, hacia el este. Todo lo que está aguas arriba de este punto drena a través de él.",
+  "South outlet · both rivers": "Salida sur · ambos ríos",
+  "South outlet": "Salida sur",
+  "After capture, the captor stream leaves the scene here, flowing south, with the water of both catchments.":
+    "Después de la captura, el río captor sale de la escena por aquí, hacia el sur, con el agua de ambas cuencas.",
+  "The captor stream leaves the scene here, flowing south. Its catchment is separate from the neighboring river's until the divide is breached.":
+    "El río captor sale de la escena por aquí, hacia el sur. Su cuenca está separada de la del río vecino hasta que se rompe la divisoria.",
+  "Captor stream": "Río captor",
+  "Headward erosion extends this lower valley toward the divide. When the divide is breached, the lower route can divert the neighboring river. Base level, rock type and structure all affect how fast it cuts back.":
+    "La erosión remontante alarga este valle más bajo hacia la divisoria. Cuando se rompe la divisoria, la ruta más baja puede desviar el río vecino. El nivel de base, el tipo de roca y la estructura influyen en lo rápido que retrocede.",
+  "Beheaded reach": "Tramo decapitado",
+  "A smaller stream may now occupy the former valley, which looks too large for it (a misfit stream). An elbow of capture and a misfit stream are clues, but proving capture needs other geological evidence. The dashed line traces the former course.":
+    "Ahora puede ocupar el antiguo valle un arroyo más pequeño, para el que el valle parece demasiado grande (un arroyo inadaptado). Un codo de captura y un arroyo inadaptado son pistas, pero para demostrar una captura hacen falta otras pruebas geológicas. La línea discontinua sigue el antiguo curso.",
+  "Elbow of capture": "Codo de captura",
+  Elbow: "Codo",
+  "The sharp bend where the captured river now turns into the captor valley.":
+    "La curva cerrada donde el río capturado gira ahora hacia el valle captor.",
+  "Wind gap": "Collado seco",
+  "A low, dry col in the old valley floor between the elbow and the beheaded stream. No river flows through it now, but its shape shows that a larger river once did.":
+    "Un collado bajo y seco en el antiguo fondo del valle, entre el codo y el arroyo decapitado. Ya no pasa ningún río por él, pero su forma muestra que antes pasaba uno más grande.",
+  "Before capture: two separate drainage routes.":
+    "Antes de la captura: dos rutas de drenaje separadas.",
+  "Headward erosion: the captor approaches the divide.":
+    "Erosión remontante: el río captor se acerca a la divisoria.",
+  "After capture: headwater flow turns into the lower outlet; the former downstream reach loses that supply.":
+    "Después de la captura: el agua de la cabecera gira hacia la salida más baja; el antiguo tramo de aguas abajo pierde ese aporte.",
+  "The gold arrow shows headward erosion extending the valley upstream, while its water still flows downstream. The stages are not dated. Play follows the current water route.":
+    "La flecha dorada muestra la erosión remontante que alarga el valle río arriba, mientras su agua sigue fluyendo río abajo. Las etapas no tienen fecha. Reproducir sigue la ruta actual del agua.",
+  "Wave-cut platform": "Plataforma de abrasión",
+  Platform: "Plataforma",
+  "A gently sloping rock shelf left behind as waves cut the cliff back, shown here at low tide: exposed at the cliff foot, with rock pools and fallen chalk blocks and flints, and sloping under the sea offshore. It shows where the cliff once stood.":
+    "Una repisa de roca de pendiente suave que queda cuando las olas hacen retroceder el acantilado, mostrada aquí con marea baja: al descubierto al pie del acantilado, con charcas entre las rocas y bloques de creta y pedernales caídos, y descendiendo bajo el agua hacia mar abierto. Muestra dónde estuvo antes el acantilado.",
+  "Sea cave": "Cueva marina",
+  "Sea arch": "Arco marino",
+  "Sea stack": "Farallón",
+  Stump: "Tocón",
+  "Waves exploit joints in the chalk to enlarge a cave. It can break through to form an arch; the roof collapses to leave a stack, and erosion lowers the stack to a stump. Rock structure controls the details, and the stages are not dated.":
+    "Las olas aprovechan las diaclasas de la creta para agrandar una cueva. Puede atravesar el promontorio y formar un arco; el techo se derrumba y deja un farallón, y la erosión rebaja el farallón hasta dejar un tocón. La estructura de la roca controla los detalles, y las etapas no tienen fecha.",
+  "Headland: 1 scene unit = 10 m · common distances":
+    "Promontorio: 1 unidad de escena = 10 m · distancias a la misma escala",
+  "Beach / spit: 1 scene unit = 20 m · vertical ×2":
+    "Playa / flecha: 1 unidad de escena = 20 m · vertical ×2",
+  "Headland: common 10 m scale · water symbols enlarged":
+    "Promontorio: misma escala de 10 m · símbolos de agua agrandados",
+  "Beach / spit: common 20 m scale · grains and vegetation enlarged":
+    "Playa / flecha: misma escala de 20 m · granos y vegetación agrandados",
+  "Berm-building example": "Ejemplo con formación de berma",
+  "Eroded profile example": "Ejemplo de perfil erosionado",
+  Mainland: "Tierra firme",
+  "These two beach profiles show a possible net gain (a berm) or loss of sand. Real outcomes also depend on wave height and period, grain size, beach slope and tide level.":
+    "Estos dos perfiles de playa muestran una posible ganancia neta (una berma) o pérdida de arena. Los resultados reales también dependen de la altura y el periodo de las olas, el tamaño del grano, la pendiente de la playa y el nivel de la marea.",
+  "The spit is attached to the mainland at this end. Sediment drifting along the coast feeds its growth.":
+    "La flecha está unida a tierra firme por este extremo. El sedimento que deriva a lo largo de la costa alimenta su crecimiento.",
+  "Sand trapped up-drift": "Arena retenida del lado de llegada",
+  "The groyne interrupts longshore drift, so sand accumulates on the up-drift side and the beach there widens.":
+    "El espigón interrumpe la deriva litoral, así que la arena se acumula del lado de donde viene la deriva y la playa se ensancha allí.",
+  "Down-drift supply reduced": "Menos aporte del lado de salida",
+  "Longshore transport": "Transporte litoral",
+  Spit: "Flecha",
+  "Swash runs up the beach at an angle and backwash returns straight down the slope, so grains zigzag along the shore; currents also move sediment. The groyne traps this supply, though on real coasts some sand passes round groynes and wave direction changes.":
+    "El flujo de ascenso de la ola sube por la playa en diagonal y la resaca vuelve recta pendiente abajo, así que los granos avanzan en zigzag por la orilla; las corrientes también mueven sedimento. El espigón retiene este aporte, aunque en las costas reales algo de arena rodea los espigones y la dirección de las olas cambia.",
+  "A spit is attached to land at one end and grows into open water as drifting sediment builds up. A hooked end can record changing waves and currents. Sheltered water behind it fills with mud and salt marsh. Spit extent is a chosen shape, not a predicted growth rate.":
+    "Una flecha está unida a tierra por un extremo y crece hacia aguas abiertas a medida que se acumula el sedimento que deriva. Un extremo en gancho puede registrar cambios en las olas y las corrientes. El agua protegida detrás se llena de lodo y de marisma. Extensión de la flecha es una forma elegida, no una tasa de crecimiento pronosticada.",
+  "Wave approach": "Llegada de las olas",
+  "Waves reach the shore at an angle. The arrow is a symbol, not to scale.":
+    "Las olas llegan a la orilla en ángulo. La flecha es un símbolo, sin escala.",
+  "Longshore drift": "Deriva litoral",
+  "Sediment moved along the coast by oblique waves keeps traveling in the same direction where the coast turns inland, and is deposited to build the spit.":
+    "El sedimento que las olas oblicuas mueven a lo largo de la costa sigue en la misma dirección donde la costa gira hacia tierra adentro, y se deposita formando la flecha.",
+  "Look into the cave from the sea, then compare the arch, stack and stump. The chalk headland, banded with dark flint, stands on a wave-cut platform; the cave has a back wall.":
+    "Mira dentro de la cueva desde el mar y luego compara el arco, el farallón y el tocón. El promontorio de creta, con bandas de pedernal oscuro, se levanta sobre una plataforma de abrasión; la cueva tiene una pared del fondo.",
+  "Swash moves grains diagonally up the beach; backwash returns them straight downslope. The zigzag is one simplified pathway.":
+    "El flujo de ascenso mueve los granos en diagonal playa arriba; la resaca los devuelve rectos pendiente abajo. El zigzag es una ruta simplificada.",
+  "A spit grows from the shore across a bay, sheltering a shallow lagoon with salt marsh behind it. Change Spit extent to compare its length; the water beyond its tip stays open.":
+    "Una flecha crece desde la orilla a través de una bahía y protege detrás una laguna poco profunda con marisma. Cambia Extensión de la flecha para comparar su longitud; el agua más allá de su punta sigue abierta.",
+  "Groyne on: grains are trapped on the up-drift side, so less reaches the beach beyond. The groyne creates no new sediment.":
+    "Espigón activado: los granos quedan retenidos del lado de donde viene la deriva, así que llega menos a la playa de más allá. El espigón no crea sedimento nuevo.",
+  "Toggle Constructive waves to compare a beach with a berm and an eroded beach; both are example profiles.":
+    "Activa o desactiva Olas constructivas para comparar una playa con berma y una playa erosionada; los dos son perfiles de ejemplo.",
+  "No erosion or growth rate is calculated. Rock structure, waves, tides and sediment supply control real coasts.":
+    "No se calcula ninguna tasa de erosión ni de crecimiento. La estructura de la roca, las olas, las mareas y el aporte de sedimento controlan las costas reales.",
+  Horn: "Pico piramidal",
+  "Where three or more cirques have eroded back into one summit, they leave a steep pyramidal peak with a face above each cirque. This three-cirque form is an invented example, not a surveyed mountain.":
+    "Donde tres o más circos han retrocedido por erosión hacia una misma cumbre, dejan un pico piramidal empinado con una cara sobre cada circo. Esta forma de tres circos es un ejemplo inventado, no una montaña medida.",
+  Arête: "Arista",
+  "A knife-edged ridge left between neighboring cirques, where their headwalls have been cut back toward each other. It is rock that remains, not a wall of deposited debris.":
+    "Una cresta afilada como un cuchillo que queda entre circos vecinos, donde sus paredes de cabecera han retrocedido una hacia la otra. Es roca que permanece, no un muro de derrubios depositados.",
+  Cirque: "Circo",
+  "A bowl-shaped hollow with a steep headwall and a flat or overdeepened floor, eroded at the head of a glacier. Freeze–thaw loosens the headwall, and the ice plucks and scrapes the floor.":
+    "Una depresión en forma de cuenco, con una pared de cabecera empinada y un fondo plano o sobreexcavado, erosionada en la cabecera de un glaciar. La gelifracción afloja la pared de cabecera, y el hielo arranca y raspa el fondo.",
+  Tarn: "Lago de circo",
+  "A lake filling the overdeepened floor of a cirque, held in by the rock lip at its mouth. Ice scoured the floor deeper than the lip, so water collects once the glacier has gone.":
+    "Un lago que llena el fondo sobreexcavado de un circo, retenido por el umbral de roca de su salida. El hielo excavó el fondo más hondo que el umbral, así que el agua se acumula una vez que el glaciar desaparece.",
+  "6 × 6 km cirque block · relief ×1.5 · ice flows away from the headwalls":
+    "Bloque de circos de 6 × 6 km · relieve ×1.5 · el hielo fluye alejándose de las paredes de cabecera",
+  "6 × 4 km valley · relief ×1.5 · ice always flows down-valley":
+    "Valle de 6 × 4 km · relieve ×1.5 · el hielo siempre fluye valle abajo",
+  "1 scene unit = 1 km · equal geometric scales · debris, cracks and vegetation enlarged":
+    "1 unidad de escena = 1 km · escalas geométricas iguales · derrubios, grietas y vegetación agrandados",
+  "Equilibrium line": "Línea de equilibrio",
+  "Above this line more snow falls each year than melts, so snow builds up and turns to ice (the accumulation zone); below it, melting removes more than falls (the ablation zone). The balance between the two decides whether the snout advances or retreats.":
+    "Por encima de esta línea cae cada año más nieve de la que se derrite, así que la nieve se acumula y se convierte en hielo (la zona de acumulación); por debajo, la fusión quita más de lo que cae (la zona de ablación). El balance entre las dos decide si el frente avanza o retrocede.",
+  Snout: "Frente",
+  "The lower end of the glacier, also called the terminus. Ice keeps arriving here from up-valley; the snout retreats when melting removes ice faster than it arrives. Meltwater streams out from under it.":
+    "El extremo inferior del glaciar, también llamado lengua terminal. El hielo sigue llegando aquí desde valle arriba; el frente retrocede cuando la fusión quita hielo más rápido de lo que llega. El agua de deshielo sale por debajo.",
+  "Medial moraine": "Morrena central",
+  "Where two glaciers meet, the rock debris along their touching edges joins into one dark stripe down the middle of the ice. Here the two cirque glaciers at the head merge below the ridge between them.":
+    "Donde se unen dos glaciares, los derrubios de roca de sus bordes en contacto se juntan en una franja oscura por el centro del hielo. Aquí, los dos glaciares de circo de la cabecera se unen debajo de la cresta que los separa.",
+  Accumulation: "Acumulación",
+  "Snow that survives from year to year compacts into firn and then glacier ice, which flows down-valley from these two cirque basins.":
+    "La nieve que sobrevive de un año a otro se compacta en neviza y luego en hielo glaciar, que fluye valle abajo desde estas dos cuencas de circo.",
+  "U-shaped trough": "Artesa en U",
+  "Abrasion and plucking by debris-laden ice widen and deepen the valley, leaving a flat floor and steep walls. The paler rock below the trimline was scraped bare by the ice at its largest. Switch off Ice to see the bed.":
+    "La abrasión y el arranque por el hielo cargado de derrubios ensanchan y profundizan el valle, y dejan un fondo plano y paredes empinadas. La roca más clara bajo la línea de máximo nivel del hielo la raspó el hielo cuando era más grande. Desactiva Hielo para ver el lecho.",
+  "Hanging valley": "Valle colgado",
+  "A smaller glacier cut this side valley less deeply than the main glacier cut the trough, so when the ice melted its floor was left hanging high above the trough floor. Its stream now falls over the lip as a waterfall.":
+    "Un glaciar más pequeño excavó este valle lateral menos hondo de lo que el glaciar principal excavó la artesa, así que, cuando el hielo se derritió, su fondo quedó colgado muy por encima del fondo de la artesa. Su arroyo cae ahora por el borde como una cascada.",
+  "Terminal moraine": "Morrena terminal",
+  "A ridge of unsorted debris piled up at the snout when the glacier was at its longest. The smaller ridge up-valley is a recessional moraine, where the snout paused as it retreated. Even while a glacier retreats, its ice still flows down-valley.":
+    "Una cresta de derrubios sin clasificar acumulados en el frente cuando el glaciar alcanzó su mayor longitud. La cresta más pequeña valle arriba es una morrena de retroceso, donde el frente se detuvo al retroceder. Incluso mientras un glaciar retrocede, su hielo sigue fluyendo valle abajo.",
+  "Three neighboring cirques leave arêtes between them and a horn in the center. Switch off Ice to see the bare rock and the tarns in the cirque floors.":
+    "Tres circos vecinos dejan aristas entre ellos y un pico piramidal en el centro. Desactiva Hielo para ver la roca desnuda y los lagos de circo en sus fondos.",
+  "Relief is exaggerated ×1.5; Physical scale removes this. Ice and flow tracers are schematic, and Ice extent applies only to Valley glacier.":
+    "El relieve está exagerado ×1.5; Escala real lo quita. El hielo y los trazadores del flujo son esquemáticos, y Extensión del hielo solo se aplica a Glaciar de valle.",
+  "Glacier length {length} km. Play always moves ice down-valley.":
+    "Longitud del glaciar {length} km. Reproducir siempre mueve el hielo valle abajo.",
+  "Ice extent compares margin positions; it does not reverse the flow or model mass balance. Switch off Ice to see the trough and debris.":
+    "Extensión del hielo compara posiciones del borde; no invierte el flujo ni modela el balance de masa. Desactiva Hielo para ver la artesa y los derrubios.",
+  "North–south cross-section across Yosemite Valley":
+    "Perfil norte–sur a través del valle de Yosemite",
+  "El Capitan": "El Capitán",
+  "A granite wall about 900 m high. Glacier ice deepened the valley and steepened its sides.":
+    "Una pared de granito de unos 900 m de altura. El hielo glaciar profundizó el valle y empinó sus laderas.",
+  "Half Dome": "Half Dome",
+  "Its sheer northwest face comes mostly from rock breaking away along vertical joints; the ice did not reach its summit.":
+    "Su cara noroeste, vertical, se debe sobre todo a la roca que se desprende a lo largo de diaclasas verticales; el hielo no llegó a su cumbre.",
+  "Yosemite Falls · hanging valley": "Cataratas de Yosemite · valle colgado",
+  "Yosemite Creek's side valley was left high above the main valley after the glacier cut it deeper, so the creek now drops over the cliff.":
+    "El valle lateral del arroyo Yosemite quedó muy por encima del valle principal después de que el glaciar lo excavara más hondo, así que el arroyo cae ahora por el acantilado.",
+  "U-shaped valley floor": "Fondo del valle en U",
+  "Ice widened and deepened a river valley into this broad U. The flat floor is sediment that filled a lake after the ice melted.":
+    "El hielo ensanchó y profundizó un valle fluvial hasta formar esta amplia U. El fondo plano es sedimento que rellenó un lago después de que se derritió el hielo.",
+  "Real USGS elevation for Yosemite Valley, California. The red line crosses the valley from north to south; its profile shows the U shape that glaciers carved during the ice ages. Floor about {lo} m, rim up to {hi} m above sea level.":
+    "Elevación real del USGS del valle de Yosemite, California. La línea roja cruza el valle de norte a sur; su perfil muestra la forma de U que excavaron los glaciares durante las glaciaciones. Fondo a unos {lo} m y borde hasta {hi} m sobre el nivel del mar.",
+  "Real terrain, {name} · height exaggerated ×{exaggeration} · {credit}":
+    "Terreno real, {name} · altura exagerada ×{exaggeration} · {credit}",
+  "1 scene unit = {frame} km in all directions · {credit}":
+    "1 unidad de escena = {frame} km en todas las direcciones · {credit}",
+  "Loading {name}…": "Cargando {name}…",
+  "Loading terrain…": "Cargando el terreno…",
+  "Elevation: USGS 3D Elevation Program · imagery: USGS The National Map (public domain)":
+    "Elevación: Programa de Elevación 3D del USGS · imágenes: The National Map del USGS (dominio público)",
+
+  // Landform names and real terrain sites
+  Mountain: "Montaña",
+  Hill: "Colina",
+  Plateau: "Meseta",
+  Plain: "Llanura",
+  Basin: "Cuenca",
+  "Grand Canyon near Grand Canyon Village, Arizona":
+    "Gran Cañón cerca de Grand Canyon Village, Arizona",
+  "Great Sand Dunes, Colorado": "Great Sand Dunes, Colorado",
+  "Mauna Loa, Hawaiʻi": "Mauna Loa, Hawái",
+  "Mount St. Helens, Washington": "Monte Santa Helena, Washington",
+  "Sugarloaf Mountain, Maryland": "Sugarloaf Mountain, Maryland",
+  "Yosemite Valley, California": "Valle de Yosemite, California",
+
+  // Photos and video players
+  "Loading photograph": "Cargando la fotografía",
+  "Photograph unavailable": "Fotografía no disponible",
+  "Photograph unavailable.": "Fotografía no disponible.",
+  "Retry photograph": "Volver a cargar la fotografía",
+  "The film stays paused until you play it.": "El video queda en pausa hasta que lo reproduzcas.",
+  "This content is taking longer than expected to load.":
+    "Este contenido está tardando más de lo esperado en cargar.",
+  "Open separately": "Abrir por separado",
+  "Ctrl + scroll to zoom; plus and minus keys also zoom; Escape resets.":
+    "Ctrl + rueda para hacer zoom; las teclas más y menos también hacen zoom; Escape lo restablece.",
+  "Hold Ctrl and scroll to zoom. Drag the enlarged image to move it.":
+    "Mantén Ctrl y gira la rueda para hacer zoom. Arrastra la imagen ampliada para moverla.",
+  "Reset image zoom": "Restablecer el zoom de la imagen",
+  "Reset · {scale}×": "Restablecer · {scale}×",
 };

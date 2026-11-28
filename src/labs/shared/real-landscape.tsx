@@ -12,6 +12,7 @@ import {
   useRealHeights,
   type RealSiteId,
 } from "./real-terrain";
+import { useT } from "@/lib/i18n";
 
 type Tone = "ice" | "chalk" | "glacier" | "magma" | "sandstone" | "moss" | "fault";
 /** Where a label goes: a coordinate, a fraction of the block (0–1, u east, v south), or the lowest or highest point. */
@@ -53,6 +54,7 @@ export function RealLandscape({
   /** Readout text; receives the lowest and highest elevation along the cross-section. */
   children: (stats: { lo: number; hi: number }) => ReactNode;
 }) {
+  const tr = useT();
   const W = 6;
   const { trueScale } = useLabState("trueScale");
   const meters = useRealHeights(id);
@@ -100,15 +102,23 @@ export function RealLandscape({
   // SVG cross-section: 220 px for the section length, 46 px for its relief.
   const pxPerM = 46 / Math.max(1, hi - lo),
     svgExaggeration = pxPerM / (220 / (length * frame.metersPerUnit));
-  const ends = cross.axis === "ns" ? ["N", "S"] : ["W", "E"];
-  const name = frame.site.name;
+  const ends = cross.axis === "ns" ? [tr("N"), tr("S")] : [tr("W"), tr("E")];
+  const name = tr(frame.site.name),
+    credit = tr(REAL_TERRAIN_CREDIT);
   return (
     <>
       <ScienceStudio
         slug={slug}
         fitKey={meters ? "ready" : "loading"}
-        scale={`Real terrain, ${name} · height exaggerated ×${exaggeration} · ${REAL_TERRAIN_CREDIT}`}
-        trueScale={`1 scene unit = ${(frame.metersPerUnit / 1000).toFixed(1)} km in all directions · ${REAL_TERRAIN_CREDIT}`}
+        scale={tr("Real terrain, {name} · height exaggerated ×{exaggeration} · {credit}", {
+          name,
+          exaggeration,
+          credit,
+        })}
+        trueScale={tr("1 scene unit = {frame} km in all directions · {credit}", {
+          frame: (frame.metersPerUnit / 1000).toFixed(1),
+          credit,
+        })}
         camera={camera}
       >
         {meters && extremes ? (
@@ -143,8 +153,8 @@ export function RealLandscape({
         ) : (
           <Tag
             pos={[0, 0.3, 0]}
-            text={`Loading ${name}…`}
-            short="Loading terrain…"
+            text={tr("Loading {name}…", { name })}
+            short={tr("Loading terrain…")}
             occlude={false}
           />
         )}
@@ -172,11 +182,13 @@ export function RealLandscape({
           <text x="232" y="62" fontSize="8" fill="currentColor">
             {ends[1]}
           </text>
-          <text x="230" y="9" fontSize="8" fill="currentColor" fillOpacity="0.7" textAnchor="end">
-            {`Height exaggerated ×${svgExaggeration.toFixed(1)}`}
-          </text>
+          {profile.length > 0 && (
+            <text x="230" y="9" fontSize="8" fill="currentColor" fillOpacity="0.7" textAnchor="end">
+              {tr("Height exaggerated ×{factor}", { factor: svgExaggeration.toFixed(1) })}
+            </text>
+          )}
         </svg>
-        {profile.length ? children({ lo, hi }) : "Loading USGS elevation…"}
+        {profile.length ? children({ lo, hi }) : tr("Loading USGS elevation…")}
       </ScienceReadout>
     </>
   );

@@ -15,6 +15,7 @@ import { Waterfall, WaterfallTrees } from "./waterfall";
 import { terrainBlockGeometry } from "../shared/science-geometry";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
 import { Tag } from "../shared/kit";
+import { useT } from "@/lib/i18n";
 
 const POT_R = 0.62,
   POT_D = 0.85,
@@ -66,6 +67,7 @@ function PotholeStones() {
 }
 
 function Pothole() {
+  const tr = useT();
   // Only the half-block behind z = 0 is built, so the front face is a section through the hollow.
   const geometry = useMemo(() => {
     const h = (x: number, z: number) => slabTop(x, z - SLAB_D / 2);
@@ -191,14 +193,18 @@ function Pothole() {
       <Arrow from={[-1.45, 0.16, -0.75]} to={[-0.85, 0.16, -0.75]} width={0.8} color="#a7d0d3" />
       <Tag
         pos={[POT_CX, 0.45, -1.1]}
-        text="Abrasion in a pothole"
-        note="Turbulent flow swirls stones around a hollow in the river bed and grinds it deeper. The block is cut through the middle of the pothole so you can see its profile. The stones are enlarged; fine sediment carried in suspension also abrades the walls."
+        text={tr("Abrasion in a pothole")}
+        note={tr(
+          "Turbulent flow swirls stones around a hollow in the river bed and grinds it deeper. The block is cut through the middle of the pothole so you can see its profile. The stones are enlarged; fine sediment carried in suspension also abrades the walls.",
+        )}
         occlude={false}
       />
       <Tag
         pos={[1.1, -0.5, 0.05]}
-        text="Cut face"
-        note="A vertical slice through the pothole and the bedrock around it, as if the rock had been sawn in half."
+        text={tr("Cut face")}
+        note={tr(
+          "A vertical slice through the pothole and the bedrock around it, as if the rock had been sawn in half.",
+        )}
         occlude={false}
       />
     </>
@@ -266,6 +272,7 @@ function FlowMarkers({ path }: { path: [number, number, number][] }) {
 }
 
 function VValley({ vertical }: { vertical: number }) {
+  const tr = useT();
   const path = useMemo(
     () =>
       Array.from({ length: 161 }, (_, i) => {
@@ -312,15 +319,19 @@ function VValley({ vertical }: { vertical: number }) {
         <FlowMarkers path={path} />
         <Tag
           pos={[0.4, 1.45, 1.7]}
-          text="V-shaped valley"
+          text={tr("V-shaped valley")}
           priority={1}
-          note="The river cuts down into its bed while weathering, soil creep and small slides lower the valley sides. Together they give a V-shaped cross-section. The river alone does not cut the whole valley side, and not every river valley is V-shaped."
+          note={tr(
+            "The river cuts down into its bed while weathering, soil creep and small slides lower the valley sides. Together they give a V-shaped cross-section. The river alone does not cut the whole valley side, and not every river valley is V-shaped.",
+          )}
           occlude={false}
         />
         <Tag
           pos={[-1.2, vValley(-1.2, valleyZ(-1.2) - 0.55) + 0.12, valleyZ(-1.2) - 0.55]}
-          text="Interlocking spurs"
-          note="The winding stream erodes the outsides of its bends, leaving ridges of higher ground that jut out alternately from each side of the valley and overlap when you look up it."
+          text={tr("Interlocking spurs")}
+          note={tr(
+            "The winding stream erodes the outsides of its bends, leaving ridges of higher ground that jut out alternately from each side of the valley and overlap when you look up it.",
+          )}
           occlude={false}
         />
       </group>
@@ -335,6 +346,7 @@ export default function RiverErosion() {
 }
 
 function ModelRiverErosion() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale");
   useLabTick(1 / 45);
   const mode = Math.round(params.feature ?? 0),
@@ -348,15 +360,15 @@ function ModelRiverErosion() {
         camera={mode === 1 ? [1.6, 2.6, 4.2] : mode === 0 ? [5.6, 5.0, 2.6] : [5.4, 4.2, 1.6]}
         scale={
           mode === 1
-            ? "Pothole close-up · 1 unit = 1 m · block cut through the hollow · stones enlarged"
+            ? tr("Pothole close-up · 1 unit = 1 m · block cut through the hollow · stones enlarged")
             : mode === 0
-              ? "60 × 40 m terrain · vertical ×1.5 · retreat stages not dated"
-              : "60 × 40 m terrain · vertical ×1.5 · fixed valley shape"
+              ? tr("60 × 40 m terrain · vertical ×1.5 · retreat stages not dated")
+              : tr("60 × 40 m terrain · vertical ×1.5 · fixed valley shape")
         }
         trueScale={
           mode === 1
-            ? "Pothole geometry at common meter scale · stones enlarged"
-            : "1 scene unit = 10 m · equal horizontal and vertical scale"
+            ? tr("Pothole geometry at common meter scale · stones enlarged")
+            : tr("1 scene unit = 10 m · equal horizontal and vertical scale")
         }
       >
         {mode === 1 ? (
@@ -374,14 +386,21 @@ function ModelRiverErosion() {
       </ScienceStudio>
       <ScienceReadout>
         {mode === 0
-          ? `Water flows downstream; the waterfall retreats upstream by ${(25 * progress).toFixed(1)} m in this chosen sequence. Change Retreat to expose a longer gorge.`
+          ? tr(
+              "Water flows downstream; the waterfall retreats upstream by {retreat} m in this chosen sequence. Change Retreat to expose a longer gorge.",
+              { retreat: (25 * progress).toFixed(1) },
+            )
           : mode === 1
-            ? "Flow swirls stones around a hollow in the bedrock. The block is cut through the center of a 1.24 m wide, 0.85 m deep example."
-            : "A narrow channel cuts the valley floor while weathering and slope processes lower both sides. The water flows downstream; the valley shape does not change."}{" "}
+            ? tr(
+                "Flow swirls stones around a hollow in the bedrock. The block is cut through the center of a 1.24 m wide, 0.85 m deep example.",
+              )
+            : tr(
+                "A narrow channel cuts the valley floor while weathering and slope processes lower both sides. The water flows downstream; the valley shape does not change.",
+              )}{" "}
         <br />
-        {
-          "Play animates the flow only; the model gives no erosion rate or landform age. Choose a feature, rotate the model and compare it with the photograph."
-        }
+        {tr(
+          "Play animates the flow only; the model gives no erosion rate or landform age. Choose a feature, rotate the model and compare it with the photograph.",
+        )}
       </ScienceReadout>
     </>
   );
