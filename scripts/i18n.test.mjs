@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import test from "node:test";
+import ts from "typescript";
 import { ES } from "../src/lib/i18n-es.ts";
 import { translate } from "../src/lib/i18n.ts";
 import { PHASE_NAMES, lunarEclipse, lunarPosition } from "../src/lib/lunar-science.ts";
@@ -86,4 +87,41 @@ test("Spanish keeps each string's placeholders, and English stays as written", (
   assert.equal(translate("en", "Note {n}", { n: 2 }), "Note 2");
   assert.equal(translate("es", "Note {n}", { n: 2 }), "Nota 2");
   assert.equal(translate("es", "A string nobody translated"), "A string nobody translated");
+});
+
+test("every t() and tr() call passes exactly the placeholders its text uses", () => {
+  const problems = [];
+  for (const file of files(ROOT)) {
+    const sf = ts.createSourceFile(
+      file,
+      readFileSync(file, "utf8"),
+      ts.ScriptTarget.Latest,
+      true,
+      ts.ScriptKind.TSX,
+    );
+    const visit = (node) => {
+      if (
+        ts.isCallExpression(node) &&
+        ts.isIdentifier(node.expression) &&
+        (node.expression.text === "t" || node.expression.text === "tr") &&
+        node.arguments[0] &&
+        ts.isStringLiteral(node.arguments[0])
+      ) {
+        const text = node.arguments[0].text,
+          vars = node.arguments[1];
+        const holes = [...new Set([...text.matchAll(/\{(\w+)\}/g)].map((m) => m[1]))].sort();
+        // A values object built elsewhere cannot be checked here.
+        if (!vars || ts.isObjectLiteralExpression(vars)) {
+          const keys = (vars?.properties ?? []).map((p) => p.name?.text ?? "?").sort();
+          if (holes.join() !== keys.join()) {
+            const line = sf.getLineAndCharacterOfPosition(node.getStart(sf)).line + 1;
+            problems.push(`${file.slice(ROOT.length)}:${line} {${holes}} given {${keys}}`);
+          }
+        }
+      }
+      ts.forEachChild(node, visit);
+    };
+    visit(sf);
+  }
+  assert.deepEqual(problems, []);
 });

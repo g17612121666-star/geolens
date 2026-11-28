@@ -30,7 +30,7 @@ Run typecheck, lint, test and build before pushing. GitHub Actions runs the same
 - `server/middleware/security-headers.ts` – CSP and `X-Robots-Tag`; add any new external origin to the CSP.
 - `server/routes/api/enso.ts` – cached proxy for NOAA CPC's ENSO status (CPC sends no CORS headers). Tides (NOAA CO-OPS) and river gauges (USGS Water Data) are fetched from the browser in `src/components/lab/live-data.tsx`. Live weather (`src/lib/weather.ts`) uses the National Weather Service's forecast grid for US places and Open-Meteo (free for non-commercial use) elsewhere or when the NWS does not answer. Locally, run the preview with `NODE_USE_ENV_PROXY=1` if the container needs an HTTPS proxy.
 - `src/lib/hand-in.ts` – hand-in code format; `HANDIN_LABS` is append-only, so never reorder it.
-- Spanish: `src/lib/i18n-es.ts` translates interface text keyed by the English (`useT()` from `src/lib/i18n.ts`); a lab's Spanish text is `src/lib/labs/es/<slug>.json`, loaded only when a reader picks Spanish. A lab without one stays wholly English under a short Spanish notice (`LangScope`).
+- Spanish: `src/lib/i18n-es.ts` translates interface text keyed by the English (`useT()` from `src/lib/i18n.ts`); a lab's Spanish text, including its 3D labels and results, is `src/lib/labs/es/<slug>.json`, loaded only when a reader picks Spanish. Every lab has one, and a new lab needs one too (`scripts/spanish-labs.test.mjs`); without it a lab would stay wholly English under a short Spanish notice (`LangScope`).
 
 ## Conventions
 

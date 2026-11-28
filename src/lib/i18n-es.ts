@@ -2728,4 +2728,10 @@ export const ES: Record<string, string> = {
     "Latitud {lat} · longitud {lon} · 1° de longitud aquí ≈ {km} km (111 km en el ecuador) · hora solar media local {time} h respecto a Greenwich.",
   "Gold arc measures latitude from the equator; blue arc measures longitude from Greenwich. This does not select a civil time zone.":
     "El arco dorado mide la latitud desde el ecuador; el arco azul mide la longitud desde Greenwich. Esto no elige un huso horario civil.",
+
+  // Films
+  "The film is in English.": "El video está en inglés.",
+
+  // Case studies
+  "Case studies are in English.": "Los estudios de caso están en inglés.",
 };

@@ -12,8 +12,13 @@ const spanish = readdirSync(dir)
 
 const filled = (s, where) => assert.ok(typeof s === "string" && s.trim().length > 0, where);
 
-test("Spanish labs exist for real labs, and there is at least a first set", () => {
-  assert.ok(spanish.length >= 8, `${spanish.length} labs in Spanish`);
+test("every lab has a Spanish file, and every Spanish file is a real lab", () => {
+  const translated = new Set(spanish.map(([slug]) => slug));
+  assert.deepEqual(
+    labs.filter((l) => !translated.has(l.slug)).map((l) => l.slug),
+    [],
+    "labs without src/lib/labs/es/<slug>.json",
+  );
   for (const [slug] of spanish)
     assert.ok(
       labs.some((l) => l.slug === slug),

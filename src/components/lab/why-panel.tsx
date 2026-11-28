@@ -78,14 +78,17 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             ))}
             {videos.length > 0 && (
               <div className="space-y-4">
-                <p className="section-label">{t(videos.length > 1 ? "Films" : "Film")}</p>
+                <p className="section-label">{videos.length > 1 ? t("Films") : t("Film")}</p>
                 {videos.map((video) => (
                   <div key={video.youtubeId}>
                     <div className="overflow-hidden rounded-xl border border-white/10">
                       <YouTubeFilm video={video} />
                     </div>
                     <p className="mt-2 text-sm leading-5 text-mist">
-                      {video.title} — {video.source}.
+                      <span lang="en">
+                        {video.title} — {video.source}.
+                      </span>
+                      {lang === "es" && <> {t("The film is in English.")}</>}
                     </p>
                   </div>
                 ))}
@@ -101,7 +104,11 @@ export function WhyPanel({ lab }: { lab: LabMeta }) {
             {lab.cases.length > 0 && (
               <div>
                 <p className="section-label mb-2">{t("Cases")}</p>
-                <ul className="space-y-1">
+                {lang === "es" && (
+                  <p className="mb-2 text-sm text-mist">{t("Case studies are in English.")}</p>
+                )}
+                {/* Case studies are written in English only. */}
+                <ul className="space-y-1" lang="en">
                   {lab.cases.map((c) => (
                     <li key={c.slug}>
                       <Link
