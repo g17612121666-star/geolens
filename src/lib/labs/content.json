@@ -1359,7 +1359,7 @@
       ],
       "why": [
         "A river’s long profile usually becomes gentler downstream. Channel shape, water supply and sediment change along its course, helping explain why steep valleys and broad floodplains occur in different reaches.",
-        "Raise Discharge and compare the water level and the width of the wet channel. Play follows the water downstream; the channel itself does not erode.",
+        "Discharge is the volume of water passing each second. In a channel of fixed shape, more water can only get through by flowing deeper and a little faster, so the water level rises and, at high flow, spreads toward the banks. Along the course, tributaries keep adding water, so the channel grows wider and deeper downstream. A larger, smoother channel loses less energy to friction, so the lower river keeps flowing on a gentler gradient, while the small, steep upper river spends its energy cutting down into its bed.",
         "The channel shape stays fixed while the water level changes; the displayed wet margins are an illustration rather than a mapped flood extent. As in real rivers, the model channel becomes wider and deeper downstream and carries deeper water there, because tributaries add discharge along the way."
       ],
       "glossary": [
@@ -12890,7 +12890,7 @@
           "term": "Backslope"
         },
         {
-          "term": "Toe",
+          "term": "Toeslope",
           "exam": "Footslope / toeslope"
         },
         {
