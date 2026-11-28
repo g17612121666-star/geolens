@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AtlasRouteImport } from './routes/atlas'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as GlossaryRouteImport } from './routes/glossary'
@@ -19,6 +20,7 @@ import { Route as ImageCreditsRouteImport } from './routes/image-credits'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as SkillsRouteImport } from './routes/skills'
+import { Route as StudentDataRouteImport } from './routes/student-data'
 import { Route as TeachersRouteImport } from './routes/teachers'
 import { Route as CaseSlugRouteImport } from './routes/case.$slug'
 import { Route as LabSlugRouteImport } from './routes/lab.$slug'
@@ -60,6 +62,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AtlasRoute = AtlasRouteImport.update({
   id: '/atlas',
   path: '/atlas',
@@ -93,6 +100,11 @@ const SearchRoute = SearchRouteImport.update({
 const SkillsRoute = SkillsRouteImport.update({
   id: '/skills',
   path: '/skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentDataRoute = StudentDataRouteImport.update({
+  id: '/student-data',
+  path: '/student-data',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TeachersRoute = TeachersRouteImport.update({
@@ -225,6 +237,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/atlas': typeof AtlasRoute
   '/explore': typeof ExploreRoute
   '/glossary': typeof GlossaryRoute
@@ -232,6 +245,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/skills': typeof SkillsRoute
+  '/student-data': typeof StudentDataRoute
   '/teachers': typeof TeachersRouteWithChildren
   '/case/$slug': typeof CaseSlugRoute
   '/lab/$slug': typeof LabSlugRoute
@@ -262,6 +276,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/atlas': typeof AtlasRoute
   '/explore': typeof ExploreRoute
   '/glossary': typeof GlossaryRoute
@@ -269,6 +284,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/skills': typeof SkillsRoute
+  '/student-data': typeof StudentDataRoute
   '/case/$slug': typeof CaseSlugRoute
   '/lab/$slug': typeof LabSlugRoute
   '/practice/daily': typeof PracticeDailyRoute
@@ -299,6 +315,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
   '/atlas': typeof AtlasRoute
   '/explore': typeof ExploreRoute
   '/glossary': typeof GlossaryRoute
@@ -306,6 +323,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
   '/skills': typeof SkillsRoute
+  '/student-data': typeof StudentDataRoute
   '/teachers': typeof TeachersRouteWithChildren
   '/case/$slug': typeof CaseSlugRoute
   '/lab/$slug': typeof LabSlugRoute
@@ -338,6 +356,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/about'
+    | '/accessibility'
     | '/atlas'
     | '/explore'
     | '/glossary'
@@ -345,6 +364,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/search'
     | '/skills'
+    | '/student-data'
     | '/teachers'
     | '/case/$slug'
     | '/lab/$slug'
@@ -375,6 +395,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/about'
+    | '/accessibility'
     | '/atlas'
     | '/explore'
     | '/glossary'
@@ -382,6 +403,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/search'
     | '/skills'
+    | '/student-data'
     | '/case/$slug'
     | '/lab/$slug'
     | '/practice/daily'
@@ -411,6 +433,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/about'
+    | '/accessibility'
     | '/atlas'
     | '/explore'
     | '/glossary'
@@ -418,6 +441,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/search'
     | '/skills'
+    | '/student-data'
     | '/teachers'
     | '/case/$slug'
     | '/lab/$slug'
@@ -449,6 +473,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
   AboutRoute: typeof AboutRoute
+  AccessibilityRoute: typeof AccessibilityRoute
   AtlasRoute: typeof AtlasRoute
   ExploreRoute: typeof ExploreRoute
   GlossaryRoute: typeof GlossaryRoute
@@ -456,6 +481,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   SearchRoute: typeof SearchRoute
   SkillsRoute: typeof SkillsRoute
+  StudentDataRoute: typeof StudentDataRoute
   TeachersRoute: typeof TeachersRouteWithChildren
   CaseSlugRoute: typeof CaseSlugRoute
   LabSlugRoute: typeof LabSlugRoute
@@ -499,6 +525,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/atlas': {
@@ -548,6 +581,13 @@ declare module '@tanstack/react-router' {
       path: '/skills'
       fullPath: '/skills'
       preLoaderRoute: typeof SkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student-data': {
+      id: '/student-data'
+      path: '/student-data'
+      fullPath: '/student-data'
+      preLoaderRoute: typeof StudentDataRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/teachers': {
@@ -752,6 +792,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
   AboutRoute: AboutRoute,
+  AccessibilityRoute: AccessibilityRoute,
   AtlasRoute: AtlasRoute,
   ExploreRoute: ExploreRoute,
   GlossaryRoute: GlossaryRoute,
@@ -759,6 +800,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   SearchRoute: SearchRoute,
   SkillsRoute: SkillsRoute,
+  StudentDataRoute: StudentDataRoute,
   TeachersRoute: TeachersRouteWithChildren,
   CaseSlugRoute: CaseSlugRoute,
   LabSlugRoute: LabSlugRoute,

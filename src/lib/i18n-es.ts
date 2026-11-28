@@ -2734,4 +2734,8 @@ export const ES: Record<string, string> = {
 
   // Case studies
   "Case studies are in English.": "Los estudios de caso están en inglés.",
+
+  // Footer: school pages
+  "Student data": "Datos de estudiantes",
+  Accessibility: "Accesibilidad",
 };

@@ -99,6 +99,14 @@ function Privacy() {
         </p>
         <p>
           {"See also"}{" "}
+          <Link to="/student-data" className="text-ice hover:underline">
+            {"Student data"}
+          </Link>
+          {", "}
+          <Link to="/accessibility" className="text-ice hover:underline">
+            {"Accessibility"}
+          </Link>{" "}
+          {"and"}{" "}
           <Link to="/about" className="text-ice hover:underline">
             {"About"}
           </Link>
