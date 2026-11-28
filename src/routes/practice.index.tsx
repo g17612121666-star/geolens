@@ -163,12 +163,12 @@ function Card({
   return (
     <Link
       to={to}
-      className="editorial-card group flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+      className="zoom-card group flex flex-col rounded-[10px] border border-white/10 bg-basalt p-6"
     >
-      <span className="flex size-12 items-center justify-center rounded-xl bg-glacier/12 text-glacier">
-        <Icon className="size-6" aria-hidden="true" />
-      </span>
-      <h2 className="mt-4 font-display text-2xl text-chalk">{title}</h2>
+      <h2 className="flex items-center gap-2.5 font-display text-2xl text-chalk">
+        <Icon className="size-5 shrink-0 text-glacier" aria-hidden="true" />
+        {title}
+      </h2>
       <p className="mt-2 flex-1 text-mist">{blurb}</p>
       <p className="mt-4 flex items-center justify-between text-sm text-glacier">
         {status}

@@ -69,14 +69,12 @@ function ToolsIndex() {
           <Link
             key={t.to}
             to={t.to}
-            className="editorial-card group flex gap-5 rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+            className="zoom-card group flex rounded-[10px] border border-white/10 bg-basalt p-6"
           >
-            <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-glacier/12 text-glacier">
-              <t.icon className="size-6" aria-hidden="true" />
-            </span>
             <span className="flex-1">
               <span className="flex items-start justify-between gap-3">
-                <h2 className="font-display text-2xl text-chalk group-hover:text-glacier">
+                <h2 className="flex items-center gap-2.5 font-display text-2xl text-chalk group-hover:text-glacier">
+                  <t.icon className="size-5 shrink-0 text-glacier" aria-hidden="true" />
                   {t.title}
                 </h2>
                 <ArrowUpRight className="mt-1.5 size-4 shrink-0 text-mist group-hover:text-glacier" />

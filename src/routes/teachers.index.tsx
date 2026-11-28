@@ -251,13 +251,14 @@ function TeachersIndex() {
                 {labs.map((lab) => (
                   <article
                     key={lab.slug}
-                    className="flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[.035]"
+                    className="zoom-card flex flex-col overflow-hidden rounded-[10px] border border-white/10 bg-basalt"
                   >
                     <Link
                       to="/teachers/$slug"
                       params={{ slug: lab.slug }}
                       tabIndex={-1}
                       aria-hidden="true"
+                      className="block overflow-hidden"
                     >
                       <img
                         src={labThumbSrc(lab.slug)}
@@ -268,7 +269,7 @@ function TeachersIndex() {
                         decoding="async"
                         width="640"
                         height="480"
-                        className="aspect-[16/10] w-full bg-trench object-cover"
+                        className="zoom-img aspect-[16/10] w-full bg-trench object-cover"
                       />
                     </Link>
                     <div className="flex flex-1 flex-col p-5">

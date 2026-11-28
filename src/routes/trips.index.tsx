@@ -103,7 +103,7 @@ function TripsIndex() {
           return (
             <article
               key={t.slug}
-              className="editorial-card flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]"
+              className="zoom-card flex flex-col overflow-hidden rounded-[10px] border border-white/10 bg-basalt"
             >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <img
@@ -111,24 +111,27 @@ function TripsIndex() {
                   srcSet={photoSrcSet(cover?.src)}
                   sizes={CARD_SIZES}
                   alt={cover?.alt ?? ""}
-                  className="size-full object-cover"
+                  className="zoom-img size-full object-cover"
                   loading="lazy"
                 />
-                <span
-                  className="absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-semibold text-[#0b1813]"
-                  style={{ background: t.color }}
-                >
-                  {t.kicker}
-                </span>
-                {p?.done && (
-                  <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-basalt/85 px-3 py-1 text-xs text-glacier">
-                    <Check className="size-3.5" aria-hidden="true" />
-                    {"Completed"}
-                  </span>
-                )}
               </div>
               <div className="flex flex-1 flex-col p-5">
-                <h2 className="font-display text-2xl text-chalk">{t.title}</h2>
+                <p className="flex flex-wrap items-center gap-x-2 text-sm text-mist">
+                  <span
+                    aria-hidden="true"
+                    className="inline-block h-3 w-1 rounded-sm"
+                    style={{ background: t.color }}
+                  />
+                  {t.kicker}
+                  {p?.done && (
+                    <span className="inline-flex items-center gap-1 text-glacier">
+                      <span aria-hidden="true">·</span>
+                      <Check className="size-3.5" aria-hidden="true" />
+                      {"Completed"}
+                    </span>
+                  )}
+                </p>
+                <h2 className="mt-1 font-display text-2xl text-chalk">{t.title}</h2>
                 <p className="mt-2 text-mist">{t.summary}</p>
                 <ul className="mt-3 space-y-1 text-sm text-mist">
                   {t.stops.slice(0, 3).map((s) => (

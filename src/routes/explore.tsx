@@ -258,19 +258,17 @@ function Explore() {
                 key={lab.slug}
                 to="/lab/$slug"
                 params={{ slug: lab.slug }}
-                className="editorial-card group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-basalt"
+                className="zoom-card group flex flex-col overflow-hidden rounded-[10px] border border-white/10 bg-basalt"
               >
                 <div className="aspect-[4/3] overflow-hidden bg-trench">
-                  <LabThumb slug={lab.slug} />
+                  <LabThumb slug={lab.slug} className="zoom-img" />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <p className="text-sm text-glacier">
                     {selected ? i + 1 + ". " : ""}
                     {REALMS.find((r) => r.slug === lab.realm)?.title}
                   </p>
-                  <h2 className="mt-2 font-display text-3xl underline-offset-4 group-hover:underline">
-                    {lab.title}
-                  </h2>
+                  <h2 className="mt-2 font-display text-3xl">{lab.title}</h2>
                   <p className="mt-3 flex-1 text-sm leading-7 text-mist">{lab.hook}</p>
                   {scores[lab.slug] && (
                     <p className="mt-4 border-t border-white/10 pt-3 font-mono text-xs text-mist">
@@ -287,20 +285,20 @@ function Explore() {
                   key={c.slug}
                   to="/case/$slug"
                   params={{ slug: c.slug }}
-                  className="editorial-card group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-basalt"
+                  className="zoom-card group flex flex-col overflow-hidden rounded-[10px] border border-white/10 bg-basalt"
                 >
                   {photo && (
-                    <ProgressImage
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="aspect-[16/10] w-full object-cover"
-                    />
+                    <span className="block overflow-hidden">
+                      <ProgressImage
+                        src={photo.src}
+                        alt={photo.alt}
+                        className="zoom-img aspect-[16/10] w-full object-cover"
+                      />
+                    </span>
                   )}
                   <div className="flex flex-1 flex-col p-6">
                     <p className="text-sm text-glacier">{c.region}</p>
-                    <h2 className="mt-2 font-display text-3xl underline-offset-4 group-hover:underline">
-                      {c.title}
-                    </h2>
+                    <h2 className="mt-2 font-display text-3xl">{c.title}</h2>
                     <p className="mt-3 flex-1 text-sm leading-7 text-mist">{c.lede}</p>
                   </div>
                 </Link>
