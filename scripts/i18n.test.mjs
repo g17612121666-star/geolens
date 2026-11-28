@@ -12,6 +12,8 @@ import { STAGES as WILSON_STAGES } from "../src/labs/wilson-cycle/section.ts";
 import { SUBTROPICAL_GYRES, ensoSection } from "../src/lib/ocean-circulation-science.ts";
 import { CARBON_STORES, carbonFluxes } from "../src/lib/carbon-science.ts";
 import { NAMES as LANDFORMS } from "../src/labs/landform-types/shapes.ts";
+import { SOIL_PROFILES } from "../src/lib/soil-profile-science.ts";
+import { soilTexture } from "../src/lib/soil-science.ts";
 const json = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8"));
 /** Names a lab shows straight from its data files. */
 const DATA_NAMES = [
@@ -26,6 +28,12 @@ const DATA_NAMES = [
   ...SUBTROPICAL_GYRES.flatMap((gyre) => [gyre.name, gyre.western, gyre.eastern]),
   ...CARBON_STORES,
   ...LANDFORMS,
+  ...SOIL_PROFILES.flatMap((p) => [p.name, p.context, ...p.horizons.map((h) => h.description)]),
+  ...new Set(
+    Array.from({ length: 21 * 21 }, (_, i) => [5 * (i % 21), 5 * Math.floor(i / 21)])
+      .filter(([sand, clay]) => sand + clay <= 100)
+      .map(([sand, clay]) => soilTexture(sand, clay)),
+  ),
   ...carbonFluxes([600, 1200, 3000, 6000, 1200], 0).map((flux) => flux.name),
 ];
 

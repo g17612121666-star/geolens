@@ -13,6 +13,7 @@ import { PlantStand } from "../shared/natural-world";
 import { useSectionUniforms } from "../shared/section-utils";
 import { Tag } from "../shared/kit";
 import { landscapeNoise as noise, landscapeRandom as random } from "../shared/landscape-noise";
+import { useT } from "@/lib/i18n";
 
 const SAMPLES = 81;
 
@@ -61,6 +62,7 @@ const CREST = new THREE.Color("#8b8a55"),
   WET = new THREE.Color("#5d7a45");
 
 export default function SoilCatena() {
+  const tr = useT();
   const { params, trueScale } = useLabState("params", "trueScale"),
     slope = params.slope ?? 0.55,
     thicknessScale = (trueScale ? 1 : 20) / 20;
@@ -112,7 +114,7 @@ export default function SoilCatena() {
       }),
     [height],
   );
-  const names = ["Crest", "Backslope", "Footslope / toe"],
+  const names = [tr("Crest"), tr("Backslope"), tr("Footslope / toe")],
     positions = [-2.5, -0.7, 2.4];
   return (
     <>
@@ -120,8 +122,10 @@ export default function SoilCatena() {
         horizon
         slug="soil-catena"
         camera={[1.3, 2.1, 7]}
-        scale="Soil thickness ×20 · 120 m hillslope · topographic slope to scale"
-        trueScale="1 scene unit = 20 m · soil and relief use a common scale · grass and roots enlarged"
+        scale={tr("Soil thickness ×20 · 120 m hillslope · topographic slope to scale")}
+        trueScale={tr(
+          "1 scene unit = 20 m · soil and relief use a common scale · grass and roots enlarged",
+        )}
       >
         <GeomorphicTerrain
           height={height}
@@ -157,14 +161,20 @@ export default function SoilCatena() {
             <Tag
               key={i}
               pos={end}
-              text={`${names[i]} · ${c.thicknessM.toFixed(2)} m soil`}
+              text={tr("{name} · {c} m soil", { name: names[i], c: c.thicknessM.toFixed(2) })}
               short={names[i]}
               note={
                 i === 0
-                  ? "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one example."
+                  ? tr(
+                      "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one example.",
+                    )
                   : i === 1
-                    ? "In this model, a steeper slope gives a thinner backslope soil; bare patches show where soil is thinnest. It is not an erosion-rate law, and not every steep slope has thin soil."
-                    : "The lower slope receives water and sediment, so the soil is thicker. It is often waterlogged: the gray subsoil with rusty mottles shows gleying, where iron is reduced and moved by standing water."
+                    ? tr(
+                        "In this model, a steeper slope gives a thinner backslope soil; bare patches show where soil is thinnest. It is not an erosion-rate law, and not every steep slope has thin soil.",
+                      )
+                    : tr(
+                        "The lower slope receives water and sediment, so the soil is thicker. It is often waterlogged: the gray subsoil with rusty mottles shows gleying, where iron is reduced and moved by standing water.",
+                      )
               }
               occlude={false}
             />
@@ -181,19 +191,21 @@ export default function SoilCatena() {
         ))}
       </ScienceStudio>
       <ScienceReadout>
-        {`Soil thickness: ${positions
-          .map(
-            (x, i) =>
-              `${names[i].toLowerCase()} ${catenaProfile(x, slope).thicknessM.toFixed(2)} m`,
-          )
-          .join(" · ")}. `}
-        {
-          "Soils share the same parent material, but their position on the slope changes drainage and sediment movement: the crest and backslope lose material, while the toe receives water and sediment."
-        }{" "}
+        {tr("Soil thickness: {list}.", {
+          list: positions
+            .map(
+              (x, i) =>
+                `${names[i].toLowerCase()} ${catenaProfile(x, slope).thicknessM.toFixed(2)} m`,
+            )
+            .join(" · "),
+        })}{" "}
+        {tr(
+          "Soils share the same parent material, but their position on the slope changes drainage and sediment movement: the crest and backslope lose material, while the toe receives water and sediment.",
+        )}{" "}
         <br />
-        {
-          "Pale blue arrows show water and sediment moving downslope. Change Slope to compare the soil thicknesses. Only soil thickness is exaggerated in the teaching view, and the model does not calculate rates of soil formation, erosion or deposition."
-        }
+        {tr(
+          "Pale blue arrows show water and sediment moving downslope. Change Slope to compare the soil thicknesses. Only soil thickness is exaggerated in the teaching view, and the model does not calculate rates of soil formation, erosion or deposition.",
+        )}
       </ScienceReadout>
     </>
   );

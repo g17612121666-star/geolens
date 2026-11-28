@@ -2427,4 +2427,238 @@ export const ES: Record<string, string> = {
     "Mantén Ctrl y gira la rueda para hacer zoom. Arrastra la imagen ampliada para moverla.",
   "Reset image zoom": "Restablecer el zoom de la imagen",
   "Reset · {scale}×": "Restablecer · {scale}×",
+
+  // Batch H: karst, wind, cold lands and soils scenes
+  "60 × 30 m limestone block · relief ×1.3 · joints enlarged":
+    "Bloque de caliza de 60 × 30 m · relieve ×1.3 · diaclasas agrandadas",
+  "1 scene unit = 10 m · common geometric scale · joints, tracers and vegetation enlarged":
+    "1 unidad de escena = 10 m · misma escala geométrica · diaclasas, trazadores y vegetación agrandados",
+  "Cave passage": "Galería de la cueva",
+  "One passage, dissolved along a bedding plane in soluble limestone. It narrows to a low crawl, opens into a chamber and leaves the rock at the spring. Most of the block is still solid rock, not a hollow underground lake; real cave networks are far more complex.":
+    "Una galería disuelta a lo largo de un plano de estratificación en caliza soluble. Se estrecha hasta un paso bajo por el que hay que arrastrarse, se abre en una sala y sale de la roca en el manantial. La mayor parte del bloque sigue siendo roca sólida, no un lago subterráneo hueco; las redes de cuevas reales son mucho más complejas.",
+  "Stalactites and stalagmites": "Estalactitas y estalagmitas",
+  "Stalactites hang from the roof and stalagmites grow up from the floor. Dripping water loses carbon dioxide into the cave air, so calcite precipitates. Real ones typically grow only about a centimeter per century; the falling drops are enlarged.":
+    "Las estalactitas cuelgan del techo y las estalagmitas crecen desde el suelo. El agua que gotea pierde dióxido de carbono hacia el aire de la cueva, así que la calcita precipita. Las reales suelen crecer solo alrededor de un centímetro por siglo; las gotas que caen están agrandadas.",
+  "Clints and grykes": "Lapiaz: bloques y grietas",
+  "Clints are limestone blocks; grykes are the widened joints between them. Joint opening exaggerates the gryke width so you can see it; it is not a calculated dissolution rate.":
+    "Los bloques (clints) son bloques de caliza; las grietas (grykes) son las diaclasas ensanchadas entre ellos. Apertura de las diaclasas exagera el ancho de las grietas para que se vean; no es una tasa de disolución calculada.",
+  Doline: "Dolina",
+  "This surface hollow is a solution doline (sinkhole). Water drains through a swallow hole in its floor into connected fractures. Other sinkholes form by subsidence or collapse, and not every hollow opens straight into a large cave.":
+    "Esta depresión de la superficie es una dolina de disolución. El agua drena por un sumidero en su fondo hacia fracturas conectadas. Otras dolinas se forman por hundimiento o colapso, y no todas las depresiones dan directamente a una gran cueva.",
+  Spring: "Manantial",
+  "Underground water returns to the surface here (a resurgence). The route is schematic; flow speed and travel time are not calculated.":
+    "Aquí el agua subterránea vuelve a la superficie (una surgencia). La ruta es esquemática; no se calculan la velocidad del flujo ni el tiempo de recorrido.",
+  "Water containing dissolved CO₂ can dissolve calcite and enlarge connected openings.":
+    "El agua con CO₂ disuelto puede disolver la calcita y agrandar las aberturas conectadas.",
+  "Cutaway slices the block open along the cave passage; the dashed water route is schematic and tracers are enlarged.":
+    "Corte abre el bloque a lo largo de la galería de la cueva; la ruta discontinua del agua es esquemática y los trazadores están agrandados.",
+  "The rock hides the passage except where it reaches the spring; switch on Cutaway to see it.":
+    "La roca oculta la galería, salvo donde llega al manantial; activa Corte para verla.",
+  "Calcite can precipitate from cave water where carbon dioxide escapes.":
+    "La calcita puede precipitar del agua de la cueva donde escapa el dióxido de carbono.",
+  "West–east cross-section across the dunefield": "Perfil oeste–este a través del campo de dunas",
+  Dunefield: "Campo de dunas",
+  "Sand blown across the San Luis Valley by prevailing southwest winds piles up here. Storm winds from the northeast push it back, so the dunes grow taller instead of moving on: some stand more than 200 m high.":
+    "La arena que los vientos dominantes del suroeste llevan a través del valle de San Luis se acumula aquí. Los vientos de tormenta del noreste la empujan de vuelta, así que las dunas crecen en altura en lugar de seguir avanzando: algunas superan los 200 m.",
+  "Sangre de Cristo Mountains": "Montes Sangre de Cristo",
+  "The mountain front traps the sand. Creeks flowing out of the mountains carry sand back around the dunefield's edge, where the wind picks it up again.":
+    "El frente montañoso atrapa la arena. Los arroyos que bajan de las montañas devuelven arena por el borde del campo de dunas, donde el viento la vuelve a levantar.",
+  "San Luis Valley floor": "Fondo del valle de San Luis",
+  "Sand and silt washed from the mountains collected on this valley floor; the wind sorts out the sand and carries it toward the dunes.":
+    "La arena y el limo arrastrados desde las montañas se acumularon en este fondo de valle; el viento separa la arena y la lleva hacia las dunas.",
+  "Real USGS elevation for Great Sand Dunes, Colorado, the tallest dunes in North America. The red line crosses the dunefield from west to east, from about {lo} m to {hi} m above sea level. Compare its ridges with the barchan model: here, winds from two directions pile sand into a large dunefield.":
+    "Elevación real del USGS de Great Sand Dunes, Colorado, las dunas más altas de América del Norte. La línea roja cruza el campo de dunas de oeste a este, desde unos {lo} m hasta {hi} m sobre el nivel del mar. Compara sus crestas con el modelo de barján: aquí, vientos de dos direcciones acumulan la arena en un gran campo de dunas.",
+  "60 × 40 m example · relief ×2 · ripples and grains enlarged · wind follows the arrow":
+    "Ejemplo de 60 × 40 m · relieve ×2 · rizaduras y granos agrandados · el viento sigue la flecha",
+  "1 scene unit = 10 m · equal distances · ripples and sand grains enlarged":
+    "1 unidad de escena = 10 m · distancias a la misma escala · rizaduras y granos de arena agrandados",
+  Wind: "Viento",
+  "The prevailing wind blows along this arrow. Sand moves downwind, the steep slip face forms on the downwind side and the barchan's horns trail downwind.":
+    "El viento dominante sopla a lo largo de esta flecha. La arena se mueve a favor del viento, la cara de avalancha empinada se forma del lado de sotavento y los cuernos del barján se alargan a favor del viento.",
+  "Gentler stoss slope": "Ladera de barlovento más suave",
+  "Wind-eroded ridges": "Crestas erosionadas por el viento",
+  Windward: "Barlovento",
+  "Eroded ridges": "Crestas erosionadas",
+  "Wind carries sand up the gentle windward (stoss) slope by saltation and surface creep; the finest grains travel in suspension. The ripples and grains shown are enlarged so they show.":
+    "El viento sube la arena por la suave ladera de barlovento por saltación y reptación superficial; los granos más finos viajan en suspensión. Las rizaduras y los granos están agrandados para que se vean.",
+  "Yardangs are streamlined ridges carved by the wind, usually aligned with the strongest winds. Sand-laden wind abrades the blunt upwind heads and cuts grooves along the ridges; deflation removes the loosened grains. They are eroded rock, not piles of dune sand.":
+    "Los yardangs son crestas aerodinámicas talladas por el viento, normalmente alineadas con los vientos más fuertes. El viento cargado de arena desgasta sus cabezas romas de barlovento y excava surcos a lo largo de las crestas; la deflación se lleva los granos sueltos. Son roca erosionada, no montones de arena de duna.",
+  "Steep slip face": "Cara de avalancha empinada",
+  "Slip face": "Cara de avalancha",
+  "Sand blown over the brink piles up on the lee side until it slides down in small avalanches, so this face stays near the angle of repose, about 32° for dry sand. The relief here is doubled, so it looks steeper.":
+    "La arena que el viento pasa por encima de la cresta se acumula del lado de sotavento hasta que se desliza en pequeñas avalanchas, así que esta cara se mantiene cerca del ángulo de reposo, unos 32° para la arena seca. Aquí el relieve está duplicado, así que parece más empinada.",
+  "Horns point downwind": "Los cuernos apuntan a favor del viento",
+  "Tapered downwind ends": "Extremos afilados a favor del viento",
+  Horns: "Cuernos",
+  "Tapered ends": "Extremos afilados",
+  "The crescent tips lie downwind of the central crest. The slip face is 32° at true scale; doubled relief makes it look steeper. Real angles of repose vary.":
+    "Las puntas de la media luna quedan a favor del viento respecto a la cresta central. La cara de avalancha tiene 32° a escala real; el relieve duplicado la hace parecer más empinada. Los ángulos de reposo reales varían.",
+  "Each ridge has a blunt, steep head facing the wind and a long tail tapering downwind, like an upturned boat hull. These illustrative ridges do not give a wind speed or erosion rate.":
+    "Cada cresta tiene una cabeza roma y empinada de cara al viento y una larga cola que se afila a favor del viento, como el casco de un barco volcado. Estas crestas ilustrativas no dan una velocidad del viento ni una tasa de erosión.",
+  "Barchan: deposited sand, a gentler windward slope and a steeper lee slip face below a sharp brink. Dune position moves the dune downwind without a set speed. Between the dunes lies a gravel floor: barchans form where sand is scarce.":
+    "Barján: arena depositada, una ladera de barlovento más suave y una cara de avalancha de sotavento más empinada bajo una cresta marcada. Posición de la duna mueve la duna a favor del viento sin una velocidad fija. Entre las dunas hay un suelo de grava: los barjanes se forman donde escasea la arena.",
+  "Yardang: soft, bedded rock carved into streamlined ridges, aligned broadly with the erosive wind, with sand drifting along the corridors between them.":
+    "Yardang: roca blanda y estratificada tallada en crestas aerodinámicas, más o menos alineadas con el viento erosivo, con arena que avanza por los pasillos entre ellas.",
+  "Play shows enlarged grains hopping downwind; the dune shape is not simulated from sand transport. Many deserts have rock or gravel surfaces; a dune needs a supply of sand.":
+    "Reproducir muestra granos agrandados que saltan a favor del viento; la forma de la duna no se simula a partir del transporte de arena. Muchos desiertos tienen superficies de roca o de grava; una duna necesita un aporte de arena.",
+  "10 m wide, 5 m deep · 0.7 m active layer · common scale":
+    "10 m de ancho y 5 m de profundidad · capa activa de 0.7 m · misma escala",
+  "Ice-wedge polygon network · idealized pattern, not a field survey · relief exaggerated":
+    "Red de polígonos de cuñas de hielo · patrón idealizado, no un levantamiento de campo · relieve exagerado",
+  "1 scene unit = 1 m · no vertical exaggeration · winter crack drawn wider":
+    "1 unidad de escena = 1 m · sin exageración vertical · grieta invernal dibujada más ancha",
+  "Polygon spacing is illustrative · cracks enlarged for clarity":
+    "La separación de los polígonos es ilustrativa · grietas agrandadas para que se vean",
+  "Refreezing from surface · {freeze} m": "Recongelación desde la superficie · {freeze} m",
+  "Seasonal thaw · {thaw} m": "Deshielo estacional · {thaw} m",
+  "Active layer frozen": "Capa activa congelada",
+  "Seasonal thaw deepens through the summer to a maximum of 0.7 m, marked by the dashed line. In autumn the active layer refreezes from the surface downward. Thawed ground is shown darker and wetter.":
+    "El deshielo estacional se profundiza durante el verano hasta un máximo de 0.7 m, marcado por la línea discontinua. En otoño, la capa activa se vuelve a congelar desde la superficie hacia abajo. El terreno descongelado se ve más oscuro y húmedo.",
+  "Winter crack": "Grieta invernal",
+  "In intense winter cold the frozen ground contracts and cracks, usually along the same line through the wedge each year. Real cracks are only millimeters to a centimeter or two wide; the crack is drawn wider here so it can be seen. Next spring, meltwater runs into it and freezes as a new vein of ice.":
+    "Con el frío intenso del invierno, el terreno congelado se contrae y se agrieta, normalmente por la misma línea a través de la cuña cada año. Las grietas reales miden solo de milímetros a uno o dos centímetros de ancho; aquí se dibuja más ancha para que se vea. La primavera siguiente, el agua de deshielo entra en ella y se congela como una nueva vena de hielo.",
+  Permafrost: "Permafrost",
+  "Permafrost is ground that stays at or below 0 °C for at least two consecutive years; it is not necessarily solid ice. The pale streaks are lenses of ground ice, most plentiful in the ice-rich ground just below the active layer; beside the wedge the layers bend upward where the growing wedge has pushed them.":
+    "El permafrost es terreno que se mantiene a 0 °C o menos durante al menos dos años seguidos; no es necesariamente hielo sólido. Las franjas pálidas son lentes de hielo del suelo, más abundantes en el terreno rico en hielo justo debajo de la capa activa; junto a la cuña, las capas se curvan hacia arriba donde la cuña, al crecer, las ha empujado.",
+  "Ice wedge · {width} m at top": "Cuña de hielo · {width} m arriba",
+  "Intense winter cold makes frozen ground contract and crack. Meltwater enters the cracks and freezes as thin vertical veins, so the wedge widens year after year and pushes the neighboring layers upward. It is not caused by water simply expanding as it freezes, nor by a glacier.":
+    "El frío intenso del invierno hace que el terreno congelado se contraiga y se agriete. El agua de deshielo entra en las grietas y se congela como venas verticales delgadas, así que la cuña se ensancha año tras año y empuja hacia arriba las capas vecinas. No se debe simplemente a que el agua se expanda al congelarse, ni a un glaciar.",
+  "Thermal-contraction polygon network": "Red de polígonos de contracción térmica",
+  "Troughs lie above the ice wedges, with raised rims beside them and wet, low centers; the cut faces show a wedge beneath every trough. Natural polygons are irregular; this regular network is idealized, not a field survey.":
+    "Las zanjas están sobre las cuñas de hielo, con bordes elevados a su lado y centros bajos y húmedos; las caras del corte muestran una cuña bajo cada zanja. Los polígonos naturales son irregulares; esta red regular es idealizada, no un levantamiento de campo.",
+  "Winter: the active layer is frozen; intense cold makes the ground contract and crack.":
+    "Invierno: la capa activa está congelada; el frío intenso hace que el terreno se contraiga y se agriete.",
+  "Autumn freeze-back: the active layer refreezes from the surface down ({freeze} m frozen).":
+    "Recongelación de otoño: la capa activa se vuelve a congelar desde la superficie hacia abajo ({freeze} m congelados).",
+  "Thaw season: the active layer has thawed to {thaw} m of its 0.70 m maximum; the permafrost below stays frozen.":
+    "Temporada de deshielo: la capa activa se ha descongelado hasta {thaw} m de su máximo de 0.70 m; el permafrost de abajo sigue congelado.",
+  "Long-term wedge development {growth}%.": "Desarrollo de la cuña a largo plazo: {growth}%.",
+  "Play runs through one year. Wedge development compares how much a wedge has grown, not how fast. Ice-wedge polygons differ from frost-sorted stone circles; neither needs a glacier on site.":
+    "Reproducir recorre un año. Desarrollo de la cuña compara cuánto ha crecido una cuña, no qué tan rápido. Los polígonos de cuñas de hielo son distintos de los círculos de piedras clasificados por la helada; ninguno de los dos necesita un glaciar en el lugar.",
+  "Example 2 m profile, drawn to scale · not every soil has every O–A–E–B–C horizon":
+    "Perfil de ejemplo de 2 m, dibujado a escala · no todos los suelos tienen todos los horizontes O–A–E–B–C",
+  "1 scene unit = 1 m · grains and roots enlarged for visibility":
+    "1 unidad de escena = 1 m · granos y raíces agrandados para que se vean",
+  "{h} · {top}–{h2} cm": "{h} · {top}–{h2} cm",
+  "Depths are teaching examples, not field measurements. These examples have no E (leached) or R (bedrock) horizon, though other soils do. Select a horizon label to read what it means.":
+    "Las profundidades son ejemplos didácticos, no medidas de campo. Estos ejemplos no tienen horizonte E (lavado) ni R (roca madre), aunque otros suelos sí. Selecciona la etiqueta de un horizonte para leer qué significa.",
+  "USDA texture triangle · percentages sum to 100 · fine-earth fraction only":
+    "Triángulo de texturas del USDA · los porcentajes suman 100 · solo la fracción de tierra fina",
+  "Positions on the triangle are exact · the slab’s thickness is only for display":
+    "Las posiciones en el triángulo son exactas · el grosor de la placa es solo para mostrarla",
+  "← sand %": "← % de arena",
+  "clay % ↑": "% de arcilla ↑",
+  "silt % ↓": "% de limo ↓",
+  sand: "arena",
+  silt: "limo",
+  clay: "arcilla",
+  "Enlarged samples show angular sand and silt grains and flat clay plates, drawn in size order (sand largest, clay smallest). Real sand grains can be over 1,000 times wider than clay plates, so sizes are not to scale and grain counts are not measurements. The percentage is by mass of the fine earth.":
+    "Las muestras agrandadas muestran granos angulosos de arena y limo y placas planas de arcilla, dibujados por orden de tamaño (la arena, la mayor; la arcilla, la menor). Los granos de arena reales pueden ser más de 1,000 veces más anchos que las placas de arcilla, así que los tamaños no están a escala y la cantidad de granos no es una medida. El porcentaje es en masa de la tierra fina.",
+  "100% sand": "100% arena",
+  "100% silt": "100% limo",
+  "100% clay": "100% arcilla",
+  "The class depends on particle sizes, not color, fertility or organic content. Silt is whatever remains after sand and clay, so the total stays at 100%.":
+    "La clase depende del tamaño de las partículas, no del color, la fertilidad ni el contenido orgánico. El limo es lo que queda después de la arena y la arcilla, así que el total se mantiene en 100%.",
+  "{sand}% sand + {silt}% silt + {clay}% clay = 100%":
+    "{sand}% arena + {silt}% limo + {clay}% arcilla = 100%",
+  "USDA size limits: sand 0.05–2 mm, silt 0.002–0.05 mm, clay <0.002 mm. The jar shows how the same mix settles in water. Class colors are a key, not soil photographs.":
+    "Límites de tamaño del USDA: arena 0.05–2 mm, limo 0.002–0.05 mm, arcilla <0.002 mm. El frasco muestra cómo se asienta en agua la misma mezcla. Los colores de las clases son una clave, no fotografías de suelos.",
+  "Jar test": "Prueba del frasco",
+  "Shake a soil sample with water and let it stand: sand settles within a minute, silt within hours, and clay can take a day or more. Measuring each layer estimates the texture you can then read on the triangle.":
+    "Agita una muestra de suelo con agua y déjala reposar: la arena se asienta en un minuto, el limo en unas horas y la arcilla puede tardar un día o más. Medir cada capa da una estimación de la textura, que luego puedes leer en el triángulo.",
+  "Model soil budget: {remaining} kg in place, {moving} kg in transport and {exported} kg exported, always totaling 6000 kg.":
+    "Balance de suelo del modelo: {remaining} kg en su lugar, {moving} kg en transporte y {exported} kg exportados, siempre con un total de 6000 kg.",
+  "Cover multiplies detachment by 0.15, a chosen value, not a measured reduction.":
+    "La cobertura multiplica el desprendimiento por 0.15, un valor elegido, no una reducción medida.",
+  "Wind carries exported soil off through the air, so the trough stays empty; the dark topsoil in the cut face thins as the surface lowers.":
+    "El viento se lleva por el aire el suelo exportado, así que la canaleta queda vacía; la capa superior oscura de la cara del corte se adelgaza a medida que baja la superficie.",
+  "Exported soil collects in the trough at the plot's foot; the dark topsoil in the cut face thins as the surface lowers.":
+    "El suelo exportado se acumula en la canaleta al pie de la parcela; la capa superior oscura de la cara del corte se adelgaza a medida que baja la superficie.",
+  "Two 20 × 10 m runoff plots on one 12% slope · surface lowering exaggerated ×30 · rill depths schematic · raindrops and grains enlarged":
+    "Dos parcelas de escorrentía de 20 × 10 m en una misma pendiente del 12% · descenso de la superficie exagerado ×30 · profundidad de los surcos esquemática · gotas de lluvia y granos agrandados",
+  "1 scene unit = 5 m · true mean surface lowering · rill depths schematic · raindrops and grains still enlarged":
+    "1 unidad de escena = 5 m · descenso medio real de la superficie · profundidad de los surcos esquemática · gotas de lluvia y granos aún agrandados",
+  "Bare plot": "Parcela desnuda",
+  "Covered plot": "Parcela cubierta",
+  "Rills · soil in transport": "Surcos · suelo en transporte",
+  "Runoff gathers into small channels that cut down as they carry the loosened soil. Muddy water is soil in transport; rill depths here are schematic, not calculated.":
+    "La escorrentía se reúne en pequeños canales que se encajan mientras llevan el suelo suelto. El agua lodosa es suelo en transporte; aquí la profundidad de los surcos es esquemática, no calculada.",
+  "Trough · exported soil": "Canaleta · suelo exportado",
+  "Soil that has left the plot settles in the trough at its foot, so the exported store can be weighed. The fill here grows with the model's exported soil.":
+    "El suelo que ha salido de la parcela se deposita en la canaleta de su pie, así que la reserva exportada se puede pesar. El relleno crece con el suelo exportado del modelo.",
+  "Model minute {minute}": "Minuto del modelo {minute}",
+  "Still in place": "Aún en su lugar",
+  "In transport": "En transporte",
+  "Carried off (exported)": "Llevado fuera (exportado)",
+  "Ground lowered (average)": "Descenso del terreno (promedio)",
+  "Bare plot (left)": "Parcela desnuda (izquierda)",
+  "Covered plot (right)": "Parcela cubierta (derecha)",
+  "Bare plot (right)": "Parcela desnuda (derecha)",
+  "Each plot starts with 6000 kg of loose surface soil; the three stores always add up to 6000 kg. Ground lowering counts all soil loosened so far, including soil still in transport.":
+    "Cada parcela empieza con 6000 kg de suelo superficial suelto; las tres reservas siempre suman 6000 kg. El descenso del terreno cuenta todo el suelo desprendido hasta ahora, incluido el que sigue en transporte.",
+  "Dry wind-transport example.": "Ejemplo de transporte por viento seco.",
+  "Rain splash and runoff example; muddy water runs in rills down the bare plot and settles in its trough, and the rill depths are schematic, not calculated.":
+    "Ejemplo de salpicadura de la lluvia y escorrentía; el agua lodosa baja por surcos en la parcela desnuda y se deposita en su canaleta, y la profundidad de los surcos es esquemática, no calculada.",
+  "Model values for comparison only, not predictions for a real field.":
+    "Valores del modelo solo para comparar, no predicciones para un campo real.",
+  Crest: "Cima",
+  Backslope: "Ladera media",
+  "Footslope / toe": "Pie de ladera",
+  "Soil thickness ×20 · 120 m hillslope · topographic slope to scale":
+    "Espesor del suelo ×20 · ladera de 120 m · pendiente del terreno a escala",
+  "1 scene unit = 20 m · soil and relief use a common scale · grass and roots enlarged":
+    "1 unidad de escena = 20 m · suelo y relieve a la misma escala · pasto y raíces agrandados",
+  "{name} · {c} m soil": "{name} · {c} m de suelo",
+  "A crest can export water and sediment, but soil thickness also depends on parent material, time, climate and land use. This sequence is one example.":
+    "Una cima puede exportar agua y sedimento, pero el espesor del suelo también depende del material parental, el tiempo, el clima y el uso del suelo. Esta secuencia es un ejemplo.",
+  "In this model, a steeper slope gives a thinner backslope soil; bare patches show where soil is thinnest. It is not an erosion-rate law, and not every steep slope has thin soil.":
+    "En este modelo, una pendiente más fuerte da un suelo más delgado en la ladera media; las manchas desnudas muestran dónde el suelo es más delgado. No es una ley de tasa de erosión, y no todas las laderas empinadas tienen suelo delgado.",
+  "The lower slope receives water and sediment, so the soil is thicker. It is often waterlogged: the gray subsoil with rusty mottles shows gleying, where iron is reduced and moved by standing water.":
+    "La parte baja de la ladera recibe agua y sedimento, así que el suelo es más grueso. A menudo está encharcado: el subsuelo gris con moteados oxidados muestra gleización, donde el hierro se reduce y se mueve por el agua estancada.",
+  "Soil thickness: {list}.": "Espesor del suelo: {list}.",
+  "Soils share the same parent material, but their position on the slope changes drainage and sediment movement: the crest and backslope lose material, while the toe receives water and sediment.":
+    "Los suelos comparten el mismo material parental, pero su posición en la ladera cambia el drenaje y el movimiento del sedimento: la cima y la ladera media pierden material, mientras que el pie de ladera recibe agua y sedimento.",
+  "Pale blue arrows show water and sediment moving downslope. Change Slope to compare the soil thicknesses. Only soil thickness is exaggerated in the teaching view, and the model does not calculate rates of soil formation, erosion or deposition.":
+    "Las flechas azul pálido muestran el agua y el sedimento que bajan por la ladera. Cambia Pendiente para comparar los espesores del suelo. En la vista didáctica solo se exagera el espesor del suelo, y el modelo no calcula tasas de formación del suelo, erosión ni depósito.",
+
+  // Soil profiles and texture classes
+  "Temperate brown soil": "Suelo pardo templado",
+  "Illustrative temperate profile; brown earth is not a USDA soil order.":
+    "Perfil templado ilustrativo; la tierra parda no es un orden de suelos del USDA.",
+  "Organic litter at the surface; its thickness varies seasonally.":
+    "Hojarasca orgánica en la superficie; su espesor varía según la estación.",
+  "Mineral topsoil mixed with organic matter and roots.":
+    "Capa superior mineral mezclada con materia orgánica y raíces.",
+  "Subsoil altered by weathering and soil formation; w indicates weak development.":
+    "Subsuelo alterado por la meteorización y la formación del suelo; la w indica un desarrollo débil.",
+  "Relatively little altered parent material, not necessarily solid bedrock.":
+    "Material parental relativamente poco alterado, no necesariamente roca madre sólida.",
+  "Mollisol example": "Ejemplo de Mollisol",
+  "Illustrative grassland soil with a thick dark mineral surface; classification requires more than color.":
+    "Suelo de pastizal ilustrativo con una superficie mineral gruesa y oscura; la clasificación requiere más que el color.",
+  "Thick, dark, organic-rich mineral topsoil. A mollic epipedon also has diagnostic chemical and structural criteria.":
+    "Capa superior mineral gruesa, oscura y rica en materia orgánica. Un epipedón móllico también tiene criterios diagnósticos químicos y de estructura.",
+  "A weathered subsoil in this example; not every Mollisol has this exact sequence.":
+    "Un subsuelo meteorizado en este ejemplo; no todos los Mollisoles tienen exactamente esta secuencia.",
+  "Parent material beneath the soil-forming horizons.":
+    "Material parental bajo los horizontes en formación del suelo.",
+  "Oxisol example": "Ejemplo de Oxisol",
+  "Illustrative highly weathered soil; broad gradual transitions, not six compulsory layers.":
+    "Suelo muy meteorizado ilustrativo; transiciones amplias y graduales, no seis capas obligatorias.",
+  "Mineral topsoil with organic matter.": "Capa superior mineral con materia orgánica.",
+  "Highly weathered subsoil in this teaching example. Oxic diagnostic properties cannot be identified from red color alone.":
+    "Subsuelo muy meteorizado en este ejemplo didáctico. Las propiedades diagnósticas óxicas no se pueden identificar solo por el color rojo.",
+  "A schematic transition toward weathered parent material. Actual Oxisols can extend much deeper.":
+    "Una transición esquemática hacia el material parental meteorizado. Los Oxisoles reales pueden ser mucho más profundos.",
+  Sand: "Arena",
+  "Loamy sand": "Arena franca",
+  "Sandy loam": "Franco arenoso",
+  Loam: "Franco",
+  "Silt loam": "Franco limoso",
+  Silt: "Limo",
+  "Sandy clay loam": "Franco arcillo arenoso",
+  "Clay loam": "Franco arcilloso",
+  "Silty clay loam": "Franco arcillo limoso",
+  "Sandy clay": "Arcilla arenosa",
+  "Silty clay": "Arcilla limosa",
 };

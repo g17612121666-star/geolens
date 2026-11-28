@@ -1,0 +1,139 @@
+{
+  "title": "Relieve periglaciar",
+  "hook": "El permafrost es terreno que se mantiene a 0 °C o menos durante al menos dos años seguidos.",
+  "objective": "Explica cómo el congelamiento y el deshielo repetidos producen cuñas de hielo y suelos estructurados en los paisajes fríos.",
+  "modelDescription": "Una sección de terreno congelado muestra el permafrost bajo una delgada capa activa que se descongela cada verano, con una línea discontinua que marca la profundidad del deshielo. Una cuña de hielo se adelgaza hacia abajo desde una grieta en la superficie y crece a medida que el agrietamiento y la recongelación se repiten cada año. Otra vista muestra el patrón de polígonos que forman las cuñas de hielo en la superficie de la tundra.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Define el permafrost y explica en qué se diferencia el hielo del suelo de un glaciar. Reproduce un año y observa cómo la capa activa se descongela hasta la línea discontinua."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Aumenta Desarrollo de la cuña y sigue la cuña de hielo que se adelgaza hacia abajo. Explica cómo la hacen crecer el agrietamiento invernal, el agua de deshielo y la recongelación, y luego pon Vista en Red de polígonos."
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica cómo el agrietamiento térmico y la recongelación repetidos forman una cuña de hielo a lo largo de muchos años."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Periglaciar significa…",
+      "choices": [
+        "Terreno siempre enterrado bajo hielo glaciar",
+        "Procesos de clima frío sin hielo glaciar",
+        "Zonas que antes cubrían los glaciares",
+        "Solo terreno con nieve permanente"
+      ],
+      "explain": "En los ambientes periglaciares dominan los procesos del terreno frío, como el congelamiento estacional y, en algunos lugares, el permafrost. No necesitan que haya un glaciar en el lugar."
+    },
+    {
+      "prompt": "Una cuña de hielo crece porque…",
+      "choices": [
+        "El agua de deshielo excava un canal hacia abajo",
+        "El levantamiento por helada empuja las piedras hacia arriba",
+        "Las grietas heladas se rellenan de hielo cada año",
+        "El terreno se descongela y luego se hunde"
+      ],
+      "explain": "El fuerte enfriamiento invernal puede agrietar el terreno congelado, y el agua de deshielo que entra en las grietas puede congelarse. El agrietamiento y el aporte de hielo repetidos a lo largo de muchos años pueden formar una cuña de hielo del suelo."
+    },
+    {
+      "prompt": "¿Qué cambia aquí Desarrollo de la cuña?",
+      "choices": [
+        "Los años necesarios para crecer",
+        "El ritmo de crecimiento anual",
+        "La temperatura del terreno",
+        "Cuánto ha crecido el ancho de la cuña"
+      ],
+      "explain": "Desarrollo de la cuña fija el ancho de la cuña para comparar distintas etapas de crecimiento. No asigna un ritmo de crecimiento ni un número de años."
+    },
+    {
+      "prompt": "Los polígonos de cuñas de hielo de Alaska y los campos de bloques de los Cairngorms se agrupan porque…",
+      "choices": [
+        "Los dos se relacionan con terreno frío, no con hielo glaciar",
+        "Los dos los excavaron glaciares de valle en la última glaciación",
+        "Los dos se formaron bajo gruesos mantos de hielo",
+        "Los dos solo están activos en verano"
+      ],
+      "explain": "Los campos de bloques y los polígonos de cuñas de hielo ilustran procesos distintos asociados al terreno frío. Ninguno de los dos necesita que el paisaje local haya sido excavado por un glaciar de valle activo."
+    },
+    {
+      "prompt": "¿Qué es la capa activa?",
+      "choices": [
+        "Terreno congelado para siempre muy abajo",
+        "La nieve que cae cada invierno",
+        "Una capa de hielo glaciar antiguo enterrada bajo el suelo",
+        "El terreno sobre el permafrost que se descongela cada verano"
+      ],
+      "explain": "La capa activa está encima del permafrost y se descongela y se vuelve a congelar cada año. Como el agua no puede drenar hacia el terreno congelado de abajo, suele estar encharcada en verano."
+    }
+  ],
+  "why": [
+    "El permafrost es terreno que se mantiene a 0 °C o menos durante al menos dos años seguidos. El deshielo estacional afecta a su capa activa, mientras que el agrietamiento térmico y la recongelación repetidos pueden formar cuñas de hielo.",
+    "Cada invierno, el frío intenso hace que el terreno congelado se contraiga y se agriete, normalmente por la misma línea. En primavera, el agua de deshielo se cuela en la grieta y se congela en el permafrost como una delgada vena vertical de hielo. Repetidas durante cientos de años, las venas forman una cuña que es más ancha arriba, y las grietas se unen en una red de polígonos con zanjas sobre las cuñas.",
+    "El ciclo anual y el ancho acumulado de la cuña son comparaciones aparte; el control del ancho no indica un ritmo de crecimiento."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El permafrost es simplemente un glaciar enterrado bajo el suelo.",
+      "truth": "El permafrost es terreno que se mantiene a cero grados Celsius o menos durante al menos dos años seguidos. Puede contener hielo del suelo, pero no tiene por qué ser todo agua congelada. El deshielo estacional puede afectar a la capa activa de encima, mientras que los glaciares son masas aparte de hielo acumulado que fluye."
+    },
+    {
+      "claim": "El permafrost solo existe en el Ártico.",
+      "truth": "El permafrost se encuentra bajo gran parte de Alaska, y también en la Antártida y en montañas altas como la meseta del Tíbet, las Rocosas, los Andes y los Alpes. Gran Bretaña no tiene hoy, pero formas como los campos de bloques registran condiciones periglaciares más frías en el pasado."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Periglaciar",
+      "def": "Se dice de los procesos y las formas del relieve asociados al terreno frío, como el hielo-deshielo, la clasificación por la helada y el agrietamiento térmico. Pueden darse cerca de los glaciares o lejos del hielo actual. Las formas heredadas pueden quedar después de que el clima de una región se ha vuelto más cálido."
+    },
+    {
+      "term": "Cuña de hielo",
+      "def": "Una cuña de hielo del suelo que se forma cuando el agua entra en las grietas de contracción térmica y se congela una y otra vez en el permafrost."
+    },
+    {
+      "term": "Suelo estructurado",
+      "def": "Patrones repetidos en el terreno, como polígonos, círculos o franjas, producidos por procesos como la clasificación por la helada y la contracción térmica en ambientes fríos."
+    },
+    {
+      "term": "Nivación",
+      "def": "La meteorización, el movimiento del agua de deshielo y otros procesos alrededor de manchas de nieve persistentes que pueden ayudar a agrandar depresiones poco profundas."
+    },
+    {
+      "term": "Campo de bloques",
+      "def": "Una cubierta extensa de bloques de roca angulosos, que suele encontrarse en mesetas altas y frías. La acción de la helada puede contribuir a su formación, pero los bloques pueden registrar una larga historia de meteorización. Su presencia por sí sola no demuestra que hoy exista permafrost."
+    },
+    {
+      "term": "Capa activa",
+      "def": "El terreno sobre el permafrost que se descongela en verano y se vuelve a congelar en invierno. Su espesor cambia con el clima local, la vegetación y el suelo. Que esta capa se descongele cada estación no significa necesariamente que el permafrost de abajo haya desaparecido."
+    },
+    {
+      "term": "Permafrost",
+      "def": "Terreno que se mantiene a 0 °C o menos durante al menos dos años seguidos. Puede contener hielo, pero no tiene por qué estar siempre lleno de hielo."
+    }
+  ],
+  "predict": {
+    "prompt": "En Alaska, el terreno permanece congelado durante años. ¿Qué crees que le pasa a la capa superior del suelo cada verano?"
+  },
+  "cer": {
+    "prompt": "¿Cómo crecen las cuñas de hielo en el permafrost?",
+    "claim": "Las cuñas de hielo crecen porque el terreno congelado se agrieta en invierno, el agua de deshielo llena la grieta en primavera y se congela, y el ciclo se repite durante muchos años.",
+    "evidence": "Al reproducir un año, la capa activa se descongela hasta unos 0.7 m cada verano mientras el permafrost de abajo sigue congelado. Al subir Desarrollo de la cuña, una cuña de hielo que se adelgaza hacia abajo se ensancha de 0.1 m a 0.9 m arriba, y la vista Red de polígonos muestra cómo las cuñas se unen en polígonos.",
+    "reasoning": "El terreno muy frío se contrae y se agrieta en invierno. El agua de deshielo se cuela en la grieta y se congela porque el permafrost de abajo se mantiene a 0 °C o menos. Cada año añade una delgada vena de hielo, así que la cuña se ensancha y las grietas se unen en un patrón de polígonos."
+  },
+  "controls": {
+    "cycles": {
+      "label": "Desarrollo de la cuña"
+    },
+    "view": {
+      "label": "Vista",
+      "options": ["Sección de la cuña de hielo", "Red de polígonos"]
+    }
+  }
+}

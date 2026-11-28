@@ -1,0 +1,133 @@
+{
+  "title": "Triángulo de texturas del suelo",
+  "hook": "La textura del suelo describe las proporciones de arena, limo y arcilla.",
+  "objective": "Usa las proporciones de arena, limo y arcilla para clasificar un suelo, y explica cómo su textura afecta el movimiento del agua.",
+  "modelDescription": "Un triángulo divide los suelos en clases de textura según sus porcentajes de arena, limo y arcilla, con un punto que marca la mezcla elegida. Un frasco muestra el suelo asentado en capas, y tres platos comparan el tamaño de las partículas de arena, limo y arcilla.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Lee los ejes de arena, limo y arcilla (la arena en la base, la arcilla subiendo por el borde izquierdo y el limo bajando por el borde derecho) y ubica la mezcla elegida en el triángulo de texturas. Comprueba que sus fracciones suman 100%."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Cambia Arena % y Arcilla % y sigue el punto entre las clases de textura; el limo completa el resto. Explica en qué se diferencian los tamaños de las partículas y luego distingue la textura de la estructura del suelo."
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica por qué cambiar una fracción de tamaño de partícula obliga a cambiar al menos una de las otras. Luego predice si drena más rápido un suelo arenoso o uno arcilloso, y explica por qué con el tamaño de las partículas y de los poros."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Las partículas de arcilla son…",
+      "choices": [
+        "Las más finas de las tres",
+        "Las partículas más gruesas",
+        "De tamaño entre la arena y el limo",
+        "Del mismo tamaño que el limo"
+      ],
+      "explain": "La arcilla es la fracción mineral de partículas más pequeñas que se usa en el triángulo de texturas. Su gran superficie y sus propiedades minerales ayudan a explicar por qué muchos suelos ricos en arcilla se vuelven pegajosos cuando están mojados."
+    },
+    {
+      "prompt": "Un suelo franco es…",
+      "choices": [
+        "Sobre todo arcilla con poca arena",
+        "Una mezcla equilibrada de arena, limo y arcilla",
+        "Sobre todo arena que drena con facilidad",
+        "Sobre todo materia orgánica, casi sin minerales"
+      ],
+      "explain": "El franco es una clase de textura con cantidades apreciables de arena, limo y arcilla, sin que domine ningún extremo. Su mezcla puede equilibrar el drenaje y la retención de agua, aunque la productividad del suelo también depende de la estructura, los nutrientes y el manejo."
+    },
+    {
+      "prompt": "Un suelo con 90% de arena es…",
+      "choices": [
+        "Franco arcillo arenoso",
+        "Franco limoso",
+        "Arena o arena franca",
+        "Franco arcilloso"
+      ],
+      "explain": "Con 90% de arena, solo queda un 10% para el limo y la arcilla, lo que sitúa la composición cerca del vértice de la arena en el triángulo. La clase arenosa exacta depende de cómo se reparte esa fracción restante."
+    },
+    {
+      "prompt": "La arena, el limo y la arcilla en el triángulo deben…",
+      "choices": ["Sumar 50%", "Dejar fuera el limo", "Ser siempre iguales", "Sumar 100%"],
+      "explain": "La arena, el limo y la arcilla representan toda la muestra mineral de tierra fina que clasifica el triángulo. Sus porcentajes deben sumar 100%, así que aumentar una fracción obliga a reducir una de las otras o ambas."
+    },
+    {
+      "prompt": "¿Qué suelo suele drenar más rápido después de una lluvia fuerte?",
+      "choices": [
+        "Un suelo arenoso con poros grandes",
+        "Un suelo arcilloso con poros diminutos",
+        "Un suelo arcillo limoso",
+        "Un suelo franco arcilloso"
+      ],
+      "explain": "El agua se mueve con facilidad por los espacios grandes entre los granos de arena. Los suelos con más arcilla tienen poros mucho más pequeños, así que el agua drena despacio a través de ellos."
+    }
+  ],
+  "why": [
+    "La textura del suelo describe las proporciones de arena, limo y arcilla. Estas fracciones suman 100%, y su mezcla influye en propiedades como la retención de agua y el drenaje.",
+    "Los granos de arena son mucho más grandes que las placas de arcilla, así que los suelos arenosos tienen poros grandes que drenan rápido y retienen poca agua, mientras que los suelos ricos en arcilla tienen poros diminutos que retienen el agua con fuerza y drenan despacio. Como las fracciones deben sumar 100%, subir una fracción siempre baja otra y mueve el punto hacia el vértice de esa fracción.",
+    "La textura es una de las influencias en el comportamiento del suelo; la estructura, la materia orgánica y la compactación también afectan el movimiento del agua."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El color de un suelo determina si es arena, limo o arcilla.",
+      "truth": "La textura depende de las proporciones de partículas minerales en clases de tamaño definidas. El color refleja otras propiedades, como la materia orgánica, los compuestos de hierro y las condiciones de drenaje. Por eso, dos suelos pueden verse parecidos y tener texturas distintas, y la textura es distinta de la forma en que las partículas se agrupan en una estructura."
+    },
+    {
+      "claim": "Los suelos arcillosos drenan rápido porque sus partículas son muy pequeñas.",
+      "truth": "Las partículas pequeñas dejan poros diminutos que retienen el agua con fuerza, así que los suelos arcillosos drenan despacio y pueden encharcarse. Los suelos arenosos, con poros más grandes, drenan rápido."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Textura",
+      "def": "En la ciencia del suelo, las proporciones de arena, limo y arcilla de la fracción mineral. La textura influye en el tamaño de los poros, el drenaje y la retención de agua. Es distinta de la estructura del suelo, que describe cómo se organizan las partículas en agregados."
+    },
+    {
+      "term": "Arena",
+      "def": "Partículas minerales del suelo de 0.05 a 2 mm de diámetro en el sistema del USDA. Otras clasificaciones de sedimentos usan un límite inferior un poco distinto."
+    },
+    {
+      "term": "Limo",
+      "def": "Partículas minerales del suelo de 0.002 a 0.05 mm de diámetro en el sistema del USDA, de tamaño intermedio entre la arcilla y la arena."
+    },
+    {
+      "term": "Arcilla",
+      "def": "Las partículas minerales más finas del suelo, de menos de 0.002 mm de diámetro en el sistema del USDA. Su gran superficie influye mucho en la retención de agua y nutrientes."
+    },
+    {
+      "term": "Franco",
+      "def": "Una clase de textura del suelo del USDA que contiene una mezcla de arena, limo y arcilla; un suelo franco no se define como tres tercios iguales de las tres fracciones."
+    },
+    {
+      "term": "Triángulo de texturas del USDA",
+      "def": "Un gráfico que se usa para clasificar un suelo a partir de sus porcentajes de arena, limo y arcilla. Las tres fracciones deben sumar 100%, y su intersección identifica una clase de textura. La textura describe el tamaño de las partículas, mientras que la estructura describe cómo forman agregados."
+    },
+    {
+      "term": "Diagrama ternario",
+      "def": "Un diagrama triangular que muestra tres proporciones que suman 100%. Cada vértice representa un componente puro. En el triángulo de texturas, los porcentajes de arena, limo y arcilla de una muestra ubican su clase de textura."
+    }
+  ],
+  "predict": {
+    "prompt": "¿Qué crees que drena más rápido después de una lluvia fuerte: un suelo arenoso o uno arcilloso? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Cómo afectan las proporciones de arena, limo y arcilla a la forma en que un suelo retiene el agua?",
+    "claim": "Los suelos arenosos drenan rápido y retienen poca agua, mientras que los suelos ricos en arcilla drenan despacio y retienen el agua con fuerza.",
+    "evidence": "Con 90% de arena, el punto queda cerca del vértice de la arena en el triángulo (arena o arena franca). Al subir Arcilla %, el punto se mueve hacia el vértice de la arcilla. Los granos de arena miden de 0.05 a 2 mm, el limo de 0.002 a 0.05 mm y la arcilla menos de 0.002 mm.",
+    "reasoning": "Los granos grandes de arena dejan poros grandes por los que el agua drena rápido. Las partículas diminutas de arcilla dejan poros muy pequeños y una gran superficie, que retienen el agua con fuerza y solo la dejan moverse despacio."
+  },
+  "controls": {
+    "sand": {
+      "label": "Arena %"
+    },
+    "clay": {
+      "label": "Arcilla %"
+    }
+  }
+}

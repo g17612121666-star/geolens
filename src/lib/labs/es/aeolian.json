@@ -1,0 +1,139 @@
+{
+  "title": "Relieve eólico",
+  "hook": "El viento transporta partículas por suspensión, saltación y reptación superficial.",
+  "objective": "Explica cómo el viento erosiona la roca y transporta la arena, e identifica la dirección del viento a partir de la forma de una duna barjana.",
+  "modelDescription": "Una llanura arenosa y plana tiene una duna barjana en forma de media luna cuyos cuernos apuntan a favor del viento, con una flecha que muestra la dirección del viento. Otras vistas muestran yardangs, crestas aerodinámicas talladas en la roca por el viento, y las Great Sand Dunes reales, en Colorado. Al reproducir el modelo, granos de arena agrandados se mueven a favor del viento.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Encuentra la flecha del viento y los cuernos de la duna que apuntan a favor del viento."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Cambia Posición de la duna y luego compara Duna barjana con Crestas de yardang. Reproducir muestra granos agrandados que se mueven a favor del viento."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo producen la erosión y el depósito formas del relieve distintas por la acción del viento?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Los cuernos de un barján apuntan…",
+      "choices": [
+        "Contra el viento, hacia donde viene",
+        "A favor del viento, hacia donde sopla",
+        "Perpendiculares al viento",
+        "Hacia la fuente de arena más cercana"
+      ],
+      "explain": "Un barján se forma con un viento de dirección dominante y un aporte de arena limitado. Sus bordes, más delgados, avanzan más rápido que su centro, más grueso, y alargan los cuernos a favor del viento."
+    },
+    {
+      "prompt": "Un yardang es…",
+      "choices": [
+        "Una duna de arena en forma de media luna",
+        "Una capa plana de arena suelta",
+        "Una cresta de roca tallada por el viento",
+        "Una depresión excavada en un desierto"
+      ],
+      "explain": "La abrasión por el viento y la retirada del material suelto pueden tallar crestas alargadas en terrenos vulnerables. Estas formas de erosión aerodinámicas se llaman yardangs."
+    },
+    {
+      "prompt": "La erosión y el transporte por el viento necesitan…",
+      "choices": [
+        "Vegetación densa y suelo húmedo",
+        "Pendientes fuertes, lluvias intensas frecuentes y agua que fluye",
+        "Suelo congelado bajo una capa de nieve",
+        "Sedimento suelto, viento fuerte y poca vegetación"
+      ],
+      "explain": "El viento puede levantar y transportar sedimento cuando las partículas expuestas están sueltas y el viento es lo bastante fuerte. La vegetación y la humedad del suelo suelen dificultar esa retirada."
+    },
+    {
+      "prompt": "El proceso principal del Dust Bowl fue…",
+      "choices": [
+        "La deflación del suelo desnudo y arado durante la sequía",
+        "Un mar de dunas barjanas que se extendió por las llanuras",
+        "La formación de cárcavas por fuertes tormentas de verano",
+        "La inundación de los grandes valles fluviales"
+      ],
+      "explain": "La sequía y el cultivo dejaron grandes áreas de suelo expuesto durante el Dust Bowl. Los vientos fuertes se llevaron y transportaron la vulnerable capa superior del suelo, en lugar de solo formar campos de dunas desérticas."
+    },
+    {
+      "prompt": "¿Cómo se mueve la mayoría de los granos de arena durante una tormenta de arena en el desierto?",
+      "choices": [
+        "Llevados muy alto por el aire, a menudo cientos de kilómetros",
+        "Rebotando a menos de un metro del suelo",
+        "Rodando cuesta arriba contra el viento",
+        "Disueltos en las lluvias ocasionales"
+      ],
+      "explain": "La arena se mueve sobre todo por saltación: los granos se levantan un momento, luego caen y ponen en movimiento a otros granos. Por eso la abrasión del viento es más fuerte cerca del suelo."
+    }
+  ],
+  "why": [
+    "El viento transporta partículas por suspensión, saltación y reptación superficial. Donde el aporte de arena y las condiciones del viento permiten que se acumule, el depósito forma dunas cuyas formas reflejan el transporte y los obstáculos locales.",
+    "La erosión y el depósito forman relieves distintos. Donde la arena suelta es abundante pero limitada, los granos que saltan suben por la suave ladera de barlovento, cruzan la cresta y caen en avalancha por la empinada cara de sotavento, así que toda la duna avanza a favor del viento y sus cuernos, más delgados, se mueven más rápido. Donde el terreno es roca, el viento cargado de arena la desgasta y la deflación se lleva los fragmentos sueltos, lo que talla crestas de yardang aerodinámicas alineadas con el viento.",
+    "Los ejemplos muestran formas y direcciones de transporte elegidas; la velocidad a la que migra una duna requiere más datos sobre el viento y los sedimentos."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Todos los desiertos están cubiertos de dunas.",
+      "truth": "Muchos desiertos tienen al descubierto roca, grava u otras superficies con poca arena suelta. Las dunas necesitan un aporte de sedimento adecuado y condiciones del viento que permitan su acumulación. El viento puede erosionar un área mientras deposita material en otra, así que la aridez por sí sola no determina el relieve."
+    },
+    {
+      "claim": "El viento levanta los granos de arena muy alto por el aire y los lleva a través de los continentes.",
+      "truth": "Los granos de arena son demasiado pesados para mantenerse mucho tiempo en el aire, así que la mayoría rebota a menos de un metro del suelo por saltación. El polvo fino que viaja miles de kilómetros es limo y arcilla en suspensión."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Yardang",
+      "def": "Una cresta alargada formada por la erosión del viento en un material relativamente blando, normalmente alineada con el viento erosivo dominante. La abrasión y la deflación excavan los surcos de alrededor. Un yardang es una forma de erosión, a diferencia de una duna, que se forma por depósito."
+    },
+    {
+      "term": "Barján",
+      "def": "Una duna en forma de media luna que se forma donde el aporte de arena es limitado y el viento sopla sobre todo desde una dirección. Sus cuernos se alargan a favor del viento."
+    },
+    {
+      "term": "Deflación",
+      "def": "La retirada de partículas sueltas de la superficie por el viento. El material fino puede llevarse en suspensión y dejar detrás un residuo más grueso. La deflación quita sedimento; la abrasión es el desgaste de superficies por las partículas que lleva el viento."
+    },
+    {
+      "term": "Saltación",
+      "def": "El transporte en pequeños saltos o rebotes, sobre todo de granos de arena movidos por el viento o por el agua que fluye."
+    },
+    {
+      "term": "Suspensión",
+      "def": "El transporte de sedimento fino dentro del agua o el aire en movimiento, mantenido en el aire por la turbulencia en lugar de apoyarse todo el tiempo en el lecho o el suelo."
+    },
+    {
+      "term": "Nabkha",
+      "def": "Un montículo de sedimento arrastrado por el viento que se acumula alrededor de un arbusto u otra vegetación. La planta frena el aire cercano y atrapa los granos en movimiento. Su forma y su crecimiento reflejan la interacción entre la vegetación, el viento y el aporte de sedimento, no solo la dirección del viento."
+    },
+    {
+      "term": "Erg",
+      "def": "Una amplia región cubierta de arena depositada por el viento y de dunas, a menudo llamada mar de arena. Un erg necesita un aporte de arena y condiciones que permitan su acumulación. Muchos desiertos tienen, en cambio, superficies sobre todo rocosas o de grava."
+    }
+  ],
+  "predict": {
+    "prompt": "Una duna de arena en forma de media luna tiene dos cuernos puntiagudos. ¿Hacia dónde crees que sopla el viento: hacia los cuernos o desde ellos?"
+  },
+  "cer": {
+    "prompt": "¿Cómo puedes saber la dirección del viento por la forma de una duna barjana?",
+    "claim": "Los cuernos de un barján apuntan a favor del viento, y su ladera suave da hacia el viento.",
+    "evidence": "El barján del modelo tiene una suave ladera de barlovento y una cara de avalancha empinada de 32° en su lado de sotavento, con los cuernos apuntando hacia donde sopla la flecha del viento. Reproducir muestra granos agrandados que rebotan por la ladera suave y pasan por encima de la cresta.",
+    "reasoning": "El viento empuja la arena por la ladera de barlovento; en la cresta, los granos caen sobre el lado protegido de sotavento hasta que alcanza el ángulo de reposo y se desliza. Los bordes más delgados de la duna avanzan más rápido que su centro, así que se adelantan y forman los cuernos."
+  },
+  "controls": {
+    "feature": {
+      "label": "Forma del relieve",
+      "options": ["Duna barjana", "Crestas de yardang", "Real: Great Sand Dunes, CO"]
+    },
+    "migration": {
+      "label": "Posición de la duna"
+    }
+  }
+}

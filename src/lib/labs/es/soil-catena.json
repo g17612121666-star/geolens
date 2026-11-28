@@ -1,0 +1,130 @@
+{
+  "title": "Catena de suelos",
+  "hook": "Los suelos a lo largo de una ladera están conectados por el movimiento del agua y del sedimento.",
+  "objective": "Compara los perfiles del suelo desde la cima hasta el pie de una ladera y explica cómo los conecta el movimiento del agua y del sedimento.",
+  "modelDescription": "Una ladera está cortada para mostrar el suelo a lo largo de ella, desde la cima, bajando por la ladera media empinada, hasta el pie, todo formado a partir de la misma roca parental. El suelo es delgado donde la pendiente es fuerte y más grueso en el pie, donde se acumula el material. Al aumentar la pendiente, el suelo de la ladera media se adelgaza y el del pie se engrosa.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Ubica la cima, la ladera media y el pie, que comparten un mismo material parental. Lee los tres espesores del suelo."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Aumenta Pendiente y observa cómo el suelo de la ladera media se adelgaza mientras el del pie se engrosa. Usa Comparar con la escala real para distinguir el espesor del suelo de la altura de la ladera."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo puede el movimiento del agua y del sedimento conectar las diferencias de suelo a lo largo de una sola ladera?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Una catena es…",
+      "choices": [
+        "Un solo horizonte dentro de un suelo",
+        "Una clase del triángulo de texturas, como el franco",
+        "El mismo suelo en toda una región",
+        "Una secuencia de suelos conectados ladera abajo"
+      ],
+      "explain": "Una catena conecta los suelos a lo largo de una ladera donde el drenaje y la transferencia de material varían con la posición en el relieve. Estas diferencias pueden producir perfiles distintos aunque el material parental sea parecido."
+    },
+    {
+      "prompt": "¿Por qué el suelo de la parte alta de la ladera puede ser más delgado que el del pie?",
+      "choices": [
+        "El suelo baja por la ladera y se acumula abajo",
+        "Lleva más tiempo formándose que el suelo del pie",
+        "Llueve más en la parte alta de la ladera",
+        "Está sobre una roca madre distinta"
+      ],
+      "explain": "La erosión puede quitar material de la parte alta de las laderas, mientras que el depósito lo añade cerca de su pie. El patrón de espesores resultante también depende de la formación del suelo, el drenaje y las condiciones locales."
+    },
+    {
+      "prompt": "En este modelo, hacer más empinada la ladera vuelve el suelo de la ladera media…",
+      "choices": ["Más grueso", "Más delgado", "Igual", "Encharcado"],
+      "explain": "El modelo está preparado para que el suelo de la ladera media se adelgace al aumentar la pendiente. Esto muestra una relación probable; no calcula una tasa de erosión."
+    },
+    {
+      "prompt": "Una colina de loess de Iowa y la ladera de un valle de Yorkshire se comparan en este laboratorio porque…",
+      "choices": [
+        "Las dos tienen exactamente el mismo clima",
+        "Las dos están formadas solo por loess",
+        "Las dos muestran suelos que cambian ladera abajo",
+        "Las dos son laderas de till glaciar"
+      ],
+      "explain": "Ambos ejemplos comparan los suelos en distintas posiciones de una ladera, en lugar de suponer que toda una región tiene un solo perfil. Mantener parecido el material parental ayuda a revelar los efectos del drenaje y del transporte ladera abajo."
+    },
+    {
+      "prompt": "¿En qué parte de una ladera es más probable que los suelos estén encharcados?",
+      "choices": [
+        "En la cima de la colina",
+        "En la ladera media más empinada",
+        "En el pie, donde se acumula el agua",
+        "Por igual en toda la ladera"
+      ],
+      "explain": "El agua drena ladera abajo a través del suelo y por encima de él, y se acumula cerca del pie. El mal drenaje allí puede producir suelos grises y gleizados, mientras que la cima y la ladera media drenan con facilidad."
+    }
+  ],
+  "why": [
+    "Los suelos a lo largo de una ladera están conectados por el movimiento del agua y del sedimento. La parte alta de las laderas puede perder material mientras la parte baja lo recibe, lo que crea diferencias aunque el material parental sea parecido.",
+    "En la ladera media, más empinada, la reptación del suelo, la salpicadura de la lluvia y el lavado superficial mueven el suelo ladera abajo más rápido de lo que la meteorización puede reponerlo, así que el suelo se mantiene delgado. En el pie, este coluvión se acumula, y el agua que drena desde arriba mantiene saturado el subsuelo durante largos periodos, así que se vuelve gris y moteado (gleizado).",
+    "El patrón de espesores elegido es un ejemplo; el clima, el drenaje y el uso del suelo pueden producir una catena distinta."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Los suelos de una misma ladera deben ser idénticos porque comparten el clima.",
+      "truth": "La posición en una ladera afecta el drenaje, la erosión, el depósito y el movimiento del material disuelto. Estas diferencias pueden producir suelos contrastantes incluso sobre un material parental parecido y con el mismo clima regional. El patrón depende de las condiciones locales, no de una secuencia universal de espesores."
+    },
+    {
+      "claim": "El suelo más grueso siempre está en la cima de una colina.",
+      "truth": "Las cimas y las laderas empinadas suelen tener suelos más delgados, porque el material se lava y se mueve ladera abajo. Los suelos más profundos se acumulan a menudo al pie de la ladera, donde se junta el material erosionado."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Catena",
+      "def": "Una secuencia de suelos ladera abajo cuyas diferencias se relacionan con el relieve, el drenaje y el movimiento del sedimento. Una catena típica va de suelos bien drenados en la cima a suelos más húmedos en el pie, aunque las secuencias reales casi nunca son perfectamente regulares."
+    },
+    {
+      "term": "Cima",
+      "def": "La parte más alta de una colina o una cresta. El espesor del suelo y el drenaje allí dependen del relieve local, la geología y el clima."
+    },
+    {
+      "term": "Ladera media",
+      "def": "La parte principal, normalmente empinada, de una ladera, entre el hombro y el pie; el material suele atravesarla ladera abajo."
+    },
+    {
+      "term": "Pie",
+      "def": "El extremo inferior de un deslizamiento u otro depósito de movimiento en masa. El material desplazado puede engrosarse o abultarse allí al frenarse. Es distinto de la corona, donde el material se separa de la ladera estable."
+    },
+    {
+      "term": "Gley",
+      "def": "Rasgos del suelo asociados a una saturación prolongada y a la falta de oxígeno, que a menudo incluyen colores grises y moteados oxidados por cambios en la química del hierro."
+    },
+    {
+      "term": "Ranker",
+      "def": "Un término tradicional para un suelo poco profundo, a menudo ácido, sobre roca dura no calcárea; suele encontrarse en terrenos empinados o expuestos."
+    },
+    {
+      "term": "Coluvión",
+      "def": "Sedimento suelto acumulado sobre el pie de una ladera o cerca de él por el movimiento impulsado por la gravedad y el lavado superficial. Suele contener una mezcla de tamaños de partícula. A diferencia del aluvión, no se define por el depósito de un cauce fluvial."
+    }
+  ],
+  "predict": {
+    "prompt": "En una ladera, ¿crees que el suelo será más grueso en la cima, en la ladera media empinada o abajo? ¿Por qué?"
+  },
+  "cer": {
+    "prompt": "¿Por qué cambian los suelos desde la parte alta hasta la parte baja de una misma ladera?",
+    "claim": "El suelo y el agua bajan por la ladera, así que los suelos son delgados en la ladera media empinada y más gruesos y húmedos en el pie, aunque se formaron a partir del mismo material parental.",
+    "evidence": "Los perfiles de la cima, la ladera media y el pie comparten un mismo material parental. Al subir Pendiente, el suelo de la ladera media se adelgaza y el del pie se engrosa, como muestran los espesores del suelo de los resultados.",
+    "reasoning": "En las pendientes más fuertes, la gravedad, la escorrentía y la reptación del suelo lo mueven cuesta abajo más rápido de lo que se forma. El material se acumula al pie de la ladera, donde también se junta el agua, y da suelos más profundos y a menudo encharcados."
+  },
+  "controls": {
+    "slope": {
+      "label": "Pendiente"
+    }
+  }
+}
