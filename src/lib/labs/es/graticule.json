@@ -1,0 +1,137 @@
+{
+  "title": "Red geográfica y coordenadas",
+  "hook": "La latitud mide un ángulo al norte o al sur del ecuador, mientras que la longitud mide un ángulo al este o al oeste del meridiano de origen.",
+  "objective": "Usa la latitud y la longitud para ubicar un punto en la Tierra, y relaciona la longitud con las diferencias de hora solar local.",
+  "modelDescription": "Un globo terrestre está cubierto por una red de líneas de latitud y longitud, con el ecuador y el meridiano de origen marcados. Un marcador muestra el lugar elegido: al cambiar la latitud se desliza al norte o al sur por su meridiano, y al cambiar la longitud el globo gira para llevarlo al este o al oeste. Unos arcos trazados desde el ecuador y desde el meridiano de origen muestran los dos ángulos.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Ubica el ecuador y el meridiano de origen, y luego sigue un paralelo y un meridiano alrededor del globo."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Cambia primero Latitud: el marcador se desliza al norte o al sur por su meridiano y el arco dorado crece desde el ecuador. Luego cambia Longitud: el globo gira para llevar el marcador al este o al oeste, y el arco azul crece por el ecuador desde el meridiano de origen. Lee las letras de los hemisferios y la diferencia de hora solar local."
+    },
+    {
+      "title": "Explicar",
+      "body": "Mueve Latitud de 0° hacia 80° y observa en los resultados la longitud de 1° de longitud. ¿Por qué un grado de longitud abarca menos terreno cerca de los polos que cerca del ecuador?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "La latitud mide…",
+      "choices": [
+        "El ángulo al este o al oeste de Greenwich",
+        "La distancia al polo norte en km",
+        "El ángulo al norte o al sur del ecuador",
+        "La altura sobre el nivel del mar"
+      ],
+      "explain": "La latitud ubica un punto al norte o al sur del ecuador con un ángulo de hasta 90°. Las líneas de igual latitud son paralelos, y el polo norte está a 90° N."
+    },
+    {
+      "prompt": "El meridiano de Greenwich es…",
+      "choices": ["El ecuador", "La longitud 180°", "El trópico de Cáncer", "La longitud 0°"],
+      "explain": "El meridiano de origen es la referencia cero acordada desde la que se mide la longitud hacia el este o el oeste. Elegir esa referencia es una convención cartográfica, no un límite físico en la Tierra."
+    },
+    {
+      "prompt": "15° de longitud equivalen más o menos a…",
+      "choices": [
+        "Una hora de rotación",
+        "Un minuto de rotación",
+        "Un día de rotación",
+        "15 km en el ecuador"
+      ],
+      "explain": "La Tierra gira 360° respecto al Sol durante un día solar medio de 24 horas. Al dividir, se obtienen unos 15° de longitud por cada hora de diferencia de hora solar local."
+    },
+    {
+      "prompt": "Un punto en 0°, 0° está…",
+      "choices": [
+        "En Londres, en el meridiano de Greenwich",
+        "En el golfo de Guinea, al sur de Ghana",
+        "En el polo norte, donde se juntan las líneas",
+        "En el Pacífico, cerca de la línea de cambio de fecha"
+      ],
+      "explain": "La latitud cero identifica el ecuador y la longitud cero identifica el meridiano de origen. Su intersección está en el golfo de Guinea, en el océano Atlántico, al sur de Ghana."
+    },
+    {
+      "prompt": "¿Por qué las líneas de longitud se acercan entre sí hacia los polos?",
+      "choices": [
+        "La Tierra es más ancha en los polos que en el ecuador.",
+        "Los cartógrafos las dibujan más juntas a propósito.",
+        "La longitud se mide en kilómetros, no en grados.",
+        "Todos los meridianos se juntan en los dos polos."
+      ],
+      "explain": "Cada meridiano va del polo norte al polo sur, así que convergen allí. Por eso, la distancia que representa un grado de longitud disminuye con la latitud."
+    }
+  ],
+  "why": [
+    "La latitud mide un ángulo al norte o al sur del ecuador, mientras que la longitud mide un ángulo al este o al oeste del meridiano de origen. Los paralelos y los meridianos forman la red de coordenadas llamada red geográfica.",
+    "La latitud se mide a lo largo de un meridiano, desde el ecuador hacia un polo, así que solo puede llegar a 90°. La longitud se mide a lo largo del ecuador, al este o al oeste del meridiano de origen, hasta 180°. Como la Tierra gira 360° en unas 24 horas, cada 15° de longitud hacia el este adelantan la hora solar local alrededor de una hora respecto a Greenwich.",
+    "Son coordenadas angulares sobre una esfera. Todos los meridianos se juntan en los polos, así que el terreno que abarca 1° de longitud disminuye con la latitud: unos 111 km en el ecuador, 84 km a 40.7° N (Nueva York) y 56 km a 60°, hasta llegar a cero en los polos. Un grado de latitud se mantiene cerca de los 111 km en todas partes."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Las coordenadas 0 grados de latitud y 0 grados de longitud ubican Greenwich.",
+      "truth": "Greenwich está cerca de la longitud cero, pero unos 51.5 grados al norte del ecuador. La latitud cero está en el ecuador, así que las dos coordenadas cero se cruzan en el golfo de Guinea. La latitud y la longitud indican direcciones angulares distintas y hay que dar las dos."
+    },
+    {
+      "claim": "Las líneas de longitud están a la misma distancia entre sí en todas partes.",
+      "truth": "Los meridianos se juntan en los polos. Un grado de longitud mide unos 111 km de ancho en el ecuador, unos 84 km a la latitud de Nueva York y cero en los polos. Las líneas de latitud, en cambio, se mantienen a unos 111 km entre sí."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Red geográfica",
+      "def": "La red de meridianos y paralelos de un globo o un mapa (graticule en inglés)."
+    },
+    {
+      "term": "Meridiano",
+      "def": "Una línea de longitud que va de un polo al otro. El mediodía solar local de un lugar ocurre cuando el Sol cruza su meridiano local. Los meridianos se juntan en los polos, así que la distancia entre longitudes vecinas disminuye hacia las latitudes altas."
+    },
+    {
+      "term": "Paralelo",
+      "def": "Una línea que une lugares con la misma latitud. En un globo esférico, el ecuador es el paralelo más grande y los demás se hacen más pequeños hacia los polos. Los paralelos no se cruzan, a diferencia de los meridianos de longitud, que se juntan en los polos."
+    },
+    {
+      "term": "Latitud",
+      "def": "La posición angular de un lugar al norte o al sur del ecuador, expresada en grados. La latitud ayuda a determinar la altura del Sol y la duración del día según la estación. Las líneas de igual latitud son paralelos, a diferencia de los meridianos, que miden la longitud."
+    },
+    {
+      "term": "Longitud",
+      "def": "La posición angular de un lugar al este o al oeste del meridiano de origen, expresada hasta 180 grados. La Tierra gira unos 15 grados por hora, lo que relaciona la longitud con la hora solar local. Los husos horarios civiles también reflejan decisiones administrativas."
+    },
+    {
+      "term": "Meridiano de origen",
+      "def": "El cero de longitud elegido. El meridiano de referencia moderno que usa el WGS84 está unos 102 m al este del círculo meridiano histórico de Greenwich."
+    },
+    {
+      "term": "Ecuador",
+      "def": "El círculo de latitud cero, a medio camino entre los polos. Divide la Tierra en los hemisferios norte y sur. Es un paralelo de latitud, mientras que los meridianos de longitud van de polo a polo."
+    },
+    {
+      "term": "Línea internacional de cambio de fecha",
+      "def": "El límite convencional en el que cambia la fecha del calendario civil, situado más o menos cerca de la longitud 180 grados. Su recorrido se curva alrededor de países e islas por razones prácticas. Es distinta del meridiano de origen, que define la longitud cero."
+    }
+  ],
+  "predict": {
+    "prompt": "Mucha gente cree que el punto de 0° de latitud y 0° de longitud está en Londres. ¿Dónde crees que está en realidad?"
+  },
+  "cer": {
+    "prompt": "¿Cómo ubican un lugar la latitud y la longitud, y por qué 1° de longitud abarca menos terreno cerca de los polos?",
+    "claim": "La latitud da el ángulo al norte o al sur del ecuador y la longitud, el ángulo al este o al oeste del meridiano de origen; un grado de longitud se achica hacia los polos porque todos los meridianos se juntan allí.",
+    "evidence": "Al mover Latitud, el marcador se desliza por un meridiano y el arco dorado crece desde el ecuador; al mover Longitud, el arco azul crece por el ecuador. Los resultados muestran 1° de longitud como unos 111 km en el ecuador, 84 km a 40.7° N (Nueva York) y 56 km a 60°. El punto 0°, 0° está en el golfo de Guinea.",
+    "reasoning": "La latitud y la longitud son ángulos medidos desde el centro de la Tierra. Los meridianos convergen en los polos, así que la distancia entre ellos disminuye con el coseno de la latitud, mientras que los grados de latitud se mantienen a unos 111 km entre sí."
+  },
+  "controls": {
+    "lat": {
+      "label": "Latitud"
+    },
+    "lon": {
+      "label": "Longitud"
+    }
+  }
+}

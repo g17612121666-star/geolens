@@ -2661,4 +2661,71 @@ export const ES: Record<string, string> = {
   "Silty clay loam": "Franco arcillo limoso",
   "Sandy clay": "Arcilla arenosa",
   "Silty clay": "Arcilla limosa",
+
+  // Batch I: map skills scenes
+  "Fictional 100 km square of the {grid} · eastings first, then northings · relief exaggerated":
+    "Cuadrado ficticio de 100 km de la {grid} · primero la coordenada este, luego la norte · relieve exagerado",
+  "British National Grid": "Cuadrícula Nacional Británica",
+  "US National Grid (UTM)": "Cuadrícula Nacional de EE. UU. (UTM)",
+  "Same grid scale east–west and north–south · relief is still exaggerated":
+    "Misma escala de cuadrícula de este a oeste y de norte a sur · el relieve sigue exagerado",
+  "20 km": "20 km",
+  "Six figures identify a 100 m grid square. The marker shows its southwest corner; it is not a surveyed point accurate to one meter.":
+    "Seis cifras identifican un cuadrado de 100 m de la cuadrícula. El marcador muestra su esquina suroeste; no es un punto medido con precisión de un metro.",
+  "Along first: {east} km east. Then up: {north} km north. Each slider step is 100 m; grid lines are 10 km apart. Brown contours, woodland, river, road and villages are fictional landmarks; the relief is exaggerated so the contours read as hills.":
+    "Primero a lo largo: {east} km al este. Luego hacia arriba: {north} km al norte. Cada paso del control es de 100 m; las líneas de la cuadrícula están a 10 km entre sí. Las curvas de nivel marrones, el bosque, el río, la carretera y los pueblos son referencias ficticias; el relieve está exagerado para que las curvas de nivel se lean como colinas.",
+  "A British National Grid reference also needs its 100 km letter pair, such as SH.":
+    "Una referencia de la Cuadrícula Nacional Británica también necesita el par de letras de su cuadrado de 100 km, como SH.",
+  "A full US National Grid reference also needs its UTM zone and 100 km square letters, such as 18T WL.":
+    "Una referencia completa de la Cuadrícula Nacional de EE. UU. también necesita su zona UTM y las letras de su cuadrado de 100 km, como 18T WL.",
+  Greenland: "Groenlandia",
+  "About 2.2 million km², roughly one-fourteenth of Africa. Near 70° N, Mercator stretches lengths almost three times and areas more than eight times, so Greenland looks almost as large as Africa.":
+    "Unos 2.2 millones de km², más o menos la catorceava parte de África. Cerca de los 70° N, Mercator estira las longitudes casi tres veces y las áreas más de ocho veces, así que Groenlandia parece casi tan grande como África.",
+  "About 30.4 million km². It straddles the equator, where Mercator distorts least, so its size on that map stays close to the truth.":
+    "Unos 30.4 millones de km². Se extiende a ambos lados del ecuador, donde Mercator distorsiona menos, así que su tamaño en ese mapa se mantiene cerca del real.",
+  Mercator: "Mercator",
+  "Lambert cylindrical equal-area": "Cilíndrica equivalente de Lambert",
+  "Winkel I compromise": "Winkel I de compromiso",
+  "Globe → flat map · shown to 85° N and S · every flat map distorts distance, shape or area":
+    "Globo → mapa plano · mostrado hasta 85° N y S · todo mapa plano distorsiona la distancia, la forma o el área",
+  "No flat world map preserves all distances, shapes and areas":
+    "Ningún mapamundi plano conserva todas las distancias, formas y áreas",
+  "{projection} · {percent}% flattened.": "{projection} · {percent}% aplanado.",
+  "Mercator keeps local shapes and angles; areas grow strongly toward the poles.":
+    "Mercator conserva las formas y los ángulos locales; las áreas crecen mucho hacia los polos.",
+  "When fully flat, this map keeps true relative areas; shapes are distorted.":
+    "Totalmente aplanado, este mapa conserva las áreas relativas reales; las formas se distorsionan.",
+  "This compromise spreads distortion between area and shape; it keeps neither exactly.":
+    "Este compromiso reparte la distorsión entre el área y la forma; no conserva ninguna de las dos con exactitud.",
+  "The gold circles are the same size on the globe; compare their shape and area on the flat map.":
+    "Los círculos dorados tienen el mismo tamaño en el globo; compara su forma y su área en el mapa plano.",
+  "At 60° a circle's map area is ×{factor} its area at the equator.":
+    "A 60°, el área de un círculo en el mapa es ×{factor} su área en el ecuador.",
+  "In-between stages are a visual transition, not a projection.":
+    "Las etapas intermedias son una transición visual, no una proyección.",
+  "Spherical coordinates · lines and marker enlarged for clarity · globe tipped to keep the marker in view":
+    "Coordenadas esféricas · líneas y marcador agrandados para que se vean · globo inclinado para mantener el marcador a la vista",
+  "Latitude and longitude angles are true; Earth represented as a sphere":
+    "Los ángulos de latitud y longitud son reales; la Tierra se representa como una esfera",
+  "Equator 0°": "Ecuador 0°",
+  "The equator is the 0° line of latitude, halfway between the poles.":
+    "El ecuador es la línea de latitud 0°, a medio camino entre los polos.",
+  "Prime meridian 0°": "Meridiano de origen 0°",
+  "The prime meridian through Greenwich is the agreed 0° line of longitude; east and west are measured from it.":
+    "El meridiano de origen, que pasa por Greenwich, es la línea de longitud 0° acordada; el este y el oeste se miden desde él.",
+  "Tropic of Cancer 23.4°N": "Trópico de Cáncer 23.4°N",
+  "The furthest north the Sun is ever directly overhead, at the June solstice. Its latitude equals Earth's axial tilt.":
+    "El punto más al norte en que el Sol llega a estar justo en el cenit, en el solsticio de junio. Su latitud es igual a la inclinación del eje de la Tierra.",
+  "Tropic of Capricorn 23.4°S": "Trópico de Capricornio 23.4°S",
+  "The furthest south the Sun is ever directly overhead, at the December solstice.":
+    "El punto más al sur en que el Sol llega a estar justo en el cenit, en el solsticio de diciembre.",
+  "Arctic Circle 66.6°N": "Círculo polar ártico 66.6°N",
+  "North of this line there is at least one day each year when the Sun does not set, and one when it does not rise.":
+    "Al norte de esta línea hay al menos un día al año en que el Sol no se pone, y otro en que no sale.",
+  "Latitude is north or south of the equator. Longitude is east or west of Greenwich. Poles are shared by every meridian.":
+    "La latitud indica norte o sur del ecuador. La longitud indica este u oeste de Greenwich. Todos los meridianos comparten los polos.",
+  "Latitude {lat} · longitude {lon} · 1° of longitude here ≈ {km} km (111 km at the equator) · local mean solar time {time} h from Greenwich.":
+    "Latitud {lat} · longitud {lon} · 1° de longitud aquí ≈ {km} km (111 km en el ecuador) · hora solar media local {time} h respecto a Greenwich.",
+  "Gold arc measures latitude from the equator; blue arc measures longitude from Greenwich. This does not select a civil time zone.":
+    "El arco dorado mide la latitud desde el ecuador; el arco azul mide la longitud desde Greenwich. Esto no elige un huso horario civil.",
 };

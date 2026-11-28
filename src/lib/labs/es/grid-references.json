@@ -1,0 +1,143 @@
+{
+  "title": "Referencias de cuadrícula",
+  "hook": "Una referencia de cuadrícula ubica un cuadrado con la coordenada este seguida de la coordenada norte.",
+  "objective": "Lee y marca una referencia de cuadrícula de seis cifras en un mapa de la Cuadrícula Nacional de EE. UU. (UTM), ubicando la coordenada este antes que la norte.",
+  "modelDescription": "Una hoja de mapa está dividida en una cuadrícula, con las coordenadas este a lo largo de la parte inferior y las coordenadas norte subiendo por el lado, una escala gráfica, curvas de nivel y un río. Un alfiler marca la esquina suroeste del cuadrado de 100 metros elegido, y unas líneas van desde él hasta los bordes del mapa para leer su coordenada este y su coordenada norte. Se puede cambiar la Cuadrícula Nacional de EE. UU. por la Cuadrícula Nacional Británica para comparar.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Lee la escala del mapa y ubica sus coordenadas este y norte. Distingue el cuadrado completo de 100 km del cuadrado de 100 m elegido: el alfiler marca su esquina suroeste, porque a esta escala un cuadrado de 100 m es demasiado pequeño para verse."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Ajusta Coordenada este y luego Coordenada norte, y lee la referencia de seis cifras. Explica cómo la zona UTM y las letras del cuadrado de 100 km (como 18T WL) indican en qué cuadrado de 100 km está. Luego activa Cuadrícula Nacional Británica para comparar la versión del Ordnance Survey, que usa un solo par de letras (como SH)."
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica la diferencia entre identificar un cuadrado de la cuadrícula y medir con precisión la posición de un punto."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Una referencia de cuadrícula se lee…",
+      "choices": [
+        "Primero la coordenada norte y luego la este",
+        "Primero el número que sea mayor",
+        "Primero la coordenada este y luego la norte",
+        "Primero la latitud y luego la longitud"
+      ],
+      "explain": "La coordenada este identifica la posición a lo ancho de la cuadrícula y la norte, la posición hacia arriba. Darlas en ese orden asegura que las dos coordenadas se refieran al cuadrado o al lugar que se quiere indicar."
+    },
+    {
+      "prompt": "Una referencia de seis cifras ubica con una precisión de unos…",
+      "choices": ["1 km", "1 m", "Un condado", "100 m"],
+      "explain": "Una referencia de seis cifras usa tres dígitos para cada dirección e identifica un cuadrado de 100 m dentro de la cuadrícula de kilómetros. Indica un área más pequeña que una referencia de cuatro cifras, no un punto exacto."
+    },
+    {
+      "prompt": "La referencia de cuatro cifras 1234 significa…",
+      "choices": [
+        "El cuadrado de 1 km con la esquina SO en 12, 34",
+        "El punto exacto a 12.34 km al este",
+        "El cuadrado de 1 km con la esquina NE en 12, 34",
+        "El cuadrado de 10 km llamado 1234"
+      ],
+      "explain": "El primer par de dígitos identifica la línea de la cuadrícula del oeste y el segundo, la línea del sur. Juntos ubican el cuadrado de 1 km que se extiende hacia el noreste desde esa esquina suroeste."
+    },
+    {
+      "prompt": "La Cuadrícula Nacional de EE. UU. que aparece en los mapas topográficos del USGS es…",
+      "choices": [
+        "Lo mismo que la latitud y la longitud",
+        "Una cuadrícula métrica basada en las zonas UTM",
+        "Una cuadrícula mundial de cuadrados de 1°",
+        "Una cuadrícula que solo se usa para navegar en el mar"
+      ],
+      "explain": "La Cuadrícula Nacional de EE. UU. se basa en el sistema Universal Transversal de Mercator (UTM), que proyecta cada zona de 6° de ancho sobre una cuadrícula plana medida en metros. La Cuadrícula Nacional Británica funciona igual con una sola proyección. Ambas sirven para distancias y referencias de cuadrícula, mientras que la latitud y la longitud describen la posición angular en la Tierra."
+    },
+    {
+      "prompt": "Una iglesia está a 3 décimos del camino hacia el este desde la coordenada este 45 y a 7 décimos del camino hacia el norte desde la coordenada norte 23. ¿Cuál es su referencia de seis cifras?",
+      "choices": ["234537", "457233", "453237", "452337"],
+      "explain": "Escribe primero la coordenada este: 45 más 3 décimos da 453. Luego la norte: 23 más 7 décimos da 237. Juntas forman 453237."
+    }
+  ],
+  "why": [
+    "Una referencia de cuadrícula ubica un cuadrado con la coordenada este seguida de la coordenada norte. Más dígitos identifican un cuadrado más pequeño, mientras que la zona y el código de letras identifican el cuadrado de 100 km en el que está.",
+    "La coordenada este mide qué tan al este del borde occidental del cuadrado estás, y la norte, qué tan al norte de su borde sur, así que vas a lo largo antes de subir. Cada par de cifras extra divide el cuadrado entre diez: dentro de un cuadrado de 100 km, dos cifras dan un cuadrado de 10 km, cuatro dan 1 km y seis dan 100 m. Los mismos números se repiten en cada cuadrado de 100 km, así que hacen falta letras para decir cuál es: la zona UTM y las letras del cuadrado en la Cuadrícula Nacional de EE. UU. (como 18T WL), o un solo par de letras en la Cuadrícula Nacional Británica (como SH).",
+    "El mapa es ficticio, y una referencia más precisa no hace por sí sola que una medida sea más exacta."
+  ],
+  "misconceptions": [
+    {
+      "claim": "Una referencia de cuadrícula de seis cifras identifica un punto exacto.",
+      "truth": "Una referencia de seis cifras identifica un cuadrado de 100 metros dentro del cuadrado de 100 km correspondiente. Más dígitos indican un área más pequeña, pero más precisión no garantiza una observación exacta. Lee la coordenada este antes que la norte e incluye la zona y las letras del cuadrado cuando haga falta ubicar el lugar en un área más amplia."
+    },
+    {
+      "claim": "El norte de la cuadrícula en un mapa topográfico del USGS es exactamente igual que el norte verdadero.",
+      "truth": "Las líneas de la cuadrícula UTM apuntan al norte verdadero solo a lo largo del meridiano central de cada zona de 6°. En otros lugares, el norte de la cuadrícula se separa del norte verdadero, hasta unos 2° en los Estados Unidos continentales, y los mapas del USGS muestran la diferencia en un diagrama de declinación. El norte magnético, que marca la brújula, es distinto otra vez y cambia con el tiempo. La Cuadrícula Nacional Británica se comporta igual respecto a su meridiano central, a 2° O."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Coordenada este",
+      "def": "Una coordenada de cuadrícula que mide la distancia hacia el este desde un origen definido (easting en inglés). En una referencia de cuadrícula, se lee antes que la coordenada norte."
+    },
+    {
+      "term": "Coordenada norte",
+      "def": "Una coordenada de la cuadrícula de un mapa que mide la distancia hacia el norte desde el origen definido de la cuadrícula (northing en inglés). Se lee después de la coordenada este al dar una referencia de cuadrícula. La coordenada ubica una posición dentro de una cuadrícula proyectada; no es la misma magnitud que la latitud."
+    },
+    {
+      "term": "Referencia de cuatro cifras",
+      "def": "Una referencia que identifica un cuadrado de 1 km en la cuadrícula métrica de un mapa, como la Cuadrícula Nacional de EE. UU. o la Cuadrícula Nacional Británica, por su esquina suroeste. Se lee primero la coordenada este y luego la norte. Identifica un cuadrado, no un punto exacto dentro de él."
+    },
+    {
+      "term": "Referencia de seis cifras",
+      "def": "Una referencia que ubica un cuadrado de 100 m dentro de un cuadrado de 1 km de la cuadrícula. Se leen tres cifras de la coordenada este antes que tres cifras de la norte. Añadir cifras mejora la precisión de la referencia, pero el mapa y la observación siguen limitando la exactitud."
+    },
+    {
+      "term": "UTM",
+      "def": "Un sistema mundial que divide la Tierra en 60 zonas de norte a sur, cada una de 6° de longitud de ancho, y proyecta cada una sobre una cuadrícula plana medida en metros. Los mapas topográficos del USGS imprimen su cuadrícula."
+    },
+    {
+      "term": "Cuadrícula Nacional de EE. UU.",
+      "def": "El sistema de referencias de cuadrícula de Estados Unidos, basado en UTM. Una referencia da la zona, las letras del cuadrado de 100 km y luego el mismo número de cifras de la coordenada este y de la norte, por ejemplo 18T WL 246 513."
+    },
+    {
+      "term": "OSGB",
+      "def": "Ordnance Survey Great Britain. OSGB36 es un datum geodésico que se usa con la Cuadrícula Nacional Británica; es distinto del sistema de referencia mundial WGS84."
+    },
+    {
+      "term": "Falso origen",
+      "def": "Un origen desplazado que se usa para que las coordenadas de la cuadrícula de un mapa sean cómodas y, normalmente, positivas. La Cuadrícula Nacional Británica usa uno al suroeste de Gran Bretaña."
+    },
+    {
+      "term": "Cuadrado de la cuadrícula",
+      "def": "Un área identificada por la cuadrícula de un mapa. En la notación de la Cuadrícula Nacional de EE. UU. y de la Cuadrícula Nacional Británica, cuatro, seis y ocho cifras identifican cuadrados de 1 km, 100 m y 10 m, respectivamente."
+    },
+    {
+      "term": "WGS84",
+      "def": "Un sistema geodésico de referencia mundial que usa el GPS, con un elipsoide de referencia y un marco de coordenadas. Para pasar a la Cuadrícula Nacional Británica hacen falta una proyección y una transformación de datum."
+    }
+  ],
+  "predict": {
+    "prompt": "En un mapa con cuadrícula, ¿leerías primero el número del borde inferior o el del lado? ¿Por qué podría importar el orden?"
+  },
+  "cer": {
+    "prompt": "¿Cómo identifica un lugar una referencia de cuadrícula de seis cifras, y por qué es un cuadrado y no un punto exacto?",
+    "claim": "Una referencia de seis cifras da la coordenada este y luego la norte, cada una hasta una décima de un cuadrado de 1 km, lo que identifica un cuadrado de 100 m por su esquina suroeste.",
+    "evidence": "Al ajustar Coordenada este y Coordenada norte se mueve el alfiler, y los resultados muestran las seis cifras. El alfiler marca la esquina suroeste del cuadrado de 100 m elegido. Una referencia completa de la Cuadrícula Nacional de EE. UU. añade la zona y las letras del cuadrado de 100 km, como 18T WL 246 513.",
+    "reasoning": "La coordenada este aumenta hacia el este y la norte hacia el norte, así que vas a lo largo antes de subir. Cada par de cifras extra divide el cuadrado entre diez, así que seis cifras lo reducen a 100 m, no a un solo punto."
+  },
+  "controls": {
+    "easting": {
+      "label": "Coordenada este"
+    },
+    "northing": {
+      "label": "Coordenada norte"
+    },
+    "bng": {
+      "label": "Cuadrícula Nacional Británica"
+    }
+  }
+}
