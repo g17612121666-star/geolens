@@ -17,7 +17,9 @@ import {
   temperatureColour,
   waterTemperature,
 } from "./transport";
+import { useT } from "@/lib/i18n";
 export default function Thermohaline() {
+  const tr = useT();
   const { params, t, trueScale } = useLabState("params", "t", "trueScale");
   useLabTick(1 / 45);
   const temperature = params.temperature ?? 4,
@@ -41,13 +43,15 @@ export default function Thermohaline() {
         camera={[1.4, 2.2, 7]}
         scale={
           view === 0
-            ? "Overturning section · depth ×500 · temperatures schematic · routes and tracers illustrative"
-            : "Density experiment · one meter tank · parcel marker enlarged"
+            ? tr(
+                "Overturning section · depth ×500 · temperatures schematic · routes and tracers illustrative",
+              )
+            : tr("Density experiment · one meter tank · parcel marker enlarged")
         }
         trueScale={
           view === 0
-            ? "6000 km section, 4 km deep · no vertical exaggeration"
-            : "Tank shown as in Teaching scale · parcel marker enlarged"
+            ? tr("6000 km section, 4 km deep · no vertical exaggeration")
+            : tr("Tank shown as in Teaching scale · parcel marker enlarged")
         }
       >
         {view === 0 ? (
@@ -110,23 +114,29 @@ export default function Thermohaline() {
             })}
             <Tag
               pos={[2.25, 0.4, 0]}
-              text="High latitudes · deep-water formation"
-              short="Sinking"
-              note="Cooling and sea-ice formation, which leaves salt behind in the water, make surface water dense enough to sink. The basin is schematic, not a map of real sinking sites."
+              text={tr("High latitudes · deep-water formation")}
+              short={tr("Sinking")}
+              note={tr(
+                "Cooling and sea-ice formation, which leaves salt behind in the water, make surface water dense enough to sink. The basin is schematic, not a map of real sinking sites.",
+              )}
               occlude={false}
             />
             <Tag
               pos={[-2, 0.4, 0]}
-              text="Return and upwelling"
-              short="Upwelling"
-              note="Winds and mixing bring deep water back toward the surface. In the real ocean much of this happens in the Southern Ocean, not only at low latitudes as drawn here."
+              text={tr("Return and upwelling")}
+              short={tr("Upwelling")}
+              note={tr(
+                "Winds and mixing bring deep water back toward the surface. In the real ocean much of this happens in the Southern Ocean, not only at low latitudes as drawn here.",
+              )}
               occlude={false}
             />
             <Tag
               pos={[0, y(4000) - 0.35, 0.9]}
-              text="Deep return · centuries of transport"
-              short="Deep return"
-              note="Deep water takes centuries to return, and the time differs between routes. The animation speed is not to scale."
+              text={tr("Deep return · centuries of transport")}
+              short={tr("Deep return")}
+              note={tr(
+                "Deep water takes centuries to return, and the time differs between routes. The animation speed is not to scale.",
+              )}
               occlude={false}
             />
           </>
@@ -179,14 +189,18 @@ export default function Thermohaline() {
             )}
             <Tag
               pos={[0, 0.5, 0]}
-              text={`${rho.toFixed(2)} kg/m³ · parcel`}
-              note="A simple linear formula at one reference pressure, not the full TEOS-10 equation of state."
+              text={tr("{rho} kg/m³ · parcel", { rho: rho.toFixed(2) })}
+              note={tr(
+                "A simple linear formula at one reference pressure, not the full TEOS-10 equation of state.",
+              )}
               occlude={false}
             />
             <Tag
               pos={[0, -2.45, 0]}
-              text={`Reference water ${reference.toFixed(2)} kg/m³`}
-              note="Reference water: 10 °C and Absolute Salinity 35 g/kg. The marker starts at mid-depth and shows only which way buoyancy acts; real water mixes rather than moving as a solid ball."
+              text={tr("Reference water {reference} kg/m³", { reference: reference.toFixed(2) })}
+              note={tr(
+                "Reference water: 10 °C and Absolute Salinity 35 g/kg. The marker starts at mid-depth and shows only which way buoyancy acts; real water mixes rather than moving as a solid ball.",
+              )}
               occlude={false}
             />
           </>
@@ -194,15 +208,33 @@ export default function Thermohaline() {
       </ScienceStudio>
       <ScienceReadout>
         {view === 0
-          ? "Colors show a schematic temperature section: a warm surface layer (orange) over a sharp thermocline and cold deep water (dark blue). The dashed isotherms rise toward the icy polar coast (right), where cold, dense water reaches the surface and sinks; it returns at depth (blue route) and rises again toward the tropics (left). Choose Density experiment to vary the parcel."
-          : `${temperature} °C · Absolute Salinity ${salinity.toFixed(1)} g/kg · density difference ${difference >= 0 ? "+" : ""}${difference.toFixed(2)} kg/m³: ${Math.abs(difference) < 0.005 ? "neutral" : difference > 0 ? "denser parcel tends to sink" : "lighter parcel rises toward the surface"}.`}{" "}
+          ? tr(
+              "Colors show a schematic temperature section: a warm surface layer (orange) over a sharp thermocline and cold deep water (dark blue). The dashed isotherms rise toward the icy polar coast (right), where cold, dense water reaches the surface and sinks; it returns at depth (blue route) and rises again toward the tropics (left). Choose Density experiment to vary the parcel.",
+            )
+          : `${tr(
+              "{temperature} °C · Absolute Salinity {salinity} g/kg · density difference {difference} kg/m³.",
+              {
+                temperature,
+                salinity: salinity.toFixed(1),
+                difference: `${difference >= 0 ? "+" : ""}${difference.toFixed(2)}`,
+              },
+            )} ${
+              Math.abs(difference) < 0.005
+                ? tr("The parcel is neutral.")
+                : difference > 0
+                  ? tr("The denser parcel tends to sink.")
+                  : tr("The lighter parcel rises toward the surface.")
+            }`}{" "}
         <br />
         {view === 0 ? (
-          "Overturning also needs winds and mixing. The parcel experiment does not calculate AMOC strength or a shutdown threshold."
+          tr(
+            "Overturning also needs winds and mixing. The parcel experiment does not calculate AMOC strength or a shutdown threshold.",
+          )
         ) : (
           <>
             <span className="formula">{"ρ = 1027 [1 − 0.0002(T − 10) + 0.00076(SA − 35)]"}</span>
-            {". Play shows the direction of movement, not its speed."}
+            {". "}
+            {tr("Play shows the direction of movement, not its speed.")}
           </>
         )}
       </ScienceReadout>
@@ -284,6 +316,7 @@ const ISOTHERMS = [20, 10, 5];
  * left and an ice-covered polar coast on the right, and water faces colored by temperature.
  */
 function OceanBasin({ bottom }: { bottom: number }) {
+  const tr = useT();
   const ground = useMemo(() => (x: number) => seabed(x, bottom), [bottom]);
   const land = useMemo(
     () => (x: number, z: number) => ground(x) + 0.01 * Math.sin(z * 7 + x * 3),
@@ -391,7 +424,9 @@ function OceanBasin({ bottom }: { bottom: number }) {
               <Tag
                 pos={[at[0], at[1] + 0.06, 0.84]}
                 text={`${celsius} °C`}
-                note="An isotherm joins points at the same temperature. In this schematic section the warm layer thins toward the pole, so the isotherms rise and reach the surface there: cold, dense water is at the surface only at high latitudes."
+                note={tr(
+                  "An isotherm joins points at the same temperature. In this schematic section the warm layer thins toward the pole, so the isotherms rise and reach the surface there: cold, dense water is at the surface only at high latitudes.",
+                )}
                 occlude={false}
               />
             )}

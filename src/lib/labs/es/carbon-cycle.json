@@ -1,0 +1,152 @@
+{
+  "title": "Ciclo del carbono",
+  "hook": "El carbono se mueve entre la atmósfera, los seres vivos, los suelos, el océano y las rocas.",
+  "objective": "Sigue el carbono entre reservas rápidas y lentas, y explica cómo la quema de combustibles fósiles transfiere carbono a la atmósfera.",
+  "modelDescription": "Un bloque de paisaje con bosque, suelo y capas de roca está junto al océano, con la atmósfera encima, y en cada parte se marcan las reservas de carbono. Rutas resaltadas muestran las transferencias entre ellas, como la fotosíntesis, la respiración y la descomposición, el intercambio entre el aire y el océano, el enterramiento en sedimentos y la quema de combustibles fósiles. Al subir la llave de combustibles fósiles, el carbono pasa más rápido de la reserva de combustibles fósiles al aire.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Arrastra el control Proceso hasta 0 y lee la cantidad inicial de cada una de las cinco reservas de carbono. Pon Llave de combustibles fósiles en 0 y pulsa Reproducir: las reservas se mantienen porque los intercambios se equilibran, no porque nada se mueva."
+    },
+    {
+      "title": "Experimentar",
+      "body": "En Sigue una transferencia, elige Fotosíntesis y luego Respiración / descomposición, y compara sus ritmos. Sube Llave de combustibles fósiles, arrastra Proceso hasta 1 (año 100 del modelo) y compara la caída de la reserva Combustible fósil con el total Quemado. Luego busca qué reservas ganaron ese carbono."
+    },
+    {
+      "title": "Explicar",
+      "body": "Explica cómo pueden continuar los intercambios equilibrados sin cambiar una reserva, y cómo la quema de combustibles fósiles rompe ese equilibrio."
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "Los combustibles fósiles son…",
+      "choices": [
+        "Una reserva rápida en las plantas vivas",
+        "Una reserva rápida en el océano superior",
+        "Una reserva geológica lenta que liberamos rápido",
+        "Una reserva que se rellena sola en un siglo"
+      ],
+      "explain": "Los combustibles fósiles contienen carbono almacenado en depósitos geológicos durante escalas de tiempo largas. Su extracción y su quema transfieren ese carbono rápidamente a la atmósfera y a otras reservas activas."
+    },
+    {
+      "prompt": "La reserva del océano…",
+      "choices": [
+        "Guarda carbono solo como gas disuelto",
+        "Gana carbono solo de los ríos",
+        "Guarda menos carbono que el aire",
+        "Intercambia carbono con la atmósfera"
+      ],
+      "explain": "El dióxido de carbono puede disolverse en el agua de mar y también salir de ella hacia la atmósfera. La dirección y el ritmo del intercambio dependen de las condiciones a ambos lados de la superficie del mar."
+    },
+    {
+      "prompt": "La meteorización es…",
+      "choices": [
+        "Una transferencia lenta hacia las reservas de roca y océano",
+        "Un intercambio diario y rápido con las plantas",
+        "Una liberación rápida de carbono al aire",
+        "Una transferencia que solo ocurre en desiertos cálidos y secos"
+      ],
+      "explain": "La meteorización química lleva material disuelto de las rocas a los ríos y al océano. La meteorización de silicatos consume dióxido de carbono, y el carbono termina enterrado como carbonato en los sedimentos oceánicos a lo largo de escalas de tiempo geológicas."
+    },
+    {
+      "prompt": "Quemar combustible…",
+      "choices": [
+        "Crea átomos de carbono nuevos",
+        "Lleva carbono geológico al aire",
+        "Destruye el carbono del combustible",
+        "Devuelve carbono del aire a la roca"
+      ],
+      "explain": "La combustión combina el carbono del combustible con oxígeno y libera dióxido de carbono. Los átomos de carbono pasan de la reserva del combustible a la atmósfera; no se crean átomos nuevos."
+    },
+    {
+      "prompt": "¿De dónde viene la mayor parte de la masa seca de un árbol?",
+      "choices": [
+        "De los minerales que absorbe del suelo",
+        "Del agua que sube por las raíces",
+        "Del dióxido de carbono que toma del aire",
+        "De la luz solar convertida en materia sólida"
+      ],
+      "explain": "La fotosíntesis usa la energía de la luz para combinar el dióxido de carbono del aire con agua y formar azúcares y luego madera. La luz aporta energía, no masa."
+    }
+  ],
+  "why": [
+    "El carbono se mueve entre la atmósfera, los seres vivos, los suelos, el océano y las rocas. La fotosíntesis, la respiración y otras transferencias conectan reservas que funcionan en escalas de tiempo muy distintas.",
+    "Una reserva se mantiene cuando sus entradas son iguales a sus salidas: al principio, la fotosíntesis toma 60 Pg C al año del aire, y la respiración y la descomposición devuelven 60. La quema de combustibles fósiles añade una entrada extra al aire desde una reserva lenta que no se rellena en escalas de tiempo humanas, así que el carbono se acumula en el aire y se reparte hacia las plantas y el océano, mientras el total se mantiene igual.",
+    "El balance sigue solo unas pocas reservas y transferencias con cantidades inventadas, así que no describe todo el ciclo global del carbono."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El carbono liberado al quemar combustibles fósiles lo elimina de inmediato el ciclo natural del carbono.",
+      "truth": "Quemar combustibles fósiles transfiere carbono de reservas geológicas de largo plazo a la atmósfera. La tierra y los océanos absorben una parte, pero esa absorción no compensa al instante todas las emisiones. El carbono de la atmósfera aumenta cuando las entradas superan a las salidas, y las distintas reservas intercambian carbono en escalas de tiempo muy diferentes."
+    },
+    {
+      "claim": "Las plantas obtienen la mayor parte de su masa del suelo.",
+      "truth": "La mayor parte de la masa seca de una planta son compuestos de carbono formados a partir del dióxido de carbono que toma del aire durante la fotosíntesis. El suelo aporta agua y pequeñas cantidades de minerales."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Reserva",
+      "def": "Una cantidad de materia o energía contenida en una parte de un sistema, como el agua de un lago o el carbono de la vegetación. Las entradas y las salidas cambian la cantidad almacenada. Una reserva es una cantidad; un flujo es una tasa de transferencia."
+    },
+    {
+      "term": "Flujo",
+      "def": "El ritmo de transferencia de una cantidad como el agua, el carbono o la energía; a veces se expresa por unidad de área."
+    },
+    {
+      "term": "Fotosíntesis",
+      "def": "El uso de la energía de la luz para formar moléculas orgánicas a partir de dióxido de carbono y agua. La fotosíntesis que produce oxígeno transfiere carbono a la materia viva."
+    },
+    {
+      "term": "Respiración",
+      "def": "Los procesos que liberan energía de la materia orgánica. La respiración aerobia consume oxígeno y libera dióxido de carbono y agua."
+    },
+    {
+      "term": "Meteorización",
+      "def": "La ruptura física o la alteración química de la roca en la superficie de la Tierra o cerca de ella, sin que el material sea transportado. La meteorización química también interviene en el ciclo lento del carbono."
+    },
+    {
+      "term": "Combustible fósil",
+      "def": "El carbón, el petróleo o el gas natural formados a partir de materia orgánica antigua. Su quema transfiere carbono de reservas geológicas de largo plazo a la atmósfera."
+    },
+    {
+      "term": "Ciclo rápido",
+      "def": "Los intercambios de carbono entre la atmósfera, los seres vivos, los suelos y el océano superior en escalas de tiempo relativamente cortas, de días a siglos."
+    },
+    {
+      "term": "Ciclo lento",
+      "def": "La transferencia de carbono a través de rocas, sedimentos y el interior de la Tierra, que incluye la meteorización, el enterramiento, el metamorfismo y el vulcanismo en escalas de tiempo geológicas."
+    }
+  ],
+  "predict": {
+    "prompt": "Cuando se queman combustibles fósiles, ¿el carbono desaparece, se queda en el aire o va a otro lugar? Predice dónde termina."
+  },
+  "cer": {
+    "prompt": "¿Adónde va el carbono de los combustibles fósiles que se queman, y por qué sigue aumentando la cantidad en el aire?",
+    "claim": "Quemar combustibles fósiles lleva carbono de una reserva geológica lenta al aire; las plantas y el océano absorben una parte, pero mucho se queda en la atmósfera.",
+    "evidence": "Al principio, la fotosíntesis y la respiración mueven cada una 60 Pg C al año y las reservas se mantienen. Con Llave de combustibles fósiles abierta hasta el año 100 del modelo, la reserva de combustibles fósiles baja en la cantidad quemada, las reservas de la atmósfera, la biosfera y el océano suben, y cerca de la mitad del carbono quemado sigue en el aire. El total se mantiene en 12,000 Pg C.",
+    "reasoning": "Una reserva solo se mantiene cuando sus entradas son iguales a sus salidas. El carbono fósil añade una entrada nueva al aire desde una reserva que no se rellena en escalas de tiempo humanas. La absorción por las plantas y el océano se acelera, pero no alcanza a compensarlo, así que la reserva de la atmósfera crece."
+  },
+  "controls": {
+    "fossil": {
+      "label": "Llave de combustibles fósiles"
+    },
+    "flux": {
+      "label": "Sigue una transferencia",
+      "options": [
+        "Fotosíntesis",
+        "Respiración / descomposición",
+        "Del aire al océano",
+        "Del océano al aire",
+        "Vía de meteorización de silicatos",
+        "Enterramiento / sedimentación",
+        "Desgasificación geológica",
+        "Quema de combustibles fósiles"
+      ]
+    }
+  }
+}

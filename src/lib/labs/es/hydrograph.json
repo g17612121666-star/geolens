@@ -1,0 +1,142 @@
+{
+  "title": "Hidrograma de tormenta",
+  "hook": "Un hidrograma de tormenta muestra cómo cambia el caudal de un río después de la lluvia.",
+  "objective": "Lee las partes principales de un hidrograma de tormenta y explica cómo las superficies urbanas pueden cambiar el momento y el tamaño del caudal máximo.",
+  "modelDescription": "Un valle boscoso muestra el agua que drena hacia el río durante una tormenta. La lluvia de la tormenta y el caudal del río se grafican juntos a lo largo del tiempo, así que puedes seguir la rama ascendente y la descendente y el desfase entre los dos picos. Al añadir cobertura urbana, parte del terreno se cambia por superficies duras que mandan el agua al río más rápido.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Reproduce la tormenta y compara la lluvia con la rama ascendente y la descendente del caudal del río. Ubica los picos de lluvia y de caudal."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Aumenta Cobertura urbana y compara el caudal máximo y el tiempo de desfase. Vuelve a una cuenca menos urbana y explica cómo la infiltración y el almacenamiento cambian la respuesta."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué el pico de caudal llega después del pico de lluvia, y cómo puede cambiar ese desfase la cobertura urbana?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "En este laboratorio, el tiempo de desfase va…",
+      "choices": [
+        "Del inicio de la lluvia al caudal máximo",
+        "Del caudal máximo al caudal base",
+        "Durante toda la tormenta",
+        "Del pico de lluvia al pico de caudal"
+      ],
+      "explain": "En este laboratorio, el tiempo de desfase es el intervalo entre la máxima intensidad de la lluvia y el caudal máximo. El agua tarda en recorrer la cuenca y llegar al punto de medición."
+    },
+    {
+      "prompt": "El uso urbano del suelo suele…",
+      "choices": [
+        "Acortar el desfase y elevar el pico",
+        "Alargar el desfase y bajar el pico",
+        "Bajar el pico sin cambiar el desfase",
+        "No afectar para nada la escorrentía"
+      ],
+      "explain": "Las superficies pavimentadas reducen la infiltración, y los drenajes pueden llevar rápido la escorrentía a los cauces. Con una lluvia parecida, estos cambios suelen elevar el pico de la crecida y acortar su desfase."
+    },
+    {
+      "prompt": "Una rama descendente es…",
+      "choices": [
+        "El caudal que sube tras una lluvia fuerte",
+        "El caudal que baja después del pico",
+        "El flujo entre tormentas",
+        "El momento de máxima lluvia"
+      ],
+      "explain": "En la rama descendente, el caudal disminuye después del pico a medida que se drena la escorrentía superficial rápida. El drenaje más lento del suelo y del agua subterránea mantiene el río en movimiento."
+    },
+    {
+      "prompt": "El nivel y el caudal son…",
+      "choices": [
+        "El mismo número con dos nombres",
+        "La velocidad del flujo frente al ancho del cauce en la estación",
+        "La altura del agua frente al volumen que pasa por segundo",
+        "La lluvia total frente a la escorrentía superficial"
+      ],
+      "explain": "El nivel es la altura de la superficie del agua sobre un nivel de referencia, mientras que el caudal es el volumen que atraviesa una sección cada segundo. La relación entre ambos (una curva de gasto) es distinta en cada sitio."
+    },
+    {
+      "prompt": "¿Por qué la misma tormenta podría dar un pico más alto después de una semana lluviosa?",
+      "choices": [
+        "La lluvia cae más rápido y fuerte sobre suelo mojado.",
+        "Los ríos siempre son más profundos en invierno.",
+        "El suelo saturado deja infiltrar menos agua.",
+        "El tiempo húmedo baja el lecho del río."
+      ],
+      "explain": "Cuando el suelo ya está lleno de agua, apenas puede infiltrarse más. Una mayor parte de la lluvia se convierte en flujo superficial, llega rápido al río y eleva el pico."
+    }
+  ],
+  "why": [
+    "Un hidrograma de tormenta muestra cómo cambia el caudal de un río después de la lluvia. La infiltración, el almacenamiento y el recorrido del agua retrasan la respuesta. Una mayor fracción de escorrentía eleva el pico, y un recorrido más rápido por drenajes y cauces lo adelanta.",
+    "Las superficies pavimentadas dejan que menos lluvia se infiltre en el suelo, así que una mayor parte se convierte en escorrentía superficial, y los drenajes la llevan directo al río. Llega más agua en menos tiempo, por eso el pico es más alto y el desfase más corto. El suelo, la vegetación y el agua subterránea almacenan agua y la liberan despacio, lo que aplana el pico y alarga la rama descendente.",
+    "El modelo usa una cuenca inventada y una tormenta fija, así que compara procesos; no es un pronóstico para un río real."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El caudal máximo de un río ocurre exactamente al mismo tiempo que la lluvia máxima.",
+      "truth": "El agua tarda en recorrer una cuenca y sus reservas, así que el pico de caudal suele llegar después del pico de lluvia. El retraso depende de dónde y cuánto tiempo llueve, del tamaño de la cuenca, de las pendientes, del estado del suelo y del drenaje. Indica qué referencia de lluvia usas al medir el tiempo de desfase."
+    },
+    {
+      "claim": "La misma cantidad de lluvia siempre produce la misma crecida.",
+      "truth": "La respuesta depende del estado de la cuenca. La lluvia sobre un suelo ya saturado o congelado escurre rápido y da un pico más alto y agudo que la misma lluvia sobre un suelo seco."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Hidrograma",
+      "def": "Una gráfica que muestra cómo cambia con el tiempo el caudal o el nivel de un río. Un hidrograma de tormenta puede mostrarse junto a una gráfica de lluvia aparte para comparar el momento y la respuesta."
+    },
+    {
+      "term": "Tiempo de desfase",
+      "def": "El tiempo entre la lluvia máxima y el caudal máximo del río en un hidrograma de tormenta. Algunas fuentes lo miden desde el inicio o el centro de la lluvia, así que revisa cuál se usa."
+    },
+    {
+      "term": "Rama ascendente",
+      "def": "La parte de un hidrograma en la que el caudal del río aumenta hasta un pico. Su inclinación refleja lo rápido que el agua llega al cauce. Una subida rápida puede seguir a una lluvia intensa o a una escorrentía eficaz desde superficies saturadas o pavimentadas."
+    },
+    {
+      "term": "Caudal máximo",
+      "def": "El mayor ritmo de flujo de un río durante un evento o periodo determinado, medido en m³ s⁻¹."
+    },
+    {
+      "term": "Rama descendente",
+      "def": "La parte de un hidrograma después del pico, cuando el caudal disminuye a medida que el agua almacenada drena de la cuenca. Su forma refleja el flujo retrasado del suelo, del agua subterránea y de los cauces. La lluvia puede haber parado mucho antes de que el caudal vuelva a su nivel anterior."
+    },
+    {
+      "term": "Caudal base",
+      "def": "La parte constante del caudal de un río, aportada sobre todo por el agua subterránea y otras reservas lentas entre lluvias."
+    },
+    {
+      "term": "Nivel",
+      "def": "La altura de la superficie del agua de un río sobre un nivel de referencia de la estación de aforo. El nivel puede convertirse en caudal con una relación calibrada, pero son medidas distintas. Los cambios en el cauce pueden alterar esa relación."
+    },
+    {
+      "term": "Caudal",
+      "def": "El volumen de agua que atraviesa una sección de un río por unidad de tiempo, normalmente medido en m³ s⁻¹. Con una velocidad media v y un área de la sección A, Q = Av."
+    }
+  ],
+  "predict": {
+    "prompt": "Si los campos alrededor de un río se cubren de calles y techos, ¿el río se desbordará antes o después de una tormenta? ¿Con un pico más alto o más bajo?"
+  },
+  "cer": {
+    "prompt": "¿Cómo cambia la respuesta de un río a una tormenta cuando se construye una ciudad en su cuenca?",
+    "claim": "Las superficies urbanas hacen que el río alcance su pico antes y más alto, así que el tiempo de desfase se acorta y el caudal máximo aumenta.",
+    "evidence": "Al subir Cobertura urbana de 0 a 1, la fracción de lluvia que escurre pasa de 0.25 a 0.85 y el pico de caudal se acerca al pico de lluvia, a las 2 horas. La rama ascendente se vuelve más empinada y el caudal máximo de los resultados aumenta.",
+    "reasoning": "Las calles y los techos impiden que el agua se infiltre en el suelo, y los drenajes la llevan rápido al río. Se almacena y se frena menos agua, así que más lluvia llega al cauce en menos tiempo."
+  },
+  "controls": {
+    "urban": {
+      "label": "Cobertura urbana"
+    },
+    "rain": {
+      "label": "Lluvia"
+    }
+  }
+}

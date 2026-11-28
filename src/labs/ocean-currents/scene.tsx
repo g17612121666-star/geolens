@@ -10,6 +10,7 @@ import { COOL_BRANCH, SUBTROPICAL_GYRES, WARM_BRANCH } from "@/lib/ocean-circula
 import { ScienceStudio, ScienceReadout, Arrow } from "../shared/science-kit";
 import { Tag } from "../shared/kit";
 import { EarthMesh, Atmosphere } from "@/components/globe/earth";
+import { useT } from "@/lib/i18n";
 
 type Gyre = (typeof SUBTROPICAL_GYRES)[number];
 type Waypoint = Gyre["route"][number];
@@ -145,6 +146,7 @@ function CurrentRibbon({ route }: { route: readonly Waypoint[] }) {
 }
 
 function Gyre({ index }: { index: number }) {
+  const tr = useT();
   const g = SUBTROPICAL_GYRES[index];
   const { western, eastern, center } = useMemo(() => {
     const at = ([lat, lon]: Waypoint) => latLonToXYZ(lat, lon, SURFACE);
@@ -174,16 +176,20 @@ function Gyre({ index }: { index: number }) {
       <CurrentRibbon route={g.route} />
       <Tag
         pos={outside(western, center)}
-        text={g.western}
+        text={tr(g.western)}
         tone="magma"
-        note="Western boundary current: narrow, fast and warm, carrying water poleward along the edge of the continent."
+        note={tr(
+          "Western boundary current: narrow, fast and warm, carrying water poleward along the edge of the continent.",
+        )}
         occlude={false}
       />
       <Tag
         pos={outside(eastern, center)}
-        text={g.eastern}
+        text={tr(g.eastern)}
         tone="glacier"
-        note="Eastern boundary current: broad, slow and cool, carrying water toward the equator."
+        note={tr(
+          "Eastern boundary current: broad, slow and cool, carrying water toward the equator.",
+        )}
         occlude={false}
       />
     </group>
@@ -196,6 +202,7 @@ function outside(p: [number, number, number], center: THREE.Vector3) {
   return point.add(away).setLength(1.78).toArray() as [number, number, number];
 }
 export default function OceanCurrents() {
+  const tr = useT();
   const { params } = useLabState("params");
   useLabTick(1 / 50);
   const index = Math.round(params.basin ?? 0),
@@ -205,29 +212,41 @@ export default function OceanCurrents() {
       <ScienceStudio
         slug="ocean-currents"
         camera={[0, 0.8, 6]}
-        scale="Geographic globe · current routes schematic · band width and chevron speed show relative current speed, not measured widths"
-        trueScale="Globe at one scale · band widths are symbols, not measured current widths"
+        scale={tr(
+          "Geographic globe · current routes schematic · band width and chevron speed show relative current speed, not measured widths",
+        )}
+        trueScale={tr("Globe at one scale · band widths are symbols, not measured current widths")}
       >
         <Gyre index={index} />
         <Tag
           pos={[0, 2.05, 0]}
-          text={`${g.name} subtropical gyre`}
-          note="The routes show the broad direction of the surface currents. Trace the western branch flowing poleward and the eastern branch flowing toward the equator. Band width and the chevrons' speed show where the current is fast or slow, on one scale for all five gyres."
+          text={tr("{gyre} subtropical gyre", { gyre: tr(g.name) })}
+          note={tr(
+            "The routes show the broad direction of the surface currents. Trace the western branch flowing poleward and the eastern branch flowing toward the equator. Band width and the chevrons' speed show where the current is fast or slow, on one scale for all five gyres.",
+          )}
           occlude={false}
         />
       </ScienceStudio>
       <ScienceReadout>
-        {g.western}
-        {": warm western boundary current, narrow and fast, flowing poleward (orange). "}
-        {g.eastern}
-        {": cool eastern boundary current, broad and slow, flowing toward the equator (blue). "}
+        {tr(
+          "{current}: warm western boundary current, narrow and fast, flowing poleward (orange).",
+          { current: tr(g.western) },
+        )}{" "}
+        {tr(
+          "{current}: cool eastern boundary current, broad and slow, flowing toward the equator (blue).",
+          { current: tr(g.eastern) },
+        )}{" "}
         {g.center[0] > 0
-          ? "This northern gyre turns clockwise, as Earth’s rotation deflects moving water to the right."
-          : "This southern gyre turns counterclockwise, as Earth’s rotation deflects moving water to the left."}{" "}
+          ? tr(
+              "This northern gyre turns clockwise, as Earth’s rotation deflects moving water to the right.",
+            )
+          : tr(
+              "This southern gyre turns counterclockwise, as Earth’s rotation deflects moving water to the left.",
+            )}{" "}
         <br />
-        {
-          "The same circulation squeezes into a narrow, fast current on the western side of each ocean basin (westward intensification, also a result of Earth's rotation) and spreads slowly across the rest. Viewed on a map, northern subtropical gyres turn clockwise and southern ones counterclockwise; the faint loops show the other four. Trade winds blowing toward the west on the equator side and westerlies on the poleward side drive each gyre. Currents shape coastal climates: the cool California Current helps keep San Francisco's summers cool and foggy, while the Gulf Stream carries warm water along the U.S. East Coast and on across the Atlantic."
-        }
+        {tr(
+          "The same circulation squeezes into a narrow, fast current on the western side of each ocean basin (westward intensification, also a result of Earth's rotation) and spreads slowly across the rest. Viewed on a map, northern subtropical gyres turn clockwise and southern ones counterclockwise; the faint loops show the other four. Trade winds blowing toward the west on the equator side and westerlies on the poleward side drive each gyre. Currents shape coastal climates: the cool California Current helps keep San Francisco's summers cool and foggy, while the Gulf Stream carries warm water along the U.S. East Coast and on across the Atlantic.",
+        )}
       </ScienceReadout>
     </>
   );
@@ -272,6 +291,7 @@ function OtherGyres({ selected }: { selected: number }) {
  * equator side and westerlies blowing toward the east on its poleward side. Schematic.
  */
 function DrivingWinds({ index }: { index: number }) {
+  const tr = useT();
   const g = SUBTROPICAL_GYRES[index],
     south = g.center[0] < 0,
     lats = g.route.map(([lat]) => Math.abs(lat)),
@@ -302,16 +322,20 @@ function DrivingWinds({ index }: { index: number }) {
       {!compact && (
         <Tag
           pos={latLonToXYZ((south ? -1 : 1) * (Math.min(...lats) - 7), (west + east) / 2, 1.82)}
-          text="Trade winds"
-          note="Easterly trade winds blow toward the west (and toward the equator) on the gyre's equator side. Together with the westerlies they set the gyre turning; Earth's rotation and the coasts shape it."
+          text={tr("Trade winds")}
+          note={tr(
+            "Easterly trade winds blow toward the west (and toward the equator) on the gyre's equator side. Together with the westerlies they set the gyre turning; Earth's rotation and the coasts shape it.",
+          )}
           occlude={false}
         />
       )}
       {!compact && (
         <Tag
           pos={latLonToXYZ((south ? -1 : 1) * (Math.max(...lats) + 8), (west + east) / 2, 1.82)}
-          text="Westerlies"
-          note="In the middle latitudes, westerly winds blow toward the east on the gyre's poleward side."
+          text={tr("Westerlies")}
+          note={tr(
+            "In the middle latitudes, westerly winds blow toward the east on the gyre's poleward side.",
+          )}
           occlude={false}
         />
       )}

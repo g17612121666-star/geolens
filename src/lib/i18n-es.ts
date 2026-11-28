@@ -1875,4 +1875,246 @@ export const ES: Record<string, string> = {
   "El Niño": "El Niño",
   "La Niña": "La Niña",
   Neutral: "Neutral",
+
+  // Batch F: water, oceans and carbon scenes
+  Source: "Nacimiento",
+  "The beginning of this channel. Real headwaters can be springs, wet ground, snow or glacier melt.":
+    "El comienzo de este cauce. En la realidad, las cabeceras pueden ser manantiales, terrenos húmedos, nieve o el deshielo de un glaciar.",
+  Tributary: "Afluente",
+  "A stream that joins a larger river.": "Un arroyo que se une a un río más grande.",
+  Confluence: "Confluencia",
+  "The place where two channels join.": "El lugar donde se unen dos cauces.",
+  Outlet: "Salida",
+  "Water leaves the catchment here. A river’s mouth is where it enters a lake, the sea or a larger river.":
+    "Aquí el agua sale de la cuenca. La desembocadura de un río es donde entra en un lago, en el mar o en un río más grande.",
+  "Idealized surface catchment · relief, channels and vegetation enlarged":
+    "Cuenca superficial idealizada · relieve, cauces y vegetación agrandados",
+  "Shows how the catchment fits together · not a surveyed elevation model":
+    "Muestra cómo se organiza la cuenca · no es un modelo de elevación medido",
+  "Drainage divide": "Divisoria de aguas",
+  Divide: "Divisoria",
+  "The ridge line around the basin. Rain falling inside it drains toward this river's outlet; rain falling outside it drains to a neighboring river.":
+    "La línea de cumbres que rodea la cuenca. La lluvia que cae dentro escurre hacia la salida de este río; la que cae fuera escurre hacia un río vecino.",
+  "The gold line is the surface drainage divide: all the land inside it drains to the outlet, not just the blue channel. Groundwater divides can differ.":
+    "La línea dorada es la divisoria de aguas superficial: todo el terreno de su interior drena hacia la salida, no solo el cauce azul. Las divisorias del agua subterránea pueden ser distintas.",
+  "Turn on Basin overlay to see the drainage divide. All the land inside it drains to the outlet, not just the blue channel.":
+    "Activa Contorno de la cuenca para ver la divisoria de aguas. Todo el terreno de su interior drena hacia la salida, no solo el cauce azul.",
+  "1 km² idealized catchment · relief, river width and vegetation enlarged · 24-hour storm view":
+    "Cuenca idealizada de 1 km² · relieve, ancho del río y vegetación agrandados · vista de una tormenta de 24 horas",
+  "Storm model uses SI volumes and time · land geometry is conceptual":
+    "El modelo de tormenta usa volúmenes y tiempos del SI · la forma del terreno es conceptual",
+  "The bar shows discharge at the selected hour on a fixed 0–5 m³/s scale, not water depth. The river width and rain in the landscape match the same hour on the graph.":
+    "La barra muestra el caudal a la hora elegida en una escala fija de 0–5 m³/s, no la profundidad del agua. El ancho del río y la lluvia del paisaje corresponden a la misma hora de la gráfica.",
+  "Storm hydrograph: peak {q} cubic meters per second, lag {lag} hours":
+    "Hidrograma de tormenta: pico de {q} metros cúbicos por segundo, desfase de {lag} horas",
+  "Rain: 0–32 mm/h (gold); Q (blue); dashed: rain and Q peaks":
+    "Lluvia: 0–32 mm/h (dorado); Q (azul); discontinuas: picos de lluvia y de Q",
+  "Storm hour": "Hora de la tormenta",
+  "{hour} h · rain {rain} mm/h · Q {q} m³/s · peak {peak} m³/s · lag {lag} h.":
+    "{hour} h · lluvia {rain} mm/h · Q {q} m³/s · pico {peak} m³/s · desfase {lag} h.",
+  "Runoff fraction {fraction}; storage time {tau} h in this model catchment.":
+    "Fracción de escorrentía {fraction}; tiempo de almacenamiento {tau} h en esta cuenca modelo.",
+  "Two invented 100 km² catchments · relief ×10 · channel width symbolic":
+    "Dos cuencas inventadas de 100 km² · relieve ×10 · ancho del cauce simbólico",
+  "Terrain uses 1 scene unit = 3.125 km · river width, dam and vegetation remain enlarged symbols":
+    "El terreno usa 1 unidad de escena = 3.125 km · el ancho del río, la presa y la vegetación siguen siendo símbolos agrandados",
+  "Rain-fed · {av} m³/s": "Pluvial · {av} m³/s",
+  "An invented maritime regime with wetter winters. 40% of the rain is lost (for example to evaporation) and a ten-day store delays the rest. Not fitted to the Thames.":
+    "Un régimen marítimo inventado con inviernos más lluviosos. El 40% de la lluvia se pierde (por ejemplo, por evaporación) y una reserva de diez días retrasa el resto. No está ajustado al Támesis.",
+  "Snow-fed · {bv} m³/s": "Nival · {bv} m³/s",
+  "An invented temperature cycle stores winter snowfall. Above 0 °C, up to 3 mm of snow-water equivalent melts per degree per day, and a seven-day store delays the runoff. The dam adds a 60-day reservoir, not a real operating rule.":
+    "Un ciclo de temperatura inventado almacena la nieve del invierno. Por encima de 0 °C se derriten hasta 3 mm de equivalente en agua de la nieve por grado y por día, y una reserva de siete días retrasa la escorrentía. La presa añade un embalse de 60 días, no una regla de operación real.",
+  "Annual daily discharge: rain-fed in gold and snow-fed in blue (dashed: snow-fed without the dam), linked to the selected day":
+    "Caudal diario a lo largo del año: régimen pluvial en dorado y nival en azul (discontinua: nival sin la presa), ligado al día elegido",
+  Jan: "Ene",
+  Jul: "Jul",
+  "{date} · snow store {snow} mm water equivalent, melt {melt} mm/day.":
+    "{date} · reserva de nieve {snow} mm de equivalente en agua, deshielo {melt} mm/día.",
+  "Annual peak: rain-fed (gold) {rain} m³/s on {rainDate}; snow-fed (blue) {snow} m³/s on {snowDate}.":
+    "Pico anual: pluvial (dorado) {rain} m³/s el {rainDate}; nival (azul) {snow} m³/s el {snowDate}.",
+  "Without the dam (dashed), the snow-fed peak would be {flow} m³/s on {date}.":
+    "Sin la presa (discontinua), el pico nival sería de {flow} m³/s el {date}.",
+  "Day {day} of a repeating year.": "Día {day} de un año que se repite.",
+  "Dam on: the reservoir stores the melt peak and releases it more slowly.":
+    "Presa activada: el embalse almacena el pico del deshielo y lo libera más despacio.",
+  "Dam off.": "Presa desactivada.",
+  "Both regimes are invented and repeat every year; they are not forecasts or records of real rivers.":
+    "Los dos regímenes son inventados y se repiten cada año; no son pronósticos ni registros de ríos reales.",
+  "Long-profile relief ×12 · channel breadth enlarged":
+    "Relieve del perfil longitudinal ×12 · ancho del cauce agrandado",
+  "Long-profile relief ×1 · channel breadth and vegetation still enlarged":
+    "Relieve del perfil longitudinal ×1 · ancho del cauce y vegetación aún agrandados",
+  "Upper course · steeper": "Curso alto · más empinado",
+  "1 · Upper course": "1 · Curso alto",
+  "A steep long profile often favors incision; channel shape, sediment and discharge also matter.":
+    "Un perfil longitudinal empinado suele favorecer la incisión; la forma del cauce, los sedimentos y el caudal también importan.",
+  Meanders: "Meandros",
+  "2 · Meanders": "2 · Meandros",
+  "Outside bends tend to erode; slower flow along inside bends favors deposition.":
+    "El lado exterior de las curvas tiende a erosionarse; el flujo más lento del lado interior favorece el depósito.",
+  "Lower course · gentler": "Curso bajo · más suave",
+  "3 · Lower course": "3 · Curso bajo",
+  "Low gradient and a wider channel. Increased discharge raises water level and flow capacity; it does not automatically cause deposition.":
+    "Pendiente baja y un cauce más ancho. Un mayor caudal eleva el nivel del agua y la capacidad de flujo; no causa depósito automáticamente.",
+  "1 · Steeper upper course": "1 · Curso alto, más empinado",
+  "2 · Meanders · 3 · Gentler lower course": "2 · Meandros · 3 · Curso bajo, más suave",
+  "Relative discharge {q}× at the source. Tributaries add water downstream, so the channel is wider and deeper there and the water is deeper. Increasing discharge raises the water level; at the highest setting the lower river nearly fills its channel. Play to follow the downstream flow.":
+    "Caudal relativo en el nacimiento: {q}×. Los afluentes añaden agua río abajo, así que allí el cauce es más ancho y profundo, y el agua también es más profunda. Al aumentar el caudal sube el nivel del agua; con el valor máximo, el curso bajo casi llena su cauce. Pulsa Reproducir para seguir el flujo río abajo.",
+  "250 × 200 m around the well · vertical ×5 · well, grains, pores, farm and river illustrative · steady radial flow":
+    "250 × 200 m alrededor del pozo · vertical ×5 · pozo, granos, poros, granja y río ilustrativos · flujo radial estable",
+  "Equal horizontal and vertical scale · 1 scene unit = 50 m":
+    "Misma escala horizontal y vertical · 1 unidad de escena = 50 m",
+  Aquitard: "Acuitardo",
+  "A low-permeability clay layer caps the 12 m thick aquifer. The gold surface above it shows the level water would rise to in a well, not another layer of water.":
+    "Una capa de arcilla poco permeable cubre el acuífero de 12 m de espesor. La superficie dorada de arriba muestra el nivel al que subiría el agua en un pozo, no otra capa de agua.",
+  "Drawdown {H} m": "Abatimiento {H} m",
+  Drawdown: "Abatimiento",
+  "How far the water level at the well has dropped below its level before pumping (dashed line). The drop is greatest at the well and shrinks with distance: that sloping surface is the cone of depression.":
+    "Cuánto ha bajado el nivel del agua en el pozo respecto a su nivel antes del bombeo (línea discontinua). El descenso es mayor en el pozo y disminuye con la distancia: esa superficie inclinada es el cono de abatimiento.",
+  "Clay aquitard": "Acuitardo de arcilla",
+  Clay: "Arcilla",
+  "Clay has tiny, poorly connected pores, so water passes through it very slowly. It seals the aquifer below, keeping its water under pressure.":
+    "La arcilla tiene poros diminutos y mal conectados, así que el agua la atraviesa muy despacio. Sella el acuífero de abajo y mantiene su agua bajo presión.",
+  "Confined aquifer": "Acuífero confinado",
+  Aquifer: "Acuífero",
+  "Sand and gravel saturated with water and capped by clay. Its pores stay full; pumping lowers the pressure (the potentiometric surface), not the water inside.":
+    "Arena y grava saturadas de agua y cubiertas por arcilla. Sus poros siguen llenos; el bombeo baja la presión (la superficie potenciométrica), no el agua de su interior.",
+  "Unsaturated zone": "Zona no saturada",
+  Unsaturated: "No saturada",
+  "Above the water table the pores hold air as well as some water clinging to the grains. Rain soaks down through this zone to reach the water table.":
+    "Por encima del nivel freático, los poros contienen aire y algo de agua pegada a los granos. La lluvia se infiltra a través de esta zona hasta llegar al nivel freático.",
+  "Saturated zone": "Zona saturada",
+  Saturated: "Saturada",
+  "Below the water table every connected pore is full of water. This water is groundwater; it moves slowly through the pores, not as an underground lake or river.":
+    "Bajo el nivel freático, todos los poros conectados están llenos de agua. Esta agua es agua subterránea; se mueve despacio por los poros, no como un lago o un río subterráneo.",
+  "Potentiometric surface": "Superficie potenciométrica",
+  "The potentiometric surface is the level water rises to in a well. The confined aquifer stays fully saturated beneath the clay layer.":
+    "La superficie potenciométrica es el nivel al que sube el agua en un pozo. El acuífero confinado sigue totalmente saturado bajo la capa de arcilla.",
+  "The water table separates saturated pores below from the unsaturated zone above. The colored surface is a level, not an underground lake.":
+    "El nivel freático separa los poros saturados de abajo de la zona no saturada de arriba. La superficie de color es un nivel, no un lago subterráneo.",
+  "Cone of depression": "Cono de abatimiento",
+  Cone: "Cono",
+  "Pumping lowers the potentiometric surface most near the well, so water in the aquifer flows toward it. The aquifer itself stays full beneath the clay.":
+    "El bombeo baja más la superficie potenciométrica cerca del pozo, así que el agua del acuífero fluye hacia él. El acuífero en sí sigue lleno bajo la arcilla.",
+  "Pumping lowers the water table most near the well, so the head slopes toward it and water in the pores flows in from all sides. The drop is drawn 5 times deeper than true scale, like every height here; the dashed line is the water table before pumping.":
+    "El bombeo baja más el nivel freático cerca del pozo, así que la carga hidráulica se inclina hacia él y el agua de los poros llega desde todos lados. El descenso se dibuja 5 veces más profundo que a escala real, como todas las alturas de aquí; la línea discontinua es el nivel freático antes del bombeo.",
+  "Pumping well": "Pozo de bombeo",
+  "An idealized well pumping at the set rate through the full aquifer thickness. The fixed-head outer boundary resupplies the water, so the model does not show long-term depletion.":
+    "Un pozo idealizado que bombea al ritmo elegido a través de todo el espesor del acuífero. El límite exterior de carga fija repone el agua, así que el modelo no muestra el agotamiento a largo plazo.",
+  "Q = {q} m³/day · boundary head {head} m · well head {well} m · drawdown {drawdown} m.":
+    "Q = {q} m³/día · carga en el límite {head} m · carga en el pozo {well} m · abatimiento {drawdown} m.",
+  "Confined: the 12 m aquifer stays saturated; gold is the potentiometric surface (level water would rise to in a well).":
+    "Confinado: el acuífero de 12 m sigue saturado; el dorado es la superficie potenciométrica (el nivel al que subiría el agua en un pozo).",
+  "Unconfined: blue marks the top of saturated pores.":
+    "Libre: el azul marca el límite superior de los poros saturados.",
+  "K = 10 m/day, fixed head at 500 m, well radius 0.2 m. Steady Thiem / Dupuit approximation.":
+    "K = 10 m/día, carga fija a 500 m, radio del pozo 0.2 m. Aproximación estable de Thiem / Dupuit.",
+  "Play to watch water in the pores move toward the well, fastest close to it.":
+    "Pulsa Reproducir para ver cómo el agua de los poros se mueve hacia el pozo, más rápido cerca de él.",
+  "Raise Pump above zero to see water flow toward the well.":
+    "Sube Bombeo por encima de cero para ver cómo el agua fluye hacia el pozo.",
+  "Western boundary current: narrow, fast and warm, carrying water poleward along the edge of the continent.":
+    "Corriente de borde occidental: estrecha, rápida y cálida, lleva agua hacia el polo a lo largo del borde del continente.",
+  "Eastern boundary current: broad, slow and cool, carrying water toward the equator.":
+    "Corriente de borde oriental: amplia, lenta y fría, lleva agua hacia el ecuador.",
+  "Geographic globe · current routes schematic · band width and chevron speed show relative current speed, not measured widths":
+    "Globo geográfico · rutas de las corrientes esquemáticas · el ancho de las bandas y la velocidad de los chevrones muestran la velocidad relativa de la corriente, no anchos medidos",
+  "Globe at one scale · band widths are symbols, not measured current widths":
+    "Globo a una sola escala · el ancho de las bandas es simbólico, no el ancho medido de las corrientes",
+  "{gyre} subtropical gyre": "Giro subtropical del {gyre}",
+  "The routes show the broad direction of the surface currents. Trace the western branch flowing poleward and the eastern branch flowing toward the equator. Band width and the chevrons' speed show where the current is fast or slow, on one scale for all five gyres.":
+    "Las rutas muestran la dirección general de las corrientes superficiales. Sigue la rama occidental que fluye hacia el polo y la rama oriental que fluye hacia el ecuador. El ancho de las bandas y la velocidad de los chevrones muestran dónde la corriente es rápida o lenta, con una misma escala para los cinco giros.",
+  "{current}: warm western boundary current, narrow and fast, flowing poleward (orange).":
+    "{current}: corriente cálida de borde occidental, estrecha y rápida, que fluye hacia el polo (naranja).",
+  "{current}: cool eastern boundary current, broad and slow, flowing toward the equator (blue).":
+    "{current}: corriente fría de borde oriental, amplia y lenta, que fluye hacia el ecuador (azul).",
+  "This northern gyre turns clockwise, as Earth’s rotation deflects moving water to the right.":
+    "Este giro del hemisferio norte rota en sentido horario, porque la rotación de la Tierra desvía el agua en movimiento hacia la derecha.",
+  "This southern gyre turns counterclockwise, as Earth’s rotation deflects moving water to the left.":
+    "Este giro del hemisferio sur rota en sentido antihorario, porque la rotación de la Tierra desvía el agua en movimiento hacia la izquierda.",
+  "The same circulation squeezes into a narrow, fast current on the western side of each ocean basin (westward intensification, also a result of Earth's rotation) and spreads slowly across the rest. Viewed on a map, northern subtropical gyres turn clockwise and southern ones counterclockwise; the faint loops show the other four. Trade winds blowing toward the west on the equator side and westerlies on the poleward side drive each gyre. Currents shape coastal climates: the cool California Current helps keep San Francisco's summers cool and foggy, while the Gulf Stream carries warm water along the U.S. East Coast and on across the Atlantic.":
+    "La misma circulación se estrecha en una corriente angosta y rápida en el lado occidental de cada cuenca oceánica (la intensificación occidental, otro efecto de la rotación de la Tierra) y se extiende lentamente por el resto. Vistos en un mapa, los giros subtropicales del norte rotan en sentido horario y los del sur en sentido antihorario; los circuitos tenues muestran los otros cuatro. Los alisios, que soplan hacia el oeste en el lado del ecuador, y los vientos del oeste, en el lado del polo, impulsan cada giro. Las corrientes influyen en el clima de las costas: la fría corriente de California ayuda a que los veranos de San Francisco sean frescos y con niebla, mientras que la corriente del Golfo lleva agua cálida a lo largo de la costa este de EE. UU. y luego a través del Atlántico.",
+  "Easterly trade winds blow toward the west (and toward the equator) on the gyre's equator side. Together with the westerlies they set the gyre turning; Earth's rotation and the coasts shape it.":
+    "Los alisios del este soplan hacia el oeste (y hacia el ecuador) en el lado del giro más cercano al ecuador. Junto con los vientos del oeste, ponen en marcha el giro; la rotación de la Tierra y las costas le dan su forma.",
+  "In the middle latitudes, westerly winds blow toward the east on the gyre's poleward side.":
+    "En las latitudes medias, los vientos del oeste soplan hacia el este en el lado del giro más cercano al polo.",
+  "Overturning section · depth ×500 · temperatures schematic · routes and tracers illustrative":
+    "Sección de la circulación de vuelco · profundidad ×500 · temperaturas esquemáticas · rutas y trazadores ilustrativos",
+  "Density experiment · one meter tank · parcel marker enlarged":
+    "Experimento de densidad · tanque de un metro · marcador de la parcela agrandado",
+  "6000 km section, 4 km deep · no vertical exaggeration":
+    "Sección de 6000 km y 4 km de profundidad · sin exageración vertical",
+  "Tank shown as in Teaching scale · parcel marker enlarged":
+    "Tanque igual que en la escala didáctica · marcador de la parcela agrandado",
+  "High latitudes · deep-water formation": "Latitudes altas · formación de agua profunda",
+  Sinking: "Hundimiento",
+  "Cooling and sea-ice formation, which leaves salt behind in the water, make surface water dense enough to sink. The basin is schematic, not a map of real sinking sites.":
+    "El enfriamiento y la formación de hielo marino, que deja la sal en el agua, hacen que el agua superficial sea lo bastante densa para hundirse. La cuenca es esquemática, no un mapa de los lugares reales donde se hunde el agua.",
+  "Return and upwelling": "Retorno y afloramiento",
+  Upwelling: "Afloramiento",
+  "Winds and mixing bring deep water back toward the surface. In the real ocean much of this happens in the Southern Ocean, not only at low latitudes as drawn here.":
+    "Los vientos y la mezcla devuelven el agua profunda hacia la superficie. En el océano real, gran parte de esto ocurre en el océano Austral, no solo en latitudes bajas como aquí.",
+  "Deep return · centuries of transport": "Retorno profundo · siglos de transporte",
+  "Deep return": "Retorno profundo",
+  "Deep water takes centuries to return, and the time differs between routes. The animation speed is not to scale.":
+    "El agua profunda tarda siglos en volver, y el tiempo varía según la ruta. La velocidad de la animación no está a escala.",
+  "{rho} kg/m³ · parcel": "{rho} kg/m³ · parcela",
+  "A simple linear formula at one reference pressure, not the full TEOS-10 equation of state.":
+    "Una fórmula lineal sencilla a una presión de referencia, no la ecuación de estado TEOS-10 completa.",
+  "Reference water {reference} kg/m³": "Agua de referencia {reference} kg/m³",
+  "Reference water: 10 °C and Absolute Salinity 35 g/kg. The marker starts at mid-depth and shows only which way buoyancy acts; real water mixes rather than moving as a solid ball.":
+    "Agua de referencia: 10 °C y salinidad absoluta de 35 g/kg. El marcador empieza a media profundidad y solo muestra hacia dónde actúa la flotabilidad; el agua real se mezcla en lugar de moverse como una bola sólida.",
+  "Colors show a schematic temperature section: a warm surface layer (orange) over a sharp thermocline and cold deep water (dark blue). The dashed isotherms rise toward the icy polar coast (right), where cold, dense water reaches the surface and sinks; it returns at depth (blue route) and rises again toward the tropics (left). Choose Density experiment to vary the parcel.":
+    "Los colores muestran una sección esquemática de temperatura: una capa superficial cálida (naranja) sobre una termoclina marcada y agua profunda fría (azul oscuro). Las isotermas discontinuas suben hacia la costa polar helada (derecha), donde el agua fría y densa llega a la superficie y se hunde; vuelve por el fondo (ruta azul) y sube otra vez hacia los trópicos (izquierda). Elige Experimento de densidad para cambiar la parcela.",
+  "{temperature} °C · Absolute Salinity {salinity} g/kg · density difference {difference} kg/m³.":
+    "{temperature} °C · salinidad absoluta {salinity} g/kg · diferencia de densidad {difference} kg/m³.",
+  "The parcel is neutral.": "La parcela es neutra.",
+  "The denser parcel tends to sink.": "La parcela, más densa, tiende a hundirse.",
+  "The lighter parcel rises toward the surface.":
+    "La parcela, más ligera, sube hacia la superficie.",
+  "Overturning also needs winds and mixing. The parcel experiment does not calculate AMOC strength or a shutdown threshold.":
+    "La circulación de vuelco también necesita vientos y mezcla. El experimento de la parcela no calcula la intensidad de la AMOC ni un umbral de colapso.",
+  "Play shows the direction of movement, not its speed.":
+    "Reproducir muestra la dirección del movimiento, no su velocidad.",
+  "An isotherm joins points at the same temperature. In this schematic section the warm layer thins toward the pole, so the isotherms rise and reach the surface there: cold, dense water is at the surface only at high latitudes.":
+    "Una isoterma une puntos con la misma temperatura. En esta sección esquemática, la capa cálida se adelgaza hacia el polo, así que las isotermas suben y llegan allí a la superficie: el agua fría y densa solo está en la superficie en latitudes altas.",
+  "Invented closed budget · gauge volume ∝ stored carbon · landscape, molecules and smoke illustrative":
+    "Balance cerrado inventado · volumen del indicador ∝ carbono almacenado · paisaje, moléculas y humo ilustrativos",
+  "Volumes encode this invented budget, not observed global reservoir sizes":
+    "Los volúmenes representan este balance inventado, no el tamaño observado de los reservorios globales",
+  "{store} · {budget} Pg C": "{store} · {budget} Pg C",
+  "{budget} Pg C in this invented teaching budget, not a measured estimate of Earth’s carbon. Sphere volume, not radius, shows the amount; the trees and molecules inside are symbols.":
+    "{budget} Pg C en este balance didáctico inventado, no una estimación medida del carbono de la Tierra. El volumen de la esfera, no su radio, muestra la cantidad; los árboles y las moléculas de su interior son símbolos.",
+  "Model year {year} · {flux}: {rate} Pg C/year. Burned {burned} Pg C; total {total} Pg C stays fixed.":
+    "Año del modelo {year} · {flux}: {rate} Pg C/año. Quemado: {burned} Pg C; el total de {total} Pg C no cambia.",
+  "Click a bead on a faint arc to follow another transfer. 1 Pg C = 10¹² kg of carbon; every transfer removes from one store exactly what it adds to another.":
+    "Haz clic en una bolita de un arco tenue para seguir otra transferencia. 1 Pg C = 10¹² kg de carbono; cada transferencia quita de una reserva exactamente lo que añade a otra.",
+
+  // Ocean gyres, currents and carbon stores
+  "North Atlantic": "Atlántico Norte",
+  "South Atlantic": "Atlántico Sur",
+  "North Pacific": "Pacífico Norte",
+  "South Pacific": "Pacífico Sur",
+  "Indian Ocean": "océano Índico",
+  "Gulf Stream": "Corriente del Golfo",
+  "Canary Current": "Corriente de Canarias",
+  "Brazil Current": "Corriente de Brasil",
+  "Benguela Current": "Corriente de Benguela",
+  Kuroshio: "Kuroshio",
+  "California Current": "Corriente de California",
+  "East Australian Current": "Corriente de Australia Oriental",
+  "Peru / Humboldt Current": "Corriente de Perú / de Humboldt",
+  "Agulhas Current": "Corriente de las Agujas",
+  "West Australian Current": "Corriente de Australia Occidental",
+  Biosphere: "Biosfera",
+  "Sediment / rock": "Sedimento / roca",
+  "Fossil fuel": "Combustible fósil",
+  Photosynthesis: "Fotosíntesis",
+  "Respiration / decay": "Respiración / descomposición",
+  "Air to ocean": "Del aire al océano",
+  "Ocean to air": "Del océano al aire",
+  "Silicate-weathering pathway": "Vía de meteorización de silicatos",
+  "Burial / sedimentation": "Enterramiento / sedimentación",
+  "Geological degassing": "Desgasificación geológica",
+  "Fossil-fuel combustion": "Quema de combustibles fósiles",
 };

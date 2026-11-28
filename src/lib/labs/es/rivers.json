@@ -1,0 +1,131 @@
+{
+  "title": "Perfil longitudinal de un río",
+  "hook": "El perfil longitudinal de un río suele hacerse más suave río abajo.",
+  "objective": "Sigue un río desde su nacimiento hasta su desembocadura y explica cómo cambian su pendiente, la forma de su cauce y su flujo río abajo.",
+  "modelDescription": "Un río serpentea por un bloque de paisaje desde un tramo alto empinado y estrecho, pasando por curvas entre bosques, hasta un tramo bajo más suave con tierras de cultivo y un pueblo pequeño. Los lados cortados del bloque muestran capas de roca y de suelo bajo el valle. Al subir el caudal, el agua se vuelve más profunda y ancha en el cauce.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Sigue el lecho desde el tramo alto, más empinado, por las curvas, hasta el tramo bajo, más suave. Son partes de un mismo río."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Sube Caudal y compara el nivel del agua y el ancho del cauce mojado. Reproducir sigue el agua río abajo; el cauce en sí no se erosiona."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Por qué al subir el caudal cambia el nivel del agua aunque la forma del cauce siga igual?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "¿Dónde es más importante la erosión vertical?",
+      "choices": [
+        "En el delta",
+        "En la llanura de inundación",
+        "En el curso alto",
+        "En el estuario"
+      ],
+      "explain": "En el curso alto, las pendientes fuertes suelen favorecer que el cauce se encaje en su lecho. Luego, la meteorización y los movimientos de ladera ayudan a dar forma a los lados de un valle en V."
+    },
+    {
+      "prompt": "Un lago en herradura se forma cuando…",
+      "choices": [
+        "Una cascada retrocede río arriba y deja una poza.",
+        "Los diques retienen para siempre el agua de una crecida en la llanura.",
+        "Un afluente es capturado y su antiguo cauce se seca.",
+        "Se corta el cuello de un meandro y queda abandonado el antiguo bucle."
+      ],
+      "explain": "La erosión puede estrechar el terreno entre curvas vecinas de un meandro hasta que el agua de una crecida abre un cauce más corto a través de él. Luego, el depósito puede sellar el bucle abandonado y dejar un lago en herradura."
+    },
+    {
+      "prompt": "Subir el caudal suele…",
+      "choices": [
+        "Aumentar la competencia y puede inundar la llanura.",
+        "Bajar la competencia porque el agua se extiende.",
+        "Dejar igual la competencia; solo sube la velocidad.",
+        "Detener los meandros al enderezar el cauce."
+      ],
+      "explain": "Aumentar el caudal suele aumentar la profundidad del flujo y el esfuerzo cortante sobre el lecho, lo que permite mover partículas más grandes. La respuesta también depende de la forma del cauce, la pendiente y la rugosidad."
+    },
+    {
+      "prompt": "Un delta necesita…",
+      "choices": [
+        "Una cascada empinada justo antes de que el río llegue al mar.",
+        "Más sedimento en la desembocadura del que quitan olas y mareas.",
+        "Mareas fuertes que devuelvan casi todo el sedimento río arriba.",
+        "Una costa que se hunda más rápido de lo que llega el sedimento del río."
+      ],
+      "explain": "Un delta crece cuando el sedimento que llega a la desembocadura de un río se acumula más rápido de lo que lo quitan las olas, las mareas y las corrientes. El flujo más lento al entrar en un lago o en el mar favorece el depósito."
+    },
+    {
+      "prompt": "¿Cómo suele cambiar el cauce de un río del curso alto al curso bajo?",
+      "choices": [
+        "Se vuelve más estrecho, menos profundo y más rocoso.",
+        "Mantiene el mismo ancho, pero se vuelve más empinado.",
+        "Se vuelve más ancho y profundo, con más caudal.",
+        "Pierde agua río abajo, así que el cauce se achica."
+      ],
+      "explain": "Los afluentes añaden agua río abajo, así que el caudal aumenta. El cauce suele volverse más ancho y profundo, mientras que la pendiente se suaviza."
+    }
+  ],
+  "why": [
+    "El perfil longitudinal de un río suele hacerse más suave río abajo. La forma del cauce, el aporte de agua y los sedimentos cambian a lo largo de su curso, lo que ayuda a explicar por qué los valles empinados y las llanuras de inundación amplias aparecen en tramos distintos.",
+    "Sube Caudal y compara el nivel del agua y el ancho del cauce mojado. Reproducir sigue el agua río abajo; el cauce en sí no se erosiona.",
+    "La forma del cauce se mantiene fija mientras cambia el nivel del agua; los bordes mojados que se ven son una ilustración, no la extensión cartografiada de una inundación. Como en los ríos reales, el cauce del modelo se vuelve más ancho y profundo río abajo y lleva allí agua más profunda, porque los afluentes añaden caudal por el camino."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El curso alto, el medio y el bajo de un río son tipos distintos de río.",
+      "truth": "Estos términos describen tramos de un mismo sistema fluvial. La pendiente, la forma del cauce, el caudal y los sedimentos pueden cambiar río abajo, a menudo poco a poco y con interrupciones locales. Sirven para comparar patrones a lo largo de un perfil longitudinal, pero no dividen cada río en tres secciones con límites marcados."
+    },
+    {
+      "claim": "Un río corre más rápido cerca de su nacimiento porque ahí la pendiente es mayor.",
+      "truth": "Los arroyos de montaña parecen rápidos, pero las rocas y el agua poco profunda producen mucha fricción. Más abajo, el cauce es más profundo y liso, así que la velocidad media suele mantenerse o aumentar aunque la pendiente sea más suave."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Perfil longitudinal",
+      "def": "Una gráfica de la altitud de un río según la distancia río abajo. Muchos perfiles se suavizan hacia la desembocadura, pero las rocas resistentes y el levantamiento pueden interrumpir una curva suave. Es distinto de un perfil transversal, que se dibuja a través de un valle."
+    },
+    {
+      "term": "Competencia",
+      "def": "El tamaño de la partícula más grande que un flujo puede transportar en ciertas condiciones. Un flujo más rápido y con más fuerza suele poder mover material más grueso. La competencia es distinta de la capacidad, que se refiere a la cantidad total de sedimento que un flujo puede llevar."
+    },
+    {
+      "term": "Meandro",
+      "def": "Una curva del cauce de un río. La erosión de la orilla exterior y el depósito en la orilla interior suelen desplazar la curva por la llanura de inundación; un corte puede dejar un lago en herradura."
+    },
+    {
+      "term": "Herradura",
+      "def": "Un antiguo cauce de meandro, curvo, separado del río principal. Puede contener un lago en herradura o rellenarse poco a poco de sedimento."
+    },
+    {
+      "term": "Dique",
+      "def": "Una orilla elevada junto a un río, formada de manera natural por el sedimento que dejan las crecidas o construida para reducir las inundaciones."
+    },
+    {
+      "term": "Delta",
+      "def": "Un cuerpo de sedimento que se forma donde un río entra en un mar o un lago y deposita suficiente material para que se acumule. Su superficie suele estar cruzada por canales distributarios."
+    }
+  ],
+  "predict": {
+    "prompt": "Mientras un río fluye desde su nacimiento hasta el mar, ¿esperas que se vuelva más empinado o más suave? ¿Más ancho o más estrecho?"
+  },
+  "cer": {
+    "prompt": "¿Cómo cambian la pendiente y el cauce de un río río abajo, y por qué?",
+    "claim": "Río abajo, un río suele volverse menos empinado, con un cauce más ancho y profundo que lleva más agua.",
+    "evidence": "El perfil longitudinal es empinado cerca del nacimiento y suave cerca de la desembocadura. El cauce es estrecho y rocoso río arriba, y ancho y con curvas en el curso bajo. Al subir Caudal, el cauce mojado se ensancha y sube el nivel del agua.",
+    "reasoning": "Los afluentes añaden agua río abajo, así que el caudal aumenta y el río necesita un cauce más grande para llevarla. En el curso alto, el río excava su lecho; río abajo, más energía se dedica a mover sedimentos hacia los lados y a depositarlos, lo que forma un fondo de valle más ancho."
+  },
+  "controls": {
+    "discharge": {
+      "label": "Caudal"
+    }
+  }
+}

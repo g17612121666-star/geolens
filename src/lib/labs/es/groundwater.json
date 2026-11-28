@@ -1,0 +1,141 @@
+{
+  "title": "Agua subterránea",
+  "hook": "El agua subterránea llena los poros y las fracturas conectados bajo el nivel freático.",
+  "objective": "Localiza el agua en los poros conectados y explica cómo el bombeo cambia el nivel freático y el flujo hacia un pozo.",
+  "modelDescription": "Un bloque de terreno está cortado para mostrar suelo y arena sobre roca llena de agua, con el nivel freático marcando el límite superior de la capa saturada. Un pozo extrae agua, y el nivel freático baja formando un cono a su alrededor. Al activar el acuífero confinado se añade una capa de arcilla y una línea dorada, la superficie potenciométrica, que muestra hasta dónde subiría el agua en un pozo.",
+  "steps": [
+    {
+      "title": "Observar",
+      "body": "Antes de bombear, encuentra los poros saturados y el nivel freático. Sube Bombeo y compara la carga en el pozo con Carga en el límite."
+    },
+    {
+      "title": "Experimentar",
+      "body": "Activa Acuífero confinado. Explica por qué la superficie potenciométrica dorada está por encima de la capa de arcilla, y por qué muestra el nivel al que subiría el agua en un pozo y no un lago."
+    },
+    {
+      "title": "Explicar",
+      "body": "¿Cómo cambia el gradiente hidráulico alrededor de un pozo cuando baja el nivel del agua en él?"
+    },
+    {
+      "title": "Comprobar",
+      "body": "Elige una respuesta y explica tu razonamiento. Cada pregunta incluye una retroalimentación."
+    }
+  ],
+  "questions": [
+    {
+      "prompt": "El nivel freático es…",
+      "choices": [
+        "El techo de la zona saturada de los poros",
+        "Un lago subterráneo con orillas",
+        "Un río que corre bajo tierra",
+        "El límite entre el suelo y la roca madre"
+      ],
+      "explain": "El nivel freático es la superficie superior de la zona saturada en un acuífero libre. Por debajo, los poros y las fracturas conectados están llenos de agua y no de aire."
+    },
+    {
+      "prompt": "Un acuífero es…",
+      "choices": [
+        "Cualquier roca que contenga algo de agua",
+        "Roca que almacena y entrega agua útil",
+        "Roca por la que el agua no puede fluir",
+        "Un lago o río subterráneo abierto en una cueva"
+      ],
+      "explain": "Un acuífero debe almacenar agua subterránea y además dejarla pasar con la facilidad suficiente para dar cantidades útiles. Un alto contenido de agua no basta si las conexiones entre los poros o las fracturas no dejan fluir el agua."
+    },
+    {
+      "prompt": "En este modelo estable de acuífero libre, aumentar el bombeo hace que el nivel freático cercano…",
+      "choices": [
+        "Suba hacia la superficie del terreno",
+        "Se mantenga plano porque el límite lo rellena",
+        "Baje formando un cono de abatimiento",
+        "Baje por igual en todo el acuífero"
+      ],
+      "explain": "El bombeo baja la carga hidráulica cerca del pozo y crea un gradiente que atrae el agua subterránea hacia él. Este modelo estable equilibra esa entrada de agua con el bombeo y no sigue el agotamiento a largo plazo de una reserva finita."
+    },
+    {
+      "prompt": "En el modelo confinado, el bombeo baja la superficie dorada. ¿Qué le pasa a la arena bajo la capa de arcilla?",
+      "choices": [
+        "Se drena y se llena de aire cerca del pozo",
+        "Se convierte en un cono vacío bajo el pozo",
+        "Se rellena de inmediato, así que su presión no cambia",
+        "Sigue saturada mientras baja la presión del agua"
+      ],
+      "explain": "Un acuífero confinado sigue totalmente saturado bajo su acuitardo. El bombeo baja la presión, así que la superficie potenciométrica (el nivel al que subiría el agua en un pozo) desciende, pero los poros siguen llenos de agua."
+    },
+    {
+      "prompt": "¿Qué es la recarga?",
+      "choices": [
+        "El agua que se extrae de un pozo",
+        "El agua que sale por un manantial",
+        "El agua que entra en un acuífero desde arriba",
+        "El agua que se evapora de nuevo desde el suelo"
+      ],
+      "explain": "La recarga es el agua que se infiltra desde la lluvia, los ríos o los lagos y llega a la zona saturada. Si el bombeo extrae más de lo que repone la recarga, el nivel freático baja."
+    }
+  ],
+  "why": [
+    "El agua subterránea llena los poros y las fracturas conectados bajo el nivel freático. El bombeo baja la carga hidráulica cerca de un pozo y crea un gradiente que atrae el agua hacia él.",
+    "En un acuífero confinado, la arena sigue totalmente saturada bajo el acuitardo de arcilla, así que el bombeo no vacía los poros. En cambio, baja la presión del agua, y la superficie potenciométrica (el nivel al que subiría el agua en un pozo) desciende formando un cono alrededor del pozo.",
+    "El cálculo de flujo estable mantiene fija la carga exterior; no determina la recarga, el agotamiento a largo plazo ni una extracción sostenible."
+  ],
+  "misconceptions": [
+    {
+      "claim": "El agua subterránea suele ocupar un solo lago subterráneo.",
+      "truth": "La mayor parte del agua subterránea ocupa poros y fracturas conectados en rocas o sedimentos. En un acuífero libre, el nivel freático marca el límite superior de la zona saturada. En un acuífero confinado, el agua de un pozo puede subir por encima del acuífero por la presión, no porque haya un lago subterráneo abierto."
+    },
+    {
+      "claim": "El agua subterránea siempre está limpia y es segura para beber.",
+      "truth": "El suelo y la roca filtran parte de la contaminación, pero el agua subterránea puede contaminarse con nitratos de fertilizantes, fugas de aguas residuales, sustancias químicas industriales o arsénico natural. Una vez contaminado, un acuífero puede tardar décadas en recuperarse."
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Nivel freático",
+      "def": "La superficie superior de una masa de agua subterránea no confinada, por debajo de la cual los poros conectados están saturados. Su altura cambia con la recarga y el flujo del agua subterránea. En un acuífero confinado, el nivel que alcanza el agua en un pozo representa la carga de presión, no un nivel freático libre."
+    },
+    {
+      "term": "Acuífero",
+      "def": "Un cuerpo de roca o sedimento permeable que almacena agua subterránea y deja pasar cantidades útiles. El agua llena poros o grietas conectados; un acuífero no suele ser un lago subterráneo."
+    },
+    {
+      "term": "Acuitardo",
+      "def": "Una capa de roca o sedimento de baja permeabilidad que frena el flujo del agua subterránea. Puede confinar un acuífero sin ser totalmente impermeable."
+    },
+    {
+      "term": "Cono de abatimiento",
+      "def": "Un descenso del nivel freático o de la superficie de presión del agua subterránea alrededor de un pozo de bombeo. El agua fluye hacia el pozo siguiendo este gradiente hidráulico. El cono es un patrón en los niveles del agua, no un cono vacío excavado en la roca."
+    },
+    {
+      "term": "Recarga",
+      "def": "La entrada de agua a un acuífero, normalmente cuando la lluvia o el agua superficial se infiltra hacia abajo. La recarga puede ser lenta y varía mucho según la estación y la geología. Solo parte de la lluvia que cae sobre el terreno llega al acuífero."
+    },
+    {
+      "term": "Línea de manantiales",
+      "def": "Una línea de manantiales donde el agua subterránea sale a lo largo de un límite geológico o topográfico, a menudo donde una roca permeable se encuentra con un material menos permeable. Su posición refleja las rutas del flujo subterráneo y puede ayudar a explicar dónde están los asentamientos."
+    },
+    {
+      "term": "Acuífero confinado",
+      "def": "Una capa permeable saturada limitada por arriba por una capa de baja permeabilidad. El agua de un pozo sube hasta su nivel de presión, que puede llegar o no a la superficie del terreno."
+    }
+  ],
+  "predict": {
+    "prompt": "Si un agricultor bombea mucha agua de un pozo, ¿qué crees que le pasa al nivel freático alrededor del pozo?"
+  },
+  "cer": {
+    "prompt": "¿Cómo cambia el bombeo de un pozo el agua subterránea de su alrededor?",
+    "claim": "El bombeo baja el nivel freático alrededor del pozo formando un cono de abatimiento, y el agua subterránea fluye hacia el pozo desde todos lados.",
+    "evidence": "Con Bombeo en 0, el nivel freático está a la altura de Carga en el límite. Al subir Bombeo hacia 800 m³/día, baja la carga en el pozo y aumenta el abatimiento de los resultados, con el nivel freático inclinado hacia el pozo. En el acuífero confinado, la superficie potenciométrica dorada baja, pero la arena bajo la arcilla sigue saturada.",
+    "reasoning": "El agua subterránea fluye de una carga más alta a una más baja a través de los poros conectados. El bombeo extrae agua en el pozo y baja ahí la carga, así que el nivel freático se inclina hacia él. En un acuífero confinado, el bombeo baja la presión del agua en lugar de vaciar los poros."
+  },
+  "controls": {
+    "head": {
+      "label": "Carga en el límite"
+    },
+    "pump": {
+      "label": "Bombeo"
+    },
+    "confined": {
+      "label": "Acuífero confinado"
+    }
+  }
+}

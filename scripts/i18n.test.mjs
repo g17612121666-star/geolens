@@ -9,7 +9,8 @@ import { PLANETS } from "../src/lib/planet-science.ts";
 import { DISTANCE_STOPS } from "../src/lib/distance-science.ts";
 import { GEOLOGIC_UNITS } from "../src/lib/geologic-time-science.ts";
 import { STAGES as WILSON_STAGES } from "../src/labs/wilson-cycle/section.ts";
-import { ensoSection } from "../src/lib/ocean-circulation-science.ts";
+import { SUBTROPICAL_GYRES, ensoSection } from "../src/lib/ocean-circulation-science.ts";
+import { CARBON_STORES, carbonFluxes } from "../src/lib/carbon-science.ts";
 const json = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), "utf8"));
 /** Names a lab shows straight from its data files. */
 const DATA_NAMES = [
@@ -20,6 +21,9 @@ const DATA_NAMES = [
   ...json("../src/labs/continental-drift/fossil-sites.json").taxa.map((t) => t.kind),
   ...WILSON_STAGES,
   ...new Set([-1, 0, 1].map((phase) => ensoSection(phase).phase)),
+  ...SUBTROPICAL_GYRES.flatMap((gyre) => [gyre.name, gyre.western, gyre.eastern]),
+  ...CARBON_STORES,
+  ...carbonFluxes([600, 1200, 3000, 6000, 1200], 0).map((flux) => flux.name),
 ];
 
 const ROOT = new URL("../src/", import.meta.url).pathname;

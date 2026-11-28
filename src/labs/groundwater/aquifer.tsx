@@ -15,12 +15,14 @@ import { SectionMaterial } from "../shared/section-material";
 import { useSectionUniforms } from "../shared/section-utils";
 import { Buildings } from "../shared/hazard-parts";
 import { farmland, fbm, settlement } from "../shared/hazard-utils";
+import { useT } from "@/lib/i18n";
 const DEEP = new THREE.Color("#3a5f9e");
 /** Horizontal scale: the block shows 250 × 200 m around the well, where the cone of depression
  * is; heads are drawn at 1 scene unit = 10 m, so the vertical is exaggerated ×5. */
 const M_PER_UNIT = 50;
 
 export default function Groundwater() {
+  const tr = useT();
   const { params, trueScale, t } = useLabState("params", "trueScale", "t");
   useLabTick(1 / 24);
   const confined = params.confined > 0.5,
@@ -55,8 +57,10 @@ export default function Groundwater() {
     <>
       <ScienceStudio
         slug="groundwater"
-        scale="250 × 200 m around the well · vertical ×5 · well, grains, pores, farm and river illustrative · steady radial flow"
-        trueScale="Equal horizontal and vertical scale · 1 scene unit = 50 m"
+        scale={tr(
+          "250 × 200 m around the well · vertical ×5 · well, grains, pores, farm and river illustrative · steady radial flow",
+        )}
+        trueScale={tr("Equal horizontal and vertical scale · 1 scene unit = 50 m")}
         camera={[5, 3.5, 7]}
       >
         <group position={[0, -1.5 * f, 0]}>
@@ -71,8 +75,10 @@ export default function Groundwater() {
           />
           {confined && (
             <InspectHotspot
-              name="Aquitard"
-              note="A low-permeability clay layer caps the 12 m thick aquifer. The gold surface above it shows the level water would rise to in a well, not another layer of water."
+              name={tr("Aquitard")}
+              note={tr(
+                "A low-permeability clay layer caps the 12 m thick aquifer. The gold surface above it shows the level water would rise to in a well, not another layer of water.",
+              )}
             >
               <mesh position={[2.52, 1.32 * f, 0]}>
                 <boxGeometry args={[0.02, 0.24 * f, 4]} />
@@ -150,9 +156,11 @@ export default function Groundwater() {
                   <Tag
                     priority={2}
                     pos={[0.02, (atWell / 10) * f - 0.42, 0.42]}
-                    text={`Drawdown ${(H - atWell).toFixed(1)} m`}
-                    short="Drawdown"
-                    note="How far the water level at the well has dropped below its level before pumping (dashed line). The drop is greatest at the well and shrinks with distance: that sloping surface is the cone of depression."
+                    text={tr("Drawdown {H} m", { H: (H - atWell).toFixed(1) })}
+                    short={tr("Drawdown")}
+                    note={tr(
+                      "How far the water level at the well has dropped below its level before pumping (dashed line). The drop is greatest at the well and shrinks with distance: that sloping surface is the cone of depression.",
+                    )}
                     occlude={false}
                   />
                 </>
@@ -191,29 +199,37 @@ export default function Groundwater() {
             ? [
                 {
                   y: 1.32,
-                  text: "Clay aquitard",
-                  short: "Clay",
-                  note: "Clay has tiny, poorly connected pores, so water passes through it very slowly. It seals the aquifer below, keeping its water under pressure.",
+                  text: tr("Clay aquitard"),
+                  short: tr("Clay"),
+                  note: tr(
+                    "Clay has tiny, poorly connected pores, so water passes through it very slowly. It seals the aquifer below, keeping its water under pressure.",
+                  ),
                 },
                 {
                   y: 0.35,
-                  text: "Confined aquifer",
-                  short: "Aquifer",
-                  note: "Sand and gravel saturated with water and capped by clay. Its pores stay full; pumping lowers the pressure (the potentiometric surface), not the water inside.",
+                  text: tr("Confined aquifer"),
+                  short: tr("Aquifer"),
+                  note: tr(
+                    "Sand and gravel saturated with water and capped by clay. Its pores stay full; pumping lowers the pressure (the potentiometric surface), not the water inside.",
+                  ),
                 },
               ]
             : [
                 {
                   y: (H / 10 + 4) / 2,
-                  text: "Unsaturated zone",
-                  short: "Unsaturated",
-                  note: "Above the water table the pores hold air as well as some water clinging to the grains. Rain soaks down through this zone to reach the water table.",
+                  text: tr("Unsaturated zone"),
+                  short: tr("Unsaturated"),
+                  note: tr(
+                    "Above the water table the pores hold air as well as some water clinging to the grains. Rain soaks down through this zone to reach the water table.",
+                  ),
                 },
                 {
                   y: H / 20,
-                  text: "Saturated zone",
-                  short: "Saturated",
-                  note: "Below the water table every connected pore is full of water. This water is groundwater; it moves slowly through the pores, not as an underground lake or river.",
+                  text: tr("Saturated zone"),
+                  short: tr("Saturated"),
+                  note: tr(
+                    "Below the water table every connected pore is full of water. This water is groundwater; it moves slowly through the pores, not as an underground lake or river.",
+                  ),
                 },
               ]
           ).map((z) => (
@@ -230,23 +246,31 @@ export default function Groundwater() {
           <Tag
             priority={2}
             pos={[2.62, (H / 10) * f + 0.12, -1.1]}
-            text={confined ? "Potentiometric surface" : "Water table"}
+            text={confined ? tr("Potentiometric surface") : tr("Water table")}
             note={
               confined
-                ? "The potentiometric surface is the level water rises to in a well. The confined aquifer stays fully saturated beneath the clay layer."
-                : "The water table separates saturated pores below from the unsaturated zone above. The colored surface is a level, not an underground lake."
+                ? tr(
+                    "The potentiometric surface is the level water rises to in a well. The confined aquifer stays fully saturated beneath the clay layer.",
+                  )
+                : tr(
+                    "The water table separates saturated pores below from the unsaturated zone above. The colored surface is a level, not an underground lake.",
+                  )
             }
             occlude={false}
           />
           {pump > 0 && (
             <Tag
               pos={[0.8, (wellHead(1.13 * M_PER_UNIT, pump, H, confined) / 10) * f + 0.3, 0.8]}
-              text="Cone of depression"
-              short="Cone"
+              text={tr("Cone of depression")}
+              short={tr("Cone")}
               note={
                 confined
-                  ? "Pumping lowers the potentiometric surface most near the well, so water in the aquifer flows toward it. The aquifer itself stays full beneath the clay."
-                  : "Pumping lowers the water table most near the well, so the head slopes toward it and water in the pores flows in from all sides. The drop is drawn 5 times deeper than true scale, like every height here; the dashed line is the water table before pumping."
+                  ? tr(
+                      "Pumping lowers the potentiometric surface most near the well, so water in the aquifer flows toward it. The aquifer itself stays full beneath the clay.",
+                    )
+                  : tr(
+                      "Pumping lowers the water table most near the well, so the head slopes toward it and water in the pores flows in from all sides. The drop is drawn 5 times deeper than true scale, like every height here; the dashed line is the water table before pumping.",
+                    )
               }
               occlude={false}
               priority={3}
@@ -270,31 +294,38 @@ export default function Groundwater() {
             })}
           <Tag
             pos={[0.9, 4.3 * f, 0]}
-            text="Pumping well"
-            note="An idealized well pumping at the set rate through the full aquifer thickness. The fixed-head outer boundary resupplies the water, so the model does not show long-term depletion."
+            text={tr("Pumping well")}
+            note={tr(
+              "An idealized well pumping at the set rate through the full aquifer thickness. The fixed-head outer boundary resupplies the water, so the model does not show long-term depletion.",
+            )}
             occlude={false}
           />
         </group>
       </ScienceStudio>
       <ScienceReadout>
         <span className="formula">
-          {"Q = "}
-          {(pump * 800).toFixed(0)} {"m³/day · boundary head "}
-          {H.toFixed(1)} {"m · well head "}
-          {atWell.toFixed(2)} {"m · drawdown "}
-          {(H - atWell).toFixed(2)} {"m."}
+          {tr(
+            "Q = {q} m³/day · boundary head {head} m · well head {well} m · drawdown {drawdown} m.",
+            {
+              q: (pump * 800).toFixed(0),
+              head: H.toFixed(1),
+              well: atWell.toFixed(2),
+              drawdown: (H - atWell).toFixed(2),
+            },
+          )}
         </span>{" "}
         <br />
         {confined
-          ? "Confined: the 12 m aquifer stays saturated; gold is the potentiometric surface (level water would rise to in a well)."
-          : "Unconfined: blue marks the top of saturated pores."}{" "}
-        {
-          "K = 10 m/day, fixed head at 500 m, well radius 0.2 m. Steady Thiem / Dupuit approximation. "
-        }
+          ? tr(
+              "Confined: the 12 m aquifer stays saturated; gold is the potentiometric surface (level water would rise to in a well).",
+            )
+          : tr("Unconfined: blue marks the top of saturated pores.")}{" "}
+        {tr(
+          "K = 10 m/day, fixed head at 500 m, well radius 0.2 m. Steady Thiem / Dupuit approximation.",
+        )}{" "}
         {pump > 0
-          ? "Play to watch water in the pores move toward the well, fastest close to it."
-          : "Raise Pump above zero to see water flow toward the well."}{" "}
-        {""}
+          ? tr("Play to watch water in the pores move toward the well, fastest close to it.")
+          : tr("Raise Pump above zero to see water flow toward the well.")}
       </ScienceReadout>
     </>
   );
